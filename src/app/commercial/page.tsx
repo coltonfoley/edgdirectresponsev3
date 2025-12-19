@@ -240,15 +240,15 @@ export default function CommercialPage() {
                 </Container>
             </Section>
 
-            {/* ========== GUARANTEE ========== */}
+            {/* ========== SERVICE COMMITMENT ========== */}
             <Section className="bg-edg-brand text-edg-dark py-16">
                 <Container>
                     <div className="max-w-3xl mx-auto text-center">
                         <Shield className="h-12 w-12 mx-auto mb-6" />
-                        <h2 className="text-3xl font-bold mb-4">Commercial Performance Guarantee</h2>
+                        <h2 className="text-3xl font-bold mb-4">Commercial Priority Service</h2>
                         <p className="text-xl leading-relaxed">
-                            If our system fails to perform as specified during the first year—whether due to materials,
-                            installation, or design—we'll repair or replace it at no cost. Your revenue stream is protected.
+                            For hospitality and restaurant operators, downtime is lost revenue. We provide 
+                            priority support and local parts stocking to ensure your patio stays open and profitable.
                         </p>
                     </div>
                 </Container>
@@ -307,7 +307,7 @@ export default function CommercialPage() {
                             },
                             {
                                 q: "What if something breaks during service?",
-                                a: "24-hour response guarantee for commercial clients. We stock common parts locally. Most issues resolve same-day."
+                                a: "Commercial clients receive priority support. We stock common parts locally, and most issues are resolved within 24-48 hours to minimize any impact on your seating."
                             }
                         ].map((item, i) => (
                             <div key={i} className="bg-white dark:bg-zinc-800 p-6 rounded-xl">

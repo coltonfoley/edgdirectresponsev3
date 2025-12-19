@@ -65,20 +65,20 @@ export function LeadCaptureForm({
     return (
       <div
         className={cn(
-          "rounded-2xl p-8 text-center",
-          variant === "default" && "bg-edg-brand/10 border border-edg-brand/20",
-          variant === "compact" && "bg-edg-brand/10 border border-edg-brand/20",
+          "rounded-xl p-8 text-center transition-all duration-500 animate-in fade-in zoom-in-95",
+          variant === "default" && "bg-edg-brand/5 border border-edg-brand/20",
+          variant === "compact" && "bg-edg-brand/5 border border-edg-brand/20",
           variant === "inline" && "bg-transparent",
           className
         )}
       >
         <div className="flex justify-center mb-4">
-          <div className="h-16 w-16 rounded-full bg-edg-brand/20 flex items-center justify-center">
-            <CheckCircle2 className="h-8 w-8 text-edg-brand" />
+          <div className="h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center">
+            <CheckCircle2 className="h-6 w-6 text-edg-brand" />
           </div>
         </div>
-        <h3 className="text-xl font-bold mb-2">{successTitle}</h3>
-        <p className="text-muted-foreground">{successMessage}</p>
+        <h3 className="text-lg font-bold mb-2 text-white">{successTitle}</h3>
+        <p className="text-sm text-gray-400">{successMessage}</p>
       </div>
     );
   }
@@ -94,8 +94,8 @@ export function LeadCaptureForm({
           className
         )}
       >
-        <div className={cn(variant === "compact" ? "flex flex-col sm:flex-row gap-3" : "space-y-4")}>
-          <div className={cn(variant === "compact" ? "flex-1" : "")}>
+        <div className={cn(variant === "compact" ? "flex flex-col sm:flex-row gap-2.5" : "space-y-4")}>
+          <div className={cn(variant === "compact" ? "flex-1 min-w-0" : "")}>
             {variant === "default" && (
               <label className="block text-sm font-medium mb-2 text-white/80">First Name</label>
             )}
@@ -107,14 +107,14 @@ export function LeadCaptureForm({
               required
               disabled={formState === "loading"}
               className={cn(
-                "w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder:text-white/40",
-                "focus:outline-none focus:ring-2 focus:ring-edg-brand focus:border-transparent",
+                "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm",
+                "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
                 "transition-all duration-200"
               )}
             />
           </div>
-          <div className={cn(variant === "compact" ? "flex-1" : "")}>
+          <div className={cn(variant === "compact" ? "flex-[1.5] min-w-0" : "")}>
             {variant === "default" && (
               <label className="block text-sm font-medium mb-2 text-white/80">Email</label>
             )}
@@ -126,8 +126,8 @@ export function LeadCaptureForm({
               required
               disabled={formState === "loading"}
               className={cn(
-                "w-full px-4 py-3 rounded-lg border border-white/10 bg-white/5 text-white placeholder:text-white/40",
-                "focus:outline-none focus:ring-2 focus:ring-edg-brand focus:border-transparent",
+                "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm",
+                "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
                 "transition-all duration-200"
               )}
@@ -138,7 +138,7 @@ export function LeadCaptureForm({
               type="submit"
               size="lg"
               disabled={formState === "loading"}
-              className="rounded-lg whitespace-nowrap"
+              className="rounded-xl whitespace-nowrap px-6 text-sm md:text-base shadow-lg shadow-edg-brand/5"
             >
               {formState === "loading" ? (
                 <>
@@ -157,7 +157,7 @@ export function LeadCaptureForm({
             type="submit"
             size="lg"
             disabled={formState === "loading"}
-            className="w-full rounded-lg"
+            className="w-full rounded-xl shadow-lg shadow-edg-brand/5"
           >
             {formState === "loading" ? (
               <>
@@ -179,7 +179,7 @@ export function LeadCaptureForm({
         )}
 
         {/* Privacy note */}
-        <p className="text-xs text-white/40 text-center">
+        <p className="text-[10px] text-white/20 text-center uppercase tracking-widest mt-2">
           No spam, ever. Unsubscribe anytime.
         </p>
       </form>
@@ -201,8 +201,8 @@ export function LeadCaptureForm({
           required
           disabled={formState === "loading"}
           className={cn(
-            "flex-1 px-4 py-3 rounded-lg border border-black/10 bg-white",
-            "focus:outline-none focus:ring-2 focus:ring-edg-brand focus:border-transparent",
+            "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
+            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             "transition-all duration-200"
           )}
@@ -215,8 +215,8 @@ export function LeadCaptureForm({
           required
           disabled={formState === "loading"}
           className={cn(
-            "flex-1 px-4 py-3 rounded-lg border border-black/10 bg-white",
-            "focus:outline-none focus:ring-2 focus:ring-edg-brand focus:border-transparent",
+            "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
+            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             "transition-all duration-200"
           )}
@@ -225,7 +225,7 @@ export function LeadCaptureForm({
           type="submit"
           size="lg"
           disabled={formState === "loading"}
-          className="rounded-lg whitespace-nowrap"
+          className="rounded-xl whitespace-nowrap px-8"
         >
           {formState === "loading" ? (
             <>

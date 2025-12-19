@@ -10,10 +10,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "For Builders & Architects | Trade Partner Program",
-    description: "Partner with EDG for motorized pergolas, shades, and glass enclosures on your residential projects. 48-hour takeoffs, engineering coordination, and trade pricing. Chicago & Milwaukee area.",
+    description: "Partner with EDG for motorized pergolas, shades, and glass enclosures. We handle the specialized installs so you can focus on the build. 48-hour pricing, site coordination, and trade margins.",
     openGraph: {
         title: "Builder & Trade Partner Program | EDG",
-        description: "Shading solutions for builders and architects. Trade pricing, fast takeoffs, schedule coordination.",
+        description: "Shading solutions for builders and architects. Trade pricing, fast quotes, and on-schedule installs.",
     },
 };
 
@@ -29,12 +29,12 @@ export default function ProPage() {
                     <div className="max-w-4xl">
                         <p className="text-edg-brand font-semibold mb-4 uppercase tracking-wider text-sm">For Builders, Architects & GCs</p>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
-                            Stop subbing out complexity.<br />
-                            <span className="text-muted-foreground">Partner with a specialist.</span>
+                            Build faster. <br />
+                            <span className="text-muted-foreground">Deliver better outdoor living.</span>
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8">
-                            Motorized pergolas and shading systems are high-margin upgrades—but one bad install kills your reputation.
-                            We handle the technical details so you can focus on building.
+                            High-end shading systems shouldn't be a headache. 
+                            Whether we handle the full install or support your crew with the materials and expertise they need, we make sure the project stays on track.
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <Link href="/contact?type=pro&action=plans">
@@ -57,24 +57,24 @@ export default function ProPage() {
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-                            When shading is an afterthought, projects fail.
+                            The "Standard" Experience vs. The EDG Way
                         </h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
                                 {
                                     icon: XCircle,
-                                    title: "Structural surprises",
-                                    desc: "The beam can't handle the load. The attachment points don't exist. Your schedule slips."
+                                    title: "Site Headaches",
+                                    desc: "No more guessing on attachment points or structural loads. We verify everything before the first truck arrives."
                                 },
                                 {
                                     icon: Clock,
-                                    title: "Lead time disasters",
-                                    desc: "Custom aluminum takes 6-8 weeks. If you spec it wrong, you wait again. Delays cost money."
+                                    title: "Material Delays",
+                                    desc: "Stop waiting months. We keep stock materials ready to cut on-site, plus pre-engineered systems that ship in weeks, not months."
                                 },
                                 {
                                     icon: Wrench,
-                                    title: "Warranty callbacks",
-                                    desc: "The shade motor fails in year two. The louvers leak. Your client calls you, not the supplier."
+                                    title: "Callback Fatigue",
+                                    desc: "If a motor needs an adjustment or a louver needs a tweak, we own it. You shouldn't have to manage our install."
                                 }
                             ].map((item) => (
                                 <div key={item.title} className="text-center">
@@ -96,20 +96,19 @@ export default function ProPage() {
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                                We're your shading department.
+                                Think of us as your in-house shading team.
                             </h2>
                             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                                Think of us as a specialty sub who actually shows up prepared. We handle design,
-                                engineering, procurement, and installation—so you can deliver a premium upgrade
-                                without the headaches.
+                                You have enough to manage. We handle the specialized details—from measuring to the final punch list. 
+                                <strong> Have your own crew?</strong> We can supply the systems and provide the technical support they need to get it right.
                             </p>
                             <ul className="space-y-4">
                                 {[
-                                    { title: "48-hour takeoffs", desc: "Upload plans, get detailed scope and pricing in 2 business days" },
-                                    { title: "Engineering coordination", desc: "We work directly with your structural engineer" },
-                                    { title: "Schedule integration", desc: "We show up when you need us, not when it's convenient for us" },
-                                    { title: "Single point of contact", desc: "One person owns your project from takeoff to punch list" },
-                                    { title: "Our warranty, your reputation", desc: "If something fails, we fix it. Period." },
+                                    { title: "Flexible Partnership", desc: "We can handle the full install or just supply the materials and support your crew." },
+                                    { title: "Fast, accurate takeoffs", desc: "Send us your plans, and we'll have a quote back in 48 hours." },
+                                    { title: "We handle the specs", desc: "We coordinate with your team to make sure everything fits the first time." },
+                                    { title: "On-schedule delivery", desc: "Materials arrive exactly when you're ready for them, avoiding site clutter." },
+                                    { title: "Professional Support", desc: "Whether we install or you do, we're here to ensure the final product is perfect." },
                                 ].map((item) => (
                                     <li key={item.title} className="flex items-start gap-4">
                                         <CheckCircle2 className="h-6 w-6 text-edg-brand shrink-0 mt-0.5" />
@@ -142,19 +141,19 @@ export default function ProPage() {
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
                             <FileText className="h-10 w-10 text-edg-brand mb-4" />
-                            <h3 className="text-xl font-bold mb-3">Technical Documentation</h3>
+                            <h3 className="text-xl font-bold mb-3">Project Specs</h3>
                             <p className="text-muted-foreground mb-4">
-                                DWG files, Revit families, and spec sheets for all our systems. Integration-ready for your drawings.
+                                Everything you need for your drawings: DWG files, spec sheets, and clear measurements.
                             </p>
                             <Link href="/contact?type=pro&action=specs" className="text-edg-brand font-semibold hover:underline">
-                                Request Specs →
+                                Get Project Specs →
                             </Link>
                         </div>
                         <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
                             <UploadCloud className="h-10 w-10 text-edg-brand mb-4" />
-                            <h3 className="text-xl font-bold mb-3">Plan Takeoffs</h3>
+                            <h3 className="text-xl font-bold mb-3">48-Hour Pricing</h3>
                             <p className="text-muted-foreground mb-4">
-                                Upload your plans. We return detailed scope, pricing, and lead time estimates within 48 hours.
+                                Send us your plans. We'll get you accurate pricing and lead times within two business days.
                             </p>
                             <Link href="/contact?type=pro&action=plans" className="text-edg-brand font-semibold hover:underline">
                                 Upload Plans →
@@ -162,9 +161,9 @@ export default function ProPage() {
                         </div>
                         <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
                             <Users className="h-10 w-10 text-edg-brand mb-4" />
-                            <h3 className="text-xl font-bold mb-3">Site Coordination</h3>
+                            <h3 className="text-xl font-bold mb-3">Site Readiness</h3>
                             <p className="text-muted-foreground mb-4">
-                                Pre-install meetings, progress updates, and flexible scheduling to fit your project timeline.
+                                We meet on-site to double-check dimensions and timing so we don't get in your crew's way.
                             </p>
                             <Link href="/contact?type=pro" className="text-edg-brand font-semibold hover:underline">
                                 Schedule a Call →
@@ -271,16 +270,16 @@ export default function ProPage() {
                                 a: "Yes. We have standard trade margins for qualified builders, architects, and design professionals. Contact us to set up a trade account."
                             },
                             {
-                                q: "Can you work with our engineer?",
-                                a: "Absolutely. We coordinate directly with your structural engineer to ensure attachment points, loads, and specs all align."
+                                q: "Can you work with our team on site?",
+                                a: "Absolutely. We coordinate directly with your site super or structural team to ensure attachment points and loads are all set."
                             },
                             {
-                                q: "What's your lead time for materials?",
-                                a: "Standard pergola systems: 4-6 weeks. Shades: 3-4 weeks. Glass enclosures: 6-8 weeks. We can expedite for rush projects (fees apply)."
+                                q: "What's the wait time for materials?",
+                                a: "We have stock materials ready for on-site builds (zero wait), and our pre-engineered systems ship in about 3-5 weeks."
                             },
                             {
                                 q: "Do you install, or just supply?",
-                                a: "Both. We prefer to install what we supply (warranty reasons), but we can supply-only for qualified installers with appropriate documentation."
+                                a: "We're flexible. We can provide a full turnkey installation, or we can supply the materials and support your crew with the technical guidance they need to handle the build themselves."
                             }
                         ].map((item, i) => (
                             <div key={i} className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-xl">
