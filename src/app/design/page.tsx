@@ -23,11 +23,11 @@ export default function DesignPage() {
             {/* ========== HERO: LEAD WITH THE PROBLEM ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
-                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray hover:text-edg-brand mb-8 transition-colors">
+                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray-text hover:text-edg-brand-text mb-8 transition-colors font-medium">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
                     </Link>
                     <div className="max-w-4xl">
-                        <p className="text-edg-brand font-semibold mb-4 uppercase tracking-wider text-sm">For Homeowners Who Want It Done Right</p>
+                        <p className="text-edg-brand-text font-semibold mb-4 uppercase tracking-wider text-sm">For Homeowners Who Want It Done Right</p>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                             $40,000 outdoor projects fail every day.<br />
                             <span className="text-muted-foreground">Yours doesn't have to.</span>
@@ -111,10 +111,10 @@ export default function DesignPage() {
                                     { title: "Detailed scope & budget", desc: "Know exactly what you're getting and what it costs" },
                                 ].map((item) => (
                                     <li key={item.title} className="flex items-start gap-4">
-                                        <CheckCircle2 className="h-6 w-6 text-edg-brand shrink-0 mt-0.5" />
+                                        <CheckCircle2 className="h-6 w-6 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
                                         <div>
                                             <div className="font-semibold">{item.title}</div>
-                                            <div className="text-muted-foreground text-sm">{item.desc}</div>
+                                            <div className="text-edg-gray-text dark:text-gray-400 text-sm">{item.desc}</div>
                                         </div>
                                     </li>
                                 ))}
@@ -150,10 +150,10 @@ export default function DesignPage() {
                             { title: "Budget Range", desc: "Realistic investment expectations, not bait-and-switch quotes" },
                             { title: "Timeline Estimate", desc: "When you could realistically be enjoying your new space" },
                         ].map((item) => (
-                            <div key={item.title} className="bg-white dark:bg-zinc-800 p-6 rounded-2xl">
-                                <CheckCircle2 className="h-8 w-8 text-edg-brand mb-4" />
+                            <div key={item.title} className="bg-white dark:bg-zinc-800 p-6 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                                <CheckCircle2 className="h-8 w-8 text-edg-brand-text dark:text-edg-brand mb-4" />
                                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                                <p className="text-sm text-edg-gray-text dark:text-gray-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -188,8 +188,8 @@ export default function DesignPage() {
                                     {item.step}
                                 </div>
                                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                                <p className="text-sm text-muted-foreground mb-2">{item.desc}</p>
-                                <p className="text-xs font-semibold text-edg-brand">{item.time}</p>
+                                <p className="text-sm text-edg-gray-text dark:text-gray-400 mb-2">{item.desc}</p>
+                                <p className="text-xs font-bold text-edg-brand-text dark:text-edg-brand uppercase tracking-wider">{item.time}</p>
                             </div>
                         ))}
                     </div>
@@ -239,8 +239,8 @@ export default function DesignPage() {
                                 <blockquote className="text-lg mb-6 leading-relaxed">"{item.quote}"</blockquote>
                                 <div>
                                     <div className="font-bold">{item.name}</div>
-                                    <div className="text-sm text-muted-foreground">{item.location}</div>
-                                    <div className="text-sm text-edg-brand font-medium mt-1">{item.project}</div>
+                                    <div className="text-sm text-edg-gray-text dark:text-gray-400 font-medium">{item.location}</div>
+                                    <div className="text-sm text-edg-brand-text dark:text-edg-brand font-bold mt-1 uppercase tracking-tight">{item.project}</div>
                                 </div>
                             </div>
                         ))}

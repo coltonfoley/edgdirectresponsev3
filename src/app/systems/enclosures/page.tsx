@@ -116,13 +116,13 @@ export default function EnclosuresPage() {
                         {/* Product Info */}
                         <div className="lg:sticky lg:top-40 space-y-6">
                             <div>
-                                <p className="text-edg-brand font-semibold uppercase tracking-wider text-sm mb-2">
+                                <p className="text-edg-brand-text dark:text-edg-brand font-bold uppercase tracking-wider text-xs mb-2">
                                     Year-Round Living
                                 </p>
                                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                                     Glass Enclosures
                                 </h1>
-                                <p className="text-xl text-muted-foreground leading-relaxed">
+                                <p className="text-xl text-edg-gray-text dark:text-gray-400 leading-relaxed">
                                     Frameless glass wall systems that stack, fold, and disappear. Add 
                                     weatherproof square footage to your home without heavy construction.
                                 </p>
@@ -136,8 +136,8 @@ export default function EnclosuresPage() {
                                     "Year-round use",
                                     "Adds home value",
                                 ].map((feature) => (
-                                    <div key={feature} className="flex items-center gap-2 text-sm">
-                                        <CheckCircle2 className="h-4 w-4 text-edg-brand shrink-0" />
+                                    <div key={feature} className="flex items-center gap-2 text-sm font-medium">
+                                        <CheckCircle2 className="h-4 w-4 text-edg-brand-text dark:text-edg-brand shrink-0" />
                                         <span>{feature}</span>
                                     </div>
                                 ))}
@@ -189,7 +189,7 @@ export default function EnclosuresPage() {
                                 </div>
                                 <div className="p-6">
                                     <h3 className="font-bold text-xl mb-2">{type.name}</h3>
-                                    <p className="text-muted-foreground">{type.desc}</p>
+                                    <p className="text-edg-gray-text dark:text-gray-400 font-medium">{type.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -205,7 +205,7 @@ export default function EnclosuresPage() {
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                                 Expand Your Living Space
                             </h2>
-                            <p className="text-lg text-muted-foreground mb-6">
+                            <p className="text-lg text-edg-gray-text dark:text-gray-400 mb-6 font-medium">
                                 That covered patio you can only use 5 months a year? Transform it into 
                                 usable square footage year-round—without the cost of a traditional addition.
                             </p>
@@ -217,8 +217,8 @@ export default function EnclosuresPage() {
                                     "Open completely for the outdoor feel",
                                     "Close for protection and climate control",
                                 ].map((item) => (
-                                    <li key={item} className="flex items-center gap-3">
-                                        <CheckCircle2 className="h-5 w-5 text-edg-brand shrink-0" />
+                                    <li key={item} className="flex items-center gap-3 text-edg-gray-text dark:text-gray-400 font-medium">
+                                        <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -316,9 +316,9 @@ export default function EnclosuresPage() {
                             ))}
                         </div>
 
-                        <p className="text-center text-sm text-muted-foreground mt-6">
+                        <p className="text-center text-sm text-edg-gray-text dark:text-gray-400 mt-6 font-medium">
                             Specifications vary by manufacturer and configuration.
-                            <Link href="/contact" className="text-edg-brand hover:underline ml-1">
+                            <Link href="/contact" className="text-edg-brand-text dark:text-edg-brand hover:underline ml-1 font-bold">
                                 Contact us for detailed specs
                             </Link>
                         </p>

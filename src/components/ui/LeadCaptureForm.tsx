@@ -179,7 +179,7 @@ export function LeadCaptureForm({
         )}
 
         {/* Privacy note */}
-        <p className="text-[10px] text-white/20 text-center uppercase tracking-widest mt-2">
+        <p className="text-[10px] text-gray-400 text-center uppercase tracking-widest mt-2 font-medium">
           No spam, ever. Unsubscribe anytime.
         </p>
       </form>
@@ -202,7 +202,7 @@ export function LeadCaptureForm({
           disabled={formState === "loading"}
           className={cn(
             "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
-            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
+            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             "transition-all duration-200"
           )}
@@ -216,7 +216,7 @@ export function LeadCaptureForm({
           disabled={formState === "loading"}
           className={cn(
             "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
-            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
+            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             "transition-all duration-200"
           )}
@@ -247,7 +247,7 @@ export function LeadCaptureForm({
       )}
 
       {/* Privacy note */}
-      <p className="text-xs text-muted-foreground">
+      <p className="text-xs text-edg-gray-text font-medium">
         No spam, ever. Unsubscribe anytime.
       </p>
     </form>

@@ -168,7 +168,7 @@ export function Footer() {
                                 <li>Racine County, WI</li>
                                 <li>Milwaukee County, WI</li>
                             </ul>
-                            <p className="text-xs text-gray-500 mt-4">
+                            <p className="text-xs text-gray-400 mt-4">
                                 Design & supply available nationwide
                             </p>
                         </div>
@@ -176,14 +176,14 @@ export function Footer() {
 
                     {/* Bottom Bar */}
                     <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-gray-400 text-sm">
                             © {new Date().getFullYear()} EDG Outdoor Living. All rights reserved.
                         </p>
-                        <div className="flex gap-6 text-sm text-gray-500">
-                            <Link href="/privacy" className="hover:text-gray-400 transition-colors">
+                        <div className="flex gap-6 text-sm text-gray-400">
+                            <Link href="/privacy" className="hover:text-white transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link href="/terms" className="hover:text-gray-400 transition-colors">
+                            <Link href="/terms" className="hover:text-white transition-colors">
                                 Terms of Service
                             </Link>
                         </div>

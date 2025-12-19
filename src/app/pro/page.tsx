@@ -23,11 +23,11 @@ export default function ProPage() {
             {/* ========== HERO ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
-                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray hover:text-edg-brand mb-8 transition-colors">
+                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray-text hover:text-edg-brand-text mb-8 transition-colors font-medium">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
                     </Link>
                     <div className="max-w-4xl">
-                        <p className="text-edg-brand font-semibold mb-4 uppercase tracking-wider text-sm">For Builders, Architects & GCs</p>
+                        <p className="text-edg-brand-text font-semibold mb-4 uppercase tracking-wider text-sm">For Builders, Architects & GCs</p>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                             Build faster. <br />
                             <span className="text-muted-foreground">Deliver better outdoor living.</span>
@@ -111,10 +111,10 @@ export default function ProPage() {
                                     { title: "Professional Support", desc: "Whether we install or you do, we're here to ensure the final product is perfect." },
                                 ].map((item) => (
                                     <li key={item.title} className="flex items-start gap-4">
-                                        <CheckCircle2 className="h-6 w-6 text-edg-brand shrink-0 mt-0.5" />
+                                        <CheckCircle2 className="h-6 w-6 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
                                         <div>
                                             <div className="font-semibold">{item.title}</div>
-                                            <div className="text-muted-foreground text-sm">{item.desc}</div>
+                                            <div className="text-edg-gray-text dark:text-gray-400 text-sm">{item.desc}</div>
                                         </div>
                                     </li>
                                 ))}
@@ -139,33 +139,33 @@ export default function ProPage() {
                 <Container>
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Trade Services</h2>
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
-                            <FileText className="h-10 w-10 text-edg-brand mb-4" />
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                            <FileText className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">Project Specs</h3>
-                            <p className="text-muted-foreground mb-4">
+                            <p className="text-edg-gray-text dark:text-gray-400 mb-4">
                                 Everything you need for your drawings: DWG files, spec sheets, and clear measurements.
                             </p>
-                            <Link href="/contact?type=pro&action=specs" className="text-edg-brand font-semibold hover:underline">
+                            <Link href="/contact?type=pro&action=specs" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
                                 Get Project Specs →
                             </Link>
                         </div>
-                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
-                            <UploadCloud className="h-10 w-10 text-edg-brand mb-4" />
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                            <UploadCloud className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">48-Hour Pricing</h3>
-                            <p className="text-muted-foreground mb-4">
+                            <p className="text-edg-gray-text dark:text-gray-400 mb-4">
                                 Send us your plans. We'll get you accurate pricing and lead times within two business days.
                             </p>
-                            <Link href="/contact?type=pro&action=plans" className="text-edg-brand font-semibold hover:underline">
+                            <Link href="/contact?type=pro&action=plans" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
                                 Upload Plans →
                             </Link>
                         </div>
-                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
-                            <Users className="h-10 w-10 text-edg-brand mb-4" />
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                            <Users className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">Site Readiness</h3>
-                            <p className="text-muted-foreground mb-4">
+                            <p className="text-edg-gray-text dark:text-gray-400 mb-4">
                                 We meet on-site to double-check dimensions and timing so we don't get in your crew's way.
                             </p>
-                            <Link href="/contact?type=pro" className="text-edg-brand font-semibold hover:underline">
+                            <Link href="/contact?type=pro" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
                                 Schedule a Call →
                             </Link>
                         </div>
@@ -194,8 +194,8 @@ export default function ProPage() {
                                             "Install complete: 3 days",
                                             "Client satisfaction: Perfect"
                                         ].map((item) => (
-                                            <li key={item} className="flex items-center gap-2 text-sm">
-                                                <CheckCircle2 className="h-4 w-4 text-edg-brand shrink-0" /> {item}
+                                            <li key={item} className="flex items-center gap-2 text-sm text-edg-gray-text dark:text-gray-400">
+                                                <CheckCircle2 className="h-4 w-4 text-edg-brand-text dark:text-edg-brand shrink-0" /> {item}
                                             </li>
                                         ))}
                                     </ul>
@@ -282,9 +282,9 @@ export default function ProPage() {
                                 a: "We're flexible. We can provide a full turnkey installation, or we can supply the materials and support your crew with the technical guidance they need to handle the build themselves."
                             }
                         ].map((item, i) => (
-                            <div key={i} className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-xl">
+                            <div key={i} className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-xl border border-zinc-100 dark:border-zinc-800">
                                 <h4 className="font-bold text-lg mb-2">{item.q}</h4>
-                                <p className="text-muted-foreground">{item.a}</p>
+                                <p className="text-edg-gray-text dark:text-gray-400">{item.a}</p>
                             </div>
                         ))}
                     </div>

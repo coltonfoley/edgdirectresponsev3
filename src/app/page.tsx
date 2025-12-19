@@ -195,29 +195,29 @@ export default function Home() {
               <div className="space-y-6">
                 <div className="flex gap-4">
                   <div className="h-10 w-10 rounded-full bg-edg-brand/10 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="h-5 w-5 text-edg-brand" />
+                    <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">System-Agnostic Guidance</h4>
-                    <p className="text-muted-foreground">We match the right system to your site—not push one brand.</p>
+                    <p className="text-edg-gray-text dark:text-gray-400">We match the right system to your site—not push one brand.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="h-10 w-10 rounded-full bg-edg-brand/10 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="h-5 w-5 text-edg-brand" />
+                    <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Design-Build Integration</h4>
-                    <p className="text-muted-foreground">Permitting, engineering, installation—all coordinated by one team.</p>
+                    <p className="text-edg-gray-text dark:text-gray-400">Permitting, engineering, installation—all coordinated by one team.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="h-10 w-10 rounded-full bg-edg-brand/10 flex items-center justify-center shrink-0">
-                    <CheckCircle2 className="h-5 w-5 text-edg-brand" />
+                    <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Transparent Process</h4>
-                    <p className="text-muted-foreground">You know what to expect at every stage. No surprises.</p>
+                    <p className="text-edg-gray-text dark:text-gray-400">You know what to expect at every stage. No surprises.</p>
                   </div>
                 </div>
               </div>
@@ -345,18 +345,18 @@ export default function Home() {
               className="group relative flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/10 hover:shadow-xl hover:border-edg-brand/30 transition-all duration-300"
             >
               <div className="p-8 flex flex-col flex-grow">
-                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand">
+                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand-text dark:text-edg-brand">
                   <LayoutTemplate className="w-6 h-6" />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-edg-brand mb-2">Guidance First</div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand transition-colors">
+                <div className="text-xs font-bold uppercase tracking-wider text-edg-brand-text dark:text-edg-brand mb-2">Guidance First</div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
                   Plan a Four-Season Space
                 </h3>
-                <p className="text-muted-foreground mb-6 flex-grow">
+                <p className="text-edg-gray-text dark:text-gray-400 mb-6 flex-grow">
                   I need design guidance, feasibility checks, and a thoughtful planning process.
                 </p>
                 <div className="flex items-center text-sm font-bold">
-                  Start Here <ChevronRight className="ml-1 w-4 h-4" />
+                  Start Here <ChevronRight className="ml-1 w-4 h-4 text-edg-brand-text dark:text-edg-brand" />
                 </div>
               </div>
             </Link>
@@ -367,18 +367,18 @@ export default function Home() {
               className="group relative flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/10 hover:shadow-xl hover:border-edg-brand/30 transition-all duration-300"
             >
               <div className="p-8 flex flex-col flex-grow">
-                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand">
+                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand-text dark:text-edg-brand">
                   <Calculator className="w-6 h-6" />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-edg-brand mb-2">Fast & Transparent</div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand transition-colors">
+                <div className="text-xs font-bold uppercase tracking-wider text-edg-brand-text dark:text-edg-brand mb-2">Fast & Transparent</div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
                   Get a Starting Price
                 </h3>
-                <p className="text-muted-foreground mb-6 flex-grow">
+                <p className="text-edg-gray-text dark:text-gray-400 mb-6 flex-grow">
                   I know what I want. Show me pricing models and budget ranges.
                 </p>
                 <div className="flex items-center text-sm font-bold">
-                  View Pricing <ChevronRight className="ml-1 w-4 h-4" />
+                  View Pricing <ChevronRight className="ml-1 w-4 h-4 text-edg-brand-text dark:text-edg-brand" />
                 </div>
               </div>
             </Link>
@@ -389,18 +389,18 @@ export default function Home() {
               className="group relative flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/10 hover:shadow-xl hover:border-edg-brand/30 transition-all duration-300"
             >
               <div className="p-8 flex flex-col flex-grow">
-                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand">
+                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand-text dark:text-edg-brand">
                   <HardHat className="w-6 h-6" />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-edg-brand mb-2">Trade Only</div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand transition-colors">
+                <div className="text-xs font-bold uppercase tracking-wider text-edg-brand-text dark:text-edg-brand mb-2">Trade Only</div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
                   Builders & Professionals
                 </h3>
-                <p className="text-muted-foreground mb-6 flex-grow">
+                <p className="text-edg-gray-text dark:text-gray-400 mb-6 flex-grow">
                   I need specs, plan takeoffs, and trade coordination for active projects.
                 </p>
                 <div className="flex items-center text-sm font-bold">
-                  Trade Portal <ChevronRight className="ml-1 w-4 h-4" />
+                  Trade Portal <ChevronRight className="ml-1 w-4 h-4 text-edg-brand-text dark:text-edg-brand" />
                 </div>
               </div>
             </Link>
@@ -411,18 +411,18 @@ export default function Home() {
               className="group relative flex flex-col h-full rounded-2xl overflow-hidden bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/10 hover:shadow-xl hover:border-edg-brand/30 transition-all duration-300"
             >
               <div className="p-8 flex flex-col flex-grow">
-                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand">
+                <div className="mb-4 h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center text-edg-brand-text dark:text-edg-brand">
                   <Building2 className="w-6 h-6" />
                 </div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-edg-brand mb-2">High ROI</div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand transition-colors">
+                <div className="text-xs font-bold uppercase tracking-wider text-edg-brand-text dark:text-edg-brand mb-2">High ROI</div>
+                <h3 className="text-2xl font-bold mb-3 group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
                   Commercial & Hospitality
                 </h3>
-                <p className="text-muted-foreground mb-6 flex-grow">
+                <p className="text-edg-gray-text dark:text-gray-400 mb-6 flex-grow">
                   Scalable solutions for restaurants, hotels, and country clubs.
                 </p>
                 <div className="flex items-center text-sm font-bold">
-                  Commercial Info <ChevronRight className="ml-1 w-4 h-4" />
+                  Commercial Info <ChevronRight className="ml-1 w-4 h-4 text-edg-brand-text dark:text-edg-brand" />
                 </div>
               </div>
             </Link>

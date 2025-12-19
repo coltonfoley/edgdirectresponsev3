@@ -112,13 +112,13 @@ export default function PergolasPage() {
                         {/* Product Info */}
                         <div className="lg:sticky lg:top-40 space-y-6">
                             <div>
-                                <p className="text-edg-brand font-semibold uppercase tracking-wider text-sm mb-2">
+                                <p className="text-edg-brand-text dark:text-edg-brand font-bold uppercase tracking-wider text-xs mb-2">
                                     Most Popular System
                                 </p>
                                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                                     Louvered Pergolas
                                 </h1 >
-                                <p className="text-xl text-muted-foreground leading-relaxed">
+                                <p className="text-xl text-edg-gray-text dark:text-gray-400 leading-relaxed">
                                     Motorized aluminum louvers that rotate from full sun to full shade—and close 
                                     completely for rain protection. The ultimate year-round outdoor room.
                                 </p>
@@ -132,8 +132,8 @@ export default function PergolasPage() {
                                     "Integrated LED lighting",
                                     "Smart home ready",
                                 ].map((feature) => (
-                                    <div key={feature} className="flex items-center gap-2 text-sm">
-                                        <CheckCircle2 className="h-4 w-4 text-edg-brand shrink-0" />
+                                    <div key={feature} className="flex items-center gap-2 text-sm font-medium">
+                                        <CheckCircle2 className="h-4 w-4 text-edg-brand-text dark:text-edg-brand shrink-0" />
                                         <span>{feature}</span>
                                     </div>
                                 ))}
@@ -244,8 +244,8 @@ export default function PergolasPage() {
                                     "Creates a defined outdoor room",
                                     "Protection from sun, rain, and light snow",
                                 ].map((item) => (
-                                    <li key={item} className="flex items-center gap-3">
-                                        <CheckCircle2 className="h-5 w-5 text-edg-brand shrink-0" />
+                                    <li key={item} className="flex items-center gap-3 text-edg-gray-text dark:text-gray-400 font-medium">
+                                        <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -322,7 +322,7 @@ export default function PergolasPage() {
                         </div>
 
                         {/* Add-ons */}
-                        <div className="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-8">
+                        <div className="bg-zinc-50 dark:bg-zinc-900 rounded-2xl p-8 border border-zinc-100 dark:border-zinc-800">
                             <h3 className="text-xl font-bold mb-6">Popular Add-Ons</h3>
                             <ul className="space-y-4">
                                 {[
@@ -334,10 +334,10 @@ export default function PergolasPage() {
                                     { name: "Fan Integration", desc: "Built-in ceiling fan mount" },
                                 ].map((addon) => (
                                     <li key={addon.name} className="flex items-start gap-3">
-                                        <CheckCircle2 className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
+                                        <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
                                         <div>
-                                            <span className="font-medium">{addon.name}</span>
-                                            <span className="text-muted-foreground text-sm"> — {addon.desc}</span>
+                                            <span className="font-bold text-sm md:text-base">{addon.name}</span>
+                                            <span className="text-edg-gray-text dark:text-gray-400 text-xs md:text-sm"> — {addon.desc}</span>
                                         </div>
                                     </li>
                                 ))}
@@ -371,9 +371,9 @@ export default function PergolasPage() {
                             ))}
                         </div>
 
-                        <p className="text-center text-sm text-muted-foreground mt-6">
+                        <p className="text-center text-sm text-edg-gray-text dark:text-gray-400 mt-6 font-medium">
                             Specifications vary by manufacturer and configuration. 
-                            <Link href="/contact" className="text-edg-brand hover:underline ml-1">
+                            <Link href="/contact" className="text-edg-brand-text dark:text-edg-brand hover:underline ml-1 font-bold">
                                 Contact us for detailed specs
                             </Link>
                         </p>

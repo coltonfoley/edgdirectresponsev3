@@ -202,12 +202,12 @@ export default function GuidePage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit) => (
-              <div key={benefit.title} className="text-center">
+              <div key={benefit.title} className="text-center p-6 rounded-2xl bg-white dark:bg-zinc-800 shadow-sm border border-zinc-100 dark:border-zinc-700">
                 <div className="h-14 w-14 rounded-2xl bg-edg-brand/10 flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="h-7 w-7 text-edg-brand" />
+                  <benefit.icon className="h-7 w-7 text-edg-brand-text dark:text-edg-brand" />
                 </div>
                 <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                <p className="text-edg-gray-text dark:text-gray-400 text-sm">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -233,14 +233,14 @@ export default function GuidePage() {
                     key={chapter.number} 
                     className="flex gap-4 group"
                   >
-                    <div className="text-2xl font-bold text-edg-brand/40 group-hover:text-edg-brand transition-colors">
+                    <div className="text-2xl font-bold text-edg-brand-text/40 dark:text-edg-brand/40 group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
                       {chapter.number}
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg group-hover:text-edg-brand transition-colors">
+                      <h3 className="font-bold text-lg group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
                         {chapter.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm">{chapter.description}</p>
+                      <p className="text-edg-gray-text dark:text-gray-400 text-sm">{chapter.description}</p>
                     </div>
                   </div>
                 ))}
@@ -249,7 +249,7 @@ export default function GuidePage() {
 
             {/* Preview card */}
             <div className="bg-white dark:bg-zinc-800 rounded-2xl p-8 border border-black/5 dark:border-white/10 shadow-xl">
-              <div className="text-sm font-medium text-edg-brand uppercase tracking-wider mb-4">
+              <div className="text-sm font-bold text-edg-brand-text dark:text-edg-brand uppercase tracking-wider mb-4">
                 Sample from Chapter 4
               </div>
               <h3 className="text-xl font-bold mb-4">
@@ -264,13 +264,13 @@ export default function GuidePage() {
                   "Ignoring HOA restrictions",
                 ].map((mistake, i) => (
                   <div key={i} className="flex items-start gap-3 text-sm">
-                    <span className="h-5 w-5 rounded-full bg-red-500/10 text-red-500 text-xs flex items-center justify-center shrink-0">
+                    <span className="h-5 w-5 rounded-full bg-red-500/10 text-red-600 dark:text-red-400 text-xs font-bold flex items-center justify-center shrink-0">
                       {i + 1}
                     </span>
-                    <span className="text-muted-foreground">{mistake}</span>
+                    <span className="text-edg-gray-text dark:text-gray-400 font-medium">{mistake}</span>
                   </div>
                 ))}
-                <div className="flex items-center gap-3 text-sm text-edg-brand font-medium">
+                <div className="flex items-center gap-3 text-sm text-edg-brand-text dark:text-edg-brand font-bold">
                   <ArrowRight className="h-4 w-4" />
                   <span>+ 2 more in the full guide...</span>
                 </div>

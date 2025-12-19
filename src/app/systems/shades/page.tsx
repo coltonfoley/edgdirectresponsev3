@@ -105,13 +105,13 @@ export default function ShadesPage() {
                         {/* Product Info */}
                         <div className="lg:sticky lg:top-40 space-y-6">
                             <div>
-                                <p className="text-edg-brand font-semibold uppercase tracking-wider text-sm mb-2">
+                                <p className="text-edg-brand-text dark:text-edg-brand font-bold uppercase tracking-wider text-xs mb-2">
                                     Solar & Wind Protection
                                 </p>
                                 <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                                     Motorized Shades
                                 </h1>
-                                <p className="text-xl text-muted-foreground leading-relaxed">
+                                <p className="text-xl text-edg-gray-text dark:text-gray-400 leading-relaxed">
                                     Wind-rated exterior screens that block 80%+ of heat and glare while 
                                     preserving your view. Retract completely when you don't need them.
                                 </p>
@@ -125,8 +125,8 @@ export default function ShadesPage() {
                                     "Preserve outward view",
                                     "Smart home ready",
                                 ].map((feature) => (
-                                    <div key={feature} className="flex items-center gap-2 text-sm">
-                                        <CheckCircle2 className="h-4 w-4 text-edg-brand shrink-0" />
+                                    <div key={feature} className="flex items-center gap-2 text-sm font-medium">
+                                        <CheckCircle2 className="h-4 w-4 text-edg-brand-text dark:text-edg-brand shrink-0" />
                                         <span>{feature}</span>
                                     </div>
                                 ))}
@@ -191,7 +191,7 @@ export default function ShadesPage() {
                                 </div>
                                 <div className="p-6">
                                     <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-                                    <p className="text-muted-foreground">{item.desc}</p>
+                                    <p className="text-edg-gray-text dark:text-gray-400">{item.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -213,7 +213,7 @@ export default function ShadesPage() {
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                                 Feel the Difference
                             </h2>
-                            <p className="text-lg text-muted-foreground mb-6">
+                            <p className="text-lg text-edg-gray-text dark:text-gray-400 mb-6 font-medium">
                                 That unbearable hot spot on your patio? The glare that makes your TV unwatchable? 
                                 The faded furniture? Motorized shades solve all of it—without blocking your view.
                             </p>
@@ -224,8 +224,8 @@ export default function ShadesPage() {
                                     "Protect furniture from UV fading",
                                     "Lower cooling costs",
                                 ].map((item) => (
-                                    <li key={item} className="flex items-center gap-3">
-                                        <CheckCircle2 className="h-5 w-5 text-edg-brand shrink-0" />
+                                    <li key={item} className="flex items-center gap-3 text-edg-gray-text dark:text-gray-400 font-medium">
+                                        <CheckCircle2 className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0" />
                                         <span>{item}</span>
                                     </li>
                                 ))}
@@ -277,15 +277,15 @@ export default function ShadesPage() {
 
                     <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                         {fabricOptions.map((fabric) => (
-                            <div key={fabric.name} className="text-center">
+                          <div key={fabric.name} className="text-center p-6 rounded-2xl bg-white dark:bg-zinc-800 shadow-sm border border-zinc-100 dark:border-zinc-700">
                                 <div className={`w-24 h-24 rounded-full mx-auto mb-4 ${fabric.opacity}`} />
                                 <h3 className="font-bold">{fabric.name}</h3>
-                                <p className="text-sm text-muted-foreground mt-1">{fabric.desc}</p>
+                                <p className="text-sm text-edg-gray-text dark:text-gray-400 mt-1 font-medium">{fabric.desc}</p>
                             </div>
                         ))}
                     </div>
 
-                    <p className="text-center text-muted-foreground mt-8">
+                    <p className="text-center text-edg-gray-text dark:text-gray-400 mt-8 font-medium">
                         50+ colors available. See fabric samples at our showroom or request swatches.
                     </p>
                 </Container>

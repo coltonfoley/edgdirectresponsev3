@@ -23,8 +23,8 @@ export default function ContactPage() {
                 <Section className="pt-24 md:pt-32">
                     <Container>
                         <div className="max-w-2xl mx-auto text-center">
-                            <div className="h-16 w-16 rounded-full bg-edg-brand/20 flex items-center justify-center mx-auto mb-6">
-                                <Mail className="h-8 w-8 text-edg-brand" />
+                            <div className="h-16 w-16 rounded-full bg-edg-brand/10 flex items-center justify-center mx-auto mb-6">
+                                <Mail className="h-8 w-8 text-edg-brand-text" />
                             </div>
                             <h1 className="text-3xl md:text-4xl font-bold mb-4">Thank you!</h1>
                             <p className="text-lg text-muted-foreground mb-8">
@@ -44,7 +44,7 @@ export default function ContactPage() {
         <main className="min-h-screen bg-edg-light dark:bg-black">
             <Section className="pb-12 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
-                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray hover:text-edg-brand mb-8 transition-colors">
+                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray-text hover:text-edg-brand-text mb-8 transition-colors font-medium">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to home
                     </Link>
                     <div className="max-w-4xl">
@@ -205,18 +205,18 @@ export default function ContactPage() {
                                 <h3 className="font-bold text-lg mb-4">Prefer to call?</h3>
                                 <div className="space-y-4 text-sm">
                                     <div className="flex items-center gap-3">
-                                        <Phone className="h-5 w-5 text-edg-brand" />
-                                        <a href="tel:+18475551234" className="hover:text-edg-brand transition-colors">
+                                        <Phone className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
+                                        <a href="tel:+18475551234" className="text-edg-brand-text dark:text-edg-brand hover:underline font-bold transition-colors">
                                             (847) 555-1234
                                         </a>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <Clock className="h-5 w-5 text-edg-brand" />
-                                        <span className="text-muted-foreground">Mon-Fri, 8am-5pm CT</span>
+                                        <Clock className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
+                                        <span className="text-edg-gray-text dark:text-gray-400 font-medium">Mon-Fri, 8am-5pm CT</span>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <MapPin className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
-                                        <div className="text-muted-foreground">
+                                        <MapPin className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
+                                        <div className="text-edg-gray-text dark:text-gray-400 font-medium">
                                             <div>Spring Grove Showroom</div>
                                             <div>Spring Grove, IL 60081</div>
                                         </div>

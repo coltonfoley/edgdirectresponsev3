@@ -23,11 +23,11 @@ export default function PricePage() {
             {/* ========== HERO ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
-                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray hover:text-edg-brand mb-8 transition-colors">
+                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray-text hover:text-edg-brand-text mb-8 transition-colors font-medium">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
                     </Link>
                     <div className="max-w-4xl">
-                        <p className="text-edg-brand font-semibold mb-4 uppercase tracking-wider text-sm">For Budget-Conscious Homeowners</p>
+                        <p className="text-edg-brand-text font-semibold mb-4 uppercase tracking-wider text-sm">For Budget-Conscious Homeowners</p>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                             Get a real quote.<br />
                             <span className="text-muted-foreground">Not a bait-and-switch estimate.</span>
@@ -74,12 +74,12 @@ export default function PricePage() {
                                 desc: "Permit estimates, lead times, and installation dates. Know when you'll be enjoying your space."
                             }
                         ].map((item) => (
-                            <div key={item.title} className="bg-white dark:bg-zinc-800 p-8 rounded-2xl text-center">
+                            <div key={item.title} className="bg-white dark:bg-zinc-800 p-8 rounded-2xl text-center shadow-sm border border-zinc-200/50 dark:border-zinc-700">
                                 <div className="h-14 w-14 rounded-full bg-edg-brand/10 flex items-center justify-center mx-auto mb-4">
-                                    <item.icon className="h-7 w-7 text-edg-brand" />
+                                    <item.icon className="h-7 w-7 text-edg-brand-text dark:text-edg-brand" />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                                <p className="text-muted-foreground">{item.desc}</p>
+                                <p className="text-edg-gray-text dark:text-gray-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -160,9 +160,9 @@ export default function PricePage() {
                             { title: "Permitting", desc: "Some municipalities require more engineering than others. We'll know after research." }
                         ].map((item) => (
                             <div key={item.title} className="text-center">
-                                <Calculator className="h-10 w-10 text-edg-brand mx-auto mb-4" />
+                                <Calculator className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mx-auto mb-4" />
                                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                                <p className="text-sm text-edg-gray-text dark:text-gray-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -183,10 +183,10 @@ export default function PricePage() {
                             { title: "Final Walkthrough", desc: "Training on operation and maintenance" }
                         ].map((item) => (
                             <div key={item.title} className="flex items-start gap-4">
-                                <CheckCircle2 className="h-6 w-6 text-edg-brand shrink-0 mt-0.5" />
+                                <CheckCircle2 className="h-6 w-6 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
                                 <div>
                                     <div className="font-semibold">{item.title}</div>
-                                    <div className="text-sm text-muted-foreground">{item.desc}</div>
+                                    <div className="text-sm text-edg-gray-text dark:text-gray-400">{item.desc}</div>
                                 </div>
                             </div>
                         ))}
@@ -235,9 +235,9 @@ export default function PricePage() {
                                 a: "Typically 50% at contract signing, 40% when materials arrive, 10% at completion. For larger projects, we can discuss milestone-based payments."
                             }
                         ].map((item, i) => (
-                            <div key={i} className="bg-white dark:bg-zinc-800 p-6 rounded-xl">
+                            <div key={i} className="bg-white dark:bg-zinc-800 p-6 rounded-xl border border-zinc-200/50 dark:border-zinc-700 shadow-sm">
                                 <h4 className="font-bold text-lg mb-2">{item.q}</h4>
-                                <p className="text-muted-foreground">{item.a}</p>
+                                <p className="text-edg-gray-text dark:text-gray-400">{item.a}</p>
                             </div>
                         ))}
                     </div>

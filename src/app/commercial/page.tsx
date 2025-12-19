@@ -23,11 +23,11 @@ export default function CommercialPage() {
             {/* ========== HERO ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
-                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray hover:text-edg-brand mb-8 transition-colors">
+                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray-text hover:text-edg-brand-text mb-8 transition-colors font-medium">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
                     </Link>
                     <div className="max-w-4xl">
-                        <p className="text-edg-brand font-semibold mb-4 uppercase tracking-wider text-sm">For Restaurants, Hotels & Hospitality</p>
+                        <p className="text-edg-brand-text font-semibold mb-4 uppercase tracking-wider text-sm">For Restaurants, Hotels & Hospitality</p>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
                             Turn weather from a liability<br />
                             <span className="text-muted-foreground">into a revenue driver.</span>
@@ -141,10 +141,10 @@ export default function CommercialPage() {
                             { title: "Country Clubs", desc: "Pool decks, outdoor dining, events", highlight: "Member retention" },
                             { title: "Corporate Campuses", desc: "Employee wellness, outdoor meetings", highlight: "Recruitment edge" },
                         ].map((item) => (
-                            <div key={item.title} className="bg-white dark:bg-zinc-800 p-6 rounded-2xl text-center">
+                            <div key={item.title} className="bg-white dark:bg-zinc-800 p-6 rounded-2xl text-center shadow-sm border border-zinc-100 dark:border-zinc-700">
                                 <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-                                <p className="text-sm text-muted-foreground mb-4">{item.desc}</p>
-                                <div className="text-edg-brand font-semibold">{item.highlight}</div>
+                                <p className="text-sm text-edg-gray-text dark:text-gray-400 mb-4">{item.desc}</p>
+                                <div className="text-edg-brand-text dark:text-edg-brand font-bold">{item.highlight}</div>
                             </div>
                         ))}
                     </div>
@@ -215,24 +215,24 @@ export default function CommercialPage() {
                 <Container>
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Commercial Capabilities</h2>
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
-                            <BarChart3 className="h-10 w-10 text-edg-brand mb-4" />
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-700">
+                            <BarChart3 className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">ROI Analysis</h3>
-                            <p className="text-muted-foreground">
+                            <p className="text-edg-gray-text dark:text-gray-400">
                                 We'll help you model the revenue impact based on your covers, average ticket, and local weather patterns.
                             </p>
                         </div>
-                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
-                            <ShieldCheck className="h-10 w-10 text-edg-brand mb-4" />
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-700">
+                            <ShieldCheck className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">Commercial-Grade Systems</h3>
-                            <p className="text-muted-foreground">
+                            <p className="text-edg-gray-text dark:text-gray-400">
                                 Higher duty cycles, reinforced structures, and components rated for decades of daily use.
                             </p>
                         </div>
-                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
-                            <Zap className="h-10 w-10 text-edg-brand mb-4" />
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-100 dark:border-zinc-700">
+                            <Zap className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">Rapid Deployment</h3>
-                            <p className="text-muted-foreground">
+                            <p className="text-edg-gray-text dark:text-gray-400">
                                 We understand restaurant timelines. Most commercial installs complete in 3-5 days with minimal disruption.
                             </p>
                         </div>

@@ -71,7 +71,7 @@ export function Navbar() {
                         <div className="relative" ref={systemsDropdownRef}>
                             <button
                                 onClick={() => { setSystemsOpen(!systemsOpen); setAreasOpen(false); }}
-                                className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-edg-brand transition-colors"
+                                className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                             >
                                 Systems
                                 <ChevronDown className={cn("h-4 w-4 transition-transform", systemsOpen && "rotate-180")} />
@@ -86,7 +86,7 @@ export function Navbar() {
                                             onClick={() => setSystemsOpen(false)}
                                             className="block px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
                                         >
-                                            <div className="font-medium text-sm">{item.label}</div>
+                                            <div className="font-medium text-sm group-hover:text-edg-brand-text dark:group-hover:text-edg-brand">{item.label}</div>
                                             <div className="text-xs text-muted-foreground">{item.desc}</div>
                                         </Link>
                                     ))}
@@ -98,7 +98,7 @@ export function Navbar() {
                         <div className="relative" ref={areasDropdownRef}>
                             <button
                                 onClick={() => { setAreasOpen(!areasOpen); setSystemsOpen(false); }}
-                                className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-edg-brand transition-colors"
+                                className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                             >
                                 Areas
                                 <ChevronDown className={cn("h-4 w-4 transition-transform", areasOpen && "rotate-180")} />
@@ -109,9 +109,9 @@ export function Navbar() {
                                     <Link
                                         href="/service-areas"
                                         onClick={() => setAreasOpen(false)}
-                                        className="block px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors border-b border-black/5 dark:border-white/5"
+                                        className="block px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors border-b border-black/5 dark:border-white/5 group"
                                     >
-                                        <div className="font-medium text-sm">All Service Areas</div>
+                                        <div className="font-medium text-sm group-hover:text-edg-brand-text dark:group-hover:text-edg-brand">All Service Areas</div>
                                         <div className="text-xs text-muted-foreground">Chicago to Milwaukee corridor</div>
                                     </Link>
                                     {areasDropdown.map((item) => (
@@ -119,9 +119,9 @@ export function Navbar() {
                                             key={item.href}
                                             href={item.href}
                                             onClick={() => setAreasOpen(false)}
-                                            className="block px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
+                                            className="block px-4 py-3 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors group"
                                         >
-                                            <div className="font-medium text-sm">{item.label}</div>
+                                            <div className="font-medium text-sm group-hover:text-edg-brand-text dark:group-hover:text-edg-brand">{item.label}</div>
                                             <div className="text-xs text-muted-foreground">{item.desc}</div>
                                         </Link>
                                     ))}
@@ -131,19 +131,19 @@ export function Navbar() {
 
                         <Link
                             href="/design"
-                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand transition-colors"
+                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                         >
                             Design
                         </Link>
                         <Link
                             href="/price"
-                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand transition-colors"
+                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                         >
                             Pricing
                         </Link>
                         <Link
                             href="/pro"
-                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand transition-colors"
+                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                         >
                             For Pros
                         </Link>
@@ -154,7 +154,7 @@ export function Navbar() {
                         <div className="hidden lg:flex items-center gap-4">
                             <a 
                                 href="tel:+18475551234" 
-                                className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-edg-brand transition-colors"
+                                className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                             >
                                 <Phone className="h-4 w-4" />
                                 <span className="hidden xl:inline">(847) 555-1234</span>
@@ -168,7 +168,7 @@ export function Navbar() {
                         <div className="flex items-center gap-3 lg:hidden">
                             <a 
                                 href="tel:+18475551234" 
-                                className="p-2 text-foreground/80 hover:text-edg-brand transition-colors"
+                                className="p-2 text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                                 aria-label="Call us"
                             >
                                 <Phone className="h-5 w-5" />
@@ -189,14 +189,14 @@ export function Navbar() {
                     <div className="absolute top-full left-0 right-0 bg-background border-b border-edg-gray/10 p-4 flex flex-col gap-2 lg:hidden shadow-lg animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto">
                         {/* Systems Section */}
                         <div className="px-4 py-2">
-                            <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                            <div className="text-xs font-semibold text-edg-gray-text dark:text-muted-foreground uppercase tracking-wider mb-2">
                                 Our Systems
                             </div>
                             {systemsDropdown.map((item) => (
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className="block py-2 text-sm hover:text-edg-brand transition-colors"
+                                    className="block py-2 text-sm hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors font-medium"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {item.label}
@@ -208,12 +208,12 @@ export function Navbar() {
                         
                         {/* Service Areas Section */}
                         <div className="px-4 py-2">
-                            <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
+                            <div className="text-xs font-semibold text-edg-gray-text dark:text-muted-foreground uppercase tracking-wider mb-2">
                                 Service Areas
                             </div>
                             <Link
                                 href="/service-areas"
-                                className="block py-2 text-sm hover:text-edg-brand transition-colors font-medium"
+                                className="block py-2 text-sm hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors font-bold"
                                 onClick={() => setIsOpen(false)}
                             >
                                 All Areas →
@@ -222,7 +222,7 @@ export function Navbar() {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    className="block py-2 text-sm hover:text-edg-brand transition-colors"
+                                    className="block py-2 text-sm hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors font-medium"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {item.label}
@@ -234,21 +234,21 @@ export function Navbar() {
                         
                         <Link
                             href="/design"
-                            className="px-4 py-2 hover:bg-edg-gray/5 rounded-md"
+                            className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
                             onClick={() => setIsOpen(false)}
                         >
                             Design
                         </Link>
                         <Link
                             href="/price"
-                            className="px-4 py-2 hover:bg-edg-gray/5 rounded-md"
+                            className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
                             onClick={() => setIsOpen(false)}
                         >
                             Pricing
                         </Link>
                         <Link
                             href="/pro"
-                            className="px-4 py-2 hover:bg-edg-gray/5 rounded-md"
+                            className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
                             onClick={() => setIsOpen(false)}
                         >
                             For Pros
@@ -257,7 +257,7 @@ export function Navbar() {
                         <div className="border-t border-edg-gray/10 pt-4 mt-2 space-y-3">
                             <a 
                                 href="tel:+18475551234" 
-                                className="flex items-center gap-3 px-4 py-2 text-edg-brand font-medium"
+                                className="flex items-center gap-3 px-4 py-2 text-edg-brand-text dark:text-edg-brand font-bold"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <Phone className="h-5 w-5" />
