@@ -130,6 +130,12 @@ export function Navbar() {
                         </div>
 
                         <Link
+                            href="/projects"
+                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
+                        >
+                            Projects
+                        </Link>
+                        <Link
                             href="/design"
                             className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                         >
@@ -232,6 +238,13 @@ export function Navbar() {
                         
                         <div className="border-t border-edg-gray/10 my-2" />
                         
+                        <Link
+                            href="/projects"
+                            className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Projects
+                        </Link>
                         <Link
                             href="/design"
                             className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
