@@ -39,8 +39,8 @@ const localConsiderations = [
         description: "Properties near Lake Michigan experience different wind and moisture conditions. We factor lake proximity into every design, from wind load calculations to material selection.",
     },
     {
-        title: "Historic District Requirements",
-        description: "Communities like Lake Forest and Highland Park have design review boards. We're experienced with their requirements and can navigate approvals efficiently.",
+        title: "Local Building Codes",
+        description: "Communities like Lake Forest and Highland Park have specific building requirements. We're experienced with their standards and can navigate the permit process efficiently.",
     },
     {
         title: "Wooded Lots",
@@ -211,7 +211,7 @@ export default function LakeCountyPage() {
                     <div className="max-w-3xl mx-auto text-center">
                         <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
                             "EDG understood exactly what we needed for our Lake Forest property. They navigated 
-                            the design review process smoothly and the installation was flawless."
+                            the permitting process smoothly and the installation was flawless."
                         </blockquote>
                         <div>
                             <div className="font-bold text-lg">Homeowner</div>
