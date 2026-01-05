@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
@@ -24,14 +25,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://edgoutdoorliving.com"),
+  metadataBase: new URL("https://edgpatioshade.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "EDG | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee",
     description: "Premium motorized pergolas, exterior shades, and glass enclosures. Serving North Chicago to Milwaukee with design, supply & professional installation.",
-    url: "https://edgoutdoorliving.com",
+    url: "https://edgpatioshade.com",
     siteName: "EDG Outdoor Living",
     locale: "en_US",
     type: "website",
@@ -67,10 +68,10 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://edgoutdoorliving.com/#organization",
+  "@id": "https://edgpatioshade.com/#organization",
   name: "EDG Outdoor Living",
   description: "Premium motorized pergolas, exterior shades, and glass enclosures for outdoor living spaces.",
-  url: "https://edgoutdoorliving.com",
+  url: "https://edgpatioshade.com",
   telephone: "+1-847-555-1234",
   email: "info@edgpatioshade.com",
   address: {
@@ -167,6 +168,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <GoogleAnalytics gaId="G-XXXXXXXXXX" /> {/* TODO: Replace with actual Measurement ID */}
       </body>
     </html>
   );

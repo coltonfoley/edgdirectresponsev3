@@ -15,7 +15,7 @@ export default function Home() {
       {/* ========== HERO SECTION (Direct Response) ========== */}
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-edg-dark">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 z-0"></div>
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2600&auto=format&fit=crop')] bg-cover bg-center opacity-30 z-0"></div>
+        <div className="absolute inset-0 bg-[url('/images/hero/hero-main.jpg')] bg-cover bg-center opacity-40 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
 
         <Container className="relative z-20">
@@ -102,7 +102,7 @@ export default function Home() {
             <div className="group relative rounded-3xl overflow-hidden bg-black">
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop')" }}
+                style={{ backgroundImage: "url('/images/pergolas/pergola-hero.jpg')" }}
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
               <div className="relative z-10 p-12 md:p-16 lg:p-20 min-h-[500px] flex flex-col justify-center max-w-2xl">
@@ -135,7 +135,7 @@ export default function Home() {
               <div className="group relative rounded-3xl overflow-hidden bg-black min-h-[450px]">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop')" }}
+                  style={{ backgroundImage: "url('/images/shades/shades-hero.jpg')" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 z-10 p-8 md:p-10">
@@ -158,7 +158,7 @@ export default function Home() {
               <div className="group relative rounded-3xl overflow-hidden bg-black min-h-[450px]">
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop')" }}
+                  style={{ backgroundImage: "url('/images/enclosures/glass-hero.jpg')" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 z-10 p-8 md:p-10">
@@ -247,7 +247,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-edg-brand/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-edg-brand/5 rounded-full blur-3xl" />
-        
+
         <Container className="relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Guide offer */}
@@ -256,16 +256,16 @@ export default function Home() {
                 <BookOpen className="h-4 w-4" />
                 Free Planning Guide
               </div>
-              
+
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
                 Not ready to talk yet?<br />
                 <span className="text-edg-brand">Start with our free guide.</span>
               </h2>
-              
+
               <p className="text-lg text-gray-300 leading-relaxed">
                 Learn what questions to ask, what systems fit your needs, and how to avoid the 7 most expensive planning mistakes—before you talk to anyone.
               </p>
-              
+
               <ul className="space-y-3">
                 {[
                   "Understand your options at a glance",
@@ -279,7 +279,7 @@ export default function Home() {
                 ))}
               </ul>
 
-              <LeadCaptureForm 
+              <LeadCaptureForm
                 source="homepage-inline"
                 ctaText="Get the Free Guide"
                 variant="compact"
@@ -294,14 +294,14 @@ export default function Home() {
               <p className="text-gray-300 mb-8">
                 Skip the guide—let's have a conversation. Whether you have questions or you're ready to start planning, we're here.
               </p>
-              
+
               <div className="space-y-4">
                 <Link href="/contact" className="block">
                   <Button size="lg" className="w-full rounded-lg">
                     Book a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                
+
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-white/10" />
@@ -310,15 +310,15 @@ export default function Home() {
                     <span className="px-4 bg-transparent text-gray-500">or call us directly</span>
                   </div>
                 </div>
-                
-                <a 
-                  href="tel:+18475551234" 
+
+                <a
+                  href="tel:+18475551234"
                   className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-lg border border-white/20 text-white hover:bg-white/5 transition-colors"
                 >
                   <Phone className="h-5 w-5 text-edg-brand" />
                   <span className="font-medium">(847) 555-1234</span>
                 </a>
-                
+
                 <p className="text-xs text-gray-500 text-center">
                   Mon–Fri, 8am–5pm CT • Response within 1 business day
                 </p>

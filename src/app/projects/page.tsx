@@ -22,7 +22,7 @@ const projects = [
         location: "Lake Forest, IL",
         type: "Residential",
         systems: ["Louvered Pergola", "Motorized Shades"],
-        image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop",
+        image: "/images/projects/project-01.jpg",
         description: "A 16x20 louvered pergola with integrated heating and four motorized shade drops, creating a true four-season outdoor room on Lake Michigan."
     },
     {
@@ -31,7 +31,7 @@ const projects = [
         location: "Barrington, IL",
         type: "Residential",
         systems: ["Louvered Pergola", "Glass Enclosure"],
-        image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop",
+        image: "/images/projects/project-02.jpg",
         description: "A custom pergola with retractable glass walls, transforming an underutilized patio into a year-round entertaining space."
     },
     {
@@ -40,7 +40,7 @@ const projects = [
         location: "Lake Geneva, WI",
         type: "Commercial",
         systems: ["Louvered Pergola", "Integrated Heating"],
-        image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop",
+        image: "/images/projects/project-03.jpg",
         description: "A 320 sq ft covered patio that added 40 seats and eliminated weather cancellations for a lakeside fine dining restaurant."
     },
     {
@@ -49,7 +49,7 @@ const projects = [
         location: "Libertyville, IL",
         type: "Residential",
         systems: ["Motorized Shades"],
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1600&auto=format&fit=crop",
+        image: "/images/projects/project-04.jpg",
         description: "Six motorized exterior shades protecting a south-facing great room from summer heat while preserving views of the backyard."
     },
     {
@@ -58,7 +58,7 @@ const projects = [
         location: "Highland Park, IL",
         type: "Builder Project",
         systems: ["Louvered Pergola", "Motorized Shades", "Glass Enclosure"],
-        image: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1600&auto=format&fit=crop",
+        image: "/images/projects/project-05.jpg",
         description: "Full outdoor living package for a custom home builder, coordinated during construction for seamless integration."
     },
     {
