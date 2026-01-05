@@ -23,22 +23,22 @@ export const metadata: Metadata = {
 const galleryImages = [
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/enclosures/glass-hero.jpg",
         alt: "Glass enclosure on modern patio",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/enclosures/glass-closed.jpg",
         alt: "Retractable glass panels open",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/enclosures/glass-detail.jpg",
         alt: "Glass wall system stacked open",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/projects/project-05.jpg",
         alt: "Interior view through glass enclosure",
     },
 ];
@@ -89,17 +89,17 @@ const systemTypes = [
     {
         name: "Bi-Fold",
         desc: "Panels fold accordion-style to one or both sides. Best for large openings.",
-        image: "https://image.pollinations.ai/prompt/bifold%20glass%20door%20system%20diagram%20architectural%20detail%20modern?width=800&height=450&nologo=true",
+        image: "/images/enclosures/glass-hero.jpg",
     },
     {
         name: "Stacking",
         desc: "Individual panels slide and stack. Great for partial openings.",
-        image: "https://image.pollinations.ai/prompt/stacking%20glass%20door%20system%20diagram%20architectural%20detail%20modern?width=800&height=450&nologo=true",
+        image: "/images/enclosures/glass-closed.jpg",
     },
     {
         name: "Sliding",
         desc: "Panels slide on tracks. Ideal for narrow spaces or straight runs.",
-        image: "https://image.pollinations.ai/prompt/sliding%20glass%20door%20system%20diagram%20architectural%20detail%20modern?width=800&height=450&nologo=true",
+        image: "/images/enclosures/glass-detail.jpg",
     },
 ];
 
@@ -123,7 +123,7 @@ export default function EnclosuresPage() {
                                     Glass Enclosures
                                 </h1>
                                 <p className="text-xl text-edg-gray-text dark:text-gray-400 leading-relaxed">
-                                    Frameless glass wall systems that stack, fold, and disappear. Add 
+                                    Frameless glass wall systems that stack, fold, and disappear. Add
                                     weatherproof square footage to your home without heavy construction.
                                 </p>
                             </div>
@@ -181,7 +181,7 @@ export default function EnclosuresPage() {
                         {systemTypes.map((type) => (
                             <div key={type.name} className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                                 <div className="aspect-video relative">
-                                    <img 
+                                    <img
                                         src={type.image}
                                         alt={type.name}
                                         className="w-full h-full object-cover"
@@ -206,7 +206,7 @@ export default function EnclosuresPage() {
                                 Expand Your Living Space
                             </h2>
                             <p className="text-lg text-edg-gray-text dark:text-gray-400 mb-6 font-medium">
-                                That covered patio you can only use 5 months a year? Transform it into 
+                                That covered patio you can only use 5 months a year? Transform it into
                                 usable square footage year-round—without the cost of a traditional addition.
                             </p>
                             <ul className="space-y-3">
@@ -225,8 +225,8 @@ export default function EnclosuresPage() {
                             </ul>
                         </div>
                         <BeforeAfter
-                            beforeImage="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-                            afterImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+                            beforeImage="/images/projects/project-04.jpg"
+                            afterImage="/images/projects/project-05.jpg"
                             beforeLabel="Open Patio"
                             afterLabel="Enclosed"
                         />
@@ -273,13 +273,13 @@ export default function EnclosuresPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
-                            { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop", label: "Covered Patios" },
-                            { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=600&auto=format&fit=crop", label: "Pergolas" },
-                            { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop", label: "Pool Houses" },
-                            { src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop", label: "Restaurants" },
+                            { src: "/images/enclosures/glass-hero.jpg", label: "Covered Patios" },
+                            { src: "/images/enclosures/glass-detail.jpg", label: "Pergolas" },
+                            { src: "/images/projects/project-01.jpg", label: "Pool Houses" },
+                            { src: "/images/projects/project-02.jpg", label: "Restaurants" },
                         ].map((item) => (
                             <div key={item.label} className="group relative aspect-square rounded-xl overflow-hidden">
-                                <img 
+                                <img
                                     src={item.src}
                                     alt={item.label}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -304,11 +304,10 @@ export default function EnclosuresPage() {
 
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             {specs.map((spec, index) => (
-                                <div 
+                                <div
                                     key={spec.label}
-                                    className={`flex justify-between items-center p-6 ${
-                                        index !== specs.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""
-                                    }`}
+                                    className={`flex justify-between items-center p-6 ${index !== specs.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""
+                                        }`}
                                 >
                                     <span className="text-muted-foreground">{spec.label}</span>
                                     <span className="font-semibold">{spec.value}</span>
@@ -334,7 +333,7 @@ export default function EnclosuresPage() {
                             Ready for Year-Round Outdoor Living?
                         </h2>
                         <p className="text-xl text-edg-dark/80 mb-8">
-                            Get a custom quote for a glass enclosure system. We'll assess your space 
+                            Get a custom quote for a glass enclosure system. We'll assess your space
                             and recommend the right configuration.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">

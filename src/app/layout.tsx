@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
@@ -168,7 +168,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <GoogleAnalytics gaId="G-XXXXXXXXXX" /> {/* TODO: Replace with actual Measurement ID */}
+        <GoogleTagManager gtmId="GTM-XXXXXXX" /> {/* TODO: Replace with actual Container ID */}
       </body>
     </html>
   );

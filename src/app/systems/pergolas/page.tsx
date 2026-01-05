@@ -23,28 +23,28 @@ export const metadata: Metadata = {
 const galleryImages = [
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop",
-        alt: "Louvered pergola with louvers open on sunny day",
+        src: "/images/pergolas/pergola-hero.jpg",
+        alt: "Louvered pergola hero shot",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
-        alt: "Pergola with integrated lighting at dusk",
+        src: "/images/pergolas/pergola-detail.jpg",
+        alt: "Pergola louver detail",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2000&auto=format&fit=crop",
-        alt: "Modern pergola attached to home",
+        src: "/images/pergolas/pergola-lifestyle.jpg",
+        alt: "Outdoor living under pergola",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop",
-        alt: "Pergola over outdoor kitchen",
+        src: "/images/projects/project-01.jpg",
+        alt: "Custom pergola installation",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop",
-        alt: "Large format pergola for entertaining",
+        src: "/images/projects/project-02.jpg",
+        alt: "Pergola with screens",
     },
 ];
 
@@ -119,7 +119,7 @@ export default function PergolasPage() {
                                     Louvered Pergolas
                                 </h1 >
                                 <p className="text-xl text-edg-gray-text dark:text-gray-400 leading-relaxed">
-                                    Motorized aluminum louvers that rotate from full sun to full shade—and close 
+                                    Motorized aluminum louvers that rotate from full sun to full shade—and close
                                     completely for rain protection. The ultimate year-round outdoor room.
                                 </p>
                             </div>
@@ -177,8 +177,8 @@ export default function PergolasPage() {
                         {/* Louvers Open */}
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop"
+                                <img
+                                    src="/images/pergolas/pergola-lifestyle.jpg"
                                     alt="Louvers fully open"
                                     className="w-full h-full object-cover"
                                 />
@@ -193,8 +193,8 @@ export default function PergolasPage() {
                         {/* Louvers Angled */}
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+                                <img
+                                    src="/images/pergolas/pergola-hero.jpg"
                                     alt="Louvers partially closed"
                                     className="w-full h-full object-cover"
                                 />
@@ -209,8 +209,8 @@ export default function PergolasPage() {
                         {/* Louvers Closed */}
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop"
+                                <img
+                                    src="/images/pergolas/pergola-detail.jpg"
                                     alt="Louvers fully closed"
                                     className="w-full h-full object-cover"
                                 />
@@ -234,7 +234,7 @@ export default function PergolasPage() {
                                 Transform Your Outdoor Space
                             </h2>
                             <p className="text-lg text-muted-foreground mb-6">
-                                See the difference a louvered pergola makes. What was once an unusable 
+                                See the difference a louvered pergola makes. What was once an unusable
                                 hot patio becomes a year-round outdoor living room.
                             </p>
                             <ul className="space-y-3">
@@ -252,8 +252,8 @@ export default function PergolasPage() {
                             </ul>
                         </div>
                         <BeforeAfter
-                            beforeImage="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-                            afterImage="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop"
+                            beforeImage="/images/projects/project-04.jpg"
+                            afterImage="/images/projects/project-05.jpg"
                             beforeLabel="Before"
                             afterLabel="After"
                         />
@@ -308,7 +308,7 @@ export default function PergolasPage() {
                             <div className="grid grid-cols-3 gap-4">
                                 {colorOptions.map((color) => (
                                     <div key={color.name} className="text-center">
-                                        <div 
+                                        <div
                                             className="w-16 h-16 rounded-full mx-auto mb-2 border-2 border-black/10 dark:border-white/10"
                                             style={{ background: color.hex }}
                                         />
@@ -359,11 +359,10 @@ export default function PergolasPage() {
 
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             {specs.map((spec, index) => (
-                                <div 
+                                <div
                                     key={spec.label}
-                                    className={`flex justify-between items-center p-6 ${
-                                        index !== specs.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""
-                                    }`}
+                                    className={`flex justify-between items-center p-6 ${index !== specs.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""
+                                        }`}
                                 >
                                     <span className="text-muted-foreground">{spec.label}</span>
                                     <span className="font-semibold">{spec.value}</span>
@@ -372,7 +371,7 @@ export default function PergolasPage() {
                         </div>
 
                         <p className="text-center text-sm text-edg-gray-text dark:text-gray-400 mt-6 font-medium">
-                            Specifications vary by manufacturer and configuration. 
+                            Specifications vary by manufacturer and configuration.
                             <Link href="/contact" className="text-edg-brand-text dark:text-edg-brand hover:underline ml-1 font-bold">
                                 Contact us for detailed specs
                             </Link>
@@ -392,13 +391,13 @@ export default function PergolasPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
-                            { src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=600&auto=format&fit=crop", label: "Outdoor Dining" },
-                            { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=600&auto=format&fit=crop", label: "Entertainment" },
-                            { src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop", label: "Pool & Spa" },
-                            { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=600&auto=format&fit=crop", label: "Relaxation" },
+                            { src: "/images/projects/project-01.jpg", label: "Outdoor Dining" },
+                            { src: "/images/projects/project-02.jpg", label: "Entertainment" },
+                            { src: "/images/projects/project-03.jpg", label: "Pool & Spa" },
+                            { src: "/images/projects/project-04.jpg", label: "Relaxation" },
                         ].map((item) => (
                             <div key={item.label} className="group relative aspect-square rounded-xl overflow-hidden">
-                                <img 
+                                <img
                                     src={item.src}
                                     alt={item.label}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -419,7 +418,7 @@ export default function PergolasPage() {
                             Ready to Create Your Outdoor Room?
                         </h2>
                         <p className="text-xl text-edg-dark/80 mb-8">
-                            Get a custom quote for your space. We'll help you choose the right configuration 
+                            Get a custom quote for your space. We'll help you choose the right configuration
                             and options for how you actually want to use it.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">

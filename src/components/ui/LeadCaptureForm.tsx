@@ -1,5 +1,7 @@
 "use client";
 
+
+
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
@@ -52,6 +54,14 @@ export function LeadCaptureForm({
       }
 
       setFormState("success");
+
+      // Track conversion
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: "form_success",
+          form_source: source
+        });
+      }
     } catch (error) {
       setFormState("error");
       setErrorMessage(

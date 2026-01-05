@@ -23,22 +23,22 @@ export const metadata: Metadata = {
 const galleryImages = [
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/shades/shades-hero.jpg",
         alt: "Motorized shades on modern home",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/shades/shades-detail.jpg",
         alt: "Exterior screens on pergola",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/shades/shades-retracted.jpg",
         alt: "Shade system retracted",
     },
     {
         type: "image" as const,
-        src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2000&auto=format&fit=crop",
+        src: "/images/projects/project-03.jpg",
         alt: "Multiple shade drops on patio",
     },
 ];
@@ -112,7 +112,7 @@ export default function ShadesPage() {
                                     Motorized Shades
                                 </h1>
                                 <p className="text-xl text-edg-gray-text dark:text-gray-400 leading-relaxed">
-                                    Wind-rated exterior screens that block 80%+ of heat and glare while 
+                                    Wind-rated exterior screens that block 80%+ of heat and glare while
                                     preserving your view. Retract completely when you don't need them.
                                 </p>
                             </div>
@@ -168,22 +168,22 @@ export default function ShadesPage() {
                             {
                                 title: "Pergola Enclosure",
                                 desc: "Add privacy and wind protection to your pergola with side-mount shade drops.",
-                                image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
+                                image: "/images/shades/shades-hero.jpg",
                             },
                             {
                                 title: "Window & Door Screens",
                                 desc: "Block solar heat before it enters your home. Reduce AC costs significantly.",
-                                image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop",
+                                image: "/images/shades/shades-detail.jpg",
                             },
                             {
                                 title: "Patio & Deck",
                                 desc: "Create a comfortable outdoor space even in the heat of summer.",
-                                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+                                image: "/images/shades/shades-retracted.jpg",
                             },
                         ].map((item) => (
                             <div key={item.title} className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                                 <div className="aspect-video relative">
-                                    <img 
+                                    <img
                                         src={item.image}
                                         alt={item.title}
                                         className="w-full h-full object-cover"
@@ -204,8 +204,8 @@ export default function ShadesPage() {
                 <Container>
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <BeforeAfter
-                            beforeImage="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop"
-                            afterImage="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200&auto=format&fit=crop"
+                            beforeImage="/images/projects/project-01.jpg"
+                            afterImage="/images/projects/project-02.jpg"
                             beforeLabel="Without Shades"
                             afterLabel="With Shades"
                         />
@@ -214,7 +214,7 @@ export default function ShadesPage() {
                                 Feel the Difference
                             </h2>
                             <p className="text-lg text-edg-gray-text dark:text-gray-400 mb-6 font-medium">
-                                That unbearable hot spot on your patio? The glare that makes your TV unwatchable? 
+                                That unbearable hot spot on your patio? The glare that makes your TV unwatchable?
                                 The faded furniture? Motorized shades solve all of it—without blocking your view.
                             </p>
                             <ul className="space-y-3">
@@ -277,7 +277,7 @@ export default function ShadesPage() {
 
                     <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
                         {fabricOptions.map((fabric) => (
-                          <div key={fabric.name} className="text-center p-6 rounded-2xl bg-white dark:bg-zinc-800 shadow-sm border border-zinc-100 dark:border-zinc-700">
+                            <div key={fabric.name} className="text-center p-6 rounded-2xl bg-white dark:bg-zinc-800 shadow-sm border border-zinc-100 dark:border-zinc-700">
                                 <div className={`w-24 h-24 rounded-full mx-auto mb-4 ${fabric.opacity}`} />
                                 <h3 className="font-bold">{fabric.name}</h3>
                                 <p className="text-sm text-edg-gray-text dark:text-gray-400 mt-1 font-medium">{fabric.desc}</p>
@@ -303,11 +303,10 @@ export default function ShadesPage() {
 
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             {specs.map((spec, index) => (
-                                <div 
+                                <div
                                     key={spec.label}
-                                    className={`flex justify-between items-center p-6 ${
-                                        index !== specs.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""
-                                    }`}
+                                    className={`flex justify-between items-center p-6 ${index !== specs.length - 1 ? "border-b border-black/5 dark:border-white/5" : ""
+                                        }`}
                                 >
                                     <span className="text-muted-foreground">{spec.label}</span>
                                     <span className="font-semibold">{spec.value}</span>
@@ -326,7 +325,7 @@ export default function ShadesPage() {
                             Ready to Beat the Heat?
                         </h2>
                         <p className="text-xl text-edg-dark/80 mb-8">
-                            Get a custom quote for motorized shades. We'll help you choose the right 
+                            Get a custom quote for motorized shades. We'll help you choose the right
                             fabric and configuration for your space.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
