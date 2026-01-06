@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, CloudRain, Sun, Wind } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -34,10 +35,12 @@ export default function SystemsPage() {
                         {/* Pergolas */}
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden group hover:border-edg-brand transition-colors">
                             <div className="aspect-[4/3] relative bg-gray-200 dark:bg-gray-800">
-                                <img 
-                                    src="https://image.pollinations.ai/prompt/modern%20louvered%20pergola%20system%20white%20aluminum%20patio%20cover%20blue%20sky?width=800&height=600&nologo=true"
+                                <Image
+                                    src="/images/pergolas/residential-black-r-blade-01.jpg"
                                     alt="Louvered pergola system"
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
                             <div className="p-8">
@@ -54,10 +57,12 @@ export default function SystemsPage() {
                         {/* Shades */}
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden group hover:border-edg-brand transition-colors">
                             <div className="aspect-[4/3] relative bg-gray-200 dark:bg-gray-800">
-                                <img 
-                                    src="https://image.pollinations.ai/prompt/motorized%20exterior%20shade%20screens%20on%20modern%20home%20windows%20black%20mesh%20fabric?width=800&height=600&nologo=true"
+                                <Image
+                                    src="/images/shades/shades-hero.jpg"
                                     alt="Motorized exterior shades"
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
                             <div className="p-8">
@@ -74,10 +79,12 @@ export default function SystemsPage() {
                         {/* Enclosures */}
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden group hover:border-edg-brand transition-colors">
                             <div className="aspect-[4/3] relative bg-gray-200 dark:bg-gray-800">
-                                <img 
-                                    src="https://image.pollinations.ai/prompt/frameless%20glass%20enclosure%20system%20retractable%20walls%20patio%20room?width=800&height=600&nologo=true"
+                                <Image
+                                    src="/images/enclosures/glass-system-03.jpg"
                                     alt="Glass enclosure system"
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
                             <div className="p-8">

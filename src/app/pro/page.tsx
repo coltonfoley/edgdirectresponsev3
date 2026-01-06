@@ -33,7 +33,7 @@ export default function ProPage() {
                             <span className="text-muted-foreground">Deliver better outdoor living.</span>
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8">
-                            High-end shading systems shouldn't be a headache. 
+                            High-end shading systems shouldn't be a headache.
                             Whether we handle the full install or support your crew with the materials and expertise they need, we make sure the project stays on track.
                         </p>
                         <div className="flex flex-wrap gap-4">
@@ -99,7 +99,7 @@ export default function ProPage() {
                                 Think of us as your in-house shading team.
                             </h2>
                             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                                You have enough to manage. We handle the specialized details—from measuring to the final punch list. 
+                                You have enough to manage. We handle the specialized details—from measuring to the final punch list.
                                 <strong> Have your own crew?</strong> We can supply the systems and provide the technical support they need to get it right.
                             </p>
                             <ul className="space-y-4">
@@ -123,7 +123,7 @@ export default function ProPage() {
                         <div className="relative rounded-3xl overflow-hidden bg-black min-h-[500px]">
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
-                                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop')" }}
+                                style={{ backgroundImage: "url('/images/pergolas/residential-black-r-blade-02.jpg')" }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">

@@ -67,7 +67,7 @@ const projects = [
         location: "Wilmette, IL",
         type: "Commercial",
         systems: ["Louvered Pergola"],
-        image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop",
+        image: "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
         description: "Twin pergola structures shading the member pool deck, creating comfortable gathering areas regardless of weather."
     }
 ];
@@ -120,7 +120,7 @@ export default function ProjectsPage() {
                             <Link
                                 key={project.slug}
                                 href={`/projects/${project.slug}`}
-                                className="group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-black/5 dark:border-white/5 hover:shadow-xl transition-all duration-300"
+                                className="group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-black/5 dark:border-white/5 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                             >
                                 <div className="relative h-64 overflow-hidden">
                                     <div

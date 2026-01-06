@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { MoveHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface BeforeAfterProps {
   beforeImage: string;
@@ -72,19 +73,21 @@ export function BeforeAfter({
   return (
     <div
       ref={containerRef}
-      className={cn("relative w-full overflow-hidden select-none group touch-none", className)}
+      className={cn("relative w-full overflow-hidden select-none group touch-none rounded-2xl", className)}
       onMouseDown={handleMouseDown}
       onTouchStart={() => setIsDragging(true)}
     >
       <div className="relative w-full aspect-video">
         {/* After Image (Background) */}
-        <img
+        <Image
           src={afterImage}
           alt={afterLabel}
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          className="object-cover"
           draggable={false}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
-        <div className="absolute bottom-4 right-4 bg-black/50 text-white px-2 py-1 text-sm rounded font-medium backdrop-blur-sm">
+        <div className="absolute bottom-4 right-4 bg-black/50 text-white px-2 py-1 text-sm rounded font-medium backdrop-blur-sm z-10">
           {afterLabel}
         </div>
 
@@ -93,21 +96,29 @@ export function BeforeAfter({
           className="absolute inset-0 overflow-hidden"
           style={{ width: `${sliderPosition}%` }}
         >
-          <img
-            src={beforeImage}
-            alt={beforeLabel}
-            className="absolute inset-0 max-w-none h-full object-cover"
-            style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : "100%" }} 
-            draggable={false}
-          />
-          <div className="absolute bottom-4 left-4 bg-black/50 text-white px-2 py-1 text-sm rounded font-medium backdrop-blur-sm">
+          {/* We wrap the inner image in a div that matches the full container width 
+              so the image doesn't scale with the clipping mask */}
+          <div
+            className="relative h-full"
+            style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : "100%" }}
+          >
+            <Image
+              src={beforeImage}
+              alt={beforeLabel}
+              fill
+              className="object-cover"
+              draggable={false}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          <div className="absolute bottom-4 left-4 bg-black/50 text-white px-2 py-1 text-sm rounded font-medium backdrop-blur-sm z-10">
             {beforeLabel}
           </div>
         </div>
 
         {/* Slider Handle */}
         <div
-          className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-10 shadow-[0_0_10px_rgba(0,0,0,0.5)]"
+          className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 shadow-[0_0_10px_rgba(0,0,0,0.5)]"
           style={{ left: `${sliderPosition}%` }}
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg border border-gray-200">
@@ -118,4 +129,3 @@ export function BeforeAfter({
     </div>
   );
 }
-

@@ -178,7 +178,7 @@ export default function ShadesPage() {
                             {
                                 title: "Patio & Deck",
                                 desc: "Create a comfortable outdoor space even in the heat of summer.",
-                                image: "/images/shades/shades-retracted.jpg",
+                                image: "/images/shades/commercial-white-r-blade-screens-lake.jpg",
                             },
                         ].map((item) => (
                             <div key={item.title} className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">

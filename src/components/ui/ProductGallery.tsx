@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, Play, Maximize2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import { Button } from "./Button";
+import Image from "next/image";
 
 interface MediaItem {
     type: "image" | "video";
@@ -34,11 +35,14 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
             {/* Main Viewport */}
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800 group">
                 {items[activeIndex].type === "image" ? (
-                    <img
+                    <Image
                         src={items[activeIndex].src}
                         alt={items[activeIndex].alt || "Product image"}
-                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105 cursor-zoom-in"
+                        fill
+                        className="object-cover transition-transform duration-500 hover:scale-105 cursor-zoom-in"
                         onClick={() => setLightboxOpen(true)}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority
                     />
                 ) : (
                     <div className="relative h-full w-full">
@@ -52,7 +56,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
                 )}
 
                 {/* Navigation Arrows */}
-                <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+                <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
                     <Button
                         variant="secondary"
                         size="icon"
@@ -78,7 +82,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
                 </div>
 
                 {/* Counter Badge */}
-                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-white pointer-events-none">
+                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur px-3 py-1 rounded-full text-xs font-medium text-white pointer-events-none z-10">
                     {activeIndex + 1} / {items.length}
                 </div>
             </div>
@@ -97,18 +101,21 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
                         )}
                     >
                         {item.type === "image" ? (
-                            <img
+                            <Image
                                 src={item.src}
                                 alt={item.alt || `Thumbnail ${index + 1}`}
-                                className="h-full w-full object-cover"
+                                fill
+                                className="object-cover"
+                                sizes="80px"
                             />
                         ) : (
                             <div className="relative h-full w-full bg-zinc-900">
                                 {item.poster && (
-                                    <img
+                                    <Image
                                         src={item.poster}
                                         alt="Video thumbnail"
-                                        className="h-full w-full object-cover opacity-50"
+                                        fill
+                                        className="object-cover opacity-50"
                                     />
                                 )}
                                 <div className="absolute inset-0 flex items-center justify-center">
@@ -122,26 +129,29 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
 
             {/* Simple Lightbox (Overlay) */}
             {lightboxOpen && items[activeIndex].type === "image" && (
-                <div 
+                <div
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 animate-in fade-in duration-200"
                     onClick={() => setLightboxOpen(false)}
                 >
-                    <button 
-                        className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors"
+                    <button
+                        className="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-50"
                         onClick={() => setLightboxOpen(false)}
                     >
                         <X className="h-8 w-8" />
                     </button>
-                    
-                    <img
-                        src={items[activeIndex].src}
-                        alt={items[activeIndex].alt}
-                        className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl"
-                        onClick={(e) => e.stopPropagation()}
-                    />
+
+                    <div className="relative w-full h-full max-h-[90vh] max-w-[90vw]">
+                        <Image
+                            src={items[activeIndex].src}
+                            alt={items[activeIndex].alt || "Product image"}
+                            fill
+                            className="object-contain"
+                            onClick={(e) => e.stopPropagation()}
+                            sizes="100vw"
+                        />
+                    </div>
                 </div>
             )}
         </div>
     );
 }
-

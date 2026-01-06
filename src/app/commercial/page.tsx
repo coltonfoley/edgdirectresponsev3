@@ -119,7 +119,7 @@ export default function CommercialPage() {
                         <div className="relative rounded-3xl overflow-hidden bg-black min-h-[500px]">
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
-                                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600&auto=format&fit=crop')" }}
+                                style={{ backgroundImage: "url('/images/commercial-glass-enclosure-day-exterior-01.jpg')" }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -247,7 +247,7 @@ export default function CommercialPage() {
                         <Shield className="h-12 w-12 mx-auto mb-6" />
                         <h2 className="text-3xl font-bold mb-4">Commercial Priority Service</h2>
                         <p className="text-xl leading-relaxed">
-                            For hospitality and restaurant operators, downtime is lost revenue. We provide 
+                            For hospitality and restaurant operators, downtime is lost revenue. We provide
                             priority support and local parts stocking to ensure your patio stays open and profitable.
                         </p>
                     </div>

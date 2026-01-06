@@ -168,7 +168,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <GoogleTagManager gtmId="GTM-XXXXXXX" /> {/* TODO: Replace with actual Container ID */}
+        <GoogleTagManager gtmId="GTM-MJWNZD3F" />
       </body>
     </html>
   );

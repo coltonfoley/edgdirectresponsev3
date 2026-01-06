@@ -23,28 +23,28 @@ export const metadata: Metadata = {
 const galleryImages = [
     {
         type: "image" as const,
-        src: "/images/pergolas/pergola-hero.jpg",
-        alt: "Louvered pergola hero shot",
+        src: "/images/pergolas/residential-black-r-blade-01.jpg",
+        alt: "Modern black R-Blade pergola installation",
     },
     {
         type: "image" as const,
-        src: "/images/pergolas/pergola-detail.jpg",
-        alt: "Pergola louver detail",
+        src: "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg",
+        alt: "Gray bronze R-Blade with white louvers",
     },
     {
         type: "image" as const,
-        src: "/images/pergolas/pergola-lifestyle.jpg",
-        alt: "Outdoor living under pergola",
+        src: "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg",
+        alt: "Gray and white R-Shade over outdoor kitchen",
     },
     {
         type: "image" as const,
-        src: "/images/projects/project-01.jpg",
-        alt: "Custom pergola installation",
+        src: "/images/pergolas/residential-white-r-blade-led-strip.jpg",
+        alt: "White R-Blade with integrated LED lighting",
     },
     {
         type: "image" as const,
-        src: "/images/projects/project-02.jpg",
-        alt: "Pergola with screens",
+        src: "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg",
+        alt: "Dark gray R-Blade with recessed lights",
     },
 ];
 
@@ -178,7 +178,7 @@ export default function PergolasPage() {
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
                                 <img
-                                    src="/images/pergolas/pergola-lifestyle.jpg"
+                                    src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg"
                                     alt="Louvers fully open"
                                     className="w-full h-full object-cover"
                                 />
@@ -194,7 +194,7 @@ export default function PergolasPage() {
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
                                 <img
-                                    src="/images/pergolas/pergola-hero.jpg"
+                                    src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg"
                                     alt="Louvers partially closed"
                                     className="w-full h-full object-cover"
                                 />
@@ -210,7 +210,7 @@ export default function PergolasPage() {
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
                                 <img
-                                    src="/images/pergolas/pergola-detail.jpg"
+                                    src="/images/pergolas/residential-black-r-blade-03.jpg"
                                     alt="Louvers fully closed"
                                     className="w-full h-full object-cover"
                                 />
@@ -391,10 +391,10 @@ export default function PergolasPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
-                            { src: "/images/projects/project-01.jpg", label: "Outdoor Dining" },
-                            { src: "/images/projects/project-02.jpg", label: "Entertainment" },
-                            { src: "/images/projects/project-03.jpg", label: "Pool & Spa" },
-                            { src: "/images/projects/project-04.jpg", label: "Relaxation" },
+                            { src: "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png", label: "Outdoor Dining" },
+                            { src: "/images/pergolas/residential-black-r-blade-04.jpg", label: "Entertainment" },
+                            { src: "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg", label: "Pool & Spa" },
+                            { src: "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg", label: "Relaxation" },
                         ].map((item) => (
                             <div key={item.label} className="group relative aspect-square rounded-xl overflow-hidden">
                                 <img

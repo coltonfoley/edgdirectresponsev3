@@ -59,7 +59,7 @@ export function Navbar() {
                     : "bg-transparent py-6"
             )}
         >
-            <Container>
+            <Container className="px-6">
                 <div className="flex items-center relative w-full">
                     <Link href="/" className="text-2xl font-bold tracking-tighter flex-shrink-0">
                         EDG
@@ -76,7 +76,7 @@ export function Navbar() {
                                 Systems
                                 <ChevronDown className={cn("h-4 w-4 transition-transform", systemsOpen && "rotate-180")} />
                             </button>
-                            
+
                             {systemsOpen && (
                                 <div className="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-zinc-900 rounded-xl shadow-xl border border-black/5 dark:border-white/10 overflow-hidden">
                                     {systemsDropdown.map((item) => (
@@ -103,7 +103,7 @@ export function Navbar() {
                                 Areas
                                 <ChevronDown className={cn("h-4 w-4 transition-transform", areasOpen && "rotate-180")} />
                             </button>
-                            
+
                             {areasOpen && (
                                 <div className="absolute top-full left-0 mt-2 w-72 bg-white dark:bg-zinc-900 rounded-xl shadow-xl border border-black/5 dark:border-white/10 overflow-hidden">
                                     <Link
@@ -158,8 +158,8 @@ export function Navbar() {
                     <div className="ml-auto flex items-center gap-4">
                         {/* Desktop CTAs */}
                         <div className="hidden lg:flex items-center gap-4">
-                            <a 
-                                href="tel:+18475551234" 
+                            <a
+                                href="tel:+18475551234"
                                 className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                             >
                                 <Phone className="h-4 w-4" />
@@ -172,8 +172,8 @@ export function Navbar() {
 
                         {/* Mobile: Phone + Menu Toggle */}
                         <div className="flex items-center gap-3 lg:hidden">
-                            <a 
-                                href="tel:+18475551234" 
+                            <a
+                                href="tel:+18475551234"
                                 className="p-2 text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                                 aria-label="Call us"
                             >
@@ -193,6 +193,12 @@ export function Navbar() {
                 {/* Mobile Menu */}
                 {isOpen && (
                     <div className="absolute top-full left-0 right-0 bg-background border-b border-edg-gray/10 p-4 flex flex-col gap-2 lg:hidden shadow-lg animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto">
+                        {/* Location Tag (Mobile Only) */}
+                        <div className="mx-4 mt-2 mb-2 p-2 bg-edg-brand/10 border border-edg-brand/20 rounded-md text-center">
+                            <span className="text-xs font-bold text-edg-brand uppercase tracking-wider">
+                                Serving North Chicago to Milwaukee
+                            </span>
+                        </div>
                         {/* Systems Section */}
                         <div className="px-4 py-2">
                             <div className="text-xs font-semibold text-edg-gray-text dark:text-muted-foreground uppercase tracking-wider mb-2">
@@ -209,9 +215,9 @@ export function Navbar() {
                                 </Link>
                             ))}
                         </div>
-                        
+
                         <div className="border-t border-edg-gray/10 my-2" />
-                        
+
                         {/* Service Areas Section */}
                         <div className="px-4 py-2">
                             <div className="text-xs font-semibold text-edg-gray-text dark:text-muted-foreground uppercase tracking-wider mb-2">
@@ -235,9 +241,9 @@ export function Navbar() {
                                 </Link>
                             ))}
                         </div>
-                        
+
                         <div className="border-t border-edg-gray/10 my-2" />
-                        
+
                         <Link
                             href="/projects"
                             className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
@@ -266,10 +272,10 @@ export function Navbar() {
                         >
                             For Pros
                         </Link>
-                        
+
                         <div className="border-t border-edg-gray/10 pt-4 mt-2 space-y-3">
-                            <a 
-                                href="tel:+18475551234" 
+                            <a
+                                href="tel:+18475551234"
                                 className="flex items-center gap-3 px-4 py-2 text-edg-brand-text dark:text-edg-brand font-bold"
                                 onClick={() => setIsOpen(false)}
                             >

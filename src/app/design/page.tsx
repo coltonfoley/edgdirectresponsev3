@@ -123,7 +123,7 @@ export default function DesignPage() {
                         <div className="relative rounded-3xl overflow-hidden bg-black min-h-[500px]">
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
-                                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1600&auto=format&fit=crop')" }}
+                                style={{ backgroundImage: "url('/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg')" }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">

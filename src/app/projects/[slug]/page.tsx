@@ -26,11 +26,11 @@ const projects: Record<string, {
         location: "Lake Forest, IL",
         type: "Residential",
         systems: ["Louvered Pergola", "Motorized Shades"],
-        heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2000&auto=format&fit=crop",
+        heroImage: "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
         galleryImages: [
-            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+            "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
+            "/images/shades/shades-hero.jpg",
+            "/images/enclosures/glass-hero.jpg"
         ],
         description: "A comprehensive outdoor living solution for a family seeking year-round usability on their Lake Michigan property.",
         challenge: "The homeowners had a beautiful lakefront view but couldn't enjoy their patio for most of the year. Summer sun made it unbearably hot by noon, spring and fall winds cut short any outdoor time, and surprise rain showers ruined countless gatherings. They needed a solution that would handle all of these challenges without blocking their prized view of the lake.",
@@ -59,11 +59,11 @@ const projects: Record<string, {
         location: "Barrington, IL",
         type: "Residential",
         systems: ["Louvered Pergola", "Glass Enclosure"],
-        heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop",
+        heroImage: "/images/enclosures/glass-hero.jpg",
         galleryImages: [
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+            "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
+            "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg",
+            "/images/shades/shades-hero.jpg"
         ],
         description: "An underutilized concrete patio transformed into a true four-season room with full weather protection.",
         challenge: "The homeowners had invested in a beautiful patio when they built their home, but found they rarely used it. Midwest weather made it uncomfortable most of the year, and they wanted a solution that would essentially add another room to their home without the cost and complexity of a full addition.",
@@ -92,11 +92,11 @@ const projects: Record<string, {
         location: "Lake Geneva, WI",
         type: "Commercial",
         systems: ["Louvered Pergola", "Integrated Heating"],
-        heroImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2000&auto=format&fit=crop",
+        heroImage: "/images/commercial-pergola-glass-enclosure-day-dining-01.jpg",
         galleryImages: [
-            "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=800&auto=format&fit=crop"
+            "/images/commercial-glass-enclosure-day-exterior-01.jpg",
+            "/images/commercial-glass-enclosure-night-dining-01.jpg",
+            "/images/commercial-glass-enclosure-interior-wood-deck-01.jpg"
         ],
         description: "A lakeside fine dining restaurant eliminates weather cancellations and extends their patio season by 10 weeks.",
         challenge: "This lakeside restaurant had valuable patio real estate but could only use it reliably for a few months each year. Sudden rain would send guests inside mid-meal, hot afternoons kept the lunch crowd away, and the season ended abruptly in September. They needed a solution that would maximize their outdoor seating capacity while protecting the dining experience.",
@@ -125,11 +125,11 @@ const projects: Record<string, {
         location: "Libertyville, IL",
         type: "Residential",
         systems: ["Motorized Shades"],
-        heroImage: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop",
+        heroImage: "/images/shades/shades-hero.jpg",
         galleryImages: [
-            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop"
+            "/images/pergolas/residential-black-r-blade-04.jpg",
+            "/images/enclosures/glass-hero.jpg",
+            "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg"
         ],
         description: "Six motorized exterior shades protecting a south-facing home from summer heat while preserving backyard views.",
         challenge: "The homeowners' south-facing great room became unbearably hot every summer afternoon. Their HVAC system struggled to keep up, energy bills soared, and the furniture was fading from UV exposure. Interior blinds helped but blocked their beautiful backyard view entirely.",
@@ -158,11 +158,11 @@ const projects: Record<string, {
         location: "Highland Park, IL",
         type: "Builder Project",
         systems: ["Louvered Pergola", "Motorized Shades", "Glass Enclosure"],
-        heroImage: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2000&auto=format&fit=crop",
+        heroImage: "/images/pergolas/residential-black-r-blade-01.jpg",
         galleryImages: [
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+            "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg",
+            "/images/enclosures/glass-hero.jpg",
+            "/images/shades/shades-hero.jpg"
         ],
         description: "A complete outdoor living package coordinated during new construction for seamless integration.",
         challenge: "A custom home builder wanted to offer their client a premium outdoor living package but didn't have the expertise to design or install shading systems. They needed a partner who could coordinate with the build schedule, work with their structural engineer, and deliver a turnkey solution.",
@@ -191,11 +191,11 @@ const projects: Record<string, {
         location: "Wilmette, IL",
         type: "Commercial",
         systems: ["Louvered Pergola"],
-        heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop",
+        heroImage: "/images/commercial-white-r-blade-screens-lake.jpg",
         galleryImages: [
-            "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+            "/images/commercial-glass-enclosure-day-exterior-01.jpg",
+            "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
+            "/images/enclosures/glass-hero.jpg"
         ],
         description: "Twin pergola structures providing all-weather coverage for the member pool deck at a private country club.",
         challenge: "The club's pool deck was popular with members but offered no shade or rain protection. Members would leave during afternoon heat or sudden showers, reducing pool attendance and affecting member satisfaction scores.",

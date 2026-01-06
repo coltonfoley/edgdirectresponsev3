@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import {
     ArrowLeft, CheckCircle2, ArrowRight,
     Phone, Shield, Calculator, Clock, FileText
@@ -97,10 +98,12 @@ export default function PricePage() {
                         {/* Shades */}
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden">
                             <div className="aspect-[4/3] relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop"
+                                <Image
+                                    src="/images/shades/shades-hero.jpg"
                                     alt="Motorized exterior shades"
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
                             <div className="p-6">
@@ -115,10 +118,12 @@ export default function PricePage() {
                                 MOST POPULAR
                             </div>
                             <div className="aspect-[4/3] relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop"
+                                <Image
+                                    src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
                                     alt="Louvered pergola system"
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
                             <div className="p-6">
@@ -130,10 +135,12 @@ export default function PricePage() {
                         {/* Enclosures */}
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden">
                             <div className="aspect-[4/3] relative">
-                                <img 
-                                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+                                <Image
+                                    src="/images/enclosures/glass-hero.jpg"
                                     alt="Glass enclosure system"
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
                             <div className="p-6">

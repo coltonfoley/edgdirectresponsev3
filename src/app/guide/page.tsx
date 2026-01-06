@@ -1,11 +1,11 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { LeadCaptureForm } from "@/components/ui/LeadCaptureForm";
-import { 
-  CheckCircle2, 
-  Sun, 
-  Thermometer, 
-  Shield, 
+import {
+  CheckCircle2,
+  Sun,
+  Thermometer,
+  Shield,
   DollarSign,
   Ruler,
   FileCheck,
@@ -83,14 +83,14 @@ export default function GuidePage() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-edg-dark">
         {/* Background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 z-0" />
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-20 z-0"
-          style={{ 
-            backgroundImage: "url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2600&auto=format&fit=crop')" 
+          style={{
+            backgroundImage: "url('/images/pergolas/pergola-hero.jpg')"
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/40 z-10" />
-        
+
         {/* Decorative elements */}
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-edg-brand/10 rounded-full blur-3xl z-0" />
         <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-edg-brand/5 rounded-full blur-3xl z-0" />
@@ -113,7 +113,7 @@ export default function GuidePage() {
 
               {/* Subhead */}
               <p className="text-xl text-gray-300 leading-relaxed max-w-xl">
-                Planning a pergola, shade system, or outdoor enclosure? This guide helps you 
+                Planning a pergola, shade system, or outdoor enclosure? This guide helps you
                 avoid expensive mistakes and make confident decisions—before you talk to a single contractor.
               </p>
 
@@ -158,7 +158,7 @@ export default function GuidePage() {
               </div>
 
               {/* Lead capture form */}
-              <LeadCaptureForm 
+              <LeadCaptureForm
                 source="guide-landing-hero"
                 ctaText="Send Me the Free Guide"
               />
@@ -195,7 +195,7 @@ export default function GuidePage() {
               What You'll Learn
             </h2>
             <p className="text-lg text-muted-foreground">
-              This isn't fluff. It's the same information we share with clients who 
+              This isn't fluff. It's the same information we share with clients who
               invest $30k–$150k+ in outdoor living systems.
             </p>
           </div>
@@ -223,14 +223,14 @@ export default function GuidePage() {
                 Inside the Guide
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                A clear, no-nonsense roadmap for planning your outdoor living project—whether 
+                A clear, no-nonsense roadmap for planning your outdoor living project—whether
                 you're just exploring or ready to break ground.
               </p>
 
               <div className="space-y-6">
                 {guideChapters.map((chapter) => (
-                  <div 
-                    key={chapter.number} 
+                  <div
+                    key={chapter.number}
                     className="flex gap-4 group"
                   >
                     <div className="text-2xl font-bold text-edg-brand-text/40 dark:text-edg-brand/40 group-hover:text-edg-brand-text dark:group-hover:text-edg-brand transition-colors">
@@ -277,7 +277,7 @@ export default function GuidePage() {
               </div>
               <div className="pt-4 border-t border-black/5 dark:border-white/10">
                 <p className="text-sm text-muted-foreground italic">
-                  "This section alone saved us thousands. We had no idea about the permit 
+                  "This section alone saved us thousands. We had no idea about the permit
                   requirements in our area."
                 </p>
                 <p className="text-xs text-muted-foreground mt-2">— Recent guide reader</p>
@@ -292,19 +292,19 @@ export default function GuidePage() {
         {/* Background effects */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-edg-brand/10 rounded-full blur-3xl" />
-        
+
         <Container className="relative z-10">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
               Ready to Plan Your Outdoor Space?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Get the guide and start your project with confidence. It takes 30 seconds to sign up 
+              Get the guide and start your project with confidence. It takes 30 seconds to sign up
               and you'll have the PDF in your inbox immediately.
             </p>
 
             <div className="max-w-md mx-auto">
-              <LeadCaptureForm 
+              <LeadCaptureForm
                 source="guide-landing-bottom"
                 ctaText="Get the Free Guide"
                 variant="compact"

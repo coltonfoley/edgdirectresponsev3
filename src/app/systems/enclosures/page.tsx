@@ -23,23 +23,38 @@ export const metadata: Metadata = {
 const galleryImages = [
     {
         type: "image" as const,
-        src: "/images/enclosures/glass-hero.jpg",
-        alt: "Glass enclosure on modern patio",
+        src: "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg",
+        alt: "Commercial glass enclosure at night with outdoor dining",
     },
     {
         type: "image" as const,
-        src: "/images/enclosures/glass-closed.jpg",
-        alt: "Retractable glass panels open",
+        src: "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg",
+        alt: "Retractable glass panels open on commercial patio during the day",
     },
     {
         type: "image" as const,
-        src: "/images/enclosures/glass-detail.jpg",
-        alt: "Glass wall system stacked open",
+        src: "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg",
+        alt: "Glass wall system with elegant hanging lights",
     },
     {
         type: "image" as const,
-        src: "/images/projects/project-05.jpg",
-        alt: "Interior view through glass enclosure",
+        src: "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg",
+        alt: "Interior view of glass enclosure on wood deck",
+    },
+    {
+        type: "image" as const,
+        src: "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg",
+        alt: "Glass enclosure interior lighting at night",
+    },
+    {
+        type: "image" as const,
+        src: "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
+        alt: "Residential white pergola with glass sliding doors by the pool",
+    },
+    {
+        type: "image" as const,
+        src: "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
+        alt: "Modern louvered roof with glass enclosure exterior view",
     },
 ];
 
@@ -89,17 +104,17 @@ const systemTypes = [
     {
         name: "Bi-Fold",
         desc: "Panels fold accordion-style to one or both sides. Best for large openings.",
-        image: "/images/enclosures/glass-hero.jpg",
+        image: "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg",
     },
     {
         name: "Stacking",
         desc: "Individual panels slide and stack. Great for partial openings.",
-        image: "/images/enclosures/glass-closed.jpg",
+        image: "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg",
     },
     {
         name: "Sliding",
         desc: "Panels slide on tracks. Ideal for narrow spaces or straight runs.",
-        image: "/images/enclosures/glass-detail.jpg",
+        image: "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
     },
 ];
 
@@ -273,10 +288,10 @@ export default function EnclosuresPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {[
-                            { src: "/images/enclosures/glass-hero.jpg", label: "Covered Patios" },
-                            { src: "/images/enclosures/glass-detail.jpg", label: "Pergolas" },
-                            { src: "/images/projects/project-01.jpg", label: "Pool Houses" },
-                            { src: "/images/projects/project-02.jpg", label: "Restaurants" },
+                            { src: "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg", label: "Covered Patios" },
+                            { src: "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg", label: "Pergolas" },
+                            { src: "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg", label: "Pool Houses" },
+                            { src: "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg", label: "Restaurants" },
                         ].map((item) => (
                             <div key={item.label} className="group relative aspect-square rounded-xl overflow-hidden">
                                 <img
