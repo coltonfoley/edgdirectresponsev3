@@ -14,6 +14,15 @@ export default function ContactPage() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         // In production, this would submit to an API
+
+        // Track conversion
+        if (typeof window !== 'undefined' && (window as any).dataLayer) {
+            (window as any).dataLayer.push({
+                event: "contact_form_submit",
+                customer_type: formType
+            });
+        }
+
         setSubmitted(true);
     };
 
@@ -75,8 +84,8 @@ export default function ContactPage() {
                                             key={type.id}
                                             onClick={() => setFormType(type.id as typeof formType)}
                                             className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${formType === type.id
-                                                    ? "bg-edg-brand text-edg-dark"
-                                                    : "bg-zinc-100 dark:bg-zinc-800 text-muted-foreground hover:bg-zinc-200 dark:hover:bg-zinc-700"
+                                                ? "bg-edg-brand text-edg-dark"
+                                                : "bg-zinc-100 dark:bg-zinc-800 text-muted-foreground hover:bg-zinc-200 dark:hover:bg-zinc-700"
                                                 }`}
                                         >
                                             {type.label}

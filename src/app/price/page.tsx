@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import {
     ArrowLeft, CheckCircle2, ArrowRight,
-    Phone, Shield, Calculator, Clock, FileText
+    Phone, Calculator, Clock, FileText
 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -176,18 +176,21 @@ export default function PricePage() {
                 </Container>
             </Section>
 
-            {/* ========== WHAT'S ALWAYS INCLUDED ========== */}
+            {/* ========== SERVICES ========== */}
             <Section className="bg-white dark:bg-black py-20">
                 <Container>
-                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What's included in every project</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">What's typically included</h2>
+                    <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+                        Every project is unique. We tailor our services to meet the specific requirements of your site and goals.
+                    </p>
                     <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         {[
-                            { title: "Design Consultation", desc: "Site visit, measurements, and system recommendations" },
-                            { title: "Permit Handling", desc: "We submit applications and manage the approval process" },
-                            { title: "Engineering", desc: "Structural calcs stamped by a licensed PE (when required)" },
-                            { title: "Professional Installation", desc: "Our trained crews—not subcontractors" },
-                            { title: "Electrical Rough-In", desc: "Wiring for motors, lights, and controls" },
-                            { title: "Final Walkthrough", desc: "Training on operation and maintenance" }
+                            { title: "Project Planning", desc: "Comprehensive site assessment and tailored system recommendations." },
+                            { title: "Administrative Support", desc: "Management of documentation and municipal requirements when applicable." },
+                            { title: "Technical Oversight", desc: "Engineering and structural considerations based on your project's scope." },
+                            { title: "Professional Execution", desc: "Precision installation and site management by our specialized teams." },
+                            { title: "System Integration", desc: "Configuration of automation, lighting, and performance features as needed." },
+                            { title: "Project Completion", desc: "A final walkthrough and orientation to ensure your space is ready." }
                         ].map((item) => (
                             <div key={item.title} className="flex items-start gap-4">
                                 <CheckCircle2 className="h-6 w-6 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
@@ -197,20 +200,6 @@ export default function PricePage() {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                </Container>
-            </Section>
-
-            {/* ========== GUARANTEE ========== */}
-            <Section className="bg-edg-brand text-edg-dark py-16">
-                <Container>
-                    <div className="max-w-3xl mx-auto text-center">
-                        <Shield className="h-12 w-12 mx-auto mb-6" />
-                        <h2 className="text-3xl font-bold mb-4">Price Lock Guarantee</h2>
-                        <p className="text-xl leading-relaxed">
-                            Once you approve a proposal, your price is locked. We don't do "surprise" change orders
-                            or conveniently forget things from the quote. What we propose is what you pay.
-                        </p>
                     </div>
                 </Container>
             </Section>
@@ -232,10 +221,6 @@ export default function PricePage() {
                             {
                                 q: "Is there a cost for the quote?",
                                 a: "The initial consultation and site visit are free. If we proceed to detailed design work beyond the standard scope, we'll discuss any design fees upfront."
-                            },
-                            {
-                                q: "Do you offer financing?",
-                                a: "Yes. We partner with Affirm for qualified homeowners. Up to 36 months with competitive rates. We can discuss options during your consultation."
                             },
                             {
                                 q: "What's the deposit / payment schedule?",
