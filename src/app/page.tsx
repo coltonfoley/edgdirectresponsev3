@@ -22,9 +22,9 @@ export default function Home() {
         <Container className="relative z-20">
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              {/* Pre-headline with Location */}
+              {/* Service Note */}
               <div className="hidden md:inline-block text-sm font-medium tracking-wider text-edg-brand uppercase bg-edg-brand/10 border border-edg-brand/20 px-4 py-2 rounded-full">
-                Serving North Chicago to Milwaukee
+                Full-Service Installation within 60 Miles • Design & Supply Nationwide
               </div>
 
               {/* Main Headline - Problem/Solution */}
@@ -52,9 +52,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Service Area Note */}
-              <p className="text-sm text-gray-400 pt-4">
-                Full-service installation within 60 miles • Design & supply available nationwide
+              {/* Location Tag */}
+              <p className="text-sm text-gray-400 pt-4 font-medium tracking-wide uppercase">
+                Serving North Chicago to Milwaukee
               </p>
             </div>
           </FadeIn>
