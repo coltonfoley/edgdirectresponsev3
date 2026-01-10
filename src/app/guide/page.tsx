@@ -161,6 +161,7 @@ export default function GuidePage() {
               <LeadCaptureForm
                 source="guide-landing-hero"
                 ctaText="Send Me the Free Guide"
+                downloadUrl="/docs/edg-outdoor-living-guide.html"
               />
             </div>
           </div>
@@ -308,6 +309,7 @@ export default function GuidePage() {
                 source="guide-landing-bottom"
                 ctaText="Get the Free Guide"
                 variant="compact"
+                downloadUrl="/docs/edg-outdoor-living-guide.html"
               />
             </div>
           </div>

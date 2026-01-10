@@ -13,7 +13,7 @@ export function Footer() {
             <div className="relative border-b border-white/5 py-20 lg:py-24 overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(66,255,193,0.06),transparent_70%)] pointer-events-none" />
-                
+
                 <Container className="relative">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-0 items-stretch">
                         {/* Guide offer */}
@@ -33,11 +33,12 @@ export function Footer() {
                                     Get our free guide: budget ranges, system comparisons, and the mistakes to avoid.
                                 </p>
                             </div>
-                            <LeadCaptureForm 
+                            <LeadCaptureForm
                                 source="footer"
                                 ctaText="Send Me the Guide"
                                 variant="compact"
                                 className="w-full"
+                                downloadUrl="/docs/edg-outdoor-living-guide.html"
                             />
                         </div>
 
@@ -53,7 +54,7 @@ export function Footer() {
                                     Talk to our team about your outdoor living goals. No pressure, just helpful guidance.
                                 </p>
                             </div>
-                            
+
                             <div className="space-y-6">
                                 <div className="flex flex-wrap gap-4">
                                     <Link href="/contact" className="group">
@@ -61,15 +62,15 @@ export function Footer() {
                                             Book a Consultation <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                         </Button>
                                     </Link>
-                                    <a 
-                                        href="tel:+18475551234" 
+                                    <a
+                                        href="tel:+18475551234"
                                         className="inline-flex items-center justify-center gap-3 h-12 px-6 rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all font-medium backdrop-blur-sm whitespace-nowrap"
                                     >
                                         <Phone className="h-5 w-5 text-edg-brand" />
                                         (847) 555-1234
                                     </a>
                                 </div>
-                                
+
                                 <div className="flex items-center gap-3 text-xs text-gray-500 font-medium">
                                     <div className="h-1.5 w-1.5 rounded-full bg-edg-brand animate-pulse" />
                                     Mon–Fri, 8am–5pm CT • Response within 1 business day

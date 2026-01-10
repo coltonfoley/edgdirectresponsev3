@@ -141,7 +141,7 @@ export default function Home() {
                 <div className="group relative rounded-3xl overflow-hidden bg-black min-h-[450px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: "url('/images/shades/shades-hero.jpg')" }}
+                    style={{ backgroundImage: "url('/images/motorized-retractable-screens-patio.jpg')" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 z-10 p-8 md:p-10">
@@ -164,7 +164,7 @@ export default function Home() {
                 <div className="group relative rounded-3xl overflow-hidden bg-black min-h-[450px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: "url('/images/enclosures/glass-system-01.jpg')" }}
+                    style={{ backgroundImage: "url('/images/frameless-sliding-glass-walls.jpg')" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 z-10 p-8 md:p-10">
@@ -293,6 +293,7 @@ export default function Home() {
                   source="homepage-inline"
                   ctaText="Get the Free Guide"
                   variant="compact"
+                  downloadUrl="/docs/edg-outdoor-living-guide.html"
                 />
               </div>
 

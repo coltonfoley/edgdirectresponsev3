@@ -58,7 +58,7 @@ export default function SystemsPage() {
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden group hover:border-edg-brand transition-colors">
                             <div className="aspect-[4/3] relative bg-gray-200 dark:bg-gray-800">
                                 <Image
-                                    src="/images/shades/shades-hero.jpg"
+                                    src="/images/shades/shade-deployed-screens-01.jpg"
                                     alt="Motorized exterior shades"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
