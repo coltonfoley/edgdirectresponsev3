@@ -23,7 +23,7 @@ export default function Home() {
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center space-y-8">
               {/* Service Note */}
-              <div className="hidden md:inline-block text-sm font-medium tracking-wider text-edg-brand uppercase bg-edg-brand/10 border border-edg-brand/20 px-4 py-2 rounded-full">
+              <div className="inline-block text-sm font-medium tracking-wider text-edg-brand uppercase bg-edg-brand/10 border border-edg-brand/20 px-4 py-2 rounded-full">
                 Full-Service Installation within 60 Miles • Design & Supply Nationwide
               </div>
 
