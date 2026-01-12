@@ -119,7 +119,7 @@ export default function CommercialPage() {
                         <div className="relative rounded-3xl overflow-hidden bg-black min-h-[500px]">
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
-                                style={{ backgroundImage: "url('/images/commercial-glass-enclosure-day-exterior-01.jpg')" }}
+                                style={{ backgroundImage: "url('/images/commercial-restaurant-patio-enclosure.jpg')" }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">

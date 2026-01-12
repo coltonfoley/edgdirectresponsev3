@@ -39,7 +39,7 @@ export default function ProPage() {
                         <div className="flex flex-wrap gap-4">
                             <Link href="/contact?type=pro&action=plans">
                                 <Button size="lg" className="rounded-full">
-                                    <UploadCloud className="mr-2 h-5 w-5" /> Upload Plans for Takeoff
+                                    Request Project Quote
                                 </Button>
                             </Link>
                             <Link href="/contact?type=pro">
@@ -153,10 +153,10 @@ export default function ProPage() {
                             <UploadCloud className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
                             <h3 className="text-xl font-bold mb-3">48-Hour Pricing</h3>
                             <p className="text-edg-gray-text dark:text-gray-400 mb-4">
-                                Send us your plans. We'll get you accurate pricing and lead times within two business days.
+                                Share your project details. We'll get you accurate pricing and lead times within two business days.
                             </p>
                             <Link href="/contact?type=pro&action=plans" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
-                                Upload Plans →
+                                Request Quote →
                             </Link>
                         </div>
                         <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
@@ -299,12 +299,12 @@ export default function ProPage() {
                             Let's talk about your next project.
                         </h2>
                         <p className="text-xl text-gray-300 mb-8">
-                            Upload plans for a quick takeoff, or schedule a call to discuss trade partnership.
+                            Request a quote for your project, or schedule a call to discuss trade partnership.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/contact?type=pro&action=plans">
                                 <Button size="lg" className="rounded-full text-lg px-8">
-                                    <UploadCloud className="mr-2 h-5 w-5" /> Upload Plans
+                                    Request Quote
                                 </Button>
                             </Link>
                             <a href="tel:+18475551234">

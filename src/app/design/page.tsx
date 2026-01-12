@@ -123,11 +123,11 @@ export default function DesignPage() {
                         <div className="relative rounded-3xl overflow-hidden bg-black min-h-[500px]">
                             <div
                                 className="absolute inset-0 bg-cover bg-center"
-                                style={{ backgroundImage: "url('/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg')" }}
+                                style={{ backgroundImage: "url('/images/frameless-sliding-glass-walls.jpg')" }}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             <div className="absolute bottom-0 left-0 right-0 p-8">
-                                <p className="text-white text-xl font-medium">A properly planned pergola installation in Lake Forest, IL</p>
+                                <p className="text-white text-xl font-medium">A custom outdoor living space with retractable glass walls in Barrington, IL</p>
                             </div>
                         </div>
                     </div>

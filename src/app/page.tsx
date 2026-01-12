@@ -22,6 +22,11 @@ export default function Home() {
         <Container className="relative z-20">
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center space-y-8">
+              {/* Service Note */}
+              <div className="inline-block text-sm font-medium tracking-wider text-edg-brand uppercase bg-edg-brand/10 border border-edg-brand/20 px-4 py-2 rounded-full">
+                Full-Service Installation within 60 Miles • Design & Supply Nationwide
+              </div>
+
               {/* Main Headline - Problem/Solution */}
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
                 Outdoor Living That Works<br className="hidden md:block" />
@@ -47,9 +52,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Service Area Note */}
-              <p className="text-sm text-gray-400 pt-4">
-                Full-service installation within 60 miles • Design & supply available nationwide
+              {/* Location Tag */}
+              <p className="text-sm text-gray-400 pt-4 font-medium tracking-wide uppercase">
+                Serving North Chicago to Milwaukee
               </p>
             </div>
           </FadeIn>
@@ -136,7 +141,7 @@ export default function Home() {
                 <div className="group relative rounded-3xl overflow-hidden bg-black min-h-[450px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: "url('/images/shades/shades-hero.jpg')" }}
+                    style={{ backgroundImage: "url('/images/motorized-retractable-screens-patio.jpg')" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 z-10 p-8 md:p-10">
@@ -159,7 +164,7 @@ export default function Home() {
                 <div className="group relative rounded-3xl overflow-hidden bg-black min-h-[450px]">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: "url('/images/enclosures/glass-system-01.jpg')" }}
+                    style={{ backgroundImage: "url('/images/frameless-sliding-glass-walls.jpg')" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 z-10 p-8 md:p-10">
@@ -288,6 +293,7 @@ export default function Home() {
                   source="homepage-inline"
                   ctaText="Get the Free Guide"
                   variant="compact"
+                  downloadUrl="/docs/edg-outdoor-living-guide.html"
                 />
               </div>
 

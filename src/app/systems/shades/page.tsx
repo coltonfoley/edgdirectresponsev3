@@ -23,23 +23,23 @@ export const metadata: Metadata = {
 const galleryImages = [
     {
         type: "image" as const,
+        src: "/images/shades/shade-deployed-screens-01.jpg",
+        alt: "Motorized mesh screens deployed on white pergola",
+    },
+    {
+        type: "image" as const,
+        src: "/images/shades/shade-patio-close-01.jpg",
+        alt: "Exterior screen shades providing sun protection on patio",
+    },
+    {
+        type: "image" as const,
+        src: "/images/shades/commercial-white-r-blade-screens-lake.jpg",
+        alt: "Commercial pergola with retractable shade screens overlooking lake",
+    },
+    {
+        type: "image" as const,
         src: "/images/shades/shades-hero.jpg",
-        alt: "Motorized shades on modern home",
-    },
-    {
-        type: "image" as const,
-        src: "/images/shades/shades-detail.jpg",
-        alt: "Exterior screens on pergola",
-    },
-    {
-        type: "image" as const,
-        src: "/images/shades/shades-retracted.jpg",
-        alt: "Shade system retracted",
-    },
-    {
-        type: "image" as const,
-        src: "/images/projects/project-03.jpg",
-        alt: "Multiple shade drops on patio",
+        alt: "Pergola with solid shade panel closed for privacy",
     },
 ];
 
@@ -168,12 +168,12 @@ export default function ShadesPage() {
                             {
                                 title: "Pergola Enclosure",
                                 desc: "Add privacy and wind protection to your pergola with side-mount shade drops.",
-                                image: "/images/shades/shades-hero.jpg",
+                                image: "/images/shades/shade-deployed-screens-01.jpg",
                             },
                             {
                                 title: "Window & Door Screens",
                                 desc: "Block solar heat before it enters your home. Reduce AC costs significantly.",
-                                image: "/images/shades/shades-detail.jpg",
+                                image: "/images/shades/shade-patio-close-01.jpg",
                             },
                             {
                                 title: "Patio & Deck",
@@ -204,8 +204,8 @@ export default function ShadesPage() {
                 <Container>
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
                         <BeforeAfter
-                            beforeImage="/images/projects/project-01.jpg"
-                            afterImage="/images/projects/project-02.jpg"
+                            beforeImage="/images/shades/shade-before-no-screens.jpg"
+                            afterImage="/images/shades/shade-after-screens-deployed.jpg"
                             beforeLabel="Without Shades"
                             afterLabel="With Shades"
                         />

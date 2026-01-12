@@ -56,6 +56,11 @@ const galleryImages = [
         src: "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
         alt: "Modern louvered roof with glass enclosure exterior view",
     },
+    {
+        type: "image" as const,
+        src: "/images/enclosures/residential-glass-enclosure-lifestyle.jpg",
+        alt: "Residential glass enclosure with people lounging inside",
+    },
 ];
 
 const features = [
@@ -240,8 +245,8 @@ export default function EnclosuresPage() {
                             </ul>
                         </div>
                         <BeforeAfter
-                            beforeImage="/images/projects/project-04.jpg"
-                            afterImage="/images/projects/project-05.jpg"
+                            beforeImage="/images/enclosures/glass-enclosure-partial-open.jpg"
+                            afterImage="/images/enclosures/glass-enclosure-closed-exterior.jpg"
                             beforeLabel="Open Patio"
                             afterLabel="Enclosed"
                         />

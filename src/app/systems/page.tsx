@@ -58,7 +58,7 @@ export default function SystemsPage() {
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden group hover:border-edg-brand transition-colors">
                             <div className="aspect-[4/3] relative bg-gray-200 dark:bg-gray-800">
                                 <Image
-                                    src="/images/shades/shades-hero.jpg"
+                                    src="/images/shades/shade-deployed-screens-01.jpg"
                                     alt="Motorized exterior shades"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -94,6 +94,28 @@ export default function SystemsPage() {
                                 </p>
                                 <Link href="/systems/enclosures">
                                     <Button className="w-full">Explore Enclosures</Button>
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Appliances */}
+                        <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden group hover:border-edg-brand transition-colors">
+                            <div className="aspect-[4/3] relative bg-gray-200 dark:bg-gray-800">
+                                <Image
+                                    src="/images/appliances/outdoor-kitchen-hero.png"
+                                    alt="Outdoor kitchen appliances"
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
+                            </div>
+                            <div className="p-8">
+                                <h3 className="text-2xl font-bold mb-3">Outdoor Appliances</h3>
+                                <p className="text-muted-foreground mb-6">
+                                    Premium grills, pizza ovens, and heaters for the ultimate outdoor kitchen.
+                                </p>
+                                <Link href="/systems/appliances">
+                                    <Button className="w-full">Explore Appliances</Button>
                                 </Link>
                             </div>
                         </div>

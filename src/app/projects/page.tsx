@@ -31,7 +31,7 @@ const projects = [
         location: "Barrington, IL",
         type: "Residential",
         systems: ["Louvered Pergola", "Glass Enclosure"],
-        image: "/images/projects/project-02.jpg",
+        image: "/images/frameless-sliding-glass-walls.jpg",
         description: "A custom pergola with retractable glass walls, transforming an underutilized patio into a year-round entertaining space."
     },
     {
@@ -40,7 +40,7 @@ const projects = [
         location: "Lake Geneva, WI",
         type: "Commercial",
         systems: ["Louvered Pergola", "Integrated Heating"],
-        image: "/images/projects/project-03.jpg",
+        image: "/images/commercial-restaurant-patio-enclosure.jpg",
         description: "A 320 sq ft covered patio that added 40 seats and eliminated weather cancellations for a lakeside fine dining restaurant."
     },
     {
@@ -49,7 +49,7 @@ const projects = [
         location: "Libertyville, IL",
         type: "Residential",
         systems: ["Motorized Shades"],
-        image: "/images/projects/project-04.jpg",
+        image: "/images/motorized-retractable-screens-patio.jpg",
         description: "Six motorized exterior shades protecting a south-facing great room from summer heat while preserving views of the backyard."
     },
     {

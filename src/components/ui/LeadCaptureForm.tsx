@@ -3,6 +3,7 @@
 
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -14,6 +15,8 @@ interface LeadCaptureFormProps {
   successMessage?: string;
   className?: string;
   variant?: "default" | "compact" | "inline";
+  downloadUrl?: string;
+  autoDownload?: boolean;
 }
 
 type FormState = "idle" | "loading" | "success" | "error";
@@ -25,6 +28,8 @@ export function LeadCaptureForm({
   successMessage = "We've sent your guide. Check your email (and spam folder, just in case).",
   className,
   variant = "default",
+  downloadUrl,
+  autoDownload = true,
 }: LeadCaptureFormProps) {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
@@ -62,6 +67,16 @@ export function LeadCaptureForm({
           form_source: source
         });
       }
+
+      // Trigger download if requested
+      if (downloadUrl && autoDownload) {
+        const link = document.createElement('a');
+        link.href = downloadUrl;
+        link.download = downloadUrl.split('/').pop() || 'guide.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     } catch (error) {
       setFormState("error");
       setErrorMessage(
@@ -88,7 +103,19 @@ export function LeadCaptureForm({
           </div>
         </div>
         <h3 className="text-lg font-bold mb-2 text-white">{successTitle}</h3>
-        <p className="text-sm text-gray-400">{successMessage}</p>
+        <p className="text-sm text-gray-400 mb-6">{successMessage}</p>
+        {downloadUrl && (
+          <Link
+            href={downloadUrl}
+            download
+            className={cn(
+              "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer h-10 px-6 py-2",
+              "border border-edg-brand text-edg-brand hover:bg-edg-brand hover:text-white w-full sm:w-auto"
+            )}
+          >
+            Download Guide Again
+          </Link>
+        )}
       </div>
     );
   }

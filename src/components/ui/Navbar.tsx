@@ -11,6 +11,7 @@ const systemsDropdown = [
     { href: "/systems/pergolas", label: "Louvered Pergolas", desc: "Motorized aluminum with rotating louvers" },
     { href: "/systems/shades", label: "Motorized Shades", desc: "Wind-rated exterior screens" },
     { href: "/systems/enclosures", label: "Glass Enclosures", desc: "Retractable glass wall systems" },
+    { href: "/systems/appliances", label: "Outdoor Appliances", desc: "Grills, heaters & outdoor kitchens" },
 ];
 
 const areasDropdown = [
@@ -202,10 +203,10 @@ export function Navbar() {
                 {/* Mobile Menu */}
                 {isOpen && (
                     <div className="absolute top-full left-0 right-0 bg-background border-b border-edg-gray/10 p-4 flex flex-col gap-2 lg:hidden shadow-lg animate-in slide-in-from-top-2 max-h-[80vh] overflow-y-auto">
-                        {/* Location Tag (Mobile Only) */}
+                        {/* Service Note (Mobile Only) */}
                         <div className="mx-4 mt-2 mb-2 p-2 bg-edg-brand/10 border border-edg-brand/20 rounded-md text-center">
                             <span className="text-xs font-bold text-edg-brand uppercase tracking-wider">
-                                Serving North Chicago to Milwaukee
+                                Full-Service Installation within 60 Miles • Design & Supply Nationwide
                             </span>
                         </div>
                         {/* Systems Section */}
