@@ -178,7 +178,7 @@ export default function PergolasPage() {
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
                                 <img
-                                    src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg"
+                                    src="/images/pergolas/pergola-lifestyle.jpg"
                                     alt="Louvers fully open"
                                     className="w-full h-full object-cover"
                                 />
@@ -210,7 +210,7 @@ export default function PergolasPage() {
                         <div className="bg-white dark:bg-zinc-800 rounded-2xl overflow-hidden">
                             <div className="aspect-video relative">
                                 <img
-                                    src="/images/pergolas/residential-black-r-blade-03.jpg"
+                                    src="/images/pergolas/pergola-closed-louvers.jpg"
                                     alt="Louvers fully closed"
                                     className="w-full h-full object-cover"
                                 />
@@ -252,8 +252,8 @@ export default function PergolasPage() {
                             </ul>
                         </div>
                         <BeforeAfter
-                            beforeImage="/images/projects/project-04.jpg"
-                            afterImage="/images/projects/project-05.jpg"
+                            beforeImage="/images/pergolas/before-pergola-install.jpg"
+                            afterImage="/images/pergolas/after-pergola-install.jpg"
                             beforeLabel="Before"
                             afterLabel="After"
                         />
@@ -393,7 +393,7 @@ export default function PergolasPage() {
                         {[
                             { src: "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png", label: "Outdoor Dining" },
                             { src: "/images/pergolas/residential-black-r-blade-04.jpg", label: "Entertainment" },
-                            { src: "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg", label: "Pool & Spa" },
+                            { src: "/images/pergolas/pergola-pool-spa.jpg", label: "Pool & Spa" },
                             { src: "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg", label: "Relaxation" },
                         ].map((item) => (
                             <div key={item.label} className="group relative aspect-square rounded-xl overflow-hidden">
