@@ -14,63 +14,10 @@ export const metadata: Metadata = {
     },
 };
 
-// Project data - in production this would come from a CMS
-const projects = [
-    {
-        slug: "lake-forest-pergola",
-        title: "Lakefront Pergola & Shades",
-        location: "Lake Forest, IL",
-        type: "Residential",
-        systems: ["Louvered Pergola", "Motorized Shades"],
-        image: "/images/projects/project-01.jpg",
-        description: "A 16x20 louvered pergola with integrated heating and four motorized shade drops, creating a true four-season outdoor room on Lake Michigan."
-    },
-    {
-        slug: "barrington-outdoor-room",
-        title: "Complete Outdoor Room",
-        location: "Barrington, IL",
-        type: "Residential",
-        systems: ["Louvered Pergola", "Glass Enclosure"],
-        image: "/images/frameless-sliding-glass-walls.jpg",
-        description: "A custom pergola with retractable glass walls, transforming an underutilized patio into a year-round entertaining space."
-    },
-    {
-        slug: "lake-geneva-restaurant",
-        title: "Restaurant Patio Expansion",
-        location: "Lake Geneva, WI",
-        type: "Commercial",
-        systems: ["Louvered Pergola", "Integrated Heating"],
-        image: "/images/commercial-restaurant-patio-enclosure.jpg",
-        description: "A 320 sq ft covered patio that added 40 seats and eliminated weather cancellations for a lakeside fine dining restaurant."
-    },
-    {
-        slug: "libertyville-shade-system",
-        title: "Whole-Home Shade System",
-        location: "Libertyville, IL",
-        type: "Residential",
-        systems: ["Motorized Shades"],
-        image: "/images/motorized-retractable-screens-patio.jpg",
-        description: "Six motorized exterior shades protecting a south-facing great room from summer heat while preserving views of the backyard."
-    },
-    {
-        slug: "highland-park-builder",
-        title: "New Construction Integration",
-        location: "Highland Park, IL",
-        type: "Builder Project",
-        systems: ["Louvered Pergola", "Motorized Shades", "Glass Enclosure"],
-        image: "/images/projects/project-05.jpg",
-        description: "Full outdoor living package for a custom home builder, coordinated during construction for seamless integration."
-    },
-    {
-        slug: "wilmette-country-club",
-        title: "Country Club Pool Deck",
-        location: "Wilmette, IL",
-        type: "Commercial",
-        systems: ["Louvered Pergola"],
-        image: "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
-        description: "Twin pergola structures shading the member pool deck, creating comfortable gathering areas regardless of weather."
-    }
-];
+// Project data imported from central source
+import { getAllProjects } from "@/lib/projects";
+
+const projects = getAllProjects();
 
 export default function ProjectsPage() {
     return (
@@ -125,7 +72,7 @@ export default function ProjectsPage() {
                                 <div className="relative h-64 overflow-hidden">
                                     <div
                                         className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                                        style={{ backgroundImage: `url('${project.image}')` }}
+                                        style={{ backgroundImage: `url('${project.cardImage}')` }}
                                     />
                                     <div className="absolute top-4 left-4">
                                         <span className="px-3 py-1 bg-white/90 dark:bg-black/90 rounded-full text-xs font-semibold">
