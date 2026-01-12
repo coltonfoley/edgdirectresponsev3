@@ -18,7 +18,8 @@ export default function ContactPage() {
         // Track conversion
         if (typeof window !== 'undefined' && (window as any).dataLayer) {
             (window as any).dataLayer.push({
-                event: "contact_form_submit",
+                event: "form_success",
+                form_source: "contact_page",
                 customer_type: formType
             });
         }
