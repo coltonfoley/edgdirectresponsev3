@@ -59,8 +59,17 @@ export function Navbar() {
                     : "bg-transparent py-6"
             )}
         >
+            {!scrolled && (
+                <div className="hidden lg:block border-b border-white/5 pb-2 mb-2">
+                    <Container>
+                        <p className="text-[10px] font-bold tracking-[0.2em] text-center text-edg-brand uppercase opacity-80">
+                            Serving North Chicago to Milwaukee
+                        </p>
+                    </Container>
+                </div>
+            )}
             <Container className="px-6">
-                <div className="flex items-center relative w-full">
+                <div className="flex items-center relative w-full h-full">
                     <Link href="/" className="text-2xl font-bold tracking-tighter flex-shrink-0">
                         EDG
                     </Link>

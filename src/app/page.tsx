@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       {/* ========== HERO SECTION (Direct Response) ========== */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-edg-dark">
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-24 overflow-hidden bg-edg-dark">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 z-0"></div>
         <div className="absolute inset-0 bg-[url('/images/hero/hero-main.jpg')] bg-cover bg-center opacity-40 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
@@ -22,11 +22,6 @@ export default function Home() {
         <Container className="relative z-20">
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              {/* Pre-headline with Location */}
-              <div className="hidden md:inline-block text-sm font-medium tracking-wider text-edg-brand uppercase bg-edg-brand/10 border border-edg-brand/20 px-4 py-2 rounded-full">
-                Serving North Chicago to Milwaukee
-              </div>
-
               {/* Main Headline - Problem/Solution */}
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
                 Outdoor Living That Works<br className="hidden md:block" />
