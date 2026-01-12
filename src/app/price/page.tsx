@@ -252,7 +252,7 @@ export default function PricePage() {
                                     Request Your Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 border-white/30 text-white hover:bg-white/10">
                                     <Phone className="mr-2 h-5 w-5" /> Call Now
                                 </Button>

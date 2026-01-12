@@ -60,7 +60,7 @@ export default function ServiceAreasPage() {
                             Serving the Chicago to Milwaukee Corridor
                         </h1>
                         <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                            We design and install premium outdoor living systems within 60 miles of Spring Grove, IL. 
+                            We design and install premium outdoor living systems within 60 miles of Spring Grove, IL.
                             Local expertise means we understand your climate, your municipalities, and your neighborhoods.
                         </p>
                     </div>
@@ -107,16 +107,15 @@ export default function ServiceAreasPage() {
 
                     <div className="grid md:grid-cols-2 gap-6">
                         {serviceAreas.map((area) => (
-                            <Link 
+                            <Link
                                 key={area.slug}
                                 href={`/service-areas/${area.slug}`}
                                 className="group"
                             >
-                                <div className={`p-8 rounded-2xl border transition-all duration-300 h-full ${
-                                    area.featured 
-                                        ? 'bg-edg-dark text-white border-edg-dark hover:border-edg-brand' 
-                                        : 'bg-zinc-50 dark:bg-zinc-900 border-black/10 dark:border-white/10 hover:border-edg-brand'
-                                }`}>
+                                <div className={`p-8 rounded-2xl border transition-all duration-300 h-full ${area.featured
+                                    ? 'bg-edg-dark text-white border-edg-dark hover:border-edg-brand'
+                                    : 'bg-zinc-50 dark:bg-zinc-900 border-black/10 dark:border-white/10 hover:border-edg-brand'
+                                    }`}>
                                     <div className="flex items-start justify-between mb-4">
                                         <div>
                                             <h3 className="text-2xl font-bold mb-2">{area.name}</h3>
@@ -124,29 +123,26 @@ export default function ServiceAreasPage() {
                                                 {area.description}
                                             </p>
                                         </div>
-                                        <ArrowRight className={`h-6 w-6 shrink-0 transition-transform group-hover:translate-x-1 ${
-                                            area.featured ? 'text-edg-brand' : 'text-edg-brand'
-                                        }`} />
+                                        <ArrowRight className={`h-6 w-6 shrink-0 transition-transform group-hover:translate-x-1 ${area.featured ? 'text-edg-brand' : 'text-edg-brand'
+                                            }`} />
                                     </div>
                                     <div className="flex flex-wrap gap-2 mt-4">
                                         {area.communities.slice(0, 4).map((community) => (
-                                            <span 
+                                            <span
                                                 key={community}
-                                                className={`text-xs px-3 py-1 rounded-full ${
-                                                    area.featured 
-                                                        ? 'bg-white/10 text-white/80' 
-                                                        : 'bg-black/5 dark:bg-white/10 text-muted-foreground'
-                                                }`}
+                                                className={`text-xs px-3 py-1 rounded-full ${area.featured
+                                                    ? 'bg-white/10 text-white/80'
+                                                    : 'bg-black/5 dark:bg-white/10 text-muted-foreground'
+                                                    }`}
                                             >
                                                 {community}
                                             </span>
                                         ))}
                                         {area.communities.length > 4 && (
-                                            <span className={`text-xs px-3 py-1 rounded-full ${
-                                                area.featured 
-                                                    ? 'bg-white/10 text-white/80' 
-                                                    : 'bg-black/5 dark:bg-white/10 text-muted-foreground'
-                                            }`}>
+                                            <span className={`text-xs px-3 py-1 rounded-full ${area.featured
+                                                ? 'bg-white/10 text-white/80'
+                                                : 'bg-black/5 dark:bg-white/10 text-muted-foreground'
+                                                }`}>
                                                 +{area.communities.length - 4} more
                                             </span>
                                         )}
@@ -167,8 +163,8 @@ export default function ServiceAreasPage() {
                                 Based in Spring Grove, IL
                             </h2>
                             <p className="text-lg text-muted-foreground mb-6">
-                                Our central location in Spring Grove puts us within easy reach of Lake County, 
-                                McHenry County, the North Shore, and Southeast Wisconsin. We're positioned to 
+                                Our central location in Spring Grove puts us within easy reach of Lake County,
+                                McHenry County, the North Shore, and Southeast Wisconsin. We're positioned to
                                 serve the entire Chicago-to-Milwaukee corridor efficiently.
                             </p>
                             <ul className="space-y-3 mb-8">
@@ -190,9 +186,9 @@ export default function ServiceAreasPage() {
                                         Schedule a Consultation <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </Link>
-                                <a href="tel:+18475551234">
+                                <a href="tel:+18155810138">
                                     <Button size="lg" variant="secondary" className="rounded-full">
-                                        <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                        <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                     </Button>
                                 </a>
                             </div>
@@ -217,8 +213,8 @@ export default function ServiceAreasPage() {
                             Outside our service area?
                         </h2>
                         <p className="text-lg text-muted-foreground mb-6">
-                            If you're beyond our 60-mile radius, we may still be able to help. For larger projects 
-                            or special circumstances, reach out and we'll discuss options—including design consulting 
+                            If you're beyond our 60-mile radius, we may still be able to help. For larger projects
+                            or special circumstances, reach out and we'll discuss options—including design consulting
                             with installation by qualified local partners.
                         </p>
                         <Link href="/contact">

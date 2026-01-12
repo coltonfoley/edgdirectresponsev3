@@ -216,8 +216,8 @@ export default function ContactPage() {
                                 <div className="space-y-4 text-sm">
                                     <div className="flex items-center gap-3">
                                         <Phone className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
-                                        <a href="tel:+18475551234" className="text-edg-brand-text dark:text-edg-brand hover:underline font-bold transition-colors">
-                                            (847) 555-1234
+                                        <a href="tel:+18155810138" className="text-edg-brand-text dark:text-edg-brand hover:underline font-bold transition-colors">
+                                            (815) 581-0138
                                         </a>
                                     </div>
                                     <div className="flex items-center gap-3">
@@ -228,6 +228,7 @@ export default function ContactPage() {
                                         <MapPin className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
                                         <div className="text-edg-gray-text dark:text-gray-400 font-medium">
                                             <div>Spring Grove Showroom</div>
+                                            <div>1802 Holian Drive</div>
                                             <div>Spring Grove, IL 60081</div>
                                         </div>
                                     </div>

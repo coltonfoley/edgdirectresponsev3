@@ -323,11 +323,11 @@ export default function Home() {
                   </div>
 
                   <a
-                    href="tel:+18475551234"
+                    href="tel:+18155810138"
                     className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-lg border border-white/20 text-white hover:bg-white/5 transition-colors"
                   >
                     <Phone className="h-5 w-5 text-edg-brand" />
-                    <span className="font-medium">(847) 555-1234</span>
+                    <span className="font-medium">(815) 581-0138</span>
                   </a>
 
                   <p className="text-xs text-gray-500 text-center">

@@ -72,11 +72,11 @@ const localBusinessSchema = {
   name: "EDG Outdoor Living",
   description: "Premium motorized pergolas, exterior shades, and glass enclosures for outdoor living spaces.",
   url: "https://edgpatioshade.com",
-  telephone: "+1-847-555-1234",
+  telephone: "+1-815-581-0138",
   email: "info@edgpatioshade.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Spring Grove",
+    streetAddress: "1802 Holian Drive",
     addressLocality: "Spring Grove",
     addressRegion: "IL",
     postalCode: "60081",

@@ -146,7 +146,7 @@ export default function PergolasPage() {
                                         Get a Quote <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </Link>
-                                <a href="tel:+18475551234" className="flex-1">
+                                <a href="tel:+18155810138" className="flex-1">
                                     <Button size="lg" variant="secondary" className="w-full rounded-lg">
                                         <Phone className="mr-2 h-5 w-5" /> Call Us
                                     </Button>

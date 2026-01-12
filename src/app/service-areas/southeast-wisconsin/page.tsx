@@ -70,8 +70,8 @@ export default function SoutheastWisconsinPage() {
                             Southeast Wisconsin
                         </h1>
                         <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mb-8">
-                            Lake Geneva to Kenosha, Racine to Burlington. Southeast Wisconsin's lakefront 
-                            properties and resort communities deserve outdoor living systems that extend 
+                            Lake Geneva to Kenosha, Racine to Burlington. Southeast Wisconsin's lakefront
+                            properties and resort communities deserve outdoor living systems that extend
                             the all-too-short summer season—and beyond.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -80,9 +80,9 @@ export default function SoutheastWisconsinPage() {
                                     Get a Wisconsin Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>
@@ -102,13 +102,12 @@ export default function SoutheastWisconsinPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {communities.map((community) => (
-                            <div 
+                            <div
                                 key={community.name}
-                                className={`flex items-center gap-3 p-4 rounded-xl border ${
-                                    community.highlight 
-                                        ? 'bg-edg-brand/10 border-edg-brand/20' 
-                                        : 'bg-zinc-50 dark:bg-zinc-900 border-black/5 dark:border-white/5'
-                                }`}
+                                className={`flex items-center gap-3 p-4 rounded-xl border ${community.highlight
+                                    ? 'bg-edg-brand/10 border-edg-brand/20'
+                                    : 'bg-zinc-50 dark:bg-zinc-900 border-black/5 dark:border-white/5'
+                                    }`}
                             >
                                 <Waves className="h-5 w-5 text-edg-brand shrink-0" />
                                 <span className="font-medium">{community.name}</span>
@@ -133,8 +132,8 @@ export default function SoutheastWisconsinPage() {
                             </h2>
                         </div>
                         <p className="text-xl mb-8 text-edg-dark/80">
-                            Geneva Lake, Delavan Lake, Fontana—the lake communities are where outdoor living 
-                            matters most. We've completed numerous lakefront projects and understand the 
+                            Geneva Lake, Delavan Lake, Fontana—the lake communities are where outdoor living
+                            matters most. We've completed numerous lakefront projects and understand the
                             unique demands of these properties.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
@@ -222,8 +221,8 @@ export default function SoutheastWisconsinPage() {
                 <Container>
                     <div className="max-w-3xl mx-auto text-center">
                         <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
-                            "Our Lake Geneva property needed a system that could handle the weather off 
-                            the lake. EDG engineered a pergola that's held up through two Wisconsin winters 
+                            "Our Lake Geneva property needed a system that could handle the weather off
+                            the lake. EDG engineered a pergola that's held up through two Wisconsin winters
                             without any issues."
                         </blockquote>
                         <div>
@@ -242,7 +241,7 @@ export default function SoutheastWisconsinPage() {
                             Ready to Transform Your Wisconsin Property?
                         </h2>
                         <p className="text-xl mb-8 text-gray-300">
-                            Schedule a consultation. We'll visit your property and show you how to 
+                            Schedule a consultation. We'll visit your property and show you how to
                             extend your outdoor season and protect against Wisconsin weather.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -251,9 +250,9 @@ export default function SoutheastWisconsinPage() {
                                     Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>

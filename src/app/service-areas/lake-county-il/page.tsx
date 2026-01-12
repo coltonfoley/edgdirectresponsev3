@@ -70,8 +70,8 @@ export default function LakeCountyPage() {
                             Lake County, Illinois
                         </h1>
                         <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mb-8">
-                            From Libertyville to Lake Forest, Gurnee to Highland Park—Lake County is our home base. 
-                            We know the neighborhoods, the building departments, and the weather patterns that affect 
+                            From Libertyville to Lake Forest, Gurnee to Highland Park—Lake County is our home base.
+                            We know the neighborhoods, the building departments, and the weather patterns that affect
                             how outdoor systems perform here.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -80,9 +80,9 @@ export default function LakeCountyPage() {
                                     Get a Lake County Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>
@@ -97,13 +97,13 @@ export default function LakeCountyPage() {
                         Communities We Serve in Lake County
                     </h2>
                     <p className="text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-                        We've completed projects across Lake County. If your community isn't listed, 
+                        We've completed projects across Lake County. If your community isn't listed,
                         we likely still serve it—just ask.
                     </p>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {communities.map((community) => (
-                            <div 
+                            <div
                                 key={community.name}
                                 className="flex items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/5"
                             >
@@ -128,7 +128,7 @@ export default function LakeCountyPage() {
                                 Lake County-Specific Considerations
                             </h2>
                             <p className="text-lg text-muted-foreground mb-8">
-                                Every region has its quirks. Here's what we account for when designing 
+                                Every region has its quirks. Here's what we account for when designing
                                 outdoor systems in Lake County.
                             </p>
                             <div className="space-y-6">
@@ -147,8 +147,8 @@ export default function LakeCountyPage() {
                             <TreePine className="h-12 w-12 text-edg-brand mb-6" />
                             <h3 className="text-2xl font-bold mb-4">Local Knowledge Matters</h3>
                             <p className="text-gray-300 mb-6">
-                                We've worked with building departments in Libertyville, Lake Forest, Highland Park, 
-                                Gurnee, and throughout Lake County. We know what they require, what they look for, 
+                                We've worked with building departments in Libertyville, Lake Forest, Highland Park,
+                                Gurnee, and throughout Lake County. We know what they require, what they look for,
                                 and how to get approvals efficiently.
                             </p>
                             <p className="text-gray-300">
@@ -210,7 +210,7 @@ export default function LakeCountyPage() {
                 <Container>
                     <div className="max-w-3xl mx-auto text-center">
                         <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
-                            "EDG understood exactly what we needed for our Lake Forest property. They navigated 
+                            "EDG understood exactly what we needed for our Lake Forest property. They navigated
                             the permitting process smoothly and the installation was flawless."
                         </blockquote>
                         <div>
@@ -229,7 +229,7 @@ export default function LakeCountyPage() {
                             Ready to Transform Your Lake County Outdoor Space?
                         </h2>
                         <p className="text-xl mb-8 text-edg-dark/80">
-                            Schedule a free consultation. We'll visit your property, discuss your vision, 
+                            Schedule a free consultation. We'll visit your property, discuss your vision,
                             and show you what's possible.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -238,9 +238,9 @@ export default function LakeCountyPage() {
                                     Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>

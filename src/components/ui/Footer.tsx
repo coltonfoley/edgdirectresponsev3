@@ -63,11 +63,11 @@ export function Footer() {
                                         </Button>
                                     </Link>
                                     <a
-                                        href="tel:+18475551234"
+                                        href="tel:+18155810138"
                                         className="inline-flex items-center justify-center gap-3 h-12 px-6 rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all font-medium backdrop-blur-sm whitespace-nowrap"
                                     >
                                         <Phone className="h-5 w-5 text-edg-brand" />
-                                        (847) 555-1234
+                                        (815) 581-0138
                                     </a>
                                 </div>
 
@@ -98,13 +98,14 @@ export function Footer() {
                                     <MapPin className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
                                     <div>
                                         <div className="text-white font-medium">Spring Grove Showroom</div>
+                                        <div>1802 Holian Drive</div>
                                         <div>Spring Grove, IL 60081</div>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-400">
                                     <Phone className="h-5 w-5 text-edg-brand shrink-0" />
-                                    <a href="tel:+18475551234" className="hover:text-edg-brand transition-colors">
-                                        (847) 555-1234
+                                    <a href="tel:+18155810138" className="hover:text-edg-brand transition-colors">
+                                        (815) 581-0138
                                     </a>
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-400">

@@ -70,8 +70,8 @@ export default function McHenryCountyPage() {
                             McHenry County, Illinois
                         </h1>
                         <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mb-8">
-                            Crystal Lake to Algonquin, Woodstock to Huntley. McHenry County's larger lots 
-                            and more open settings create opportunities for outdoor living spaces that 
+                            Crystal Lake to Algonquin, Woodstock to Huntley. McHenry County's larger lots
+                            and more open settings create opportunities for outdoor living spaces that
                             aren't possible in denser suburbs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -80,9 +80,9 @@ export default function McHenryCountyPage() {
                                     Get a McHenry County Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>
@@ -102,7 +102,7 @@ export default function McHenryCountyPage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {communities.map((community) => (
-                            <div 
+                            <div
                                 key={community.name}
                                 className="flex items-center gap-3 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/5"
                             >
@@ -123,7 +123,7 @@ export default function McHenryCountyPage() {
                                 McHenry County Considerations
                             </h2>
                             <p className="text-lg text-muted-foreground mb-8">
-                                McHenry County is different from Lake County or the North Shore. 
+                                McHenry County is different from Lake County or the North Shore.
                                 We adjust our approach accordingly.
                             </p>
                             <div className="space-y-6">
@@ -141,7 +141,7 @@ export default function McHenryCountyPage() {
                         <div className="bg-edg-dark text-white rounded-2xl p-8">
                             <h3 className="text-2xl font-bold mb-4">Our Spring Grove Location</h3>
                             <p className="text-gray-300 mb-6">
-                                We're based in Spring Grove—right in McHenry County. That means shorter 
+                                We're based in Spring Grove—right in McHenry County. That means shorter
                                 travel times, faster response, and genuine familiarity with the area.
                             </p>
                             <p className="text-gray-300">
@@ -203,8 +203,8 @@ export default function McHenryCountyPage() {
                 <Container>
                     <div className="max-w-3xl mx-auto text-center">
                         <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
-                            "We have five acres and wanted an outdoor space that felt proportional. 
-                            EDG designed a pergola system that actually fits our property—not a 
+                            "We have five acres and wanted an outdoor space that felt proportional.
+                            EDG designed a pergola system that actually fits our property—not a
                             suburban cookie-cutter solution."
                         </blockquote>
                         <div>
@@ -223,7 +223,7 @@ export default function McHenryCountyPage() {
                             Ready to Transform Your McHenry County Property?
                         </h2>
                         <p className="text-xl mb-8 text-edg-dark/80">
-                            Schedule a consultation. We'll visit your property and show you what's possible 
+                            Schedule a consultation. We'll visit your property and show you what's possible
                             for your outdoor space.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -232,9 +232,9 @@ export default function McHenryCountyPage() {
                                     Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>

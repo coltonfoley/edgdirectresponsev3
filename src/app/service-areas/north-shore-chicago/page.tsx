@@ -66,8 +66,8 @@ export default function NorthShorePage() {
                             Chicago's North Shore
                         </h1>
                         <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mb-8">
-                            Wilmette to Winnetka, Glencoe to Kenilworth. The North Shore's finest properties 
-                            deserve outdoor living systems that match—in design, quality, and execution. 
+                            Wilmette to Winnetka, Glencoe to Kenilworth. The North Shore's finest properties
+                            deserve outdoor living systems that match—in design, quality, and execution.
                             We have the experience to deliver.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -76,9 +76,9 @@ export default function NorthShorePage() {
                                     Get a North Shore Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>
@@ -98,7 +98,7 @@ export default function NorthShorePage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {communities.map((community) => (
-                            <div 
+                            <div
                                 key={community.name}
                                 className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900 border border-black/5 dark:border-white/5"
                             >
@@ -123,8 +123,8 @@ export default function NorthShorePage() {
                             </h2>
                         </div>
                         <p className="text-xl mb-8 text-edg-dark/80">
-                            North Shore communities are known for their high standards. We don't just 
-                            meet those standards—we handle the entire planning and permitting process 
+                            North Shore communities are known for their high standards. We don't just
+                            meet those standards—we handle the entire planning and permitting process
                             to ensure your project is approved efficiently while protecting your design vision.
                         </p>
                         <div className="grid md:grid-cols-2 gap-6">
@@ -212,8 +212,8 @@ export default function NorthShorePage() {
                 <Container>
                     <div className="max-w-3xl mx-auto text-center">
                         <blockquote className="text-2xl md:text-3xl font-medium leading-relaxed mb-8">
-                            "EDG handled everything—the 
-                            permits, the coordination, and the installation. Our pergola was approved 
+                            "EDG handled everything—the
+                            permits, the coordination, and the installation. Our pergola was approved
                             and built without us having to manage a single detail."
                         </blockquote>
                         <div>
@@ -232,7 +232,7 @@ export default function NorthShorePage() {
                             Ready to Elevate Your North Shore Property?
                         </h2>
                         <p className="text-xl mb-8 text-gray-300">
-                            Schedule a consultation. We'll assess your property, handle the local 
+                            Schedule a consultation. We'll assess your property, handle the local
                             requirements, and show you what's possible.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -241,9 +241,9 @@ export default function NorthShorePage() {
                                     Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <a href="tel:+18475551234">
+                            <a href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
-                                    <Phone className="mr-2 h-5 w-5" /> (847) 555-1234
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
                             </a>
                         </div>

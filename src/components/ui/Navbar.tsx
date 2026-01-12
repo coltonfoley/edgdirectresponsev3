@@ -169,11 +169,11 @@ export function Navbar() {
                         {/* Desktop CTAs */}
                         <div className="hidden lg:flex items-center gap-4">
                             <a
-                                href="tel:+18475551234"
+                                href="tel:+18155810138"
                                 className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                             >
                                 <Phone className="h-4 w-4" />
-                                <span className="hidden xl:inline">(847) 555-1234</span>
+                                <span className="hidden xl:inline">(815) 581-0138</span>
                             </a>
                             <Link href="/contact">
                                 <Button size="sm">Book a Call</Button>
@@ -183,7 +183,7 @@ export function Navbar() {
                         {/* Mobile: Phone + Menu Toggle */}
                         <div className="flex items-center gap-3 lg:hidden">
                             <a
-                                href="tel:+18475551234"
+                                href="tel:+18155810138"
                                 className="p-2 text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                                 aria-label="Call us"
                             >
@@ -285,12 +285,12 @@ export function Navbar() {
 
                         <div className="border-t border-edg-gray/10 pt-4 mt-2 space-y-3">
                             <a
-                                href="tel:+18475551234"
+                                href="tel:+18155810138"
                                 className="flex items-center gap-3 px-4 py-2 text-edg-brand-text dark:text-edg-brand font-bold"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <Phone className="h-5 w-5" />
-                                (847) 555-1234
+                                (815) 581-0138
                             </a>
                             <Link href="/contact" onClick={() => setIsOpen(false)}>
                                 <Button className="w-full">Book a Consultation</Button>
