@@ -2,80 +2,26 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import type { Metadata } from "next";
 import Image from "next/image";
-import fs from "fs";
-import path from "path";
-import sharp from "sharp";
+import galleryData from "@/data/gallery-images.json";
 
 export const metadata: Metadata = {
     title: "Gallery | EDG Outdoor Living",
     description: "Explore our portfolio of luxury outdoor living spaces. Louvered pergolas, motorized shades, and glass enclosures in Chicago and Wisconsin.",
 };
 
-type GalleryImage = {
+interface GalleryImage {
     src: string;
     width: number;
     height: number;
     alt: string;
     id: string;
-};
-
-// Recursive function to get all images
-async function getGalleryImages(dir: string, baseDir: string = ""): Promise<GalleryImage[]> {
-    const entries = await fs.promises.readdir(dir, { withFileTypes: true });
-
-    const images: GalleryImage[] = [];
-
-    for (const entry of entries) {
-        const fullPath = path.join(dir, entry.name);
-        // Calculate the relative path from the 'public' folder for the URL
-        // If dir is /.../public/images, and entry is foo.jpg, we want /images/foo.jpg
-        // We know we start at process.cwd() + /public/images.
-
-        if (entry.isDirectory()) {
-            images.push(...(await getGalleryImages(fullPath, baseDir)));
-        } else if (/\.(jpg|jpeg|png|webp|avif)$/i.test(entry.name)) {
-            try {
-                // Read metadata for dimensions
-                const metadata = await sharp(fullPath).metadata();
-
-                // Construct public URL
-                // Assuming 'dir' starts with the absolute path to 'public'
-                // We'll fix the path logic to be robust
-                const relativePath = path.relative(path.join(process.cwd(), "public"), fullPath);
-                const publicUrl = "/" + relativePath.split(path.sep).join("/");
-
-                if (metadata.width && metadata.height) {
-                    images.push({
-                        src: publicUrl,
-                        width: metadata.width,
-                        height: metadata.height,
-                        alt: entry.name.replace(/\.[^/.]+$/, "").replace(/-/g, " "), // filename as alt, cleanup
-                        id: publicUrl
-                    });
-                }
-            } catch (e) {
-                console.error(`Failed to process image ${fullPath}:`, e);
-            }
-        }
-    }
-
-    return images;
 }
 
-export default async function GalleryPage() {
-    const imagesDir = path.join(process.cwd(), "public", "images");
-    let displayImages: GalleryImage[] = [];
-
-    try {
-        displayImages = await getGalleryImages(imagesDir);
-        // Sort randomly or by date? User didn't specify. 
-        // Let's shuffle them slightly so it's not just a file list dump, 
-        // or keep them alphabetical. Random feels more "gallery-like".
-        // Actually, filesystem order is arbitrary. Let's shuffle to mix categories.
-        displayImages = displayImages.sort(() => Math.random() - 0.5);
-    } catch (error) {
-        console.error("Error loading gallery images:", error);
-    }
+export default function GalleryPage() {
+    // Shuffling the images on the server or client? 
+    // To keep it static and stable, let's just use the data as is or deterministic sort.
+    // If we want random on every build, we can do it here.
+    const displayImages: GalleryImage[] = [...galleryData].sort((a, b) => a.src.localeCompare(b.src));
 
     return (
         <main className="min-h-screen bg-black text-white">
@@ -110,7 +56,7 @@ export default async function GalleryPage() {
                                         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         placeholder="blur"
-                                        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`} // Simple placeholder
+                                        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                                     />
                                     {/* Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">

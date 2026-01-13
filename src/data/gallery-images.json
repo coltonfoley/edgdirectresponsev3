@@ -1,0 +1,996 @@
+[
+  {
+    "src": "/images/appliances/outdoor-kitchen-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "outdoor kitchen hero",
+    "id": "/images/appliances/outdoor-kitchen-hero.png"
+  },
+  {
+    "src": "/images/appliances/patio-heater.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "patio heater",
+    "id": "/images/appliances/patio-heater.png"
+  },
+  {
+    "src": "/images/backup/hero/hero-main.jpg",
+    "width": 2600,
+    "height": 1950,
+    "alt": "hero main",
+    "id": "/images/backup/hero/hero-main.jpg"
+  },
+  {
+    "src": "/images/backup/pergolas/pergola-detail.jpg",
+    "width": 1600,
+    "height": 1312,
+    "alt": "pergola detail",
+    "id": "/images/backup/pergolas/pergola-detail.jpg"
+  },
+  {
+    "src": "/images/backup/pergolas/pergola-hero.jpg",
+    "width": 1600,
+    "height": 1066,
+    "alt": "pergola hero",
+    "id": "/images/backup/pergolas/pergola-hero.jpg"
+  },
+  {
+    "src": "/images/backup/pergolas/pergola-lifestyle.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "pergola lifestyle",
+    "id": "/images/backup/pergolas/pergola-lifestyle.jpg"
+  },
+  {
+    "src": "/images/backup/projects/project-01.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "project 01",
+    "id": "/images/backup/projects/project-01.jpg"
+  },
+  {
+    "src": "/images/backup/projects/project-02.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "project 02",
+    "id": "/images/backup/projects/project-02.jpg"
+  },
+  {
+    "src": "/images/backup/projects/project-03.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "project 03",
+    "id": "/images/backup/projects/project-03.jpg"
+  },
+  {
+    "src": "/images/backup/projects/project-04.jpg",
+    "width": 1200,
+    "height": 1800,
+    "alt": "project 04",
+    "id": "/images/backup/projects/project-04.jpg"
+  },
+  {
+    "src": "/images/backup/projects/project-05.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "project 05",
+    "id": "/images/backup/projects/project-05.jpg"
+  },
+  {
+    "src": "/images/backup/shades/shades-detail.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "shades detail",
+    "id": "/images/backup/shades/shades-detail.jpg"
+  },
+  {
+    "src": "/images/backup/shades/shades-hero.jpg",
+    "width": 1600,
+    "height": 1159,
+    "alt": "shades hero",
+    "id": "/images/backup/shades/shades-hero.jpg"
+  },
+  {
+    "src": "/images/backup/shades/shades-retracted.jpg",
+    "width": 1200,
+    "height": 800,
+    "alt": "shades retracted",
+    "id": "/images/backup/shades/shades-retracted.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
+    "width": 1920,
+    "height": 1325,
+    "alt": "commercial glass enclosure day exterior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg",
+    "width": 1920,
+    "height": 1243,
+    "alt": "commercial glass enclosure day interior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg",
+    "width": 2880,
+    "height": 1983,
+    "alt": "commercial glass enclosure interior wood deck 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg",
+    "width": 1920,
+    "height": 1272,
+    "alt": "commercial glass enclosure night dining 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg",
+    "width": 1920,
+    "height": 1301,
+    "alt": "commercial glass enclosure night exterior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg",
+    "width": 2880,
+    "height": 1857,
+    "alt": "commercial glass enclosure night interior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg",
+    "width": 1920,
+    "height": 1293,
+    "alt": "commercial glass enclosure night interior 02",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "commercial pergola glass enclosure day dining 01",
+    "id": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg",
+    "width": 1920,
+    "height": 1281,
+    "alt": "commercial pergola glass enclosure hanging lights 01",
+    "id": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-closed.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "glass closed",
+    "id": "/images/enclosures/glass-closed.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-detail.jpg",
+    "width": 1600,
+    "height": 1312,
+    "alt": "glass detail",
+    "id": "/images/enclosures/glass-detail.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-enclosure-closed-exterior.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "glass enclosure closed exterior",
+    "id": "/images/enclosures/glass-enclosure-closed-exterior.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-enclosure-partial-open.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "glass enclosure partial open",
+    "id": "/images/enclosures/glass-enclosure-partial-open.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-hero.jpg",
+    "width": 1600,
+    "height": 1200,
+    "alt": "glass hero",
+    "id": "/images/enclosures/glass-hero.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-01.jpg",
+    "width": 1920,
+    "height": 1272,
+    "alt": "glass system 01",
+    "id": "/images/enclosures/glass-system-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-02.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "glass system 02",
+    "id": "/images/enclosures/glass-system-02.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-03.jpg",
+    "width": 1920,
+    "height": 1281,
+    "alt": "glass system 03",
+    "id": "/images/enclosures/glass-system-03.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-04.jpg",
+    "width": 2880,
+    "height": 1983,
+    "alt": "glass system 04",
+    "id": "/images/enclosures/glass-system-04.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-05.jpg",
+    "width": 2880,
+    "height": 1857,
+    "alt": "glass system 05",
+    "id": "/images/enclosures/glass-system-05.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-06.jpg",
+    "width": 1920,
+    "height": 1293,
+    "alt": "glass system 06",
+    "id": "/images/enclosures/glass-system-06.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-07.jpg",
+    "width": 1920,
+    "height": 1243,
+    "alt": "glass system 07",
+    "id": "/images/enclosures/glass-system-07.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-08.jpg",
+    "width": 1920,
+    "height": 1301,
+    "alt": "glass system 08",
+    "id": "/images/enclosures/glass-system-08.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-09.jpg",
+    "width": 1920,
+    "height": 1325,
+    "alt": "glass system 09",
+    "id": "/images/enclosures/glass-system-09.jpg"
+  },
+  {
+    "src": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "residential glass enclosure lifestyle",
+    "id": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg"
+  },
+  {
+    "src": "/images/enclosures/residential-pergola-heaters-interior.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "residential pergola heaters interior",
+    "id": "/images/enclosures/residential-pergola-heaters-interior.jpg"
+  },
+  {
+    "src": "/images/frameless-sliding-glass-walls.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "frameless sliding glass walls",
+    "id": "/images/frameless-sliding-glass-walls.jpg"
+  },
+  {
+    "src": "/images/guide-cover.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "guide cover",
+    "id": "/images/guide-cover.png"
+  },
+  {
+    "src": "/images/hero/hero-main.jpg",
+    "width": 2600,
+    "height": 1733,
+    "alt": "hero main",
+    "id": "/images/hero/hero-main.jpg"
+  },
+  {
+    "src": "/images/luxury-restaurant-patio-enclosure.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "luxury restaurant patio enclosure",
+    "id": "/images/luxury-restaurant-patio-enclosure.jpg"
+  },
+  {
+    "src": "/images/motorized-retractable-screens-patio.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "motorized retractable screens patio",
+    "id": "/images/motorized-retractable-screens-patio.jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (2).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024ES01 (2)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (2).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (3).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024ES01 (3)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (3).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (5).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024ES01 (5)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (5).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (16).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024ES02 (16)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (16).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (17).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024ES02 (17)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (17).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (18).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024ES02 (18)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (18).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (22).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024ES02 (22)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (22).jpg"
+  },
+  {
+    "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (7).jpg",
+    "width": 5992,
+    "height": 3994,
+    "alt": "Photo B200XL Brustor   REF_2024ES02 (7)",
+    "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (7).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (15).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (15)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (15).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (16).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (16)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (16).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (2).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (2)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (2).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (28).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (28)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (28).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (29).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (29)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (29).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (32).jpg",
+    "width": 3840,
+    "height": 5760,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (32)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (32).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (39).jpg",
+    "width": 3840,
+    "height": 5760,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (39)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (39).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (40).jpg",
+    "width": 3840,
+    "height": 5760,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (40)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (40).jpg"
+  },
+  {
+    "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (7).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024BE11 (7)",
+    "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (7).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (10).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (10)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (10).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (11).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (11)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (11).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (12).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (12)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (12).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (13).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (13)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (13).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (2).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (2)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (2).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (3).jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (3)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (3).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (4).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (4)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (4).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (5).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (5)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (5).jpg"
+  },
+  {
+    "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (9).jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "Photo B200XL Brustor   REF_2024PO03 (9)",
+    "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (9).jpg"
+  },
+  {
+    "src": "/images/pergolas/after-pergola-install.jpg",
+    "width": 1024,
+    "height": 682,
+    "alt": "after pergola install",
+    "id": "/images/pergolas/after-pergola-install.jpg"
+  },
+  {
+    "src": "/images/pergolas/b200xl-01.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "b200xl 01",
+    "id": "/images/pergolas/b200xl-01.jpg"
+  },
+  {
+    "src": "/images/pergolas/b200xl-02.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "b200xl 02",
+    "id": "/images/pergolas/b200xl-02.jpg"
+  },
+  {
+    "src": "/images/pergolas/b200xl-03.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "b200xl 03",
+    "id": "/images/pergolas/b200xl-03.jpg"
+  },
+  {
+    "src": "/images/pergolas/before-pergola-install.jpg",
+    "width": 1024,
+    "height": 616,
+    "alt": "before pergola install",
+    "id": "/images/pergolas/before-pergola-install.jpg"
+  },
+  {
+    "src": "/images/pergolas/pergola-closed-louvers.jpg",
+    "width": 1024,
+    "height": 682,
+    "alt": "pergola closed louvers",
+    "id": "/images/pergolas/pergola-closed-louvers.jpg"
+  },
+  {
+    "src": "/images/pergolas/pergola-detail.jpg",
+    "width": 1600,
+    "height": 1066,
+    "alt": "pergola detail",
+    "id": "/images/pergolas/pergola-detail.jpg"
+  },
+  {
+    "src": "/images/pergolas/pergola-hero.jpg",
+    "width": 2000,
+    "height": 1334,
+    "alt": "pergola hero",
+    "id": "/images/pergolas/pergola-hero.jpg"
+  },
+  {
+    "src": "/images/pergolas/pergola-lifestyle.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "pergola lifestyle",
+    "id": "/images/pergolas/pergola-lifestyle.jpg"
+  },
+  {
+    "src": "/images/pergolas/pergola-pool-spa.jpg",
+    "width": 1024,
+    "height": 768,
+    "alt": "pergola pool spa",
+    "id": "/images/pergolas/pergola-pool-spa.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-01.jpg",
+    "width": 3600,
+    "height": 2400,
+    "alt": "residential black r blade 01",
+    "id": "/images/pergolas/residential-black-r-blade-01.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-02.jpg",
+    "width": 3600,
+    "height": 2399,
+    "alt": "residential black r blade 02",
+    "id": "/images/pergolas/residential-black-r-blade-02.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-03.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "residential black r blade 03",
+    "id": "/images/pergolas/residential-black-r-blade-03.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-04.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "residential black r blade 04",
+    "id": "/images/pergolas/residential-black-r-blade-04.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png",
+    "width": 7884,
+    "height": 5913,
+    "alt": "residential black r blade outdoor dining pool",
+    "id": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg",
+    "width": 2048,
+    "height": 1365,
+    "alt": "residential black r blade privacy walls pool",
+    "id": "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg",
+    "width": 3600,
+    "height": 2953,
+    "alt": "residential dark gray r blade led lights",
+    "id": "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg",
+    "width": 5448,
+    "height": 3632,
+    "alt": "residential gray bronze r blade pool chairs",
+    "id": "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg",
+    "width": 6720,
+    "height": 4480,
+    "alt": "residential gray bronze r blade white louvers 01",
+    "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg",
+    "width": 8938,
+    "height": 5959,
+    "alt": "residential gray bronze r blade white louvers 02",
+    "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg",
+    "width": 2500,
+    "height": 1406,
+    "alt": "residential gray bronze r blade white louvers 03",
+    "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg",
+    "width": 3600,
+    "height": 2401,
+    "alt": "residential gray white r shade outdoor kitchen",
+    "id": "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg",
+    "width": 5245,
+    "height": 3801,
+    "alt": "residential white gray bronze r blade screen",
+    "id": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
+    "width": 6711,
+    "height": 4474,
+    "alt": "residential white pergola pool glass doors 01",
+    "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
+    "width": 5749,
+    "height": 3833,
+    "alt": "residential white pergola pool glass doors 02",
+    "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg",
+    "width": 5814,
+    "height": 3876,
+    "alt": "residential white pergola pool glass doors 03",
+    "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-r-blade-led-strip.jpg",
+    "width": 6972,
+    "height": 4648,
+    "alt": "residential white r blade led strip",
+    "id": "/images/pergolas/residential-white-r-blade-led-strip.jpg"
+  },
+  {
+    "src": "/images/projects/project-01.jpg",
+    "width": 1600,
+    "height": 1066,
+    "alt": "project 01",
+    "id": "/images/projects/project-01.jpg"
+  },
+  {
+    "src": "/images/projects/project-02.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "project 02",
+    "id": "/images/projects/project-02.jpg"
+  },
+  {
+    "src": "/images/projects/project-03.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "project 03",
+    "id": "/images/projects/project-03.jpg"
+  },
+  {
+    "src": "/images/projects/project-04.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "project 04",
+    "id": "/images/projects/project-04.jpg"
+  },
+  {
+    "src": "/images/projects/project-05.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "project 05",
+    "id": "/images/projects/project-05.jpg"
+  },
+  {
+    "src": "/images/shades/commercial-white-r-blade-screens-lake.jpg",
+    "width": 5371,
+    "height": 3581,
+    "alt": "commercial white r blade screens lake",
+    "id": "/images/shades/commercial-white-r-blade-screens-lake.jpg"
+  },
+  {
+    "src": "/images/shades/shade-after-screens-deployed.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "shade after screens deployed",
+    "id": "/images/shades/shade-after-screens-deployed.jpg"
+  },
+  {
+    "src": "/images/shades/shade-before-no-screens.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "shade before no screens",
+    "id": "/images/shades/shade-before-no-screens.jpg"
+  },
+  {
+    "src": "/images/shades/shade-deployed-screens-01.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "shade deployed screens 01",
+    "id": "/images/shades/shade-deployed-screens-01.jpg"
+  },
+  {
+    "src": "/images/shades/shade-home-exterior-screens.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "shade home exterior screens",
+    "id": "/images/shades/shade-home-exterior-screens.jpg"
+  },
+  {
+    "src": "/images/shades/shade-patio-close-01.jpg",
+    "width": 5464,
+    "height": 8192,
+    "alt": "shade patio close 01",
+    "id": "/images/shades/shade-patio-close-01.jpg"
+  },
+  {
+    "src": "/images/shades/shades-detail.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "shades detail",
+    "id": "/images/shades/shades-detail.jpg"
+  },
+  {
+    "src": "/images/shades/shades-hero.jpg",
+    "width": 1600,
+    "height": 1160,
+    "alt": "shades hero",
+    "id": "/images/shades/shades-hero.jpg"
+  },
+  {
+    "src": "/images/shades/shades-retracted.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "shades retracted",
+    "id": "/images/shades/shades-retracted.jpg"
+  },
+  {
+    "src": "/images/staging/Photo B250XL Brustor - REF_2021BE16 (9).jpg",
+    "width": 6720,
+    "height": 4480,
+    "alt": "Photo B250XL Brustor   REF_2021BE16 (9)",
+    "id": "/images/staging/Photo B250XL Brustor - REF_2021BE16 (9).jpg"
+  },
+  {
+    "src": "/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg",
+    "width": 5184,
+    "height": 3456,
+    "alt": "Photo B250XL Brustor   REF_2022NL04 (5)",
+    "id": "/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-day-exterior-01.jpg",
+    "width": 1920,
+    "height": 1325,
+    "alt": "commercial glass enclosure day exterior 01",
+    "id": "/images/staging/commercial-glass-enclosure-day-exterior-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-day-interior-01.jpg",
+    "width": 1920,
+    "height": 1243,
+    "alt": "commercial glass enclosure day interior 01",
+    "id": "/images/staging/commercial-glass-enclosure-day-interior-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-interior-wood-deck-01.jpg",
+    "width": 2880,
+    "height": 1983,
+    "alt": "commercial glass enclosure interior wood deck 01",
+    "id": "/images/staging/commercial-glass-enclosure-interior-wood-deck-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-night-dining-01.jpg",
+    "width": 1920,
+    "height": 1272,
+    "alt": "commercial glass enclosure night dining 01",
+    "id": "/images/staging/commercial-glass-enclosure-night-dining-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-night-exterior-01.jpg",
+    "width": 1920,
+    "height": 1301,
+    "alt": "commercial glass enclosure night exterior 01",
+    "id": "/images/staging/commercial-glass-enclosure-night-exterior-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-night-interior-01.jpg",
+    "width": 2880,
+    "height": 1857,
+    "alt": "commercial glass enclosure night interior 01",
+    "id": "/images/staging/commercial-glass-enclosure-night-interior-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-glass-enclosure-night-interior-02.jpg",
+    "width": 1920,
+    "height": 1293,
+    "alt": "commercial glass enclosure night interior 02",
+    "id": "/images/staging/commercial-glass-enclosure-night-interior-02.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-pergola-glass-enclosure-day-dining-01.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "commercial pergola glass enclosure day dining 01",
+    "id": "/images/staging/commercial-pergola-glass-enclosure-day-dining-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-pergola-glass-enclosure-hanging-lights-01.jpg",
+    "width": 1920,
+    "height": 1281,
+    "alt": "commercial pergola glass enclosure hanging lights 01",
+    "id": "/images/staging/commercial-pergola-glass-enclosure-hanging-lights-01.jpg"
+  },
+  {
+    "src": "/images/staging/commercial-white-r-blade-screens-lake.jpg",
+    "width": 5371,
+    "height": 3581,
+    "alt": "commercial white r blade screens lake",
+    "id": "/images/staging/commercial-white-r-blade-screens-lake.jpg"
+  },
+  {
+    "src": "/images/staging/residential-black-r-blade-01.jpg",
+    "width": 3600,
+    "height": 2400,
+    "alt": "residential black r blade 01",
+    "id": "/images/staging/residential-black-r-blade-01.jpg"
+  },
+  {
+    "src": "/images/staging/residential-black-r-blade-02.jpg",
+    "width": 3600,
+    "height": 2399,
+    "alt": "residential black r blade 02",
+    "id": "/images/staging/residential-black-r-blade-02.jpg"
+  },
+  {
+    "src": "/images/staging/residential-black-r-blade-03.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "residential black r blade 03",
+    "id": "/images/staging/residential-black-r-blade-03.jpg"
+  },
+  {
+    "src": "/images/staging/residential-black-r-blade-04.jpg",
+    "width": 8192,
+    "height": 5464,
+    "alt": "residential black r blade 04",
+    "id": "/images/staging/residential-black-r-blade-04.jpg"
+  },
+  {
+    "src": "/images/staging/residential-black-r-blade-outdoor-dining-pool.png",
+    "width": 7884,
+    "height": 5913,
+    "alt": "residential black r blade outdoor dining pool",
+    "id": "/images/staging/residential-black-r-blade-outdoor-dining-pool.png"
+  },
+  {
+    "src": "/images/staging/residential-black-r-blade-privacy-walls-pool.jpg",
+    "width": 2048,
+    "height": 1365,
+    "alt": "residential black r blade privacy walls pool",
+    "id": "/images/staging/residential-black-r-blade-privacy-walls-pool.jpg"
+  },
+  {
+    "src": "/images/staging/residential-dark-gray-r-blade-led-lights.jpg",
+    "width": 3600,
+    "height": 2953,
+    "alt": "residential dark gray r blade led lights",
+    "id": "/images/staging/residential-dark-gray-r-blade-led-lights.jpg"
+  },
+  {
+    "src": "/images/staging/residential-gray-bronze-r-blade-pool-chairs.jpg",
+    "width": 5448,
+    "height": 3632,
+    "alt": "residential gray bronze r blade pool chairs",
+    "id": "/images/staging/residential-gray-bronze-r-blade-pool-chairs.jpg"
+  },
+  {
+    "src": "/images/staging/residential-gray-bronze-r-blade-white-louvers-01.jpg",
+    "width": 6720,
+    "height": 4480,
+    "alt": "residential gray bronze r blade white louvers 01",
+    "id": "/images/staging/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+  },
+  {
+    "src": "/images/staging/residential-gray-bronze-r-blade-white-louvers-02.jpg",
+    "width": 8938,
+    "height": 5959,
+    "alt": "residential gray bronze r blade white louvers 02",
+    "id": "/images/staging/residential-gray-bronze-r-blade-white-louvers-02.jpg"
+  },
+  {
+    "src": "/images/staging/residential-gray-bronze-r-blade-white-louvers-03.jpg",
+    "width": 2500,
+    "height": 1406,
+    "alt": "residential gray bronze r blade white louvers 03",
+    "id": "/images/staging/residential-gray-bronze-r-blade-white-louvers-03.jpg"
+  },
+  {
+    "src": "/images/staging/residential-gray-white-r-shade-outdoor-kitchen.jpg",
+    "width": 3600,
+    "height": 2401,
+    "alt": "residential gray white r shade outdoor kitchen",
+    "id": "/images/staging/residential-gray-white-r-shade-outdoor-kitchen.jpg"
+  },
+  {
+    "src": "/images/staging/residential-white-gray-bronze-r-blade-screen.jpg",
+    "width": 5245,
+    "height": 3801,
+    "alt": "residential white gray bronze r blade screen",
+    "id": "/images/staging/residential-white-gray-bronze-r-blade-screen.jpg"
+  },
+  {
+    "src": "/images/staging/residential-white-pergola-pool-glass-doors-01.jpg",
+    "width": 6711,
+    "height": 4474,
+    "alt": "residential white pergola pool glass doors 01",
+    "id": "/images/staging/residential-white-pergola-pool-glass-doors-01.jpg"
+  },
+  {
+    "src": "/images/staging/residential-white-pergola-pool-glass-doors-02.jpg",
+    "width": 5749,
+    "height": 3833,
+    "alt": "residential white pergola pool glass doors 02",
+    "id": "/images/staging/residential-white-pergola-pool-glass-doors-02.jpg"
+  },
+  {
+    "src": "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg",
+    "width": 5814,
+    "height": 3876,
+    "alt": "residential white pergola pool glass doors 03",
+    "id": "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg"
+  },
+  {
+    "src": "/images/staging/residential-white-r-blade-led-strip.jpg",
+    "width": 6972,
+    "height": 4648,
+    "alt": "residential white r blade led strip",
+    "id": "/images/staging/residential-white-r-blade-led-strip.jpg"
+  },
+  {
+    "src": "/images/testimonials/testimonial-01.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "testimonial 01",
+    "id": "/images/testimonials/testimonial-01.jpg"
+  },
+  {
+    "src": "/images/testimonials/testimonial-02.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "testimonial 02",
+    "id": "/images/testimonials/testimonial-02.jpg"
+  }
+]
