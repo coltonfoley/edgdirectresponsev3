@@ -65,8 +65,10 @@ export function LeadCaptureForm({
       // Track conversion
       if (typeof window !== 'undefined' && (window as any).dataLayer) {
         (window as any).dataLayer.push({
-          event: "form_success",
-          form_source: source
+          event: "generate_lead",
+          source: source,
+          currency: "USD",
+          value: 0
         });
       }
 

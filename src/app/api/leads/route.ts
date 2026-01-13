@@ -5,7 +5,13 @@ import path from "path";
 interface LeadSubmission {
   email: string;
   firstName: string;
+  lastName?: string;
+  phone?: string;
+  location?: string;
+  projectType?: string;
+  message?: string;
   source?: string;
+  customerType?: string;
 }
 
 interface LeadRecord extends LeadSubmission {
@@ -53,7 +59,17 @@ function generateId(): string {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email, firstName, source } = body as LeadSubmission;
+    const {
+      email,
+      firstName,
+      lastName,
+      phone,
+      location,
+      projectType,
+      message,
+      source,
+      customerType
+    } = body as LeadSubmission;
 
     // Validation
     const errors: string[] = [];
@@ -80,12 +96,18 @@ export async function POST(request: NextRequest) {
       id: generateId(),
       email: email.trim().toLowerCase(),
       firstName: firstName.trim(),
+      lastName: lastName?.trim(),
+      phone: phone?.trim(),
+      location: location?.trim(),
+      projectType: projectType,
+      message: message?.trim(),
       source: source || "guide-landing-page",
+      customerType: customerType,
       timestamp: new Date().toISOString(),
       ip: request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || undefined,
     };
 
-    // Store the lead
+    // Store the lead (Local fallback)
     await saveLead(lead);
 
     // Log the submission for development
@@ -99,6 +121,38 @@ export async function POST(request: NextRequest) {
 
     if (resendApiKey) {
       try {
+        const isContactForm = source === "contact_page";
+        const subject = isContactForm
+          ? `New Contact Inquiry: ${firstName} ${lastName || ""} (${customerType || "General"})`
+          : `New Guide Lead: ${firstName} (${source})`;
+
+        let htmlContent = "";
+
+        if (isContactForm) {
+          htmlContent = `
+            <h1>New Contact Inquiry</h1>
+            <p><strong>Name:</strong> ${firstName} ${lastName || ""}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+            <p><strong>Type:</strong> ${customerType || "Homeowner"}</p>
+            <p><strong>Location:</strong> ${location || "Not provided"}</p>
+            <p><strong>Interested In:</strong> ${projectType || "Not specified"}</p>
+            <hr />
+            <h3>Message:</h3>
+            <p style="white-space: pre-wrap;">${message || "No message provided."}</p>
+            <hr />
+            <p><small>Source: ${source} | Time: ${lead.timestamp}</small></p>
+          `;
+        } else {
+          htmlContent = `
+            <h1>New Guide Download Lead</h1>
+            <p><strong>Name:</strong> ${firstName}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Source:</strong> ${source}</p>
+            <p><strong>Time:</strong> ${lead.timestamp}</p>
+          `;
+        }
+
         await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
@@ -106,16 +160,10 @@ export async function POST(request: NextRequest) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "EDG Leads <leads@edgoutdoorliving.com>",
+            from: "EDG Leads <onboarding@resend.dev>",
             to: notificationEmail,
-            subject: `New Lead: ${firstName} (${source})`,
-            html: `
-              <h1>New Lead Captured</h1>
-              <p><strong>Name:</strong> ${firstName}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Source:</strong> ${source}</p>
-              <p><strong>Time:</strong> ${lead.timestamp}</p>
-            `,
+            subject: subject,
+            html: htmlContent,
           }),
         });
       } catch (emailError) {
@@ -123,47 +171,10 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // TODO: Email service integration
-    // Uncomment and configure one of these when ready:
-    //
-    // Mailchimp:
-    // await fetch(`https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`, {
-    //   method: "POST",
-    //   headers: {
-    //     Authorization: `Bearer ${MAILCHIMP_API_KEY}`,
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     email_address: lead.email,
-    //     status: "subscribed",
-    //     merge_fields: { FNAME: lead.firstName },
-    //     tags: [lead.source],
-    //   }),
-    // });
-    //
-    // ConvertKit:
-    // await fetch(`https://api.convertkit.com/v3/forms/${FORM_ID}/subscribe`, {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     api_key: CONVERTKIT_API_KEY,
-    //     email: lead.email,
-    //     first_name: lead.firstName,
-    //   }),
-    // });
-    //
-    // Resend (for direct email):
-    // await resend.emails.send({
-    //   from: "EDG <guides@edgoutdoorliving.com>",
-    //   to: lead.email,
-    //   subject: "Your Four-Season Outdoor Living Guide",
-    //   html: guideEmailTemplate(lead.firstName),
-    // });
-
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you! Check your email for the guide.",
+        message: "Thank you! We have received your information.",
         leadId: lead.id,
       },
       { status: 201 }

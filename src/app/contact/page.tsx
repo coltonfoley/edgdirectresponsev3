@@ -10,21 +10,64 @@ import { useState } from "react";
 export default function ContactPage() {
     const [formType, setFormType] = useState<"homeowner" | "pro" | "commercial">("homeowner");
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Form state
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        location: "",
+        projectType: "",
+        message: ""
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // In production, this would submit to an API
+        setLoading(true);
+        setError("");
 
-        // Track conversion
-        if (typeof window !== 'undefined' && (window as any).dataLayer) {
-            (window as any).dataLayer.push({
-                event: "form_success",
-                form_source: "contact_page",
-                customer_type: formType
+        try {
+            const response = await fetch("/api/leads", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    ...formData,
+                    customerType: formType,
+                    source: "contact_page"
+                }),
             });
-        }
 
-        setSubmitted(true);
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.errors?.[0] || "Something went wrong");
+            }
+
+            // Track conversion
+            if (typeof window !== 'undefined' && (window as any).dataLayer) {
+                (window as any).dataLayer.push({
+                    event: "generate_lead",
+                    source: "contact_page",
+                    customer_type: formType,
+                    value: 0,
+                    currency: "USD"
+                });
+            }
+
+            setSubmitted(true);
+        } catch (err: any) {
+            setError(err.message || "Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     if (submitted) {
@@ -100,8 +143,12 @@ export default function ContactPage() {
                                             <label className="block text-sm font-medium mb-2">First Name *</label>
                                             <input
                                                 type="text"
+                                                name="firstName"
+                                                value={formData.firstName}
+                                                onChange={handleChange}
                                                 required
-                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand"
+                                                disabled={loading}
+                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand disabled:opacity-50"
                                                 placeholder="John"
                                             />
                                         </div>
@@ -109,8 +156,12 @@ export default function ContactPage() {
                                             <label className="block text-sm font-medium mb-2">Last Name *</label>
                                             <input
                                                 type="text"
+                                                name="lastName"
+                                                value={formData.lastName}
+                                                onChange={handleChange}
                                                 required
-                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand"
+                                                disabled={loading}
+                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand disabled:opacity-50"
                                                 placeholder="Smith"
                                             />
                                         </div>
@@ -121,8 +172,12 @@ export default function ContactPage() {
                                             <label className="block text-sm font-medium mb-2">Email *</label>
                                             <input
                                                 type="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
                                                 required
-                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand"
+                                                disabled={loading}
+                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand disabled:opacity-50"
                                                 placeholder="john@example.com"
                                             />
                                         </div>
@@ -130,7 +185,11 @@ export default function ContactPage() {
                                             <label className="block text-sm font-medium mb-2">Phone</label>
                                             <input
                                                 type="tel"
-                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand"
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                                disabled={loading}
+                                                className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand disabled:opacity-50"
                                                 placeholder="(555) 123-4567"
                                             />
                                         </div>
@@ -140,14 +199,24 @@ export default function ContactPage() {
                                         <label className="block text-sm font-medium mb-2">Project Location (City/Zip)</label>
                                         <input
                                             type="text"
-                                            className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand"
+                                            name="location"
+                                            value={formData.location}
+                                            onChange={handleChange}
+                                            disabled={loading}
+                                            className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand disabled:opacity-50"
                                             placeholder="Lake Forest, IL 60045"
                                         />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-medium mb-2">What are you looking for?</label>
-                                        <select className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand">
+                                        <select
+                                            name="projectType"
+                                            value={formData.projectType}
+                                            onChange={handleChange}
+                                            disabled={loading}
+                                            className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand disabled:opacity-50"
+                                        >
                                             <option value="">Select an option...</option>
                                             <option value="pergola">Louvered Pergola</option>
                                             <option value="shades">Motorized Shades</option>
@@ -160,14 +229,24 @@ export default function ContactPage() {
                                     <div>
                                         <label className="block text-sm font-medium mb-2">Tell us about your project</label>
                                         <textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            disabled={loading}
                                             rows={4}
-                                            className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand resize-none"
+                                            className="w-full px-4 py-3 rounded-lg border border-black/10 dark:border-white/10 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-edg-brand resize-none disabled:opacity-50"
                                             placeholder="Describe your outdoor space, goals, timeline, or any questions you have..."
                                         />
                                     </div>
 
-                                    <Button type="submit" size="lg" className="w-full rounded-lg">
-                                        Submit Request
+                                    {error && (
+                                        <div className="p-3 rounded-lg bg-red-100 text-red-600 border border-red-200 text-sm">
+                                            {error}
+                                        </div>
+                                    )}
+
+                                    <Button type="submit" size="lg" disabled={loading} className="w-full rounded-lg">
+                                        {loading ? "Sending..." : "Submit Request"}
                                     </Button>
                                 </form>
                             </div>
