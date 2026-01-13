@@ -362,9 +362,9 @@ export default function EnclosuresPage() {
                                     Get Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
-                            <Link href="/projects">
+                            <Link href="/gallery">
                                 <Button size="lg" variant="ghost" className="rounded-full text-lg px-8 text-edg-dark hover:bg-edg-dark/10">
-                                    See Projects <ChevronRight className="ml-1 h-5 w-5" />
+                                    See Gallery <ChevronRight className="ml-1 h-5 w-5" />
                                 </Button>
                             </Link>
                         </div>

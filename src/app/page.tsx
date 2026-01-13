@@ -45,9 +45,9 @@ export default function Home() {
                     See How It Works <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/projects">
+                <Link href="/gallery">
                   <Button size="lg" variant="secondary" className="rounded-full text-base px-8 border-white/20 text-white hover:bg-white/10">
-                    View Our Projects
+                    View Gallery
                   </Button>
                 </Link>
               </div>

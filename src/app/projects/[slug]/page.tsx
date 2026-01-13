@@ -31,8 +31,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                 <Container className="relative z-10 h-full flex flex-col justify-end pb-12">
-                    <Link href="/projects" className="inline-flex items-center text-sm text-white/80 hover:text-white mb-6 transition-colors">
-                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to projects
+                    <Link href="/gallery" className="inline-flex items-center text-sm text-white/80 hover:text-white mb-6 transition-colors">
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to gallery
                     </Link>
                     <span className="px-3 py-1 bg-edg-brand text-edg-dark rounded-full text-sm font-semibold w-fit mb-4">
                         {project.type}

@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/guide',
         '/price',
         '/pro',
-        '/projects',
+        '/gallery',
         '/systems',
         '/systems/pergolas',
         '/systems/shades',

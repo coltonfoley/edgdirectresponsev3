@@ -127,8 +127,8 @@ export function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/projects" className="text-gray-400 hover:text-edg-brand transition-colors">
-                                        Our Projects
+                                    <Link href="/gallery" className="text-gray-400 hover:text-edg-brand transition-colors">
+                                        Gallery
                                     </Link>
                                 </li>
                                 <li>
