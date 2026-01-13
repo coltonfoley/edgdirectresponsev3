@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -171,6 +172,7 @@ export default function RootLayout({
         <Footer />
         <GoogleTagManager gtmId="GTM-MJWNZD3F" />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
