@@ -15,6 +15,7 @@ interface LeadCaptureFormProps {
   successMessage?: string;
   className?: string;
   variant?: "default" | "compact" | "inline";
+  redirectUrl?: string;
   downloadUrl?: string;
   autoDownload?: boolean;
 }
@@ -29,6 +30,7 @@ export function LeadCaptureForm({
   className,
   variant = "default",
   downloadUrl,
+  redirectUrl,
   autoDownload = true,
 }: LeadCaptureFormProps) {
   const [firstName, setFirstName] = useState("");
@@ -66,6 +68,19 @@ export function LeadCaptureForm({
           event: "form_success",
           form_source: source
         });
+      }
+
+      // Set access cookie if redirecting to gated content
+      if (redirectUrl) {
+        // Set cookie via JS for immediate access (simple client-side gate)
+        // 30 day expiration
+        const date = new Date();
+        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+        document.cookie = `guide_access=true; expires=${date.toUTCString()}; path=/`;
+
+        // Slight delay to show success state briefly or just go
+        window.location.href = redirectUrl;
+        return;
       }
 
       // Trigger download if requested

@@ -5,81 +5,91 @@ import { Container } from "./Container";
 import { Button } from "./Button";
 import { LeadCaptureForm } from "./LeadCaptureForm";
 import { MapPin, Phone, Mail, ArrowRight, BookOpen } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
+    const pathname = usePathname();
+
+    // Completely hide footer on the interactive guide reading page
+    if (pathname === '/guide/read') return null;
+
+    const isGuidePage = pathname?.startsWith('/guide');
+
     return (
-        <footer className="bg-edg-dark border-t border-white/5">
+        <footer className="bg-edg-dark border-t border-white/5 text-white">
             {/* Lead Capture Section */}
-            <div className="relative border-b border-white/5 py-20 lg:py-24 overflow-hidden">
-                {/* Background Glow */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(66,255,193,0.06),transparent_70%)] pointer-events-none" />
+            {!isGuidePage && (
+                <div className="relative border-b border-white/5 py-20 lg:py-24 overflow-hidden">
+                    {/* Background Glow */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_-20%,rgba(66,255,193,0.06),transparent_70%)] pointer-events-none" />
 
-                <Container className="relative">
-                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-0 items-stretch">
-                        {/* Guide offer */}
-                        <div className="flex flex-col justify-between py-2 lg:pr-16 space-y-8">
-                            <div className="space-y-4">
-                                <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] text-edg-brand uppercase">
-                                    <div className="p-1 rounded bg-edg-brand/10">
-                                        <BookOpen className="h-3.5 w-3.5" />
+                    <Container className="relative">
+                        <div className="grid lg:grid-cols-2 gap-12 lg:gap-0 items-stretch">
+                            {/* Guide offer */}
+                            <div className="flex flex-col justify-between py-2 lg:pr-16 space-y-8">
+                                <div className="space-y-4">
+                                    <div className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] text-edg-brand uppercase">
+                                        <div className="p-1 rounded bg-edg-brand/10">
+                                            <BookOpen className="h-3.5 w-3.5" />
+                                        </div>
+                                        Free Planning Guide
                                     </div>
-                                    Free Planning Guide
+                                    <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
+                                        Plan your outdoor space <br className="hidden md:block" />
+                                        <span className="text-white/80 font-medium italic">with confidence.</span>
+                                    </h3>
+                                    <p className="text-base text-gray-400 max-w-md leading-relaxed">
+                                        Get our free guide: budget ranges, system comparisons, and the mistakes to avoid.
+                                    </p>
                                 </div>
-                                <h3 className="text-3xl md:text-4xl font-bold text-white leading-tight tracking-tight">
-                                    Plan your outdoor space <br className="hidden md:block" />
-                                    <span className="text-white/80 font-medium italic">with confidence.</span>
-                                </h3>
-                                <p className="text-base text-gray-400 max-w-md leading-relaxed">
-                                    Get our free guide: budget ranges, system comparisons, and the mistakes to avoid.
-                                </p>
+                                <LeadCaptureForm
+                                    source="footer"
+                                    ctaText="Send Me the Guide"
+                                    variant="compact"
+                                    className="w-full"
+                                    downloadUrl="/docs/edg-outdoor-living-guide.html"
+                                />
                             </div>
-                            <LeadCaptureForm
-                                source="footer"
-                                ctaText="Send Me the Guide"
-                                variant="compact"
-                                className="w-full"
-                                downloadUrl="/docs/edg-outdoor-living-guide.html"
-                            />
+
+                            {/* Ready to talk */}
+                            <div className="flex flex-col justify-between py-2 lg:pl-16 lg:border-l lg:border-white/10 space-y-8">
+                                <div className="space-y-4">
+                                    <div className="h-[22px] hidden lg:block" /> {/* Alignment Spacer to match left side badge */}
+                                    <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+                                        Ready to start <br className="hidden md:block" />
+                                        your project?
+                                    </h3>
+                                    <p className="text-base text-gray-400 max-w-md leading-relaxed">
+                                        Talk to our team about your outdoor living goals. No pressure, just helpful guidance.
+                                    </p>
+                                </div>
+
+                                <div className="space-y-6">
+                                    <div className="flex flex-wrap gap-4">
+                                        <Link href="/contact" className="group">
+                                            <Button size="lg" className="rounded-xl px-8 shadow-lg shadow-edg-brand/5 group-hover:shadow-edg-brand/10 transition-all whitespace-nowrap">
+                                                Book a Consultation <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                            </Button>
+                                        </Link>
+                                        <a
+                                            href="tel:+18155810138"
+                                            className="inline-flex items-center justify-center gap-3 h-12 px-6 rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all font-medium backdrop-blur-sm whitespace-nowrap"
+                                        >
+                                            <Phone className="h-5 w-5 text-edg-brand" />
+                                            (815) 581-0138
+                                        </a>
+                                    </div>
+
+                                    <div className="flex items-center gap-3 text-xs text-gray-500 font-medium">
+                                        <div className="h-1.5 w-1.5 rounded-full bg-edg-brand animate-pulse" />
+                                        Mon–Fri, 8am–5pm CT • Response within 1 business day
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        {/* Ready to talk */}
-                        <div className="flex flex-col justify-between py-2 lg:pl-16 lg:border-l lg:border-white/10 space-y-8">
-                            <div className="space-y-4">
-                                <div className="h-[22px] hidden lg:block" /> {/* Alignment Spacer to match left side badge */}
-                                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
-                                    Ready to start <br className="hidden md:block" />
-                                    your project?
-                                </h3>
-                                <p className="text-base text-gray-400 max-w-md leading-relaxed">
-                                    Talk to our team about your outdoor living goals. No pressure, just helpful guidance.
-                                </p>
-                            </div>
-
-                            <div className="space-y-6">
-                                <div className="flex flex-wrap gap-4">
-                                    <Link href="/contact" className="group">
-                                        <Button size="lg" className="rounded-xl px-8 shadow-lg shadow-edg-brand/5 group-hover:shadow-edg-brand/10 transition-all whitespace-nowrap">
-                                            Book a Consultation <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                        </Button>
-                                    </Link>
-                                    <a
-                                        href="tel:+18155810138"
-                                        className="inline-flex items-center justify-center gap-3 h-12 px-6 rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all font-medium backdrop-blur-sm whitespace-nowrap"
-                                    >
-                                        <Phone className="h-5 w-5 text-edg-brand" />
-                                        (815) 581-0138
-                                    </a>
-                                </div>
-
-                                <div className="flex items-center gap-3 text-xs text-gray-500 font-medium">
-                                    <div className="h-1.5 w-1.5 rounded-full bg-edg-brand animate-pulse" />
-                                    Mon–Fri, 8am–5pm CT • Response within 1 business day
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Container>
-            </div>
+                    </Container>
+                </div>
+            )}
 
             {/* Main Footer */}
             <div className="py-16">

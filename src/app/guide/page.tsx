@@ -160,8 +160,9 @@ export default function GuidePage() {
               {/* Lead capture form */}
               <LeadCaptureForm
                 source="guide-landing-hero"
-                ctaText="Send Me the Free Guide"
-                downloadUrl="/docs/edg-outdoor-living-guide.html"
+                ctaText="Read the Free Guide"
+                redirectUrl="/guide/read"
+                autoDownload={false}
               />
             </div>
           </div>
@@ -300,16 +301,17 @@ export default function GuidePage() {
               Ready to Plan Your Outdoor Space?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              Get the guide and start your project with confidence. It takes 30 seconds to sign up
-              and you'll have the PDF in your inbox immediately.
+              Get the full guide instantly. It takes 30 seconds to sign up
+              and you can read it directly here on the site.
             </p>
 
             <div className="max-w-md mx-auto">
               <LeadCaptureForm
                 source="guide-landing-bottom"
-                ctaText="Get the Free Guide"
+                ctaText="Read the Free Guide"
                 variant="compact"
-                downloadUrl="/docs/edg-outdoor-living-guide.html"
+                redirectUrl="/guide/read"
+                autoDownload={false}
               />
             </div>
           </div>
