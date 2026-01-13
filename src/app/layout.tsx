@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     default: "EDG | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee",
     template: "%s | EDG Outdoor Living"
   },
-  description: "Premium motorized pergolas, exterior shades, and glass enclosures for the Chicago to Milwaukee region. Serving Lake County, McHenry County, and Southeast Wisconsin. Design, supply & professional installation.",
+  description: "Premium motorized pergolas, exterior shades, and glass enclosures. Full-service installation for the Chicago to Milwaukee region, with nationwide design and supply available.",
   keywords: ["motorized pergolas", "exterior shades", "glass enclosures", "outdoor living", "Chicago pergolas", "Milwaukee pergolas", "Lake County IL", "patio covers", "louvered pergolas"],
   authors: [{ name: "EDG Outdoor Living" }],
   creator: "EDG Outdoor Living",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "EDG | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee",
-    description: "Premium motorized pergolas, exterior shades, and glass enclosures. Serving North Chicago to Milwaukee with design, supply & professional installation.",
+    description: "Premium motorized pergolas, exterior shades, and glass enclosures. Serving North Chicago to Milwaukee with nationwide design and supply available.",
     url: "https://edgpatioshade.com",
     siteName: "EDG Outdoor Living",
     locale: "en_US",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "EDG | Motorized Pergolas & Outdoor Shades",
-    description: "Premium outdoor living systems for Chicago to Milwaukee. Motorized pergolas, shades & glass enclosures.",
+    description: "Premium outdoor living systems. Serving Chicago to Milwaukee with nationwide design and supply for motorized pergolas, shades, and glass enclosures.",
     images: ["/og-image.jpg"],
   },
   robots: {

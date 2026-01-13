@@ -101,7 +101,7 @@ export function Footer() {
                                 EDG
                             </Link>
                             <p className="text-gray-400 mb-6 max-w-sm">
-                                Premium motorized pergolas, exterior shades, and glass enclosures for the Chicago/Milwaukee region.
+                                Premium motorized pergolas, exterior shades, and glass enclosures for the Chicago/Milwaukee region, with design and supply available nationwide.
                             </p>
                             <div className="space-y-3">
                                 <div className="flex items-start gap-3 text-gray-400">
