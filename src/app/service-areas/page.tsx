@@ -71,6 +71,13 @@ const serviceAreas = [
         communities: ["Lake Geneva", "Fontana", "Williams Bay", "Walworth", "Linn", "Genoa City"],
         featured: false,
     },
+    {
+        name: "Hinsdale",
+        slug: "hinsdale-il",
+        description: "Premium pergolas and shade systems for Hinsdale's premier estates.",
+        communities: ["Southeast Hinsdale", "The Woodlands", "Fullersburg", "Downtown Hinsdale"],
+        featured: false,
+    },
 ];
 
 export default function ServiceAreasPage() {

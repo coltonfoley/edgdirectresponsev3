@@ -23,6 +23,7 @@ const areasDropdown = [
     { href: "/service-areas/mchenry-county-il", label: "McHenry County, IL", desc: "Crystal Lake, Algonquin, Woodstock" },
     { href: "/service-areas/southeast-wisconsin", label: "Southeast Wisconsin", desc: "Lake Geneva, Kenosha, Racine" },
     { href: "/service-areas/lake-geneva-wi", label: "Lake Geneva, WI", desc: "Lake Geneva,  Fontana,  Williams Bay" },
+    { href: "/service-areas/hinsdale-il", label: "Hinsdale", desc: "Southeast Hinsdale,  The Woodlands,  Fullersburg" },
 ];
 
 export function Navbar() {
