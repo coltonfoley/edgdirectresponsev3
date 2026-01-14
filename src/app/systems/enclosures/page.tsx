@@ -111,17 +111,17 @@ const systemTypes = [
     {
         name: "Bi-Fold",
         desc: "Panels fold accordion-style to one or both sides. Best for large openings.",
-        image: "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg",
+        image: "/images/frameless-sliding-glass-walls.jpg",
     },
     {
         name: "Stacking",
         desc: "Individual panels slide and stack. Great for partial openings.",
-        image: "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg",
+        image: "/images/staging/residential-white-pergola-pool-glass-doors-01.jpg",
     },
     {
         name: "Sliding",
         desc: "Panels slide on tracks. Ideal for narrow spaces or straight runs.",
-        image: "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
+        image: "/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg",
     },
 ];
 
