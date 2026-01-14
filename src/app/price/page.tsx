@@ -136,7 +136,7 @@ export default function PricePage() {
                         <div className="border border-black/10 dark:border-white/10 rounded-2xl overflow-hidden">
                             <div className="aspect-[4/3] relative">
                                 <Image
-                                    src="/images/enclosures/glass-hero.jpg"
+                                    src="/images/staging/residential-white-pergola-pool-glass-doors-03.jpg"
                                     alt="Glass enclosure system"
                                     fill
                                     className="object-cover"

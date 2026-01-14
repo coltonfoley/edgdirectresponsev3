@@ -28,7 +28,7 @@ export const projects: Project[] = [
         galleryImages: [
             "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
             "/images/shades/shades-hero.jpg",
-            "/images/enclosures/glass-hero.jpg"
+            "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg"
         ],
         description: "A comprehensive outdoor living solution for a family seeking year-round usability on their Lake Michigan property.",
         challenge: "The homeowners had a beautiful lakefront view but couldn't enjoy their patio for most of the year. Summer sun made it unbearably hot by noon, spring and fall winds cut short any outdoor time, and surprise rain showers ruined countless gatherings. They needed a solution that would handle all of these challenges without blocking their prized view of the lake.",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
         type: "Residential",
         systems: ["Louvered Pergola", "Glass Enclosure"],
         cardImage: "/images/frameless-sliding-glass-walls.jpg",
-        heroImage: "/images/enclosures/glass-hero.jpg",
+        heroImage: "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg",
         galleryImages: [
             "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
             "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
         heroImage: "/images/shades/shades-hero.jpg",
         galleryImages: [
             "/images/pergolas/residential-black-r-blade-04.jpg",
-            "/images/enclosures/glass-hero.jpg",
+            "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg",
             "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg"
         ],
         description: "Six motorized exterior shades protecting a south-facing home from summer heat while preserving backyard views.",
@@ -167,7 +167,7 @@ export const projects: Project[] = [
         heroImage: "/images/pergolas/residential-black-r-blade-01.jpg",
         galleryImages: [
             "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg",
-            "/images/enclosures/glass-hero.jpg",
+            "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg",
             "/images/shades/shades-hero.jpg"
         ],
         description: "A complete outdoor living package coordinated during new construction for seamless integration.",
@@ -203,7 +203,7 @@ export const projects: Project[] = [
         galleryImages: [
             "/images/commercial-glass-enclosure-day-exterior-01.jpg",
             "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
-            "/images/enclosures/glass-hero.jpg"
+            "/images/staging/residential-white-pergola-pool-glass-doors-03.jpg"
         ],
         description: "Twin pergola structures providing all-weather coverage for the member pool deck at a private country club.",
         challenge: "The club's pool deck was popular with members but offered no shade or rain protection. Members would leave during afternoon heat or sudden showers, reducing pool attendance and affecting member satisfaction scores.",
