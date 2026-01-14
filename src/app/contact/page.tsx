@@ -301,7 +301,7 @@ export default function ContactPage() {
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <Clock className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
-                                        <span className="text-edg-gray-text dark:text-gray-400 font-medium">Mon-Fri, 8am-5pm CT</span>
+                                        <span className="text-edg-gray-text dark:text-gray-400 font-medium">Mon-Fri, 7am-4pm CT</span>
                                     </div>
                                     <div className="flex items-start gap-3">
                                         <MapPin className="h-5 w-5 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />

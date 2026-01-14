@@ -81,7 +81,7 @@ export function Footer() {
 
                                     <div className="flex items-center gap-3 text-xs text-gray-500 font-medium">
                                         <div className="h-1.5 w-1.5 rounded-full bg-edg-brand animate-pulse" />
-                                        Mon–Fri, 8am–5pm CT • Response within 1 business day
+                                        Mon–Fri, 7am–4pm CT • Response within 1 business day
                                     </div>
                                 </div>
                             </div>

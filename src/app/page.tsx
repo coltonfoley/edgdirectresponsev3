@@ -341,7 +341,7 @@ export default function Home() {
                   </a>
 
                   <p className="text-xs text-gray-500 text-center">
-                    Mon–Fri, 8am–5pm CT • Response within 1 business day
+                    Mon–Fri, 7am–4pm CT • Response within 1 business day
                   </p>
                 </div>
               </div>
