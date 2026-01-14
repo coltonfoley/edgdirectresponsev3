@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
+import { createClient } from "@supabase/supabase-js";
+
+// Initialize Supabase Admin Client
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+if (!supabaseUrl || !supabaseServiceKey) {
+  console.error("Missing Supabase credentials");
+}
+
+const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
 
 interface LeadSubmission {
   email: string;
@@ -14,46 +23,9 @@ interface LeadSubmission {
   customerType?: string;
 }
 
-interface LeadRecord extends LeadSubmission {
-  id: string;
-  timestamp: string;
-  ip?: string;
-}
-
-// Storage configuration
-const LEADS_FILE = path.join(process.cwd(), "leads.json");
-
-// Helper to get leads from storage
-async function getLeads(): Promise<LeadRecord[]> {
-  try {
-    if (fs.existsSync(LEADS_FILE)) {
-      const data = fs.readFileSync(LEADS_FILE, "utf-8");
-      return JSON.parse(data);
-    }
-  } catch (error) {
-    console.error("Error reading leads file:", error);
-  }
-  return [];
-}
-
-// Helper to save leads to storage
-async function saveLead(lead: LeadRecord) {
-  try {
-    const leads = await getLeads();
-    leads.push(lead);
-    fs.writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2));
-  } catch (error) {
-    console.error("Error saving lead:", error);
-  }
-}
-
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
-}
-
-function generateId(): string {
-  return `lead_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
 }
 
 export async function POST(request: NextRequest) {
@@ -91,27 +63,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create lead record
-    const lead: LeadRecord = {
-      id: generateId(),
-      email: email.trim().toLowerCase(),
-      firstName: firstName.trim(),
-      lastName: lastName?.trim(),
-      phone: phone?.trim(),
-      location: location?.trim(),
-      projectType: projectType,
-      message: message?.trim(),
-      source: source || "guide-landing-page",
-      customerType: customerType,
-      timestamp: new Date().toISOString(),
-      ip: request.headers.get("x-forwarded-for") || request.headers.get("x-real-ip") || undefined,
-    };
+    // Insert into Supabase
+    const { data, error } = await supabase
+      .from('leads')
+      .insert([
+        {
+          email: email.trim().toLowerCase(),
+          first_name: firstName.trim(),
+          last_name: lastName?.trim(),
+          phone: phone?.trim(),
+          location: location?.trim(),
+          project_type: projectType,
+          message: message?.trim(),
+          source: source || "guide-landing-page",
+          customer_type: customerType,
+        }
+      ])
+      .select()
+      .single();
 
-    // Store the lead (Local fallback)
-    await saveLead(lead);
+    if (error) {
+      throw error;
+    }
 
-    // Log the submission for development
-
+    const leadId = data.id;
+    const timestamp = data.created_at;
 
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
@@ -139,7 +115,7 @@ export async function POST(request: NextRequest) {
             <h3>Message:</h3>
             <p style="white-space: pre-wrap;">${message || "No message provided."}</p>
             <hr />
-            <p><small>Source: ${source} | Time: ${lead.timestamp}</small></p>
+            <p><small>Source: ${source} | Time: ${timestamp}</small></p>
           `;
         } else {
           htmlContent = `
@@ -147,7 +123,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${firstName}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Source:</strong> ${source}</p>
-            <p><strong>Time:</strong> ${lead.timestamp}</p>
+            <p><strong>Time:</strong> ${timestamp}</p>
           `;
         }
 
@@ -173,41 +149,53 @@ export async function POST(request: NextRequest) {
       {
         success: true,
         message: "Thank you! We have received your information.",
-        leadId: lead.id,
+        leadId: leadId,
       },
       { status: 201 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.error("Lead capture error:", error);
     return NextResponse.json(
       {
         success: false,
         errors: ["Something went wrong. Please try again."],
+        details: error.message
       },
       { status: 500 }
     );
   }
 }
 
-// GET endpoint to view captured leads (development only)
+// GET endpoint (Secured)
 export async function GET(request: NextRequest) {
-  // Check for authentication even in development
+  // Simple Admin Key Auth
   const authHeader = request.headers.get("x-admin-key");
-  const adminKey = process.env.ADMIN_API_KEY || "dev-secret-key"; // Fallback for dev only
+  const adminKey = process.env.ADMIN_API_KEY || "dev-secret-key";
 
   if (process.env.NODE_ENV === "production" && !process.env.ADMIN_API_KEY) {
-    return NextResponse.json({ error: "Endpoint disabled" }, { status: 403 });
+    // In production, force a strong key or just rely on Supabase
+    // But for this simplified endpoint, we'll stick to the key check
+    if (!process.env.ADMIN_API_KEY) return NextResponse.json({ error: "Configuration Error" }, { status: 500 });
   }
 
   if (authHeader !== adminKey) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const leads = await getLeads();
+  const { data, error } = await supabase
+    .from('leads')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(100);
+
+  if (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 
   return NextResponse.json({
-    total: leads.length,
-    leads: leads.slice(-100), // Return last 100 leads
+    total: data.length,
+    leads: data,
   });
 }
+
 
