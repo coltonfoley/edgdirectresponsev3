@@ -194,7 +194,7 @@ export default function ServiceAreasPage() {
                             </div>
                         </div>
                         <div className="bg-edg-dark rounded-2xl aspect-square flex items-center justify-center">
-                            {/* TODO: Replace with actual map embed */}
+
                             <div className="text-center text-white p-8">
                                 <MapPin className="h-16 w-16 mx-auto mb-4 text-edg-brand" />
                                 <p className="text-xl font-bold mb-2">Spring Grove, IL</p>

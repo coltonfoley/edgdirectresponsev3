@@ -111,9 +111,7 @@ export async function POST(request: NextRequest) {
     await saveLead(lead);
 
     // Log the submission for development
-    console.log("=== NEW LEAD CAPTURED ===");
-    console.log(JSON.stringify(lead, null, 2));
-    console.log("========================");
+
 
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     },
 };
 
-// TODO: Replace with your actual product images
+
 const galleryImages = [
     {
         type: "image" as const,

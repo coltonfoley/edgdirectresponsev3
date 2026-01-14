@@ -166,6 +166,11 @@ export function Footer() {
                                         Contact Us
                                     </Link>
                                 </li>
+                                <li>
+                                    <a href="https://app.edgpatioshade.com/" className="text-gray-400 hover:text-edg-brand transition-colors">
+                                        Partner Login
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 
