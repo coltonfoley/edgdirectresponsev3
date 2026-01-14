@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { LeadCaptureForm } from "@/components/ui/LeadCaptureForm";
+
 import { FadeIn } from "@/components/ui/FadeIn";
 import {
   ArrowRight, Calculator, HardHat, LayoutTemplate, Building2, ChevronRight,
@@ -289,12 +289,11 @@ export default function Home() {
                   ))}
                 </ul>
 
-                <LeadCaptureForm
-                  source="homepage-inline"
-                  ctaText="Get the Free Guide"
-                  variant="compact"
-                  downloadUrl="/docs/edg-outdoor-living-guide.html"
-                />
+                <Link href="/guide">
+                  <Button size="lg" className="w-full sm:w-auto rounded-xl shadow-lg shadow-edg-brand/5">
+                    Get the Free Guide <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
 
               {/* Right: Ready to talk */}

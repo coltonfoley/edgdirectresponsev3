@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Container } from "./Container";
 import { Button } from "./Button";
-import { LeadCaptureForm } from "./LeadCaptureForm";
+
 import { MapPin, Phone, Mail, ArrowRight, BookOpen } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -42,13 +42,11 @@ export function Footer() {
                                         Get our free guide: budget ranges, system comparisons, and the mistakes to avoid.
                                     </p>
                                 </div>
-                                <LeadCaptureForm
-                                    source="footer"
-                                    ctaText="Send Me the Guide"
-                                    variant="compact"
-                                    className="w-full"
-                                    downloadUrl="/docs/edg-outdoor-living-guide.html"
-                                />
+                                <Link href="/guide" className="block">
+                                    <Button size="lg" className="w-full rounded-xl shadow-lg shadow-edg-brand/5">
+                                        Get the Free Guide <ArrowRight className="ml-2 h-5 w-5" />
+                                    </Button>
+                                </Link>
                             </div>
 
                             {/* Ready to talk */}

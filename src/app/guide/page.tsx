@@ -146,7 +146,7 @@ export default function GuidePage() {
                       <h3 className="text-lg font-bold text-white leading-tight">
                         Four-Season Outdoor Living
                       </h3>
-                      <p className="text-sm text-gray-400 mt-2">Planning Guide 2025</p>
+                      <p className="text-sm text-gray-400 mt-2">Planning Guide 2026</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <Sun className="h-5 w-5 text-edg-brand" />

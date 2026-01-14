@@ -66,7 +66,7 @@ export default function GuideReadPage() {
 
                 <div className="relative z-10 text-center max-w-5xl px-6 pt-20">
                     <div className="inline-block mb-8 px-5 py-2 rounded-full border border-edg-brand/30 bg-edg-brand/10 text-edg-brand text-sm font-bold tracking-widest uppercase backdrop-blur-sm">
-                        The 2025 Homeowner's Report
+                        The 2026 Homeowner's Report
                     </div>
                     <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] drop-shadow-lg">
                         It's Time to Stop Apologizing <br className="hidden md:block" />
