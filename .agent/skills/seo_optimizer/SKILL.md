@@ -49,7 +49,7 @@ This skill guides the agent through a weekly SEO improvement cycle.
 - **Action**: Register the new page and ensure health.
 - **Tools**: `run_command`
 - **Process**:
-  1.  **Auto-Register**: Run the registration script:
+  1.  **Auto-Register**: Run the registration script (updates `sitemap.ts`, `service-areas/page.tsx`, and `Navbar.tsx`):
       ```bash
       node scripts/register-service-area.mjs --slug="[SLUG]" --name="[CITY_NAME]" --desc="[DESCRIPTION]" --communities="[COMMUNITY_LIST]"
       ```
@@ -63,6 +63,7 @@ This skill guides the agent through a weekly SEO improvement cycle.
       - URL: `https://search.google.com/search-console/inspect?resource_id=https://edgpatioshade.com/&id=https://edgpatioshade.com/service-areas/[SLUG]`
   2.  **Execute**:
       - Use `browser` to open this link.
-      - If logged in, click "Request Indexing".
-      - If not, Notify User with the direct link: "🚀 **Action Required**: [Click to Index New Page](...)"
+      - **Target Account**: `sales@edgpatioshade.com` (B@llin101).
+      - Click "Request Indexing" once the page loads.
+      - Confirmation: Ensure the "Indexing requested" success dialog appears.
 - `templates/`: React component templates for fast page building.
