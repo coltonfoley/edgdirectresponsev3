@@ -35,15 +35,15 @@ export default function GalleryPage() {
                             The Gallery
                         </h1>
                         <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-8">
-                            Immerse yourself in our collection of transformed outdoor spaces.
-                            Scroll to explore the details of our finest work in Chicago and Wisconsin.
+                            Real projects. Real transformations. Explore our completed installations
+                            across Chicago, Wisconsin, and nationwide—from luxury residential estates to commercial spaces.
                         </p>
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-edg-brand/30 bg-edg-brand/5 text-edg-brand text-sm font-medium animate-pulse">
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-edg-brand opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-edg-brand"></span>
                             </span>
-                            Detailed Case Studies & Proof of Work — Coming Soon
+                            Detailed Case Studies Coming Soon
                         </div>
                     </div>
 
