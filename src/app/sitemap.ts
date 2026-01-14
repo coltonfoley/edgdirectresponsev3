@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/service-areas/naperville-il',
         '/service-areas/barrington-il',
     '/service-areas/oak-brook-il',
+    '/service-areas/lake-geneva-wi',
     ]
 
     return routes.map((route) => ({

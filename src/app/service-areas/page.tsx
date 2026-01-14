@@ -64,6 +64,13 @@ const serviceAreas = [
         communities: ["Oak Brook", "Hinsdale", "Burr Ridge", "Clarendon Hills", "Elmhurst"],
         featured: false,
     },
+    {
+        name: "Lake Geneva, WI",
+        slug: "lake-geneva-wi",
+        description: "Exclusive lakeside living. Motorized pergolas and glass enclosures for Geneva Lake estates.",
+        communities: ["Lake Geneva", "Fontana", "Williams Bay", "Walworth", "Linn", "Genoa City"],
+        featured: false,
+    },
 ];
 
 export default function ServiceAreasPage() {

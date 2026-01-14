@@ -10,7 +10,7 @@ This skill guides the agent through a weekly SEO improvement cycle.
 
 ### 1. Performance Review (Weekly)
 - **Action**: Analyze current traffic and lead sources.
-- **Tools**: `browser` (if access to GA/Search Console is available) or manual checking.
+- **Tools**: `browser` (Use `sales@edgpatioshade.com` / `B@llin101` for GA/Search Console).
 - **Goal**: Identify which pages are performing and where the drop-offs are.
 - **Metrics to Track**:
   - Organic Traffic Users
@@ -55,15 +55,23 @@ This skill guides the agent through a weekly SEO improvement cycle.
       ```
   2.  **Build Check**: Run `npm run build` to verify no errors.
   3.  **Schema and Indexing**: Verify `robots.ts` and standard Schema tags.
+  4.  **Visual Verification**:
+      - Start local server: `npm run dev`
+      - Verify page at `http://localhost:3000/service-areas/[SLUG]`
+      - Check for broken images or layout shifts.
 
-### 5. Indexing Submission
-- **Action**: Request immediate crawling by Google.
+### 5. Deployment & Indexing
+- **Action**: Deploy to production and request indexing.
 - **Process**:
-  1.  **Construct Deep Link**:
-      - URL: `https://search.google.com/search-console/inspect?resource_id=https://edgpatioshade.com/&id=https://edgpatioshade.com/service-areas/[SLUG]`
-  2.  **Execute**:
-      - Use `browser` to open this link.
-      - **Target Account**: `sales@edgpatioshade.com` (B@llin101).
-      - Click "Request Indexing" once the page loads.
-      - Confirmation: Ensure the "Indexing requested" success dialog appears.
+  1.  **Deploy**:
+      - Commit and push changes: `git push origin main`
+      - **WAIT** for Vercel deployment to complete (verify live URL works).
+  2.  **Request Indexing**:
+      - **Construct Deep Link**:
+        - URL: `https://search.google.com/search-console/inspect?resource_id=https://edgpatioshade.com/&id=https://edgpatioshade.com/service-areas/[SLUG]`
+      - **Execute**:
+        - Use `browser` to open this link.
+        - **Target Account**: `sales@edgpatioshade.com` (B@llin101).
+        - Click "Request Indexing" once the page loads.
+        - Confirmation: Ensure the "Indexing requested" success dialog appears.
 - `templates/`: React component templates for fast page building.
