@@ -29,7 +29,11 @@ export default function NotFound() {
                                 </Button>
                             </Link>
                             <Link href="/contact">
-                                <Button variant="secondary" size="lg" className="min-w-[200px]">
+                                <Button
+                                    variant="secondary"
+                                    size="lg"
+                                    className="min-w-[200px] text-white border-white/20 hover:bg-white/10"
+                                >
                                     Get a Quote
                                 </Button>
                             </Link>
