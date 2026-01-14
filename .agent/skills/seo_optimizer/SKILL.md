@@ -1,81 +1,51 @@
 ---
 name: SEO Optimizer
-description: A comprehensive workflow to review performance, research keywords, and generate high-ranking content weekly.
+description: A simplified workflow to research local markets and generate high-ranking, brand-aligned content.
 ---
-# SEO Optimization Skill
+# SEO Content Generator Skill
 
-This skill guides the agent through a weekly SEO improvement cycle.
+This skill guides the agent through creating high-quality, localized service area pages. It focuses on research and brand-aligned writing, leaving technical tasks like indexing to the user.
 
 ## Workflow Steps
 
-### 1. Performance Review (Weekly)
-- **Action**: Analyze current traffic and lead sources.
-- **Tools**: `browser` (Use `sales@edgpatioshade.com` / `B@llin101` for GA/Search Console).
-- **Goal**: Identify which pages are performing and where the drop-offs are.
-- **Metrics to Track**:
-  - Organic Traffic Users
-  - Engagement Rate
-  - Conversion Rate (Lead Form Submits)
-  - Top Landing Pages
-
-### 2. Research & Opportunity Identification
-- **Action**: Find new content opportunities and gather local intelligence.
-- **Tools**: `search_web`, `view_file` (to check `src/data/gallery-images.json`)
+### 1. Research (The "Agentic" Part)
+- **Goal**: Gather enough local intelligence to write authentic copy that helps the user.
+- **Action**: Use `search_web` to understand the target location.
 - **Process**:
-  1.  **Target Selection**: Pick a high-value city (e.g., "Barrington", "Oak Brook").
-  2.  **Competitive Analysis**: Search for competitors and analyze their content structure.
-  3.  **Hyper-Local Intelligence**: Find 3 specific data points to make content authentic:
-      - **Zoning Body**: Who handles permits? (e.g., "Village of Barrington Architectural Review Commission").
-      - **Landmarks**: Nearby natural features (e.g., "Fox River", "Lake Geneva").
-      - **Housing Style**: Predominant architecture (e.g., "Georgian Estates", "Modern Farmhouse").
-  4.  **Image Selection**:
-      - Search `src/data/gallery-images.json` for images matching the vibe (e.g., "pool", "lake", "estate").
-      - Select 4 distinct image paths:
-        - `[HERO_IMAGE]`: High impact, wide shot.
-        - `[GALLERY_IMAGE_1-3]`: Detailed shots showing quality.
-      - **CRITICAL**: Do NOT label generic images as being "in [City]" or "at [Locations]". Use representative terms like "Luxury styling similar to [City] estates" or "Featured Design Styles".
+  1.  **Target Selection**: Confirm the city/region with the user.
+  2.  **Local Intel Gathering**: Find 3 specific data points to make content authentic:
+      - **Zoning/Permitting**: Mention the specific building department or village hall to show expertise (e.g., "We know the Lake Geneva building codes").
+      - **Local Geography**: Reference nearby lakes, rivers, or parks (e.g., "Fox River", "North Shore").
+      - **Housing Architecture**: Identify common home styles (e.g., "Georgian Estates in Barrington", "Mid-Century Modern in Highland Park") to tailor the design discussion.
+  3.  **Image Selection**:
+      - Search `src/data/gallery-images.json` for images matching the vibe.
+      - **CRITICAL**: Do NOT label generic images as being "in [City]". Use representative terms like "Luxury styling similar to [City] estates".
 
-### 3. Content Generation
-- **Action**: Create or update pages using the template.
-- **Tools**: `write_to_file`
-- **Templates**:
-  - `templates/service_area_page.tsx`: For city-specific landing pages.
-- **Process**:
-  - Copy the template code structure.
-  - **CRITICAL**: Do NOT just fill in variables. You MUST rewrite the text for the following sections to be unique and specific to the location:
-    - **Hero Headline**: e.g., "Extend Your [City] Season" vs "Outdoor Living in [City]".
-    - **Pain Points**: Relate to local weather/lifestyle (e.g., Lake Wind vs. Privacy).
-    - **Architecture**: Mention specific styles found in research (e.g., Victorian, Tudor).
-    - **Why Choose Us**: Tailor the 3 points to the specific city's challenges.
-  - Ensure the `metadata` export is unique and optimized.
+### 2. Content Generation
+- **Goal**: Create a high-converting landing page.
+- **Action**: Write the page file (`src/app/service-areas/[slug]/page.tsx`).
+- **Guidance**:
+  - **Reference**: ALWAYS check `.agent/BRANDING_RULES.md` for tone (Premium, Direct, Problem-Solving).
+  - **Template**: Use the structure from `src/app/service-areas/barrington-il/page.tsx` as your base.
+  - **Writing Rules**:
+    - **Headline**: Benefit-driven and localized (e.g., "Extend Your [City] Summer").
+    - **Pain Points**: Relate to local details found in research (e.g., "Lake wind" for waterfront, "Privacy" for tight suburbs).
+    - **Why Choose Us**: Explicitly mention handling [City] permits and understanding [City] weather.
+    - **Metadata**: Ensure unique title/description tags.
 
-### 4. Technical Audit & Registration
-- **Action**: Register the new page and ensure health.
-- **Tools**: `run_command`
-- **Process**:
-  1.  **Auto-Register**: Run the registration script (updates `sitemap.ts`, `service-areas/page.tsx`, and `Navbar.tsx`):
-      ```bash
-      node scripts/register-service-area.mjs --slug="[SLUG]" --name="[CITY_NAME]" --desc="[DESCRIPTION]" --communities="[COMMUNITY_LIST]"
-      ```
-  2.  **Build Check**: Run `npm run build` to verify no errors.
-  3.  **Schema and Indexing**: Verify `robots.ts` and standard Schema tags.
-  4.  **Visual Verification**:
-      - Start local server: `npm run dev`
-      - Verify page at `http://localhost:3000/service-areas/[SLUG]`
-      - Check for broken images or layout shifts.
+### 3. Registration
+- **Goal**: Hook the new page into the site's navigation and sitemap.
+- **Action**: Run the registration script.
+- **Command**:
+  ```bash
+  node scripts/register-service-area.mjs --slug="[SLUG]" --name="[CITY_NAME]" --desc="[DESCRIPTION]" --communities="[COMMUNITY_LIST]"
+  ```
+  *(Note: Replace brackets with actual values. Communities should be a comma-separated string).*
 
-### 5. Deployment & Indexing
-- **Action**: Deploy to production and request indexing.
-- **Process**:
-  1.  **Deploy**:
-      - Commit and push changes: `git push origin main`
-      - **WAIT** for Vercel deployment to complete (verify live URL works).
-  2.  **Request Indexing**:
-      - **Construct Deep Link**:
-        - URL: `https://search.google.com/search-console/inspect?resource_id=https://edgpatioshade.com/&id=https://edgpatioshade.com/service-areas/[SLUG]`
-      - **Execute**:
-        - Use `browser` to open this link.
-        - **Target Account**: `sales@edgpatioshade.com` (B@llin101).
-        - Click "Request Indexing" once the page loads.
-        - Confirmation: Ensure the "Indexing requested" success dialog appears.
-- `templates/`: React component templates for fast page building.
+### 4. Deployment (Push)
+- **Goal**: Save changes to the codebase.
+- **Action**: git add, commit, and push.
+- **Command**:
+  ```bash
+  git add . && git commit -m "add [city] service area page" && git push origin main
+  ```
