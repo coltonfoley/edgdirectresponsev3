@@ -43,6 +43,27 @@ const serviceAreas = [
         communities: ["Lake Geneva", "Kenosha", "Racine", "Burlington", "Delavan", "Elkhorn"],
         featured: false,
     },
+    {
+        name: "Naperville & West Suburbs",
+        slug: "naperville-il",
+        description: "From Downers Grove to Plainfield, Aurora to Wheaton. Bringing premium shade solutions to the busy western corridor.",
+        communities: ["Naperville", "Lisle", "Bolingbrook", "Aurora", "Warrenville", "Woodridge"],
+        featured: false,
+    },
+    {
+        name: "Barrington Area",
+        slug: "barrington-il",
+        description: "Classic estate living meets modern outdoor technology. Serving North, South, and Lake Barrington.",
+        communities: ["Barrington", "South Barrington", "Inverness", "Lake Barrington", "Deer Park", "Kildeer"],
+        featured: false,
+    },
+    {
+        name: "Oak Brook & Hinsdale",
+        slug: "oak-brook-il",
+        description: "Estate-style outdoor living for the western suburbs. Serving Oak Brook, Hinsdale, and Burr Ridge.",
+        communities: ["Oak Brook", "Hinsdale", "Burr Ridge", "Clarendon Hills", "Elmhurst"],
+        featured: false,
+    },
 ];
 
 export default function ServiceAreasPage() {

@@ -18,7 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/systems/shades',
         '/systems/glass',
         '/service-areas',
-        '/service-areas/lake-geneva', // Assuming key service areas based on redirects/context, can be expanded dynamically later if needed
+        '/service-areas/lake-county-il',
+        '/service-areas/mchenry-county-il',
+        '/service-areas/north-shore-chicago',
+        '/service-areas/southeast-wisconsin',
+        '/service-areas/naperville-il',
+        '/service-areas/barrington-il',
+    '/service-areas/oak-brook-il',
     ]
 
     return routes.map((route) => ({
