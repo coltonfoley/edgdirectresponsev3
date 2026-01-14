@@ -289,34 +289,7 @@ export default function GuidePage() {
         </Container>
       </Section>
 
-      {/* ========== FINAL CTA ========== */}
-      <section className="relative py-24 bg-edg-dark overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-edg-brand/10 rounded-full blur-3xl" />
 
-        <Container className="relative z-10">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
-              Ready to Plan Your Outdoor Space?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Get the full guide instantly. It takes 30 seconds to sign up
-              and you can read it directly here on the site.
-            </p>
-
-            <div className="max-w-md mx-auto">
-              <LeadCaptureForm
-                source="guide-landing-bottom"
-                ctaText="Read the Free Guide"
-                variant="compact"
-                redirectUrl="/guide/read"
-                autoDownload={false}
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
     </main>
   );
 }
