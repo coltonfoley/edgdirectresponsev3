@@ -180,6 +180,7 @@ export function Footer() {
                                 <li>Lake County, IL</li>
                                 <li>McHenry County, IL</li>
                                 <li>Cook County (North), IL</li>
+                                <li>DuPage County (Oak Brook / Naperville)</li>
                                 <li>Kenosha County, WI</li>
                                 <li>Racine County, WI</li>
                                 <li>Milwaukee County, WI</li>

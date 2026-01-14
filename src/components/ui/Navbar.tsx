@@ -17,6 +17,9 @@ const systemsDropdown = [
 const areasDropdown = [
     { href: "/service-areas/lake-county-il", label: "Lake County, IL", desc: "Libertyville, Lake Forest, Highland Park" },
     { href: "/service-areas/north-shore-chicago", label: "North Shore Chicago", desc: "Wilmette, Winnetka, Glencoe" },
+    { href: "/service-areas/oak-brook-il", label: "Oak Brook & Hinsdale", desc: "Burr Ridge, Elmhurst, Western Springs" },
+    { href: "/service-areas/barrington-il", label: "Barrington Area", desc: "North, South, and Lake Barrington" },
+    { href: "/service-areas/naperville-il", label: "Naperville & West Suburbs", desc: "Downers Grove, Lisle, Aurora" },
     { href: "/service-areas/mchenry-county-il", label: "McHenry County, IL", desc: "Crystal Lake, Algonquin, Woodstock" },
     { href: "/service-areas/southeast-wisconsin", label: "Southeast Wisconsin", desc: "Lake Geneva, Kenosha, Racine" },
 ];

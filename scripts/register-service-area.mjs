@@ -105,3 +105,30 @@ try {
 } catch (e) {
     console.error('Failed to update service areas page:', e);
 }
+
+// 3. Update Navbar Dropdown
+const NAVBAR_PATH = path.join(PROJECT_ROOT, 'src/components/ui/Navbar.tsx');
+try {
+    let navbarContent = fs.readFileSync(NAVBAR_PATH, 'utf8');
+    const navHref = `"/service-areas/${slug}"`;
+
+    if (!navbarContent.includes(navHref)) {
+        const newNavEntry = `    { href: "/service-areas/${slug}", label: "${name}", desc: "${communities.slice(0, 3).join(', ')}" },`;
+
+        // Find the areasDropdown array
+        const areasDropdownRegex = /(const areasDropdown = \[)([\s\S]*?)(\];)/;
+        const match = navbarContent.match(areasDropdownRegex);
+
+        if (match) {
+            navbarContent = navbarContent.replace(areasDropdownRegex, `$1$2${newNavEntry}\n$3`);
+            fs.writeFileSync(NAVBAR_PATH, navbarContent);
+            console.log(`✅ Added ${name} to Navbar dropdown`);
+        } else {
+            console.warn('Could not find areasDropdown in Navbar.tsx');
+        }
+    } else {
+        console.log(`ℹ️ ${slug} already exists in Navbar.tsx`);
+    }
+} catch (e) {
+    console.error('Failed to update Navbar:', e);
+}
