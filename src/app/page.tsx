@@ -18,7 +18,15 @@ export default function Home() {
       {/* ========== HERO SECTION (Direct Response) ========== */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-24 overflow-hidden bg-edg-dark">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-800 z-0"></div>
-        <div className="absolute inset-0 bg-[url('/images/hero/hero-main.jpg')] bg-cover bg-center opacity-40 z-0"></div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40 z-0"
+        >
+          <source src="/images/enclosures/commercial-pergola-video-clip-01.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>
 
         <Container className="relative z-20">
