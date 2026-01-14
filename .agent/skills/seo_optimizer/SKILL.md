@@ -41,8 +41,12 @@ This skill guides the agent through a weekly SEO improvement cycle.
 - **Templates**:
   - `templates/service_area_page.tsx`: For city-specific landing pages.
 - **Process**:
-  - Copy the template code.
-  - Fill all `[VARIABLES]` including the new **Hyper-Local** and **Image** variables.
+  - Copy the template code structure.
+  - **CRITICAL**: Do NOT just fill in variables. You MUST rewrite the text for the following sections to be unique and specific to the location:
+    - **Hero Headline**: e.g., "Extend Your [City] Season" vs "Outdoor Living in [City]".
+    - **Pain Points**: Relate to local weather/lifestyle (e.g., Lake Wind vs. Privacy).
+    - **Architecture**: Mention specific styles found in research (e.g., Victorian, Tudor).
+    - **Why Choose Us**: Tailor the 3 points to the specific city's challenges.
   - Ensure the `metadata` export is unique and optimized.
 
 ### 4. Technical Audit & Registration
