@@ -64,13 +64,14 @@ export function Footer() {
 
                                 <div className="space-y-6">
                                     <div className="flex flex-wrap gap-4">
-                                        <Link href="/contact" className="group">
+                                        <Link href="/contact" className="group" onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'book_call_click', value: 0 })}>
                                             <Button size="lg" className="rounded-xl px-8 shadow-lg shadow-edg-brand/5 group-hover:shadow-edg-brand/10 transition-all whitespace-nowrap">
                                                 Book a Consultation <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                                             </Button>
                                         </Link>
                                         <a
                                             href="tel:+18155810138"
+                                            onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}
                                             className="inline-flex items-center justify-center gap-3 h-12 px-6 rounded-xl border border-white/10 text-white hover:bg-white/5 hover:border-white/20 transition-all font-medium backdrop-blur-sm whitespace-nowrap"
                                         >
                                             <Phone className="h-5 w-5 text-edg-brand" />
@@ -112,7 +113,7 @@ export function Footer() {
                                 </div>
                                 <div className="flex items-center gap-3 text-gray-400">
                                     <Phone className="h-5 w-5 text-edg-brand shrink-0" />
-                                    <a href="tel:+18155810138" className="hover:text-edg-brand transition-colors">
+                                    <a href="tel:+18155810138" className="hover:text-edg-brand transition-colors" onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}>
                                         (815) 581-0138
                                     </a>
                                 </div>

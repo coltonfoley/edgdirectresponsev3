@@ -7,6 +7,8 @@ import {
     ArrowLeft, CheckCircle2, ArrowRight,
     Phone, Calculator, Clock, FileText
 } from "lucide-react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import { TrackedPhoneLink } from "@/components/ui/TrackedPhoneLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -40,11 +42,11 @@ export default function PricePage() {
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8">
                             Every project is different. We'll give you an accurate quote based on <strong>your site, your goals, and your timeline</strong>—not a generic price list.
                         </p>
-                        <Link href="/contact?type=price">
+                        <TrackedLink href="/contact?type=price">
                             <Button size="lg" className="rounded-full text-lg px-8">
                                 Request Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                        </Link>
+                        </TrackedLink>
                         <p className="text-sm text-muted-foreground mt-4">Usually delivered within 48 hours of site visit.</p>
                     </div>
                 </Container>
@@ -247,16 +249,16 @@ export default function PricePage() {
                             Tell us about your space and goals. We'll schedule a site visit and provide a detailed proposal—no obligation.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/contact?type=price">
+                            <TrackedLink href="/contact?type=price">
                                 <Button size="lg" className="rounded-full text-lg px-8">
                                     Request Your Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
-                            </Link>
-                            <a href="tel:+18155810138">
+                            </TrackedLink>
+                            <TrackedPhoneLink href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 border-white/30 text-white hover:bg-white/10">
                                     <Phone className="mr-2 h-5 w-5" /> Call Now
                                 </Button>
-                            </a>
+                            </TrackedPhoneLink>
                         </div>
                     </div>
                 </Container>

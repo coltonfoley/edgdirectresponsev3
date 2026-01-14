@@ -170,12 +170,13 @@ export function Navbar() {
                         <div className="hidden lg:flex items-center gap-4">
                             <a
                                 href="tel:+18155810138"
+                                onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}
                                 className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                             >
                                 <Phone className="h-4 w-4" />
                                 <span className="hidden xl:inline">(815) 581-0138</span>
                             </a>
-                            <Link href="/contact">
+                            <Link href="/contact" onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'book_call_click', value: 0 })}>
                                 <Button size="sm">Book a Call</Button>
                             </Link>
                         </div>
@@ -184,6 +185,7 @@ export function Navbar() {
                         <div className="flex items-center gap-3 lg:hidden">
                             <a
                                 href="tel:+18155810138"
+                                onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}
                                 className="p-2 text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                                 aria-label="Call us"
                             >
@@ -287,12 +289,18 @@ export function Navbar() {
                             <a
                                 href="tel:+18155810138"
                                 className="flex items-center gap-3 px-4 py-2 text-edg-brand-text dark:text-edg-brand font-bold"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 });
+                                }}
                             >
                                 <Phone className="h-5 w-5" />
                                 (815) 581-0138
                             </a>
-                            <Link href="/contact" onClick={() => setIsOpen(false)}>
+                            <Link href="/contact" onClick={() => {
+                                setIsOpen(false);
+                                (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'book_call_click', value: 0 });
+                            }}>
                                 <Button className="w-full">Book a Consultation</Button>
                             </Link>
                         </div>

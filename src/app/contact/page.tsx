@@ -295,7 +295,7 @@ export default function ContactPage() {
                                 <div className="space-y-4 text-sm">
                                     <div className="flex items-center gap-3">
                                         <Phone className="h-5 w-5 text-edg-brand-text dark:text-edg-brand" />
-                                        <a href="tel:+18155810138" className="text-edg-brand-text dark:text-edg-brand hover:underline font-bold transition-colors">
+                                        <a href="tel:+18155810138" className="text-edg-brand-text dark:text-edg-brand hover:underline font-bold transition-colors" onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}>
                                             (815) 581-0138
                                         </a>
                                     </div>

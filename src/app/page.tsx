@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -177,7 +179,7 @@ export default function Home() {
                         <span key={tag} className="px-3 py-1 bg-white/10 backdrop-blur rounded-full text-sm text-white">{tag}</span>
                       ))}
                     </div>
-                    <Link href="/contact?type=design&product=enclosure" className="inline-flex items-center text-edg-brand font-bold hover:underline">
+                    <Link href="/contact?type=design&product=enclosure" className="inline-flex items-center text-edg-brand font-bold hover:underline" onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'book_call_click', value: 0 })}>
                       Start Consultation <ChevronRight className="ml-1 h-5 w-5" />
                     </Link>
                   </div>
@@ -306,7 +308,7 @@ export default function Home() {
                 </p>
 
                 <div className="space-y-4">
-                  <Link href="/contact" className="block">
+                  <Link href="/contact" className="block" onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'book_call_click', value: 0 })}>
                     <Button size="lg" className="w-full rounded-lg">
                       Book a Free Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
@@ -323,6 +325,7 @@ export default function Home() {
 
                   <a
                     href="tel:+18155810138"
+                    onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}
                     className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-lg border border-white/20 text-white hover:bg-white/5 transition-colors"
                   >
                     <Phone className="h-5 w-5 text-edg-brand" />

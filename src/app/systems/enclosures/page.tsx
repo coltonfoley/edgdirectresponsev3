@@ -8,6 +8,8 @@ import {
     ArrowRight, CheckCircle2, Wind, Thermometer, Eye, Maximize2,
     Shield, Phone, ChevronRight, Droplets
 } from "lucide-react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import { TrackedPhoneLink } from "@/components/ui/TrackedPhoneLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -165,16 +167,16 @@ export default function EnclosuresPage() {
 
                             {/* CTA Buttons */}
                             <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                                <Link href="/contact?type=price&product=enclosure" className="flex-1">
+                                <TrackedLink href="/contact?type=price&product=enclosure" className="flex-1">
                                     <Button size="lg" className="w-full rounded-lg">
                                         Get a Quote <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
-                                </Link>
-                                <a href="tel:+18155810138" className="flex-1">
+                                </TrackedLink>
+                                <TrackedPhoneLink href="tel:+18155810138" className="flex-1">
                                     <Button size="lg" variant="secondary" className="w-full rounded-lg">
                                         <Phone className="mr-2 h-5 w-5" /> Call Us
                                     </Button>
-                                </a>
+                                </TrackedPhoneLink>
                             </div>
 
                             <p className="text-sm text-muted-foreground">
@@ -357,11 +359,11 @@ export default function EnclosuresPage() {
                             and recommend the right configuration.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/contact?type=price&product=enclosure">
+                            <TrackedLink href="/contact?type=price&product=enclosure">
                                 <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 bg-edg-dark text-white hover:bg-edg-dark/90">
                                     Get Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
-                            </Link>
+                            </TrackedLink>
                             <Link href="/gallery">
                                 <Button size="lg" variant="ghost" className="rounded-full text-lg px-8 text-edg-dark hover:bg-edg-dark/10">
                                     See Gallery <ChevronRight className="ml-1 h-5 w-5" />

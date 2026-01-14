@@ -6,6 +6,8 @@ import {
     ArrowLeft, CheckCircle2, ArrowRight, Clock, XCircle,
     FileText, UploadCloud, Users, Phone, Shield, Wrench
 } from "lucide-react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import { TrackedPhoneLink } from "@/components/ui/TrackedPhoneLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -37,16 +39,16 @@ export default function ProPage() {
                             Whether we handle the full install or support your crew with the materials and expertise they need, we make sure the project stays on track.
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Link href="/contact?type=pro&action=plans">
+                            <TrackedLink href="/contact?type=pro&action=plans">
                                 <Button size="lg" className="rounded-full">
                                     Request Project Quote
                                 </Button>
-                            </Link>
-                            <Link href="/contact?type=pro">
+                            </TrackedLink>
+                            <TrackedLink href="/contact?type=pro">
                                 <Button size="lg" variant="secondary" className="rounded-full">
                                     Request Spec Sheets
                                 </Button>
-                            </Link>
+                            </TrackedLink>
                         </div>
                     </div>
                 </Container>
@@ -155,9 +157,9 @@ export default function ProPage() {
                             <p className="text-edg-gray-text dark:text-gray-400 mb-4">
                                 Share your project details. We'll get you accurate pricing and lead times within two business days.
                             </p>
-                            <Link href="/contact?type=pro&action=plans" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
+                            <TrackedLink href="/contact?type=pro&action=plans" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
                                 Request Quote →
-                            </Link>
+                            </TrackedLink>
                         </div>
                         <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
                             <Users className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
@@ -302,16 +304,16 @@ export default function ProPage() {
                             Request a quote for your project, or schedule a call to discuss trade partnership.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/contact?type=pro&action=plans">
+                            <TrackedLink href="/contact?type=pro&action=plans">
                                 <Button size="lg" className="rounded-full text-lg px-8">
                                     Request Quote
                                 </Button>
-                            </Link>
-                            <a href="tel:+18155810138">
+                            </TrackedLink>
+                            <TrackedPhoneLink href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 border-white/30 text-white hover:bg-white/10">
                                     <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
-                            </a>
+                            </TrackedPhoneLink>
                         </div>
                     </div>
                 </Container>

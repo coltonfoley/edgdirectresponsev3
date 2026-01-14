@@ -6,6 +6,8 @@ import {
     ArrowLeft, CheckCircle2, ArrowRight, DollarSign, CloudRain,
     BarChart3, ShieldCheck, Zap, Phone, Shield, TrendingUp
 } from "lucide-react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import { TrackedPhoneLink } from "@/components/ui/TrackedPhoneLink";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -39,11 +41,11 @@ export default function CommercialPage() {
                         <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8">
                             We build outdoor infrastructure that <strong>pays for itself in one season</strong>.
                         </p>
-                        <Link href="/contact?type=commercial">
+                        <TrackedLink href="/contact?type=commercial">
                             <Button size="lg" className="rounded-full text-lg px-8">
                                 Schedule Site Assessment <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>
-                        </Link>
+                        </TrackedLink>
                     </div>
                 </Container>
             </Section>
@@ -331,16 +333,16 @@ export default function CommercialPage() {
                             and show you what's possible—with real numbers.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/contact?type=commercial">
+                            <TrackedLink href="/contact?type=commercial">
                                 <Button size="lg" className="rounded-full text-lg px-8">
                                     Schedule Site Assessment <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
-                            </Link>
-                            <a href="tel:+18155810138">
+                            </TrackedLink>
+                            <TrackedPhoneLink href="tel:+18155810138">
                                 <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 border-white/30 text-white hover:bg-white/10">
                                     <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                                 </Button>
-                            </a>
+                            </TrackedPhoneLink>
                         </div>
                     </div>
                 </Container>
