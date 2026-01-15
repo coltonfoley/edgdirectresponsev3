@@ -25,6 +25,7 @@ const areasDropdown = [
     { href: "/service-areas/southeast-wisconsin", label: "Southeast Wisconsin", desc: "Lake Geneva, Kenosha, Racine" },
     { href: "/service-areas/lake-geneva-wi", label: "Lake Geneva, WI", desc: "Lake Geneva,  Fontana,  Williams Bay" },
     { href: "/service-areas/hinsdale-il", label: "Hinsdale", desc: "Southeast Hinsdale,  The Woodlands,  Fullersburg" },
+    { href: "/commercial/west-loop", label: "West Loop (Commercial)", desc: "Fulton Market, West Loop, Rooftops" },
 ];
 
 export function Navbar() {

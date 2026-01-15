@@ -5,13 +5,29 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Phone, Mail, Clock } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 export default function ContactPage() {
+    const searchParams = useSearchParams();
     const [formType, setFormType] = useState<"homeowner" | "pro" | "commercial">("homeowner");
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [source, setSource] = useState("contact_page");
+
+    useEffect(() => {
+        const typeParam = searchParams.get("type");
+        const sourceParam = searchParams.get("source");
+
+        if (typeParam === "commercial" || typeParam === "pro" || typeParam === "homeowner") {
+            setFormType(typeParam as any);
+        }
+
+        if (sourceParam) {
+            setSource(sourceParam);
+        }
+    }, [searchParams]);
 
     // Form state
     const [formData, setFormData] = useState({
@@ -41,7 +57,7 @@ export default function ContactPage() {
                 body: JSON.stringify({
                     ...formData,
                     customerType: formType,
-                    source: "contact_page"
+                    source: source
                 }),
             });
 
@@ -55,7 +71,7 @@ export default function ContactPage() {
             if (typeof window !== 'undefined' && (window as any).dataLayer) {
                 (window as any).dataLayer.push({
                     event: "generate_lead",
-                    source: "contact_page",
+                    source: source,
                     customer_type: formType,
                     value: 0,
                     currency: "USD"
