@@ -32,11 +32,20 @@ Use this mode once a target is approved.
     - Every "Get a Quote" call must include a unique `source` parameter (e.g., `source: "growth-engine-winnetka-pergola"`).
 - **SEO Elements**: Multi-layered headlines, benefit-driven subheads, and schema-ready metadata.
 
-### 3. Registration & Launch (The "Final Gate")
-1.  **Registration**: Run `node scripts/register-service-area.mjs --slug="[SLUG]" --name="[CITY_NAME]" ...`
-2.  **Verification**: Perform a local build check.
-3.  **Deployment**: Git push to trigger production.
-4.  **Indexing**: (If authorized) Submit URL to Google Search Console for immediate crawling.
+### 3. Verification & Pre-Flight (CRITICAL)
+- **Goal**: Ensure the site is stable and the campaign is fully integrated.
+- **Process**:
+  1.  **Local Preview**: Run `npm run dev` and navigate to the new URL.
+  2.  **Build Check**: Run `npm run build` locally. **DO NOT PROCEED** if the build fails.
+  3.  **Cross-Link Check**: Ensure the page is in `sitemap.ts` and linked in `Navbar.tsx` or `Footer.tsx`.
+  4.  **Tracking Check**: Verify the CTA `source` parameter matches the campaign ID.
+
+### 4. Registration & Launch
+- **Goal**: Make the page discoverable and indexable.
+- **Process**:
+  1.  **User Approval**: Show the local preview to the user.
+  2.  **Git Push**: Commit and push changes only AFTER a successful build.
+  3.  **GSC Submission**: Use `browser_subagent` to submit the live URL to Search Console once the deployment is green.
 
 ---
 

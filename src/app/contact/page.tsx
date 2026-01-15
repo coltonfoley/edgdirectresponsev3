@@ -5,10 +5,10 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Phone, Mail, Clock } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function ContactPage() {
+function ContactForm() {
     const searchParams = useSearchParams();
     const [formType, setFormType] = useState<"homeowner" | "pro" | "commercial">("homeowner");
     const [submitted, setSubmitted] = useState(false);
@@ -334,5 +334,20 @@ export default function ContactPage() {
                 </Container>
             </Section>
         </main>
+    );
+}
+
+export default function ContactPage() {
+    return (
+        <Suspense fallback={
+            <main className="min-h-screen bg-edg-light dark:bg-black flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin h-8 w-8 border-4 border-edg-brand border-t-transparent rounded-full mx-auto mb-4"></div>
+                    <p className="text-muted-foreground">Loading contact form...</p>
+                </div>
+            </main>
+        }>
+            <ContactForm />
+        </Suspense>
     );
 }
