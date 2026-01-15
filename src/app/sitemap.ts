@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://edgpatioshade.com'
+    const baseUrl = 'https://www.edgpatioshade.com'
 
     // Main pages from project structure
     const routes = [
@@ -16,7 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/systems',
         '/systems/pergolas',
         '/systems/shades',
-        '/systems/glass',
+        '/systems/enclosures',
+        '/systems/appliances',
         '/service-areas',
         '/service-areas/lake-county-il',
         '/service-areas/mchenry-county-il',

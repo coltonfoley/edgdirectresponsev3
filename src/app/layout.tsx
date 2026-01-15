@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://edgpatioshade.com"),
+  metadataBase: new URL("https://www.edgpatioshade.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "EDG | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee",
     description: "Premium motorized pergolas, exterior shades, and glass enclosures. Serving North Chicago to Milwaukee with nationwide design and supply available.",
-    url: "https://edgpatioshade.com",
+    url: "https://www.edgpatioshade.com",
     siteName: "EDG Outdoor Living",
     locale: "en_US",
     type: "website",
@@ -70,10 +70,10 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://edgpatioshade.com/#organization",
+  "@id": "https://www.edgpatioshade.com/#organization",
   name: "EDG Outdoor Living",
   description: "Premium motorized pergolas, exterior shades, and glass enclosures for outdoor living spaces.",
-  url: "https://edgpatioshade.com",
+  url: "https://www.edgpatioshade.com",
   telephone: "+1-815-581-0138",
   email: "info@edgpatioshade.com",
   address: {
