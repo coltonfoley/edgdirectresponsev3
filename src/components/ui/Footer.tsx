@@ -10,8 +10,8 @@ import { usePathname } from "next/navigation";
 export function Footer() {
     const pathname = usePathname();
 
-    // Completely hide footer on the interactive guide reading page
-    if (pathname === '/guide/read') return null;
+    // Completely hide footer on the interactive guide reading page or admin pages
+    if (pathname === '/guide/read' || pathname?.startsWith('/admin')) return null;
 
     const isGuidePage = pathname?.startsWith('/guide');
 

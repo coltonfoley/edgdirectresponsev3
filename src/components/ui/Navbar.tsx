@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "./Container";
 import { Button } from "./Button";
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,6 +34,9 @@ export function Navbar() {
     const [areasOpen, setAreasOpen] = useState(false);
     const systemsDropdownRef = useRef<HTMLDivElement>(null);
     const areasDropdownRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
+
+    if (pathname?.startsWith('/admin')) return null;
 
     useEffect(() => {
         const handleScroll = () => {
