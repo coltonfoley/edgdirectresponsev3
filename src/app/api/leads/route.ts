@@ -93,10 +93,12 @@ export async function POST(request: NextRequest) {
     const resendApiKey = process.env.RESEND_API_KEY;
     const notificationEmail = process.env.NOTIFICATION_EMAIL || "info@edgoutdoorliving.com";
 
+    const emailLogs: any = {};
+
     if (resendApiKey) {
+      // 1. Admin Notification
       try {
         const isContactForm = source === "contact_page";
-        // 1. Admin Notification
         const adminSubject = isContactForm
           ? `New Contact Inquiry: ${firstName} ${lastName || ""} (${customerType || "General"})`
           : `New Guide Lead: ${firstName} (${source})`;
@@ -127,23 +129,37 @@ export async function POST(request: NextRequest) {
           `;
         }
 
-        // Send Admin Notification
-        await fetch("https://api.resend.com/emails", {
+        const adminFromEmail = process.env.FROM_EMAIL || "EDG Leads <onboarding@resend.dev>";
+
+        const adminRes = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${resendApiKey}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            from: "EDG Leads <onboarding@resend.dev>",
+            from: adminFromEmail,
             to: notificationEmail,
             subject: adminSubject,
             html: adminHtmlContent,
           }),
         });
 
-        // 2. User Auto-Response (Only for Guide Download or if requested)
-        // For now, we'll send it for 'guide-landing-page' or general guide requests
+        const adminData = await adminRes.json();
+        if (!adminRes.ok) {
+          console.error("Resend Admin Email Failed:", JSON.stringify(adminData));
+          emailLogs.admin = { success: false, error: adminData };
+        } else {
+          console.log("Admin notification sent successfully.");
+          emailLogs.admin = { success: true, id: adminData.id };
+        }
+      } catch (adminErr: any) {
+        console.error("Failed to send admin notification:", adminErr);
+        emailLogs.admin = { success: false, error: adminErr.message };
+      }
+
+      // 2. User Auto-Response
+      try {
         const isGuideRequest = source === "guide-landing-page" || source?.includes("guide");
 
         if (isGuideRequest) {
@@ -173,30 +189,25 @@ export async function POST(request: NextRequest) {
           let attachments: any[] = [];
 
           try {
-            // Dynamic import for fs/path to avoid top-level changes
             const fs = await import('fs');
             const path = await import('path');
-
-            const brochurePath = path.join(process.cwd(), 'public', 'brochures', 'edg-product-brochure.pdf');
+            const brochurePath = path.join(process.cwd(), 'public', 'brochures', 'EDG-BROCHURE.pdf');
 
             if (fs.existsSync(brochurePath)) {
               const fileBuffer = fs.readFileSync(brochurePath);
               const base64File = fileBuffer.toString('base64');
-
               attachments.push({
                 content: base64File,
                 filename: 'EDG_Outdoor_Living_Guide.pdf',
                 type: 'application/pdf',
                 disposition: 'attachment',
               });
-            } else {
-              console.warn("Brochure PDF not found at:", brochurePath);
             }
           } catch (err) {
-            console.error("Error reading brochure attachment:", err);
+            console.error("Attachment error:", err);
           }
 
-          await fetch("https://api.resend.com/emails", {
+          const userRes = await fetch("https://api.resend.com/emails", {
             method: "POST",
             headers: {
               "Authorization": `Bearer ${resendApiKey}`,
@@ -204,16 +215,25 @@ export async function POST(request: NextRequest) {
             },
             body: JSON.stringify({
               from: fromEmail,
-              to: email, // Send to the lead
+              to: email,
               subject: userSubject,
               html: userHtmlContent,
               attachments: attachments.length > 0 ? attachments : undefined
             }),
           });
-        }
 
-      } catch (emailError) {
-        console.error("Failed to send lead notification email:", emailError);
+          const userData = await userRes.json();
+          if (!userRes.ok) {
+            console.error("Resend Lead Email Failed:", JSON.stringify(userData));
+            emailLogs.user = { success: false, error: userData };
+          } else {
+            console.log("Lead auto-response sent successfully.");
+            emailLogs.user = { success: true, id: userData.id };
+          }
+        }
+      } catch (userErr: any) {
+        console.error("Failed to send lead auto-response:", userErr);
+        emailLogs.user = { success: false, error: userErr.message };
       }
     }
 
