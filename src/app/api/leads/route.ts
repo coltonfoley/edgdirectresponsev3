@@ -216,6 +216,7 @@ export async function POST(request: NextRequest) {
             body: JSON.stringify({
               from: fromEmail,
               to: email,
+              reply_to: process.env.REPLY_TO_EMAIL || "cfoley@edgpatioshade.com",
               subject: userSubject,
               html: userHtmlContent,
               attachments: attachments.length > 0 ? attachments : undefined
