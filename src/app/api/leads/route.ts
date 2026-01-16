@@ -96,14 +96,14 @@ export async function POST(request: NextRequest) {
     if (resendApiKey) {
       try {
         const isContactForm = source === "contact_page";
-        const subject = isContactForm
+        // 1. Admin Notification
+        const adminSubject = isContactForm
           ? `New Contact Inquiry: ${firstName} ${lastName || ""} (${customerType || "General"})`
           : `New Guide Lead: ${firstName} (${source})`;
 
-        let htmlContent = "";
-
+        let adminHtmlContent = "";
         if (isContactForm) {
-          htmlContent = `
+          adminHtmlContent = `
             <h1>New Contact Inquiry</h1>
             <p><strong>Name:</strong> ${firstName} ${lastName || ""}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
             <p><small>Source: ${source} | Time: ${timestamp}</small></p>
           `;
         } else {
-          htmlContent = `
+          adminHtmlContent = `
             <h1>New Guide Download Lead</h1>
             <p><strong>Name:</strong> ${firstName}</p>
             <p><strong>Email:</strong> ${email}</p>
@@ -127,6 +127,7 @@ export async function POST(request: NextRequest) {
           `;
         }
 
+        // Send Admin Notification
         await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
@@ -136,10 +137,81 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify({
             from: "EDG Leads <onboarding@resend.dev>",
             to: notificationEmail,
-            subject: subject,
-            html: htmlContent,
+            subject: adminSubject,
+            html: adminHtmlContent,
           }),
         });
+
+        // 2. User Auto-Response (Only for Guide Download or if requested)
+        // For now, we'll send it for 'guide-landing-page' or general guide requests
+        const isGuideRequest = source === "guide-landing-page" || source?.includes("guide");
+
+        if (isGuideRequest) {
+          const fromEmail = process.env.FROM_EMAIL || "EDG Outdoor Living <info@edgoutdoorliving.com>";
+
+          const userSubject = "Your EDG Outdoor Living Guide";
+          const userHtmlContent = `
+            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2>Hi ${firstName},</h2>
+              <p>Thanks for requesting our guide to outdoor living! We're excited to help you transform your outdoor space.</p>
+              <p>I've attached the brochure to this email so you have it handy.</p>
+              <p>Typically, homeowners come to us because they want to use their patio more than just 2-3 months a year. Our systems let you control the sun, wind, rain, and bugs so you can enjoy the outdoors 3-4 seasons a year.</p>
+              <p><strong>How can we help?</strong></p>
+              <ul>
+                <li>Are you in the early planning stages?</li>
+                <li>Do you have a specific project in mind?</li>
+                <li>Just browsing for ideas?</li>
+              </ul>
+              <p>Feel free to reply to this email if you have any questions or when you're ready to start a conversation.</p>
+              <br>
+              <p>Best regards,</p>
+              <p><strong>The EDG Team</strong><br>
+              <a href="https://edgpatioshade.com">www.edgpatioshade.com</a></p>
+            </div>
+          `;
+
+          let attachments: any[] = [];
+
+          try {
+            // Dynamic import for fs/path to avoid top-level changes
+            const fs = await import('fs');
+            const path = await import('path');
+
+            const brochurePath = path.join(process.cwd(), 'public', 'brochures', 'edg-product-brochure.pdf');
+
+            if (fs.existsSync(brochurePath)) {
+              const fileBuffer = fs.readFileSync(brochurePath);
+              const base64File = fileBuffer.toString('base64');
+
+              attachments.push({
+                content: base64File,
+                filename: 'EDG_Outdoor_Living_Guide.pdf',
+                type: 'application/pdf',
+                disposition: 'attachment',
+              });
+            } else {
+              console.warn("Brochure PDF not found at:", brochurePath);
+            }
+          } catch (err) {
+            console.error("Error reading brochure attachment:", err);
+          }
+
+          await fetch("https://api.resend.com/emails", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${resendApiKey}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              from: fromEmail,
+              to: email, // Send to the lead
+              subject: userSubject,
+              html: userHtmlContent,
+              attachments: attachments.length > 0 ? attachments : undefined
+            }),
+          });
+        }
+
       } catch (emailError) {
         console.error("Failed to send lead notification email:", emailError);
       }
