@@ -1,0 +1,1892 @@
+[
+    {
+        "src": "/images/appliances/outdoor-kitchen-hero.png",
+        "width": 1024,
+        "height": 1024,
+        "alt": "outdoor kitchen hero",
+        "id": "/images/appliances/outdoor-kitchen-hero.png"
+    },
+    {
+        "src": "/images/appliances/patio-heater.png",
+        "width": 1024,
+        "height": 1024,
+        "alt": "patio heater",
+        "id": "/images/appliances/patio-heater.png"
+    },
+    {
+        "src": "/images/backup/hero/hero-main.jpg",
+        "width": 2600,
+        "height": 1950,
+        "alt": "hero main",
+        "id": "/images/backup/hero/hero-main.jpg"
+    },
+    {
+        "src": "/images/backup/pergolas/pergola-detail.jpg",
+        "width": 1600,
+        "height": 1312,
+        "alt": "pergola detail",
+        "id": "/images/backup/pergolas/pergola-detail.jpg"
+    },
+    {
+        "src": "/images/backup/pergolas/pergola-hero.jpg",
+        "width": 1600,
+        "height": 1066,
+        "alt": "pergola hero",
+        "id": "/images/backup/pergolas/pergola-hero.jpg"
+    },
+    {
+        "src": "/images/backup/pergolas/pergola-lifestyle.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "pergola lifestyle",
+        "id": "/images/backup/pergolas/pergola-lifestyle.jpg"
+    },
+    {
+        "src": "/images/backup/projects/project-01.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "project 01",
+        "id": "/images/backup/projects/project-01.jpg"
+    },
+    {
+        "src": "/images/backup/projects/project-02.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "project 02",
+        "id": "/images/backup/projects/project-02.jpg"
+    },
+    {
+        "src": "/images/backup/projects/project-03.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "project 03",
+        "id": "/images/backup/projects/project-03.jpg"
+    },
+    {
+        "src": "/images/backup/projects/project-04.jpg",
+        "width": 1200,
+        "height": 1800,
+        "alt": "project 04",
+        "id": "/images/backup/projects/project-04.jpg"
+    },
+    {
+        "src": "/images/backup/projects/project-05.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "project 05",
+        "id": "/images/backup/projects/project-05.jpg"
+    },
+    {
+        "src": "/images/backup/shades/shades-detail.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "shades detail",
+        "id": "/images/backup/shades/shades-detail.jpg"
+    },
+    {
+        "src": "/images/backup/shades/shades-hero.jpg",
+        "width": 1600,
+        "height": 1159,
+        "alt": "shades hero",
+        "id": "/images/backup/shades/shades-hero.jpg"
+    },
+    {
+        "src": "/images/backup/shades/shades-retracted.jpg",
+        "width": 1200,
+        "height": 800,
+        "alt": "shades retracted",
+        "id": "/images/backup/shades/shades-retracted.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
+        "width": 1920,
+        "height": 1325,
+        "alt": "commercial glass enclosure day exterior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg",
+        "width": 1920,
+        "height": 1243,
+        "alt": "commercial glass enclosure day interior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg",
+        "width": 2880,
+        "height": 1983,
+        "alt": "commercial glass enclosure interior wood deck 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg",
+        "width": 1920,
+        "height": 1272,
+        "alt": "commercial glass enclosure night dining 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg",
+        "width": 1920,
+        "height": 1301,
+        "alt": "commercial glass enclosure night exterior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg",
+        "width": 2880,
+        "height": 1857,
+        "alt": "commercial glass enclosure night interior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg",
+        "width": 1920,
+        "height": 1293,
+        "alt": "commercial glass enclosure night interior 02",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg",
+        "width": 1920,
+        "height": 1280,
+        "alt": "commercial pergola glass enclosure day dining 01",
+        "id": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg",
+        "width": 1920,
+        "height": 1281,
+        "alt": "commercial pergola glass enclosure hanging lights 01",
+        "id": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-closed.jpg",
+        "width": 1600,
+        "height": 900,
+        "alt": "glass closed",
+        "id": "/images/enclosures/glass-closed.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-detail.jpg",
+        "width": 1600,
+        "height": 1312,
+        "alt": "glass detail",
+        "id": "/images/enclosures/glass-detail.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-enclosure-closed-exterior.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "glass enclosure closed exterior",
+        "id": "/images/enclosures/glass-enclosure-closed-exterior.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-enclosure-partial-open.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "glass enclosure partial open",
+        "id": "/images/enclosures/glass-enclosure-partial-open.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-hero.jpg",
+        "width": 1600,
+        "height": 1200,
+        "alt": "glass hero",
+        "id": "/images/enclosures/glass-hero.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-01.jpg",
+        "width": 1920,
+        "height": 1272,
+        "alt": "glass system 01",
+        "id": "/images/enclosures/glass-system-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-02.jpg",
+        "width": 1920,
+        "height": 1280,
+        "alt": "glass system 02",
+        "id": "/images/enclosures/glass-system-02.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-03.jpg",
+        "width": 1920,
+        "height": 1281,
+        "alt": "glass system 03",
+        "id": "/images/enclosures/glass-system-03.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-04.jpg",
+        "width": 2880,
+        "height": 1983,
+        "alt": "glass system 04",
+        "id": "/images/enclosures/glass-system-04.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-05.jpg",
+        "width": 2880,
+        "height": 1857,
+        "alt": "glass system 05",
+        "id": "/images/enclosures/glass-system-05.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-06.jpg",
+        "width": 1920,
+        "height": 1293,
+        "alt": "glass system 06",
+        "id": "/images/enclosures/glass-system-06.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-07.jpg",
+        "width": 1920,
+        "height": 1243,
+        "alt": "glass system 07",
+        "id": "/images/enclosures/glass-system-07.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-08.jpg",
+        "width": 1920,
+        "height": 1301,
+        "alt": "glass system 08",
+        "id": "/images/enclosures/glass-system-08.jpg"
+    },
+    {
+        "src": "/images/enclosures/glass-system-09.jpg",
+        "width": 1920,
+        "height": 1325,
+        "alt": "glass system 09",
+        "id": "/images/enclosures/glass-system-09.jpg"
+    },
+    {
+        "src": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "residential glass enclosure lifestyle",
+        "id": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg"
+    },
+    {
+        "src": "/images/enclosures/residential-pergola-heaters-interior.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "residential pergola heaters interior",
+        "id": "/images/enclosures/residential-pergola-heaters-interior.jpg"
+    },
+    {
+        "src": "/images/frameless-sliding-glass-walls.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "frameless sliding glass walls",
+        "id": "/images/frameless-sliding-glass-walls.jpg"
+    },
+    {
+        "src": "/images/guide-cover.png",
+        "width": 1024,
+        "height": 1024,
+        "alt": "guide cover",
+        "id": "/images/guide-cover.png"
+    },
+    {
+        "src": "/images/hero/hero-main.jpg",
+        "width": 2600,
+        "height": 1733,
+        "alt": "hero main",
+        "id": "/images/hero/hero-main.jpg"
+    },
+    {
+        "src": "/images/luxury-restaurant-patio-enclosure.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "luxury restaurant patio enclosure",
+        "id": "/images/luxury-restaurant-patio-enclosure.jpg"
+    },
+    {
+        "src": "/images/motorized-retractable-screens-patio.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "motorized retractable screens patio",
+        "id": "/images/motorized-retractable-screens-patio.jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (2).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024ES01 (2)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (2).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (3).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024ES01 (3)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (3).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (5).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024ES01 (5)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES01 (5).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (16).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024ES02 (16)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (16).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (17).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024ES02 (17)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (17).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (18).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024ES02 (18)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (18).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (22).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024ES02 (22)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (22).jpg"
+    },
+    {
+        "src": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (7).jpg",
+        "width": 5992,
+        "height": 3994,
+        "alt": "Photo B200XL Brustor   REF_2024ES02 (7)",
+        "id": "/images/new-assets/commercial/brustor-2026-1-9-10-53-13/Photo B200XL Brustor - REF_2024ES02 (7).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (15).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (15)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (15).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (16).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (16)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (16).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (2).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (2)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (2).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (28).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (28)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (28).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (29).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (29)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (29).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (32).jpg",
+        "width": 3840,
+        "height": 5760,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (32)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (32).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (39).jpg",
+        "width": 3840,
+        "height": 5760,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (39)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (39).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (40).jpg",
+        "width": 3840,
+        "height": 5760,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (40)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (40).jpg"
+    },
+    {
+        "src": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (7).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024BE11 (7)",
+        "id": "/images/new-assets/glass enclosure/brustor-2026-1-9-10-56-29/Photo B200XL Brustor - REF_2024BE11 (7).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (10).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (10)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (10).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (11).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (11)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (11).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (12).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (12)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (12).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (13).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (13)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (13).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (2).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (2)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (2).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (3).jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (3)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (3).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (4).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (4)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (4).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (5).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (5)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (5).jpg"
+    },
+    {
+        "src": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (9).jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "Photo B200XL Brustor   REF_2024PO03 (9)",
+        "id": "/images/new-assets/motorized shade/brustor-2026-1-9-10-50-3/Photo B200XL Brustor - REF_2024PO03 (9).jpg"
+    },
+    {
+        "src": "/images/optimized/cover-bg.jpg",
+        "width": 2000,
+        "height": 1333,
+        "alt": "cover bg",
+        "id": "/images/optimized/cover-bg.jpg"
+    },
+    {
+        "src": "/images/optimized/maintenance-footer.jpg",
+        "width": 2000,
+        "height": 1333,
+        "alt": "maintenance footer",
+        "id": "/images/optimized/maintenance-footer.jpg"
+    },
+    {
+        "src": "/images/optimized/page-2-problem.jpg",
+        "width": 2000,
+        "height": 1500,
+        "alt": "page 2 problem",
+        "id": "/images/optimized/page-2-problem.jpg"
+    },
+    {
+        "src": "/images/optimized/page-3-solution.jpg",
+        "width": 2000,
+        "height": 1289,
+        "alt": "page 3 solution",
+        "id": "/images/optimized/page-3-solution.jpg"
+    },
+    {
+        "src": "/images/optimized/page-5-proof.jpg",
+        "width": 2000,
+        "height": 1334,
+        "alt": "page 5 proof",
+        "id": "/images/optimized/page-5-proof.jpg"
+    },
+    {
+        "src": "/images/optimized/system-glass.jpg",
+        "width": 2000,
+        "height": 1333,
+        "alt": "system glass",
+        "id": "/images/optimized/system-glass.jpg"
+    },
+    {
+        "src": "/images/optimized/system-louver.jpg",
+        "width": 2000,
+        "height": 1640,
+        "alt": "system louver",
+        "id": "/images/optimized/system-louver.jpg"
+    },
+    {
+        "src": "/images/optimized/system-screens.jpg",
+        "width": 2000,
+        "height": 1449,
+        "alt": "system screens",
+        "id": "/images/optimized/system-screens.jpg"
+    },
+    {
+        "src": "/images/pergolas/after-pergola-install.jpg",
+        "width": 1024,
+        "height": 682,
+        "alt": "after pergola install",
+        "id": "/images/pergolas/after-pergola-install.jpg"
+    },
+    {
+        "src": "/images/pergolas/b200xl-01.jpg",
+        "width": 1920,
+        "height": 1280,
+        "alt": "b200xl 01",
+        "id": "/images/pergolas/b200xl-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/b200xl-02.jpg",
+        "width": 1920,
+        "height": 1280,
+        "alt": "b200xl 02",
+        "id": "/images/pergolas/b200xl-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/b200xl-03.jpg",
+        "width": 1920,
+        "height": 1280,
+        "alt": "b200xl 03",
+        "id": "/images/pergolas/b200xl-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/before-pergola-install.jpg",
+        "width": 1024,
+        "height": 616,
+        "alt": "before pergola install",
+        "id": "/images/pergolas/before-pergola-install.jpg"
+    },
+    {
+        "src": "/images/pergolas/pergola-closed-louvers.jpg",
+        "width": 1024,
+        "height": 682,
+        "alt": "pergola closed louvers",
+        "id": "/images/pergolas/pergola-closed-louvers.jpg"
+    },
+    {
+        "src": "/images/pergolas/pergola-detail.jpg",
+        "width": 1600,
+        "height": 1066,
+        "alt": "pergola detail",
+        "id": "/images/pergolas/pergola-detail.jpg"
+    },
+    {
+        "src": "/images/pergolas/pergola-hero.jpg",
+        "width": 2000,
+        "height": 1334,
+        "alt": "pergola hero",
+        "id": "/images/pergolas/pergola-hero.jpg"
+    },
+    {
+        "src": "/images/pergolas/pergola-lifestyle.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "pergola lifestyle",
+        "id": "/images/pergolas/pergola-lifestyle.jpg"
+    },
+    {
+        "src": "/images/pergolas/pergola-pool-spa.jpg",
+        "width": 1024,
+        "height": 768,
+        "alt": "pergola pool spa",
+        "id": "/images/pergolas/pergola-pool-spa.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-01.jpg",
+        "width": 3600,
+        "height": 2400,
+        "alt": "residential black r blade 01",
+        "id": "/images/pergolas/residential-black-r-blade-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-02.jpg",
+        "width": 3600,
+        "height": 2399,
+        "alt": "residential black r blade 02",
+        "id": "/images/pergolas/residential-black-r-blade-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-03.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "residential black r blade 03",
+        "id": "/images/pergolas/residential-black-r-blade-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-04.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "residential black r blade 04",
+        "id": "/images/pergolas/residential-black-r-blade-04.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png",
+        "width": 7884,
+        "height": 5913,
+        "alt": "residential black r blade outdoor dining pool",
+        "id": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg",
+        "width": 2048,
+        "height": 1365,
+        "alt": "residential black r blade privacy walls pool",
+        "id": "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg",
+        "width": 3600,
+        "height": 2953,
+        "alt": "residential dark gray r blade led lights",
+        "id": "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg",
+        "width": 5448,
+        "height": 3632,
+        "alt": "residential gray bronze r blade pool chairs",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg",
+        "width": 6720,
+        "height": 4480,
+        "alt": "residential gray bronze r blade white louvers 01",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg",
+        "width": 8938,
+        "height": 5959,
+        "alt": "residential gray bronze r blade white louvers 02",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg",
+        "width": 2500,
+        "height": 1406,
+        "alt": "residential gray bronze r blade white louvers 03",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg",
+        "width": 3600,
+        "height": 2401,
+        "alt": "residential gray white r shade outdoor kitchen",
+        "id": "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg",
+        "width": 5245,
+        "height": 3801,
+        "alt": "residential white gray bronze r blade screen",
+        "id": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
+        "width": 6711,
+        "height": 4474,
+        "alt": "residential white pergola pool glass doors 01",
+        "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
+        "width": 5749,
+        "height": 3833,
+        "alt": "residential white pergola pool glass doors 02",
+        "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg",
+        "width": 5814,
+        "height": 3876,
+        "alt": "residential white pergola pool glass doors 03",
+        "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-r-blade-led-strip.jpg",
+        "width": 6972,
+        "height": 4648,
+        "alt": "residential white r blade led strip",
+        "id": "/images/pergolas/residential-white-r-blade-led-strip.jpg"
+    },
+    {
+        "src": "/images/projects/project-01.jpg",
+        "width": 1600,
+        "height": 1066,
+        "alt": "project 01",
+        "id": "/images/projects/project-01.jpg"
+    },
+    {
+        "src": "/images/projects/project-02.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "project 02",
+        "id": "/images/projects/project-02.jpg"
+    },
+    {
+        "src": "/images/projects/project-03.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "project 03",
+        "id": "/images/projects/project-03.jpg"
+    },
+    {
+        "src": "/images/projects/project-04.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "project 04",
+        "id": "/images/projects/project-04.jpg"
+    },
+    {
+        "src": "/images/projects/project-05.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "project 05",
+        "id": "/images/projects/project-05.jpg"
+    },
+    {
+        "src": "/images/shades/commercial-white-r-blade-screens-lake.jpg",
+        "width": 5371,
+        "height": 3581,
+        "alt": "commercial white r blade screens lake",
+        "id": "/images/shades/commercial-white-r-blade-screens-lake.jpg"
+    },
+    {
+        "src": "/images/shades/shade-after-screens-deployed.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "shade after screens deployed",
+        "id": "/images/shades/shade-after-screens-deployed.jpg"
+    },
+    {
+        "src": "/images/shades/shade-before-no-screens.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "shade before no screens",
+        "id": "/images/shades/shade-before-no-screens.jpg"
+    },
+    {
+        "src": "/images/shades/shade-deployed-screens-01.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "shade deployed screens 01",
+        "id": "/images/shades/shade-deployed-screens-01.jpg"
+    },
+    {
+        "src": "/images/shades/shade-home-exterior-screens.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "shade home exterior screens",
+        "id": "/images/shades/shade-home-exterior-screens.jpg"
+    },
+    {
+        "src": "/images/shades/shade-patio-close-01.jpg",
+        "width": 5464,
+        "height": 8192,
+        "alt": "shade patio close 01",
+        "id": "/images/shades/shade-patio-close-01.jpg"
+    },
+    {
+        "src": "/images/shades/shades-detail.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "shades detail",
+        "id": "/images/shades/shades-detail.jpg"
+    },
+    {
+        "src": "/images/shades/shades-hero.jpg",
+        "width": 1600,
+        "height": 1160,
+        "alt": "shades hero",
+        "id": "/images/shades/shades-hero.jpg"
+    },
+    {
+        "src": "/images/shades/shades-retracted.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "shades retracted",
+        "id": "/images/shades/shades-retracted.jpg"
+    },
+    {
+        "src": "/images/staging/Photo B250XL Brustor - REF_2021BE16 (9).jpg",
+        "width": 6720,
+        "height": 4480,
+        "alt": "Photo B250XL Brustor   REF_2021BE16 (9)",
+        "id": "/images/staging/Photo B250XL Brustor - REF_2021BE16 (9).jpg"
+    },
+    {
+        "src": "/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg",
+        "width": 5184,
+        "height": 3456,
+        "alt": "Photo B250XL Brustor   REF_2022NL04 (5)",
+        "id": "/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
+        "width": 1920,
+        "height": 1325,
+        "alt": "commercial glass enclosure day exterior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg",
+        "width": 1920,
+        "height": 1243,
+        "alt": "commercial glass enclosure day interior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg",
+        "width": 2880,
+        "height": 1983,
+        "alt": "commercial glass enclosure interior wood deck 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg",
+        "width": 1920,
+        "height": 1272,
+        "alt": "commercial glass enclosure night dining 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg",
+        "width": 1920,
+        "height": 1301,
+        "alt": "commercial glass enclosure night exterior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg",
+        "width": 2880,
+        "height": 1857,
+        "alt": "commercial glass enclosure night interior 01",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg",
+        "width": 1920,
+        "height": 1293,
+        "alt": "commercial glass enclosure night interior 02",
+        "id": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg",
+        "width": 1920,
+        "height": 1280,
+        "alt": "commercial pergola glass enclosure day dining 01",
+        "id": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg"
+    },
+    {
+        "src": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg",
+        "width": 1920,
+        "height": 1281,
+        "alt": "commercial pergola glass enclosure hanging lights 01",
+        "id": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg"
+    },
+    {
+        "src": "/images/shades/commercial-white-r-blade-screens-lake.jpg",
+        "width": 5371,
+        "height": 3581,
+        "alt": "commercial white r blade screens lake",
+        "id": "/images/shades/commercial-white-r-blade-screens-lake.jpg"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/Resized_Resized_20230126_134528.JPG.webp",
+        "width": 768,
+        "height": 1024,
+        "alt": "Resized_Resized_20230126_134528.JPG",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/Resized_Resized_20230126_134528.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/Shutterwise Install Palm Springs (8).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Shutterwise Install Palm Springs (8).JPG",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/Shutterwise Install Palm Springs (8).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/TP 3.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "TP 3",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/TP 3.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/TP4.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "TP4",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/TP4.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/TX pic 10.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "TX pic 10.JPG",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/TX pic 10.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/TX pic 7.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "TX pic 7.JPG",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/TX pic 7.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/TX pic 9.JPG.webp",
+        "width": 1333,
+        "height": 2000,
+        "alt": "TX pic 9.JPG",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/TX pic 9.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/Whale Harbor Fl Keys.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Whale Harbor Fl Keys",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/Whale Harbor Fl Keys.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T043920Z-3-001/Winery.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Winery",
+        "id": "/images/staging/drive-download-20260114T043920Z-3-001/Winery.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/123_1.webp",
+        "width": 2000,
+        "height": 874,
+        "alt": "123_1",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/123_1.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/20180928_133504_resized.webp",
+        "width": 1125,
+        "height": 2000,
+        "alt": "20180928_133504_resized",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/20180928_133504_resized.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/20181208_153707_1544315500370_resized.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "20181208_153707_1544315500370_resized",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/20181208_153707_1544315500370_resized.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/20190918_124710.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "20190918_124710",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/20190918_124710.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Admirals Cove Golf Village (7).webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Admirals Cove Golf Village (7)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Admirals Cove Golf Village (7).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Alpha-M-Hero-Retracted.webp",
+        "width": 2000,
+        "height": 1364,
+        "alt": "Alpha M Hero Retracted",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Alpha-M-Hero-Retracted.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/American Social TPA (1).webp",
+        "width": 1874,
+        "height": 1175,
+        "alt": "American Social TPA (1)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/American Social TPA (1).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/BFG orlando 2.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "BFG orlando 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/BFG orlando 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/C&V 3.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "C&V 3",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/C&V 3.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/C&V 5.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "C&V 5",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/C&V 5.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Carribbean Shade.webp",
+        "width": 508,
+        "height": 310,
+        "alt": "Carribbean Shade",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Carribbean Shade.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Claudios Hamptons.webp",
+        "width": 2000,
+        "height": 1081,
+        "alt": "Claudios Hamptons",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Claudios Hamptons.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercail install (3).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercail install (3).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercail install (3).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercail install (4).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercail install (4).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercail install (4).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Casino_s (1).JPG.webp",
+        "width": 1500,
+        "height": 2000,
+        "alt": "Commercial Casino_s (1).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Casino_s (1).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Country clubs (1).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial Country clubs (1).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Country clubs (1).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Country clubs (1).PNG.webp",
+        "width": 1515,
+        "height": 1136,
+        "alt": "Commercial Country clubs (1).PNG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Country clubs (1).PNG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Country clubs (2).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial Country clubs (2).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Country clubs (2).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial MagnaTrack 1.webp",
+        "width": 1440,
+        "height": 1080,
+        "alt": "Commercial MagnaTrack 1",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial MagnaTrack 1.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (10).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial Restaurant (10).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (10).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (3).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial Restaurant (3).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (3).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (5).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial Restaurant (5).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (5).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (6).JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial Restaurant (6).JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial Restaurant (6).JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial country club.PNG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial country club.PNG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial country club.PNG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic 43.webp",
+        "width": 1500,
+        "height": 2000,
+        "alt": "Commercial pic 43",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic 43.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic.webp",
+        "width": 640,
+        "height": 480,
+        "alt": "Commercial pic",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic39.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial pic39",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic39.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic6.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Commercial pic6",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial pic6.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade 2.webp",
+        "width": 1008,
+        "height": 756,
+        "alt": "Commercial screens Gulf Cost Shade 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade 3.webp",
+        "width": 1008,
+        "height": 756,
+        "alt": "Commercial screens Gulf Cost Shade 3",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade 3.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade 4.webp",
+        "width": 1008,
+        "height": 756,
+        "alt": "Commercial screens Gulf Cost Shade 4",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade 4.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade.webp",
+        "width": 1008,
+        "height": 756,
+        "alt": "Commercial screens Gulf Cost Shade",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Commercial screens Gulf Cost Shade.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Defender Hurricane screen9.webp",
+        "width": 2000,
+        "height": 1143,
+        "alt": "Defender Hurricane screen9",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Defender Hurricane screen9.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Defender hurricane screens after replacing CHP 2.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Defender hurricane screens after replacing CHP 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Defender hurricane screens after replacing CHP 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Del Frisco_s Orlando.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Del Frisco_s Orlando.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Del Frisco_s Orlando.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Extreme ely wide and tall screen 30_ x 24_.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Extreme ely wide and tall screen 30_ x 24_.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Extreme ely wide and tall screen 30_ x 24_.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Frisco Residential.2JPG.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Frisco Residential.2JPG.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Frisco Residential.2JPG.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hollywood Casino 1.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Hollywood Casino 1",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hollywood Casino 1.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hollywood Casino 2.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Hollywood Casino 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hollywood Casino 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen OG2.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Hurricane Screen OG2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen OG2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen OG3.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Hurricane Screen OG3",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen OG3.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen Tailfins 2.webp",
+        "width": 360,
+        "height": 480,
+        "alt": "Hurricane Screen Tailfins 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen Tailfins 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen Tailfins.webp",
+        "width": 480,
+        "height": 640,
+        "alt": "Hurricane Screen Tailfins",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screen Tailfins.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screens OG4.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Hurricane Screens OG4",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane Screens OG4.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane screen OG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Hurricane screen OG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Hurricane screen OG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG-1799.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG 1799.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG-1799.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0302.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_0302.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0302.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0381.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_0381.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0381.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0421.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_0421.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0421.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0422.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_0422.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0422.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0425.JPEG.webp",
+        "width": 2000,
+        "height": 2000,
+        "alt": "IMG_0425.JPEG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0425.JPEG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0425.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_0425.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0425.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0427.JPEG.webp",
+        "width": 2000,
+        "height": 2000,
+        "alt": "IMG_0427.JPEG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0427.JPEG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0428.JPEG.webp",
+        "width": 2000,
+        "height": 2000,
+        "alt": "IMG_0428.JPEG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0428.JPEG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0656.JPG.webp",
+        "width": 1500,
+        "height": 2000,
+        "alt": "IMG_0656.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0656.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0657.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_0657.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0657.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0972.JPG.webp",
+        "width": 1008,
+        "height": 756,
+        "alt": "IMG_0972.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_0972.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_1034.webp",
+        "width": 1290,
+        "height": 1723,
+        "alt": "IMG_1034",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_1034.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_1214.webp",
+        "width": 1284,
+        "height": 995,
+        "alt": "IMG_1214",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_1214.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_1803.PNG.webp",
+        "width": 2000,
+        "height": 924,
+        "alt": "IMG_1803.PNG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_1803.PNG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2252.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2252.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2252.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2256.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2256.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2256.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2257.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2257.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2257.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2258.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2258.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2258.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2262.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2262.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2262.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2267.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2267.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2267.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2556.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_2556",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2556.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2562.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_2562.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_2562.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4169.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_4169",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4169.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4362.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_4362.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4362.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4363.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_4363.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4363.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4394.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_4394",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4394.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4420.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_4420",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_4420.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5231.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_5231",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5231.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5232.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_5232",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5232.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5233.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_5233",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5233.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5341.JPG.webp",
+        "width": 640,
+        "height": 480,
+        "alt": "IMG_5341.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5341.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5475.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_5475.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5475.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5476.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_5476.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_5476.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_6212.PNG.webp",
+        "width": 640,
+        "height": 360,
+        "alt": "IMG_6212.PNG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_6212.PNG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_7237.webp",
+        "width": 1024,
+        "height": 588,
+        "alt": "IMG_7237",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_7237.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_7333.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_7333.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_7333.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_7826_preview.webp",
+        "width": 1600,
+        "height": 1200,
+        "alt": "IMG_7826_preview",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_7826_preview.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_8133.JPG.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "IMG_8133.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_8133.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_8180.JPG.webp",
+        "width": 1968,
+        "height": 1058,
+        "alt": "IMG_8180.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_8180.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_8181.JPG.webp",
+        "width": 2000,
+        "height": 1333,
+        "alt": "IMG_8181.JPG",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/IMG_8181.JPG.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Integrity Blinds 1.webp",
+        "width": 640,
+        "height": 378,
+        "alt": "Integrity Blinds 1",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Integrity Blinds 1.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Integrity Blinds 2.webp",
+        "width": 640,
+        "height": 480,
+        "alt": "Integrity Blinds 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Integrity Blinds 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Magna Track 1 .webp",
+        "width": 1161,
+        "height": 1970,
+        "alt": "Magna Track 1 ",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Magna Track 1 .webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/MagnaTrack New Hood 2.webp",
+        "width": 2000,
+        "height": 980,
+        "alt": "MagnaTrack New Hood 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/MagnaTrack New Hood 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/MagnaTrack New hood.webp",
+        "width": 2000,
+        "height": 1364,
+        "alt": "MagnaTrack New hood",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/MagnaTrack New hood.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Progessive Jabalia 3 (002).webp",
+        "width": 2000,
+        "height": 1532,
+        "alt": "Progessive Jabalia 3 (002)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Progessive Jabalia 3 (002).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Progressive Jabalia (002).webp",
+        "width": 2000,
+        "height": 972,
+        "alt": "Progressive Jabalia (002)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Progressive Jabalia (002).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Progressive Jabalia.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Progressive Jabalia",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Progressive Jabalia.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Res Recessed 2.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Res Recessed 2",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Res Recessed 2.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Res Recessed 3.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Res Recessed 3",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Res Recessed 3.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Res pics.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Res pics",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Res pics.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Res recessed 4.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Res recessed 4",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Res recessed 4.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 10.webp",
+        "width": 2000,
+        "height": 1100,
+        "alt": "Residential 10",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 10.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 11.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Residential 11",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 11.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 12.webp",
+        "width": 1923,
+        "height": 2000,
+        "alt": "Residential 12",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 12.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 13.webp",
+        "width": 1988,
+        "height": 2000,
+        "alt": "Residential 13",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 13.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 3.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Residential 3",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 3.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 5.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Residential 5",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 5.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 6.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Residential 6",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 6.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 7.webp",
+        "width": 1500,
+        "height": 2000,
+        "alt": "Residential 7",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 7.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 8.webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Residential 8",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential 8.webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential app on Arcadia (1).webp",
+        "width": 2000,
+        "height": 1500,
+        "alt": "Residential app on Arcadia (1)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential app on Arcadia (1).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential application (1).webp",
+        "width": 1100,
+        "height": 700,
+        "alt": "Residential application (1)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential application (1).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential applications (2).webp",
+        "width": 960,
+        "height": 720,
+        "alt": "Residential applications (2)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential applications (2).webp"
+    },
+    {
+        "src": "/images/staging/drive-download-20260114T044033Z-3-001/Residential applications (5).webp",
+        "width": 960,
+        "height": 720,
+        "alt": "Residential applications (5)",
+        "id": "/images/staging/drive-download-20260114T044033Z-3-001/Residential applications (5).webp"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-01.jpg",
+        "width": 3600,
+        "height": 2400,
+        "alt": "residential black r blade 01",
+        "id": "/images/pergolas/residential-black-r-blade-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-02.jpg",
+        "width": 3600,
+        "height": 2399,
+        "alt": "residential black r blade 02",
+        "id": "/images/pergolas/residential-black-r-blade-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-03.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "residential black r blade 03",
+        "id": "/images/pergolas/residential-black-r-blade-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-04.jpg",
+        "width": 8192,
+        "height": 5464,
+        "alt": "residential black r blade 04",
+        "id": "/images/pergolas/residential-black-r-blade-04.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png",
+        "width": 7884,
+        "height": 5913,
+        "alt": "residential black r blade outdoor dining pool",
+        "id": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+    },
+    {
+        "src": "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg",
+        "width": 2048,
+        "height": 1365,
+        "alt": "residential black r blade privacy walls pool",
+        "id": "/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg",
+        "width": 3600,
+        "height": 2953,
+        "alt": "residential dark gray r blade led lights",
+        "id": "/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg",
+        "width": 5448,
+        "height": 3632,
+        "alt": "residential gray bronze r blade pool chairs",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg",
+        "width": 6720,
+        "height": 4480,
+        "alt": "residential gray bronze r blade white louvers 01",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg",
+        "width": 8938,
+        "height": 5959,
+        "alt": "residential gray bronze r blade white louvers 02",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg",
+        "width": 2500,
+        "height": 1406,
+        "alt": "residential gray bronze r blade white louvers 03",
+        "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg",
+        "width": 3600,
+        "height": 2401,
+        "alt": "residential gray white r shade outdoor kitchen",
+        "id": "/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg",
+        "width": 5245,
+        "height": 3801,
+        "alt": "residential white gray bronze r blade screen",
+        "id": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
+        "width": 6711,
+        "height": 4474,
+        "alt": "residential white pergola pool glass doors 01",
+        "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg",
+        "width": 5749,
+        "height": 3833,
+        "alt": "residential white pergola pool glass doors 02",
+        "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg",
+        "width": 5814,
+        "height": 3876,
+        "alt": "residential white pergola pool glass doors 03",
+        "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg"
+    },
+    {
+        "src": "/images/pergolas/residential-white-r-blade-led-strip.jpg",
+        "width": 6972,
+        "height": 4648,
+        "alt": "residential white r blade led strip",
+        "id": "/images/pergolas/residential-white-r-blade-led-strip.jpg"
+    },
+    {
+        "src": "/images/testimonials/testimonial-01.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "testimonial 01",
+        "id": "/images/testimonials/testimonial-01.jpg"
+    },
+    {
+        "src": "/images/testimonials/testimonial-02.jpg",
+        "width": 1600,
+        "height": 1067,
+        "alt": "testimonial 02",
+        "id": "/images/testimonials/testimonial-02.jpg"
+    }
+]

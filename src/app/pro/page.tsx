@@ -1,0 +1,326 @@
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
+import {
+    ArrowLeft, CheckCircle2, ArrowRight, Clock, XCircle,
+    FileText, UploadCloud, Users, Phone, Shield, Wrench
+} from "lucide-react";
+import { TrackedLink } from "@/components/ui/TrackedLink";
+import { TrackedPhoneLink } from "@/components/ui/TrackedPhoneLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "For Builders & Architects | Trade Partner Program",
+    description: "Partner with EDG for motorized pergolas, shades, and glass enclosures. We handle the specialized installs so you can focus on the build. 48-hour pricing, site coordination, and trade margins.",
+    openGraph: {
+        title: "Builder & Trade Partner Program | EDG",
+        description: "Shading solutions for builders and architects. Trade pricing, fast quotes, and on-schedule installs.",
+    },
+    alternates: {
+        canonical: "/pro",
+    },
+};
+
+export default function ProPage() {
+    return (
+        <main className="min-h-screen bg-edg-light dark:bg-black">
+            {/* ========== HERO ========== */}
+            <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
+                <Container>
+                    <Link href="/" className="inline-flex items-center text-sm text-edg-gray-text hover:text-edg-brand-text mb-8 transition-colors font-medium">
+                        <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
+                    </Link>
+                    <div className="max-w-4xl">
+                        <p className="text-edg-brand-text font-semibold mb-4 uppercase tracking-wider text-sm">For Builders, Architects & GCs</p>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+                            Build faster. <br />
+                            <span className="text-muted-foreground">Deliver better outdoor living.</span>
+                        </h1>
+                        <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mb-8">
+                            High-end shading systems shouldn't be a headache.
+                            Whether we handle the full install or support your crew with the materials and expertise they need, we make sure the project stays on track.
+                        </p>
+                        <div className="flex flex-wrap gap-4">
+                            <TrackedLink href="/contact?type=pro&action=plans">
+                                <Button size="lg" className="rounded-full">
+                                    Request Project Quote
+                                </Button>
+                            </TrackedLink>
+                            <TrackedLink href="/contact?type=pro">
+                                <Button size="lg" variant="secondary" className="rounded-full">
+                                    Request Spec Sheets
+                                </Button>
+                            </TrackedLink>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== PROBLEM AGITATION ========== */}
+            <Section className="bg-zinc-950 text-white py-20">
+                <Container>
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+                            The "Standard" Experience vs. The EDG Way
+                        </h2>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {[
+                                {
+                                    icon: XCircle,
+                                    title: "Site Headaches",
+                                    desc: "No more guessing on attachment points or structural loads. We verify everything before the first truck arrives."
+                                },
+                                {
+                                    icon: Clock,
+                                    title: "Material Delays",
+                                    desc: "Stop waiting months. We keep stock materials ready to cut on-site, plus pre-engineered systems that ship in weeks, not months."
+                                },
+                                {
+                                    icon: Wrench,
+                                    title: "Callback Fatigue",
+                                    desc: "If a motor needs an adjustment or a louver needs a tweak, we own it. You shouldn't have to manage our install."
+                                }
+                            ].map((item) => (
+                                <div key={item.title} className="text-center">
+                                    <div className="h-16 w-16 rounded-full bg-red-500/20 flex items-center justify-center mx-auto mb-4">
+                                        <item.icon className="h-8 w-8 text-red-400" />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                                    <p className="text-gray-400">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== THE SOLUTION ========== */}
+            <Section className="bg-white dark:bg-black py-20">
+                <Container>
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                                Think of us as your in-house shading team.
+                            </h2>
+                            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                                You have enough to manage. We handle the specialized details—from measuring to the final punch list.
+                                <strong> Have your own crew?</strong> We can supply the systems and provide the technical support they need to get it right.
+                            </p>
+                            <ul className="space-y-4">
+                                {[
+                                    { title: "Flexible Partnership", desc: "We can handle the full install or just supply the materials and support your crew." },
+                                    { title: "Fast, accurate takeoffs", desc: "Send us your plans, and we'll have a quote back in 48 hours." },
+                                    { title: "We handle the specs", desc: "We coordinate with your team to make sure everything fits the first time." },
+                                    { title: "On-schedule delivery", desc: "Materials arrive exactly when you're ready for them, avoiding site clutter." },
+                                    { title: "Professional Support", desc: "Whether we install or you do, we're here to ensure the final product is perfect." },
+                                ].map((item) => (
+                                    <li key={item.title} className="flex items-start gap-4">
+                                        <CheckCircle2 className="h-6 w-6 text-edg-brand-text dark:text-edg-brand shrink-0 mt-0.5" />
+                                        <div>
+                                            <div className="font-semibold">{item.title}</div>
+                                            <div className="text-edg-gray-text dark:text-gray-400 text-sm">{item.desc}</div>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="relative rounded-3xl overflow-hidden bg-black min-h-[500px]">
+                            <div
+                                className="absolute inset-0 bg-cover bg-center"
+                                style={{ backgroundImage: "url('/images/pergolas/residential-black-r-blade-02.jpg')" }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                            <div className="absolute bottom-0 left-0 right-0 p-8">
+                                <p className="text-white text-xl font-medium">Builder project in North Shore, completed on schedule</p>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== TRADE SERVICES ========== */}
+            <Section className="bg-zinc-100 dark:bg-zinc-900 py-20">
+                <Container>
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Trade Services</h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                            <FileText className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
+                            <h3 className="text-xl font-bold mb-3">Project Specs</h3>
+                            <p className="text-edg-gray-text dark:text-gray-400 mb-4">
+                                Everything you need for your drawings: DWG files, spec sheets, and clear measurements.
+                            </p>
+                            <Link href="/contact?type=pro&action=specs" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
+                                Get Project Specs →
+                            </Link>
+                        </div>
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                            <UploadCloud className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
+                            <h3 className="text-xl font-bold mb-3">48-Hour Pricing</h3>
+                            <p className="text-edg-gray-text dark:text-gray-400 mb-4">
+                                Share your project details. We'll get you accurate pricing and lead times within two business days.
+                            </p>
+                            <TrackedLink href="/contact?type=pro&action=plans" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
+                                Request Quote →
+                            </TrackedLink>
+                        </div>
+                        <div className="bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-sm border border-zinc-200/50 dark:border-zinc-700">
+                            <Users className="h-10 w-10 text-edg-brand-text dark:text-edg-brand mb-4" />
+                            <h3 className="text-xl font-bold mb-3">Site Readiness</h3>
+                            <p className="text-edg-gray-text dark:text-gray-400 mb-4">
+                                We meet on-site to double-check dimensions and timing so we don't get in your crew's way.
+                            </p>
+                            <Link href="/contact?type=pro" className="text-edg-brand-text dark:text-edg-brand font-bold hover:underline">
+                                Schedule a Call →
+                            </Link>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== CASE STUDY ========== */}
+            <Section className="bg-white dark:bg-black py-20">
+                <Container>
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Builder Success Story</h2>
+                        <div className="bg-zinc-50 dark:bg-zinc-900 rounded-3xl p-8 md:p-12">
+                            <div className="grid md:grid-cols-2 gap-12">
+                                <div>
+                                    <h3 className="text-2xl font-bold mb-4">Lake Forest Custom Home</h3>
+                                    <p className="text-muted-foreground mb-6">
+                                        A high-end residential builder needed a 450 sq ft louvered pergola with integrated shades
+                                        and heating for a $3M new construction. Timeline was tight—6 weeks from decision to install.
+                                    </p>
+                                    <ul className="space-y-3">
+                                        {[
+                                            "Takeoff delivered: 24 hours",
+                                            "Engineering approval: 5 days",
+                                            "Materials on site: 4 weeks",
+                                            "Install complete: 3 days",
+                                            "Client satisfaction: Perfect"
+                                        ].map((item) => (
+                                            <li key={item} className="flex items-center gap-2 text-sm text-edg-gray-text dark:text-gray-400">
+                                                <CheckCircle2 className="h-4 w-4 text-edg-brand-text dark:text-edg-brand shrink-0" /> {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div>
+                                    <blockquote className="text-xl font-medium leading-relaxed mb-6">
+                                        "EDG made shading the easiest part of the project. No delays, no surprises, no callbacks.
+                                        That's rare in this business."
+                                    </blockquote>
+                                    <div>
+                                        <div className="font-bold">Tom Reynolds</div>
+                                        <div className="text-muted-foreground">Reynolds Custom Homes, Barrington</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== GUARANTEE ========== */}
+            <Section className="bg-edg-brand text-edg-dark py-16">
+                <Container>
+                    <div className="max-w-3xl mx-auto text-center">
+                        <Shield className="h-12 w-12 mx-auto mb-6" />
+                        <h2 className="text-3xl font-bold mb-4">Our Trade Guarantee</h2>
+                        <p className="text-xl leading-relaxed">
+                            If we miss our quoted lead time by more than 5 business days (for reasons within our control),
+                            we'll credit 5% of the install cost. We show up when we say we will.
+                        </p>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== MORE TESTIMONIALS ========== */}
+            <Section className="bg-zinc-100 dark:bg-zinc-900 py-20">
+                <Container>
+                    <h2 className="text-3xl font-bold text-center mb-12">What Builders Say</h2>
+                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        {[
+                            {
+                                quote: "Fastest takeoffs I've ever received. 24 hours, detailed, accurate. That's unheard of.",
+                                name: "Mark S.",
+                                company: "Lakeside Builders, Lake Geneva"
+                            },
+                            {
+                                quote: "They integrate seamlessly into our build schedule. It's like having a shading department without the overhead.",
+                                name: "Jennifer K.",
+                                company: "JK Architecture, Highland Park"
+                            }
+                        ].map((item) => (
+                            <div key={item.name} className="bg-white dark:bg-zinc-800 p-8 rounded-2xl">
+                                <blockquote className="text-lg mb-6 leading-relaxed">"{item.quote}"</blockquote>
+                                <div>
+                                    <div className="font-bold">{item.name}</div>
+                                    <div className="text-sm text-muted-foreground">{item.company}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== FAQ ========== */}
+            <Section className="bg-white dark:bg-black py-20">
+                <Container>
+                    <h2 className="text-3xl font-bold text-center mb-12">Trade FAQ</h2>
+                    <div className="max-w-3xl mx-auto space-y-6">
+                        {[
+                            {
+                                q: "Do you offer trade pricing?",
+                                a: "Yes. We have standard trade margins for qualified builders, architects, and design professionals. Contact us to set up a trade account."
+                            },
+                            {
+                                q: "Can you work with our team on site?",
+                                a: "Absolutely. We coordinate directly with your site super or structural team to ensure attachment points and loads are all set."
+                            },
+                            {
+                                q: "What's the wait time for materials?",
+                                a: "We have stock materials ready for on-site builds (zero wait), and our pre-engineered systems ship in about 3-5 weeks."
+                            },
+                            {
+                                q: "Do you install, or just supply?",
+                                a: "We're flexible. We can provide a full turnkey installation, or we can supply the materials and support your crew with the technical guidance they need to handle the build themselves."
+                            }
+                        ].map((item, i) => (
+                            <div key={i} className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-xl border border-zinc-100 dark:border-zinc-800">
+                                <h4 className="font-bold text-lg mb-2">{item.q}</h4>
+                                <p className="text-edg-gray-text dark:text-gray-400">{item.a}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </Section>
+
+            {/* ========== FINAL CTA ========== */}
+            <Section className="bg-edg-dark text-white py-20">
+                <Container>
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                            Let's talk about your next project.
+                        </h2>
+                        <p className="text-xl text-gray-300 mb-8">
+                            Request a quote for your project, or schedule a call to discuss trade partnership.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <TrackedLink href="/contact?type=pro&action=plans">
+                                <Button size="lg" className="rounded-full text-lg px-8">
+                                    Request Quote
+                                </Button>
+                            </TrackedLink>
+                            <TrackedPhoneLink href="tel:+18155810138">
+                                <Button size="lg" variant="secondary" className="rounded-full text-lg px-8 border-white/30 text-white hover:bg-white/10">
+                                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
+                                </Button>
+                            </TrackedPhoneLink>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+        </main>
+    );
+}
