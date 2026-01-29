@@ -51,13 +51,13 @@ export default function NotFound() {
                                     Louvered Pergolas
                                 </Link>
                                 <Link
-                                    href="/systems/screens"
+                                    href="/systems/shades"
                                     className="transition-colors hover:text-edg-brand"
                                 >
                                     Motorized Shades
                                 </Link>
                                 <Link
-                                    href="/systems/glass-enclosures"
+                                    href="/systems/enclosures"
                                     className="transition-colors hover:text-edg-brand"
                                 >
                                     Glass Enclosures

@@ -104,7 +104,7 @@ export default function ShadesPage() {
         name: "Motorized Exterior Shades",
         description: "Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.",
         url: "https://www.edgpatioshade.com/systems/shades",
-        image: "https://www.edgpatioshade.com/images/shades/shad-deployed-screens-01.jpg"
+        image: "https://www.edgpatioshade.com/images/shades/shade-deployed-screens-01.jpg"
     });
 
     return (
