@@ -35,6 +35,7 @@ export function LeadCaptureForm({
 }: LeadCaptureFormProps) {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
+  const [fax, setFax] = useState(""); // Honeypot
   const [formState, setFormState] = useState<FormState>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -51,6 +52,7 @@ export function LeadCaptureForm({
           email: email.trim(),
           firstName: firstName.trim(),
           source,
+          fax, // Honeypot field
         }),
       });
 
@@ -148,6 +150,19 @@ export function LeadCaptureForm({
           className
         )}
       >
+        {/* Honeypot Field - Hidden */}
+        <div className="absolute opacity-0 -z-50 select-none pointer-events-none" aria-hidden="true">
+          <label htmlFor="fax">Fax Number</label>
+          <input
+            type="text"
+            id="fax"
+            name="fax"
+            tabIndex={-1}
+            autoComplete="off"
+            value={fax}
+            onChange={(e) => setFax(e.target.value)}
+          />
+        </div>
         <div className={cn(variant === "compact" ? "flex flex-col sm:flex-row gap-2.5" : "space-y-4")}>
           <div className={cn(variant === "compact" ? "flex-1 min-w-0" : "")}>
             {variant === "default" && (
@@ -246,6 +261,19 @@ export function LeadCaptureForm({
       onSubmit={handleSubmit}
       className={cn("space-y-4", className)}
     >
+      {/* Honeypot Field - Hidden */}
+      <div className="absolute opacity-0 -z-50 select-none pointer-events-none" aria-hidden="true">
+        <label htmlFor="fax-inline">Fax Number</label>
+        <input
+          type="text"
+          id="fax-inline"
+          name="fax"
+          tabIndex={-1}
+          autoComplete="off"
+          value={fax}
+          onChange={(e) => setFax(e.target.value)}
+        />
+      </div>
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="text"

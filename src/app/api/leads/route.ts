@@ -21,6 +21,7 @@ interface LeadSubmission {
   message?: string;
   source?: string;
   customerType?: string;
+  fax?: string; // Honeypot
 }
 
 function validateEmail(email: string): boolean {
@@ -40,8 +41,26 @@ export async function POST(request: NextRequest) {
       projectType,
       message,
       source,
-      customerType
+      customerType,
+      fax // Honeypot
     } = body as LeadSubmission;
+
+    // SPAM PROTECTION: Honeypot Check
+    // If the hidden 'fax' field is filled, it's likely a bot.
+    // Return a fake success to fool the bot, but do NOT save or send anything.
+    if (fax && fax.length > 0) {
+      console.log(`Spam detected (honeypot): ${email}`);
+      // Simulate network delay to seem more real
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      return NextResponse.json(
+        {
+          success: true,
+          message: "Thank you! We have received your information.",
+          leadId: "spam-blocked",
+        },
+        { status: 201 }
+      );
+    }
 
     // Validation
     const errors: string[] = [];
