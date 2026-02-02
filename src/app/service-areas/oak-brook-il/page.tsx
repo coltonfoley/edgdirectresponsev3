@@ -51,28 +51,18 @@ export default function OakBrookPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Oak Brook",
-                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/oak-brook-il",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Oak Brook",
-                            "addressRegion": "IL",
-                            "postalCode": "60523",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 41.8342,
-                            "longitude": -87.9622
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - Oak Brook",
+                        "description": "Customized motorized pergolas, retractable shades, and glass enclosures for Oak Brook estates.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "City",
                             "name": "Oak Brook"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/oak-brook-il",
+                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
                     })
                 }}
             />

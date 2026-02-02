@@ -51,28 +51,18 @@ export default function LakeGenevaPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Lake Geneva",
-                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/lake-geneva-wi",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Lake Geneva",
-                            "addressRegion": "WI",
-                            "postalCode": "53147",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 42.5847,
-                            "longitude": -88.4291
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - Lake Geneva",
+                        "description": "Custom motorized pergolas, retractable shades, and glass enclosures for Lake Geneva, Williams Bay, and Fontana.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "City",
                             "name": "Lake Geneva"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/lake-geneva-wi",
+                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg"
                     })
                 }}
             />

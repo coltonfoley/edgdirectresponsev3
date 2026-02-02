@@ -63,28 +63,19 @@ export default function SoutheastWisconsinPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Southeast Wisconsin",
-                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg",
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - Southeast Wisconsin",
+                        "description": "Motorized pergolas, exterior shades, and glass enclosures in Southeast Wisconsin. Serving Lake Geneva, Kenosha, Racine, and resort communities.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
+                        },
+                        "areaServed": [
+                            { "@type": "AdministrativeArea", "name": "Walworth County" },
+                            { "@type": "AdministrativeArea", "name": "Kenosha County" },
+                            { "@type": "AdministrativeArea", "name": "Racine County" }
+                        ],
                         "url": "https://www.edgpatioshade.com/service-areas/southeast-wisconsin",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Lake Geneva",
-                            "addressRegion": "WI",
-                            "postalCode": "53147",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 42.5847,
-                            "longitude": -88.4291
-                        },
-                        "areaServed": {
-                            "@type": "AdministrativeArea",
-                            "name": "Southeast Wisconsin"
-                        },
-                        "priceRange": "$$$"
+                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg"
                     })
                 }}
             />

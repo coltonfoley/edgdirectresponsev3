@@ -63,28 +63,18 @@ export default function LakeCountyPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Lake County",
-                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/lake-county-il",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Libertyville",
-                            "addressRegion": "IL",
-                            "postalCode": "60048",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 42.2831,
-                            "longitude": -87.9531
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - Lake County",
+                        "description": "Premium motorized pergolas, exterior shades, and glass enclosures. serving Libertyville, Lake Forest, Highland Park, and all Lake County.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "AdministrativeArea",
                             "name": "Lake County"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/lake-county-il",
+                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg"
                     })
                 }}
             />

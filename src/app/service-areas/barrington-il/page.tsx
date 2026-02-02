@@ -59,28 +59,18 @@ export default function BarringtonPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Barrington",
-                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/barrington-il",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Barrington",
-                            "addressRegion": "IL",
-                            "postalCode": "60010",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 42.1539,
-                            "longitude": -88.1362
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - Barrington",
+                        "description": "Premium motorized pergolas, exterior shades, and glass enclosures for Barrington area estates.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "City",
                             "name": "Barrington"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/barrington-il",
+                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg"
                     })
                 }}
             />

@@ -58,28 +58,18 @@ export default function SanibelPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Sanibel",
-                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/sanibel-outdoor-living",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Sanibel",
-                            "addressRegion": "FL",
-                            "postalCode": "33957",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 26.4490,
-                            "longitude": -82.0223
+                        "@type": "Service",
+                        "name": "Sanibel Outdoor Living: Pergolas & Lanais",
+                        "description": "Premium louvered roof systems and motorized screens designed for Sanibel Island's strict zoning and coastal climate.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "City",
                             "name": "Sanibel"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/sanibel-outdoor-living",
+                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
                     })
                 }}
             />

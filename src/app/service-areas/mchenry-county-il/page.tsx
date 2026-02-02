@@ -63,29 +63,18 @@ export default function McHenryCountyPage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - McHenry County",
-                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/mchenry-county-il",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": "1802 Holian Drive",
-                            "addressLocality": "Spring Grove",
-                            "addressRegion": "IL",
-                            "postalCode": "60081",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 42.4447,
-                            "longitude": -88.2384
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - McHenry County",
+                        "description": "Motorized pergolas, exterior shades, and glass enclosures in McHenry County Illinois. Serving Crystal Lake, Algonquin, Woodstock, and our home town of Spring Grove.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "AdministrativeArea",
                             "name": "McHenry County"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/mchenry-county-il",
+                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg"
                     })
                 }}
             />

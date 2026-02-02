@@ -5,6 +5,13 @@ description: Guidelines for ensuring proper SEO and canonical tag implementation
 
 # SEO Standards & Canonicalization Rules
 
+## Canonical Domain Standard
+The project uses `https://www.edgpatioshade.com` as the canonical domain. 
+
+### Infrastructure Rules
+- **Non-www to WWW**: All traffic from `edgpatioshade.com` must be redirected via 301 to `www.edgpatioshade.com`. This is handled in `src/middleware.ts`.
+- **Protocol**: Always use `https`.
+
 ## Canonical Tags
 All pages in this project MUST have an explicit, self-referencing canonical tag defined in their metadata export. 
 
@@ -31,7 +38,7 @@ export const metadata: Metadata = {
 
 ## Sitemaps
 - Ensure all new pages are added to `sitemap.ts`.
-- `sitemap.ts` must use the full `https://www.edgpatioshade.com` domain.
+- `sitemap.ts` MUST use the full `https://www.edgpatioshade.com` domain.
 
 ## Robots.txt
-- Ensure `robots.ts` points to the correct sitemap location.
+- Ensure `robots.ts` points to the correct sitemap location on the canonical domain.

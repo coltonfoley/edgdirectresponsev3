@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, MapPin, Phone, CheckCircle2, Home } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin, Phone, CheckCircle2, Home, Shield } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -50,28 +50,18 @@ export default function NapervillePage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Naperville",
-                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/naperville-il",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Naperville",
-                            "addressRegion": "IL",
-                            "postalCode": "60540",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 41.7508,
-                            "longitude": -88.1535
+                        "@type": "Service",
+                        "name": "Outdoor Living Systems - Naperville",
+                        "description": "Customized motorized pergolas, retractable shades, and glass enclosures. Professional installation in Naperville and DuPage County.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "City",
                             "name": "Naperville"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/naperville-il",
+                        "image": "https://www.edgpatioshade.com/images/hero/pergola-hero.jpg"
                     })
                 }}
             />
@@ -152,6 +142,40 @@ export default function NapervillePage() {
                                     ))}
                                 </div>
                             </div>
+                        </div>
+                    </Container>
+                </Section>
+
+                {/* Content Cluster Links */}
+                <Section className="py-20 bg-zinc-50 dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 text-center">
+                    <Container>
+                        <h2 className="text-3xl font-bold mb-12">Building in Naperville</h2>
+                        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                            <Link href="/service-areas/naperville-il/zoning-guide" className="group p-8 rounded-3xl bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 hover:border-edg-brand transition-all">
+                                <div className="h-12 w-12 rounded-xl bg-edg-brand/10 flex items-center justify-center mb-6">
+                                    <Shield className="h-6 w-6 text-edg-brand" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand transition-colors">Naperville Zoning Guide</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                                    Everything you need to know about setbacks, lot coverage, and permit requirements for Naperville accessory structures.
+                                </p>
+                                <span className="text-sm font-bold flex items-center gap-2">
+                                    Read Global Guide <ArrowRight className="h-4 w-4" />
+                                </span>
+                            </Link>
+
+                            <Link href="/service-areas/naperville-il/motorized-pergolas" className="group p-8 rounded-3xl bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 hover:border-edg-brand transition-all">
+                                <div className="h-12 w-12 rounded-xl bg-edg-brand/10 flex items-center justify-center mb-6">
+                                    <Home className="h-6 w-6 text-edg-brand" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand transition-colors">Motorized Pergolas</h3>
+                                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                                    Explore louvered roof systems engineered for Naperville's specific suburban climate and aesthetics.
+                                </p>
+                                <span className="text-sm font-bold flex items-center gap-2">
+                                    View Systems <ArrowRight className="h-4 w-4" />
+                                </span>
+                            </Link>
                         </div>
                     </Container>
                 </Section>

@@ -50,28 +50,18 @@ export default function HinsdalePage() {
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "LocalBusiness",
-                        "name": "EDG Outdoor Living - Hinsdale",
-                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-03.jpg",
-                        "url": "https://www.edgpatioshade.com/service-areas/hinsdale-il",
-                        "telephone": "+18155810138",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Hinsdale",
-                            "addressRegion": "IL",
-                            "postalCode": "60521",
-                            "addressCountry": "US"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 41.8009,
-                            "longitude": -87.9295
+                        "@type": "Service",
+                        "name": "Outdoor Living Design & Installation - Hinsdale",
+                        "description": "Custom motorized pergolas, retractable shades, and glass enclosures for Hinsdale's premier estates.",
+                        "provider": {
+                            "@id": "https://www.edgpatioshade.com/#organization"
                         },
                         "areaServed": {
                             "@type": "City",
                             "name": "Hinsdale"
                         },
-                        "priceRange": "$$$"
+                        "url": "https://www.edgpatioshade.com/service-areas/hinsdale-il",
+                        "image": "https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-03.jpg"
                     })
                 }}
             />
