@@ -25,6 +25,8 @@ const areasDropdown = [
     { href: "/service-areas/southeast-wisconsin", label: "Southeast Wisconsin", desc: "Lake Geneva, Kenosha, Racine" },
     { href: "/service-areas/lake-geneva-wi", label: "Lake Geneva, WI", desc: "Lake Geneva,  Fontana,  Williams Bay" },
     { href: "/service-areas/hinsdale-il", label: "Hinsdale", desc: "Southeast Hinsdale,  The Woodlands,  Fullersburg" },
+    { href: "/service-areas/northbrook-il", label: "Northbrook, IL", desc: "Northbrook, Techny, Glenview North" },
+    { href: "/service-areas/sanibel-outdoor-living", label: "Sanibel / Captiva, FL", desc: "Sanibel Island, Captiva, Fort Myers" },
     { href: "/commercial/chicago-hospitality-outdoor-living", label: "Hospitality & Commercial", desc: "Restaurants, Hotels, & Country Clubs" },
 ];
 

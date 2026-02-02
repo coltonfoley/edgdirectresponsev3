@@ -208,6 +208,11 @@ export function Footer() {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="/service-areas/northbrook-il" className="hover:text-edg-brand transition-colors">
+                                        Northbrook, IL
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link href="/service-areas/southeast-wisconsin" className="hover:text-edg-brand transition-colors">
                                         Southeast Wisconsin
                                     </Link>

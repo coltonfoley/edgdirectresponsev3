@@ -44,6 +44,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/service-areas/sanibel-outdoor-living/zoning-guide',
         '/service-areas/barrington-il/motorized-pergolas',
         '/service-areas/barrington-il/zoning-guide',
+        '/service-areas/northbrook-il',
+        '/service-areas/northbrook-il/motorized-pergolas',
+        '/service-areas/northbrook-il/zoning-guide',
     ]
 
     const staticPages = routes.map((route) => ({

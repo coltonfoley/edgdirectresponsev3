@@ -182,7 +182,7 @@ export async function POST(request: NextRequest) {
         const isGuideRequest = source === "guide-landing-page" || source?.includes("guide");
 
         if (isGuideRequest) {
-          const fromEmail = process.env.FROM_EMAIL || "EDG Outdoor Living <cfoley@edgpatioshade.com>";
+          const fromEmail = process.env.FROM_EMAIL || "EDG Outdoor Living <onboarding@resend.dev>";
 
           const userSubject = "Your EDG Outdoor Living Guide";
           const userHtmlContent = `
