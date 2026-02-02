@@ -39,8 +39,8 @@ export default function HomeClient() {
 
               {/* Main Headline - Problem/Solution */}
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                Motorized Pergolas Chicago<br className="hidden md:block" />
-                <span className="text-edg-brand">Outdoor Living 365 Days a Year.</span>
+                Motorized Pergolas & Louvered Roofs<br className="hidden md:block" />
+                <span className="text-edg-brand">Chicago to Milwaukee’s Premier Outdoor Shading Systems Provider .</span>
               </h1>
 
               {/* Subhead - Addresses Pain Points */}
