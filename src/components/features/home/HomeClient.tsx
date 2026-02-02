@@ -41,7 +41,8 @@ export default function HomeClient() {
               </h1>
 
               <h2 className="text-xl md:text-2xl text-gray-200 font-medium mb-10 max-w-2xl mx-auto">
-                Chicago to Milwaukee’s Premier Outdoor Shading Systems Partner.
+                Full-Service Installation Across Chicago & Milwaukee. <br className="hidden sm:block" />
+                Design & Supply Available Nationwide.
               </h2>
 
               {/* Immediate Conversion Form */}
