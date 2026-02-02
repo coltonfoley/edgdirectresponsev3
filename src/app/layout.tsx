@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL("https://www.edgpatioshade.com"),
+  alternates: {
+    canonical: './',
+  },
 
   openGraph: {
     title: "EDG | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee",

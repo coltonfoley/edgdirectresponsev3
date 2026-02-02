@@ -185,7 +185,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
-        destination: '/systems/pergolas',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-cleveland-ohio',
+        destination: '/',
         permanent: true,
       },
       {
