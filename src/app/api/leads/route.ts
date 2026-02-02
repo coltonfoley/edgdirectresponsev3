@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
 
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
-    const notificationEmail = process.env.NOTIFICATION_EMAIL || "info@edgoutdoorliving.com";
+    const notificationEmail = process.env.NOTIFICATION_EMAIL || "cfoley@edgpatioshade.com";
 
     const emailLogs: any = {};
 
@@ -182,7 +182,7 @@ export async function POST(request: NextRequest) {
         const isGuideRequest = source === "guide-landing-page" || source?.includes("guide");
 
         if (isGuideRequest) {
-          const fromEmail = process.env.FROM_EMAIL || "EDG Outdoor Living <info@edgoutdoorliving.com>";
+          const fromEmail = process.env.FROM_EMAIL || "EDG Outdoor Living <cfoley@edgpatioshade.com>";
 
           const userSubject = "Your EDG Outdoor Living Guide";
           const userHtmlContent = `
@@ -236,7 +236,7 @@ export async function POST(request: NextRequest) {
             body: JSON.stringify({
               from: fromEmail,
               to: email,
-              reply_to: process.env.REPLY_TO_EMAIL || "jeverly@edgpatioshade.com",
+              reply_to: process.env.REPLY_TO_EMAIL || "cfoley@edgpatioshade.com",
               subject: userSubject,
               html: userHtmlContent,
               attachments: attachments.length > 0 ? attachments : undefined
