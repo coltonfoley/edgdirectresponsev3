@@ -1,17 +1,18 @@
 import { cn } from "@/lib/utils";
-import { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes } from "react";
 
-const Container = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-    ({ className, ...props }, ref) => {
-        return (
-            <div
-                ref={ref}
-                className={cn("mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8", className)}
-                {...props}
-            />
-        );
-    }
-);
-Container.displayName = "Container";
+interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
+    ref?: React.RefObject<HTMLDivElement | null>;
+}
+
+const Container = ({ className, ref, ...props }: ContainerProps) => {
+    return (
+        <div
+            ref={ref}
+            className={cn("mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8", className)}
+            {...props}
+        />
+    );
+};
 
 export { Container };

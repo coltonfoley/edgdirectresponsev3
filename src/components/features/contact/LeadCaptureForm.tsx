@@ -1,12 +1,11 @@
 "use client";
 
-
-
 import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLeadSubmission } from "@/hooks/useLeadSubmission";
 
 interface LeadCaptureFormProps {
   source?: string;
@@ -19,8 +18,6 @@ interface LeadCaptureFormProps {
   downloadUrl?: string;
   autoDownload?: boolean;
 }
-
-type FormState = "idle" | "loading" | "success" | "error";
 
 export function LeadCaptureForm({
   source = "guide-landing-page",
@@ -36,44 +33,9 @@ export function LeadCaptureForm({
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [fax, setFax] = useState(""); // Honeypot
-  const [formState, setFormState] = useState<FormState>("idle");
-  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setFormState("loading");
-    setErrorMessage("");
-
-    try {
-      const response = await fetch("/api/leads", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email.trim(),
-          firstName: firstName.trim(),
-          source,
-          fax, // Honeypot field
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.errors?.[0] || "Something went wrong");
-      }
-
-      setFormState("success");
-
-      // Track conversion
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
-          event: "generate_lead",
-          source: source,
-          currency: "USD",
-          value: 0
-        });
-      }
-
+  const { submitLead, loading, error, success } = useLeadSubmission({
+    onSuccess: () => {
       // Set access cookie if redirecting to gated content
       if (redirectUrl) {
         // Set cookie via JS for immediate access (simple client-side gate)
@@ -96,16 +58,22 @@ export function LeadCaptureForm({
         link.click();
         document.body.removeChild(link);
       }
-    } catch (error) {
-      setFormState("error");
-      setErrorMessage(
-        error instanceof Error ? error.message : "Something went wrong. Please try again."
-      );
     }
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    await submitLead({
+      firstName: firstName.trim(),
+      email: email.trim(),
+      source,
+      fax,
+    });
   };
 
   // Success state
-  if (formState === "success") {
+  if (success) {
     return (
       <div
         className={cn(
@@ -174,7 +142,7 @@ export function LeadCaptureForm({
               onChange={(e) => setFirstName(e.target.value)}
               placeholder="First name"
               required
-              disabled={formState === "loading"}
+              disabled={loading}
               className={cn(
                 "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm",
                 "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
@@ -193,7 +161,7 @@ export function LeadCaptureForm({
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email address"
               required
-              disabled={formState === "loading"}
+              disabled={loading}
               className={cn(
                 "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm",
                 "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
@@ -206,10 +174,10 @@ export function LeadCaptureForm({
             <Button
               type="submit"
               size="lg"
-              disabled={formState === "loading"}
+              disabled={loading}
               className="rounded-xl whitespace-nowrap px-6 text-sm md:text-base shadow-lg shadow-edg-brand/5"
             >
-              {formState === "loading" ? (
+              {loading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   Sending...
@@ -225,10 +193,10 @@ export function LeadCaptureForm({
           <Button
             type="submit"
             size="lg"
-            disabled={formState === "loading"}
+            disabled={loading}
             className="w-full rounded-xl shadow-lg shadow-edg-brand/5"
           >
-            {formState === "loading" ? (
+            {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                 Sending...
@@ -240,10 +208,10 @@ export function LeadCaptureForm({
         )}
 
         {/* Error message */}
-        {formState === "error" && errorMessage && (
-          <div className="flex items-center gap-2 text-red-400 text-sm">
+        {error && (
+          <div className="flex items-center gap-2 text-red-500 text-sm">
             <AlertCircle className="h-4 w-4 shrink-0" />
-            <span>{errorMessage}</span>
+            <span>{error}</span>
           </div>
         )}
 
@@ -281,7 +249,7 @@ export function LeadCaptureForm({
           onChange={(e) => setFirstName(e.target.value)}
           placeholder="First name"
           required
-          disabled={formState === "loading"}
+          disabled={loading}
           className={cn(
             "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
             "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium",
@@ -295,7 +263,7 @@ export function LeadCaptureForm({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email address"
           required
-          disabled={formState === "loading"}
+          disabled={loading}
           className={cn(
             "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
             "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium",
@@ -306,10 +274,10 @@ export function LeadCaptureForm({
         <Button
           type="submit"
           size="lg"
-          disabled={formState === "loading"}
+          disabled={loading}
           className="rounded-xl whitespace-nowrap px-8"
         >
-          {formState === "loading" ? (
+          {loading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Sending...
@@ -321,10 +289,10 @@ export function LeadCaptureForm({
       </div>
 
       {/* Error message */}
-      {formState === "error" && errorMessage && (
+      {error && (
         <div className="flex items-center gap-2 text-red-500 text-sm">
           <AlertCircle className="h-4 w-4 shrink-0" />
-          <span>{errorMessage}</span>
+          <span>{error}</span>
         </div>
       )}
 

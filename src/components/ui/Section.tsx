@@ -1,17 +1,18 @@
 import { cn } from "@/lib/utils";
-import { HTMLAttributes, forwardRef } from "react";
+import { HTMLAttributes } from "react";
 
-const Section = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
-    ({ className, ...props }, ref) => {
-        return (
-            <section
-                ref={ref}
-                className={cn("py-16 md:py-24", className)}
-                {...props}
-            />
-        );
-    }
-);
-Section.displayName = "Section";
+interface SectionProps extends HTMLAttributes<HTMLElement> {
+    ref?: React.RefObject<HTMLElement | null>;
+}
+
+const Section = ({ className, ref, ...props }: SectionProps) => {
+    return (
+        <section
+            ref={ref}
+            className={cn("py-16 md:py-24", className)}
+            {...props}
+        />
+    );
+};
 
 export { Section };

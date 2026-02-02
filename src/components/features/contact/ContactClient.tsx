@@ -8,13 +8,25 @@ import { ArrowLeft, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
+import { useLeadSubmission } from "@/hooks/useLeadSubmission";
+
 function ContactForm() {
     const searchParams = useSearchParams();
     const [formType, setFormType] = useState<"homeowner" | "pro" | "commercial">("homeowner");
-    const [submitted, setSubmitted] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
     const [source, setSource] = useState("contact_page");
+
+    // Form state
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        location: "",
+        projectType: "",
+        message: ""
+    });
+
+    const { submitLead, loading, error, success } = useLeadSubmission();
 
     useEffect(() => {
         const typeParam = searchParams.get("type");
@@ -29,17 +41,6 @@ function ContactForm() {
         }
     }, [searchParams]);
 
-    // Form state
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        location: "",
-        projectType: "",
-        message: ""
-    });
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -47,46 +48,15 @@ function ContactForm() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setLoading(true);
-        setError("");
 
-        try {
-            const response = await fetch("/api/leads", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...formData,
-                    customerType: formType,
-                    source: source
-                }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.errors?.[0] || "Something went wrong");
-            }
-
-            // Track conversion
-            if (typeof window !== 'undefined' && (window as any).dataLayer) {
-                (window as any).dataLayer.push({
-                    event: "generate_lead",
-                    source: source,
-                    customer_type: formType,
-                    value: 0,
-                    currency: "USD"
-                });
-            }
-
-            setSubmitted(true);
-        } catch (err: any) {
-            setError(err.message || "Something went wrong. Please try again.");
-        } finally {
-            setLoading(false);
-        }
+        await submitLead({
+            ...formData,
+            customerType: formType,
+            source: source
+        });
     };
 
-    if (submitted) {
+    if (success) {
         return (
             <main className="min-h-screen bg-edg-light dark:bg-black">
                 <Section className="pt-24 md:pt-32">

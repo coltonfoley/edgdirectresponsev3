@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
           `;
         }
 
-        const adminFromEmail = process.env.FROM_EMAIL || "EDG Leads <onboarding@resend.dev>";
+        const adminFromEmail = process.env.FROM_EMAIL || "EDG Leads <notifications@email.edgpatioshade.com>";
 
         const adminRes = await fetch("https://api.resend.com/emails", {
           method: "POST",
@@ -175,86 +175,6 @@ export async function POST(request: NextRequest) {
       } catch (adminErr: any) {
         console.error("Failed to send admin notification:", adminErr);
         emailLogs.admin = { success: false, error: adminErr.message };
-      }
-
-      // 2. User Auto-Response
-      try {
-        const isGuideRequest = source === "guide-landing-page" || source?.includes("guide");
-
-        if (isGuideRequest) {
-          const fromEmail = process.env.FROM_EMAIL || "EDG Outdoor Living <onboarding@resend.dev>";
-
-          const userSubject = "Your EDG Outdoor Living Guide";
-          const userHtmlContent = `
-            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2>Hi ${firstName},</h2>
-              <p>Thanks for requesting our guide to outdoor living! We're excited to help you transform your outdoor space.</p>
-              <p>I've attached the brochure to this email so you have it handy.</p>
-              <p>Typically, homeowners come to us because they want to use their patio more than just 2-3 months a year. Our systems let you control the sun, wind, rain, and bugs so you can enjoy the outdoors 3-4 seasons a year.</p>
-              <p><strong>How can we help?</strong></p>
-              <ul>
-                <li>Are you in the early planning stages?</li>
-                <li>Do you have a specific project in mind?</li>
-                <li>Just browsing for ideas?</li>
-              </ul>
-              <p><strong>Ready to take the next step?</strong></p>
-              <p>Simply reply to this email to ask a question or to set up a quick discovery call to discuss your project. We'd love to help you bring your vision to life.</p>
-              <br>
-              <p>Best regards,</p>
-              <p><strong>The EDG Team</strong><br>
-              <a href="https://edgpatioshade.com">www.edgpatioshade.com</a></p>
-            </div>
-          `;
-
-          let attachments: any[] = [];
-
-          try {
-            const fs = await import('fs');
-            const path = await import('path');
-            const brochurePath = path.join(process.cwd(), 'public', 'brochures', 'EDG-BROCHURE.pdf');
-
-            if (fs.existsSync(brochurePath)) {
-              const fileBuffer = fs.readFileSync(brochurePath);
-              const base64File = fileBuffer.toString('base64');
-              attachments.push({
-                content: base64File,
-                filename: 'EDG_Outdoor_Living_Guide.pdf',
-                type: 'application/pdf',
-                disposition: 'attachment',
-              });
-            }
-          } catch (err) {
-            console.error("Attachment error:", err);
-          }
-
-          const userRes = await fetch("https://api.resend.com/emails", {
-            method: "POST",
-            headers: {
-              "Authorization": `Bearer ${resendApiKey}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              from: fromEmail,
-              to: email,
-              reply_to: process.env.REPLY_TO_EMAIL || "cfoley@edgpatioshade.com",
-              subject: userSubject,
-              html: userHtmlContent,
-              attachments: attachments.length > 0 ? attachments : undefined
-            }),
-          });
-
-          const userData = await userRes.json();
-          if (!userRes.ok) {
-            console.error("Resend Lead Email Failed:", JSON.stringify(userData));
-            emailLogs.user = { success: false, error: userData };
-          } else {
-            console.log("Lead auto-response sent successfully.");
-            emailLogs.user = { success: true, id: userData.id };
-          }
-        }
-      } catch (userErr: any) {
-        console.error("Failed to send lead auto-response:", userErr);
-        emailLogs.user = { success: false, error: userErr.message };
       }
     }
 
