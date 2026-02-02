@@ -486,9 +486,6 @@ function HeroForm() {
   return (
     <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl">
       <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="md:col-span-2 text-center mb-2">
-          <h3 className="text-white font-bold text-lg">Request an Intro Call</h3>
-        </div>
         <input
           type="text"
           name="firstName"
