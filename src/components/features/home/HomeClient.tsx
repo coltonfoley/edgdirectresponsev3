@@ -10,6 +10,8 @@ import {
   Sun, Droplets, Wind, Eye, Thermometer, Shield,
   CheckCircle2, Users, Star, Award, BookOpen, Phone
 } from "lucide-react";
+import { useState, Suspense } from "react";
+import { useLeadSubmission } from "@/hooks/useLeadSubmission";
 import Link from "next/link";
 
 export default function HomeClient() {
@@ -32,40 +34,25 @@ export default function HomeClient() {
         <Container className="relative z-20">
           <FadeIn>
             <div className="max-w-4xl mx-auto text-center space-y-8">
-              {/* Service Note */}
-              <div className="inline-block text-sm font-medium tracking-wider text-edg-brand uppercase bg-edg-brand/10 border border-edg-brand/20 px-4 py-2 rounded-full">
-                Full-Service Installation within 60 Miles • Design & Supply Nationwide
-              </div>
-
-              {/* Main Headline - Problem/Solution */}
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
-                Motorized Pergolas & Louvered Roofs<br className="hidden md:block" />
-                <span className="text-edg-brand">Chicago to Milwaukee’s Premier Outdoor Shading Systems Provider .</span>
+              {/* Main Headline - Punchy SEO */}
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-6">
+                Motorized Pergolas <br className="hidden md:block" />
+                <span className="text-edg-brand">& Louvered Roofs</span>
               </h1>
 
-              {/* Subhead - Addresses Pain Points */}
-              <p className="text-xl md:text-2xl text-gray-300 font-light max-w-3xl mx-auto leading-relaxed">
-                Premium motorized pergolas, exterior shades, and glass enclosures—designed, supplied, and installed from our Spring Grove showroom.
-              </p>
+              <h2 className="text-xl md:text-2xl text-gray-200 font-medium mb-10 max-w-2xl mx-auto">
+                Chicago to Milwaukee’s Premier Outdoor Shading Systems Partner.
+              </h2>
 
-              {/* CTA Buttons */}
-              <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/design">
-                  <Button size="lg" className="rounded-full text-base px-8">
-                    See How It Works <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/gallery">
-                  <Button size="lg" variant="secondary" className="rounded-full text-base px-8 border-white/20 text-white hover:bg-white/10">
-                    View Gallery
-                  </Button>
-                </Link>
+              {/* Immediate Conversion Form */}
+              <HeroForm />
+
+              {/* Service Proof */}
+              <div className="flex items-center justify-center gap-6 pt-12 text-sm font-medium text-gray-400">
+                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-edg-brand" /> Licensed & Insured</span>
+                <span className="flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-edg-brand" /> 5-Star Service</span>
+                <span className="hidden sm:flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-edg-brand" /> Hurricane Rated</span>
               </div>
-
-              {/* Location Tag */}
-              <p className="text-sm text-gray-400 pt-4 font-medium tracking-wide uppercase">
-                Serving North Chicago to Milwaukee
-              </p>
             </div>
           </FadeIn>
         </Container>
@@ -454,5 +441,115 @@ export default function HomeClient() {
         </Container>
       </Section>
     </main>
+  );
+}
+
+function HeroForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    location: "",
+    projectType: "",
+    message: "Requested from Homepage Hero"
+  });
+
+  const { submitLead, loading, error, success } = useLeadSubmission();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await submitLead({
+      ...formData,
+      customerType: "homeowner",
+      source: "hero_form"
+    });
+  };
+
+  if (success) {
+    return (
+      <div className="max-w-lg mx-auto bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-3xl text-center">
+        <div className="h-16 w-16 rounded-full bg-edg-brand/20 flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 className="h-8 w-8 text-edg-brand" />
+        </div>
+        <h3 className="text-2xl font-bold text-white mb-2">Request Received!</h3>
+        <p className="text-gray-300">We'll be in touch within 1 business day.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto bg-white/5 backdrop-blur-xl border border-white/10 p-6 md:p-8 rounded-3xl shadow-2xl">
+      <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="md:col-span-2 text-center mb-2">
+          <h3 className="text-white font-bold text-lg">Request an Intro Call</h3>
+        </div>
+        <input
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          required
+          disabled={loading}
+          onChange={handleChange}
+          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-edg-brand transition-colors"
+        />
+        <input
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          required
+          disabled={loading}
+          onChange={handleChange}
+          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-edg-brand transition-colors"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          disabled={loading}
+          onChange={handleChange}
+          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-edg-brand transition-colors"
+        />
+        <input
+          type="text"
+          name="location"
+          placeholder="Zip Code"
+          required
+          disabled={loading}
+          onChange={handleChange}
+          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-edg-brand transition-colors"
+        />
+        <select
+          name="projectType"
+          required
+          disabled={loading}
+          onChange={handleChange}
+          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white/40 focus:outline-none focus:border-edg-brand transition-colors appearance-none"
+        >
+          <option value="" className="text-black">What are you looking for?</option>
+          <option value="pergola" className="text-black">Louvered Pergola</option>
+          <option value="shades" className="text-black">Motorized Shades</option>
+          <option value="enclosure" className="text-black">Glass Enclosure</option>
+        </select>
+        <Button
+          type="submit"
+          disabled={loading}
+          className="w-full rounded-xl bg-edg-brand text-edg-dark hover:bg-edg-brand/90 font-bold py-3 text-lg h-full"
+        >
+          {loading ? "Sending..." : "Submit Request"}
+        </Button>
+        {error && (
+          <div className="md:col-span-2 text-red-400 text-sm mt-2 text-center">
+            {error}
+          </div>
+        )}
+      </form>
+    </div>
   );
 }
