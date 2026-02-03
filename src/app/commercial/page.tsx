@@ -22,9 +22,40 @@ export const metadata: Metadata = {
     },
 };
 
+const faqs = [
+    {
+        question: "How quickly can you install?",
+        answer: "Most commercial projects install in 3-5 days. We can work around your operating hours—early mornings, late nights, or closed days."
+    },
+    {
+        question: "Do I need city permits?",
+        answer: "Usually yes. We handle the entire permit process, including any engineering requirements. This is typically 2-4 weeks depending on your municipality."
+    },
+    {
+        question: "What's the maintenance requirement?",
+        answer: "Annual service visit recommended. We clean, lubricate, and inspect all components. Most operators never think about the system between services."
+    },
+    {
+        question: "Can this integrate with our existing structure?",
+        answer: "Almost always. We've attached to historic buildings, modern steel, wood pergolas, and freestanding structures. Site assessment will confirm feasibility."
+    },
+    {
+        question: "What if something breaks during service?",
+        answer: "Commercial clients receive priority support. We stock common parts locally, and most issues are resolved within 24-48 hours to minimize any impact on your seating."
+    }
+];
+
+import { generateFAQSchema } from "@/lib/schema";
+
 export default function CommercialPage() {
+    const faqSchema = generateFAQSchema(faqs);
+
     return (
         <main className="min-h-screen bg-edg-light dark:bg-black">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             {/* ========== HERO ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
@@ -296,31 +327,10 @@ export default function CommercialPage() {
                 <Container>
                     <h2 className="text-3xl font-bold text-center mb-12">Commercial FAQ</h2>
                     <div className="max-w-3xl mx-auto space-y-6">
-                        {[
-                            {
-                                q: "How quickly can you install?",
-                                a: "Most commercial projects install in 3-5 days. We can work around your operating hours—early mornings, late nights, or closed days."
-                            },
-                            {
-                                q: "Do I need city permits?",
-                                a: "Usually yes. We handle the entire permit process, including any engineering requirements. This is typically 2-4 weeks depending on your municipality."
-                            },
-                            {
-                                q: "What's the maintenance requirement?",
-                                a: "Annual service visit recommended. We clean, lubricate, and inspect all components. Most operators never think about the system between services."
-                            },
-                            {
-                                q: "Can this integrate with our existing structure?",
-                                a: "Almost always. We've attached to historic buildings, modern steel, wood pergolas, and freestanding structures. Site assessment will confirm feasibility."
-                            },
-                            {
-                                q: "What if something breaks during service?",
-                                a: "Commercial clients receive priority support. We stock common parts locally, and most issues are resolved within 24-48 hours to minimize any impact on your seating."
-                            }
-                        ].map((item, i) => (
+                        {faqs.map((item, i) => (
                             <div key={i} className="bg-white dark:bg-zinc-800 p-6 rounded-xl">
-                                <h4 className="font-bold text-lg mb-2">{item.q}</h4>
-                                <p className="text-muted-foreground">{item.a}</p>
+                                <h4 className="font-bold text-lg mb-2">{item.question}</h4>
+                                <p className="text-muted-foreground">{item.answer}</p>
                             </div>
                         ))}
                     </div>

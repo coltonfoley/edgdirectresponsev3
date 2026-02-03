@@ -161,6 +161,26 @@ export function Footer() {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="/commercial/hotel-pergolas" className="text-gray-400 hover:text-edg-brand transition-colors">
+                                        Hotel Pergolas
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/commercial/restaurant-patio-solutions" className="text-gray-400 hover:text-edg-brand transition-colors">
+                                        Restaurant Solutions
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/guides/louvered-pergolas" className="text-gray-400 hover:text-edg-brand transition-colors">
+                                        Louvered Pergola Guide
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/guides/pergola-vs-patio-cover" className="text-gray-400 hover:text-edg-brand transition-colors">
+                                        Pergola vs Patio Cover
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link href="/contact" className="text-gray-400 hover:text-edg-brand transition-colors">
                                         Contact Us
                                     </Link>
@@ -210,6 +230,16 @@ export function Footer() {
                                 <li>
                                     <Link href="/service-areas/northbrook-il" className="hover:text-edg-brand transition-colors">
                                         Northbrook, IL
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/service-areas/wilmette-il" className="hover:text-edg-brand transition-colors">
+                                        Wilmette, IL
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/service-areas/winnetka-il" className="hover:text-edg-brand transition-colors">
+                                        Winnetka, IL
                                     </Link>
                                 </li>
                                 <li>

@@ -22,9 +22,36 @@ export const metadata: Metadata = {
     },
 };
 
+const faqs = [
+    {
+        question: "Do you offer trade pricing?",
+        answer: "Yes. We have standard trade margins for qualified builders, architects, and design professionals. Contact us to set up a trade account."
+    },
+    {
+        question: "Can you work with our team on site?",
+        answer: "Absolutely. We coordinate directly with your site super or structural team to ensure attachment points and loads are all set."
+    },
+    {
+        question: "What's the wait time for materials?",
+        answer: "We have stock materials ready for on-site builds (zero wait), and our pre-engineered systems ship in about 3-5 weeks."
+    },
+    {
+        question: "Do you install, or just supply?",
+        answer: "We're flexible. We can provide a full turnkey installation, or we can supply the materials and support your crew with the technical guidance they need to handle the build themselves."
+    }
+];
+
+import { generateFAQSchema } from "@/lib/schema";
+
 export default function ProPage() {
+    const faqSchema = generateFAQSchema(faqs);
+
     return (
         <main className="min-h-screen bg-edg-light dark:bg-black">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             {/* ========== HERO ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
@@ -269,27 +296,10 @@ export default function ProPage() {
                 <Container>
                     <h2 className="text-3xl font-bold text-center mb-12">Trade FAQ</h2>
                     <div className="max-w-3xl mx-auto space-y-6">
-                        {[
-                            {
-                                q: "Do you offer trade pricing?",
-                                a: "Yes. We have standard trade margins for qualified builders, architects, and design professionals. Contact us to set up a trade account."
-                            },
-                            {
-                                q: "Can you work with our team on site?",
-                                a: "Absolutely. We coordinate directly with your site super or structural team to ensure attachment points and loads are all set."
-                            },
-                            {
-                                q: "What's the wait time for materials?",
-                                a: "We have stock materials ready for on-site builds (zero wait), and our pre-engineered systems ship in about 3-5 weeks."
-                            },
-                            {
-                                q: "Do you install, or just supply?",
-                                a: "We're flexible. We can provide a full turnkey installation, or we can supply the materials and support your crew with the technical guidance they need to handle the build themselves."
-                            }
-                        ].map((item, i) => (
+                        {faqs.map((item, i) => (
                             <div key={i} className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-xl border border-zinc-100 dark:border-zinc-800">
-                                <h4 className="font-bold text-lg mb-2">{item.q}</h4>
-                                <p className="text-edg-gray-text dark:text-gray-400">{item.a}</p>
+                                <h4 className="font-bold text-lg mb-2">{item.question}</h4>
+                                <p className="text-edg-gray-text dark:text-gray-400">{item.answer}</p>
                             </div>
                         ))}
                     </div>

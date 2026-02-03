@@ -20,9 +20,40 @@ export const metadata: Metadata = {
     },
 };
 
+const faqs = [
+    {
+        question: "How much does the design consultation cost?",
+        answer: "The initial discovery call is free. If we move forward with a site visit and detailed proposal, there's a design fee that gets credited toward your project if you proceed with us."
+    },
+    {
+        question: "What if I already know what system I want?",
+        answer: "Great! We'll validate your choice and make sure it's the right fit for your specific site. Sometimes clients come in wanting a pergola and leave with a better solution. Sometimes we confirm their instincts. Either way, you'll have confidence."
+    },
+    {
+        question: "How long does the whole process take?",
+        answer: "From first call to enjoying your new space: typically 6-10 weeks for standard projects. Complex projects or those requiring significant permitting can take longer. We'll give you a realistic timeline upfront."
+    },
+    {
+        question: "Do you only work in the Chicago area?",
+        answer: "We design and install within 60 miles of Spring Grove, IL (north Chicago to Milwaukee). For projects outside that area, we can provide design consulting and connect you with qualified installers."
+    },
+    {
+        question: "What if my project isn't feasible?",
+        answer: "We'll tell you upfront. If your property can't support what you want, or if your budget doesn't align with your goals, we'd rather be honest than waste your time. That's the whole point of starting with design."
+    }
+];
+
+import { generateFAQSchema } from "@/lib/schema";
+
 export default function DesignPage() {
+    const faqSchema = generateFAQSchema(faqs);
+
     return (
         <main className="min-h-screen bg-edg-light dark:bg-black">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             {/* ========== HERO: LEAD WITH THE PROBLEM ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
@@ -256,31 +287,10 @@ export default function DesignPage() {
                 <Container>
                     <h2 className="text-3xl font-bold text-center mb-12">Common Questions</h2>
                     <div className="max-w-3xl mx-auto space-y-6">
-                        {[
-                            {
-                                q: "How much does the design consultation cost?",
-                                a: "The initial discovery call is free. If we move forward with a site visit and detailed proposal, there's a design fee that gets credited toward your project if you proceed with us."
-                            },
-                            {
-                                q: "What if I already know what system I want?",
-                                a: "Great! We'll validate your choice and make sure it's the right fit for your specific site. Sometimes clients come in wanting a pergola and leave with a better solution. Sometimes we confirm their instincts. Either way, you'll have confidence."
-                            },
-                            {
-                                q: "How long does the whole process take?",
-                                a: "From first call to enjoying your new space: typically 6-10 weeks for standard projects. Complex projects or those requiring significant permitting can take longer. We'll give you a realistic timeline upfront."
-                            },
-                            {
-                                q: "Do you only work in the Chicago area?",
-                                a: "We design and install within 60 miles of Spring Grove, IL (north Chicago to Milwaukee). For projects outside that area, we can provide design consulting and connect you with qualified installers."
-                            },
-                            {
-                                q: "What if my project isn't feasible?",
-                                a: "We'll tell you upfront. If your property can't support what you want, or if your budget doesn't align with your goals, we'd rather be honest than waste your time. That's the whole point of starting with design."
-                            }
-                        ].map((item, i) => (
+                        {faqs.map((item, i) => (
                             <div key={i} className="bg-zinc-50 dark:bg-zinc-900 p-6 rounded-xl">
-                                <h4 className="font-bold text-lg mb-2">{item.q}</h4>
-                                <p className="text-muted-foreground">{item.a}</p>
+                                <h4 className="font-bold text-lg mb-2">{item.question}</h4>
+                                <p className="text-muted-foreground">{item.answer}</p>
                             </div>
                         ))}
                     </div>

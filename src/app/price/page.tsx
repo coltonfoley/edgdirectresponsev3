@@ -23,9 +23,36 @@ export const metadata: Metadata = {
     },
 };
 
+const faqs = [
+    {
+        question: "Why don't you publish prices online?",
+        answer: "Because every project is different. Size, site conditions, options, and permitting requirements all affect the price significantly. We'd rather give you an accurate quote than a misleading range."
+    },
+    {
+        question: "How quickly can I get a quote?",
+        answer: "After a site visit (usually scheduled within a week), we'll have your detailed proposal within 48 hours. For simple projects, sometimes sooner."
+    },
+    {
+        question: "Is there a cost for the quote?",
+        answer: "The initial consultation and site visit are free. If we proceed to detailed design work beyond the standard scope, we'll discuss any design fees upfront."
+    },
+    {
+        question: "What's the deposit / payment schedule?",
+        answer: "Typically 50% at contract signing, 40% when materials arrive, 10% at completion. For larger projects, we can discuss milestone-based payments."
+    }
+];
+
+import { generateFAQSchema } from "@/lib/schema";
+
 export default function PricePage() {
+    const faqSchema = generateFAQSchema(faqs);
+
     return (
         <main className="min-h-screen bg-edg-light dark:bg-black">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             {/* ========== HERO ========== */}
             <Section className="pb-16 pt-24 md:pt-32 bg-white dark:bg-black">
                 <Container>
@@ -214,27 +241,10 @@ export default function PricePage() {
                 <Container>
                     <h2 className="text-3xl font-bold text-center mb-12">Pricing Questions</h2>
                     <div className="max-w-3xl mx-auto space-y-6">
-                        {[
-                            {
-                                q: "Why don't you publish prices online?",
-                                a: "Because every project is different. Size, site conditions, options, and permitting requirements all affect the price significantly. We'd rather give you an accurate quote than a misleading range."
-                            },
-                            {
-                                q: "How quickly can I get a quote?",
-                                a: "After a site visit (usually scheduled within a week), we'll have your detailed proposal within 48 hours. For simple projects, sometimes sooner."
-                            },
-                            {
-                                q: "Is there a cost for the quote?",
-                                a: "The initial consultation and site visit are free. If we proceed to detailed design work beyond the standard scope, we'll discuss any design fees upfront."
-                            },
-                            {
-                                q: "What's the deposit / payment schedule?",
-                                a: "Typically 50% at contract signing, 40% when materials arrive, 10% at completion. For larger projects, we can discuss milestone-based payments."
-                            }
-                        ].map((item, i) => (
+                        {faqs.map((item, i) => (
                             <div key={i} className="bg-white dark:bg-zinc-800 p-6 rounded-xl border border-zinc-200/50 dark:border-zinc-700 shadow-sm">
-                                <h4 className="font-bold text-lg mb-2">{item.q}</h4>
-                                <p className="text-edg-gray-text dark:text-gray-400">{item.a}</p>
+                                <h4 className="font-bold text-lg mb-2">{item.question}</h4>
+                                <p className="text-edg-gray-text dark:text-gray-400">{item.answer}</p>
                             </div>
                         ))}
                     </div>

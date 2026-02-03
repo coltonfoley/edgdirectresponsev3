@@ -26,6 +26,8 @@ const areasDropdown = [
     { href: "/service-areas/lake-geneva-wi", label: "Lake Geneva, WI", desc: "Lake Geneva,  Fontana,  Williams Bay" },
     { href: "/service-areas/hinsdale-il", label: "Hinsdale", desc: "Southeast Hinsdale,  The Woodlands,  Fullersburg" },
     { href: "/service-areas/northbrook-il", label: "Northbrook, IL", desc: "Northbrook, Techny, Glenview North" },
+    { href: "/service-areas/wilmette-il", label: "Wilmette, IL", desc: "Village Center, East Wilmette, Indian Hill" },
+    { href: "/service-areas/winnetka-il", label: "Winnetka, IL", desc: "Winnetka Estates, Hubbard Woods, Indian Hill" },
     { href: "/service-areas/sanibel-outdoor-living", label: "Sanibel / Captiva, FL", desc: "Sanibel Island, Captiva, Fort Myers" },
     { href: "/commercial/chicago-hospitality-outdoor-living", label: "Hospitality & Commercial", desc: "Restaurants, Hotels, & Country Clubs" },
 ];
@@ -158,6 +160,12 @@ export function Navbar() {
                             Gallery
                         </Link>
                         <Link
+                            href="/guides"
+                            className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
+                        >
+                            Guides
+                        </Link>
+                        <Link
                             href="/design"
                             className="text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
                         >
@@ -274,6 +282,13 @@ export function Navbar() {
                             onClick={() => setIsOpen(false)}
                         >
                             Gallery
+                        </Link>
+                        <Link
+                            href="/guides"
+                            className="px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-800 rounded-md font-medium"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            Guides
                         </Link>
                         <Link
                             href="/design"
