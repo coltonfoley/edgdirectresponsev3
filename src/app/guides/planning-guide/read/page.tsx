@@ -16,8 +16,8 @@ import {
     HelpCircle,
     Construction,
     Snowflake,
-    FileCheck,
-    ChevronDown
+    ChevronDown,
+    ArrowLeft
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 
@@ -26,20 +26,26 @@ export default function GuideReadPage() {
     const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
-        // simple client-side gate
         const hasAccess = document.cookie
             .split("; ")
             .find((row) => row.startsWith("guide_access="));
 
         if (!hasAccess) {
-            router.push("/guide");
+            router.push("/guides/planning-guide");
         } else {
             setIsAuthorized(true);
         }
     }, [router]);
 
     if (!isAuthorized) {
-        return null; // or a loading spinner
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-zinc-950">
+                <div className="animate-pulse flex flex-col items-center gap-4">
+                    <div className="h-12 w-12 rounded-full border-t-2 border-edg-brand animate-spin" />
+                    <p className="text-white/40 text-sm font-medium">Verifying Access...</p>
+                </div>
+            </div>
+        );
     }
 
     const scrollToSection = (id: string) => {
@@ -65,6 +71,13 @@ export default function GuideReadPage() {
                 </div>
 
                 <div className="relative z-10 text-center max-w-5xl px-6 pt-20">
+                    <Link
+                        href="/guides/planning-guide"
+                        className="inline-flex items-center gap-2 text-white/60 hover:text-edg-brand font-medium text-sm mb-12 transition-colors"
+                    >
+                        <ArrowLeft className="h-4 w-4" /> Back to Details
+                    </Link>
+                    <br />
                     <div className="inline-block mb-8 px-5 py-2 rounded-full border border-edg-brand/30 bg-edg-brand/10 text-edg-brand text-sm font-bold tracking-widest uppercase backdrop-blur-sm">
                         The 2026 Homeowner's Report
                     </div>
@@ -291,7 +304,7 @@ export default function GuideReadPage() {
                     <div className="max-w-3xl mx-auto">
                         <div className="text-sm font-bold text-edg-brand uppercase tracking-wider mb-2">Chapter 03</div>
                         <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">Budget Planning</h2>
-                        <p className="text-xp md:text-2xl text-gray-300 font-light mb-12">
+                        <p className="text-xl md:text-2xl text-gray-300 font-light mb-12">
                             Why "Get a Quote" is the most frustrating button on the internet. Here are the real numbers.
                         </p>
 
@@ -405,7 +418,9 @@ export default function GuideReadPage() {
                         </div>
                     </div>
                 </Container>
-            </section>            {/* FINAL CTA */}
+            </section>
+
+            {/* FINAL CTA */}
             <section className="py-32 bg-zinc-900 text-white text-center">
                 <Container>
                     <div className="max-w-3xl mx-auto">
@@ -430,7 +445,6 @@ export default function GuideReadPage() {
                     </div>
                 </Container>
             </section>
-
         </main>
     );
 }

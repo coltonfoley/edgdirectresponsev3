@@ -16,6 +16,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // --- Guide Consolidation ---
+      {
+        source: '/guide',
+        destination: '/guides/planning-guide',
+        permanent: true,
+      },
+      {
+        source: '/guide/read',
+        destination: '/guides/planning-guide/read',
+        permanent: true,
+      },
+
       // --- Specific Page Mappings ---
       {
         source: '/about-us',
