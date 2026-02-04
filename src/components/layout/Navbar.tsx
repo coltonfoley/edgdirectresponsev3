@@ -96,6 +96,8 @@ export function Navbar() {
                             <button
                                 onClick={() => { setSystemsOpen(!systemsOpen); setAreasOpen(false); }}
                                 className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
+                                aria-label="View our outdoor living systems"
+                                aria-expanded={systemsOpen}
                             >
                                 Systems
                                 <ChevronDown className={cn("h-4 w-4 transition-transform", systemsOpen && "rotate-180")} />
@@ -123,6 +125,8 @@ export function Navbar() {
                             <button
                                 onClick={() => { setAreasOpen(!areasOpen); setSystemsOpen(false); }}
                                 className="flex items-center gap-1 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
+                                aria-label="View service areas"
+                                aria-expanded={areasOpen}
                             >
                                 Areas
                                 <ChevronDown className={cn("h-4 w-4 transition-transform", areasOpen && "rotate-180")} />
@@ -192,6 +196,7 @@ export function Navbar() {
                                 href="tel:+18155810138"
                                 onClick={() => (window as any).dataLayer?.push({ event: 'conversion_event', conversion_name: 'phone_click', value: 0 })}
                                 className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand transition-colors"
+                                aria-label="Call EDG Outdoor Living at (815) 581-0138"
                             >
                                 <Phone className="h-4 w-4" />
                                 <span className="hidden xl:inline">(815) 581-0138</span>

@@ -25,7 +25,8 @@ export default function HomeClient() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-40 z-0"
+          poster="/images/pergolas/pergola-hero.jpg"
+          className="absolute inset-0 w-full h-full object-cover opacity-40 z-0 motion-reduce:hidden"
         >
           <source src="/images/enclosures/commercial-pergola-video-clip-01.mp4" type="video/mp4" />
         </video>
@@ -528,9 +529,11 @@ function HeroForm() {
           required
           disabled={loading}
           onChange={handleChange}
-          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white/40 focus:outline-none focus:border-edg-brand transition-colors appearance-none"
+          defaultValue=""
+          className="bg-white/10 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-edg-brand transition-colors [&:invalid]:text-white/40"
+          aria-label="Select project type"
         >
-          <option value="" className="text-black">What are you looking for?</option>
+          <option value="" disabled className="text-black">What are you looking for?</option>
           <option value="pergola" className="text-black">Louvered Pergola</option>
           <option value="shades" className="text-black">Motorized Shades</option>
           <option value="enclosure" className="text-black">Glass Enclosure</option>

@@ -201,17 +201,23 @@ export async function POST(request: NextRequest) {
 
 // GET endpoint (Secured)
 export async function GET(request: NextRequest) {
-  // Simple Admin Key Auth
+  // Admin Key Auth - no fallback in production for security
   const authHeader = request.headers.get("x-admin-key");
-  const adminKey = process.env.ADMIN_API_KEY || "dev-secret-key";
+  const adminKey = process.env.ADMIN_API_KEY;
 
-  if (process.env.NODE_ENV === "production" && !process.env.ADMIN_API_KEY) {
-    // In production, force a strong key or just rely on Supabase
-    // But for this simplified endpoint, we'll stick to the key check
-    if (!process.env.ADMIN_API_KEY) return NextResponse.json({ error: "Configuration Error" }, { status: 500 });
+  // In development, allow a fallback key for testing
+  const effectiveKey = process.env.NODE_ENV === "development"
+    ? (adminKey || "dev-secret-key")
+    : adminKey;
+
+  if (!effectiveKey) {
+    return NextResponse.json(
+      { error: "Endpoint not configured" },
+      { status: 501 }
+    );
   }
 
-  if (authHeader !== adminKey) {
+  if (authHeader !== effectiveKey) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
