@@ -1,11 +1,19 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Check, X, ArrowRight, DollarSign, Star, Lightbulb, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { generateFAQSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+    title: "Pergola vs. Patio Cover: Which Is Right for Your Home?",
+    description: "Compare pergolas, patio covers, and louvered systems side-by-side. Learn the pros, cons, and costs to choose the best shade solution for your Chicagoland home.",
+    alternates: {
+        canonical: "/guides/pergola-vs-patio-cover",
+    },
+};
 
 const guideData = {
     title: "Pergola vs. Patio Cover",
@@ -33,8 +41,6 @@ const faqs = [
         answer: "Yes, wall-mounted (attached) systems are very popular. However, they require careful engineering to handle snow loads without stressing your home's existing fascia and framing."
     }
 ];
-
-import { generateFAQSchema } from "@/lib/schema";
 
 export default function PergolaVsPatioCover() {
     const faqSchema = generateFAQSchema(faqs);

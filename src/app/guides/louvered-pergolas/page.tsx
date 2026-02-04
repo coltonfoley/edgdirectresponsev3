@@ -1,11 +1,19 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { CheckCircle2, Info, ArrowRight, Sun, CloudRain, Snowflake, Star, Clock, User, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { generateFAQSchema } from "@/lib/schema";
+
+export const metadata: Metadata = {
+    title: "The Complete Guide to Louvered Pergolas | 2026 Edition",
+    description: "Everything Chicago homeowners need to know about motorized louvered pergolas: costs ($120-180/sqft), permits, winter performance, and ROI. Updated for 2026.",
+    alternates: {
+        canonical: "/guides/louvered-pergolas",
+    },
+};
 
 const guideData = {
     title: "The Complete Guide to Motorized Louvered Pergolas",
@@ -41,8 +49,6 @@ const faqs = [
         answer: "Yes. Unlike a fast-depreciating awning, a permanent aluminum structure is appraised similarly to a sunroom or high-end deck. It expands usable square footage, which is a key value driver."
     }
 ];
-
-import { generateFAQSchema } from "@/lib/schema";
 
 export default function LouveredPergolaGuide() {
     const faqSchema = generateFAQSchema(faqs);

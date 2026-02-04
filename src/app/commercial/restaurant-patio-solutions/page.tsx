@@ -1,11 +1,18 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Check, ChefHat, Leaf, Building2, Snowflake, ArrowRight, Star, Utensils, Quote } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Restaurant Patio Solutions | Four-Season Outdoor Dining",
+    description: "Turn weather-dependent patios into year-round profit centers. Add 30% more capacity with fully enclosed, heated outdoor dining spaces for Chicago restaurants.",
+    alternates: {
+        canonical: "/commercial/restaurant-patio-solutions",
+    },
+};
 
 const features = [
     { icon: Snowflake, label: "Snow Load Rated", color: "text-blue-500" },

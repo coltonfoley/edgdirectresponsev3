@@ -63,7 +63,8 @@ const sitemapLinks = [
     {
         category: "Resources",
         links: [
-            { href: "/guide", label: "Guides & Articles" },
+            { href: "/guides", label: "Knowledge Base" },
+            { href: "/guides/planning-guide", label: "Planning Guide" },
             { href: "/privacy", label: "Privacy Policy" },
             { href: "/terms", label: "Terms of Service" },
         ]

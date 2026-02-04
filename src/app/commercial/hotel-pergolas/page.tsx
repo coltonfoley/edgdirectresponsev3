@@ -1,11 +1,18 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Check, Hotel, CloudRain, GlassWater, ArrowRight, Star, TrendingUp, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+    title: "Hotel Rooftop Pergolas | Transform Weather-Dependent Revenue",
+    description: "Unlock year-round revenue for hotel rooftops, pool decks, and event spaces with motorized louvered pergolas. ROI-focused solutions for Chicago hospitality.",
+    alternates: {
+        canonical: "/commercial/hotel-pergolas",
+    },
+};
 
 const benefits = [
     { title: "Revenue Per Seat", desc: "Turn seasonal patios into year-round profit centers." },

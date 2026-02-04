@@ -1,10 +1,17 @@
-"use client";
-
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Link } from "@/components/ui/Link";
 import { BookOpen, Scale, ArrowRight, Library } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "Outdoor Living Knowledge Base | Guides & Resources",
+    description: "Expert guides on louvered pergolas, shade systems, and outdoor enclosures. Cost breakdowns, installation tips, and zoning information for Chicago-Milwaukee homeowners.",
+    alternates: {
+        canonical: "/guides",
+    },
+};
 
 const guides = [
     {
