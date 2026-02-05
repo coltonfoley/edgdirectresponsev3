@@ -14,9 +14,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // Ensure consistent URL handling (expert recommendation)
+  trailingSlash: false,
+
   async redirects() {
     return [
-      // --- Guide Consolidation ---
+      // ══════════════════════════════════════════════════════════
+      // GUIDE CONSOLIDATION
+      // ══════════════════════════════════════════════════════════
       {
         source: '/guide',
         destination: '/guides/planning-guide',
@@ -28,30 +34,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // --- Specific Page Mappings ---
+      // ══════════════════════════════════════════════════════════
+      // OLD WORDPRESS CORE PRODUCT PAGES
+      // ══════════════════════════════════════════════════════════
       {
-        source: '/about-us',
-        destination: '/',
+        source: '/custom-pergolas',
+        destination: '/systems/pergolas',
         permanent: true,
       },
       {
-        source: '/contact-us',
-        destination: '/contact',
-        permanent: true,
-      },
-      {
-        source: '/rockford-motorized-screens',
-        destination: '/service-areas',
-        permanent: true,
-      },
-      {
-        source: '/mchenry-county-motorized-screens',
-        destination: '/service-areas/mchenry-county-il',
-        permanent: true,
-      },
-      {
-        source: '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
-        destination: '/systems/appliances',
+        source: '/louvered-pergola',
+        destination: '/systems/pergolas',
         permanent: true,
       },
       {
@@ -60,18 +53,41 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/lake-county-motorized-screens',
-        destination: '/service-areas/lake-county-il',
+        source: '/louvered-roof-systems',
+        destination: '/systems/pergolas',
         permanent: true,
       },
       {
-        source: '/dupage-county-motorized-screens',
-        destination: '/service-areas',
+        source: '/custom',
+        destination: '/systems/pergolas',
+        permanent: true,
+      },
+      // NEW: From expert recommendations
+      {
+        source: '/sundancelr',
+        destination: '/systems/pergolas',
+        permanent: true,
+      },
+      // NEW: Shades brand page
+      {
+        source: '/progressivescreens',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      // NEW: Enclosures brand page
+      {
+        source: '/lacantina',
+        destination: '/systems/enclosures',
         permanent: true,
       },
       {
-        source: '/kane-county-motorized-screens',
-        destination: '/service-areas',
+        source: '/motorized-retractable-screens',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      {
+        source: '/chicago-motorized-screens',
+        destination: '/systems/shades',
         permanent: true,
       },
       {
@@ -84,29 +100,26 @@ const nextConfig: NextConfig = {
         destination: '/systems/pergolas',
         permanent: true,
       },
+      // NEW: Product pages wildcard
       {
-        source: '/careers',
-        destination: '/contact',
+        source: '/product-page/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      // NEW: Old product page
+      {
+        source: '/yoder-smokers',
+        destination: '/',
         permanent: true,
       },
       {
-        source: '/custom-pergolas',
-        destination: '/systems/pergolas',
+        source: '/yoder-smokers-pellet-grills',
+        destination: '/systems/appliances',
         permanent: true,
       },
       {
-        source: '/louvered-pergola',
-        destination: '/systems/pergolas',
-        permanent: true,
-      },
-      {
-        source: '/motorized-retractable-screens',
-        destination: '/systems/shades',
-        permanent: true,
-      },
-      {
-        source: '/chicago-motorized-screens',
-        destination: '/systems/shades',
+        source: '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
+        destination: '/systems/appliances',
         permanent: true,
       },
       {
@@ -125,7 +138,115 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // --- Blog Post Mappings ---
+      // ══════════════════════════════════════════════════════════
+      // B2B / DEALER / TRADE PAGES (NEW from expert)
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/work-with-us',
+        destination: '/pro',
+        permanent: true,
+      },
+      {
+        source: '/architects-designers',
+        destination: '/pro',
+        permanent: true,
+      },
+      {
+        source: '/become-a-dealer',
+        destination: '/pro',
+        permanent: true,
+      },
+      {
+        source: '/dealer-login',
+        destination: 'https://app.edgpatioshade.com/',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
+      // HOSPITALITY / COMMERCIAL
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/elevating-hospitality-spaces-with-custom-pergolas',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/custom-pergolas-hospitality',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/how-to-transform-unused-outdoor-areas-into-guest-favorite-spots',
+        destination: '/commercial',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
+      // SERVICE AREA PAGES
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/rockford-motorized-screens',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/mchenry-county-motorized-screens',
+        destination: '/service-areas/mchenry-county-il',
+        permanent: true,
+      },
+      {
+        source: '/lake-county-motorized-screens',
+        destination: '/service-areas/lake-county-il',
+        permanent: true,
+      },
+      // UPDATED: Expert recommends specific location
+      {
+        source: '/dupage-county-motorized-screens',
+        destination: '/service-areas/naperville-il',
+        permanent: true,
+      },
+      // UPDATED: Expert recommends specific location  
+      {
+        source: '/naperville-motorized-screens',
+        destination: '/service-areas/naperville-il',
+        permanent: true,
+      },
+      {
+        source: '/kane-county-motorized-screens',
+        destination: '/',
+        permanent: true,
+      },
+      // Out of service area locations
+      {
+        source: '/custom-aluminum-pergola-cleveland-ohio',
+        destination: '/',
+        permanent: true,
+      },
+      // UPDATED: Expert recommends Wisconsin area page
+      {
+        source: '/custom-aluminum-pergola-madison-wisconsin',
+        destination: '/service-areas/southeast-wisconsin',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-grand-rapids-michigan',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-south-bend-indiana',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
+        destination: '/',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
+      // BLOG POSTS (WordPress date-based URLs)
+      // ══════════════════════════════════════════════════════════
       {
         source: '/2025/01/31/maximizing-guest-satisfaction-with-edg-patio-shade-transforming-outdoor-spaces-into-unforgettable-retreats',
         destination: '/commercial',
@@ -141,29 +262,31 @@ const nextConfig: NextConfig = {
         destination: '/systems/shades',
         permanent: true,
       },
+      // UPDATED: Expert recommends service area page for geo content
       {
         source: '/2025/05/01/lake-geneva-outdoor-living-guide',
-        destination: '/guide',
+        destination: '/service-areas/lake-geneva-wi',
         permanent: true,
       },
       {
         source: '/2025/05/12/naperville-outdoor-living-guide',
-        destination: '/guide',
+        destination: '/service-areas/naperville-il',
         permanent: true,
       },
+      // UPDATED: Expert recommends Wisconsin service area
       {
         source: '/2025/05/21/kenosha-outdoor-living-guide',
-        destination: '/guide',
+        destination: '/service-areas/southeast-wisconsin',
         permanent: true,
       },
       {
         source: '/2025/07/22/dupage-county-outdoor-living-guide',
-        destination: '/guide',
+        destination: '/service-areas/naperville-il',
         permanent: true,
       },
       {
         source: '/2025/07/22/kane-county-outdoor-living-guide',
-        destination: '/guide',
+        destination: '/guides',
         permanent: true,
       },
       {
@@ -171,8 +294,20 @@ const nextConfig: NextConfig = {
         destination: '/price',
         permanent: true,
       },
+      {
+        source: '/outdoor-styling-trends-for-2023',
+        destination: '/guides',
+        permanent: true,
+      },
+      {
+        source: '/essential-outdoor-appliances-for-2023',
+        destination: '/guides',
+        permanent: true,
+      },
 
-      // --- Portfolio ---
+      // ══════════════════════════════════════════════════════════
+      // PORTFOLIO / PROJECTS
+      // ══════════════════════════════════════════════════════════
       {
         source: '/portfolio-item/:slug*',
         destination: '/projects',
@@ -184,7 +319,43 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
 
-      // --- Legacy & Catch-alls ---
+      // ══════════════════════════════════════════════════════════
+      // STANDARD PAGES
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/about-us',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/contact-us',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/careers',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy',
+        destination: '/privacy',
+        permanent: true,
+      },
+      {
+        source: '/how-much-are-louvered-pergolas',
+        destination: '/price',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
+      // LEGACY & CATCH-ALLS
+      // ══════════════════════════════════════════════════════════
       {
         source: '/https-edgpatioshade-com-lake-geneva-motorized-screens',
         destination: '/systems/shades',
@@ -196,95 +367,52 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-cleveland-ohio',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/louvered-roof-systems',
-        destination: '/systems/pergolas',
-        permanent: true,
-      },
-      {
-        source: '/privacy-policy',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/outdoor-styling-trends-for-2023',
-        destination: '/guide',
-        permanent: true,
-      },
-      {
-        source: '/essential-outdoor-appliances-for-2023',
-        destination: '/guide',
-        permanent: true,
-      },
-      {
         source: '/wood-grain-aluminum-building-products',
         destination: '/',
         permanent: true,
       },
+
+      // ══════════════════════════════════════════════════════════
+      // WORDPRESS INFRASTRUCTURE (Security - 302 redirects)
+      // NEW: Block old WordPress attack vectors
+      // ══════════════════════════════════════════════════════════
       {
-        source: '/:year(\\d{4})/:slug*',
-        destination: '/guide',
+        source: '/feed',
+        destination: '/',
         permanent: true,
+      },
+      {
+        source: '/wp-content/:path*',
+        destination: '/',
+        permanent: false, // 302 for security
+      },
+      {
+        source: '/wp-admin/:path*',
+        destination: '/',
+        permanent: false, // 302 for security
+      },
+      {
+        source: '/wp-login.php',
+        destination: '/',
+        permanent: false, // 302 for security
+      },
+      {
+        source: '/wp-json/:path*',
+        destination: '/',
+        permanent: false, // 302 for security
+      },
+      {
+        source: '/xmlrpc.php',
+        destination: '/',
+        permanent: false, // 302 for security
       },
 
-      // --- Fixes for 404s (Search Console) ---
+      // ══════════════════════════════════════════════════════════
+      // CATCH-ALL: Old blog date structures (must be last)
+      // ══════════════════════════════════════════════════════════
       {
-        source: '/how-much-are-louvered-pergolas',
-        destination: '/price',
-        permanent: true,
-      },
-      {
-        source: '/home',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/yoder-smokers-pellet-grills',
-        destination: '/systems/appliances',
-        permanent: true,
-      },
-      {
-        source: '/elevating-hospitality-spaces-with-custom-pergolas',
-        destination: '/commercial',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-grand-rapids-michigan',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-madison-wisconsin',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-south-bend-indiana',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/how-to-transform-unused-outdoor-areas-into-guest-favorite-spots',
-        destination: '/commercial',
-        permanent: true,
-      },
-      {
-        source: '/custom-pergolas-hospitality',
-        destination: '/commercial',
-        permanent: true,
-      },
-      {
-        source: '/custom',
-        destination: '/systems/pergolas',
+        source: '/:year(\\d{4})/:slug*',
+        destination: '/guides',
         permanent: true,
       },
     ];
