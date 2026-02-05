@@ -1,7 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
-import { createClient } from "@supabase/supabase-js";
+import { NextRequest, NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
@@ -23,13 +24,13 @@ interface Lead {
 function getDateRange(period: string): Date {
   const now = new Date();
   switch (period) {
-    case "7d":
+    case '7d':
       return new Date(now.setDate(now.getDate() - 7));
-    case "30d":
+    case '30d':
       return new Date(now.setDate(now.getDate() - 30));
-    case "90d":
+    case '90d':
       return new Date(now.setDate(now.getDate() - 90));
-    case "1y":
+    case '1y':
       return new Date(now.setFullYear(now.getFullYear() - 1));
     default:
       return new Date(now.setDate(now.getDate() - 30));
@@ -38,32 +39,32 @@ function getDateRange(period: string): Date {
 
 export async function GET(request: NextRequest) {
   // Auth check
-  const authHeader = request.headers.get("x-admin-key");
-  const adminKey = process.env.ADMIN_API_KEY || "dev-secret-key";
+  const authHeader = request.headers.get('x-admin-key');
+  const adminKey = process.env.ADMIN_API_KEY || 'dev-secret-key';
 
-  if (process.env.NODE_ENV === "production" && authHeader !== adminKey) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (process.env.NODE_ENV === 'production' && authHeader !== adminKey) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const { searchParams } = new URL(request.url);
-  const period = searchParams.get("period") || "30d";
+  const period = searchParams.get('period') || '30d';
   const startDate = getDateRange(period);
 
   try {
     // Fetch all leads
     const { data: allLeads, error: allError } = await supabase
-      .from("leads")
-      .select("*")
-      .order("created_at", { ascending: false });
+      .from('leads')
+      .select('*')
+      .order('created_at', { ascending: false });
 
     if (allError) throw allError;
 
     // Fetch leads within period
     const { data: periodLeads, error: periodError } = await supabase
-      .from("leads")
-      .select("*")
-      .gte("created_at", startDate.toISOString())
-      .order("created_at", { ascending: false });
+      .from('leads')
+      .select('*')
+      .gte('created_at', startDate.toISOString())
+      .order('created_at', { ascending: false });
 
     if (periodError) throw periodError;
 
@@ -73,35 +74,35 @@ export async function GET(request: NextRequest) {
     // Aggregate by source
     const bySource: Record<string, number> = {};
     leads.forEach((lead) => {
-      const source = lead.source || "unknown";
+      const source = lead.source || 'unknown';
       bySource[source] = (bySource[source] || 0) + 1;
     });
 
     // Aggregate by customer type
     const byCustomerType: Record<string, number> = {};
     leads.forEach((lead) => {
-      const type = lead.customer_type || "unknown";
+      const type = lead.customer_type || 'unknown';
       byCustomerType[type] = (byCustomerType[type] || 0) + 1;
     });
 
     // Aggregate by project type
     const byProjectType: Record<string, number> = {};
     leads.forEach((lead) => {
-      const type = lead.project_type || "unknown";
+      const type = lead.project_type || 'unknown';
       byProjectType[type] = (byProjectType[type] || 0) + 1;
     });
 
     // Aggregate by location (for service area insights)
     const byLocation: Record<string, number> = {};
     leads.forEach((lead) => {
-      const location = lead.location || "unknown";
+      const location = lead.location || 'unknown';
       byLocation[location] = (byLocation[location] || 0) + 1;
     });
 
     // Daily breakdown for chart
     const dailyBreakdown: Record<string, number> = {};
     leads.forEach((lead) => {
-      const date = lead.created_at.split("T")[0];
+      const date = lead.created_at.split('T')[0];
       dailyBreakdown[date] = (dailyBreakdown[date] || 0) + 1;
     });
 
@@ -122,9 +123,12 @@ export async function GET(request: NextRequest) {
 
     const currentCount = leads.length;
     const previousCount = previousPeriodLeads.length;
-    const trend = previousCount > 0
-      ? ((currentCount - previousCount) / previousCount) * 100
-      : currentCount > 0 ? 100 : 0;
+    const trend =
+      previousCount > 0
+        ? ((currentCount - previousCount) / previousCount) * 100
+        : currentCount > 0
+          ? 100
+          : 0;
 
     return NextResponse.json({
       period,
@@ -147,7 +151,7 @@ export async function GET(request: NextRequest) {
       dailyBreakdown: sortedDaily,
       recentLeads: leads.slice(0, 10).map((lead) => ({
         id: lead.id,
-        name: `${lead.first_name} ${lead.last_name || ""}`.trim(),
+        name: `${lead.first_name} ${lead.last_name || ''}`.trim(),
         email: lead.email,
         source: lead.source,
         location: lead.location,
@@ -157,9 +161,9 @@ export async function GET(request: NextRequest) {
       })),
     });
   } catch (error: any) {
-    console.error("Analytics error:", error);
+    console.error('Analytics error:', error);
     return NextResponse.json(
-      { error: error.message || "Failed to fetch analytics" },
+      { error: error.message || 'Failed to fetch analytics' },
       { status: 500 }
     );
   }

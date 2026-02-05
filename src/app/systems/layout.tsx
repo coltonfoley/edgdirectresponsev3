@@ -1,19 +1,16 @@
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { Container } from '@/components/ui/Container';
+import { Section } from '@/components/ui/Section';
+import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 
 export default function SystemsLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <div className="min-h-screen flex flex-col">
-            <div className="flex-grow">
-                {children}
-            </div>
-        </div>
-    );
+  return (
+    <div className="flex min-h-screen flex-col">
+      <div className="flex-grow">{children}</div>
+    </div>
+  );
 }
-

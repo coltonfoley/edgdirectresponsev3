@@ -1,226 +1,259 @@
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
-import Link from "next/link";
-import { ArrowLeft, ArrowRight, MapPin, CheckCircle2, Calendar, Ruler, Clock } from "lucide-react";
-import { notFound } from "next/navigation";
+import { Container } from '@/components/ui/Container';
+import { Section } from '@/components/ui/Section';
+import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
+import {
+  ArrowLeft,
+  ArrowRight,
+  MapPin,
+  CheckCircle2,
+  Calendar,
+  Ruler,
+  Clock,
+} from 'lucide-react';
+import { notFound } from 'next/navigation';
 
-import { getAllProjects, getProject } from "@/lib/projects";
+import { getAllProjects, getProject } from '@/lib/projects';
 
 // Project data imported from central source
 
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-    const { slug } = await params;
-    const project = getProject(slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProject(slug);
 
-    if (!project) {
-        return {};
-    }
+  if (!project) {
+    return {};
+  }
 
-    return {
-        title: `${project.title} | EDG Projects`,
-        description: project.description,
-        alternates: {
-            canonical: `/projects/${slug}`,
-        },
-    };
+  return {
+    title: `${project.title} | EDG Projects`,
+    description: project.description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+  };
 }
 
 export async function generateStaticParams() {
-    return getAllProjects().map((project) => ({ slug: project.slug }));
+  return getAllProjects().map((project) => ({ slug: project.slug }));
 }
 
-export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params;
-    const project = getProject(slug);
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = getProject(slug);
 
-    if (!project) {
-        notFound();
-    }
+  if (!project) {
+    notFound();
+  }
 
-    return (
-        <main className="min-h-screen bg-edg-light dark:bg-black">
-            {/* ========== HERO ========== */}
-            <section className="relative h-[60vh] min-h-[500px]">
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url('${project.heroImage}')` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                <Container className="relative z-10 h-full flex flex-col justify-end pb-12">
-                    <div className="flex flex-wrap gap-4 mb-6">
-                        <Link href="/gallery" className="inline-flex items-center text-sm text-white/80 hover:text-white transition-colors">
-                            <ArrowLeft className="mr-2 h-4 w-4" /> Back to gallery
-                        </Link>
-                        {project.serviceAreaSlug && (
-                            <Link href={`/service-areas/${project.serviceAreaSlug}`} className="inline-flex items-center text-sm text-white/80 hover:text-white transition-colors border-l border-white/20 pl-4">
-                                <MapPin className="mr-2 h-4 w-4" /> View Service Area
-                            </Link>
-                        )}
+  return (
+    <main className="bg-edg-light min-h-screen dark:bg-black">
+      {/* ========== HERO ========== */}
+      <section className="relative h-[60vh] min-h-[500px]">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('${project.heroImage}')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        <Container className="relative z-10 flex h-full flex-col justify-end pb-12">
+          <div className="mb-6 flex flex-wrap gap-4">
+            <Link
+              href="/gallery"
+              className="inline-flex items-center text-sm text-white/80 transition-colors hover:text-white"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to gallery
+            </Link>
+            {project.serviceAreaSlug && (
+              <Link
+                href={`/service-areas/${project.serviceAreaSlug}`}
+                className="inline-flex items-center border-l border-white/20 pl-4 text-sm text-white/80 transition-colors hover:text-white"
+              >
+                <MapPin className="mr-2 h-4 w-4" /> View Service Area
+              </Link>
+            )}
+          </div>
+          <span className="bg-edg-brand text-edg-dark mb-4 w-fit rounded-full px-3 py-1 text-sm font-semibold">
+            {project.type}
+          </span>
+          <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+            {project.title}
+          </h1>
+          <div className="flex items-center text-white/80">
+            <MapPin className="mr-2 h-5 w-5" /> {project.location}
+          </div>
+        </Container>
+      </section>
+
+      {/* ========== PROJECT DETAILS ========== */}
+      <Section className="bg-white py-16 dark:bg-black">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-3">
+            {/* Main Content */}
+            <div className="space-y-12 lg:col-span-2">
+              {/* Overview */}
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">Overview</h2>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Challenge */}
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">The Challenge</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.challenge}
+                </p>
+              </div>
+
+              {/* Solution */}
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">Our Solution</h2>
+                <p className="text-muted-foreground leading-relaxed">
+                  {project.solution}
+                </p>
+              </div>
+
+              {/* Results */}
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">Results</h2>
+                <ul className="space-y-3">
+                  {project.results.map((result, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
+                      <span>{result}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Gallery */}
+              <div>
+                <h2 className="mb-4 text-2xl font-bold">Gallery</h2>
+                <div className="grid grid-cols-3 gap-4">
+                  {project.galleryImages.map((img, i) => (
+                    <div
+                      key={i}
+                      className="aspect-square overflow-hidden rounded-xl bg-cover bg-center"
+                      style={{ backgroundImage: `url('${img}')` }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-8">
+              {/* Specs */}
+              <div className="rounded-2xl bg-zinc-100 p-6 dark:bg-zinc-900">
+                <h3 className="mb-4 text-lg font-bold">Project Specs</h3>
+                <dl className="space-y-4">
+                  {project.specs.map((spec) => (
+                    <div key={spec.label}>
+                      <dt className="text-muted-foreground text-sm">
+                        {spec.label}
+                      </dt>
+                      <dd className="font-medium">{spec.value}</dd>
                     </div>
-                    <span className="px-3 py-1 bg-edg-brand text-edg-dark rounded-full text-sm font-semibold w-fit mb-4">
-                        {project.type}
+                  ))}
+                </dl>
+              </div>
+
+              {/* Systems Used */}
+              <div className="rounded-2xl bg-zinc-100 p-6 dark:bg-zinc-900">
+                <h3 className="mb-4 text-lg font-bold">Systems Used</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.systems.map((system) => (
+                    <span
+                      key={system}
+                      className="bg-edg-brand/10 text-edg-brand rounded-full px-3 py-1 text-sm font-medium"
+                    >
+                      {system}
                     </span>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-                        {project.title}
-                    </h1>
-                    <div className="flex items-center text-white/80">
-                        <MapPin className="h-5 w-5 mr-2" /> {project.location}
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonial */}
+              {project.testimonial && (
+                <div className="bg-edg-dark rounded-2xl p-6 text-white">
+                  <blockquote className="mb-4 text-lg leading-relaxed">
+                    "{project.testimonial.quote}"
+                  </blockquote>
+                  <div>
+                    <div className="font-bold">{project.testimonial.name}</div>
+                    <div className="text-sm text-gray-400">
+                      {project.testimonial.title}
                     </div>
-                </Container>
-            </section>
+                  </div>
+                </div>
+              )}
 
-            {/* ========== PROJECT DETAILS ========== */}
-            <Section className="py-16 bg-white dark:bg-black">
-                <Container>
-                    <div className="grid lg:grid-cols-3 gap-12">
-                        {/* Main Content */}
-                        <div className="lg:col-span-2 space-y-12">
-                            {/* Overview */}
-                            <div>
-                                <h2 className="text-2xl font-bold mb-4">Overview</h2>
-                                <p className="text-lg text-muted-foreground leading-relaxed">
-                                    {project.description}
-                                </p>
-                            </div>
+              {/* CTA */}
+              <div className="bg-edg-brand text-edg-dark rounded-2xl p-6 text-center">
+                <h3 className="mb-2 text-lg font-bold">Start your project</h3>
+                <p className="mb-4 text-sm">
+                  Let's discuss what's possible for your space.
+                </p>
+                <Link href="/contact">
+                  <Button
+                    variant="secondary"
+                    className="bg-edg-dark hover:bg-edg-dark/90 w-full text-white"
+                  >
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
-                            {/* Challenge */}
-                            <div>
-                                <h2 className="text-2xl font-bold mb-4">The Challenge</h2>
-                                <p className="text-muted-foreground leading-relaxed">
-                                    {project.challenge}
-                                </p>
-                            </div>
-
-                            {/* Solution */}
-                            <div>
-                                <h2 className="text-2xl font-bold mb-4">Our Solution</h2>
-                                <p className="text-muted-foreground leading-relaxed">
-                                    {project.solution}
-                                </p>
-                            </div>
-
-                            {/* Results */}
-                            <div>
-                                <h2 className="text-2xl font-bold mb-4">Results</h2>
-                                <ul className="space-y-3">
-                                    {project.results.map((result, i) => (
-                                        <li key={i} className="flex items-start gap-3">
-                                            <CheckCircle2 className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
-                                            <span>{result}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            {/* Gallery */}
-                            <div>
-                                <h2 className="text-2xl font-bold mb-4">Gallery</h2>
-                                <div className="grid grid-cols-3 gap-4">
-                                    {project.galleryImages.map((img, i) => (
-                                        <div
-                                            key={i}
-                                            className="aspect-square rounded-xl overflow-hidden bg-cover bg-center"
-                                            style={{ backgroundImage: `url('${img}')` }}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Sidebar */}
-                        <div className="space-y-8">
-                            {/* Specs */}
-                            <div className="bg-zinc-100 dark:bg-zinc-900 rounded-2xl p-6">
-                                <h3 className="font-bold text-lg mb-4">Project Specs</h3>
-                                <dl className="space-y-4">
-                                    {project.specs.map((spec) => (
-                                        <div key={spec.label}>
-                                            <dt className="text-sm text-muted-foreground">{spec.label}</dt>
-                                            <dd className="font-medium">{spec.value}</dd>
-                                        </div>
-                                    ))}
-                                </dl>
-                            </div>
-
-                            {/* Systems Used */}
-                            <div className="bg-zinc-100 dark:bg-zinc-900 rounded-2xl p-6">
-                                <h3 className="font-bold text-lg mb-4">Systems Used</h3>
-                                <div className="flex flex-wrap gap-2">
-                                    {project.systems.map((system) => (
-                                        <span
-                                            key={system}
-                                            className="px-3 py-1 bg-edg-brand/10 text-edg-brand rounded-full text-sm font-medium"
-                                        >
-                                            {system}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Testimonial */}
-                            {project.testimonial && (
-                                <div className="bg-edg-dark text-white rounded-2xl p-6">
-                                    <blockquote className="text-lg mb-4 leading-relaxed">
-                                        "{project.testimonial.quote}"
-                                    </blockquote>
-                                    <div>
-                                        <div className="font-bold">{project.testimonial.name}</div>
-                                        <div className="text-sm text-gray-400">{project.testimonial.title}</div>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* CTA */}
-                            <div className="bg-edg-brand text-edg-dark rounded-2xl p-6 text-center">
-                                <h3 className="font-bold text-lg mb-2">Start your project</h3>
-                                <p className="text-sm mb-4">Let's discuss what's possible for your space.</p>
-                                <Link href="/contact">
-                                    <Button variant="secondary" className="w-full bg-edg-dark text-white hover:bg-edg-dark/90">
-                                        Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                                    </Button>
-                                </Link>
-                            </div>
-                        </div>
+      {/* ========== RELATED PROJECTS ========== */}
+      <Section className="bg-zinc-100 py-16 dark:bg-zinc-950">
+        <Container>
+          <h2 className="mb-8 text-2xl font-bold">Related Projects</h2>
+          <div className="grid gap-8 md:grid-cols-2">
+            {project.relatedProjects.map((relatedSlug) => {
+              const related = getProject(relatedSlug);
+              if (!related) return null;
+              return (
+                <Link
+                  key={relatedSlug}
+                  href={`/projects/${relatedSlug}`}
+                  className="group flex overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-300 hover:shadow-xl dark:border-white/5 dark:bg-zinc-900"
+                >
+                  <div
+                    className="w-1/3 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                    style={{ backgroundImage: `url('${related.heroImage}')` }}
+                  />
+                  <div className="w-2/3 p-6">
+                    <span className="text-edg-brand text-xs font-semibold">
+                      {related.type}
+                    </span>
+                    <h3 className="group-hover:text-edg-brand mt-1 mb-2 text-lg font-bold transition-colors">
+                      {related.title}
+                    </h3>
+                    <div className="text-muted-foreground flex items-center text-sm">
+                      <MapPin className="mr-1 h-4 w-4" /> {related.location}
                     </div>
-                </Container>
-            </Section>
-
-            {/* ========== RELATED PROJECTS ========== */}
-            <Section className="py-16 bg-zinc-100 dark:bg-zinc-950">
-                <Container>
-                    <h2 className="text-2xl font-bold mb-8">Related Projects</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {project.relatedProjects.map((relatedSlug) => {
-                            const related = getProject(relatedSlug);
-                            if (!related) return null;
-                            return (
-                                <Link
-                                    key={relatedSlug}
-                                    href={`/projects/${relatedSlug}`}
-                                    className="group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden border border-black/5 dark:border-white/5 hover:shadow-xl transition-all duration-300 flex"
-                                >
-                                    <div
-                                        className="w-1/3 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                                        style={{ backgroundImage: `url('${related.heroImage}')` }}
-                                    />
-                                    <div className="w-2/3 p-6">
-                                        <span className="text-xs font-semibold text-edg-brand">{related.type}</span>
-                                        <h3 className="text-lg font-bold mt-1 mb-2 group-hover:text-edg-brand transition-colors">
-                                            {related.title}
-                                        </h3>
-                                        <div className="flex items-center text-sm text-muted-foreground">
-                                            <MapPin className="h-4 w-4 mr-1" /> {related.location}
-                                        </div>
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
-                </Container>
-            </Section>
-        </main>
-    );
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </Container>
+      </Section>
+    </main>
+  );
 }

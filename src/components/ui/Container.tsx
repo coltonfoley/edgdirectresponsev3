@@ -1,18 +1,18 @@
-import { cn } from "@/lib/utils";
-import { HTMLAttributes } from "react";
+import { cn } from '@/lib/utils';
+import { HTMLAttributes } from 'react';
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-    ref?: React.RefObject<HTMLDivElement | null>;
+  ref?: React.RefObject<HTMLDivElement | null>;
 }
 
 const Container = ({ className, ref, ...props }: ContainerProps) => {
-    return (
-        <div
-            ref={ref}
-            className={cn("mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8", className)}
-            {...props}
-        />
-    );
+  return (
+    <div
+      ref={ref}
+      className={cn('mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8', className)}
+      {...props}
+    />
+  );
 };
 
 export { Container };

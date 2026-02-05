@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { useLeadSubmission } from "@/hooks/useLeadSubmission";
+import { useState } from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/Button';
+import { CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 
 interface LeadCaptureFormProps {
   source?: string;
@@ -13,26 +13,26 @@ interface LeadCaptureFormProps {
   successTitle?: string;
   successMessage?: string;
   className?: string;
-  variant?: "default" | "compact" | "inline";
+  variant?: 'default' | 'compact' | 'inline';
   redirectUrl?: string;
   downloadUrl?: string;
   autoDownload?: boolean;
 }
 
 export function LeadCaptureForm({
-  source = "guide-landing-page",
-  ctaText = "Get the Free Guide",
-  successTitle = "Check your inbox!",
+  source = 'guide-landing-page',
+  ctaText = 'Get the Free Guide',
+  successTitle = 'Check your inbox!',
   successMessage = "We've sent your guide. Check your email (and spam folder, just in case).",
   className,
-  variant = "default",
+  variant = 'default',
   downloadUrl,
   redirectUrl,
   autoDownload = true,
 }: LeadCaptureFormProps) {
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [fax, setFax] = useState(""); // Honeypot
+  const [firstName, setFirstName] = useState('');
+  const [email, setEmail] = useState('');
+  const [fax, setFax] = useState(''); // Honeypot
 
   const { submitLead, loading, error, success } = useLeadSubmission({
     onSuccess: () => {
@@ -41,7 +41,7 @@ export function LeadCaptureForm({
         // Set cookie via JS for immediate access (simple client-side gate)
         // 30 day expiration
         const date = new Date();
-        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000));
+        date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
         document.cookie = `guide_access=true; expires=${date.toUTCString()}; path=/`;
 
         // Slight delay to show success state briefly or just go
@@ -58,7 +58,7 @@ export function LeadCaptureForm({
         link.click();
         document.body.removeChild(link);
       }
-    }
+    },
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,27 +77,27 @@ export function LeadCaptureForm({
     return (
       <div
         className={cn(
-          "rounded-xl p-8 text-center transition-all duration-500 animate-in fade-in zoom-in-95",
-          variant === "default" && "bg-edg-brand/5 border border-edg-brand/20",
-          variant === "compact" && "bg-edg-brand/5 border border-edg-brand/20",
-          variant === "inline" && "bg-transparent",
+          'animate-in fade-in zoom-in-95 rounded-xl p-8 text-center transition-all duration-500',
+          variant === 'default' && 'bg-edg-brand/5 border-edg-brand/20 border',
+          variant === 'compact' && 'bg-edg-brand/5 border-edg-brand/20 border',
+          variant === 'inline' && 'bg-transparent',
           className
         )}
       >
-        <div className="flex justify-center mb-4">
-          <div className="h-12 w-12 rounded-full bg-edg-brand/10 flex items-center justify-center">
-            <CheckCircle2 className="h-6 w-6 text-edg-brand" />
+        <div className="mb-4 flex justify-center">
+          <div className="bg-edg-brand/10 flex h-12 w-12 items-center justify-center rounded-full">
+            <CheckCircle2 className="text-edg-brand h-6 w-6" />
           </div>
         </div>
-        <h3 className="text-lg font-bold mb-2 text-white">{successTitle}</h3>
-        <p className="text-sm text-gray-400 mb-6">{successMessage}</p>
+        <h3 className="mb-2 text-lg font-bold text-white">{successTitle}</h3>
+        <p className="mb-6 text-sm text-gray-400">{successMessage}</p>
         {downloadUrl && (
           <Link
             href={downloadUrl}
             download
             className={cn(
-              "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 cursor-pointer h-10 px-6 py-2",
-              "border border-edg-brand text-edg-brand hover:bg-edg-brand hover:text-white w-full sm:w-auto"
+              'focus-visible:ring-ring inline-flex h-10 cursor-pointer items-center justify-center rounded-md px-6 py-2 font-medium transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
+              'border-edg-brand text-edg-brand hover:bg-edg-brand w-full border hover:text-white sm:w-auto'
             )}
           >
             Download Guide Again
@@ -108,18 +108,22 @@ export function LeadCaptureForm({
   }
 
   // Default and compact variants
-  if (variant === "default" || variant === "compact") {
+  if (variant === 'default' || variant === 'compact') {
     return (
       <form
         onSubmit={handleSubmit}
         className={cn(
-          "space-y-4",
-          variant === "default" && "bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8",
+          'space-y-4',
+          variant === 'default' &&
+            'rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:p-8',
           className
         )}
       >
         {/* Honeypot Field - Hidden */}
-        <div className="absolute opacity-0 -z-50 select-none pointer-events-none" aria-hidden="true">
+        <div
+          className="pointer-events-none absolute -z-50 opacity-0 select-none"
+          aria-hidden="true"
+        >
           <label htmlFor="fax">Fax Number</label>
           <input
             type="text"
@@ -131,10 +135,18 @@ export function LeadCaptureForm({
             onChange={(e) => setFax(e.target.value)}
           />
         </div>
-        <div className={cn(variant === "compact" ? "flex flex-col sm:flex-row gap-2.5" : "space-y-4")}>
-          <div className={cn(variant === "compact" ? "flex-1 min-w-0" : "")}>
-            {variant === "default" && (
-              <label className="block text-sm font-medium mb-2 text-white/80">First Name</label>
+        <div
+          className={cn(
+            variant === 'compact'
+              ? 'flex flex-col gap-2.5 sm:flex-row'
+              : 'space-y-4'
+          )}
+        >
+          <div className={cn(variant === 'compact' ? 'min-w-0 flex-1' : '')}>
+            {variant === 'default' && (
+              <label className="mb-2 block text-sm font-medium text-white/80">
+                First Name
+              </label>
             )}
             <input
               type="text"
@@ -144,16 +156,20 @@ export function LeadCaptureForm({
               required
               disabled={loading}
               className={cn(
-                "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm",
-                "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
-                "disabled:opacity-50 disabled:cursor-not-allowed",
-                "transition-all duration-200"
+                'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30',
+                'focus:ring-edg-brand/50 focus:border-edg-brand/50 focus:ring-2 focus:outline-none',
+                'disabled:cursor-not-allowed disabled:opacity-50',
+                'transition-all duration-200'
               )}
             />
           </div>
-          <div className={cn(variant === "compact" ? "flex-[1.5] min-w-0" : "")}>
-            {variant === "default" && (
-              <label className="block text-sm font-medium mb-2 text-white/80">Email</label>
+          <div
+            className={cn(variant === 'compact' ? 'min-w-0 flex-[1.5]' : '')}
+          >
+            {variant === 'default' && (
+              <label className="mb-2 block text-sm font-medium text-white/80">
+                Email
+              </label>
             )}
             <input
               type="email"
@@ -163,19 +179,19 @@ export function LeadCaptureForm({
               required
               disabled={loading}
               className={cn(
-                "w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-white/30 text-sm",
-                "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50",
-                "disabled:opacity-50 disabled:cursor-not-allowed",
-                "transition-all duration-200"
+                'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30',
+                'focus:ring-edg-brand/50 focus:border-edg-brand/50 focus:ring-2 focus:outline-none',
+                'disabled:cursor-not-allowed disabled:opacity-50',
+                'transition-all duration-200'
               )}
             />
           </div>
-          {variant === "compact" && (
+          {variant === 'compact' && (
             <Button
               type="submit"
               size="lg"
               disabled={loading}
-              className="rounded-xl whitespace-nowrap px-6 text-sm md:text-base shadow-lg shadow-edg-brand/5"
+              className="shadow-edg-brand/5 rounded-xl px-6 text-sm whitespace-nowrap shadow-lg md:text-base"
             >
               {loading ? (
                 <>
@@ -189,12 +205,12 @@ export function LeadCaptureForm({
           )}
         </div>
 
-        {variant === "default" && (
+        {variant === 'default' && (
           <Button
             type="submit"
             size="lg"
             disabled={loading}
-            className="w-full rounded-xl shadow-lg shadow-edg-brand/5"
+            className="shadow-edg-brand/5 w-full rounded-xl shadow-lg"
           >
             {loading ? (
               <>
@@ -209,14 +225,14 @@ export function LeadCaptureForm({
 
         {/* Error message */}
         {error && (
-          <div className="flex items-center gap-2 text-red-500 text-sm">
+          <div className="flex items-center gap-2 text-sm text-red-500">
             <AlertCircle className="h-4 w-4 shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
         {/* Privacy note */}
-        <p className="text-[10px] text-gray-400 text-center uppercase tracking-widest mt-2 font-medium">
+        <p className="mt-2 text-center text-[10px] font-medium tracking-widest text-gray-400 uppercase">
           No spam, ever. Unsubscribe anytime.
         </p>
       </form>
@@ -225,12 +241,12 @@ export function LeadCaptureForm({
 
   // Inline variant (horizontal form for light backgrounds)
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={cn("space-y-4", className)}
-    >
+    <form onSubmit={handleSubmit} className={cn('space-y-4', className)}>
       {/* Honeypot Field - Hidden */}
-      <div className="absolute opacity-0 -z-50 select-none pointer-events-none" aria-hidden="true">
+      <div
+        className="pointer-events-none absolute -z-50 opacity-0 select-none"
+        aria-hidden="true"
+      >
         <label htmlFor="fax-inline">Fax Number</label>
         <input
           type="text"
@@ -242,7 +258,7 @@ export function LeadCaptureForm({
           onChange={(e) => setFax(e.target.value)}
         />
       </div>
-      <div className="flex flex-col sm:flex-row gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <input
           type="text"
           value={firstName}
@@ -251,10 +267,10 @@ export function LeadCaptureForm({
           required
           disabled={loading}
           className={cn(
-            "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
-            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium",
-            "disabled:opacity-50 disabled:cursor-not-allowed",
-            "transition-all duration-200"
+            'flex-1 rounded-xl border border-black/10 bg-white px-4 py-3 text-black placeholder:text-black/40',
+            'focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium focus:ring-2 focus:outline-none',
+            'disabled:cursor-not-allowed disabled:opacity-50',
+            'transition-all duration-200'
           )}
         />
         <input
@@ -265,17 +281,17 @@ export function LeadCaptureForm({
           required
           disabled={loading}
           className={cn(
-            "flex-1 px-4 py-3 rounded-xl border border-black/10 bg-white text-black placeholder:text-black/40",
-            "focus:outline-none focus:ring-2 focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium",
-            "disabled:opacity-50 disabled:cursor-not-allowed",
-            "transition-all duration-200"
+            'flex-1 rounded-xl border border-black/10 bg-white px-4 py-3 text-black placeholder:text-black/40',
+            'focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium focus:ring-2 focus:outline-none',
+            'disabled:cursor-not-allowed disabled:opacity-50',
+            'transition-all duration-200'
           )}
         />
         <Button
           type="submit"
           size="lg"
           disabled={loading}
-          className="rounded-xl whitespace-nowrap px-8"
+          className="rounded-xl px-8 whitespace-nowrap"
         >
           {loading ? (
             <>
@@ -290,17 +306,16 @@ export function LeadCaptureForm({
 
       {/* Error message */}
       {error && (
-        <div className="flex items-center gap-2 text-red-500 text-sm">
+        <div className="flex items-center gap-2 text-sm text-red-500">
           <AlertCircle className="h-4 w-4 shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       {/* Privacy note */}
-      <p className="text-xs text-edg-gray-text font-medium">
+      <p className="text-edg-gray-text text-xs font-medium">
         No spam, ever. Unsubscribe anytime.
       </p>
     </form>
   );
 }
-

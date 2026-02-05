@@ -61,7 +61,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
+        source:
+          '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
         destination: '/',
         permanent: true,
       },
@@ -161,7 +162,8 @@ const nextConfig = {
 
       // ── BLOG POSTS (WordPress date-based URLs) ──────────────
       {
-        source: '/2025/04/07/motorized-screens-chicago-enjoy-your-patio-longer-better-with-edg-patio-shade',
+        source:
+          '/2025/04/07/motorized-screens-chicago-enjoy-your-patio-longer-better-with-edg-patio-shade',
         destination: '/systems/shades',
         permanent: true,
       },

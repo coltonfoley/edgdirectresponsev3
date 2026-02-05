@@ -1,13 +1,13 @@
-import NextLink from "next/link";
+import NextLink from 'next/link';
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-    href: string;
+  href: string;
 }
 
 export function Link({ href, children, ...props }: LinkProps) {
-    return (
-        <NextLink href={href} {...props}>
-            {children}
-        </NextLink>
-    );
+  return (
+    <NextLink href={href} {...props}>
+      {children}
+    </NextLink>
+  );
 }

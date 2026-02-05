@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState, useRef, useEffect, useCallback } from "react";
-import { MoveHorizontal } from "lucide-react";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { MoveHorizontal } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 interface BeforeAfterProps {
   beforeImage: string;
@@ -16,26 +16,23 @@ interface BeforeAfterProps {
 export function BeforeAfter({
   beforeImage,
   afterImage,
-  beforeLabel = "Before",
-  afterLabel = "After",
+  beforeLabel = 'Before',
+  afterLabel = 'After',
   className,
 }: BeforeAfterProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMove = useCallback(
-    (clientX: number) => {
-      if (!containerRef.current) return;
+  const handleMove = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
 
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-      const percentage = (x / rect.width) * 100;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    const percentage = (x / rect.width) * 100;
 
-      setSliderPosition(percentage);
-    },
-    []
-  );
+    setSliderPosition(percentage);
+  }, []);
 
   const handleMouseDown = useCallback(() => setIsDragging(true), []);
   const handleMouseUp = useCallback(() => setIsDragging(false), []);
@@ -56,28 +53,31 @@ export function BeforeAfter({
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener("mouseup", handleMouseUp);
-      window.addEventListener("mousemove", handleMouseMove as any);
-      window.addEventListener("touchend", handleMouseUp);
-      window.addEventListener("touchmove", handleTouchMove as any);
+      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('mousemove', handleMouseMove as any);
+      window.addEventListener('touchend', handleMouseUp);
+      window.addEventListener('touchmove', handleTouchMove as any);
     }
 
     return () => {
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("mousemove", handleMouseMove as any);
-      window.removeEventListener("touchend", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove as any);
+      window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('mousemove', handleMouseMove as any);
+      window.removeEventListener('touchend', handleMouseUp);
+      window.removeEventListener('touchmove', handleTouchMove as any);
     };
   }, [isDragging, handleMouseUp, handleMouseMove, handleTouchMove]);
 
   return (
     <div
       ref={containerRef}
-      className={cn("relative w-full overflow-hidden select-none group touch-none rounded-2xl", className)}
+      className={cn(
+        'group relative w-full touch-none overflow-hidden rounded-2xl select-none',
+        className
+      )}
       onMouseDown={handleMouseDown}
       onTouchStart={() => setIsDragging(true)}
     >
-      <div className="relative w-full aspect-video">
+      <div className="relative aspect-video w-full">
         {/* After Image (Background) */}
         <Image
           src={afterImage}
@@ -87,7 +87,7 @@ export function BeforeAfter({
           draggable={false}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
-        <div className="absolute bottom-4 right-4 bg-black/50 text-white px-2 py-1 text-sm rounded font-medium backdrop-blur-sm z-10">
+        <div className="absolute right-4 bottom-4 z-10 rounded bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
           {afterLabel}
         </div>
 
@@ -100,7 +100,11 @@ export function BeforeAfter({
               so the image doesn't scale with the clipping mask */}
           <div
             className="relative h-full"
-            style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : "100%" }}
+            style={{
+              width: containerRef.current
+                ? `${containerRef.current.offsetWidth}px`
+                : '100%',
+            }}
           >
             <Image
               src={beforeImage}
@@ -111,18 +115,18 @@ export function BeforeAfter({
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <div className="absolute bottom-4 left-4 bg-black/50 text-white px-2 py-1 text-sm rounded font-medium backdrop-blur-sm z-10">
+          <div className="absolute bottom-4 left-4 z-10 rounded bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
             {beforeLabel}
           </div>
         </div>
 
         {/* Slider Handle */}
         <div
-          className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize z-20 shadow-[0_0_10px_rgba(0,0,0,0.5)]"
+          className="absolute top-0 bottom-0 z-20 w-1 cursor-ew-resize bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)]"
           style={{ left: `${sliderPosition}%` }}
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg border border-gray-200">
-            <MoveHorizontal className="w-4 h-4 text-gray-600" />
+          <div className="absolute top-1/2 left-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white shadow-lg">
+            <MoveHorizontal className="h-4 w-4 text-gray-600" />
           </div>
         </div>
       </div>

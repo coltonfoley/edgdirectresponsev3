@@ -19,10 +19,12 @@ Before setting up the dashboard, ensure you have:
 **Connection:** Looker Studio > Add Data > Google Search Console
 
 **Data to pull:**
+
 - Site Impression (Search appearance)
 - URL Impression (Page-level data)
 
 **Key dimensions:**
+
 - Query (keyword)
 - Page (URL path)
 - Device
@@ -30,6 +32,7 @@ Before setting up the dashboard, ensure you have:
 - Date
 
 **Key metrics:**
+
 - Impressions
 - Clicks
 - CTR
@@ -42,6 +45,7 @@ Before setting up the dashboard, ensure you have:
 **Connection:** Looker Studio > Add Data > Google Analytics > GA4
 
 **Key dimensions:**
+
 - Landing page
 - Session source/medium
 - Device category
@@ -49,6 +53,7 @@ Before setting up the dashboard, ensure you have:
 - Date
 
 **Key metrics:**
+
 - Sessions
 - Users
 - Engaged sessions
@@ -100,6 +105,7 @@ Before setting up the dashboard, ensure you have:
 |------|--------|-------------|--------------|-------------|
 
 **Service Area Pages to Track:**
+
 ```
 /service-areas/lake-geneva-wi
 /service-areas/hinsdale-il
@@ -133,6 +139,7 @@ Before setting up the dashboard, ensure you have:
 **Purpose:** Deep dive into keyword performance and ranking changes
 
 **Scorecards:**
+
 - Keywords in Top 3
 - Keywords in Top 10
 - Keywords with Position Improvement
@@ -196,40 +203,49 @@ Before setting up the dashboard, ensure you have:
 ## Calculated Fields
 
 ### 1. Conversion Rate (GSC + GA4 blend)
+
 ```
 Conversions / Clicks * 100
 ```
 
 ### 2. Opportunity Score
+
 ```
 Impressions * (1 - CTR) * (IF Position > 3 AND Position <= 20 THEN 1 ELSE 0)
 ```
-*Identifies high-impression, low-CTR keywords in striking distance*
+
+_Identifies high-impression, low-CTR keywords in striking distance_
 
 ### 3. Traffic Value Estimate
+
 ```
 Clicks * 5
 ```
-*Estimate $5/click value for outdoor living keywords*
+
+_Estimate $5/click value for outdoor living keywords_
 
 ---
 
 ## Implementation Steps
 
 ### Step 1: Create New Report
+
 1. Go to https://lookerstudio.google.com
 2. Click "Create" > "Report"
 3. Name it "EDG SEO Performance Dashboard"
 
 ### Step 2: Add Data Sources
+
 1. Add Google Search Console (Site Impression)
 2. Add Google Search Console (URL Impression)
 3. Add GA4 property
 
 ### Step 3: Build Pages
+
 Follow the page specifications above, creating each page with the described charts and tables.
 
 ### Step 4: Configure Sharing
+
 1. Click "Share"
 2. Add team members with "View" or "Edit" access
 3. Optionally schedule email delivery
@@ -240,11 +256,11 @@ Follow the page specifications above, creating each page with the described char
 
 Ensure these events are configured in GTM (GTM-MJWNZD3F) to track in GA4:
 
-| Event Name | Trigger | Parameters |
-|------------|---------|------------|
-| `book_call_click` | Click on booking CTAs | conversion_name, value |
-| `phone_click` | Click on phone links | conversion_name, value |
-| `generate_lead` | Form submission | source, value, currency |
+| Event Name        | Trigger               | Parameters              |
+| ----------------- | --------------------- | ----------------------- |
+| `book_call_click` | Click on booking CTAs | conversion_name, value  |
+| `phone_click`     | Click on phone links  | conversion_name, value  |
+| `generate_lead`   | Form submission       | source, value, currency |
 
 **In GA4:** Mark these events as conversions under Admin > Events.
 

@@ -1,4 +1,4 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -118,7 +118,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
+        source:
+          '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
         destination: '/systems/appliances',
         permanent: true,
       },
@@ -176,7 +177,8 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/how-to-transform-unused-outdoor-areas-into-guest-favorite-spots',
+        source:
+          '/how-to-transform-unused-outdoor-areas-into-guest-favorite-spots',
         destination: '/commercial',
         permanent: true,
       },
@@ -205,7 +207,7 @@ const nextConfig: NextConfig = {
         destination: '/service-areas/naperville-il',
         permanent: true,
       },
-      // UPDATED: Expert recommends specific location  
+      // UPDATED: Expert recommends specific location
       {
         source: '/naperville-motorized-screens',
         destination: '/service-areas/naperville-il',
@@ -248,12 +250,14 @@ const nextConfig: NextConfig = {
       // BLOG POSTS (WordPress date-based URLs)
       // ══════════════════════════════════════════════════════════
       {
-        source: '/2025/01/31/maximizing-guest-satisfaction-with-edg-patio-shade-transforming-outdoor-spaces-into-unforgettable-retreats',
+        source:
+          '/2025/01/31/maximizing-guest-satisfaction-with-edg-patio-shade-transforming-outdoor-spaces-into-unforgettable-retreats',
         destination: '/commercial',
         permanent: true,
       },
       {
-        source: '/2025/04/07/motorized-screens-chicago-enjoy-your-patio-longer-better-with-edg-patio-shade',
+        source:
+          '/2025/04/07/motorized-screens-chicago-enjoy-your-patio-longer-better-with-edg-patio-shade',
         destination: '/systems/shades',
         permanent: true,
       },
