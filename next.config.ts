@@ -235,6 +235,58 @@ const nextConfig: NextConfig = {
         destination: '/guide',
         permanent: true,
       },
+
+      // --- Fixes for 404s (Search Console) ---
+      {
+        source: '/how-much-are-louvered-pergolas',
+        destination: '/price',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/yoder-smokers-pellet-grills',
+        destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
+        source: '/elevating-hospitality-spaces-with-custom-pergolas',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-grand-rapids-michigan',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-madison-wisconsin',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-south-bend-indiana',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/how-to-transform-unused-outdoor-areas-into-guest-favorite-spots',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/custom-pergolas-hospitality',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/custom',
+        destination: '/systems/pergolas',
+        permanent: true,
+      },
     ];
   },
 };
