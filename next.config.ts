@@ -21,6 +21,15 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // ══════════════════════════════════════════════════════════
+      // BRAND REFACTOR - Trade Partners URL Update
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/pro',
+        destination: '/trade-partners',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
       // GUIDE CONSOLIDATION
       // ══════════════════════════════════════════════════════════
       {
@@ -144,17 +153,17 @@ const nextConfig: NextConfig = {
       // ══════════════════════════════════════════════════════════
       {
         source: '/work-with-us',
-        destination: '/pro',
+        destination: '/trade-partners',
         permanent: true,
       },
       {
         source: '/architects-designers',
-        destination: '/pro',
+        destination: '/trade-partners',
         permanent: true,
       },
       {
         source: '/become-a-dealer',
-        destination: '/pro',
+        destination: '/trade-partners',
         permanent: true,
       },
       {

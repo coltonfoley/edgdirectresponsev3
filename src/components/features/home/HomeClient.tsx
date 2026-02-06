@@ -60,9 +60,9 @@ export default function HomeClient() {
               </h1>
 
               <h2 className="mx-auto mb-10 max-w-2xl text-xl font-medium text-gray-200 md:text-2xl">
-                Full-Service Installation Across Chicago & Milwaukee.{' '}
+                The design and supply partner professionals trust—
                 <br className="hidden sm:block" />
-                Design & Supply Available Nationwide.
+                with full-service installation from Chicago to Milwaukee.
               </h2>
 
               {/* Immediate Conversion Form */}
@@ -303,11 +303,11 @@ export default function HomeClient() {
             <div className="grid items-center gap-16 lg:grid-cols-2">
               <div>
                 <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                  Why work with EDG?
+                  Why work with EDG Patio & Shade?
                 </h2>
                 <p className="text-muted-foreground mb-8 text-lg">
-                  We're not a product showroom. We're a design-build partner
-                  that helps you avoid costly mistakes before you break ground.
+                  We're specialists, not generalists. Motorized pergolas and
+                  screens are what we do—not an add-on to a deck business.
                 </p>
                 <div className="space-y-6">
                   <div className="flex gap-4">
@@ -316,11 +316,11 @@ export default function HomeClient() {
                     </div>
                     <div>
                       <h4 className="mb-1 text-lg font-bold">
-                        System-Agnostic Guidance
+                        System-Agnostic Expertise
                       </h4>
                       <p className="text-edg-gray-text dark:text-gray-400">
-                        We match the right system to your site—not push one
-                        brand.
+                        We recommend what's right for your project, not the brand
+                        we're locked into.
                       </p>
                     </div>
                   </div>
@@ -330,11 +330,12 @@ export default function HomeClient() {
                     </div>
                     <div>
                       <h4 className="mb-1 text-lg font-bold">
-                        Design-Build Integration
+                        National Reach, Local Roots
                       </h4>
                       <p className="text-edg-gray-text dark:text-gray-400">
-                        Permitting, engineering, installation—all coordinated by
-                        one team.
+                        Design and supply for professionals nationwide. Full
+                        installation by our own crews in the Chicago-Milwaukee
+                        corridor.
                       </p>
                     </div>
                   </div>
@@ -344,10 +345,11 @@ export default function HomeClient() {
                     </div>
                     <div>
                       <h4 className="mb-1 text-lg font-bold">
-                        Transparent Process
+                        Physical Showroom
                       </h4>
                       <p className="text-edg-gray-text dark:text-gray-400">
-                        You know what to expect at every stage. No surprises.
+                        Visit our Spring Grove showroom to see and touch products.
+                        Most competitors don't have one.
                       </p>
                     </div>
                   </div>
@@ -564,9 +566,8 @@ export default function HomeClient() {
                 </div>
               </Link>
 
-              {/* Path 3: Builders / Pros */}
               <Link
-                href="/pro"
+                href="/trade-partners"
                 className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900"
               >
                 <div className="flex flex-grow flex-col p-8">
@@ -574,7 +575,7 @@ export default function HomeClient() {
                     <HardHat className="h-6 w-6" />
                   </div>
                   <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
-                    Trade Only
+                    Trade Partner
                   </div>
                   <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">
                     Builders & Professionals
@@ -745,6 +746,14 @@ function HeroForm() {
           </div>
         )}
       </form>
+      <div className="mt-4 text-center">
+        <Link
+          href="/trade-partners"
+          className="text-white/60 hover:text-white text-sm underline decoration-white/30 hover:decoration-white transition-all"
+        >
+          Are you a Trade Partner? Click here.
+        </Link>
+      </div>
     </div>
   );
 }

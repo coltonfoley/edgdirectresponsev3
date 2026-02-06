@@ -175,7 +175,7 @@ export default function EnclosuresPage() {
                   Year-Round Living
                 </p>
                 <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-                  Glass Patio Enclosures
+                  Glass Enclosures
                 </h1>
                 <p className="text-edg-gray-text text-xl leading-relaxed dark:text-gray-400">
                   Frameless sliding glass doors and outdoor glass walls that
@@ -399,11 +399,10 @@ export default function EnclosuresPage() {
               {specs.map((spec, index) => (
                 <div
                   key={spec.label}
-                  className={`flex items-center justify-between p-6 ${
-                    index !== specs.length - 1
+                  className={`flex items-center justify-between p-6 ${index !== specs.length - 1
                       ? 'border-b border-black/5 dark:border-white/5'
                       : ''
-                  }`}
+                    }`}
                 >
                   <span className="text-muted-foreground">{spec.label}</span>
                   <span className="font-semibold">{spec.value}</span>

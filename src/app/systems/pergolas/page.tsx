@@ -156,7 +156,7 @@ export default function PergolasPage() {
                   Most Popular System
                 </p>
                 <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-                  Louvered Pergola Systems
+                  Motorized Pergolas
                 </h1>
                 <p className="text-edg-gray-text text-xl leading-relaxed dark:text-gray-400">
                   Custom motorized aluminum pergolas with rotating louvers from
@@ -436,11 +436,10 @@ export default function PergolasPage() {
               {specs.map((spec, index) => (
                 <div
                   key={spec.label}
-                  className={`flex items-center justify-between p-6 ${
-                    index !== specs.length - 1
-                      ? 'border-b border-black/5 dark:border-white/5'
-                      : ''
-                  }`}
+                  className={`flex items-center justify-between p-6 ${index !== specs.length - 1
+                    ? 'border-b border-black/5 dark:border-white/5'
+                    : ''
+                    }`}
                 >
                   <span className="text-muted-foreground">{spec.label}</span>
                   <span className="font-semibold">{spec.value}</span>
@@ -514,7 +513,7 @@ export default function PergolasPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <span className="text-edg-brand-text dark:text-edg-brand mb-2 block text-xs font-bold tracking-wider uppercase">
-                Commercial Solutions
+                Commercial Systems
               </span>
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                 Looking for Restaurant & Hotel Pergolas?
@@ -530,7 +529,7 @@ export default function PergolasPage() {
                   size="lg"
                   className="rounded-full border border-black/10 bg-transparent hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
                 >
-                  View Commercial Solutions{' '}
+                  View Commercial Systems{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

@@ -135,9 +135,10 @@ export function Footer() {
                 EDG
               </Link>
               <p className="mb-6 max-w-sm text-gray-400">
-                Premium motorized pergolas, exterior shades, and glass
-                enclosures for the Chicago/Milwaukee region, with design and
-                supply available nationwide.
+                The design and supply partner for motorized pergolas, retractable
+                screens, and glass enclosures. Full-service installation in the
+                Chicago-Milwaukee corridor, with nationwide design and supply for
+                trade partners.
               </p>
               <div className="space-y-3">
                 <div className="flex items-start gap-3 text-gray-400">
@@ -216,10 +217,18 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/pro"
+                    href="/trade-partners"
                     className="hover:text-edg-brand text-gray-400 transition-colors"
                   >
-                    For Professionals
+                    Trade Partners
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/showroom"
+                    className="hover:text-edg-brand text-gray-400 transition-colors"
+                  >
+                    Showroom
                   </Link>
                 </li>
                 <li>
@@ -240,10 +249,10 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/commercial/restaurant-patio-solutions"
+                    href="/commercial/restaurant-patio-systems"
                     className="hover:text-edg-brand text-gray-400 transition-colors"
                   >
-                    Restaurant Solutions
+                    Restaurant Systems
                   </Link>
                 </li>
                 <li>
@@ -391,7 +400,7 @@ export function Footer() {
           {/* Bottom Bar */}
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} EDG Outdoor Living. All rights
+              © {new Date().getFullYear()} EDG Patio & Shade. All rights
               reserved.
             </p>
             <div className="flex gap-6 text-sm text-gray-400">

@@ -21,7 +21,7 @@ import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Motorized Exterior Shades | Outdoor Privacy Screens',
+  title: 'Retractable Screens | Motorized Insect & Solar Screens',
   description:
     'Premium motorized exterior shades and outdoor screens. Wind-rated up to 35+ mph, UV protection, and smart home integration. Block heat while preserving your view.',
   alternates: {
@@ -128,7 +128,7 @@ import { generateServiceSchema } from '@/lib/schema';
 
 export default function ShadesPage() {
   const serviceSchema = generateServiceSchema({
-    name: 'Motorized Exterior Shades',
+    name: 'Retractable Screens',
     description:
       'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.',
     url: 'https://www.edgpatioshade.com/systems/shades',
@@ -156,7 +156,7 @@ export default function ShadesPage() {
                   Solar & Wind Protection
                 </p>
                 <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-                  Outdoor Privacy Screens & Motorized Shades
+                  Retractable Screens & Motorized Shades
                 </h1>
                 <p className="text-edg-gray-text text-xl leading-relaxed dark:text-gray-400">
                   Wind-rated sun shades for patios that block 80%+ of heat and
@@ -383,11 +383,10 @@ export default function ShadesPage() {
               {specs.map((spec, index) => (
                 <div
                   key={spec.label}
-                  className={`flex items-center justify-between p-6 ${
-                    index !== specs.length - 1
-                      ? 'border-b border-black/5 dark:border-white/5'
-                      : ''
-                  }`}
+                  className={`flex items-center justify-between p-6 ${index !== specs.length - 1
+                    ? 'border-b border-black/5 dark:border-white/5'
+                    : ''
+                    }`}
                 >
                   <span className="text-muted-foreground">{spec.label}</span>
                   <span className="font-semibold">{spec.value}</span>
@@ -404,7 +403,7 @@ export default function ShadesPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <span className="text-edg-brand-text dark:text-edg-brand mb-2 block text-xs font-bold tracking-wider uppercase">
-                Commercial Solutions
+                Commercial Projects
               </span>
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                 Need Commercial Outdoor Shading?
@@ -420,7 +419,7 @@ export default function ShadesPage() {
                   size="lg"
                   className="rounded-full border border-black/10 bg-transparent hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
                 >
-                  View Commercial Solutions{' '}
+                  View Commercial Projects{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

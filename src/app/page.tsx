@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import HomeClient from '@/components/features/home/HomeClient';
 
 export const metadata: Metadata = {
-  title: 'Motorized Pergolas Chicago | Outdoor Shades & Glass Enclosures',
+  title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
   description:
-    'Premium motorized pergolas, exterior shades, and glass enclosures. Full-service installation for the Chicago to Milwaukee region, with nationwide design and supply available.',
+    'EDG Patio & Shade is the design and supply partner for motorized pergolas, retractable screens, and glass enclosures. Full-service installation from Chicago to Milwaukee, with nationwide design and supply for trade partners.',
   alternates: {
     canonical: '/',
   },

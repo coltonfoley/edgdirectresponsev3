@@ -20,13 +20,13 @@ import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'For Builders & Architects | Trade Partner Program',
+  title: 'Trade Partners | Design & Supply Partner for Motorized Pergolas & Screens',
   description:
-    'Partner with EDG for motorized pergolas, shades, and glass enclosures. We handle the specialized installs so you can focus on the build. 48-hour pricing, site coordination, and trade margins.',
+    'EDG Patio & Shade is the design and supply partner professionals trust for motorized pergolas, retractable screens, and glass enclosures. System-agnostic recommendations, engineering support, and nationwide supply.',
   openGraph: {
-    title: 'Builder & Trade Partner Program | EDG',
+    title: 'Trade Partners | EDG Patio & Shade',
     description:
-      'Shading solutions for builders and architects. Trade pricing, fast quotes, and on-schedule installs.',
+      'Your design and supply partner for motorized outdoor systems. System-agnostic expertise, 48-hour pricing, and reliable execution.',
   },
   alternates: {
     canonical: '/pro',
@@ -78,18 +78,18 @@ export default function ProPage() {
           </Link>
           <div className="max-w-4xl">
             <p className="text-edg-brand-text mb-4 text-sm font-semibold tracking-wider uppercase">
-              For Builders, Architects & GCs
+              For Trade Partners
             </p>
             <h1 className="text-foreground mb-6 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
-              Build faster. <br />
+              Your design and supply partner <br />
               <span className="text-muted-foreground">
-                Deliver better outdoor living.
+                for motorized outdoor systems.
               </span>
             </h1>
             <p className="text-muted-foreground mb-8 max-w-2xl text-xl leading-relaxed">
-              High-end shading systems shouldn't be a headache. Whether we
-              handle the full install or support your crew with the materials
-              and expertise they need, we make sure the project stays on track.
+              We work with builders, architects, designers, and dealers
+              nationwide—matching the right system to each project from
+              multiple manufacturers, not pushing a single brand.
             </p>
             <div className="flex flex-wrap gap-4">
               <TrackedLink href="/contact?type=pro&action=plans">

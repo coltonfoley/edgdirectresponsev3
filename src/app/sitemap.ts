@@ -12,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/systems/shades', priority: 0.9 },
     { url: '/systems/enclosures', priority: 0.9 },
     { url: '/systems/appliances', priority: 0.9 },
+    { url: '/systems/heating', priority: 0.8 },
+    { url: '/systems/furniture', priority: 0.8 },
+    { url: '/systems/umbrellas', priority: 0.8 },
     { url: '/commercial', priority: 0.9 },
     { url: '/contact', priority: 0.8 },
     { url: '/design', priority: 0.8 },
@@ -20,7 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/guides/planning-guide', priority: 0.8 },
     { url: '/guides/planning-guide/read', priority: 0.7 },
     { url: '/price', priority: 0.8 },
-    { url: '/pro', priority: 0.6 },
+    { url: '/showroom', priority: 0.8 },
+    { url: '/trade-partners', priority: 0.8 },
     { url: '/privacy', priority: 0.5 },
     { url: '/terms', priority: 0.5 },
     // Service Areas
@@ -61,7 +65,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // New Commercial Pages
     { url: '/commercial/hotel-pergolas', priority: 0.9 },
-    { url: '/commercial/restaurant-patio-solutions', priority: 0.9 },
+    { url: '/commercial/restaurant-patio-systems', priority: 0.9 },
+
+    // Locations
+    { url: '/locations/lake-forest', priority: 0.8 },
+    { url: '/locations/highland-park', priority: 0.8 },
+    { url: '/locations/lake-geneva', priority: 0.8 },
 
     // New Local Clusters
     { url: '/service-areas/wilmette-il', priority: 0.8 },

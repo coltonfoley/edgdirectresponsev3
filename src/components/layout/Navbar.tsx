@@ -8,26 +8,43 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const systemsDropdown = [
+// Core Product Links (direct nav items per brand source)
+const coreProducts = [
   {
     href: '/systems/pergolas',
-    label: 'Louvered Pergolas',
-    desc: 'Motorized aluminum with rotating louvers',
+    label: 'Motorized Pergolas',
   },
   {
     href: '/systems/shades',
-    label: 'Motorized Shades',
-    desc: 'Wind-rated exterior screens',
+    label: 'Retractable Screens',
   },
   {
     href: '/systems/enclosures',
     label: 'Glass Enclosures',
-    desc: 'Retractable glass wall systems',
   },
+];
+
+// Secondary Offerings - "Complete Your Space" dropdown per brand source
+const completeYourSpace = [
   {
     href: '/systems/appliances',
-    label: 'Outdoor Appliances',
-    desc: 'Grills, heaters & outdoor kitchens',
+    label: 'Outdoor Kitchens',
+    desc: 'Built-in grills, appliances, cabinetry',
+  },
+  {
+    href: '/systems/heating',
+    label: 'Heating Systems',
+    desc: 'Infrared heaters & fire features',
+  },
+  {
+    href: '/systems/furniture',
+    label: 'Outdoor Furniture',
+    desc: 'Premium outdoor furniture lines',
+  },
+  {
+    href: '/systems/umbrellas',
+    label: 'Umbrella Systems',
+    desc: 'Commercial-grade shade umbrellas',
   },
 ];
 
@@ -174,7 +191,18 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-6 lg:flex">
-            {/* Systems Dropdown */}
+            {/* Core Product Links - Direct per brand source */}
+            {coreProducts.map((product) => (
+              <Link
+                key={product.href}
+                href={product.href}
+                className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
+              >
+                {product.label}
+              </Link>
+            ))}
+
+            {/* Complete Your Space Dropdown - Secondary Offerings */}
             <div className="relative" ref={systemsDropdownRef}>
               <button
                 onClick={() => {
@@ -182,10 +210,10 @@ export function Navbar() {
                   setAreasOpen(false);
                 }}
                 className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand flex items-center gap-1 text-sm font-medium transition-colors"
-                aria-label="View our outdoor living systems"
+                aria-label="Complete your outdoor space"
                 aria-expanded={systemsOpen}
               >
-                Systems
+                Complete Your Space
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 transition-transform',
@@ -196,7 +224,7 @@ export function Navbar() {
 
               {systemsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-72 overflow-hidden rounded-xl border border-black/5 bg-white shadow-xl dark:border-white/10 dark:bg-zinc-900">
-                  {systemsDropdown.map((item) => (
+                  {completeYourSpace.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -293,10 +321,16 @@ export function Navbar() {
               Pricing
             </Link>
             <Link
-              href="/pro"
+              href="/trade-partners"
               className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
             >
-              For Pros
+              Trade Partners
+            </Link>
+            <Link
+              href="/showroom"
+              className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
+            >
+              Showroom
             </Link>
           </nav>
 
@@ -373,12 +407,31 @@ export function Navbar() {
                 Nationwide
               </span>
             </div>
-            {/* Systems Section */}
+            {/* Core Products Section */}
             <div className="px-4 py-2">
               <div className="text-edg-gray-text dark:text-muted-foreground mb-2 text-xs font-semibold tracking-wider uppercase">
-                Our Systems
+                Core Systems
               </div>
-              {systemsDropdown.map((item) => (
+              {coreProducts.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="hover:text-edg-brand-text dark:hover:text-edg-brand block py-2 text-sm font-medium transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="border-edg-gray/10 my-2 border-t" />
+
+            {/* Complete Your Space Section */}
+            <div className="px-4 py-2">
+              <div className="text-edg-gray-text dark:text-muted-foreground mb-2 text-xs font-semibold tracking-wider uppercase">
+                Complete Your Space
+              </div>
+              {completeYourSpace.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -447,11 +500,18 @@ export function Navbar() {
               Pricing
             </Link>
             <Link
-              href="/pro"
+              href="/trade-partners"
               className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
               onClick={() => setIsOpen(false)}
             >
-              For Pros
+              Trade Partners
+            </Link>
+            <Link
+              href="/showroom"
+              className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
+              onClick={() => setIsOpen(false)}
+            >
+              Showroom
             </Link>
 
             <div className="border-edg-gray/10 mt-2 space-y-3 border-t pt-4">
