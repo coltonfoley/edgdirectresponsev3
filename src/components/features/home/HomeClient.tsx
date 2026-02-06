@@ -423,7 +423,7 @@ export default function HomeClient() {
                   ))}
                 </ul>
 
-                <Link href="/guide">
+                <Link href="/guides/planning-guide">
                   <Button
                     size="lg"
                     className="shadow-edg-brand/5 w-full rounded-xl shadow-lg sm:w-auto"

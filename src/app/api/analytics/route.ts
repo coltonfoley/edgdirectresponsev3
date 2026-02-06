@@ -5,7 +5,14 @@ const supabaseUrl =
   process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
+function getSupabase() {
+  if (!supabaseUrl || !supabaseServiceKey) {
+    throw new Error(
+      'Missing Supabase credentials: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY'
+    );
+  }
+  return createClient(supabaseUrl, supabaseServiceKey);
+}
 
 interface Lead {
   id: string;
@@ -52,6 +59,7 @@ export async function GET(request: NextRequest) {
 
   try {
     // Fetch all leads
+    const supabase = getSupabase();
     const { data: allLeads, error: allError } = await supabase
       .from('leads')
       .select('*')

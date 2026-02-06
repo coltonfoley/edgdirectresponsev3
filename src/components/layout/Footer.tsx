@@ -11,9 +11,13 @@ export function Footer() {
   const pathname = usePathname();
 
   // Completely hide footer on the interactive guide reading page or admin pages
-  if (pathname === '/guide/read' || pathname?.startsWith('/admin')) return null;
+  if (
+    pathname === '/guides/planning-guide/read' ||
+    pathname?.startsWith('/admin')
+  )
+    return null;
 
-  const isGuidePage = pathname?.startsWith('/guide');
+  const isGuidePage = pathname?.startsWith('/guides/planning-guide');
 
   return (
     <footer className="bg-edg-dark border-t border-white/5 text-white">
@@ -45,7 +49,7 @@ export function Footer() {
                     the mistakes to avoid.
                   </p>
                 </div>
-                <Link href="/guide" className="block">
+                <Link href="/guides/planning-guide" className="block">
                   <Button
                     size="lg"
                     className="shadow-edg-brand/5 w-full rounded-xl shadow-lg"
@@ -180,7 +184,7 @@ export function Footer() {
               <ul className="space-y-3">
                 <li>
                   <Link
-                    href="/guide"
+                    href="/guides/planning-guide"
                     className="hover:text-edg-brand text-gray-400 transition-colors"
                   >
                     Free Planning Guide

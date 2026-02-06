@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL('https://www.edgpatioshade.com'),
   alternates: {
-    canonical: './',
+    canonical: '/',
   },
 
   openGraph: {

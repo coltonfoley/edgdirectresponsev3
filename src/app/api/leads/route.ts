@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase Admin Client
+// Initialize Supabase Admin Client (lazy to avoid crash if env vars missing at import time)
 const supabaseUrl =
   process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseServiceKey) {
-  console.error('Missing Supabase credentials');
+function getSupabase() {
+  if (!supabaseUrl || !supabaseServiceKey) {
+    throw new Error(
+      'Missing Supabase credentials: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY'
+    );
+  }
+  return createClient(supabaseUrl, supabaseServiceKey);
 }
-
-const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
 
 interface LeadSubmission {
   email: string;
@@ -85,6 +88,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert into Supabase
+    const supabase = getSupabase();
     const { data, error } = await supabase
       .from('leads')
       .insert([
@@ -230,6 +234,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from('leads')
     .select('*')
