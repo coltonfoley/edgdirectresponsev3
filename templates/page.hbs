@@ -1,83 +1,76 @@
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: '{{name}} | EDG Patio',
-  description: '{{description}}',
-  alternates: {
-    canonical: '/{{route}}',
-  },
-  openGraph: {
-    title: '{{name}} | EDG Outdoor Living',
-    description: '{{description}}',
-  },
-};
-
-export default function Page() {
-  return (
-    <main className="min-h-screen bg-white dark:bg-black">
-      {/* Hero */}
-      <Section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32">
-        <Container>
-          <Link
-            href="/"
-            className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back Home
+import { Container } from '@/components/ui/Container'; import { Section } from
+'@/components/ui/Section'; import { Button } from '@/components/ui/Button';
+import Link from 'next/link'; import { ArrowLeft, ArrowRight } from
+'lucide-react'; import type { Metadata } from 'next'; export const metadata:
+Metadata = { title: '{{name}}
+| EDG Patio', description: '{{description}}', alternates: { canonical: '/{{route}}',
+}, openGraph: { title: '{{name}}
+| EDG Outdoor Living', description: '{{description}}', }, }; export default
+function Page() { return (
+<main className='min-h-screen bg-white dark:bg-black'>
+  {/* Hero */}
+  <Section className='bg-edg-dark pt-24 pb-16 text-white md:pt-32'>
+    <Container>
+      <Link
+        href='/'
+        className='hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors'
+      >
+        <ArrowLeft className='mr-2 h-4 w-4' />
+        Back Home
+      </Link>
+      <div className='max-w-4xl'>
+        <h1
+          className='mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl'
+        >
+          {{name}}
+        </h1>
+        <p className='mb-8 max-w-2xl text-xl leading-relaxed text-gray-300'>
+          {{description}}
+        </p>
+        <div className='flex flex-col gap-4 sm:flex-row'>
+          <Link href='/contact'>
+            <Button size='lg' className='rounded-full'>
+              Get Started
+              <ArrowRight className='ml-2 h-5 w-5' />
+            </Button>
           </Link>
-          <div className="max-w-4xl">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-              {{name}}
-            </h1>
-            <p className="mb-8 max-w-2xl text-xl leading-relaxed text-gray-300">
-              {{description}}
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact">
-                <Button size="lg" className="rounded-full">
-                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </Section>
+        </div>
+      </div>
+    </Container>
+  </Section>
 
-      {/* Content Section */}
-      <Section className="bg-white py-20 dark:bg-black">
-        <Container>
-          <div className="prose dark:prose-invert max-w-none">
-            <h2>About {{name}}</h2>
-            <p>
-              Add your content here. This page was generated quickly and consistently.
-            </p>
-          </div>
-        </Container>
-      </Section>
+  {/* Content Section */}
+  <Section className='bg-white py-20 dark:bg-black'>
+    <Container>
+      <div className='prose dark:prose-invert max-w-none'>
+        <h2>About {{name}}</h2>
+        <p>
+          Add your content here. This page was generated quickly and
+          consistently.
+        </p>
+      </div>
+    </Container>
+  </Section>
 
-      {/* CTA */}
-      <Section className="bg-edg-brand text-edg-dark py-20">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-              Ready to Transform Your Space?
-            </h2>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-              >
-                Book a Consultation <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-        </Container>
-      </Section>
-    </main>
-  );
-}
+  {/* CTA */}
+  <Section className='bg-edg-brand text-edg-dark py-20'>
+    <Container>
+      <div className='mx-auto max-w-3xl text-center'>
+        <h2 className='mb-6 text-3xl font-bold md:text-4xl'>
+          Ready to Transform Your Space?
+        </h2>
+        <Link href='/contact'>
+          <Button
+            size='lg'
+            variant='secondary'
+            className='bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white'
+          >
+            Book a Consultation
+            <ArrowRight className='ml-2 h-5 w-5' />
+          </Button>
+        </Link>
+      </div>
+    </Container>
+  </Section>
+</main>
+); }
