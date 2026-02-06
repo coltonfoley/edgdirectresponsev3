@@ -20,101 +20,80 @@ export function Footer() {
   const isGuidePage = pathname?.startsWith('/guides/planning-guide');
 
   return (
-    <footer className="bg-edg-dark border-t border-white/5 text-white">
+    <footer className="bg-black text-white">
       {/* Lead Capture Section */}
       {!isGuidePage && (
-        <div className="relative overflow-hidden border-b border-white/5 py-20 lg:py-24">
-          {/* Background Glow */}
-          <div className="pointer-events-none absolute top-0 left-1/2 h-full w-full -translate-x-1/2 bg-[radial-gradient(circle_at_50%_-20%,rgba(66,255,193,0.06),transparent_70%)]" />
-
+        <div className="relative overflow-hidden border-t border-white/10 py-24">
           <Container className="relative">
-            <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-0">
+            <div className="grid items-center gap-16 lg:grid-cols-2">
               {/* Guide offer */}
-              <div className="flex flex-col justify-between space-y-8 py-2 lg:pr-16">
+              <div className="space-y-8">
                 <div className="space-y-4">
                   <div className="text-edg-brand inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.25em] uppercase">
-                    <div className="bg-edg-brand/10 rounded p-1">
-                      <BookOpen className="h-3.5 w-3.5" />
-                    </div>
+                    <BookOpen className="h-4 w-4" />
                     Free Planning Guide
                   </div>
-                  <h3 className="text-3xl leading-tight font-bold tracking-tight text-white md:text-4xl">
-                    Plan your outdoor space <br className="hidden md:block" />
-                    <span className="font-medium text-white/80 italic">
-                      with confidence.
-                    </span>
+                  <h3 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+                    Plan with confidence.
                   </h3>
-                  <p className="max-w-md text-base leading-relaxed text-gray-400">
-                    Get our free guide: budget ranges, system comparisons, and
-                    the mistakes to avoid.
+                  <p className="max-w-md text-lg leading-relaxed text-gray-400">
+                    Get clear budget ranges, system comparisons, and avoid the 7 most expensive mistakes.
                   </p>
                 </div>
-                <Link href="/guides/planning-guide" className="block">
+                <Link href="/guides/planning-guide" className="inline-block">
                   <Button
                     size="lg"
-                    className="shadow-edg-brand/5 w-full rounded-xl shadow-lg"
+                    variant="secondary"
+                    className="border-white/20 hover:bg-white hover:text-black rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider"
                   >
-                    Get the Free Guide <ArrowRight className="ml-2 h-5 w-5" />
+                    Get the Guide <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
               </div>
 
               {/* Ready to talk */}
-              <div className="flex flex-col justify-between space-y-8 py-2 lg:border-l lg:border-white/10 lg:pl-16">
+              <div className="space-y-8 lg:border-l lg:border-white/10 lg:pl-16">
                 <div className="space-y-4">
-                  <div className="hidden h-[22px] lg:block" />{' '}
-                  {/* Alignment Spacer to match left side badge */}
-                  <h3 className="text-3xl leading-tight font-bold tracking-tight text-white md:text-4xl">
-                    Ready to start <br className="hidden md:block" />
-                    your project?
+                  <h3 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+                    Start your project.
                   </h3>
-                  <p className="max-w-md text-base leading-relaxed text-gray-400">
-                    Talk to our team about your outdoor living goals. No
-                    pressure, just helpful guidance.
+                  <p className="max-w-md text-lg leading-relaxed text-gray-400">
+                    Talk to our design team. No pressure, just expert guidance on your space.
                   </p>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="flex flex-wrap gap-4">
-                    <Link
-                      href="/contact"
-                      className="group"
-                      onClick={() =>
-                        (window as any).dataLayer?.push({
-                          event: 'conversion_event',
-                          conversion_name: 'book_call_click',
-                          value: 0,
-                        })
-                      }
+                <div className="flex flex-wrap gap-4">
+                  <Link
+                    href="/contact"
+                    onClick={() =>
+                      (window as any).dataLayer?.push({
+                        event: 'conversion_event',
+                        conversion_name: 'book_call_click',
+                        value: 0,
+                      })
+                    }
+                  >
+                    <Button
+                      size="lg"
+                      className="bg-edg-brand text-black hover:bg-white rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider"
                     >
-                      <Button
-                        size="lg"
-                        className="shadow-edg-brand/5 group-hover:shadow-edg-brand/10 rounded-xl px-8 whitespace-nowrap shadow-lg transition-all"
-                      >
-                        Book a Consultation{' '}
-                        <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
-                    <a
-                      href="tel:+18155810138"
-                      onClick={() =>
-                        (window as any).dataLayer?.push({
-                          event: 'conversion_event',
-                          conversion_name: 'phone_click',
-                          value: 0,
-                        })
-                      }
-                      className="inline-flex h-12 items-center justify-center gap-3 rounded-xl border border-white/10 px-6 font-medium whitespace-nowrap text-white backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/5"
-                    >
-                      <Phone className="text-edg-brand h-5 w-5" />
-                      (815) 581-0138
-                    </a>
-                  </div>
-
-                  <div className="flex items-center gap-3 text-xs font-medium text-gray-500">
-                    <div className="bg-edg-brand h-1.5 w-1.5 animate-pulse rounded-full" />
-                    Mon–Fri, 7am–4pm CT • Response within 1 business day
-                  </div>
+                      Book Consultation
+                    </Button>
+                  </Link>
+                  <a
+                    href="tel:+18155810138"
+                    onClick={() =>
+                      (window as any).dataLayer?.push({
+                        event: 'conversion_event',
+                        conversion_name: 'phone_click',
+                        value: 0,
+                      })
+                    }
+                    className="inline-flex h-14 items-center gap-3 px-6 font-bold uppercase tracking-wider text-white transition-colors hover:text-edg-brand"
+                  >
+                    <Phone className="h-5 w-5" />
+                    (815) 581-0138
+                  </a>
                 </div>
               </div>
             </div>
@@ -123,299 +102,63 @@ export function Footer() {
       )}
 
       {/* Main Footer */}
-      <div className="py-16">
+      <div className="border-t border-white/10 py-16">
         <Container>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-4 md:gap-8">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-16">
             {/* Brand & Location */}
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 space-y-8">
               <Link
                 href="/"
-                className="mb-4 block text-2xl font-bold text-white"
+                className="block text-4xl font-bold tracking-tighter text-white"
               >
                 EDG
               </Link>
-              <p className="mb-6 max-w-sm text-gray-400">
+              <p className="max-w-sm text-gray-400 leading-relaxed">
                 The design and supply partner for motorized pergolas, retractable
-                screens, and glass enclosures. Full-service installation in the
-                Chicago-Milwaukee corridor, with nationwide design and supply for
-                trade partners.
+                screens, and glass enclosures. Nationwide design & supply. Local installation in Chicago & Milwaukee.
               </p>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3 text-gray-400">
-                  <MapPin className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
-                  <div>
-                    <div className="font-medium text-white">
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <MapPin className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                  <div className="text-gray-300">
+                    <div className="font-bold text-white uppercase tracking-wide text-xs mb-1">
                       Spring Grove Showroom
                     </div>
                     <div>1802 Holian Drive</div>
                     <div>Spring Grove, IL 60081</div>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 text-gray-400">
-                  <Phone className="text-edg-brand h-5 w-5 shrink-0" />
-                  <a
-                    href="tel:+18155810138"
-                    className="hover:text-edg-brand transition-colors"
-                    onClick={() =>
-                      (window as any).dataLayer?.push({
-                        event: 'conversion_event',
-                        conversion_name: 'phone_click',
-                        value: 0,
-                      })
-                    }
-                  >
-                    (815) 581-0138
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 text-gray-400">
-                  <Mail className="text-edg-brand h-5 w-5 shrink-0" />
-                  <a
-                    href="mailto:info@edgpatioshade.com"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    info@edgpatioshade.com
-                  </a>
-                </div>
               </div>
             </div>
 
-            {/* Quick Links */}
+            {/* Navigation */}
             <div>
-              <h4 className="mb-4 font-semibold text-white">Quick Links</h4>
+              <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Explore</h4>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/guides/planning-guide"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Free Planning Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gallery"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/design"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Design Consultation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/price"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/trade-partners"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Trade Partners
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/showroom"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Showroom
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/commercial"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Commercial
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/commercial/hotel-pergolas"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Hotel Pergolas
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/commercial/restaurant-patio-systems"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Restaurant Systems
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides/louvered-pergolas"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Louvered Pergola Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides/pergola-vs-patio-cover"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Pergola vs Patio Cover
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    href="https://app.edgpatioshade.com/"
-                    className="hover:text-edg-brand text-gray-400 transition-colors"
-                  >
-                    Partner Login
-                  </a>
-                </li>
+                <li><Link href="/systems/pergolas" className="text-gray-400 hover:text-edg-brand transition-colors">Motorized Pergolas</Link></li>
+                <li><Link href="/systems/shades" className="text-gray-400 hover:text-edg-brand transition-colors">Retractable Screens</Link></li>
+                <li><Link href="/systems/enclosures" className="text-gray-400 hover:text-edg-brand transition-colors">Glass Enclosures</Link></li>
+                <li><Link href="/commercial" className="text-gray-400 hover:text-edg-brand transition-colors">Commercial</Link></li>
+                <li><Link href="/trade-partners" className="text-gray-400 hover:text-edg-brand transition-colors">Trade Partners</Link></li>
+                <li><Link href="/gallery" className="text-gray-400 hover:text-edg-brand transition-colors">Gallery</Link></li>
+                <li><Link href="/contact" className="text-gray-400 hover:text-edg-brand transition-colors">Contact</Link></li>
               </ul>
             </div>
 
-            {/* Service Area */}
+            {/* Legal / Social */}
             <div>
-              <h4 className="mb-4 font-semibold text-white">Service Area</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>
-                  <Link
-                    href="/service-areas/lake-county-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Lake County, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/mchenry-county-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    McHenry County, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/north-shore-chicago"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    North Shore Chicago
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/barrington-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Barrington Area
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/naperville-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Naperville & West Suburbs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/oak-brook-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Oak Brook & Hinsdale
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/northbrook-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Northbrook, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/wilmette-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Wilmette, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/winnetka-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Winnetka, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/southeast-wisconsin"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Southeast Wisconsin
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/lake-geneva-wi"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Lake Geneva, WI
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/sanibel-outdoor-living"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Sanibel / Captiva, FL
-                  </Link>
-                </li>
+              <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Connect</h4>
+              <ul className="space-y-3">
+                <li><a href="mailto:info@edgpatioshade.com" className="text-gray-400 hover:text-edg-brand transition-colors">info@edgpatioshade.com</a></li>
+                <li><a href="tel:+18155810138" className="text-gray-400 hover:text-edg-brand transition-colors">(815) 581-0138</a></li>
+                <li><a href="https://instagram.com" className="text-gray-400 hover:text-edg-brand transition-colors">Instagram</a></li>
+                <li><a href="https://linkedin.com" className="text-gray-400 hover:text-edg-brand transition-colors">LinkedIn</a></li>
               </ul>
-              <p className="mt-4 text-xs text-gray-400">
-                Design & supply available nationwide
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom Bar */}
-          <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-            <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} EDG Patio & Shade. All rights
-              reserved.
-            </p>
-            <div className="flex gap-6 text-sm text-gray-400">
-              <Link
-                href="/privacy"
-                className="transition-colors hover:text-white"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="transition-colors hover:text-white"
-              >
-                Terms of Service
-              </Link>
+              <div className="mt-8 pt-8 border-t border-white/10 space-y-2">
+                <Link href="/privacy" className="block text-xs text-gray-500 hover:text-white">Privacy Policy</Link>
+                <Link href="/terms" className="block text-xs text-gray-500 hover:text-white">Terms of Service</Link>
+                <div className="text-xs text-gray-600 mt-4">© {new Date().getFullYear()} EDG Patio & Shade</div>
+              </div>
             </div>
           </div>
         </Container>

@@ -1,5 +1,6 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -26,11 +27,10 @@ export default function FurniturePage() {
                             We curate collections that perfectly complement our pergola and shade systems.
                         </p>
                         <div className="flex justify-center gap-4">
-                            <Link
-                                href="/contact"
-                                className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 inline-flex h-12 items-center justify-center rounded-md px-8 text-lg font-medium transition-colors"
-                            >
-                                Request Catalog
+                            <Link href="/contact">
+                                <Button className="bg-edg-brand text-black hover:bg-white rounded-none px-8 py-6 text-lg font-bold uppercase tracking-wider">
+                                    Request Catalog
+                                </Button>
                             </Link>
                         </div>
                     </div>

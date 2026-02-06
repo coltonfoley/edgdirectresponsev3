@@ -1,38 +1,23 @@
+'use client';
+
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
-import { BeforeAfter } from '@/components/features/gallery/BeforeAfter';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CheckCircle2,
-  Sun,
   Wind,
+  Sun,
   Eye,
-  Thermometer,
-  Wifi,
   Shield,
   Phone,
+  ArrowBigUp,
   ChevronRight,
+  Plus
 } from 'lucide-react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Retractable Screens | Motorized Insect & Solar Screens',
-  description:
-    'Premium motorized exterior shades and outdoor screens. Wind-rated up to 35+ mph, UV protection, and smart home integration. Block heat while preserving your view.',
-  alternates: {
-    canonical: '/systems/shades',
-  },
-  openGraph: {
-    title: 'Motorized Exterior Shades | EDG Outdoor Living',
-    description:
-      'Wind-rated exterior screens that block heat and glare while preserving your view.',
-  },
-};
 
 const galleryImages = [
   {
@@ -57,420 +42,183 @@ const galleryImages = [
   },
 ];
 
-const features = [
-  {
-    icon: Thermometer,
-    title: 'The Heat Block',
-    description:
-      'Solar fabrics dramatically reduce heat gain while keeping the breeze—so you can enjoy the shade without losing the outdoors.',
-  },
-  {
-    icon: Wind,
-    title: 'Wind-Rated Design',
-    description:
-      'Side tracks or cables keep the fabric secure in real conditions—not just calm days.',
-  },
-  {
-    icon: Eye,
-    title: 'View-Through Technology',
-    description:
-      'Solar mesh blocks glare and UV while letting you see out clearly. Protection without feeling boxed in.',
-  },
-  {
-    icon: Sun,
-    title: 'Full UV Defense',
-    description:
-      'Protect your furniture, flooring, and family from harmful rays—even on bright days.',
-  },
-  {
-    icon: Wifi,
-    title: 'One-Touch Control',
-    description:
-      'Wall switch, remote, phone app, or voice assistant. Choose how you want to operate your system.',
-  },
-  {
-    icon: Shield,
-    title: 'Multi-Year Warranty',
-    description:
-      'Motors, fabric, and components covered. We stand behind what we install.',
-  },
-];
-
 const specs = [
-  { label: 'Maximum Width', value: "Up to 20' single span" },
-  { label: 'Maximum Drop', value: "Up to 16'" },
-  { label: 'Wind Rating', value: '35+ mph (track-guided)' },
-  { label: 'UV Blockage', value: 'Up to 97%' },
-  { label: 'Visibility', value: '1-14% openness factor' },
-  { label: 'Warranty', value: '5-year comprehensive' },
+  { label: 'Max Width', value: "20' (Single Span)" },
+  { label: 'Wind Rating', value: '35 MPH' },
+  { label: 'UV Block', value: 'Up to 97%' },
+  { label: 'Fabric', value: 'Vinyl-Coated Polyester' },
 ];
-
-const fabricOptions = [
-  {
-    name: '5% Openness',
-    desc: 'Maximum view, moderate heat reduction',
-    opacity: 'bg-gray-300',
-  },
-  {
-    name: '3% Openness',
-    desc: 'Balanced view and solar control',
-    opacity: 'bg-gray-500',
-  },
-  {
-    name: '1% Openness',
-    desc: 'Maximum heat/glare reduction',
-    opacity: 'bg-gray-700',
-  },
-  { name: 'Blackout', desc: 'Complete light blockage', opacity: 'bg-gray-900' },
-];
-
-import { generateServiceSchema } from '@/lib/schema';
 
 export default function ShadesPage() {
-  const serviceSchema = generateServiceSchema({
-    name: 'Retractable Screens',
-    description:
-      'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.',
-    url: 'https://www.edgpatioshade.com/systems/shades',
-    image:
-      'https://www.edgpatioshade.com/images/shades/shade-deployed-screens-01.jpg',
-  });
-
   return (
-    <main className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      {/* ========== HERO WITH GALLERY ========== */}
-      <section className="bg-white pt-8 pb-16 dark:bg-black">
+    <main className="bg-white min-h-screen">
+      {/* ========== HERO: SPLIT SCREEN PRODUCT ========== */}
+      <section className="pt-32 pb-12 lg:min-h-screen flex flex-col justify-center">
         <Container>
-          <div className="grid items-start gap-12 lg:grid-cols-2">
-            {/* Gallery */}
-            <ProductGallery items={galleryImages} />
-
-            {/* Product Info */}
-            <div className="space-y-6 lg:sticky lg:top-40">
-              <div>
-                <p className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
-                  Solar & Wind Protection
-                </p>
-                <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-                  Retractable Screens & Motorized Shades
-                </h1>
-                <p className="text-edg-gray-text text-xl leading-relaxed dark:text-gray-400">
-                  Wind-rated sun shades for patios that block 80%+ of heat and
-                  glare while preserving your view. Retract completely when you
-                  don't need them.
-                </p>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
+            <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
+              <div className="text-edg-brand-text font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-3">
+                <div className="h-px w-8 bg-black"></div>
+                Sun & Wind Protection
               </div>
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-black leading-[0.9]">
+                Retractable <br /> Screens.
+              </h1>
+              <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-md">
+                Block 90% of wind and solar heat without losing your view. The architectural solution for exposed patios.
+              </p>
 
-              {/* Quick Features */}
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  'Block 80%+ solar heat',
-                  'Wind rated to 35+ mph',
-                  'Preserve outward view',
-                  'Smart home ready',
-                ].map((feature) => (
-                  <div
-                    key={feature}
-                    className="flex items-center gap-2 text-sm font-medium"
-                  >
-                    <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-4 w-4 shrink-0" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col gap-3 pt-4 sm:flex-row">
-                <TrackedLink
-                  href="/contact?type=price&product=shades"
-                  className="flex-1"
-                >
-                  <Button size="lg" className="w-full rounded-lg">
-                    Get a Quote <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="flex flex-col gap-4 mb-12">
+                <TrackedLink href="/contact?type=price&product=shades">
+                  <Button className="bg-black text-white hover:bg-edg-brand hover:text-black rounded-none px-8 py-6 text-lg font-bold uppercase tracking-wider w-full sm:w-auto">
+                    Configure System
                   </Button>
                 </TrackedLink>
-                <TrackedPhoneLink href="tel:+18155810138" className="flex-1">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="w-full rounded-lg"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> Call Us
-                  </Button>
+                <TrackedPhoneLink href="tel:+18155810138">
+                  <div className="flex items-center gap-3 font-bold uppercase tracking-wider text-sm cursor-pointer hover:text-edg-brand transition-colors">
+                    <span className="h-px w-8 bg-black/20"></span>
+                    Speak to a designer
+                  </div>
                 </TrackedPhoneLink>
               </div>
 
-              <p className="text-muted-foreground text-sm">
-                Free consultation • Custom sizing • Professional installation
-              </p>
+              {/* Quick Specs - Minimal */}
+              <div className="border-t border-black/10 pt-8">
+                <div className="grid grid-cols-2 gap-y-4 text-sm">
+                  {specs.map((s) => (
+                    <div key={s.label}>
+                      <span className="text-gray-400 block text-xs uppercase tracking-wider mb-1">{s.label}</span>
+                      <span className="font-bold text-black">{s.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              {/* Custom Sharp Gallery */}
+              <div className="relative aspect-[4/5] bg-zinc-100 overflow-hidden">
+                <ProductGallery items={galleryImages} />
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ========== USE CASES ========== */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+      {/* ========== EDITORIAL FEATURES ========== */}
+      <Section className="py-24 border-t border-black/5">
         <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Perfect For Every Application
-            </h2>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                title: 'Pergola Enclosure',
-                desc: 'Add privacy and wind protection to your pergola with side-mount shade drops.',
-                image: '/images/shades/shade-deployed-screens-01.jpg',
-              },
-              {
-                title: 'Window & Door Screens',
-                desc: 'Block solar heat before it enters your home. Reduce AC costs significantly.',
-                image: '/images/shades/shade-patio-close-01.jpg',
-              },
-              {
-                title: 'Patio & Deck',
-                desc: 'Create a comfortable outdoor space even in the heat of summer.',
-                image:
-                  '/images/shades/commercial-white-r-blade-screens-lake.jpg',
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800"
-              >
-                <div className="relative aspect-video">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-                  <p className="text-edg-gray-text dark:text-gray-400">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== BEFORE/AFTER ========== */}
-      <Section className="bg-white py-20 dark:bg-black">
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <BeforeAfter
-              beforeImage="/images/shades/shade-before-no-screens.jpg"
-              afterImage="/images/shades/shade-after-screens-deployed.jpg"
-              beforeLabel="Without Shades"
-              afterLabel="With Shades"
-            />
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-32">
             <div>
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Feel the Difference
+              <h2 className="text-4xl font-bold tracking-tighter mb-8 leading-tight">
+                No more "blown out" screeens.
               </h2>
-              <p className="text-edg-gray-text mb-6 text-lg font-medium dark:text-gray-400">
-                That unbearable hot spot on your patio? The glare that makes
-                your TV unwatchable? The faded furniture? Motorized shades solve
-                all of it—without blocking your view.
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Traditional shades act like sails in the wind. Our MagnaTrack systems use powerful neodymium magnets to keep the fabric tensioned and secure—even in 35 mph gusts.
               </p>
-              <ul className="space-y-3">
-                {[
-                  'Reduce surface temperatures by 20-30°F',
-                  'Cut glare while maintaining visibility',
-                  'Protect furniture from UV fading',
-                  'Lower cooling costs',
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="text-edg-gray-text flex items-center gap-3 font-medium dark:text-gray-400"
-                  >
-                    <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
+              <ul className="space-y-6">
+                <li className="flex gap-4 items-start group">
+                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
+                    <Wind className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Wind Resistant</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">Rated for wind loads that would rip standard screens apart. Self-correcting track technology.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4 items-start group">
+                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
+                    <Sun className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Thermal Control</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">Reduces patio temperature by up to 20°F by blocking solar gain before it hits the glass.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4 items-start group">
+                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
+                    <Eye className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">View Preservation</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">Darker fabric colors absorb glare, allowing you to see through clearly while blocking UV.</p>
+                  </div>
+                </li>
               </ul>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== FEATURES ========== */}
-      <Section className="bg-edg-dark py-20 text-white">
-        <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Engineered for Performance
-            </h2>
-            <p className="mx-auto max-w-2xl text-lg text-gray-400">
-              Not just any shade—purpose-built exterior screens designed for the
-              elements.
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
-              <div key={feature.title} className="flex gap-4">
-                <div className="bg-edg-brand/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl">
-                  <feature.icon className="text-edg-brand h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="mb-1 text-lg font-bold">{feature.title}</h3>
-                  <p className="text-sm text-gray-400">{feature.description}</p>
+            <div className="bg-zinc-900 border border-white/10 p-12 text-white flex flex-col justify-between min-h-[500px]">
+              <div>
+                <h3 className="text-edg-brand font-bold uppercase tracking-widest text-sm mb-6">Fabric Technologies</h3>
+                <div className="space-y-8">
+                  <div>
+                    <div className="text-2xl font-bold mb-2">Merlot / 5%</div>
+                    <p className="text-gray-400">Best balance of view and airflow. 95% UV blockage.</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold mb-2">Nano / 1%</div>
+                    <p className="text-gray-400">Maximum privacy and heat reduction. Limits airflow.</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold mb-2">Insect Mesh</div>
+                    <p className="text-gray-400">Tightly woven to stop gnats and mosquitoes comfortably.</p>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
 
-      {/* ========== FABRIC OPTIONS ========== */}
-      <Section className="bg-white py-20 dark:bg-black">
-        <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Fabric Options
-            </h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-              Choose the right balance of view, light control, and heat
-              reduction for your space.
-            </p>
-          </div>
-
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-4">
-            {fabricOptions.map((fabric) => (
-              <div
-                key={fabric.name}
-                className="rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-sm dark:border-zinc-700 dark:bg-zinc-800"
-              >
-                <div
-                  className={`mx-auto mb-4 h-24 w-24 rounded-full ${fabric.opacity}`}
-                />
-                <h3 className="font-bold">{fabric.name}</h3>
-                <p className="text-edg-gray-text mt-1 text-sm font-medium dark:text-gray-400">
-                  {fabric.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-edg-gray-text mt-8 text-center font-medium dark:text-gray-400">
-            50+ colors available. See fabric samples at our showroom or request
-            swatches.
-          </p>
-        </Container>
-      </Section>
-
-      {/* ========== SPECIFICATIONS ========== */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
-        <Container>
-          <div className="mx-auto max-w-4xl">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Technical Specifications
-              </h2>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
-              {specs.map((spec, index) => (
-                <div
-                  key={spec.label}
-                  className={`flex items-center justify-between p-6 ${index !== specs.length - 1
-                    ? 'border-b border-black/5 dark:border-white/5'
-                    : ''
-                    }`}
-                >
-                  <span className="text-muted-foreground">{spec.label}</span>
-                  <span className="font-semibold">{spec.value}</span>
+              <div className="border-t border-white/10 pt-8 mt-8">
+                <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wider">
+                  <span>Download Fabric Chart</span>
+                  <ArrowRight className="h-4 w-4 text-edg-brand" />
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ========== COMMERCIAL BRIDGE ========== */}
-      <Section className="border-t border-black/5 bg-zinc-50 py-20 dark:border-white/5 dark:bg-zinc-900">
+      {/* ========== FINAL CTA ========== */}
+      <section className="bg-black text-white py-32">
         <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-edg-brand-text dark:text-edg-brand mb-2 block text-xs font-bold tracking-wider uppercase">
-                Commercial Projects
-              </span>
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Need Commercial Outdoor Shading?
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Reclaim your sunset.
               </h2>
-              <p className="text-muted-foreground mb-6 text-lg">
-                Reduce cooling costs and increase dining comfort for your
-                business. Our heavy-duty systems are built for restaurants,
-                hotels, and country clubs.
+              <p className="text-xl text-gray-400 mb-8 max-w-md">
+                Stop retreating indoors when the bugs come out or the sun gets low.
               </p>
-              <Link href="/commercial/chicago-hospitality-outdoor-living">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="rounded-full border border-black/10 bg-transparent hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/5"
-                >
-                  View Commercial Projects{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-black/5">
-              {/* Reusing a commercial-relevant image */}
-              <img
-                src="/images/shades/commercial-white-r-blade-screens-lake.jpg"
-                alt="Commercial shading solution"
-                className="h-full w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-black/10" />
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== CTA ========== */}
-      <Section className="bg-edg-brand py-20">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-edg-dark mb-6 text-3xl font-bold md:text-4xl">
-              Ready to Beat the Heat?
-            </h2>
-            <p className="text-edg-dark/80 mb-8 text-xl">
-              Get a custom quote for motorized shades. We'll help you choose the
-              right fabric and configuration for your space.
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href="/contact?type=price&product=shades">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
-                >
-                  Get Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
+                <Button className="bg-edg-brand text-black hover:bg-white rounded-none px-10 py-6 text-lg font-bold uppercase tracking-wider">
+                  Start Quote
                 </Button>
               </TrackedLink>
-              <Link href="/gallery">
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg"
-                >
-                  See Gallery <ChevronRight className="ml-1 h-5 w-5" />
-                </Button>
-              </Link>
+            </div>
+            <div className="border-l border-white/20 pl-16 hidden md:block">
+              <div className="space-y-6">
+                <h4 className="text-lg font-bold uppercase tracking-wide">Perfect For</h4>
+                <ul className="space-y-4 text-gray-400">
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Existing Porches
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    New Pergolas
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Garage Openings
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Restaurant Patios
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
     </main>
   );
 }

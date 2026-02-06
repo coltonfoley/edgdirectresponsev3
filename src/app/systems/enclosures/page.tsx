@@ -1,38 +1,21 @@
+'use client';
+
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
-import { BeforeAfter } from '@/components/features/gallery/BeforeAfter';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CheckCircle2,
-  Wind,
-  Thermometer,
-  Eye,
   Maximize2,
-  Shield,
+  Droplets,
+  Wind,
   Phone,
   ChevronRight,
-  Droplets,
+  Plus
 } from 'lucide-react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Glass Patio Enclosures | Retractable Glass Walls',
-  description:
-    'Frameless retractable glass wall systems that stack, fold, and disappear. Add weatherproof square footage without heavy construction. Year-round outdoor living.',
-  alternates: {
-    canonical: '/systems/enclosures',
-  },
-  openGraph: {
-    title: 'Glass Enclosures | EDG Outdoor Living',
-    description:
-      'Retractable glass walls that add weatherproof square footage to your outdoor space.',
-  },
-};
 
 const galleryImages = [
   {
@@ -55,408 +38,181 @@ const galleryImages = [
     src: '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg',
     alt: 'Interior view of glass enclosure on wood deck',
   },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg',
-    alt: 'Glass enclosure interior lighting at night',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
-    alt: 'Residential white pergola with glass sliding doors by the pool',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg',
-    alt: 'Modern louvered roof with glass enclosure exterior view',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/residential-glass-enclosure-lifestyle.jpg',
-    alt: 'Residential glass enclosure with people lounging inside',
-  },
-];
-
-const features = [
-  {
-    icon: Maximize2,
-    title: 'The Disappearing Wall',
-    description:
-      'Glass panels stack, fold, or slide away completely—transforming enclosed space into open-air living in seconds.',
-  },
-  {
-    icon: Droplets,
-    title: 'Weather-Seal Technology',
-    description:
-      'Advanced sealing keeps rain, wind, and cold out when closed—so your space is usable regardless of conditions.',
-  },
-  {
-    icon: Eye,
-    title: 'Full-View Design',
-    description:
-      'Frameless or minimal-frame options maximize your sightlines and natural light. Glass, not bars.',
-  },
-  {
-    icon: Wind,
-    title: 'Wind Barrier',
-    description:
-      "Enjoy evenings outside even when it's breezy—without losing the open-air feel when you want it.",
-  },
-  {
-    icon: Thermometer,
-    title: 'Year-Round Comfort',
-    description:
-      'Add heating and use your space through the seasons—even Midwest winters.',
-  },
-  {
-    icon: Shield,
-    title: 'Full Engineering Support',
-    description:
-      "Structural calculations and permitting handled—these aren't DIY installations.",
-  },
 ];
 
 const specs = [
-  { label: 'Panel Height', value: "Up to 12'" },
-  { label: 'Panel Width', value: "Up to 4' per panel" },
-  { label: 'Glass Type', value: 'Tempered safety glass' },
-  { label: 'Frame Options', value: 'Frameless, minimal, or standard' },
-  { label: 'Opening Types', value: 'Bi-fold, stacking, sliding' },
-  { label: 'Warranty', value: '10-year manufacturer' },
+  { label: 'Max Height', value: "118 inches" },
+  { label: 'Glass', value: '10mm Tempered' },
+  { label: 'Operation', value: 'Slide & Turn' },
+  { label: 'Profile', value: 'Frameless' },
 ];
-
-const systemTypes = [
-  {
-    name: 'Bi-Fold',
-    desc: 'Panels fold accordion-style to one or both sides. Best for large openings.',
-    image: '/images/frameless-sliding-glass-walls.jpg',
-  },
-  {
-    name: 'Stacking',
-    desc: 'Individual panels slide and stack. Great for partial openings.',
-    image: '/images/staging/residential-white-pergola-pool-glass-doors-01.jpg',
-  },
-  {
-    name: 'Sliding',
-    desc: 'Panels slide on tracks. Ideal for narrow spaces or straight runs.',
-    image: '/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg',
-  },
-];
-
-import { generateServiceSchema } from '@/lib/schema';
 
 export default function EnclosuresPage() {
-  const serviceSchema = generateServiceSchema({
-    name: 'Glass Enclosure Systems',
-    description:
-      'Frameless retractable glass wall systems that stack, fold, and disappear. Add weatherproof square footage to your home.',
-    url: 'https://www.edgpatioshade.com/systems/enclosures',
-    image:
-      'https://www.edgpatioshade.com/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
-  });
-
   return (
-    <main className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      {/* ========== HERO WITH GALLERY ========== */}
-      <section className="bg-white pt-8 pb-16 dark:bg-black">
+    <main className="bg-white min-h-screen">
+      {/* ========== HERO: SPLIT SCREEN PRODUCT ========== */}
+      <section className="pt-32 pb-12 lg:min-h-screen flex flex-col justify-center">
         <Container>
-          <div className="grid items-start gap-12 lg:grid-cols-2">
-            {/* Gallery */}
-            <ProductGallery items={galleryImages} />
-
-            {/* Product Info */}
-            <div className="space-y-6 lg:sticky lg:top-40">
-              <div>
-                <p className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
-                  Year-Round Living
-                </p>
-                <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-                  Glass Enclosures
-                </h1>
-                <p className="text-edg-gray-text text-xl leading-relaxed dark:text-gray-400">
-                  Frameless sliding glass doors and outdoor glass walls that
-                  stack, fold, and disappear. Add weatherproof square footage to
-                  your home without heavy construction.
-                </p>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
+            <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
+              <div className="text-edg-brand-text font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-3">
+                <div className="h-px w-8 bg-black"></div>
+                Year-Round Living
               </div>
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-black leading-[0.9]">
+                Glass <br /> Enclosures.
+              </h1>
+              <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-md">
+                Frameless retractable glass walls that stack completely open. Add protected square footage without the construction costs of an addition.
+              </p>
 
-              {/* Quick Features */}
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  'Panels stack & disappear',
-                  'Weatherproof seals',
-                  'Year-round use',
-                  'Adds home value',
-                ].map((feature) => (
-                  <div
-                    key={feature}
-                    className="flex items-center gap-2 text-sm font-medium"
-                  >
-                    <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-4 w-4 shrink-0" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col gap-3 pt-4 sm:flex-row">
-                <TrackedLink
-                  href="/contact?type=price&product=enclosure"
-                  className="flex-1"
-                >
-                  <Button size="lg" className="w-full rounded-lg">
-                    Get a Quote <ArrowRight className="ml-2 h-5 w-5" />
+              <div className="flex flex-col gap-4 mb-12">
+                <TrackedLink href="/contact?type=price&product=enclosure">
+                  <Button className="bg-black text-white hover:bg-edg-brand hover:text-black rounded-none px-8 py-6 text-lg font-bold uppercase tracking-wider w-full sm:w-auto">
+                    Configure System
                   </Button>
                 </TrackedLink>
-                <TrackedPhoneLink href="tel:+18155810138" className="flex-1">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="w-full rounded-lg"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> Call Us
-                  </Button>
+                <TrackedPhoneLink href="tel:+18155810138">
+                  <div className="flex items-center gap-3 font-bold uppercase tracking-wider text-sm cursor-pointer hover:text-edg-brand transition-colors">
+                    <span className="h-px w-8 bg-black/20"></span>
+                    Speak to a designer
+                  </div>
                 </TrackedPhoneLink>
               </div>
 
-              <p className="text-muted-foreground text-sm">
-                Free consultation • Engineering included • Professional
-                installation
-              </p>
+              {/* Quick Specs - Minimal */}
+              <div className="border-t border-black/10 pt-8">
+                <div className="grid grid-cols-2 gap-y-4 text-sm">
+                  {specs.map((s) => (
+                    <div key={s.label}>
+                      <span className="text-gray-400 block text-xs uppercase tracking-wider mb-1">{s.label}</span>
+                      <span className="font-bold text-black">{s.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 order-1 lg:order-2">
+              {/* Custom Sharp Gallery */}
+              <div className="relative aspect-[4/5] bg-zinc-100 overflow-hidden">
+                <ProductGallery items={galleryImages} />
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ========== SYSTEM TYPES ========== */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+      {/* ========== EDITORIAL FEATURES ========== */}
+      <Section className="py-24 border-t border-black/5">
         <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Opening Configurations
-            </h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-              Choose how your space opens based on your layout and preferences.
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {systemTypes.map((type) => (
-              <div
-                key={type.name}
-                className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800"
-              >
-                <div className="relative aspect-video">
-                  <img
-                    src={type.image}
-                    alt={type.name}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold">{type.name}</h3>
-                  <p className="text-edg-gray-text font-medium dark:text-gray-400">
-                    {type.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== BEFORE/AFTER ========== */}
-      <Section className="bg-white py-20 dark:bg-black">
-        <Container>
-          <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-32">
             <div>
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Expand Your Living Space
+              <h2 className="text-4xl font-bold tracking-tighter mb-8 leading-tight">
+                The view, <br /> uninterrupted.
               </h2>
-              <p className="text-edg-gray-text mb-6 text-lg font-medium dark:text-gray-400">
-                That covered patio you can only use 5 months a year? Transform
-                it into usable square footage year-round—without the cost of a
-                traditional addition.
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Our system is frameless. Vertical mullions are gone. When closed, it's a seamless wall of glass. When open, the panels stack neatly against the wall, restoring your full opening.
               </p>
-              <ul className="space-y-3">
-                {[
-                  'Use your outdoor space 365 days a year',
-                  'Adds significant value to your home',
-                  'No heavy construction required',
-                  'Open completely for the outdoor feel',
-                  'Close for protection and climate control',
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="text-edg-gray-text flex items-center gap-3 font-medium dark:text-gray-400"
-                  >
-                    <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
+              <ul className="space-y-6">
+                <li className="flex gap-4 items-start group">
+                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
+                    <Maximize2 className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">True Open Air</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">Unlike sliding doors that always block 50% of the opening, our slide-and-turn system opens 100%.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4 items-start group">
+                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
+                    <Droplets className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Weather Protection</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">Transparent weather strips between panels seal out rain and wind drafts.</p>
+                  </div>
+                </li>
+                <li className="flex gap-4 items-start group">
+                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
+                    <Wind className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1">Impact Rated</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">10mm tempered safety glass withstands impact and high wind loads standard.</p>
+                  </div>
+                </li>
               </ul>
             </div>
-            <BeforeAfter
-              beforeImage="/images/enclosures/glass-enclosure-partial-open.jpg"
-              afterImage="/images/enclosures/glass-enclosure-closed-exterior.jpg"
-              beforeLabel="Open Patio"
-              afterLabel="Enclosed"
-            />
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== FEATURES ========== */}
-      <Section className="bg-edg-dark py-20 text-white">
-        <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Why Glass Enclosures?
-            </h2>
-            <p className="mx-auto max-w-2xl text-lg text-gray-400">
-              The benefits of indoor comfort with the feel of being outside.
-            </p>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
-              <div key={feature.title} className="flex gap-4">
-                <div className="bg-edg-brand/20 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl">
-                  <feature.icon className="text-edg-brand h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="mb-1 text-lg font-bold">{feature.title}</h3>
-                  <p className="text-sm text-gray-400">{feature.description}</p>
+            <div className="bg-zinc-900 border border-white/10 p-12 text-white flex flex-col justify-between min-h-[500px]">
+              <div>
+                <h3 className="text-edg-brand font-bold uppercase tracking-widest text-sm mb-6">Configurations</h3>
+                <div className="space-y-8">
+                  <div>
+                    <div className="text-2xl font-bold mb-2">Slide & Turn</div>
+                    <p className="text-gray-400">Panels slide individually and pivot open against the wall. Best for corners and curves.</p>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold mb-2">Frameless Sliding</div>
+                    <p className="text-gray-400">Multi-track system where panels slide behind each other. Lower profile threshold.</p>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
 
-      {/* ========== IDEAL FOR ========== */}
-      <Section className="bg-white py-20 dark:bg-black">
-        <Container>
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-              Ideal Applications
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {[
-              {
-                src: '/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg',
-                label: 'Covered Patios',
-              },
-              {
-                src: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg',
-                label: 'Pergolas',
-              },
-              {
-                src: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
-                label: 'Pool Houses',
-              },
-              {
-                src: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
-                label: 'Restaurants',
-              },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="group relative aspect-square overflow-hidden rounded-xl"
-              >
-                <img
-                  src={item.src}
-                  alt={item.label}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                <p className="absolute bottom-4 left-4 font-semibold text-white">
-                  {item.label}
-                </p>
+              <div className="border-t border-white/10 pt-8 mt-8">
+                <div className="flex justify-between items-center text-sm font-bold uppercase tracking-wider">
+                  <span>Download Spec Sheet</span>
+                  <ArrowRight className="h-4 w-4 text-edg-brand" />
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* ========== SPECIFICATIONS ========== */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+      {/* ========== FINAL CTA ========== */}
+      <section className="bg-black text-white py-32">
         <Container>
-          <div className="mx-auto max-w-4xl">
-            <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Technical Specifications
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                Extends your season.
               </h2>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
-              {specs.map((spec, index) => (
-                <div
-                  key={spec.label}
-                  className={`flex items-center justify-between p-6 ${index !== specs.length - 1
-                      ? 'border-b border-black/5 dark:border-white/5'
-                      : ''
-                    }`}
-                >
-                  <span className="text-muted-foreground">{spec.label}</span>
-                  <span className="font-semibold">{spec.value}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-edg-gray-text mt-6 text-center text-sm font-medium dark:text-gray-400">
-              Specifications vary by manufacturer and configuration.
-              <Link
-                href="/contact"
-                className="text-edg-brand-text dark:text-edg-brand ml-1 font-bold hover:underline"
-              >
-                Contact us for detailed specs
-              </Link>
-            </p>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ========== CTA ========== */}
-      <Section className="bg-edg-brand py-20">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-edg-dark mb-6 text-3xl font-bold md:text-4xl">
-              Ready for Year-Round Outdoor Living?
-            </h2>
-            <p className="text-edg-dark/80 mb-8 text-xl">
-              Get a custom quote for a glass enclosure system. We'll assess your
-              space and recommend the right configuration.
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <p className="text-xl text-gray-400 mb-8 max-w-md">
+                Turn your covered patio into a 3-season room instantly.
+              </p>
               <TrackedLink href="/contact?type=price&product=enclosure">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
-                >
-                  Get Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
+                <Button className="bg-edg-brand text-black hover:bg-white rounded-none px-10 py-6 text-lg font-bold uppercase tracking-wider">
+                  Start Quote
                 </Button>
               </TrackedLink>
-              <Link href="/gallery">
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg"
-                >
-                  See Gallery <ChevronRight className="ml-1 h-5 w-5" />
-                </Button>
-              </Link>
+            </div>
+            <div className="border-l border-white/20 pl-16 hidden md:block">
+              <div className="space-y-6">
+                <h4 className="text-lg font-bold uppercase tracking-wide">Install Options</h4>
+                <ul className="space-y-4 text-gray-400">
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Recessed Floor Track
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Surface Mounted Track
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Corner Opening (No Post)
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Plus className="h-4 w-4 text-edg-brand" />
+                    Keyed Cylinder Lock
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
     </main>
   );
 }

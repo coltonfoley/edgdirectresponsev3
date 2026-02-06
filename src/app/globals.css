@@ -5,13 +5,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-barlow);
 
-  /* EDG Brand Colors */
-  --color-edg-brand: #42ffc1;
-  --color-edg-brand-text: #008a5c;
-  --color-edg-dark: #0a0a0a;
-  --color-edg-light: #fafafa;
-  --color-edg-gray: #a1a1aa;
-  --color-edg-gray-text: #52525b;
+  /* EDG Brand Colors - High Contrast */
+  --color-edg-brand: #42ffc1; /* Mint Accent */
+  --color-edg-brand-text: #000000; /* Text on Mint */
+  
+  --color-edg-dark: #000000; /* True Black */
+  --color-edg-light: #ffffff; /* True White */
+  
+  /* Neutral Grays - Minimal usage for hierarchy */
+  --color-edg-gray: #71717a; /* Zinc 500 */
+  --color-edg-gray-text: #52525b; /* Zinc 600 */
+  --color-edg-gray-light: #f4f4f5; /* Zinc 100 */
 }
 
 :root {
