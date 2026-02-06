@@ -1,18 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Initialize Supabase Admin Client (lazy to avoid crash if env vars missing at import time)
-const supabaseUrl =
-  process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+// Initialize Supabase Admin Client (lazy singleton to avoid crash if env vars missing at import time)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let _supabase: any = null;
 
 function getSupabase() {
-  if (!supabaseUrl || !supabaseServiceKey) {
-    throw new Error(
-      'Missing Supabase credentials: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY'
-    );
+  if (!_supabase) {
+    const supabaseUrl =
+      process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+    if (!supabaseUrl || !supabaseServiceKey) {
+      throw new Error(
+        'Missing Supabase credentials: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY'
+      );
+    }
+    _supabase = createClient(supabaseUrl, supabaseServiceKey);
   }
-  return createClient(supabaseUrl, supabaseServiceKey);
+  return _supabase;
 }
 
 interface LeadSubmission {
