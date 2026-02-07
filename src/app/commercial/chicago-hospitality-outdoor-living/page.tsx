@@ -57,7 +57,7 @@ export default function ChicagoHospitalityPage() {
           </Link>
           <div className="max-w-4xl">
             <h1 className="text-foreground mb-6 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
-              Chicago's Premier{' '}
+              Chicago&apos;s Premier{' '}
               <span className="text-edg-brand">Hospitality Outdoor Design</span>{' '}
               Experts.
             </h1>
@@ -202,7 +202,7 @@ export default function ChicagoHospitalityPage() {
               </h2>
               <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
                 Operating a hospitality venue in Chicago is unique. We know the
-                challenges of the "patio season" scramble, the unpredictable
+                challenges of the &quot;patio season&quot; scramble, the unpredictable
                 lake effect weather, and the strict City of Chicago and suburban
                 building codes.
               </p>
@@ -283,7 +283,7 @@ export default function ChicagoHospitalityPage() {
               Start Planning Your 4-Season Space
             </h2>
             <p className="mb-8 text-xl text-gray-300">
-              Don't let another season of revenue wash away. Schedule a
+              Don&apos;t let another season of revenue wash away. Schedule a
               consultation with our commercial design team today.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
