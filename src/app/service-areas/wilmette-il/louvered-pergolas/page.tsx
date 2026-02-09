@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -13,6 +12,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Louvered Pergolas Wilmette, IL | Lake Michigan Weather Rated | EDG',
+  description:
+    'Motorized louvered roofs designed for Wilmette\'s lakefront weather. Architectural matching for historic homes. Increase usable square footage and property value.',
+  alternates: {
+    canonical: '/service-areas/wilmette-il/louvered-pergolas',
+  },
+};
 
 const reasons = [
   {

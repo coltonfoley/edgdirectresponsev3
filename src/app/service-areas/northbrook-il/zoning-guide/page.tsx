@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Northbrook, IL Pergola Permit & Zoning Guide 2025 | EDG',
   description:
     'Planning a pergola in Northbrook? Read our 2025 guide on setbacks, 30% lot coverage limits, and height restrictions for 60062 homeowners.',
+  alternates: {
+    canonical: '/service-areas/northbrook-il/zoning-guide',
+  },
 };
 
 export default function NorthbrookZoningGuide() {

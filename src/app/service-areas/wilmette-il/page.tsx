@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -13,6 +12,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Outdoor Living Systems in Wilmette, IL | Pergolas & Shades | EDG',
+  description:
+    'Custom motorized pergolas and exterior shades for Wilmette homes. Serving the Cage neighborhood to Lake Michigan. Zoning-compliant designs for historic districts.',
+  alternates: {
+    canonical: '/service-areas/wilmette-il',
+  },
+};
 
 const localBenefits = [
   'Familiar with Village of Wilmette zoning codes',
@@ -50,7 +58,7 @@ export default function WilmetteHubPage() {
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
                 From the brick streets of the Cage to the shores of Lake
                 Michigan, we design engineered shade systems that respect
-                Wilmette's architectural heritage.
+                Wilmette&apos;s architectural heritage.
               </p>
               <Link href="/contact">
                 <Button size="lg" className="rounded-full px-8 text-lg">
@@ -100,7 +108,7 @@ export default function WilmetteHubPage() {
                   Wilmette Building & Zoning Guide
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Before you build, understand the "Impermeable Surface" limits
+                  Before you build, understand the &quot;Impermeable Surface&quot; limits
                   and setbacks specific to Wilmette village codes.
                 </p>
                 <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">

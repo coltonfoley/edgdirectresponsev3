@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: 'Motorized Louvered Pergolas Northbrook, IL | Hurricane Rated',
   description:
     "The only pergola engineered for Northbrook's 30psf snow loads and 115mph winds. Explore our luxury louvered roof systems for 60062.",
+  alternates: {
+    canonical: '/service-areas/northbrook-il/motorized-pergolas',
+  },
 };
 
 export default function NorthbrookPergolaPage() {

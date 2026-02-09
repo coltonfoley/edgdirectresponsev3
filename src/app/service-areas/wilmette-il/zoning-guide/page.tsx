@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -12,6 +11,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Wilmette, IL Pergola Zoning & Permit Guide 2025 | EDG',
+  description:
+    'Navigate Wilmette\'s strict zoning codes for outdoor structures. Learn about impermeable surface limits, setbacks, and the 4-6 week permit process. Expert guidance included.',
+  alternates: {
+    canonical: '/service-areas/wilmette-il/zoning-guide',
+  },
+};
 
 export default function WilmetteZoningGuide() {
   return (
@@ -32,7 +40,7 @@ export default function WilmetteZoningGuide() {
               </h1>
               <p className="text-xl leading-relaxed text-gray-300">
                 Wilmette has some of the strictest zoning codes on the North
-                Shore, particularly regarding "Impermeable Surface Coverage."
+                Shore, particularly regarding &quot;Impermeable Surface Coverage.&quot;
                 Here is what you need to know before you fall in love with a
                 design.
               </p>
@@ -49,7 +57,7 @@ export default function WilmetteZoningGuide() {
               {/* Challenge Section */}
               <div>
                 <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
-                  1. The "Impermeable Surface" Challenge
+                  1. The &quot;Impermeable Surface&quot; Challenge
                 </h2>
                 <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
                   Most lots in Wilmette have a maximum allowable impermeable
@@ -69,7 +77,7 @@ export default function WilmetteZoningGuide() {
                       <p className="text-muted-foreground">
                         In some interpretations, a{' '}
                         <strong>louvered pergola</strong> can be argued as a
-                        "permeable" structure when open, potentially helping
+                        &quot;permeable&quot; structure when open, potentially helping
                         with zoning variances. EDG has experience navigating
                         these specific conversations with the Village of
                         Wilmette.
@@ -156,7 +164,7 @@ export default function WilmetteZoningGuide() {
                 Need Help Navigating Wilmette Zoning?
               </h2>
               <p className="text-edg-dark/80 mb-6">
-                We've handled dozens of Wilmette permits. Let us manage the
+                We&apos;ve handled dozens of Wilmette permits. Let us manage the
                 process for you.
               </p>
               <Link href="/contact">

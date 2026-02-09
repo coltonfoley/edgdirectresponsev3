@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -12,6 +11,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Winnetka, IL Zoning & Design Guide 2025 | EDG Outdoor Living',
+  description:
+    'Navigate Winnetka\'s ravine protection ordinances, impervious surface limits, and architectural review board requirements. Expert guidance for estate outdoor projects.',
+  alternates: {
+    canonical: '/service-areas/winnetka-il/zoning-guide',
+  },
+};
 
 export default function WinnetkaZoningGuide() {
   return (
@@ -31,7 +39,7 @@ export default function WinnetkaZoningGuide() {
                 Winnetka Design Guide: Building Beyond the Patio
               </h1>
               <p className="text-xl leading-relaxed text-gray-300">
-                Winnetka's beauty comes from strict preservation. Whether you
+                Winnetka&apos;s beauty comes from strict preservation. Whether you
                 are on the lake, near a ravine, or in a historic district, your
                 project will likely face scrutiny.
               </p>
@@ -61,7 +69,7 @@ export default function WinnetkaZoningGuide() {
                   <ul className="text-muted-foreground space-y-2 text-sm">
                     <li>
                       <strong>Setbacks:</strong> Structures often must be set
-                      back significantly from the "tableland" edge of the
+                      back significantly from the &quot;tableland&quot; edge of the
                       ravine.
                     </li>
                     <li>
@@ -89,9 +97,9 @@ export default function WinnetkaZoningGuide() {
                   <div className="bg-edg-brand/5 border-edg-brand rounded-r-lg border-l-4 p-4">
                     <Quote className="text-edg-brand mb-2 h-4 w-4" />
                     <p className="text-muted-foreground text-sm italic">
-                      "A louvered roof is often the only way to get a 'covered'
+                      &quot;A louvered roof is often the only way to get a &apos;covered&apos;
                       porch feel without triggering the same density penalties
-                      as a solid roof addition."
+                      as a solid roof addition.&quot;
                     </p>
                   </div>
                 </div>
@@ -112,7 +120,7 @@ export default function WinnetkaZoningGuide() {
                   </p>
                   <ul className="text-muted-foreground space-y-2 text-sm">
                     <li>
-                      • 3D renderings matching your home's siding/brick textures
+                      • 3D renderings matching your home&apos;s siding/brick textures
                     </li>
                     <li>• Color samples (custom powder coating)</li>
                     <li>• Detailed elevation drawings showing sightlines</li>
@@ -142,7 +150,7 @@ export default function WinnetkaZoningGuide() {
                 Need Help with Winnetka Zoning?
               </h2>
               <p className="text-edg-dark/80 mb-6">
-                We've navigated the architectural review board many times. Let
+                We&apos;ve navigated the architectural review board many times. Let
                 us handle your permit process.
               </p>
               <Link href="/contact">
