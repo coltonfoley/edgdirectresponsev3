@@ -10,7 +10,7 @@
 
 This is the marketing website for **EDG Outdoor Living**, a company specializing in premium motorized pergolas, exterior shades, and glass enclosures. The website serves the Chicago to Milwaukee corridor with nationwide design and supply availability.
 
-The site is built as a **Next.js 16** application using the **App Router** architecture, deployed on Vercel. It features comprehensive SEO optimization, lead capture systems, and analytics integration.
+The site is built as a **Next.js 16** application using the **App Router** architecture, deployed on Vercel. It features comprehensive SEO optimization, lead capture systems, analytics integration, and an extensive network of service area landing pages.
 
 ### Key Business Context
 
@@ -40,7 +40,8 @@ The site is built as a **Next.js 16** application using the **App Router** archi
 | Supabase | Lead storage (PostgreSQL) |
 | Resend | Email notifications |
 | Vercel Analytics | Performance monitoring |
-| Google Tag Manager | Tracking & conversions |
+| Vercel Speed Insights | Core Web Vitals tracking |
+| Google Tag Manager | Tracking & conversions (GTM-MJWNZD3F) |
 
 ---
 
@@ -69,7 +70,7 @@ npm run generate     # Run Plop to generate new pages from templates
 
 The `generate-gallery-data.mjs` script runs before every build. It:
 - Scans `/public/images` for image files
-- Extracts metadata using Sharp
+- Extracts metadata (width, height) using Sharp
 - Generates `src/data/gallery-images.json` for the gallery component
 
 ---
@@ -81,23 +82,62 @@ src/
 ├── app/                    # Next.js App Router
 │   ├── api/               # API Routes
 │   │   ├── analytics/     # Lead analytics dashboard endpoint
-│   │   └── leads/         # Lead submission endpoint
-│   ├── (routes)/          # Page routes (flat structure)
-│   ├── admin/             # Admin dashboard (protected)
-│   ├── systems/           # Product category pages
+│   │   └── leads/         # Lead submission endpoint (POST/GET)
+│   ├── admin/             # Admin dashboard (SEO dashboard)
+│   ├── systems/           # Product category pages (pergolas, shades, enclosures, appliances)
 │   ├── service-areas/     # Location-based landing pages
+│   │   ├── lake-county-il/
+│   │   ├── mchenry-county-il/
+│   │   ├── north-shore-chicago/
+│   │   ├── southeast-wisconsin/
+│   │   ├── naperville-il/
+│   │   ├── barrington-il/
+│   │   ├── oak-brook-il/
+│   │   ├── lake-geneva-wi/
+│   │   ├── hinsdale-il/
+│   │   ├── sanibel-outdoor-living/
+│   │   ├── northbrook-il/
+│   │   ├── wilmette-il/
+│   │   └── winnetka-il/
 │   ├── commercial/        # Commercial/hospitality pages
-│   ├── guides/            # Educational content
+│   ├── guides/            # Educational content & planning guide
+│   ├── projects/          # Project case studies (static + dynamic)
+│   ├── gallery/           # Photo gallery
+│   ├── design/            # Design consultation page
+│   ├── price/             # Pricing information
+│   ├── pro/               # Trade professionals portal
+│   ├── contact/           # Contact form
 │   ├── layout.tsx         # Root layout with metadata
 │   ├── globals.css        # Tailwind + theme variables
-│   └── page.tsx           # Homepage
+│   ├── page.tsx           # Homepage
+│   ├── sitemap.ts         # Dynamic sitemap generation
+│   ├── robots.ts          # robots.txt generation
+│   ├── not-found.tsx      # 404 page
+│   └── error.tsx          # Error boundary
 ├── components/
 │   ├── ui/                # Reusable UI components
+│   │   ├── Button.tsx     # Primary/secondary/ghost variants
+│   │   ├── Container.tsx  # Max-width container
+│   │   ├── Section.tsx    # Page section wrapper
+│   │   ├── FadeIn.tsx     # Scroll animation wrapper
+│   │   ├── Link.tsx       # Custom Link component
+│   │   ├── TrackedLink.tsx      # GTM-tracked link
+│   │   └── TrackedPhoneLink.tsx # GTM-tracked phone link
 │   ├── layout/            # Navbar, Footer
 │   └── features/          # Page-specific components
-├── data/                  # Static data (gallery images, SEO)
-├── hooks/                 # Custom React hooks
-├── lib/                   # Utilities & schemas
+│       ├── contact/
+│       ├── gallery/
+│       ├── home/
+│       └── service-area/
+├── data/
+│   ├── homepage.ts        # Homepage content data
+│   └── gallery-images.json # Auto-generated image manifest
+├── hooks/
+│   └── useLeadSubmission.ts # Lead form submission hook
+├── lib/
+│   ├── utils.ts           # cn() utility for Tailwind class merging
+│   ├── schema.ts          # JSON-LD schemas (LocalBusiness, FAQ, Service)
+│   └── projects.ts        # Project data and utilities
 └── middleware.ts          # Domain redirects (www enforcement)
 ```
 
@@ -108,8 +148,11 @@ src/
 | `next.config.ts` | Redirects (100+ legacy URLs), image domains |
 | `src/lib/schema.ts` | JSON-LD schemas (LocalBusiness, FAQ, Service) |
 | `src/lib/utils.ts` | `cn()` utility for Tailwind class merging |
+| `src/lib/projects.ts` | Project case study data |
 | `src/middleware.ts` | Redirects non-www to www |
+| `src/data/homepage.ts` | Homepage content configuration |
 | `src/data/gallery-images.json` | Auto-generated image manifest |
+| `scripts/generate-gallery-data.mjs` | Pre-build gallery generation |
 
 ---
 
@@ -121,6 +164,7 @@ src/
 - Use `interface` for object shapes, `type` for unions/complex types
 - Props interfaces named with `Props` suffix (e.g., `ButtonProps`)
 - Use path alias `@/` for all imports from `src/`
+- Prefer explicit return types for exported functions
 
 ```typescript
 // Good
@@ -134,10 +178,11 @@ interface HeroSectionProps {
 
 ### React Conventions
 
-- Use **function declarations** for components
+- Use **function declarations** for components (not arrow functions)
 - Client components marked with `'use client'` at top
 - Server components preferred by default
-- Use `ref` prop pattern for component refs
+- Use `ref` prop pattern for component refs (forwardRef not needed in React 19)
+- Keep components in their own files with matching names
 
 ```typescript
 'use client';  // When using hooks or browser APIs
@@ -149,13 +194,17 @@ export function ComponentName({ prop }: Props) {
 
 ### Styling Conventions
 
-- Use **Tailwind CSS** exclusively
+- Use **Tailwind CSS v4** exclusively (no inline styles)
 - Custom brand colors defined in `globals.css`:
-  - `--color-edg-brand: #42ffc1` (mint green)
+  - `--color-edg-brand: #42ffc1` (mint green - primary CTA)
   - `--color-edg-brand-text: #008a5c` (dark green)
-  - `--color-edg-dark: #0a0a0a`
+  - `--color-edg-dark: #0a0a0a` (near black)
+  - `--color-edg-light: #fafafa` (off white)
+  - `--color-edg-gray: #a1a1aa` (medium gray)
+  - `--color-edg-gray-text: #52525b` (text gray)
 - Use `cn()` utility for conditional class merging
-- Container component used for consistent max-width
+- Container component used for consistent max-width (max-w-7xl)
+- Section component used for page section wrappers
 
 ```typescript
 // Pattern for conditional classes
@@ -175,6 +224,19 @@ className={cn(
 - **Hooks:** camelCase with `use` prefix (`useLeadSubmission.ts`)
 - **Utilities:** camelCase (`formatDate.ts`)
 - **Routes:** kebab-case (`service-areas/naperville-il`)
+- **Files:** kebab-case for non-component files
+
+### Prettier Configuration
+
+```json
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "plugins": ["prettier-plugin-tailwindcss"]
+}
+```
 
 ---
 
@@ -206,6 +268,7 @@ When adding new pages:
 - [ ] Phone links trigger `dataLayer.push` for GTM
 - [ ] Forms validate and show error states
 - [ ] Dark mode classes render correctly
+- [ ] All internal links work correctly
 
 ---
 
@@ -240,6 +303,7 @@ SUPABASE_ANON_KEY=
 2. **API Authentication**
    - Admin endpoints require `x-admin-key` header
    - No fallback keys in production (`NODE_ENV === 'production'`)
+   - Admin key stored in localStorage for dashboard access
 
 3. **Middleware Protection**
    - WordPress attack vectors blocked (302 redirects)
@@ -250,11 +314,16 @@ SUPABASE_ANON_KEY=
    - Non-www redirects to www (301 permanent)
    - HTTPS enforced via middleware
 
+5. **CORS & CSRF**
+   - API routes validate content-type
+   - CSRF protection via same-origin policy
+
 ### Sensitive Data Handling
 
 - Lead data stored in Supabase PostgreSQL
 - Email notifications sent via Resend API
 - No PII in logs (email is logged only for spam detection)
+- Admin dashboard requires authentication
 
 ---
 
@@ -267,6 +336,8 @@ npm run generate
 # Select "page"
 # Enter: Page Name, Route path, SEO Description
 ```
+
+Template location: `templates/page.hbs`
 
 ### Manual Page Creation
 
@@ -298,6 +369,7 @@ export default function LocationPage() {
 2. Add to `src/app/sitemap.ts`
 3. Add to `e2e/smoke.spec.ts` routes array
 4. Update Navbar/Footer links if needed
+5. Add JSON-LD schema if relevant (see `src/lib/schema.ts`)
 
 ---
 
@@ -308,7 +380,7 @@ export default function LocationPage() {
 Use helpers from `src/lib/schema.ts`:
 
 ```typescript
-import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
+import { generateServiceSchema, generateFAQSchema, localBusinessSchema } from '@/lib/schema';
 
 // In page component:
 <script
@@ -323,6 +395,11 @@ import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
 />
 ```
 
+Available schemas:
+- `localBusinessSchema` - Organization info (in layout.tsx)
+- `generateServiceSchema()` - Individual service pages
+- `generateFAQSchema()` - FAQ pages
+
 ### Redirects
 
 All legacy URL redirects are in `next.config.ts`. When migrating old content:
@@ -335,6 +412,10 @@ All legacy URL redirects are in `next.config.ts`. When migrating old content:
 }
 ```
 
+### Sitemap
+
+Dynamic sitemap generated in `src/app/sitemap.ts`. Add new pages to the `routes` array.
+
 ---
 
 ## Analytics Integration
@@ -342,7 +423,7 @@ All legacy URL redirects are in `next.config.ts`. When migrating old content:
 ### Google Tag Manager
 
 - GTM ID: `GTM-MJWNZD3F`
-- Initialized in `src/app/layout.tsx`
+- Initialized in `src/app/layout.tsx` via `@next/third-parties`
 
 ### Conversion Events
 
@@ -357,8 +438,17 @@ Push to `dataLayer` for important actions:
 ```
 
 Tracked conversions:
-- `phone_click` - Phone number clicks
-- `book_call_click` - "Book a Call" button clicks
+- `phone_click` - Phone number clicks (TrackedPhoneLink component)
+- `book_call_click` - "Book a Call" button clicks (TrackedLink component)
+- `generate_lead` - Form submissions (useLeadSubmission hook)
+
+### Admin Dashboard
+
+Access at `/admin/seo-dashboard` to view:
+- Lead statistics by period (7d, 30d, 90d, 1y)
+- Leads by source, customer type, project type, location
+- Recent leads table
+- Daily breakdown charts
 
 ---
 
@@ -369,10 +459,11 @@ Tracked conversions:
 - Use `sharp` for image processing
 - Original images go in `/public/images/`
 - Run `node scripts/optimize-images.mjs` for batch optimization
+- Gallery images auto-processed at build time
 
 ### Gallery Images
 
-Auto-processed by build script. Images must:
+Auto-processed by `generate-gallery-data.mjs`. Images must:
 - Be in `/public/images/` subdirectories
 - Formats: `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`
 - Have descriptive filenames (used for alt text generation)
@@ -382,6 +473,40 @@ Auto-processed by build script. Images must:
 Allowed domains (in `next.config.ts`):
 - `images.unsplash.com`
 - `image.pollinations.ai`
+
+---
+
+## Data Management
+
+### Homepage Content
+
+Edit `src/data/homepage.ts` to update:
+- Social proof stats
+- Hero video/poster
+- System cards (pergolas, shades, enclosures)
+- Value propositions
+- Guide offer content
+- Pathway cards (design, price, pro, commercial)
+
+### Projects
+
+Edit `src/lib/projects.ts` to add/modify case studies:
+- Each project has slug, title, location, type, systems
+- Gallery images, hero image, card image
+- Challenge, solution, results, specs, testimonial
+- Related projects for cross-linking
+- Optional serviceAreaSlug for location linking
+
+### Lead Capture
+
+Form submission flow:
+1. User submits form → `useLeadSubmission` hook
+2. POST to `/api/leads` with lead data
+3. Server validates (honeypot check)
+4. Insert into Supabase `leads` table
+5. Send email notification via Resend
+6. Return success/failure to client
+7. Track conversion in GTM dataLayer
 
 ---
 
@@ -404,6 +529,7 @@ Production URL: `https://www.edgpatioshade.com`
 - [ ] No ESLint errors (`npm run lint`)
 - [ ] New pages added to sitemap and smoke tests
 - [ ] Environment variables configured in Vercel
+- [ ] Images optimized if adding new assets
 
 ---
 
@@ -416,6 +542,7 @@ Production URL: `https://www.edgpatioshade.com`
 | Gallery data missing | Ensure images exist in `/public/images/`, run `node scripts/generate-gallery-data.mjs` |
 | Type errors | Check `tsconfig.json` includes new files |
 | Env var errors | Verify all required env vars in `.env.local` |
+| Sharp errors | Rebuild native modules: `npm rebuild sharp` |
 
 ### Common Issues
 
@@ -432,6 +559,12 @@ Production URL: `https://www.edgpatioshade.com`
 **Styles not applying:**
 - Tailwind v4 uses `@import 'tailwindcss'` not directives
 - Check `globals.css` for theme variable definitions
+- Ensure PostCSS config is correct
+
+**Admin dashboard not loading:**
+- Verify `ADMIN_API_KEY` is set
+- Check localStorage for stored admin key
+- Verify API endpoint returns 200 with valid key
 
 ---
 
@@ -439,5 +572,21 @@ Production URL: `https://www.edgpatioshade.com`
 
 - **Design System:** Uses custom EDG brand colors (mint green accent)
 - **Component Library:** Custom UI components in `src/components/ui/`
-- **Documentation:** Next.js docs at https://nextjs.org/docs
-- **Tailwind v4:** https://tailwindcss.com/docs/v4-beta
+- **Documentation:** 
+  - Next.js docs: https://nextjs.org/docs
+  - Tailwind v4: https://tailwindcss.com/docs/v4-beta
+  - React 19: https://react.dev
+
+---
+
+## File Count Summary
+
+- **Total TypeScript/TSX files:** ~90
+- **Pages/Routes:** 50+ (including nested service area pages)
+- **UI Components:** 8 reusable components
+- **API Routes:** 2 (leads, analytics)
+- **Scripts:** 5 (gallery generation, image optimization, service area registration)
+
+---
+
+*Last updated: February 2026*
