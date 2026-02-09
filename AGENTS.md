@@ -7,17 +7,29 @@
 
 ---
 
+## Quick Start
+
+**New to this project?** Start here:
+
+1. **Project Overview** - Read this file (you are here)
+2. **Global Rules** - [`.agent/constraints/GLOBAL.md`](.agent/constraints/GLOBAL.md) - Critical constraints for ALL pages
+3. **Workflows** - [`.agent/workflow/`](.agent/workflow/) - Step-by-step guides
+4. **Patterns** - [`.agent/patterns/`](.agent/patterns/) - Component APIs and architecture
+
+---
+
 ## Project Overview
 
-This is the marketing website for **EDG Patio & Shade** (also referred to as EDG Outdoor Living), a company specializing in premium motorized pergolas, exterior shades, and glass enclosures. The website serves the Chicago to Milwaukee corridor with nationwide design and supply availability.
+Marketing website for **EDG Patio & Shade**, specializing in premium motorized pergolas, exterior shades, and glass enclosures. Serves the Chicago to Milwaukee corridor with nationwide design and supply.
 
 ### Business Context
 
-- **Primary Service Areas:** Lake County IL, North Shore Chicago (Wilmette, Winnetka, Glencoe), McHenry County IL, Southeast Wisconsin (Lake Geneva, Kenosha, Racine), Sanibel/Captiva FL
+- **Primary Service Areas:** Lake County IL, North Shore Chicago, McHenry County IL, Southeast Wisconsin, Sanibel/Captiva FL
 - **Product Categories:** Pergolas, Shades, Glass Enclosures, Outdoor Appliances, Heating Systems, Furniture, Umbrellas
-- **Target Audiences:** Homeowners, hospitality/commercial clients, trade professionals (architects, designers, builders)
+- **Target Audiences:** Homeowners, hospitality/commercial clients, trade professionals
 - **Lead Capture:** Free planning guide download, contact forms, phone calls
-- **Showroom Location:** 1802 Holian Drive, Spring Grove, IL 60081
+- **Showroom:** 1802 Holian Drive, Spring Grove, IL 60081
+- **Phone:** 815-581-0138
 
 ---
 
@@ -28,50 +40,39 @@ This is the marketing website for **EDG Patio & Shade** (also referred to as EDG
 | Framework | Next.js | 16.0.10 |
 | Runtime | React | 19.2.1 |
 | Language | TypeScript | 5.x |
-| Styling | Tailwind CSS | 4.x (new @theme syntax) |
+| Styling | Tailwind CSS | 4.x |
 | Font | Barlow (Google Fonts) | - |
 | Animation | Framer Motion | 12.x |
-| Icons | Lucide React | - |
 
-### Backend & Data Services
+### Backend & Data
 
 | Service | Purpose |
 |---------|---------|
 | Supabase | Lead storage (PostgreSQL) |
-| Resend | Email notifications for leads |
+| Resend | Email notifications |
 | Vercel Analytics | Performance monitoring |
-| Vercel Speed Insights | Core Web Vitals tracking |
 | Google Tag Manager | Conversion tracking (GTM-MJWNZD3F) |
 
 ---
 
-## Build and Test Commands
+## Commands Reference
 
 ```bash
 # Development
-npm run dev              # Start development server on localhost:3000
+npm run dev                    # localhost:3000
 
-# Build & Deploy
-npm run build            # Generate gallery data + production build
-npm start                # Start production server
+# Building
+npm run build                  # Production build + gallery generation
+npm start                      # Production server
 
-# Code Quality
-npm run lint             # Run ESLint (Next.js config with TypeScript)
-npm run format           # Format with Prettier
+# Quality
+npm run lint                   # ESLint
+npm run format                 # Prettier
+npm run test:e2e              # Playwright tests
 
-# Testing
-npm run test:e2e         # Run Playwright smoke tests
-
-# Code Generation
-npm run generate         # Run Plop to generate new pages from templates
+# Generation
+npm run generate               # Plop page generator
 ```
-
-### Pre-Build Script
-
-The `scripts/generate-gallery-data.mjs` script runs before every build. It:
-- Scans `/public/images` for image files (jpg, jpeg, png, webp, avif)
-- Extracts metadata (width, height) using Sharp
-- Generates `src/data/gallery-images.json` for the gallery component
 
 ---
 
@@ -79,539 +80,188 @@ The `scripts/generate-gallery-data.mjs` script runs before every build. It:
 
 ```
 src/
-├── app/                          # Next.js App Router
-│   ├── api/                     # API Routes
-│   │   ├── analytics/route.ts   # Lead analytics dashboard (admin only)
-│   │   └── leads/route.ts       # Lead submission endpoint
-│   ├── admin/                   # Admin dashboard (SEO dashboard)
-│   ├── commercial/              # Commercial/hospitality pages
-│   ├── guides/                  # Educational content & planning guide
-│   ├── locations/               # Location-specific landing pages
-│   ├── projects/                # Portfolio/case studies
-│   │   ├── page.tsx             # Projects listing
-│   │   └── [slug]/page.tsx      # Individual project detail
-│   ├── service-areas/           # Location-based landing pages
-│   │   ├── page.tsx             # Service areas index
-│   │   └── [area]/              # Individual service area pages
-│   │       ├── page.tsx
-│   │       ├── motorized-pergolas/
-│   │       └── zoning-guide/
-│   ├── systems/                 # Product category pages
-│   │   ├── page.tsx             # Systems overview
-│   │   ├── pergolas/
-│   │   ├── shades/
-│   │   ├── enclosures/
-│   │   ├── appliances/
-│   │   ├── heating/
-│   │   ├── furniture/
-│   │   └── umbrellas/
-│   ├── layout.tsx               # Root layout with metadata
-│   ├── globals.css              # Tailwind v4 + theme variables
-│   ├── page.tsx                 # Homepage
-│   ├── sitemap.ts               # Dynamic sitemap generation
-│   ├── robots.ts                # robots.txt
-│   ├── error.tsx                # Error boundary
-│   └── not-found.tsx            # 404 page
+├── app/                       # Next.js App Router
+│   ├── api/                  # API routes (leads, analytics)
+│   ├── (routes)/             # Grouped routes
+│   ├── admin/                # SEO dashboard
+│   ├── commercial/           # Hospitality/commercial pages
+│   ├── guides/               # Educational content
+│   ├── locations/            # Location pages
+│   ├── projects/             # Portfolio/case studies
+│   ├── service-areas/        # Location landing pages
+│   │   ├── page.tsx          # Service areas index
+│   │   └── [area]/           # Individual areas
+│   │       ├── page.tsx      # Hub page
+│   │       ├── zoning-guide/ # Zoning spoke
+│   │       └── [product]/    # Product spoke
+│   ├── systems/              # Product category pages
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Homepage
 ├── components/
-│   ├── ui/                      # Reusable UI components
-│   │   ├── Button.tsx           # Primary CTA button
-│   │   ├── Container.tsx        # Max-width wrapper
-│   │   ├── Section.tsx          # Section wrapper with padding
-│   │   ├── FadeIn.tsx           # Framer Motion animation wrapper
-│   │   ├── Link.tsx             # Custom Link component
-│   │   ├── TrackedLink.tsx      # Link with GTM conversion tracking
-│   │   └── TrackedPhoneLink.tsx # Phone link with conversion tracking
-│   ├── layout/                  # Navbar, Footer
-│   └── features/                # Page-specific components
-│       ├── contact/
-│       ├── gallery/
-│       ├── home/
-│       └── service-area/
-├── data/                        # Static data
-│   ├── gallery-images.json      # Auto-generated by build script
-│   └── homepage.ts              # Homepage content
-├── hooks/                       # Custom React hooks
-│   └── useLeadSubmission.ts     # Lead form submission hook
-├── lib/                         # Utilities & schemas
-│   ├── utils.ts                 # cn() utility for Tailwind
-│   ├── schema.ts                # JSON-LD schema generators
-│   └── projects.ts              # Project/case study data
-└── middleware.ts                # Domain redirects (www enforcement)
+│   ├── ui/                   # UI primitives (Button, Container, etc.)
+│   ├── layout/               # Navbar, Footer
+│   └── features/             # Page-specific features
+├── lib/
+│   ├── projects.ts           # Project registry
+│   ├── schema.ts             # JSON-LD helpers
+│   └── utils.ts              # Utilities (cn function)
+└── data/
+    └── gallery-images.json   # Auto-generated
 ```
 
-### Key Files Reference
+---
+
+## Documentation Structure
+
+### Constraints (MUST Follow)
 
 | File | Purpose |
 |------|---------|
-| `next.config.ts` | 100+ redirects from legacy WordPress URLs, image domains |
-| `src/lib/schema.ts` | JSON-LD schemas (LocalBusiness, Service, FAQ) |
-| `src/lib/utils.ts` | `cn()` utility for Tailwind class merging |
-| `src/middleware.ts` | Redirects non-www to www (301) |
-| `plopfile.js` | Code generation configuration |
-| `templates/page.hbs` | Handlebars template for new pages |
+| [`.agent/constraints/GLOBAL.md`](.agent/constraints/GLOBAL.md) | Rules for ALL pages (metadata, 'use client', images) |
+| [`.agent/constraints/SERVICE_AREA.md`](.agent/constraints/SERVICE_AREA.md) | Hub pages: 800+ words, 4 neighborhoods, FAQ |
+| [`.agent/constraints/SERVICE_AREA_ZONING.md`](.agent/constraints/SERVICE_AREA_ZONING.md) | Zoning guides: permits, setbacks, 50% rule |
+| [`.agent/constraints/SERVICE_AREA_PRODUCT.md`](.agent/constraints/SERVICE_AREA_PRODUCT.md) | Product spokes: local benefits, 700+ words |
+| [`.agent/constraints/PROJECT.md`](.agent/constraints/PROJECT.md) | Case studies: challenge/solution/result |
+| [`.agent/constraints/SYSTEM.md`](.agent/constraints/SYSTEM.md) | Product pages: specs, gallery, 900+ words |
+
+### Workflows (Step-by-Step)
+
+| File | Use When |
+|------|----------|
+| [`.agent/workflow/new-service-area.md`](.agent/workflow/new-service-area.md) | Creating new location cluster (hub + zoning + product) |
+| [`.agent/workflow/new-project.md`](.agent/workflow/new-project.md) | Adding portfolio project |
+| [`.agent/workflow/validation.md`](.agent/workflow/validation.md) | Pre-deployment checks |
+
+### Patterns (How To)
+
+| File | Contains |
+|------|----------|
+| [`.agent/patterns/components.md`](.agent/patterns/components.md) | Container, Button, Image APIs |
+| [`.agent/patterns/architecture.md`](.agent/patterns/architecture.md) | Server/Client patterns, file structure |
 
 ---
 
-## Code Style Guidelines
+## Critical Rules (Summary)
 
-### TypeScript Conventions
+### 1. 'use client' Kills SEO
 
-- **Strict mode enabled** - all code must be type-safe
-- Use `interface` for object shapes, `type` for unions/complex types
-- Props interfaces named without `Props` suffix (e.g., `ButtonProps`)
-- Use path alias `@/` for all imports from `src/`
+**NEVER** use `'use client'` in `page.tsx` files. Client Components cannot export metadata.
 
+**Correct Pattern:**
 ```typescript
-// Good
-import { Button } from '@/components/ui/Button';
-
-interface ButtonProps {
-  variant?: 'primary' | 'secondary';
+// page.tsx (Server Component)
+export const metadata = { title: 'Page' };
+export default function Page() {
+  return <ContactFormClient />; // Only client part hydrates
 }
-```
 
-### React Conventions
-
-- Use **function declarations** for components
-- Client components marked with `'use client'` at top
-- Server components preferred by default
-- Use `ref` prop pattern for component refs (React 19 style)
-
-```typescript
-'use client';  // When using hooks or browser APIs
-
-export function ComponentName({ prop }: ButtonProps) {
-  return <div />;
-}
-```
-
-### Styling Conventions
-
-- Use **Tailwind CSS v4** exclusively (no traditional config file)
-- Custom brand colors defined in `globals.css` using `@theme`:
-  - `--color-edg-brand: #42ffc1` (mint green accent)
-  - `--color-edg-brand-text: #000000` (black text on mint)
-  - `--color-edg-dark: #000000` (true black)
-  - `--color-edg-light: #ffffff` (true white)
-  - `--color-edg-gray: #71717a` (zinc 500)
-  - `--color-edg-gray-light: #f4f4f5` (zinc 100)
-- Use `cn()` utility for conditional class merging
-- Container component used for consistent max-width (max-w-7xl)
-- **No rounded corners** on primary UI elements (rounded-none preferred)
-- **Uppercase tracking-wider** for labels and CTAs
-
-```typescript
-// Pattern for conditional classes
-className={cn(
-  'base-classes',
-  {
-    'conditional-class': condition,
-    'another-class': otherCondition,
-  },
-  className  // Allow override
-)}
-```
-
-### Naming Conventions
-
-- **Components:** PascalCase (`ContactForm.tsx`)
-- **Hooks:** camelCase with `use` prefix (`useLeadSubmission.ts`)
-- **Utilities:** camelCase (`formatDate.ts`)
-- **Routes:** kebab-case (`service-areas/naperville-il`)
-
----
-
-## 🚨 CRITICAL PATTERNS (Read Before Coding)
-
-### Server vs Client Components
-
-**THIS IS THE #1 SOURCE OF BUGS AND SEO ISSUES**
-
-| Pattern | Use When | Can Export Metadata? |
-|---------|----------|---------------------|
-| **Server Component** (default) | Static content, SEO pages, data fetching | ✅ Yes |
-| **Client Component** (`'use client'`) | Interactive UI, browser APIs, hooks | ❌ No |
-
-**⚠️ CRITICAL RULE**: If a page needs SEO (title, description, canonical), it **MUST** be a Server Component. Move client-side logic to child components.
-
-```typescript
-// ✅ CORRECT: Page is Server Component
-import type { Metadata } from 'next';
-import { ContactForm } from './ContactForm';
-
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  alternates: { canonical: '/contact' },
-};
-
-export default function ContactPage() {
-  return (
-    <main>
-      <h1>Contact</h1>
-      <ContactForm /> {/* Only this component hydrates client-side */}
-    </main>
-  );
-}
-```
-
-```typescript
-// ContactForm.tsx - Client Component
+// ContactFormClient.tsx
 'use client';
-import { useState } from 'react';
-
-export function ContactForm() {
-  const [formData, setFormData] = useState({});
-  // ... form logic with hooks
-}
+export function ContactFormClient() { ... }
 ```
 
-### Image Optimization
+**See:** [`.agent/constraints/GLOBAL.md`](.agent/constraints/GLOBAL.md)
 
-**Always use `next/image` instead of CSS background images:**
-
-```typescript
-// ❌ WRONG - No optimization
-<div style={{ backgroundImage: `url('${image}')` }} />
-
-// ✅ CORRECT - Optimized with lazy loading
-import Image from 'next/image';
-
-<Image
-  src={image.src}
-  alt={image.alt}
-  fill
-  className="object-cover"
-  sizes="(max-width: 768px) 100vw, 50vw"
-  loading="lazy"
-/>
-```
-
-### Component API Reference
-
-| Component | Key Props | File |
-|-----------|-----------|------|
-| **Container** | `fluid?: boolean` - removes max-width | `ui/Container.tsx` |
-| **Button** | `variant: 'primary' \| 'secondary' \| 'ghost' \| 'outline'` | `ui/Button.tsx` |
-| **FadeIn** | `direction?: 'up' \| 'down' \| 'left' \| 'right', delay?: number` | `ui/FadeIn.tsx` |
-| **Breadcrumb** | `items: Array<{ label, href }>` - includes JSON-LD schema | `ui/Breadcrumb.tsx` |
-
-See `.agent/skills/component-patterns/SKILL.md` for detailed examples.
-
-### Service Area Page Structure
-
-Every service area hub page MUST follow this structure:
-
-1. **Metadata export** with title, description, canonical
-2. **JSON-LD Schema** (Service type)
-3. **Hero** with location name and CTA
-4. **Local benefits bar** (4 items)
-5. **Neighborhood sections** (4 neighborhoods, ~200 words each)
-6. **Weather/climate considerations**
-7. **FAQ section** (4-5 questions, ~100 words each)
-8. **Cluster links** to spoke pages
-9. **CTA section**
-
-**Minimum: 800 words total** (thin content won't rank)
-
-### Pre-Deployment Checklist
-
-- [ ] Page does NOT use `'use client'` (unless absolutely necessary)
-- [ ] Page exports metadata with `alternates.canonical`
-- [ ] Build passes: `npm run build`
-- [ ] Tests pass: `npm run test:e2e`
-- [ ] Code formatted: `npm run format`
-
----
-
-## Testing Instructions
-
-### E2E Tests (Playwright)
-
-Location: `e2e/smoke.spec.ts`
-
-Tests verify all routes from sitemap return 200 OK:
-
-```bash
-# Run tests (starts dev server automatically)
-npm run test:e2e
-
-# With UI
-npx playwright test --ui
-```
-
-When adding new pages:
-1. Add route to `e2e/smoke.spec.ts` `routes` array
-2. Add route to `src/app/sitemap.ts` for SEO
-
-### Manual Testing Checklist
-
-- [ ] Page loads without console errors
-- [ ] Meta tags render correctly (use browser dev tools)
-- [ ] Mobile responsive (test 320px, 768px, 1024px+)
-- [ ] Phone links trigger `dataLayer.push` for GTM
-- [ ] Forms validate and show error states
-- [ ] Dark mode classes render correctly
-
----
-
-## Security Considerations
-
-### Environment Variables Required
-
-```bash
-# Supabase (Required for leads)
-NEXT_PUBLIC_SUPABASE_URL=
-SUPABASE_SERVICE_ROLE_KEY=
-
-# Email Notifications (Required)
-RESEND_API_KEY=
-NOTIFICATION_EMAIL=cfoley@edgpatioshade.com
-FROM_EMAIL=EDG Leads <notifications@email.edgpatioshade.com>
-
-# Admin API (Required in production)
-ADMIN_API_KEY=
-
-# Optional
-SUPABASE_ANON_KEY=
-```
-
-### Security Measures
-
-1. **Honeypot Spam Protection**
-   - Hidden `fax` field in lead forms
-   - If filled, request is silently dropped with fake success
-   - Located in: `src/app/api/leads/route.ts`
-
-2. **API Authentication**
-   - Admin endpoints require `x-admin-key` header
-   - No fallback keys in production (`NODE_ENV === 'production'`)
-   - GET /api/leads requires auth
-   - GET /api/analytics requires auth
-
-3. **Middleware Protection**
-   - WordPress attack vectors blocked (302 redirects)
-   - XML-RPC, wp-admin, wp-login blocked
-   - See: `next.config.ts` redirects section
-
-4. **Domain Enforcement**
-   - Non-www redirects to www (301 permanent)
-   - HTTPS enforced via middleware
-
-### Sensitive Data Handling
-
-- Lead data stored in Supabase PostgreSQL
-- Email notifications sent via Resend API
-- No PII in logs (email is logged only for spam detection)
-
----
-
-## Creating New Pages
-
-### Using Plop Generator
-
-```bash
-npm run generate
-# Select "page"
-# Enter: Page Name, Route path, SEO Description
-```
-
-### Manual Page Creation
-
-For service area pages:
-
-```typescript
-// src/app/service-areas/[location]/page.tsx
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Location | EDG Patio & Shade',
-  description: '...',
-  alternates: { canonical: '/service-areas/location' },
-};
-
-export default function LocationPage() {
-  return (
-    <main>
-      <h1>Location Outdoor Living</h1>
-      {/* Use existing UI components */}
-    </main>
-  );
-}
-```
-
-### Required for Every Page
-
-1. Metadata with `title`, `description`, `alternates.canonical`
-2. Add to `src/app/sitemap.ts`
-3. Add to `e2e/smoke.spec.ts` routes array
-4. Update Navbar/Footer links if needed
-
----
-
-## SEO & Schema Requirements
-
-### JSON-LD Schemas
-
-Use helpers from `src/lib/schema.ts`:
-
-```typescript
-import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
-
-// In page component:
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(generateServiceSchema({
-      name: 'Service Name',
-      description: 'Service description',
-      url: 'https://www.edgpatioshade.com/path',
-    })),
-  }}
-/>
-```
-
-### Metadata Template
+### 2. Every Page Needs Metadata
 
 ```typescript
 export const metadata: Metadata = {
   title: 'Page Title | EDG Patio & Shade',
-  description: 'Page description for SEO...',
-  alternates: { canonical: '/page-path' },
-  openGraph: {
-    title: 'Page Title | EDG Outdoor Living',
-    description: 'Page description...',
-  },
+  description: '150-160 character description',
+  alternates: { canonical: '/exact-path' }, // REQUIRED
 };
 ```
 
-### Redirects
-
-All legacy URL redirects are in `next.config.ts`. When migrating old content:
+### 3. Always Use next/image
 
 ```typescript
-{
-  source: '/old-url',
-  destination: '/new-url',
-  permanent: true,  // 301 for permanent, false for 302
-}
+// WRONG
+<div style={{ backgroundImage: `url('${image}')` }} />
+
+// CORRECT
+<Image src={image} alt="..." fill className="object-cover" />
+```
+
+### 4. Service Areas: 800+ Words, 4 Neighborhoods
+
+Every service area hub MUST have:
+- 800+ words
+- 4 neighborhood sections with specific streets
+- FAQ section with 3+ questions
+- Schema markup
+
+**See:** [`.agent/constraints/SERVICE_AREA.md`](.agent/constraints/SERVICE_AREA.md)
+
+---
+
+## Common Tasks
+
+### Create New Service Area
+
+```bash
+# Follow complete workflow
+# See: .agent/workflow/new-service-area.md
+
+npm run generate -- --name "City Outdoor Living" --route "service-areas/city-il" --description "..."
+# Then expand content per constraints
+```
+
+### Add New Project
+
+```bash
+# See: .agent/workflow/new-project.md
+
+# 1. Add to src/lib/projects.ts
+# 2. Create page at app/projects/[slug]/page.tsx
+# 3. Add images to public/images/projects/[slug]/
+# 4. Update sitemap
+```
+
+### Before Every Deployment
+
+```bash
+# See: .agent/workflow/validation.md
+
+npm run format
+npm run build
+npm run test:e2e
 ```
 
 ---
 
-## Analytics Integration
+## Key Files Reference
 
-### Google Tag Manager
+| File | Purpose |
+|------|---------|
+| `next.config.ts` | Redirects (100+ legacy URLs), image domains, security headers |
+| `src/lib/schema.ts` | JSON-LD schema generators |
+| `src/lib/projects.ts` | Project registry |
+| `src/lib/utils.ts` | `cn()` Tailwind class merger |
+| `src/middleware.ts` | Domain redirects (www enforcement) |
+| `src/app/sitemap.ts` | SEO sitemap |
 
-- GTM ID: `GTM-MJWNZD3F`
-- Initialized in `src/app/layout.tsx` via `@next/third-parties`
+---
 
-### Conversion Events
+## Validation Commands
 
-Push to `dataLayer` for important actions:
+```bash
+# Check for 'use client' on pages (should be empty)
+grep -l "'use client'" src/app/**/page.tsx src/app/**/**/page.tsx 2>/dev/null
 
-```typescript
-(window as any).dataLayer?.push({
-  event: 'conversion_event',
-  conversion_name: 'phone_click',  // or 'book_call_click'
-  value: 0,
-});
-```
+# Check for missing canonical
+grep -rL "alternates:" src/app/**/page.tsx 2>/dev/null
 
-Tracked conversions:
-- `phone_click` - Phone number clicks
-- `book_call_click` - "Book a Call" / "Start Project" button clicks
-- `generate_lead` - Form submissions (handled in useLeadSubmission hook)
-
-### Tracked Components
-
-Use `TrackedLink` and `TrackedPhoneLink` components for automatic conversion tracking:
-
-```typescript
-import { TrackedLink } from '@/components/ui/TrackedLink';
-import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
-
-<TrackedLink href="/contact">Book Consultation</TrackedLink>
-<TrackedPhoneLink href="tel:+18155810138">(815) 581-0138</TrackedPhoneLink>
+# Full validation
+npm run build && npm run test:e2e
 ```
 
 ---
 
-## Image Guidelines
+## Contact & Resources
 
-### Optimization
-
-- Use `sharp` for image processing
-- Original images go in `/public/images/`
-- Run `node scripts/optimize-images.mjs` for batch optimization (if available)
-
-### Gallery Images
-
-Auto-processed by build script. Images must:
-- Be in `/public/images/` subdirectories
-- Formats: `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif`
-- Have descriptive filenames (used for alt text generation)
-
-### Remote Images
-
-Allowed domains (in `next.config.ts`):
-- `images.unsplash.com`
-- `image.pollinations.ai`
-
----
-
-## Deployment
-
-### Platform: Vercel
-
-Production URL: `https://www.edgpatioshade.com`
-
-### Environment Setup
-
-1. Set all environment variables in Vercel dashboard
-2. Build command uses `npm run build` (includes gallery generation)
-3. Output is static + serverless functions
-
-### Pre-Deployment Checklist
-
-- [ ] `npm run build` succeeds locally
-- [ ] `npm run test:e2e` passes
-- [ ] No ESLint errors (`npm run lint`)
-- [ ] New pages added to sitemap and smoke tests
-- [ ] Environment variables configured in Vercel
-
----
-
-## Troubleshooting
-
-### Build Failures
-
-| Issue | Solution |
-|-------|----------|
-| Gallery data missing | Ensure images exist in `/public/images/`, run `node scripts/generate-gallery-data.mjs` |
-| Type errors | Check `tsconfig.json` includes new files |
-| Env var errors | Verify all required env vars in `.env.local` |
-
-### Common Issues
-
-**Images not loading in gallery:**
-- Check `src/data/gallery-images.json` exists
-- Verify image paths in public directory
-- Run build script to regenerate
-
-**Lead form not submitting:**
-- Check Supabase credentials
-- Verify `SUPABASE_SERVICE_ROLE_KEY` (not anon key)
-- Check browser console for CORS errors
-
-**Styles not applying:**
-- Tailwind v4 uses `@import 'tailwindcss'` not directives
-- Check `globals.css` for theme variable definitions
-
----
-
-## Resources
-
-- **Design System:** Uses custom EDG brand colors (mint green accent)
-- **Component Library:** Custom UI components in `src/components/ui/`
-- **Documentation:** Next.js docs at https://nextjs.org/docs
-- **Tailwind v4:** https://tailwindcss.com/docs/v4-beta
+- **Production URL:** https://www.edgpatioshade.com
+- **Vercel Dashboard:** (project dashboard)
+- **Google Search Console:** (GSC property)
+- **Design System:** Tailwind v4 with custom EDG brand colors
+  - `--color-edg-brand: #42ffc1` (mint green)
+  - `--color-edg-brand-text: #008a5c` (dark green)
