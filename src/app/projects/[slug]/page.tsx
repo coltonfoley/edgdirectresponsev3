@@ -2,20 +2,16 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowLeft,
   ArrowRight,
   MapPin,
   CheckCircle2,
-  Calendar,
-  Ruler,
-  Clock,
 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import { getAllProjects, getProject } from '@/lib/projects';
-
-// Project data imported from central source
 
 import { Metadata } from 'next';
 
@@ -44,6 +40,12 @@ export async function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
 }
 
+// ISR: Revalidate every hour to pick up new projects
+export const revalidate = 3600;
+
+// Allow new projects to be generated on-demand
+export const dynamicParams = true;
+
 export default async function ProjectPage({
   params,
 }: {
@@ -60,9 +62,13 @@ export default async function ProjectPage({
     <main className="bg-edg-light min-h-screen dark:bg-black">
       {/* ========== HERO ========== */}
       <section className="relative h-[60vh] min-h-[500px]">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${project.heroImage}')` }}
+        <Image
+          src={project.heroImage}
+          alt={project.title}
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         <Container className="relative z-10 flex h-full flex-col justify-end pb-12">
@@ -144,9 +150,17 @@ export default async function ProjectPage({
                   {project.galleryImages.map((img, i) => (
                     <div
                       key={i}
-                      className="aspect-square overflow-hidden rounded-xl bg-cover bg-center"
-                      style={{ backgroundImage: `url('${img}')` }}
-                    />
+                      className="relative aspect-square overflow-hidden rounded-xl"
+                    >
+                      <Image
+                        src={img}
+                        alt={`${project.title} gallery image ${i + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 33vw, 20vw"
+                        loading="lazy"
+                      />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -188,7 +202,7 @@ export default async function ProjectPage({
               {project.testimonial && (
                 <div className="bg-edg-dark rounded-2xl p-6 text-white">
                   <blockquote className="mb-4 text-lg leading-relaxed">
-                    "{project.testimonial.quote}"
+                    &quot;{project.testimonial.quote}&quot;
                   </blockquote>
                   <div>
                     <div className="font-bold">{project.testimonial.name}</div>
@@ -203,7 +217,7 @@ export default async function ProjectPage({
               <div className="bg-edg-brand text-edg-dark rounded-2xl p-6 text-center">
                 <h3 className="mb-2 text-lg font-bold">Start your project</h3>
                 <p className="mb-4 text-sm">
-                  Let's discuss what's possible for your space.
+                  Let&apos;s discuss what&apos;s possible for your space.
                 </p>
                 <Link href="/contact">
                   <Button
@@ -233,10 +247,15 @@ export default async function ProjectPage({
                   href={`/projects/${relatedSlug}`}
                   className="group flex overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-300 hover:shadow-xl dark:border-white/5 dark:bg-zinc-900"
                 >
-                  <div
-                    className="w-1/3 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${related.heroImage}')` }}
-                  />
+                  <div className="relative w-1/3 overflow-hidden">
+                    <Image
+                      src={related.heroImage}
+                      alt={related.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 33vw, 20vw"
+                    />
+                  </div>
                   <div className="w-2/3 p-6">
                     <span className="text-edg-brand text-xs font-semibold">
                       {related.type}

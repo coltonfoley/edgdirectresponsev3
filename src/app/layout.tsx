@@ -84,6 +84,19 @@ export const metadata: Metadata = {
 // LocalBusiness JSON-LD Schema
 import { localBusinessSchema } from '@/lib/schema';
 
+// WebSite Schema for Sitelinks Search Box
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'EDG Patio & Shade',
+  url: 'https://www.edgpatioshade.com',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://www.edgpatioshade.com/search?q={search_term_string}',
+    'query-input': 'required name=search_term_string',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -96,6 +109,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
       </head>
