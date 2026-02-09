@@ -221,6 +221,108 @@ className={cn(
 
 ---
 
+## 🚨 CRITICAL PATTERNS (Read Before Coding)
+
+### Server vs Client Components
+
+**THIS IS THE #1 SOURCE OF BUGS AND SEO ISSUES**
+
+| Pattern | Use When | Can Export Metadata? |
+|---------|----------|---------------------|
+| **Server Component** (default) | Static content, SEO pages, data fetching | ✅ Yes |
+| **Client Component** (`'use client'`) | Interactive UI, browser APIs, hooks | ❌ No |
+
+**⚠️ CRITICAL RULE**: If a page needs SEO (title, description, canonical), it **MUST** be a Server Component. Move client-side logic to child components.
+
+```typescript
+// ✅ CORRECT: Page is Server Component
+import type { Metadata } from 'next';
+import { ContactForm } from './ContactForm';
+
+export const metadata: Metadata = {
+  title: 'Contact Us',
+  alternates: { canonical: '/contact' },
+};
+
+export default function ContactPage() {
+  return (
+    <main>
+      <h1>Contact</h1>
+      <ContactForm /> {/* Only this component hydrates client-side */}
+    </main>
+  );
+}
+```
+
+```typescript
+// ContactForm.tsx - Client Component
+'use client';
+import { useState } from 'react';
+
+export function ContactForm() {
+  const [formData, setFormData] = useState({});
+  // ... form logic with hooks
+}
+```
+
+### Image Optimization
+
+**Always use `next/image` instead of CSS background images:**
+
+```typescript
+// ❌ WRONG - No optimization
+<div style={{ backgroundImage: `url('${image}')` }} />
+
+// ✅ CORRECT - Optimized with lazy loading
+import Image from 'next/image';
+
+<Image
+  src={image.src}
+  alt={image.alt}
+  fill
+  className="object-cover"
+  sizes="(max-width: 768px) 100vw, 50vw"
+  loading="lazy"
+/>
+```
+
+### Component API Reference
+
+| Component | Key Props | File |
+|-----------|-----------|------|
+| **Container** | `fluid?: boolean` - removes max-width | `ui/Container.tsx` |
+| **Button** | `variant: 'primary' \| 'secondary' \| 'ghost' \| 'outline'` | `ui/Button.tsx` |
+| **FadeIn** | `direction?: 'up' \| 'down' \| 'left' \| 'right', delay?: number` | `ui/FadeIn.tsx` |
+| **Breadcrumb** | `items: Array<{ label, href }>` - includes JSON-LD schema | `ui/Breadcrumb.tsx` |
+
+See `.agent/skills/component-patterns/SKILL.md` for detailed examples.
+
+### Service Area Page Structure
+
+Every service area hub page MUST follow this structure:
+
+1. **Metadata export** with title, description, canonical
+2. **JSON-LD Schema** (Service type)
+3. **Hero** with location name and CTA
+4. **Local benefits bar** (4 items)
+5. **Neighborhood sections** (4 neighborhoods, ~200 words each)
+6. **Weather/climate considerations**
+7. **FAQ section** (4-5 questions, ~100 words each)
+8. **Cluster links** to spoke pages
+9. **CTA section**
+
+**Minimum: 800 words total** (thin content won't rank)
+
+### Pre-Deployment Checklist
+
+- [ ] Page does NOT use `'use client'` (unless absolutely necessary)
+- [ ] Page exports metadata with `alternates.canonical`
+- [ ] Build passes: `npm run build`
+- [ ] Tests pass: `npm run test:e2e`
+- [ ] Code formatted: `npm run format`
+
+---
+
 ## Testing Instructions
 
 ### E2E Tests (Playwright)
