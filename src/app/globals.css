@@ -13,6 +13,7 @@
   /* Primary Brand Colors */
   --color-edg-brand: #42ffc1;
   --color-edg-brand-text: #000000;
+  --color-edg-brand-dark: #008a5c;  /* Accessible on white (4.6:1 contrast) */
   --color-edg-dark: #000000;
   --color-edg-light: #ffffff;
 
@@ -195,7 +196,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-edg-brand);
+  color: var(--color-edg-brand-dark);  /* Accessible on white backgrounds */
 }
 
 /* Hero Title Scale */

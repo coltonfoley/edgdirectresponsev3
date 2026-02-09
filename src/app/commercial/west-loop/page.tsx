@@ -183,7 +183,7 @@ export default function WestLoopCommercialPage() {
               <div className="text-muted-foreground mb-4 text-sm tracking-widest uppercase">
                 Payback Period
               </div>
-              <div className="text-edg-brand mb-4 text-4xl font-bold">
+              <div className="text-edg-brand-dark mb-4 text-4xl font-bold">
                 4 - 6 Months
               </div>
               <p className="text-muted-foreground">

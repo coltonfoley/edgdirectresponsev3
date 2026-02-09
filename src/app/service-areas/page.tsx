@@ -94,15 +94,15 @@ export default function ServiceAreasPage() {
       <section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32 md:pb-24">
         <Container>
           <div className="max-w-4xl">
-            <div className="border border-edg-brand/30 bg-edg-brand/10 px-4 py-2 text-edg-brand inline-flex items-center gap-2 mb-6">
+            <div className="border border-edg-brand/30 bg-edg-brand/10 px-4 py-2 text-edg-brand-dark inline-flex items-center gap-2 mb-6">
               <MapPin className="h-4 w-4" />
               <span className="text-xs font-bold tracking-widest uppercase">
                 Local Service
               </span>
             </div>
             <h1 className="hero-title text-white mb-6">
-              Serving the <span className="text-edg-brand">Chicago</span> to{' '}
-              <span className="text-edg-brand">Milwaukee</span> Corridor
+              Serving the <span className="text-edg-brand-dark">Chicago</span> to{' '}
+              <span className="text-edg-brand-dark">Milwaukee</span> Corridor
             </h1>
             <p className="max-w-2xl text-xl leading-relaxed text-text-inverse-muted">
               We design and install premium outdoor living systems within 60

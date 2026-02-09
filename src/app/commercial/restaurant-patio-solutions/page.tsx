@@ -32,7 +32,7 @@ const features = [
   {
     icon: ChefHat,
     label: 'Happy Staff',
-    color: 'text-edg-brand-text dark:text-edg-brand',
+    color: 'text-edg-brand-dark dark:text-edg-brand',
   },
 ];
 
@@ -53,12 +53,12 @@ export default function RestaurantPatioPage() {
         <Container className="relative z-10">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
                 <Utensils className="h-4 w-4" /> Restaurant Solutions
               </span>
               <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
                 Four-Season
-                <span className="text-edg-brand block">Dining Revenue</span>
+                <span className="text-edg-brand-dark block">Dining Revenue</span>
               </h1>
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
                 Don't let Chicago weather dictate your profits. Add 30% more
@@ -81,12 +81,12 @@ export default function RestaurantPatioPage() {
           <FadeIn>
             <div className="grid items-center gap-16 lg:grid-cols-2">
               <div>
-                <span className="text-edg-brand-text dark:text-edg-brand mb-2 block text-sm font-bold tracking-wider uppercase">
+                <span className="text-edg-brand-dark dark:text-edg-brand mb-2 block text-sm font-bold tracking-wider uppercase">
                   The Problem We Solve
                 </span>
                 <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                   From "Weather Permitting" to{' '}
-                  <span className="text-edg-brand-text dark:text-edg-brand">
+                  <span className="text-edg-brand-dark dark:text-edg-brand">
                     "Always Open"
                   </span>
                 </h2>
@@ -171,13 +171,13 @@ export default function RestaurantPatioPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-sm">
                     <div className="bg-edg-brand/10 flex h-6 w-6 items-center justify-center rounded-full">
-                      <Check className="text-edg-brand-text dark:text-edg-brand h-3 w-3" />
+                      <Check className="text-edg-brand-dark dark:text-edg-brand h-3 w-3" />
                     </div>
                     100% Sky visibility
                   </li>
                   <li className="flex items-center gap-3 text-sm">
                     <div className="bg-edg-brand/10 flex h-6 w-6 items-center justify-center rounded-full">
-                      <Check className="text-edg-brand-text dark:text-edg-brand h-3 w-3" />
+                      <Check className="text-edg-brand-dark dark:text-edg-brand h-3 w-3" />
                     </div>
                     Integrated water drainage
                   </li>
@@ -193,13 +193,13 @@ export default function RestaurantPatioPage() {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3 text-sm">
                     <div className="bg-edg-brand/10 flex h-6 w-6 items-center justify-center rounded-full">
-                      <Check className="text-edg-brand-text dark:text-edg-brand h-3 w-3" />
+                      <Check className="text-edg-brand-dark dark:text-edg-brand h-3 w-3" />
                     </div>
                     Bioclimatic cooling
                   </li>
                   <li className="flex items-center gap-3 text-sm">
                     <div className="bg-edg-brand/10 flex h-6 w-6 items-center justify-center rounded-full">
-                      <Check className="text-edg-brand-text dark:text-edg-brand h-3 w-3" />
+                      <Check className="text-edg-brand-dark dark:text-edg-brand h-3 w-3" />
                     </div>
                     Heavy snow load capacity
                   </li>

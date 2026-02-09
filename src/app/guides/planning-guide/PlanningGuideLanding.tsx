@@ -180,7 +180,7 @@ export default function PlanningGuideLanding() {
                 className="rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
               >
                 <div className="bg-edg-brand/10 mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl">
-                  <benefit.icon className="text-edg-brand-text dark:text-edg-brand h-7 w-7" />
+                  <benefit.icon className="text-edg-brand-text h-7 w-7" />
                 </div>
                 <h3 className="mb-2 text-lg font-bold">{benefit.title}</h3>
                 <p className="text-edg-gray-text text-sm dark:text-gray-400">

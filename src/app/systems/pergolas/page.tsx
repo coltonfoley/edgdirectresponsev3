@@ -107,7 +107,7 @@ export default function PergolasPage() {
                   </Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">
-                  <div className="flex items-center gap-3 font-bold uppercase tracking-wider text-sm cursor-pointer hover:text-edg-brand transition-colors">
+                  <div className="flex items-center gap-3 font-bold uppercase tracking-wider text-sm cursor-pointer hover:text-edg-brand-text transition-colors">
                     <span className="h-px w-8 bg-black/20"></span>
                     Speak to a designer
                   </div>

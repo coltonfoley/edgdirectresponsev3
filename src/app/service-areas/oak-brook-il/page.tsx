@@ -152,7 +152,7 @@ export default function OakBrookHubPage() {
         <Container className="relative z-10">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+              <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
                 <MapPin className="h-4 w-4" /> Service Area: Oak Brook, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
