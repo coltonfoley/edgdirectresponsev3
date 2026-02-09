@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
 import Link from 'next/link';
 import {
@@ -11,8 +13,6 @@ import {
   CloudRain,
   Snowflake,
   Wifi,
-  ChevronRight,
-  Minus,
   Plus,
 } from 'lucide-react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
@@ -49,6 +49,38 @@ const specs = [
   { label: 'Material', value: '6061 T6 Aluminum' },
 ];
 
+const features = [
+  {
+    icon: Snowflake,
+    title: 'Heavy Snow Loads',
+    description: 'Engineered for 60psf+, handling our heaviest wet snowfalls without issue.',
+  },
+  {
+    icon: CloudRain,
+    title: 'Integrated Drainage',
+    description: 'Hidden gutters inside the beams channel water down the posts and away from your patio.',
+  },
+  {
+    icon: Wifi,
+    title: 'Smart Connection',
+    description: 'Operate via app, remote, or voice. Rain sensors automatically close the roof when weather strikes.',
+  },
+];
+
+const colorOptions = [
+  { name: "Traffic White", hex: "#FFFFFF" },
+  { name: "Jet Black", hex: "#000000" },
+  { name: "Anthracite", hex: "#2D3748" },
+  { name: "Sparkle Grey", hex: "#718096" }
+];
+
+const includedFeatures = [
+  'Site Laser Measure',
+  'Permit Packet Creation',
+  'Freight & Delivery',
+  'White-Glove Installation',
+];
+
 export default function PergolasPage() {
   return (
     <main className="bg-white min-h-screen">
@@ -64,13 +96,13 @@ export default function PergolasPage() {
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-black leading-[0.9]">
                 The Motorized <br /> Pergola.
               </h1>
-              <p className="text-xl text-gray-500 mb-10 leading-relaxed max-w-md">
-                Architectural shade control. 135° of rotation gives you sun when you want it, and a watertight seal when you don't.
+              <p className="text-xl text-text-secondary mb-10 leading-relaxed max-w-md">
+                Architectural shade control. 135° of rotation gives you sun when you want it, and a watertight seal when you don&apos;t.
               </p>
 
               <div className="flex flex-col gap-4 mb-12">
                 <TrackedLink href="/contact?type=price&product=pergola">
-                  <Button className="bg-black text-white hover:bg-edg-brand hover:text-black rounded-none px-8 py-6 text-lg font-bold uppercase tracking-wider w-full sm:w-auto">
+                  <Button size="lg" className="w-full sm:w-auto">
                     Configure System
                   </Button>
                 </TrackedLink>
@@ -87,8 +119,8 @@ export default function PergolasPage() {
                 <div className="grid grid-cols-2 gap-y-4 text-sm">
                   {specs.map((s) => (
                     <div key={s.label}>
-                      <span className="text-gray-400 block text-xs uppercase tracking-wider mb-1">{s.label}</span>
-                      <span className="font-bold text-black">{s.value}</span>
+                      <span className="text-text-muted block text-xs uppercase tracking-wider mb-1">{s.label}</span>
+                      <span className="font-bold text-text-primary">{s.value}</span>
                     </div>
                   ))}
                 </div>
@@ -96,7 +128,7 @@ export default function PergolasPage() {
             </div>
 
             <div className="lg:col-span-7 order-1 lg:order-2">
-              {/* Custom Sharp Gallery */}
+              {/* Gallery with next/Image */}
               <div className="relative aspect-[4/5] bg-zinc-100 overflow-hidden">
                 <ProductGallery items={galleryImages} />
               </div>
@@ -113,50 +145,32 @@ export default function PergolasPage() {
               <h2 className="text-4xl font-bold tracking-tighter mb-8 leading-tight">
                 Engineered for the <br /> Chicago Climate.
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Most "pergolas" are decorative. Ours are architectural machines. Built from extruded aircraft-grade aluminum and powder-coated to marine standards, they don't rust, warp, or require painting. Ever.
+              <p className="text-lg text-text-secondary mb-8 leading-relaxed">
+                Most &quot;pergolas&quot; are decorative. Ours are architectural machines. Built from extruded aircraft-grade aluminum and powder-coated to marine standards, they don&apos;t rust, warp, or require painting. Ever.
               </p>
               <ul className="space-y-6">
-                <li className="flex gap-4 items-start group">
-                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
-                    <Snowflake className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Heavy Snow Loads</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">Engineered for 60psf+, handling our heaviest wet snowfalls without issue.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4 items-start group">
-                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
-                    <CloudRain className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Integrated Drainage</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">Hidden gutters inside the beams channel water down the posts and away from your patio.</p>
-                  </div>
-                </li>
-                <li className="flex gap-4 items-start group">
-                  <div className="h-10 w-10 border border-black/10 flex items-center justify-center shrink-0 group-hover:bg-black group-hover:text-white transition-colors">
-                    <Wifi className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-lg mb-1">Smart Connection</h4>
-                    <p className="text-sm text-gray-500 leading-relaxed">Operate via app, remote, or voice. Rain sensors automatically close the roof when weather strikes.</p>
-                  </div>
-                </li>
+                {features.map((feature) => (
+                  <li key={feature.title} className="flex gap-4 items-start group">
+                    <IconWrapper icon={feature.icon} variant="default" size="md" />
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{feature.title}</h4>
+                      <p className="text-sm text-text-secondary leading-relaxed">{feature.description}</p>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="bg-zinc-900 border border-white/10 p-12 text-white flex flex-col justify-between min-h-[500px]">
+            <div className="bg-surface-dark-elevated border border-border-inverse p-12 text-white flex flex-col justify-between min-h-[500px]">
               <div>
-                <h3 className="text-edg-brand font-bold uppercase tracking-widest text-sm mb-6">Technical Layout</h3>
+                <h3 className="label-editorial-brand mb-6">Technical Layout</h3>
                 <div className="space-y-8">
                   <div>
                     <div className="text-2xl font-bold mb-2">Bi-Climatic</div>
-                    <p className="text-gray-400">Natural ventilation when slightly open, creating a cooling updraft.</p>
+                    <p className="text-text-inverse-muted">Natural ventilation when slightly open, creating a cooling updraft.</p>
                   </div>
                   <div>
                     <div className="text-2xl font-bold mb-2">Flat, not slanted.</div>
-                    <p className="text-gray-400">The louvers are water-managed, so the frame stays perfectly level for a modern architectural look.</p>
+                    <p className="text-text-inverse-muted">The louvers are water-managed, so the frame stays perfectly level for a modern architectural look.</p>
                   </div>
                 </div>
               </div>
@@ -173,23 +187,21 @@ export default function PergolasPage() {
       </Section>
 
       {/* ========== VISUAL CONFIGURATOR (Simplified) ========== */}
-      <Section className="bg-zinc-50 py-24">
+      <Section className="bg-surface-muted py-24">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold tracking-tighter mb-4">Make it yours.</h2>
-            <p className="text-gray-500">Standard colors ship in 3-4 weeks. Custom RAL matching available.</p>
+            <p className="text-text-secondary">Standard colors ship in 3-4 weeks. Custom RAL matching available.</p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { name: "Traffic White", hex: "#FFFFFF" },
-              { name: "Jet Black", hex: "#000000" },
-              { name: "Anthracite", hex: "#2D3748" },
-              { name: "Sparkle Grey", hex: "#718096" }
-            ].map((c) => (
+            {colorOptions.map((c) => (
               <div key={c.name} className="bg-white p-6 border border-black/5 text-center group hover:border-black/20 transition-colors">
-                <div className="w-16 h-16 rounded-full mx-auto mb-4 border border-black/10 shadow-sm" style={{ backgroundColor: c.hex }}></div>
-                <div className="font-bold text-sm text-black">{c.name}</div>
+                <div 
+                  className="w-16 h-16 mx-auto mb-4 border border-black/10 shadow-sm" 
+                  style={{ backgroundColor: c.hex }}
+                ></div>
+                <div className="font-bold text-sm text-text-primary">{c.name}</div>
               </div>
             ))}
           </div>
@@ -208,7 +220,7 @@ export default function PergolasPage() {
                 We can provide a preliminary price range with just a photo of your space and rough dimensions.
               </p>
               <TrackedLink href="/contact?type=price&product=pergola">
-                <Button className="bg-edg-brand text-black hover:bg-white rounded-none px-10 py-6 text-lg font-bold uppercase tracking-wider">
+                <Button size="lg">
                   Start Quote
                 </Button>
               </TrackedLink>
@@ -217,22 +229,12 @@ export default function PergolasPage() {
               <div className="space-y-6">
                 <h4 className="text-lg font-bold uppercase tracking-wide">Included in every project</h4>
                 <ul className="space-y-4 text-gray-400">
-                  <li className="flex items-center gap-3">
-                    <Plus className="h-4 w-4 text-edg-brand" />
-                    Site Laser Measure
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Plus className="h-4 w-4 text-edg-brand" />
-                    Permit Packet Creation
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Plus className="h-4 w-4 text-edg-brand" />
-                    Freight & Delivery
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Plus className="h-4 w-4 text-edg-brand" />
-                    White-Glove Installation
-                  </li>
+                  {includedFeatures.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3">
+                      <Plus className="h-4 w-4 text-edg-brand" />
+                      {feature}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

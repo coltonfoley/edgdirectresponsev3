@@ -1,21 +1,19 @@
 'use client';
 
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 
 import { FadeIn } from '@/components/ui/FadeIn';
 import {
   ArrowRight,
-  ChevronRight,
-  Phone,
   Check,
-  Star,
 } from 'lucide-react';
 import { useState } from 'react';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 
 export default function HomeClient() {
   return (
@@ -46,7 +44,7 @@ export default function HomeClient() {
             {/* Left: Headline & Copy */}
             <div className="flex flex-col justify-center text-white lg:col-span-7">
               <FadeIn>
-                <h1 className="mb-6 font-sans text-5xl font-bold leading-[0.95] tracking-tighter text-white md:text-7xl lg:text-[5.5rem]">
+                <h1 className="hero-title mb-6 text-white">
                   Motorized <br />
                   <span className="text-edg-brand">Pergolas & Screens</span>
                 </h1>
@@ -56,16 +54,16 @@ export default function HomeClient() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-6">
-                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white">
-                    <div className="h-1 w-1 bg-edg-brand rounded-full"></div>
+                  <div className="label-editorial flex items-center gap-2 text-white">
+                    <div className="h-1 w-1 bg-edg-brand"></div>
                     System Agnostic
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white">
-                    <div className="h-1 w-1 bg-edg-brand rounded-full"></div>
+                  <div className="label-editorial flex items-center gap-2 text-white">
+                    <div className="h-1 w-1 bg-edg-brand"></div>
                     Engineering Support
                   </div>
-                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white">
-                    <div className="h-1 w-1 bg-edg-brand rounded-full"></div>
+                  <div className="label-editorial flex items-center gap-2 text-white">
+                    <div className="h-1 w-1 bg-edg-brand"></div>
                     Showroom in Spring Grove
                   </div>
                 </div>
@@ -102,7 +100,16 @@ export default function HomeClient() {
         <div className="grid md:grid-cols-2">
           {/* Trade / Pro Side */}
           <Link href="/trade-partners" className="group relative block min-h-[40vh] md:min-h-[60vh] overflow-hidden bg-black">
-            <div className="absolute inset-0 opacity-60 transition-opacity duration-700 group-hover:opacity-40 bg-[url('/images/pergolas/pergola-hero.jpg')] bg-cover bg-center grayscale group-hover:grayscale-0"></div>
+            {/* Background Image using next/Image */}
+            <div className="absolute inset-0">
+              <Image
+                src="/images/pergolas/pergola-hero.jpg"
+                alt="Motorized pergola installation"
+                fill
+                className="object-cover opacity-60 grayscale transition-all duration-700 group-hover:opacity-40 group-hover:grayscale-0"
+                sizes="50vw"
+              />
+            </div>
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
             <div className="relative h-full flex flex-col justify-center p-12 md:p-20 z-10">
               <div className="mb-4 inline-block border border-white/30 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm">
@@ -120,7 +127,16 @@ export default function HomeClient() {
 
           {/* Residential Side */}
           <Link href="/design" className="group relative block min-h-[40vh] md:min-h-[60vh] overflow-hidden bg-zinc-900 border-t md:border-t-0 md:border-l border-white/10">
-            <div className="absolute inset-0 opacity-60 transition-opacity duration-700 group-hover:opacity-40 bg-[url('/images/motorized-retractable-screens-patio.jpg')] bg-cover bg-center"></div>
+            {/* Background Image using next/Image */}
+            <div className="absolute inset-0">
+              <Image
+                src="/images/motorized-retractable-screens-patio.jpg"
+                alt="Motorized retractable screens on patio"
+                fill
+                className="object-cover opacity-60 transition-opacity duration-700 group-hover:opacity-40"
+                sizes="50vw"
+              />
+            </div>
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
             <div className="relative h-full flex flex-col justify-center p-12 md:p-20 z-10">
               <div className="mb-4 inline-block border border-white/30 px-3 py-1 text-xs font-bold uppercase tracking-widest text-white backdrop-blur-sm">
@@ -145,8 +161,8 @@ export default function HomeClient() {
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-black mb-6">
               Engineered for <br /> the elements.
             </h2>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              We don't sell "kits". We design and specify architectural-grade systems built to withstand high winds, snow loads, and years of use.
+            <p className="text-xl text-text-secondary leading-relaxed">
+              We don&apos;t sell &quot;kits&quot;. We design and specify architectural-grade systems built to withstand high winds, snow loads, and years of use.
             </p>
           </div>
 
@@ -154,31 +170,38 @@ export default function HomeClient() {
             {/* System 1 */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
-                {/* Placeholder for real image, using CSS usually, here we assume Image or div */}
-                <div style={{ backgroundImage: "url('/images/pergolas/pergola-hero.jpg')" }} className="absolute inset-0 bg-cover bg-center"></div>
+                <Image
+                  src="/images/pergolas/pergola-hero.jpg"
+                  alt="Motorized louvered pergola"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
               <div>
-                <div className="text-edg-brand-text font-bold uppercase tracking-widest text-sm mb-4">Core Product</div>
+                <div className="label-editorial-brand mb-4">Core Product</div>
                 <h3 className="text-3xl md:text-4xl font-bold mb-6">Motorized Louvered Pergolas</h3>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-text-secondary mb-8 leading-relaxed">
                   Control sun, shade, and rain with the touch of a button. Our systems are extruded aluminum, powder-coated, and engineered for our Midwest climate.
                 </p>
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-black shrink-0 mt-1" />
-                    <span className="text-gray-800 font-medium">Integrated Drainage Systems</span>
+                    <IconWrapper icon={Check} variant="default" size="sm" className="mt-0.5" />
+                    <span className="text-text-primary font-medium">Integrated Drainage Systems</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-black shrink-0 mt-1" />
-                    <span className="text-gray-800 font-medium">Smart Home & App Control</span>
+                    <IconWrapper icon={Check} variant="default" size="sm" className="mt-0.5" />
+                    <span className="text-text-primary font-medium">Smart Home & App Control</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-black shrink-0 mt-1" />
-                    <span className="text-gray-800 font-medium">Heaters & LED Lighting Integrated</span>
+                    <IconWrapper icon={Check} variant="default" size="sm" className="mt-0.5" />
+                    <span className="text-text-primary font-medium">Heaters & LED Lighting Integrated</span>
                   </li>
                 </ul>
                 <Link href="/systems/pergolas">
-                  <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white rounded-none px-8 py-3 font-bold uppercase">Explore Pergolas</Button>
+                  <Button variant="secondary" className="px-8 py-3">
+                    Explore Pergolas
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -186,16 +209,24 @@ export default function HomeClient() {
             {/* System 2 - Reversed */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="md:order-2 relative aspect-[4/3] bg-gray-100 overflow-hidden">
-                <div style={{ backgroundImage: "url('/images/motorized-retractable-screens-patio.jpg')" }} className="absolute inset-0 bg-cover bg-center"></div>
+                <Image
+                  src="/images/motorized-retractable-screens-patio.jpg"
+                  alt="Motorized retractable screens"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
               <div className="md:order-1">
-                <div className="text-edg-brand-text font-bold uppercase tracking-widest text-sm mb-4">Core Product</div>
+                <div className="label-editorial-brand mb-4">Core Product</div>
                 <h3 className="text-3xl md:text-4xl font-bold mb-6">Retractable Screens</h3>
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-text-secondary mb-8 leading-relaxed">
                   MagnaTrack technology ensures your screens never get stuck or blown out of their tracks. Block 95% of wind, bugs, and UV rays without losing your view.
                 </p>
                 <Link href="/systems/shades">
-                  <Button variant="outline" className="border-black text-black hover:bg-black hover:text-white rounded-none px-8 py-3 font-bold uppercase">Explore Screens</Button>
+                  <Button variant="secondary" className="px-8 py-3">
+                    Explore Screens
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -204,38 +235,38 @@ export default function HomeClient() {
       </Section>
 
       {/* ========== WHY US (Editorial Style) ========== */}
-      <Section className="bg-zinc-50 py-24 md:py-32 border-t border-black/5">
+      <Section className="bg-surface-muted py-24 md:py-32 border-t border-black/5">
         <Container>
           <div className="grid lg:grid-cols-12 gap-12">
             <div className="lg:col-span-5">
               <h2 className="text-4xl font-bold tracking-tighter mb-8 max-w-sm">
-                We are not a "Jack of all trades."
+                We are not a &quot;Jack of all trades.&quot;
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Most exterior companies do decks, pavers, pools, and "oh yeah, we can do a pergola."
+              <p className="text-lg text-text-secondary mb-8 leading-relaxed">
+                Most exterior companies do decks, pavers, pools, and &quot;oh yeah, we can do a pergola.&quot;
               </p>
-              <p className="text-lg text-gray-600 border-l-2 border-edg-brand pl-6 italic">
-                "EDG is different. We specialize exclusively in motorized architectural systems. It's all we do."
+              <p className="text-lg text-text-secondary border-l-2 border-edg-brand pl-6 italic">
+                &quot;EDG is different. We specialize exclusively in motorized architectural systems. It&apos;s all we do.&quot;
               </p>
             </div>
             <div className="lg:col-span-1 hidden lg:block"></div>
             <div className="lg:col-span-6 space-y-12">
               <div>
                 <h3 className="text-xl font-bold mb-3 uppercase tracking-wide">System-Agnostic</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  We aren't locked into one manufacturer. We carry multiple lines so we can recommend the exact system that fits your aesthetic and budget requirements.
+                <p className="text-text-secondary leading-relaxed">
+                  We aren&apos;t locked into one manufacturer. We carry multiple lines so we can recommend the exact system that fits your aesthetic and budget requirements.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3 uppercase tracking-wide">In-House Expertise</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  From our design consultants to our installation leads, our team is trained specifically on complex motorized systems. We don't sub out the critical work.
+                <p className="text-text-secondary leading-relaxed">
+                  From our design consultants to our installation leads, our team is trained specifically on complex motorized systems. We don&apos;t sub out the critical work.
                 </p>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-3 uppercase tracking-wide">The Showroom</h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Don't buy from a brochure. Visit our Spring Grove facility to see, touch, and operate full-size display units before you decide.
+                <p className="text-text-secondary leading-relaxed">
+                  Don&apos;t buy from a brochure. Visit our Spring Grove facility to see, touch, and operate full-size display units before you decide.
                 </p>
               </div>
             </div>
@@ -255,12 +286,12 @@ export default function HomeClient() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
               <Link href="/contact">
-                <Button className="bg-edg-brand text-black hover:bg-white min-w-[200px] h-14 text-lg font-bold uppercase rounded-none">
+                <Button size="lg" className="min-w-[200px]">
                   Book Consultation
                 </Button>
               </Link>
               <Link href="/guides/planning-guide">
-                <Button variant="secondary" className="border-white text-white hover:bg-white hover:text-black min-w-[200px] h-14 text-lg font-bold uppercase rounded-none">
+                <Button size="lg" variant="outline" className="min-w-[200px]">
                   Get Planning Guide
                 </Button>
               </Link>
@@ -304,14 +335,14 @@ function HeroForm() {
   if (success) {
     return (
       <div className="w-full max-w-md bg-white/10 backdrop-blur-md p-8 border border-white/20 text-center">
-        <div className="bg-edg-brand mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full text-black">
+        <div className="bg-edg-brand mx-auto mb-6 flex h-16 w-16 items-center justify-center text-black">
           <Check className="h-8 w-8" />
         </div>
         <h3 className="mb-2 text-2xl font-bold text-white">
           Message Received
         </h3>
         <p className="text-gray-300">
-          We'll be in touch shortly to discuss your project.
+          We&apos;ll be in touch shortly to discuss your project.
         </p>
       </div>
     );
@@ -335,7 +366,7 @@ function HeroForm() {
             required
             disabled={loading}
             onChange={handleChange}
-            className="w-full bg-white/5 border border-white/20 px-4 py-3 text-white placeholder:text-gray-500 focus:border-edg-brand focus:outline-none transition-colors"
+            className="input-editorial-dark"
           />
           <input
             type="text"
@@ -344,7 +375,7 @@ function HeroForm() {
             required
             disabled={loading}
             onChange={handleChange}
-            className="w-full bg-white/5 border border-white/20 px-4 py-3 text-white placeholder:text-gray-500 focus:border-edg-brand focus:outline-none transition-colors"
+            className="input-editorial-dark"
           />
         </div>
         <input
@@ -354,7 +385,7 @@ function HeroForm() {
           required
           disabled={loading}
           onChange={handleChange}
-          className="w-full bg-white/5 border border-white/20 px-4 py-3 text-white placeholder:text-gray-500 focus:border-edg-brand focus:outline-none transition-colors"
+          className="input-editorial-dark"
         />
         <input
           type="text"
@@ -363,7 +394,7 @@ function HeroForm() {
           required
           disabled={loading}
           onChange={handleChange}
-          className="w-full bg-white/5 border border-white/20 px-4 py-3 text-white placeholder:text-gray-500 focus:border-edg-brand focus:outline-none transition-colors"
+          className="input-editorial-dark"
         />
         <select
           name="projectType"
@@ -371,7 +402,7 @@ function HeroForm() {
           disabled={loading}
           onChange={handleChange}
           defaultValue=""
-          className="w-full bg-white/5 border border-white/20 px-4 py-3 text-white focus:border-edg-brand focus:outline-none transition-colors appearance-none"
+          className="input-editorial-dark appearance-none"
         >
           <option value="" disabled className="text-black">
             Project Type...
@@ -392,7 +423,7 @@ function HeroForm() {
         <Button
           type="submit"
           disabled={loading}
-          className="bg-edg-brand text-black hover:bg-white w-full py-4 text-base font-bold uppercase tracking-wider rounded-none transition-colors"
+          className="w-full py-4 text-base"
         >
           {loading ? 'Sending...' : 'Get Started'}
         </Button>

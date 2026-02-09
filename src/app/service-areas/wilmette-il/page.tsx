@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
 import {
   MapPin,
@@ -13,7 +16,6 @@ import {
   CloudSun,
   Building,
   Wind,
-  Phone,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -128,34 +130,38 @@ export default function WilmetteHubPage() {
 
       {/* ========== HERO ========== */}
       <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage:
-              "url('/images/pergolas/residential-white-r-blade-led-strip.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-white-r-blade-led-strip.jpg"
+            alt="White louvered pergola with LED lighting"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
 
         <Container className="relative z-10">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
                 <MapPin className="h-4 w-4" /> Service Area: Wilmette, IL
               </span>
-              <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+              <h1 className="hero-title mb-6 text-white">
                 Upgrade Your Wilmette Home with
                 <span className="text-edg-brand block">
                   Four-Season Outdoor Living
                 </span>
               </h1>
-              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 From the brick streets of the Cage to the shores of Lake
                 Michigan, we design engineered shade systems that respect
                 Wilmette&apos;s architectural heritage and handle its unique weather.
               </p>
               <Link href="/contact">
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="px-8 text-lg">
                   Request Wilmette Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -171,7 +177,7 @@ export default function WilmetteHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="flex items-center gap-2 text-gray-300">
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
                   <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
                 </span>
               ))}
@@ -181,26 +187,23 @@ export default function WilmetteHubPage() {
       </section>
 
       {/* ========== NEIGHBORHOODS ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Serving Every Wilmette Neighborhood
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 We understand the unique character and requirements of Wilmette&apos;s distinct areas.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900"
-                >
+                <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-muted-foreground">{neighborhood.description}</p>
-                </div>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -208,29 +211,24 @@ export default function WilmetteHubPage() {
       </Section>
 
       {/* ========== WEATHER CONSIDERATIONS ========== */}
-      <Section className="bg-zinc-50 py-20 dark:bg-zinc-900">
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Built for Wilmette&apos;s Lakefront Weather
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Our systems are engineered specifically for North Shore climate challenges.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3">
               {weatherConsiderations.map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950"
-                >
-                  <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                    <item.icon className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                  </div>
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -238,26 +236,23 @@ export default function WilmetteHubPage() {
       </Section>
 
       {/* ========== FAQ ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Common Questions About Wilmette Projects
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Everything you need to know about outdoor living in Wilmette.
               </p>
             </div>
-            <div className="mx-auto max-w-3xl space-y-6">
+            <div className="mx-auto max-w-3xl space-y-4">
               {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900"
-                >
+                <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -265,51 +260,59 @@ export default function WilmetteHubPage() {
       </Section>
 
       {/* ========== CLUSTER LINKS ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Local Resources for Wilmette Homeowners
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
                 href="/service-areas/wilmette-il/zoning-guide"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <ShieldCheck className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">
-                  Wilmette Building & Zoning Guide
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Before you build, understand the &quot;Impermeable Surface&quot; limits
-                  and setbacks specific to Wilmette village codes.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  Read the Guide <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Wilmette Building & Zoning Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Before you build, understand the &quot;Impermeable Surface&quot; limits
+                    and setbacks specific to Wilmette village codes.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read the Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/service-areas/wilmette-il/louvered-pergolas"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
-                  <Home className="h-6 w-6 text-blue-500" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">
-                  Louvered Pergolas in Wilmette
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Why aluminum louvered roofs are the preferred choice for North
-                  Shore winters over traditional wood structures.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Louvered Pergolas in Wilmette
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Why aluminum louvered roofs are the preferred choice for North
+                    Shore winters over traditional wood structures.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
             </div>
           </FadeIn>
@@ -317,7 +320,7 @@ export default function WilmetteHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <Section className="bg-edg-brand py-20">
+      <section className="section-md bg-edg-brand">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
@@ -330,8 +333,8 @@ export default function WilmetteHubPage() {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  variant="secondary"
-                  className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
+                  variant="dark"
+                  className="px-8 text-lg"
                 >
                   Schedule Free Consultation{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -340,7 +343,7 @@ export default function WilmetteHubPage() {
             </div>
           </FadeIn>
         </Container>
-      </Section>
+      </section>
     </div>
   );
 }

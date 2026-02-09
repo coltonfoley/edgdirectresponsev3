@@ -12,15 +12,15 @@ import { cn } from '@/lib/utils';
 const coreProducts = [
   {
     href: '/systems/pergolas',
-    label: 'Motorized Pergolas',
+    label: 'Pergolas',
   },
   {
     href: '/systems/shades',
-    label: 'Retractable Screens',
+    label: 'Screens',
   },
   {
     href: '/systems/enclosures',
-    label: 'Glass Enclosures',
+    label: 'Enclosures',
   },
 ];
 
@@ -141,11 +141,12 @@ export function Navbar() {
         'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
         scrolled
           ? 'bg-edg-light/95 border-b border-black/5 py-4 backdrop-blur-md'
-          : 'bg-transparent py-8'
+          : 'bg-transparent py-6'
       )}
     >
-      <Container className="px-6">
+      <Container className="px-4 md:px-6">
         <div className="relative flex h-full w-full items-center justify-between">
+          {/* Logo */}
           <Link
             href="/"
             className={cn(
@@ -156,15 +157,15 @@ export function Navbar() {
             EDG
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden items-center gap-8 lg:flex">
+          {/* Desktop Nav - Increased breakpoint to xl for more space */}
+          <nav className="hidden items-center gap-6 xl:flex">
             {/* Core Product Links */}
             {coreProducts.map((product) => (
               <Link
                 key={product.href}
                 href={product.href}
                 className={cn(
-                  'text-sm font-bold uppercase tracking-wider transition-colors hover:text-edg-brand',
+                  'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
               >
@@ -180,13 +181,13 @@ export function Navbar() {
                   setAreasOpen(false);
                 }}
                 className={cn(
-                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-edg-brand',
+                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
                 aria-label="Complete your outdoor space"
                 aria-expanded={systemsOpen}
               >
-                Complete Your Space
+                Complete Space
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 transition-transform',
@@ -196,16 +197,19 @@ export function Navbar() {
               </button>
 
               {systemsOpen && (
-                <div className="animate-in fade-in zoom-in-95 absolute top-full -left-1/2 mt-4 w-80 -translate-x-1/4 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
+                <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-72 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
                   {completeYourSpace.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
                       onClick={() => setSystemsOpen(false)}
-                      className="group block px-6 py-4 transition-colors hover:bg-black hover:text-white"
+                      className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                     >
                       <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
                         {item.label}
+                      </div>
+                      <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                        {item.desc}
                       </div>
                     </Link>
                   ))}
@@ -221,7 +225,7 @@ export function Navbar() {
                   setSystemsOpen(false);
                 }}
                 className={cn(
-                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wider transition-colors hover:text-edg-brand',
+                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
                 aria-label="View service areas"
@@ -237,11 +241,11 @@ export function Navbar() {
               </button>
 
               {areasOpen && (
-                <div className="animate-in fade-in zoom-in-95 absolute top-full -left-1/2 mt-4 w-80 -translate-x-1/4 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
+                <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-80 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
                   <Link
                     href="/service-areas"
                     onClick={() => setAreasOpen(false)}
-                    className="group block border-b border-black/5 px-6 py-4 transition-colors hover:bg-black hover:text-white"
+                    className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
                     <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
                       All Service Areas
@@ -253,10 +257,13 @@ export function Navbar() {
                         key={item.href}
                         href={item.href}
                         onClick={() => setAreasOpen(false)}
-                        className="group block px-6 py-4 transition-colors hover:bg-black hover:text-white"
+                        className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                       >
                         <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
                           {item.label}
+                        </div>
+                        <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-0.5">
+                          {item.desc}
                         </div>
                       </Link>
                     ))}
@@ -268,7 +275,7 @@ export function Navbar() {
             <Link
               href="/gallery"
               className={cn(
-                'text-sm font-bold uppercase tracking-wider transition-colors hover:text-edg-brand',
+                'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                 textColor
               )}
             >
@@ -276,17 +283,18 @@ export function Navbar() {
             </Link>
           </nav>
 
-          <div className="ml-auto flex items-center gap-6">
+          {/* Right side actions */}
+          <div className="flex items-center gap-4">
             {/* Desktop CTAs */}
-            <div className="hidden items-center gap-6 lg:flex">
+            <div className="hidden items-center gap-4 xl:flex">
               <Link
                 href="/trade-partners"
                 className={cn(
-                  'text-sm font-bold uppercase tracking-wider transition-colors hover:text-edg-brand',
+                  'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
               >
-                Trade Partners
+                Trade
               </Link>
               <Link
                 href="/contact"
@@ -299,11 +307,10 @@ export function Navbar() {
                 }
               >
                 <Button
-                  variant={scrolled ? 'primary' : 'secondary'}
+                  variant={scrolled ? 'primary' : 'outline'}
+                  size="sm"
                   className={cn(
-                    "rounded-none px-6 font-bold uppercase tracking-widest",
-                    !scrolled && "border-white text-white hover:bg-white hover:text-black",
-                    scrolled && "bg-black text-white hover:bg-edg-brand hover:text-black"
+                    !scrolled && "border-white text-white hover:bg-white hover:text-black"
                   )}
                 >
                   Start Project
@@ -312,7 +319,7 @@ export function Navbar() {
             </div>
 
             {/* Mobile: Phone + Menu Toggle */}
-            <div className="flex items-center gap-3 lg:hidden">
+            <div className="flex items-center gap-2 xl:hidden">
               <a
                 href="tel:+18155810138"
                 onClick={() =>
@@ -344,7 +351,7 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex h-screen flex-col overflow-y-auto bg-black p-6 text-white lg:hidden">
+          <div className="animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex h-screen flex-col overflow-y-auto bg-black p-6 text-white xl:hidden">
             <div className="flex flex-col gap-8 pt-10">
               {/* Core Products Section */}
               <div className="space-y-4">
@@ -420,7 +427,9 @@ export function Navbar() {
                     });
                   }}
                 >
-                  <Button className="bg-edg-brand text-edg-dark hover:bg-white w-full rounded-none py-6 text-lg font-bold uppercase">Start Your Project</Button>
+                  <Button className="bg-edg-brand text-edg-dark hover:bg-white w-full py-6 text-lg font-bold uppercase">
+                    Start Your Project
+                  </Button>
                 </Link>
               </div>
             </div>
