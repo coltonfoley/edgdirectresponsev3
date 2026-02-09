@@ -29,10 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/terms', priority: 0.5 },
     // Service Areas
     { url: '/service-areas', priority: 0.8 },
-    { url: '/service-areas/lake-county-il', priority: 0.8 },
-    { url: '/service-areas/mchenry-county-il', priority: 0.8 },
-    { url: '/service-areas/north-shore-chicago', priority: 0.8 },
-    { url: '/service-areas/southeast-wisconsin', priority: 0.8 },
     { url: '/service-areas/naperville-il', priority: 0.8 },
     { url: '/service-areas/barrington-il', priority: 0.8 },
     { url: '/service-areas/oak-brook-il', priority: 0.8 },
@@ -40,6 +36,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/service-areas/hinsdale-il', priority: 0.8 },
     { url: '/service-areas/sanibel-outdoor-living', priority: 0.8 },
     { url: '/service-areas/northbrook-il', priority: 0.8 },
+    { url: '/service-areas/wilmette-il', priority: 0.8 },
+    { url: '/service-areas/winnetka-il', priority: 0.8 },
     // Deep Links
     { url: '/commercial/west-loop', priority: 0.7 },
     { url: '/commercial/chicago-hospitality-outdoor-living', priority: 0.8 },

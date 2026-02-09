@@ -1,6 +1,8 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -8,12 +10,12 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Service Areas | Pergolas & Outdoor Living | Chicago to Milwaukee',
   description:
-    'EDG Outdoor Living serves Lake County IL, McHenry County, the North Shore, and Southeast Wisconsin. Motorized pergolas, shades, and glass enclosures installed by local experts.',
+    'EDG Patio & Shade serves communities across the Chicago to Milwaukee corridor. Motorized pergolas, shades, and glass enclosures installed by local experts.',
   alternates: {
     canonical: '/service-areas',
   },
   openGraph: {
-    title: 'Service Areas | EDG Outdoor Living',
+    title: 'Service Areas | EDG Patio & Shade',
     description:
       'Serving the greater Chicago to Milwaukee corridor. Local expertise, professional installation.',
   },
@@ -21,166 +23,98 @@ export const metadata: Metadata = {
 
 const serviceAreas = [
   {
-    name: 'Lake County, Illinois',
-    slug: 'lake-county-il',
+    name: 'Wilmette, IL',
+    slug: 'wilmette-il',
     description:
-      'From Libertyville to Lake Forest, Gurnee to Highland Park. Our home base and most active market.',
-    communities: [
-      'Libertyville',
-      'Lake Forest',
-      'Highland Park',
-      'Gurnee',
-      'Vernon Hills',
-      'Lincolnshire',
-    ],
-    featured: true,
+      'Historic districts to lakefront estates. Zoning-compliant outdoor living for North Shore homes.',
+    region: 'North Shore',
   },
   {
-    name: 'North Shore Chicago',
-    slug: 'north-shore-chicago',
+    name: 'Winnetka, IL',
+    slug: 'winnetka-il',
     description:
-      "Wilmette to Winnetka, Glencoe to Kenilworth. Premium outdoor living for the North Shore's finest properties.",
-    communities: [
-      'Wilmette',
-      'Winnetka',
-      'Glencoe',
-      'Kenilworth',
-      'Northbrook',
-      'Northfield',
-    ],
-    featured: true,
+      'Estate-scale installations with architectural review board expertise for prestigious properties.',
+    region: 'North Shore',
   },
   {
-    name: 'McHenry County, Illinois',
-    slug: 'mchenry-county-il',
+    name: 'Northbrook, IL',
+    slug: 'northbrook-il',
     description:
-      'Crystal Lake to Algonquin, Woodstock to Huntley. Bringing refined outdoor spaces to the northwest suburbs.',
-    communities: [
-      'Crystal Lake',
-      'Algonquin',
-      'Woodstock',
-      'Huntley',
-      'McHenry',
-      'Cary',
-    ],
-    featured: false,
+      'From Techny to Northbrook Heights. Hurricane-rated systems for Cook County homes.',
+    region: 'North Shore',
   },
   {
-    name: 'Southeast Wisconsin',
-    slug: 'southeast-wisconsin',
-    description:
-      "Lake Geneva to Kenosha, Racine to Burlington. Wisconsin's lakefront and beyond.",
-    communities: [
-      'Lake Geneva',
-      'Kenosha',
-      'Racine',
-      'Burlington',
-      'Delavan',
-      'Elkhorn',
-    ],
-    featured: false,
-  },
-  {
-    name: 'Naperville & West Suburbs',
-    slug: 'naperville-il',
-    description:
-      'From Downers Grove to Plainfield, Aurora to Wheaton. Bringing premium shade solutions to the busy western corridor.',
-    communities: [
-      'Naperville',
-      'Lisle',
-      'Bolingbrook',
-      'Aurora',
-      'Warrenville',
-      'Woodridge',
-    ],
-    featured: false,
-  },
-  {
-    name: 'Barrington Area',
+    name: 'Barrington, IL',
     slug: 'barrington-il',
     description:
-      'Classic estate living meets modern outdoor technology. Serving North, South, and Lake Barrington.',
-    communities: [
-      'Barrington',
-      'South Barrington',
-      'Inverness',
-      'Lake Barrington',
-      'Deer Park',
-      'Kildeer',
-    ],
-    featured: false,
+      'Estate properties and equestrian communities. Large-span engineering for expansive patios.',
+    region: 'Northwest Suburbs',
   },
   {
-    name: 'Oak Brook & Hinsdale',
+    name: 'Naperville, IL',
+    slug: 'naperville-il',
+    description:
+      'Historic downtown to new developments. HOA-compliant designs for western suburbs.',
+    region: 'West Suburbs',
+  },
+  {
+    name: 'Hinsdale, IL',
+    slug: 'hinsdale-il',
+    description:
+      'Premier estates and historic properties. Custom designs for The Lane and surrounding areas.',
+    region: 'West Suburbs',
+  },
+  {
+    name: 'Oak Brook, IL',
     slug: 'oak-brook-il',
     description:
-      'Estate-style outdoor living for the western suburbs. Serving Oak Brook, Hinsdale, and Burr Ridge.',
-    communities: [
-      'Oak Brook',
-      'Hinsdale',
-      'Burr Ridge',
-      'Clarendon Hills',
-      'Elmhurst',
-    ],
-    featured: false,
+      'Estate-style outdoor living for Oak Brook, Burr Ridge, and surrounding western suburbs.',
+    region: 'West Suburbs',
   },
   {
     name: 'Lake Geneva, WI',
     slug: 'lake-geneva-wi',
     description:
-      'Exclusive lakeside living. Motorized pergolas and glass enclosures for Geneva Lake estates.',
-    communities: [
-      'Lake Geneva',
-      'Fontana',
-      'Williams Bay',
-      'Walworth',
-      'Linn',
-      'Genoa City',
-    ],
-    featured: false,
+      'Lakeside estates and vacation properties. Wind-engineered systems for Geneva Lake.',
+    region: 'Wisconsin',
   },
   {
-    name: 'Hinsdale',
-    slug: 'hinsdale-il',
+    name: 'Sanibel & Captiva, FL',
+    slug: 'sanibel-outdoor-living',
     description:
-      "Premium pergolas and shade systems for Hinsdale's premier estates.",
-    communities: [
-      'Southeast Hinsdale',
-      'The Woodlands',
-      'Fullersburg',
-      'Downtown Hinsdale',
-    ],
-    featured: false,
+      'Hurricane-rated coastal living. Salt-air resistant systems for island homes.',
+    region: 'Florida',
   },
 ];
 
 export default function ServiceAreasPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <main className="min-h-screen">
       {/* Hero */}
-      <Section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32">
+      <section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32 md:pb-24">
         <Container>
           <div className="max-w-4xl">
-            <div className="bg-edg-brand/20 border-edg-brand/30 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-              <MapPin className="text-edg-brand h-4 w-4" />
-              <span className="text-edg-brand text-sm font-semibold tracking-wider uppercase">
+            <div className="border border-edg-brand/30 bg-edg-brand/10 px-4 py-2 text-edg-brand inline-flex items-center gap-2 mb-6">
+              <MapPin className="h-4 w-4" />
+              <span className="text-xs font-bold tracking-widest uppercase">
                 Local Service
               </span>
             </div>
-            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-              Serving the Chicago to Milwaukee Corridor
+            <h1 className="hero-title text-white mb-6">
+              Serving the <span className="text-edg-brand">Chicago</span> to{' '}
+              <span className="text-edg-brand">Milwaukee</span> Corridor
             </h1>
-            <p className="max-w-2xl text-xl leading-relaxed text-gray-300">
+            <p className="max-w-2xl text-xl leading-relaxed text-text-inverse-muted">
               We design and install premium outdoor living systems within 60
               miles of Spring Grove, IL. Local expertise means we understand
               your climate, your municipalities, and your neighborhoods.
             </p>
           </div>
         </Container>
-      </Section>
+      </section>
 
       {/* Why Local Matters */}
-      <Section className="bg-zinc-100 py-16 dark:bg-zinc-900">
+      <Section className="section-md bg-surface-muted">
         <Container>
           <div className="grid gap-8 md:grid-cols-3">
             {[
@@ -198,9 +132,14 @@ export default function ServiceAreasPage() {
               },
             ].map((item) => (
               <div key={item.title} className="text-center">
-                <CheckCircle2 className="text-edg-brand mx-auto mb-4 h-10 w-10" />
+                <IconWrapper
+                  icon={CheckCircle2}
+                  variant="brand"
+                  size="lg"
+                  className="mx-auto mb-4"
+                />
                 <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                <p className="text-muted-foreground">{item.desc}</p>
+                <p className="text-text-secondary">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -208,75 +147,42 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* Service Areas Grid */}
-      <Section className="bg-white py-20 dark:bg-black">
+      <Section className="section-md bg-surface">
         <Container>
-          <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-            Areas We Serve
-          </h2>
-          <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center text-lg">
-            Click your area to learn about local projects, considerations, and
-            how we can help.
-          </p>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="label-editorial-brand mb-4">Communities We Serve</div>
+            <h2 className="section-title">Find Your Area</h2>
+            <p className="text-text-secondary mt-4 text-lg">
+              Click your community to learn about local projects, considerations, and
+              how we can help.
+            </p>
+          </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {serviceAreas.map((area) => (
               <Link
                 key={area.slug}
                 href={`/service-areas/${area.slug}`}
                 className="group"
               >
-                <div
-                  className={`h-full rounded-2xl border p-8 transition-all duration-300 ${
-                    area.featured
-                      ? 'bg-edg-dark border-edg-dark hover:border-edg-brand text-white'
-                      : 'hover:border-edg-brand border-black/10 bg-zinc-50 dark:border-white/10 dark:bg-zinc-900'
-                  }`}
+                <Card
+                  variant="muted"
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
                 >
-                  <div className="mb-4 flex items-start justify-between">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="mb-2 text-2xl font-bold">{area.name}</h3>
-                      <p
-                        className={
-                          area.featured
-                            ? 'text-gray-300'
-                            : 'text-muted-foreground'
-                        }
-                      >
-                        {area.description}
-                      </p>
+                      <span className="text-xs font-bold uppercase tracking-wider text-edg-brand-text mb-2 block">
+                        {area.region}
+                      </span>
+                      <h3 className="text-xl font-bold group-hover:text-edg-brand-text transition-colors">
+                        {area.name}
+                      </h3>
                     </div>
-                    <ArrowRight
-                      className={`h-6 w-6 shrink-0 transition-transform group-hover:translate-x-1 ${
-                        area.featured ? 'text-edg-brand' : 'text-edg-brand'
-                      }`}
-                    />
+                    <ArrowRight className="h-5 w-5 text-edg-brand shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {area.communities.slice(0, 4).map((community) => (
-                      <span
-                        key={community}
-                        className={`rounded-full px-3 py-1 text-xs ${
-                          area.featured
-                            ? 'bg-white/10 text-white/80'
-                            : 'text-muted-foreground bg-black/5 dark:bg-white/10'
-                        }`}
-                      >
-                        {community}
-                      </span>
-                    ))}
-                    {area.communities.length > 4 && (
-                      <span
-                        className={`rounded-full px-3 py-1 text-xs ${
-                          area.featured
-                            ? 'bg-white/10 text-white/80'
-                            : 'text-muted-foreground bg-black/5 dark:bg-white/10'
-                        }`}
-                      >
-                        +{area.communities.length - 4} more
-                      </span>
-                    )}
-                  </div>
-                </div>
+                  <p className="text-text-secondary">{area.description}</p>
+                </Card>
               </Link>
             ))}
           </div>
@@ -284,14 +190,14 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* Map Section */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+      <Section className="section-md bg-surface-muted">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+              <h2 className="section-title mb-6">
                 Based in Spring Grove, IL
               </h2>
-              <p className="text-muted-foreground mb-6 text-lg">
+              <p className="text-text-secondary mb-6 text-lg">
                 Our central location in Spring Grove puts us within easy reach
                 of Lake County, McHenry County, the North Shore, and Southeast
                 Wisconsin. We're positioned to serve the entire
@@ -305,34 +211,35 @@ export default function ServiceAreasPage() {
                   'Local crews—not traveling subcontractors',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <CheckCircle2 className="text-edg-brand h-5 w-5 shrink-0" />
-                    <span>{item}</span>
+                    <IconWrapper
+                      icon={CheckCircle2}
+                      variant="brand"
+                      size="sm"
+                      className="shrink-0"
+                    />
+                    <span className="text-text-primary">{item}</span>
                   </li>
                 ))}
               </ul>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/contact">
-                  <Button size="lg" className="rounded-full">
-                    Schedule a Consultation{' '}
+                  <Button size="lg">
+                    Schedule a Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full"
-                  >
+                  <Button size="lg" variant="secondary">
                     <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                   </Button>
                 </a>
               </div>
             </div>
-            <div className="bg-edg-dark flex aspect-square items-center justify-center rounded-2xl">
+            <div className="bg-edg-dark flex aspect-square items-center justify-center border border-border-inverse">
               <div className="p-8 text-center text-white">
                 <MapPin className="text-edg-brand mx-auto mb-4 h-16 w-16" />
                 <p className="mb-2 text-xl font-bold">Spring Grove, IL</p>
-                <p className="text-gray-400">Serving a 60-mile radius</p>
+                <p className="text-text-inverse-muted">Serving a 60-mile radius</p>
               </div>
             </div>
           </div>
@@ -340,22 +247,20 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* Not in Our Area? */}
-      <Section className="bg-white py-16 dark:bg-black">
+      <Section className="section-md bg-edg-brand">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-4 text-2xl font-bold md:text-3xl">
+            <h2 className="text-2xl font-bold text-edg-dark mb-4 md:text-3xl">
               Outside our service area?
             </h2>
-            <p className="text-muted-foreground mb-6 text-lg">
+            <p className="text-edg-dark/80 mb-6 text-lg">
               If you're beyond our 60-mile radius, we may still be able to help.
               For larger projects or special circumstances, reach out and we'll
               discuss options—including design consulting with installation by
               qualified local partners.
             </p>
             <Link href="/contact">
-              <Button variant="secondary" className="rounded-full">
-                Contact Us to Discuss
-              </Button>
+              <Button variant="dark">Contact Us to Discuss</Button>
             </Link>
           </div>
         </Container>

@@ -1,82 +1,126 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  ArrowLeft,
-  ArrowRight,
   MapPin,
-  Phone,
+  ArrowRight,
   Home,
-  Wind,
   ShieldCheck,
-  Umbrella,
+  CheckCircle2,
+  Wind,
+  Droplets,
+  Sun,
+  FileText,
 } from 'lucide-react';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sanibel Outdoor Living: Sanctuary-Approved Pergolas & Lanais | EDG',
+  title: 'Sanibel Outdoor Living: Hurricane-Rated Pergolas & Lanais | EDG',
   description:
-    "Premium louvered roof systems and motorized screens designed for Sanibel Island's strict zoning and coastal climate. Hurricane-rated protection for stilt homes and lanais.",
+    'Premium louvered roof systems and motorized screens designed for Sanibel Island\'s strict sanctuary codes and coastal climate. Miami-Dade rated for hurricane protection.',
   alternates: {
     canonical: '/service-areas/sanibel-outdoor-living',
   },
-  openGraph: {
-    title: 'Sanibel Outdoor Living | Sanctuary-Compliant Design | EDG',
-    description:
-      'Enhance your Sanibel sanctuary with Miami-Dade rated outdoor living systems. Engineered for elevated decks and coastal preservation.',
-  },
 };
 
-const communities = [
-  { name: 'Sanibel Island', type: 'residential' },
-  { name: 'Captiva Island', type: 'residential' },
-  { name: 'Wulfert', type: 'residential' },
-  { name: 'The Dunes', type: 'residential' },
-  { name: 'Gumbo Limbo', type: 'residential' },
-  { name: 'Blind Pass', type: 'residential' },
+const localBenefits = [
+  'Miami-Dade Hurricane Rated systems',
+  'Sanibel sanctuary code expertise',
+  'Salt-air corrosion resistant materials',
+  'Stilt home & elevated deck specialists',
+];
+
+const areas = [
+  {
+    name: 'Sanibel Island (Gulf Coast)',
+    description:
+      'From beachfront estates to canal homes, we design outdoor living systems that maximize Gulf views while meeting Sanibel\'s strict impermeable surface and vegetation codes. Our motorized screens provide protection from afternoon storms without blocking the seabreeze.',
+  },
+  {
+    name: 'Captiva Island',
+    description:
+      'Captiva\'s narrow geography creates unique microclimates with higher wind exposure. Our hurricane-rated pergolas are engineered to withstand Gulf storms while providing shade during intense subtropical sun. Perfect for the island\'s resort-style homes.',
+  },
+  {
+    name: 'Wulfert & The Dunes',
+    description:
+      'This prestigious Gulf-front community demands systems that complement high-end architecture. We specialize in large-span designs that minimize support columns while maximizing panoramic water views. All designs respect the fragile dune ecosystem.',
+  },
+  {
+    name: 'Roosevelt Channel & Blind Pass',
+    description:
+      'Properties near these dynamic waterways face unique salt-air exposure and wind patterns. Our marine-grade aluminum systems with specialized coatings resist corrosion while standing up to coastal winds. Ideal for boat dockside living spaces.',
+  },
 ];
 
 const localConsiderations = [
   {
-    title: 'Sanctuary Compliant',
+    title: 'Hurricane Code Compliance',
     description:
-      "We navigate Sanibel's strict impermeable coverage and vegetation codes, offering accessory structures that respect the island's conservation ethos.",
-    icon: ShieldCheck,
-  },
-  {
-    title: 'Hurricane Engineered',
-    description:
-      'Our systems are Miami-Dade Hurricane Rated to withstand Gulf storms, giving you peace of mind when the weather turns.',
+      'All systems carry Miami-Dade County hurricane ratings—critical for Sanibel\'s high-velocity hurricane zone. Our louvered roofs withstand sustained winds up to 175 mph and are Florida Product Approved.',
     icon: Wind,
   },
   {
-    title: 'Stilt Home Integration',
+    title: 'Salt-Air Corrosion Resistance',
     description:
-      'Lightweight aluminum construction allows for safe installation on elevated decks where heavy traditional materials might exceed load limits.',
-    icon: Home,
+      'Marine-grade 6061-T6 aluminum with fluoropolymer coatings resists the aggressive salt-air environment. Unlike steel or wood, our systems maintain their finish without rust, rot, or constant maintenance.',
+    icon: Droplets,
   },
   {
-    title: 'The Modern Lanai',
+    title: 'Coastal Wind Engineering',
     description:
-      'Replace fixed cages with motorized screens that vanish at the touch of a button, restoring your unobstructed view of the Gulf.',
-    icon: Umbrella,
+      'Engineered for open-exposure coastal conditions. Our systems handle sustained Gulf winds while allowing you to adjust louvers for optimal airflow—capturing seabreezes when desired, blocking them when needed.',
+    icon: Sun,
+  },
+  {
+    title: 'Sanctuary Zoning Navigation',
+    description:
+      'Sanibel\'s strict impermeable coverage limits (40% maximum) and vegetation protection codes require expertise. We design accessory structures that maximize your allowance while preserving native landscaping.',
+    icon: FileText,
   },
 ];
 
-export default function SanibelPage() {
+const faqs = [
+  {
+    question: 'Do your pergolas meet Florida\'s hurricane building codes?',
+    answer:
+      'Yes. All our louvered roof systems carry Miami-Dade County NOAs (Notices of Acceptance) and are Florida Product Approved for High Velocity Hurricane Zones (HVHZ). This is essential for Sanibel, which requires systems rated for 175+ mph winds. We provide all documentation needed for permits.',
+  },
+  {
+    question: 'How do you handle Sanibel\'s impermeable surface limits?',
+    answer:
+      'Sanibel limits impermeable surfaces to 40% of lot coverage. Because our louvered pergolas are considered permeable when open (rainwater passes through), they typically don\'t count toward your impermeable limit—unlike solid roof structures. This allows you to add significant covered outdoor space while staying compliant.',
+  },
+  {
+    question: 'Will salt air damage the aluminum structure?',
+    answer:
+      'Our systems use marine-grade 6061-T6 aluminum with premium fluoropolymer paint finishes specifically formulated for coastal environments. Unlike steel or wood pergolas that require constant maintenance in salt air, our aluminum systems carry 15-20 year finish warranties and resist corrosion indefinitely.',
+  },
+  {
+    question: 'What\'s the typical timeline for a Sanibel project?',
+    answer:
+      'Most Sanibel projects take 10-14 weeks from contract to completion. The City of Sanibel permitting process typically takes 4-6 weeks, including potential review by the Vegetation Committee. We handle all permit submissions and coordinate with local officials to ensure compliance.',
+  },
+];
+
+export default function SanibelHubPage() {
   return (
-    <>
+    <div className="min-h-screen">
+      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Service',
-            name: 'Sanibel Outdoor Living: Pergolas & Lanais',
+            name: 'Outdoor Living Design & Installation - Sanibel',
             description:
-              "Premium louvered roof systems and motorized screens designed for Sanibel Island's strict zoning and coastal climate.",
+              'Premium louvered roof systems and motorized screens designed for Sanibel Island\'s strict sanctuary codes and coastal climate.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -90,195 +134,223 @@ export default function SanibelPage() {
           }),
         }}
       />
-      <main className="min-h-screen bg-white dark:bg-black">
-        {/* Hero */}
-        <Section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32">
-          <Container>
-            <Link
-              href="/service-areas"
-              className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" /> All Service Areas
-            </Link>
-            <div className="max-w-4xl">
-              <div className="bg-edg-brand/20 border-edg-brand/30 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-                <MapPin className="text-edg-brand h-4 w-4" />
-                <span className="text-edg-brand text-sm font-semibold tracking-wider uppercase">
-                  Serving Sanibel & Captiva
-                </span>
-              </div>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-                Sanctuary-Approved <br className="hidden md:block" /> Outdoor
-                Living
+
+      {/* ========== HERO ========== */}
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+            alt="White louvered pergola for coastal home"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
+
+        <Container className="relative z-10">
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Service Area: Sanibel & Captiva
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Hurricane-Rated Outdoor Living
+                <span className="text-edg-brand block">for Sanibel Island</span>
               </h1>
-              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-gray-300">
-                Premium, hurricane-rated pergolas and motorized screens designed
-                to respect Sanibel&apos;s unique ecology while expanding your
-                living space.
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                Miami-Dade certified pergolas and motorized screens designed for
+                the Gulf Coast. Engineered to withstand 175+ mph winds while
+                respecting Sanibel&apos;s sanctuary conservation codes.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?area=sanibel&source=growth-engine-sanibel-outdoor">
-                  <Button
-                    size="lg"
-                    className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 rounded-full"
-                  >
-                    Get a Proposal <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full border-white/30 text-white hover:bg-white/10"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> 815-581-0138
-                  </Button>
-                </a>
-              </div>
+              <Link href="/contact">
+                <Button size="lg" className="px-8 text-lg">
+                  Request Sanibel Site Visit{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Value Props / Local Considerations */}
-        <Section className="border-y border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900">
-          <Container>
-            <div className="grid items-center gap-16 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                  Designed for the Island Lifestyle
-                </h2>
-                <p className="text-muted-foreground mb-8 text-lg">
-                  Building on Sanibel requires a deep understanding of local
-                  codes and environmental respect. Our systems are designed to
-                  enhance your &quot;Sanibel Stoop&quot; lifestyle without
-                  compromising the sanctuary.
-                </p>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  {localConsiderations.map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-black"
-                    >
-                      <item.icon className="text-edg-brand mb-4 h-8 w-8" />
-                      <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative hidden h-[600px] w-full overflow-hidden rounded-3xl bg-zinc-200 lg:block dark:bg-zinc-800">
-                <Image
-                  src="/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
-                  alt="Luxury white motorized pergola for a Sanibel coastal estate"
-                  fill
-                  className="object-cover"
-                  sizes="50vw"
-                  priority
-                />
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Communities Grid */}
-        <Section className="bg-white py-20 dark:bg-black">
-          <Container>
-            <h2 className="mb-12 text-center text-2xl font-bold md:text-3xl">
-              Neighborhoods We Serve
-            </h2>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-              {communities.map((community) => (
-                <div
-                  key={community.name}
-                  className="group hover:border-edg-brand/50 flex flex-col items-center justify-center rounded-xl border border-black/5 bg-zinc-50 p-4 text-center transition-colors dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <Home className="group-hover:text-edg-brand mb-2 h-5 w-5 text-gray-400 transition-colors" />
-                  <span className="text-sm font-medium">{community.name}</span>
-                </div>
+      {/* ========== LOCAL EXPERTISE ========== */}
+      <section className="bg-edg-dark border-t border-white/5 py-8">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              {localBenefits.map((benefit, i) => (
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                </span>
               ))}
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Content Cluster Links */}
-        <Section className="border-t border-zinc-200 bg-zinc-50 py-20 text-center dark:border-zinc-800 dark:bg-zinc-900">
-          <Container>
-            <h2 className="mb-12 text-3xl font-bold">Building on Sanibel</h2>
-            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+      {/* ========== AREAS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Serving All Sanibel & Captiva Communities
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                From Gulf-front estates to canal homes, we understand the unique
+                requirements of Southwest Florida&apos;s barrier islands.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {areas.map((area, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{area.name}</h3>
+                  <p className="text-text-secondary">{area.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Built for Gulf Coast Conditions
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Our systems are engineered specifically for Florida&apos;s coastal
+                climate challenges.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {localConsiderations.map((item, i) => (
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Common Questions About Sanibel Projects
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Everything you need to know about outdoor living on Sanibel Island.
+              </p>
+            </div>
+            <div className="mx-auto max-w-3xl space-y-4">
+              {faqs.map((faq, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== CLUSTER LINKS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Local Resources for Sanibel Homeowners
+              </h2>
+            </div>
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
                 href="/service-areas/sanibel-outdoor-living/zoning-guide"
-                className="group hover:border-edg-brand rounded-3xl border border-zinc-200 bg-white p-8 text-left transition-all dark:border-zinc-800 dark:bg-black"
+                className="group block"
               >
-                <ShieldCheck className="text-edg-brand mb-6 h-10 w-10" />
-                <h3 className="group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Sanibel Zoning Guide
-                </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Everything you need to know about impermeable coverage,
-                  post-Ian rebuild codes, and accessory structures.
-                </p>
-                <span className="flex items-center gap-2 text-sm font-bold">
-                  Read the Guide <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Sanibel Building & Zoning Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Navigate Sanibel&apos;s strict impermeable surface limits,
+                    vegetation protection codes, and post-Hurricane Ian rebuilding requirements.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read the Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/service-areas/sanibel-outdoor-living/louvered-pergolas"
-                className="group hover:border-edg-brand rounded-3xl border border-zinc-200 bg-white p-8 text-left transition-all dark:border-zinc-800 dark:bg-black"
+                className="group block"
               >
-                <Wind className="text-edg-brand mb-6 h-10 w-10" />
-                <h3 className="group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Hurricane Rated Pergolas
-                </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Explore our Miami-Dade rated louvered roof systems engineered
-                  specifically for the Gulf Coast.
-                </p>
-                <span className="flex items-center gap-2 text-sm font-bold">
-                  Explore Systems <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Hurricane-Rated Pergolas
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Explore our Miami-Dade rated louvered roof systems engineered
+                    specifically for Sanibel&apos;s High Velocity Hurricane Zone.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </Section>
 
-        {/* CTA */}
-        <Section className="bg-edg-brand text-edg-dark py-20">
-          <Container>
+      {/* ========== CTA ========== */}
+      <section className="section-md bg-edg-brand">
+        <Container>
+          <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                Ready to Upgrade Your Island Retreat?
+              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to Start Your Sanibel Project?
               </h2>
-              <p className="mb-8 text-lg font-medium opacity-90">
-                Get a custom proposal that respects your view, your zoning, and
-                your budget.
+              <p className="text-edg-dark/80 mb-8 text-xl">
+                Get a free consultation with our coastal design team.
               </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=sanibel&source=growth-engine-sanibel-outdoor">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-                  >
-                    Start Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10 rounded-full"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> 815-581-0138
-                  </Button>
-                </a>
-              </div>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="dark"
+                  className="px-8 text-lg"
+                >
+                  Schedule Free Consultation{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-          </Container>
-        </Section>
-      </main>
-    </>
+          </FadeIn>
+        </Container>
+      </section>
+    </div>
   );
 }

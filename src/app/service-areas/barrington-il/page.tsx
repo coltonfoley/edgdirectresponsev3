@@ -1,25 +1,29 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  ArrowLeft,
-  ArrowRight,
   MapPin,
-  Phone,
+  ArrowRight,
   Home,
-  Wind,
   ShieldCheck,
-  Umbrella,
+  CheckCircle2,
+  CloudSun,
+  Wind,
+  Building,
   Trees,
+  Ruler,
 } from 'lucide-react';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Barrington Outdoor Living: Estate Pergolas & Zoning Experts | EDG',
+  title: 'Outdoor Living Systems in Barrington, IL | Estate Pergolas | EDG',
   description:
-    'Custom motorized pergolas and louvered roofs designed for Barrington & Barrington Hills estates. Navigating 5-acre zoning and 50% coverage limits.',
+    'Custom motorized pergolas and exterior shades for Barrington area estates. Serving Barrington Hills, South Barrington, Lake Barrington. Zoning-compliant designs for estate properties.',
   alternates: {
     canonical: '/service-areas/barrington-il',
   },
@@ -30,14 +34,34 @@ export const metadata: Metadata = {
   },
 };
 
-const communities = [
-  { name: 'Barrington Hills', type: 'estate' },
-  { name: 'South Barrington', type: 'estate' },
-  { name: 'North Barrington', type: 'estate' },
-  { name: 'Lake Barrington', type: 'residential' },
-  { name: 'Inverness', type: 'estate' },
-  { name: 'Wynstone', type: 'gated' },
-  { name: 'Deer Park', type: 'residential' },
+const localBenefits = [
+  'Familiar with Village of Barrington & Barrington Hills zoning',
+  'Estate property experience (5+ acre lots)',
+  '50% impermeable coverage compliance expertise',
+  'Licensed & insured for Cook, Lake & McHenry Counties',
+];
+
+const neighborhoods = [
+  {
+    name: 'Barrington Hills',
+    description:
+      'The heart of Barrington\'s equestrian country, featuring expansive 5+ acre estates with traditional architecture and mature landscapes. Our large-span pergola engineering minimizes support columns, preserving the sweeping views and open character that make Barrington Hills properties distinctive.',
+  },
+  {
+    name: 'South Barrington',
+    description:
+      'Home to prestigious gated communities like The Woods of South Barrington and Wynstone Golf Club. We design outdoor living systems that complement the area\'s luxury homes while navigating HOA guidelines and architectural review requirements common in these exclusive enclaves.',
+  },
+  {
+    name: 'Lake Barrington & North Barrington',
+    description:
+      'Properties around Lake Barrington and in North Barrington blend lakefront living with estate privacy. Our weather-resistant systems handle lakeside winds while providing shelter for enjoying sunsets over the water. We understand the unique drainage and setback requirements of lake-adjacent properties.',
+  },
+  {
+    name: 'Inverness & Deer Park',
+    description:
+      'These neighboring communities share Barrington\'s commitment to spacious lots and architectural excellence. From Inverness\'s golf course estates to Deer Park\'s modern luxury homes, we create outdoor spaces that honor the area\'s blend of traditional and contemporary design sensibilities.',
+  },
 ];
 
 const localConsiderations = [
@@ -51,7 +75,7 @@ const localConsiderations = [
     title: 'Snow Load Engineered',
     description:
       'Our systems are engineered to withstand heavy Chicagoland snow loads, ensuring year-round durability for your estate.',
-    icon: Wind,
+    icon: CloudSun,
   },
   {
     title: 'Architectural Harmony',
@@ -63,13 +87,37 @@ const localConsiderations = [
     title: 'The 3-Season Room',
     description:
       'Extend your outdoor season with motorized screens and heaters, perfect for chilly spring evenings and crisp autumn nights.',
-    icon: Umbrella,
+    icon: Wind,
   },
 ];
 
-export default function BarringtonPage() {
+const faqs = [
+  {
+    question: 'Do I need a permit for a pergola in Barrington or Barrington Hills?',
+    answer:
+      'Yes, most outdoor structures require permits in Barrington area villages. Barrington Hills has specific requirements for accessory structures including setbacks from property lines (typically 5 feet for accessory buildings) and impermeable surface coverage limits (50% maximum). The Village of Barrington has similar requirements. Our team handles the entire permit process, including surveys and zoning compliance verification.',
+  },
+  {
+    question: 'How do louvered pergolas affect impermeable surface calculations?',
+    answer:
+      "Barrington Hills and surrounding villages limit impermeable surfaces to 50% of your lot coverage. Because our louvered pergolas are considered 'permeable' when open, they often don't count toward your maximum coverage—unlike solid roof structures. This is crucial for estate properties where you want to maximize covered outdoor space while preserving landscaping and drainage areas.",
+  },
+  {
+    question: 'What is the typical timeline for a Barrington estate project?',
+    answer:
+      'From consultation to completion, most Barrington area projects take 10-14 weeks. Estate properties may require additional time for survey verification and architectural review committee approvals (common in Wynstone and gated communities). Permit approval typically takes 4-6 weeks in Barrington Hills and the Village of Barrington.',
+  },
+  {
+    question: 'Can you work with HOA requirements in Wynstone and gated communities?',
+    answer:
+      'Absolutely. We have extensive experience with Wynstone, The Woods of South Barrington, and other gated community architectural guidelines. Our systems can be customized to meet specific color, material, and design requirements. We provide detailed renderings and material samples for architectural review committees, streamlining the approval process.',
+  },
+];
+
+export default function BarringtonHubPage() {
   return (
-    <>
+    <div className="min-h-screen">
+      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -92,197 +140,225 @@ export default function BarringtonPage() {
           }),
         }}
       />
-      <main className="min-h-screen bg-white dark:bg-black">
-        {/* Hero */}
-        <Section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32">
-          <Container>
-            <Link
-              href="/service-areas"
-              className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" /> All Service Areas
-            </Link>
-            <div className="max-w-4xl">
-              <div className="bg-edg-brand/20 border-edg-brand/30 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-                <MapPin className="text-edg-brand h-4 w-4" />
-                <span className="text-edg-brand text-sm font-semibold tracking-wider uppercase">
-                  Serving Barrington & The Hills
+
+      {/* ========== HERO ========== */}
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-black-r-blade-01.jpg"
+            alt="Black louvered pergola for Barrington estate"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
+
+        <Container className="relative z-10">
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Service Area: Barrington, IL
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Estate-Grade Outdoor Living for
+                <span className="text-edg-brand block">
+                  Barrington & The Hills
                 </span>
-              </div>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-                Barrington Estate-Grade <br className="hidden md:block" />{' '}
-                Outdoor Living
               </h1>
-              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-gray-300">
-                Premium, snow-load rated pergolas and motorized screens designed
-                to respect Barrington's estate zoning while expanding your
-                living space.
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                Premium motorized pergolas designed for Barrington&apos;s estate zoning, 
+                from Barrington Hills to South Barrington. We navigate 5-acre lot 
+                requirements while maximizing your outdoor living space.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?area=barrington&source=growth-engine-barrington-outdoor">
-                  <Button
-                    size="lg"
-                    className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 rounded-full"
-                  >
-                    Get a Proposal <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full border-white/30 text-white hover:bg-white/10"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> 815-581-0138
-                  </Button>
-                </a>
-              </div>
+              <Link href="/contact">
+                <Button size="lg" className="px-8 text-lg">
+                  Request Barrington Site Visit{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Value Props / Local Considerations */}
-        <Section className="border-y border-zinc-200 bg-zinc-50 py-20 dark:border-zinc-800 dark:bg-zinc-900">
-          <Container>
-            <div className="grid items-center gap-16 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                  Designed for the Estate Lifestyle
-                </h2>
-                <p className="text-muted-foreground mb-8 text-lg">
-                  Building in Barrington requires a deep understanding of
-                  village codes and architectural respect. Our systems are
-                  designed to enhance your property without compromising its
-                  character or violating coverage limits.
-                </p>
-                <div className="grid gap-6 sm:grid-cols-2">
-                  {localConsiderations.map((item) => (
-                    <div
-                      key={item.title}
-                      className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-black"
-                    >
-                      <item.icon className="text-edg-brand mb-4 h-8 w-8" />
-                      <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                      <p className="text-muted-foreground text-sm">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative hidden h-[600px] w-full overflow-hidden rounded-3xl bg-zinc-200 lg:block dark:bg-zinc-800">
-                <Image
-                  src="/images/pergolas/residential-black-r-blade-01.jpg"
-                  alt="Luxury motorized pergola with black frame for a Barrington estate"
-                  fill
-                  className="object-cover"
-                  sizes="50vw"
-                />
-                {/* Note: Using a placeholder image path that exists in the system or should exist. 
-                                Ideally, we'd use a Barrington specific image if available, but for now using a high-end project image.
-                                I'll double check image paths later if needed. */}
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Communities Grid */}
-        <Section className="bg-white py-20 dark:bg-black">
-          <Container>
-            <h2 className="mb-12 text-center text-2xl font-bold md:text-3xl">
-              Neighborhoods We Serve
-            </h2>
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
-              {communities.map((community) => (
-                <div
-                  key={community.name}
-                  className="group hover:border-edg-brand/50 flex flex-col items-center justify-center rounded-xl border border-black/5 bg-zinc-50 p-4 text-center transition-colors dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <Home className="group-hover:text-edg-brand mb-2 h-5 w-5 text-gray-400 transition-colors" />
-                  <span className="text-sm font-medium">{community.name}</span>
-                </div>
+      {/* ========== LOCAL EXPERTISE ========== */}
+      <section className="bg-edg-dark border-t border-white/5 py-8">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              {localBenefits.map((benefit, i) => (
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                </span>
               ))}
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Content Cluster Links */}
-        <Section className="border-t border-zinc-200 bg-zinc-50 py-20 text-center dark:border-zinc-800 dark:bg-zinc-900">
-          <Container>
-            <h2 className="mb-12 text-3xl font-bold">Building in Barrington</h2>
-            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+      {/* ========== NEIGHBORHOODS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Serving Every Barrington Area Neighborhood
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                From equestrian estates to gated communities, we understand the unique 
+                character and requirements of Barrington&apos;s distinct areas.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {neighborhoods.map((neighborhood, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Built for the Barrington Estate Lifestyle
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Our systems are engineered specifically for Barrington&apos;s unique 
+                zoning requirements and climate challenges.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {localConsiderations.map((item, i) => (
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Common Questions About Barrington Projects
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Everything you need to know about outdoor living in Barrington and surrounding areas.
+              </p>
+            </div>
+            <div className="mx-auto max-w-3xl space-y-4">
+              {faqs.map((faq, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== CLUSTER LINKS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Local Resources for Barrington Homeowners
+              </h2>
+            </div>
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
                 href="/service-areas/barrington-il/zoning-guide"
-                className="group hover:border-edg-brand rounded-3xl border border-zinc-200 bg-white p-8 text-left transition-all dark:border-zinc-800 dark:bg-black"
+                className="group block"
               >
-                <ShieldCheck className="text-edg-brand mb-6 h-10 w-10" />
-                <h3 className="group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Barrington Zoning Guide
-                </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Navigate the 50% impermeable coverage limit, 5-foot accessory
-                  separation, and estate setback rules.
-                </p>
-                <span className="flex items-center gap-2 text-sm font-bold">
-                  Read the Guide <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Barrington Zoning Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Navigate the 50% impermeable coverage limit, 5-foot accessory 
+                    separation, and estate setback rules for Barrington Hills.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read the Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/service-areas/barrington-il/motorized-pergolas"
-                className="group hover:border-edg-brand rounded-3xl border border-zinc-200 bg-white p-8 text-left transition-all dark:border-zinc-800 dark:bg-black"
+                className="group block"
               >
-                <Wind className="text-edg-brand mb-6 h-10 w-10" />
-                <h3 className="group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Snow-Load Rated Pergolas
-                </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Explore our heavy-duty louvered roof systems engineered
-                  specifically for Chicagoland winters and wind.
-                </p>
-                <span className="flex items-center gap-2 text-sm font-bold">
-                  Explore Systems <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Wind} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Snow-Load Rated Pergolas
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Explore our heavy-duty louvered roof systems engineered 
+                    specifically for Chicagoland winters and estate-scale installations.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Explore Systems <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </Section>
 
-        {/* CTA */}
-        <Section className="bg-edg-brand text-edg-dark py-20">
-          <Container>
+      {/* ========== CTA ========== */}
+      <section className="section-md bg-edg-brand">
+        <Container>
+          <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                Ready to Enhance Your Estate?
+              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to Start Your Barrington Project?
               </h2>
-              <p className="mb-8 text-lg font-medium opacity-90">
-                Get a custom proposal that respects your architecture, your
-                zoning, and your vision.
+              <p className="text-edg-dark/80 mb-8 text-xl">
+                Get a free consultation with our local design team.
               </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=barrington&source=growth-engine-barrington-outdoor">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-                  >
-                    Start Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10 rounded-full"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> 815-581-0138
-                  </Button>
-                </a>
-              </div>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="dark"
+                  className="px-8 text-lg"
+                >
+                  Schedule Free Consultation{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-          </Container>
-        </Section>
-      </main>
-    </>
+          </FadeIn>
+        </Container>
+      </section>
+    </div>
   );
 }

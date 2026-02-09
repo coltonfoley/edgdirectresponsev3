@@ -1,64 +1,116 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  ArrowLeft,
-  ArrowRight,
   MapPin,
-  Phone,
-  CheckCircle2,
+  ArrowRight,
   Home,
-  Building2,
-  TreePine,
+  CheckCircle2,
+  Wind,
+  Building,
+  Trees,
+  FileText,
 } from 'lucide-react';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Oak Brook IL Pergolas & Estate Outdoor Living | EDG Patio',
+  title: 'Outdoor Living Systems in Oak Brook, IL | Pergolas & Shades | EDG',
   description:
-    'Custom motorized pergolas, retractable shades, and glass enclosures for Oak Brook estates. Harmonizing with Tudor, Georgian, and Contemporary architecture.',
+    'Custom motorized pergolas and exterior shades for Oak Brook estates. Serving Hinsdale, Burr Ridge, and Elmhurst. Zoning-compliant designs for luxury homes.',
   alternates: {
     canonical: '/service-areas/oak-brook-il',
   },
-  openGraph: {
-    title: 'Oak Brook IL | Luxury Outdoor Living | EDG',
-    description:
-      'Premium outdoor living systems for Oak Brook homeowners. Local expertise, professional installation.',
-  },
 };
 
-const communities = [
-  { name: 'Oak Brook', type: 'residential' },
-  { name: 'Hinsdale', type: 'residential' },
-  { name: 'Burr Ridge', type: 'residential' },
-  { name: 'Clarendon Hills', type: 'residential' },
-  { name: 'Elmhurst', type: 'residential' },
-  { name: 'Villa Park', type: 'residential' },
+const localBenefits = [
+  'Familiar with Village of Oak Brook zoning codes',
+  'Estate property experience',
+  'Tudor & Georgian architecture expertise',
+  'Licensed & insured for DuPage County',
+];
+
+const neighborhoods = [
+  {
+    name: 'Oak Brook',
+    description:
+      'Home to some of the most prestigious estates in the Chicago area, Oak Brook features expansive properties with diverse architectural styles. We specialize in creating outdoor living spaces that complement the grandeur of Oak Brook homes, from sprawling poolside pergolas to sophisticated outdoor kitchens that match your estate\'s character.',
+  },
+  {
+    name: 'Hinsdale',
+    description:
+      'Hinsdale\'s historic charm and tree-lined streets require thoughtful outdoor design. Our systems respect the village\'s architectural heritage while adding modern functionality. We navigate Hinsdale\'s strict building codes to create outdoor spaces that enhance property values in this coveted community.',
+  },
+  {
+    name: 'Burr Ridge',
+    description:
+      'Burr Ridge properties often feature rolling terrain and wooded lots with unique views. Our custom engineering adapts to sloped yards and natural landscapes, creating level outdoor living areas that maximize your property\'s potential while preserving its natural beauty.',
+  },
+  {
+    name: 'Elmhurst',
+    description:
+      'Elmhurst\'s mix of historic and contemporary homes calls for versatile design approaches. Whether you own a vintage Victorian or a modern new construction, we create outdoor systems that feel architecturally integrated and enhance your home\'s unique character.',
+  },
 ];
 
 const localConsiderations = [
   {
     title: 'Estate Architecture',
     description:
-      'From Tudor Revival to Contemporary, we design systems that respect the architectural integrity of your Oak Brook estate.',
+      'From Tudor Revival to Contemporary, we design systems that respect the architectural integrity of your Oak Brook estate. Custom powder-coating matches existing trim and materials.',
+    icon: Building,
   },
   {
     title: 'Zoning Expertise',
     description:
-      'We work directly with the Village of Oak Brook Development Services Department to navigate setbacks and impervious surface requirements.',
+      'We work directly with the Village of Oak Brook Development Services Department to navigate setbacks and impervious surface requirements for your project.',
+    icon: FileText,
   },
   {
     title: 'Natural Settings',
     description:
-      'Whether you overlook Salt Creek or the fairways, our glass systems protect your view while keeping the elements at bay.',
+      'Whether you overlook Salt Creek or the golf course fairways, our glass systems protect your view while keeping the elements at bay year-round.',
+    icon: Trees,
+  },
+  {
+    title: 'Western Suburbs Weather',
+    description:
+      'DuPage County experiences intense summer storms and heavy winter snow. Our louvered pergolas automatically open under snow load and withstand high winds.',
+    icon: Wind,
   },
 ];
 
-export default function OakBrookPage() {
+const faqs = [
+  {
+    question: 'Do I need a permit for a pergola in Oak Brook?',
+    answer:
+      'Yes, most outdoor structures require permits in Oak Brook. The Village has specific guidelines regarding setbacks, impervious surface ratios, and height restrictions. Our team handles the entire permit process, including working with the Development Services Department to ensure your project meets all local requirements.',
+  },
+  {
+    question: 'How do your systems handle Oak Brook\'s impervious surface limits?',
+    answer:
+      'Oak Brook\'s zoning codes limit impervious surface coverage on residential lots. Because our louvered pergolas are considered permeable when open, they often don\'t count toward your maximum coverage—unlike solid roof structures. We\'ve helped many Oak Brook and Hinsdale homeowners add covered outdoor space without exceeding their limits.',
+  },
+  {
+    question: 'Can you match my home\'s existing architecture?',
+    answer:
+      'Absolutely. Our aluminum systems can be powder-coated to match any color palette, from traditional earth tones found in Hinsdale historic districts to contemporary whites and grays popular in Oak Brook new construction. We design with sightlines and architectural character in mind.',
+  },
+  {
+    question: 'What\'s the typical timeline for an Oak Brook project?',
+    answer:
+      'From consultation to completion, most Oak Brook area projects take 10-14 weeks. Permit approval in DuPage County typically takes 4-6 weeks. We handle all village interactions and inspections throughout the process.',
+  },
+];
+
+export default function OakBrookHubPage() {
   return (
-    <>
+    <div className="min-h-screen">
+      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -67,7 +119,7 @@ export default function OakBrookPage() {
             '@type': 'Service',
             name: 'Outdoor Living Design & Installation - Oak Brook',
             description:
-              'Customized motorized pergolas, retractable shades, and glass enclosures for Oak Brook estates.',
+              'Custom motorized pergolas and exterior shades for Oak Brook estates.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -81,159 +133,163 @@ export default function OakBrookPage() {
           }),
         }}
       />
-      <main className="min-h-screen bg-white dark:bg-black">
-        {/* Hero */}
-        <Section className="relative flex min-h-[60vh] items-center overflow-hidden bg-black pt-32 pb-24">
-          {/* Hero Background Image */}
-          <div className="absolute inset-0 z-0 opacity-60">
-            <Image
-              src="/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
-              alt="Luxury estate pergola design"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-          </div>
 
-          <Container className="relative z-10 text-white">
-            <Link
-              href="/service-areas"
-              className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" /> All Service Areas
-            </Link>
-            <div className="max-w-4xl">
-              <div className="bg-edg-brand/20 border-edg-brand/30 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 backdrop-blur-sm">
-                <MapPin className="text-edg-brand h-4 w-4" />
-                <span className="text-edg-brand text-sm font-semibold tracking-wider uppercase">
-                  Serving Oak Brook & Hinsdale
+      {/* ========== HERO ========== */}
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+            alt="White louvered pergola with glass doors on estate"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
+
+        <Container className="relative z-10">
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Service Area: Oak Brook, IL
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Upgrade Your Oak Brook Estate with
+                <span className="text-edg-brand block">
+                  Four-Season Outdoor Living
                 </span>
-              </div>
-              <h1 className="mb-6 text-5xl font-bold tracking-tight md:text-7xl">
-                Oak Brook, Illinois Outdoor Living Environments
               </h1>
-              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-gray-200">
-                Refined outdoor living for the western suburbs. Motorized
-                pergolas and glass systems that extend the season for Oak
-                Brook's finest homes.
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                From the fairways of Oak Brook to the historic streets of
+                Hinsdale, we design engineered shade systems that complement
+                western suburb architecture and handle Illinois weather.
               </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?area=oak-brook">
-                  <Button size="lg" className="rounded-full">
-                    Get a Proposal <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full border-white/30 text-white backdrop-blur-sm hover:bg-white/10"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
-                  </Button>
-                </a>
-              </div>
+              <Link href="/contact">
+                <Button size="lg" className="px-8 text-lg">
+                  Request Oak Brook Site Visit{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Communities Grid */}
-        <Section className="bg-white py-20 dark:bg-black">
-          <Container>
-            <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-              Neighborhoods We Serve
-            </h2>
-            <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-              {communities.map((community) => (
-                <div
-                  key={community.name}
-                  className="flex items-center gap-3 rounded-xl border border-black/5 bg-zinc-50 p-4 dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <Home className="text-edg-brand h-5 w-5 shrink-0" />
-                  <span className="font-medium">{community.name}</span>
-                </div>
+      {/* ========== LOCAL EXPERTISE ========== */}
+      <section className="bg-edg-dark border-t border-white/5 py-8">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              {localBenefits.map((benefit, i) => (
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                </span>
               ))}
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Project Showcase (Mini Gallery) */}
-        <Section className="overflow-hidden bg-zinc-100 py-20 dark:bg-zinc-900">
-          <Container>
-            <div className="mb-16 grid items-center gap-16 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                  Enhance Your Estate
-                </h2>
-                <div className="space-y-6">
-                  {localConsiderations.map((item) => (
-                    <div key={item.title} className="flex gap-4">
-                      <CheckCircle2 className="text-edg-brand mt-1 h-6 w-6 shrink-0" />
-                      <div>
-                        <h3 className="mb-1 text-lg font-bold">{item.title}</h3>
-                        <p className="text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-2xl">
-                <Image
-                  src="/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
-                  alt="Luxury outdoor dining setup"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-
-            <h3 className="mb-8 text-2xl font-bold">Featured Design Styles</h3>
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="group relative h-[300px] overflow-hidden rounded-2xl">
-                <Image
-                  src="/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg"
-                  alt="Poolside pergola installation"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-              <div className="group relative h-[300px] overflow-hidden rounded-2xl">
-                <Image
-                  src="/images/enclosures/glass-system-04.jpg"
-                  alt="Glass enclosure sunroom project"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* CTA */}
-        <Section className="bg-edg-brand text-edg-dark py-20">
-          <Container>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                Ready to Transform Your Oak Brook Home?
+      {/* ========== NEIGHBORHOODS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Serving Oak Brook & Western Suburbs
               </h2>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=oak-brook">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-                  >
-                    Request Consultation <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-              </div>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                We understand the unique character and requirements of DuPage County&apos;s finest communities.
+              </p>
             </div>
-          </Container>
-        </Section>
-      </main>
-    </>
+            <div className="grid gap-6 md:grid-cols-2">
+              {neighborhoods.map((neighborhood, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Built for Western Suburbs Estates
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Our systems are engineered specifically for Oak Brook area climate and architectural requirements.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {localConsiderations.map((item, i) => (
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Common Questions About Oak Brook Projects
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Everything you need to know about outdoor living in the western suburbs.
+              </p>
+            </div>
+            <div className="mx-auto max-w-3xl space-y-4">
+              {faqs.map((faq, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== CTA ========== */}
+      <section className="section-md bg-edg-brand">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to Start Your Oak Brook Project?
+              </h2>
+              <p className="text-edg-dark/80 mb-8 text-xl">
+                Get a free consultation with our local design team.
+              </p>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="dark"
+                  className="px-8 text-lg"
+                >
+                  Schedule Free Consultation{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+    </div>
   );
 }

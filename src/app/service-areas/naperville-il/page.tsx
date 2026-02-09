@@ -1,71 +1,126 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
 import {
-  ArrowLeft,
-  ArrowRight,
   MapPin,
-  Phone,
-  CheckCircle2,
+  ArrowRight,
   Home,
-  Shield,
+  ShieldCheck,
+  CheckCircle2,
+  CloudSun,
+  Building,
+  Wind,
+  FileText,
 } from 'lucide-react';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Naperville IL Pergolas & Outdoor Living | EDG Patio',
+  title: 'Outdoor Living Systems in Naperville, IL | Pergolas & Shades | EDG',
   description:
-    "Custom motorized pergolas, retractable shades, and glass enclosures for Naperville, IL. Enhance your patio with EDG's premium outdoor living systems. Local experts.",
+    'Custom motorized pergolas and exterior shades for Naperville homes. Serving Downtown, South Naperville, East Ogden corridor, and Ranchlands. Zoning-compliant designs for DuPage County.',
   alternates: {
     canonical: '/service-areas/naperville-il',
   },
-  openGraph: {
-    title: 'Naperville IL | Pergolas & Outdoor Living | EDG',
-    description:
-      'Premium outdoor living systems for Naperville homeowners. Local expertise, professional installation.',
-  },
 };
 
-const communities = [
-  { name: 'Naperville', type: 'residential' },
-  { name: 'Lisle', type: 'residential' },
-  { name: 'Woodridge', type: 'residential' },
-  { name: 'Bolingbrook', type: 'residential' },
-  { name: 'Warrenville', type: 'residential' },
-  { name: 'Aurora', type: 'mixed' },
+const localBenefits = [
+  'Familiar with Naperville zoning & permitting',
+  'HOA compliance experience',
+  'DuPage County building code expertise',
+  'Licensed & insured for Will County',
+];
+
+const neighborhoods = [
+  {
+    name: 'Downtown Naperville',
+    description:
+      'Downtown Naperville features a mix of historic homes and modern renovations. We design outdoor living systems that complement the area\'s architectural diversity while maximizing limited backyard space common in the historic district. Our compact footprint designs work well with smaller lots.',
+  },
+  {
+    name: 'South Naperville',
+    description:
+      'South Naperville\'s newer developments feature expansive homes with large outdoor spaces perfect for premium pergola installations. We specialize in creating multi-zone outdoor living areas that accommodate both intimate family gatherings and larger entertaining spaces.',
+  },
+  {
+    name: 'East Ogden Corridor',
+    description:
+      'Properties along the East Ogden corridor benefit from easy access while maintaining suburban privacy. Our motorized shade systems help create secluded backyard retreats that block views from the busy corridor while maintaining airflow and natural light.',
+  },
+  {
+    name: 'Ranchlands',
+    description:
+      'The Ranchlands area features spacious single-story homes with generous lots ideal for outdoor living expansions. We design low-profile systems that complement ranch architecture while creating defined outdoor rooms for dining, lounging, and entertaining.',
+  },
 ];
 
 const localConsiderations = [
   {
-    title: 'Wind & Snow Load',
+    title: 'DuPage County Snow Loads',
     description:
-      'Naperville winters can be harsh. Our systems are engineered to withstand heavy snow loads and high winds common in DuPage County.',
+      'Naperville winters bring significant snow accumulation. Our louvered pergolas open automatically under snow load, preventing buildup and protecting the structure. Rated for 30psf snow loads exceeding local requirements.',
+    icon: CloudSun,
   },
   {
-    title: 'HOA Compliance',
+    title: 'HOA Design Standards',
     description:
-      'Many Naperville neighborhoods have strict HOA guidelines. We provide detailed renderings and specs to help you get approval quickly.',
+      'Naperville\'s many HOA communities have strict architectural guidelines. We provide detailed renderings, material samples, and spec sheets to streamline your approval process with neighborhood associations.',
+    icon: Building,
+  },
+  {
+    title: 'Summer Heat & UV',
+    description:
+      'Naperville summers can be intense with high UV exposure. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your outdoor space comfortable during peak summer months.',
+    icon: Wind,
   },
   {
     title: 'Suburban Privacy',
     description:
-      'Maximize your backyard privacy from neighbors with our motorized screens and louvered walls.',
+      'Many Naperville neighborhoods feature homes with close setbacks. Our motorized screens and louvered walls create instant privacy from neighbors while maintaining the open feel of your outdoor space.',
+    icon: ShieldCheck,
   },
 ];
 
-export default function NapervillePage() {
+const faqs = [
+  {
+    question: 'Do I need a permit for a pergola in Naperville?',
+    answer:
+      'Yes, most outdoor structures require permits in Naperville. The City has specific setback requirements (typically 5-10 feet from property lines) and height restrictions (usually under 12-15 feet). Our team handles the entire permit process, including all documentation and inspections required by the City of Naperville Building Department.',
+  },
+  {
+    question: 'How do HOA restrictions affect outdoor living projects in Naperville?',
+    answer:
+      'Many Naperville neighborhoods are governed by HOAs with specific architectural guidelines. We\'ve worked with numerous local HOAs and understand common requirements regarding color matching, height restrictions, and setback compliance. We provide comprehensive documentation packages to help you secure HOA approval quickly.',
+  },
+  {
+    question: 'Are there historic district considerations in Naperville?',
+    answer:
+      'While Naperville\'s historic district requirements are less stringent than some North Shore communities, downtown historic properties may have additional review requirements. We design systems that respect historic architectural character while providing modern outdoor living functionality. Our powder-coated finishes can match existing trim and color schemes.',
+  },
+  {
+    question: 'What\'s the typical timeline for a Naperville project?',
+    answer:
+      'From consultation to completion, most Naperville projects take 8-12 weeks. Permit approval through the City of Naperville typically takes 2-4 weeks. HOA approval (if required) may add 2-3 weeks depending on meeting schedules. We coordinate all timelines to minimize delays.',
+  },
+];
+
+export default function NapervilleHubPage() {
   return (
-    <>
+    <div className="min-h-screen">
+      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Service',
-            name: 'Outdoor Living Systems - Naperville',
+            name: 'Outdoor Living Design & Installation - Naperville',
             description:
-              'Customized motorized pergolas, retractable shades, and glass enclosures. Professional installation in Naperville and DuPage County.',
+              'Custom motorized pergolas and exterior shades for Naperville homes.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -74,182 +129,228 @@ export default function NapervillePage() {
               name: 'Naperville',
             },
             url: 'https://www.edgpatioshade.com/service-areas/naperville-il',
-            image: 'https://www.edgpatioshade.com/images/hero/pergola-hero.jpg',
+            image:
+              'https://www.edgpatioshade.com/images/pergolas/residential-white-r-blade-led-strip.jpg',
           }),
         }}
       />
-      <main className="min-h-screen bg-white dark:bg-black">
-        {/* Hero */}
-        <Section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32">
-          <Container>
-            <Link
-              href="/service-areas"
-              className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" /> All Service Areas
-            </Link>
-            <div className="max-w-4xl">
-              <div className="bg-edg-brand/20 border-edg-brand/30 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-                <MapPin className="text-edg-brand h-4 w-4" />
-                <span className="text-edg-brand text-sm font-semibold tracking-wider uppercase">
-                  Serving DuPage & Will Counties
-                </span>
-              </div>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-                Naperville, Illinois Pergolas & Outdoor Living
-              </h1>
-              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-gray-300">
-                Transform your backyard into a year-round retreat. Premium
-                motorized pergolas and glass systems designed for Naperville
-                homes.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?area=naperville">
-                  <Button size="lg" className="rounded-full">
-                    Get a Naperville Quote{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full border-white/30 text-white hover:bg-white/10"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </Container>
-        </Section>
 
-        {/* Communities Grid */}
-        <Section className="bg-white py-20 dark:bg-black">
-          <Container>
-            <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-              Neighborhoods We Serve
-            </h2>
-            <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center text-lg">
-              From Downtown Naperville to Ashbury and beyond.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-              {communities.map((community) => (
-                <div
-                  key={community.name}
-                  className="flex items-center gap-3 rounded-xl border border-black/5 bg-zinc-50 p-4 dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <Home className="text-edg-brand h-5 w-5 shrink-0" />
-                  <span className="font-medium">{community.name}</span>
-                </div>
+      {/* ========== HERO ========== */}
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-white-r-blade-led-strip.jpg"
+            alt="White louvered pergola with LED lighting"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
+
+        <Container className="relative z-10">
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Service Area: Naperville, IL
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Upgrade Your Naperville Home with
+                <span className="text-edg-brand block">
+                  Four-Season Outdoor Living
+                </span>
+              </h1>
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                From Downtown Naperville to South Naperville and the East Ogden
+                corridor, we design engineered shade systems that enhance your
+                suburban lifestyle and handle DuPage County weather.
+              </p>
+              <Link href="/contact">
+                <Button size="lg" className="px-8 text-lg">
+                  Request Naperville Site Visit{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ========== LOCAL EXPERTISE ========== */}
+      <section className="bg-edg-dark border-t border-white/5 py-8">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              {localBenefits.map((benefit, i) => (
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                </span>
               ))}
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Local Considerations */}
-        <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
-          <Container>
-            <div className="grid items-start gap-16 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                  Why Choose EDG in Naperville?
-                </h2>
-                <div className="space-y-6">
-                  {localConsiderations.map((item) => (
-                    <div key={item.title} className="flex gap-4">
-                      <CheckCircle2 className="text-edg-brand mt-1 h-6 w-6 shrink-0" />
-                      <div>
-                        <h3 className="mb-1 text-lg font-bold">{item.title}</h3>
-                        <p className="text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+      {/* ========== NEIGHBORHOODS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Serving Every Naperville Neighborhood
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                We understand the unique character and requirements of Naperville&apos;s distinct areas.
+              </p>
             </div>
-          </Container>
-        </Section>
+            <div className="grid gap-6 md:grid-cols-2">
+              {neighborhoods.map((neighborhood, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
 
-        {/* Content Cluster Links */}
-        <Section className="border-t border-zinc-200 bg-zinc-50 py-20 text-center dark:border-zinc-800 dark:bg-zinc-900">
-          <Container>
-            <h2 className="mb-12 text-3xl font-bold">Building in Naperville</h2>
-            <div className="mx-auto grid max-w-4xl gap-8 text-left md:grid-cols-2">
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Built for Naperville&apos;s Suburban Climate
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Our systems are engineered specifically for DuPage County weather and suburban living.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {localConsiderations.map((item, i) => (
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Common Questions About Naperville Projects
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Everything you need to know about outdoor living in Naperville.
+              </p>
+            </div>
+            <div className="mx-auto max-w-3xl space-y-4">
+              {faqs.map((faq, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== CLUSTER LINKS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Local Resources for Naperville Homeowners
+              </h2>
+            </div>
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
                 href="/service-areas/naperville-il/zoning-guide"
-                className="group hover:border-edg-brand rounded-3xl border border-zinc-200 bg-white p-8 transition-all dark:border-zinc-800 dark:bg-black"
+                className="group block"
               >
-                <div className="bg-edg-brand/10 mb-6 flex h-12 w-12 items-center justify-center rounded-xl">
-                  <Shield className="text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Naperville Zoning Guide
-                </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Everything you need to know about setbacks, lot coverage, and
-                  permit requirements for Naperville accessory structures.
-                </p>
-                <span className="flex items-center gap-2 text-sm font-bold">
-                  Read Global Guide <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={FileText} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Naperville Building & Zoning Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Before you build, understand the setback requirements, lot coverage rules, 
+                    and permit processes specific to Naperville and DuPage County.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read the Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/service-areas/naperville-il/motorized-pergolas"
-                className="group hover:border-edg-brand rounded-3xl border border-zinc-200 bg-white p-8 transition-all dark:border-zinc-800 dark:bg-black"
+                className="group block"
               >
-                <div className="bg-edg-brand/10 mb-6 flex h-12 w-12 items-center justify-center rounded-xl">
-                  <Home className="text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Motorized Pergolas
-                </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Explore louvered roof systems engineered for Naperville's
-                  specific suburban climate and aesthetics.
-                </p>
-                <span className="flex items-center gap-2 text-sm font-bold">
-                  View Systems <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Motorized Pergolas in Naperville
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Explore louvered roof systems engineered for Naperville&apos;s
+                    specific suburban climate and HOA requirements.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </Section>
 
-        {/* CTA */}
-        <Section className="bg-edg-brand text-edg-dark py-20">
-          <Container>
+      {/* ========== CTA ========== */}
+      <section className="section-md bg-edg-brand">
+        <Container>
+          <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                Ready to Upgrade Your Naperville Outdoor Space?
+              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to Start Your Naperville Project?
               </h2>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=naperville">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-                  >
-                    Start Project <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10 rounded-full"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
-                  </Button>
-                </a>
-              </div>
+              <p className="text-edg-dark/80 mb-8 text-xl">
+                Get a free consultation with our local design team.
+              </p>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="dark"
+                  className="px-8 text-lg"
+                >
+                  Schedule Free Consultation{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
-          </Container>
-        </Section>
-      </main>
-    </>
+          </FadeIn>
+        </Container>
+      </section>
+    </div>
   );
 }

@@ -50,44 +50,49 @@ const completeYourSpace = [
 
 const areasDropdown = [
   {
-    href: '/service-areas/lake-county-il',
-    label: 'Lake County, IL',
-    desc: 'Libertyville, Lake Forest, Highland Park',
+    href: '/service-areas/wilmette-il',
+    label: 'Wilmette, IL',
+    desc: 'North Shore historic districts',
   },
   {
-    href: '/service-areas/north-shore-chicago',
-    label: 'North Shore Chicago',
-    desc: 'Wilmette, Winnetka, Glencoe',
+    href: '/service-areas/winnetka-il',
+    label: 'Winnetka, IL',
+    desc: 'Estate properties & lakefront',
   },
   {
-    href: '/service-areas/oak-brook-il',
-    label: 'Oak Brook & Hinsdale',
-    desc: 'Burr Ridge, Elmhurst, Western Springs',
+    href: '/service-areas/northbrook-il',
+    label: 'Northbrook, IL',
+    desc: 'Techny & Shermer Road corridor',
   },
   {
     href: '/service-areas/barrington-il',
-    label: 'Barrington Area',
-    desc: 'North, South, and Lake Barrington',
+    label: 'Barrington, IL',
+    desc: 'Estate communities & horse country',
   },
   {
     href: '/service-areas/naperville-il',
-    label: 'Naperville & West Suburbs',
-    desc: 'Downers Grove, Lisle, Aurora',
+    label: 'Naperville, IL',
+    desc: 'Western suburban hub',
   },
   {
-    href: '/service-areas/mchenry-county-il',
-    label: 'McHenry County, IL',
-    desc: 'Crystal Lake, Algonquin, Woodstock',
+    href: '/service-areas/hinsdale-il',
+    label: 'Hinsdale, IL',
+    desc: 'Premier estate properties',
   },
   {
-    href: '/service-areas/southeast-wisconsin',
-    label: 'Southeast Wisconsin',
-    desc: 'Lake Geneva, Kenosha, Racine',
+    href: '/service-areas/oak-brook-il',
+    label: 'Oak Brook, IL',
+    desc: 'Western suburbs',
   },
   {
     href: '/service-areas/lake-geneva-wi',
     label: 'Lake Geneva, WI',
-    desc: 'Lake Geneva, Fontana, Williams Bay',
+    desc: 'Wisconsin lakefront estates',
+  },
+  {
+    href: '/service-areas/sanibel-outdoor-living',
+    label: 'Sanibel, FL',
+    desc: 'Gulf Coast outdoor living',
   },
 ];
 

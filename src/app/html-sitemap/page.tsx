@@ -60,20 +60,13 @@ const sitemapLinks = [
     category: 'Service Areas',
     links: [
       { href: '/service-areas', label: 'All Service Areas' },
-      {
-        href: '/service-areas/north-shore-chicago',
-        label: 'North Shore Chicago',
-      },
-      { href: '/service-areas/lake-county-il', label: 'Lake County, IL' },
-      { href: '/service-areas/mchenry-county-il', label: 'McHenry County, IL' },
+      { href: '/service-areas/wilmette-il', label: 'Wilmette, IL' },
+      { href: '/service-areas/winnetka-il', label: 'Winnetka, IL' },
+      { href: '/service-areas/northbrook-il', label: 'Northbrook, IL' },
       { href: '/service-areas/barrington-il', label: 'Barrington, IL' },
       { href: '/service-areas/naperville-il', label: 'Naperville, IL' },
       { href: '/service-areas/hinsdale-il', label: 'Hinsdale, IL' },
       { href: '/service-areas/oak-brook-il', label: 'Oak Brook, IL' },
-      {
-        href: '/service-areas/southeast-wisconsin',
-        label: 'Southeast Wisconsin',
-      },
       { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
       { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
     ],

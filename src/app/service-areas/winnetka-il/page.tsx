@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
 import {
   MapPin,
@@ -14,7 +17,6 @@ import {
   TreeDeciduous,
   Eye,
   Wind,
-  Phone,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -135,33 +137,37 @@ export default function WinnetkaHubPage() {
 
       {/* ========== HERO ========== */}
       <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage:
-              "url('/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg"
+            alt="Dark gray louvered pergola with LED lighting"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
 
         <Container className="relative z-10">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
                 <MapPin className="h-4 w-4" /> Service Area: Winnetka, IL
               </span>
-              <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+              <h1 className="hero-title mb-6 text-white">
                 Estate-Class Outdoor Living
                 <span className="text-edg-brand block">for Winnetka</span>
               </h1>
-              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 We understand that in Winnetka, &quot;outdoor living&quot; means more than
                 a patio. It&apos;s an extension of a historic estate. Our systems are
                 engineered to match your grandeur while respecting the
                 Architectural Review Board&apos;s exacting standards.
               </p>
               <Link href="/contact">
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="px-8 text-lg">
                   Request Estate Consultation{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -177,7 +183,7 @@ export default function WinnetkaHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="flex items-center gap-2 text-gray-300">
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
                   <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
                 </span>
               ))}
@@ -187,26 +193,23 @@ export default function WinnetkaHubPage() {
       </section>
 
       {/* ========== NEIGHBORHOODS ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Serving Winnetka&apos;s Esteemed Neighborhoods
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Each Winnetka area has unique characteristics we design for.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900"
-                >
+                <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-muted-foreground">{neighborhood.description}</p>
-                </div>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -214,29 +217,24 @@ export default function WinnetkaHubPage() {
       </Section>
 
       {/* ========== ESTATE FEATURES ========== */}
-      <Section className="bg-zinc-50 py-20 dark:bg-zinc-900">
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Engineering for Estate-Scale Demands
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
-                Standard residential products can&apost handle Winnetka&apos;s estate requirements. We engineer differently.
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Standard residential products can&apos;t handle Winnetka&apos;s estate requirements. We engineer differently.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2">
               {estateFeatures.map((feature, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950"
-                >
-                  <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                    <feature.icon className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                  </div>
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={feature.icon} variant="brand" size="lg" className="mb-4" />
                   <h3 className="mb-3 text-xl font-bold">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </div>
+                  <p className="text-text-secondary">{feature.description}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -244,26 +242,23 @@ export default function WinnetkaHubPage() {
       </Section>
 
       {/* ========== FAQ ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Estate Project Questions
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 What Winnetka homeowners ask about our estate-grade systems.
               </p>
             </div>
-            <div className="mx-auto max-w-3xl space-y-6">
+            <div className="mx-auto max-w-3xl space-y-4">
               {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900"
-                >
+                <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -271,51 +266,59 @@ export default function WinnetkaHubPage() {
       </Section>
 
       {/* ========== CLUSTER LINKS ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Winnetka Homeowner Resources
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
                 href="/service-areas/winnetka-il/zoning-guide"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <ShieldCheck className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">
-                  Winnetka Permitting & Zoning
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Navigating the Village of Winnetka&apos;s strict architectural
-                  review board and ravine protection ordinances.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  Read the Guide <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Winnetka Permitting & Zoning
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Navigating the Village of Winnetka&apos;s strict architectural
+                    review board and ravine protection ordinances.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read the Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/service-areas/winnetka-il/louvered-pergolas"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-amber-500/10">
-                  <Crown className="h-6 w-6 text-amber-500" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">
-                  Louvered Roofs for Estates
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Large-span engineering capabilities that allow us to cover
-                  expansive bluestone patios without cluttering columns.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Louvered Roofs for Estates
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Large-span engineering capabilities that allow us to cover
+                    expansive bluestone patios without cluttering columns.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
             </div>
           </FadeIn>
@@ -323,7 +326,7 @@ export default function WinnetkaHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <Section className="bg-edg-brand py-20">
+      <section className="section-md bg-edg-brand">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
@@ -336,8 +339,8 @@ export default function WinnetkaHubPage() {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  variant="secondary"
-                  className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
+                  variant="dark"
+                  className="px-8 text-lg"
                 >
                   Schedule Private Consult{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -346,7 +349,7 @@ export default function WinnetkaHubPage() {
             </div>
           </FadeIn>
         </Container>
-      </Section>
+      </section>
     </div>
   );
 }

@@ -27,14 +27,19 @@ interface AnalyticsData {
 
 const SERVICE_AREA_PAGES = [
   {
-    path: '/service-areas/lake-geneva-wi',
-    name: 'Lake Geneva, WI',
-    archetype: 'Waterfront',
+    path: '/service-areas/wilmette-il',
+    name: 'Wilmette, IL',
+    archetype: 'North Shore',
   },
   {
-    path: '/service-areas/hinsdale-il',
-    name: 'Hinsdale, IL',
-    archetype: 'Suburban Retreat',
+    path: '/service-areas/winnetka-il',
+    name: 'Winnetka, IL',
+    archetype: 'North Shore',
+  },
+  {
+    path: '/service-areas/northbrook-il',
+    name: 'Northbrook, IL',
+    archetype: 'North Shore',
   },
   {
     path: '/service-areas/barrington-il',
@@ -44,31 +49,26 @@ const SERVICE_AREA_PAGES = [
   {
     path: '/service-areas/naperville-il',
     name: 'Naperville, IL',
-    archetype: 'Suburban Retreat',
+    archetype: 'Suburban',
+  },
+  {
+    path: '/service-areas/hinsdale-il',
+    name: 'Hinsdale, IL',
+    archetype: 'Estate',
   },
   {
     path: '/service-areas/oak-brook-il',
     name: 'Oak Brook, IL',
-    archetype: 'Estate',
+    archetype: 'Suburban',
   },
   {
-    path: '/service-areas/north-shore-chicago',
-    name: 'North Shore Chicago',
-    archetype: 'Estate',
+    path: '/service-areas/lake-geneva-wi',
+    name: 'Lake Geneva, WI',
+    archetype: 'Waterfront',
   },
   {
-    path: '/service-areas/lake-county-il',
-    name: 'Lake County, IL',
-    archetype: 'Mixed',
-  },
-  {
-    path: '/service-areas/mchenry-county-il',
-    name: 'McHenry County, IL',
-    archetype: 'Mixed',
-  },
-  {
-    path: '/service-areas/southeast-wisconsin',
-    name: 'Southeast Wisconsin',
+    path: '/service-areas/sanibel-outdoor-living',
+    name: 'Sanibel, FL',
     archetype: 'Waterfront',
   },
 ];

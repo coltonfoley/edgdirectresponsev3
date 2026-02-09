@@ -202,12 +202,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/mchenry-county-motorized-screens',
-        destination: '/service-areas/mchenry-county-il',
+        destination: '/service-areas/barrington-il',
         permanent: true,
       },
       {
         source: '/lake-county-motorized-screens',
-        destination: '/service-areas/lake-county-il',
+        destination: '/service-areas/wilmette-il',
         permanent: true,
       },
       // UPDATED: Expert recommends specific location
@@ -233,10 +233,9 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
-      // UPDATED: Expert recommends Wisconsin area page
       {
         source: '/custom-aluminum-pergola-madison-wisconsin',
-        destination: '/service-areas/southeast-wisconsin',
+        destination: '/service-areas/lake-geneva-wi',
         permanent: true,
       },
       {
@@ -286,10 +285,9 @@ const nextConfig: NextConfig = {
         destination: '/service-areas/naperville-il',
         permanent: true,
       },
-      // UPDATED: Expert recommends Wisconsin service area
       {
         source: '/2025/05/21/kenosha-outdoor-living-guide',
-        destination: '/service-areas/southeast-wisconsin',
+        destination: '/service-areas/lake-geneva-wi',
         permanent: true,
       },
       {

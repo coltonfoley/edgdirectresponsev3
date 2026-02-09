@@ -1,63 +1,115 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
 import {
-  ArrowLeft,
-  ArrowRight,
   MapPin,
-  Phone,
+  ArrowRight,
   CheckCircle2,
-  Home,
+  Wind,
+  CloudSun,
+  Thermometer,
+  Waves,
 } from 'lucide-react';
-import { TrackedLink } from '@/components/ui/TrackedLink';
-import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Lake Geneva WI Pergolas & Luxury Outdoor Living | EDG Patio',
+  title: 'Outdoor Living Systems in Lake Geneva, WI | Pergolas & Shades | EDG',
   description:
-    'Custom motorized pergolas, retractable shades, and glass enclosures for Lake Geneva, Williams Bay, and Fontana. Enhancing lakefront living with premium outdoor systems. Local experts.',
+    'Custom motorized pergolas and exterior shades for Lake Geneva homes. Serving Fontana, Williams Bay, and surrounding lake communities. Engineered for lakefront conditions.',
   alternates: {
     canonical: '/service-areas/lake-geneva-wi',
   },
-  openGraph: {
-    title: 'Lake Geneva WI | Pergolas & Outdoor Living | EDG',
-    description:
-      'Premium outdoor living systems for Lake Geneva area homeowners. Local expertise, professional installation.',
-  },
 };
 
-const communities = [
-  { name: 'Lake Geneva', type: 'residential' },
-  { name: 'Williams Bay', type: 'residential' },
-  { name: 'Fontana', type: 'residential' },
-  { name: 'Walworth', type: 'residential' },
-  { name: 'Linn', type: 'residential' },
-  { name: 'Delavan', type: 'residential' },
+const localBenefits = [
+  'Licensed for Wisconsin projects',
+  'Lakefront wind-load expertise',
+  'Walworth County building code knowledge',
+  'Seasonal installation experience',
+];
+
+const neighborhoods = [
+  {
+    name: 'Lake Geneva (City & Lakefront)',
+    description:
+      "The heart of the Geneva Lake area features stunning waterfront estates and charming downtown properties. We specialize in designing outdoor living systems that maximize lake views while providing protection from wind and weather. Our systems are engineered to handle the unique demands of open-water exposure.",
+  },
+  {
+    name: 'Fontana-on-Geneva-Lake',
+    description:
+      "Fontana&apos;s prestigious shoreline properties demand systems that complement upscale lake homes. We design custom pergolas and glass enclosures that integrate seamlessly with Fontana's mix of historic cottages and modern estates, preserving sightlines to the water.",
+  },
+  {
+    name: 'Williams Bay',
+    description:
+      "Home to Yerkes Observatory and beautiful bay-side properties, Williams Bay offers unique outdoor living opportunities. Our systems help homeowners enjoy the bay views while providing shelter from afternoon sun and sudden lake storms.",
+  },
+  {
+    name: 'Surrounding Lake Communities',
+    description:
+      "From Delavan to Como, Elkhorn to the smaller lake areas, we serve homeowners throughout Walworth County. Whether you&apos;re on a smaller lake or inland property, our designs account for Wisconsin's seasonal extremes and local building requirements.",
+  },
 ];
 
 const localConsiderations = [
   {
-    title: 'Lakefront Protection',
+    title: 'Lake Effect Winds',
     description:
-      'We design systems specifically to handle the wind loads and bugs common to lakefront properties, ensuring your view remains unobstructed.',
+      "Properties on Geneva Lake and surrounding waters experience sustained winds off the water. Our hurricane-rated louvered systems withstand 130+ mph winds, with automatic sensors that close louvers when wind speeds increase.",
+    icon: Wind,
   },
   {
-    title: 'Seasonal Versatility',
+    title: 'Four-Season Use',
     description:
-      'Our motorized pergolas allow you to enjoy the summer breeze while providing instant protection from sudden lake showers.',
+      "Wisconsin winters are harsh, but our systems are built for year-round use. Louvers automatically open under snow load to prevent accumulation, while integrated heaters and screens extend your outdoor season well into fall.",
+    icon: Thermometer,
   },
   {
-    title: 'Estate Integration',
+    title: 'Summer Heat & UV',
     description:
-      "Whether it's a historic lake home or a modern new build, our systems are designed to blend seamlessly with your architecture.",
+      "July afternoons on the lake can be intense. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your patio comfortable even during peak summer heat.",
+    icon: CloudSun,
+  },
+  {
+    title: 'Waterfront Regulations',
+    description:
+      "Lake Geneva area properties often have setback requirements and HOA guidelines. We navigate these restrictions to maximize your usable outdoor space while staying compliant with local codes.",
+    icon: Waves,
   },
 ];
 
-export default function LakeGenevaPage() {
+const faqs = [
+  {
+    question: 'Do I need a permit for a pergola in the Lake Geneva area?',
+    answer:
+      "Yes, most outdoor structures require permits in Walworth County and local municipalities. Fontana, Lake Geneva, and Williams Bay each have specific setback requirements from the water and property lines. Our team handles the entire permit process, including any approvals needed for waterfront structures.",
+  },
+  {
+    question: 'How do your systems handle lakefront wind conditions?',
+    answer:
+      "Geneva Lake can generate sustained winds and sudden gusts. Our louvered pergolas are engineered to withstand 130+ mph winds when closed. The systems include wind sensors that automatically close louvers when wind speeds exceed thresholds, and our mounting systems are designed for the unique challenges of lakefront installations.",
+  },
+  {
+    question: 'Can you work with HOA requirements in Fontana or Lake Geneva?',
+    answer:
+      "Absolutely. Many lakefront communities have strict aesthetic guidelines and architectural review boards. We have experience working with Fontana Association, Lake Geneva estates, and various HOAs throughout Walworth County. Our systems can be powder-coated to match approved color palettes, and we provide detailed plans for board approval.",
+  },
+  {
+    question: "What's the typical timeline for a Lake Geneva area project?",
+    answer:
+      "From consultation to completion, most Lake Geneva area projects take 8-12 weeks. Wisconsin permit approval typically takes 3-4 weeks. We handle all interactions with local building departments and coordinate installation around seasonal considerations for lakefront work.",
+  },
+];
+
+export default function LakeGenevaHubPage() {
   return (
-    <>
+    <div className="min-h-screen">
+      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -66,7 +118,7 @@ export default function LakeGenevaPage() {
             '@type': 'Service',
             name: 'Outdoor Living Design & Installation - Lake Geneva',
             description:
-              'Custom motorized pergolas, retractable shades, and glass enclosures for Lake Geneva, Williams Bay, and Fontana.',
+              'Custom motorized pergolas and exterior shades for Lake Geneva, Fontana, and Williams Bay homes.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -75,176 +127,168 @@ export default function LakeGenevaPage() {
               name: 'Lake Geneva',
             },
             url: 'https://www.edgpatioshade.com/service-areas/lake-geneva-wi',
-            image: 'https://www.edgpatioshade.com/images/hero/pergola-hero.jpg',
+            image:
+              'https://www.edgpatioshade.com/images/pergolas/residential-white-r-blade-led-strip.jpg',
           }),
         }}
       />
-      <main className="min-h-screen bg-white dark:bg-black">
-        {/* Hero */}
-        <Section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32">
-          <Container>
-            <Link
-              href="/service-areas"
-              className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" /> All Service Areas
-            </Link>
-            <div className="max-w-4xl">
-              <div className="bg-edg-brand/20 border-edg-brand/30 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2">
-                <MapPin className="text-edg-brand h-4 w-4" />
-                <span className="text-edg-brand text-sm font-semibold tracking-wider uppercase">
-                  Serving The Lake Geneva Area
-                </span>
-              </div>
-              <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-                Lake Geneva, Wisconsin Luxury Outdoor Living
-              </h1>
-              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-gray-300">
-                Experience the pinnacle of lakefront luxury. Custom motorized
-                pergolas and glass systems designed for Lake Geneva's finest
-                estates.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row">
-                <TrackedLink href="/contact?area=lake-geneva">
-                  <Button size="lg" className="rounded-full">
-                    Get a Proposal <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </TrackedLink>
-                <TrackedPhoneLink href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full border-white/30 text-white hover:bg-white/10"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
-                  </Button>
-                </TrackedPhoneLink>
-              </div>
-            </div>
-          </Container>
-        </Section>
 
-        {/* Communities Grid */}
-        <Section className="bg-white py-20 dark:bg-black">
-          <Container>
-            <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
-              Neighborhoods We Serve
-            </h2>
-            <p className="text-muted-foreground mx-auto mb-12 max-w-2xl text-center text-lg">
-              Serving Lake Geneva and surrounding lake communities.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-              {communities.map((community) => (
-                <div
-                  key={community.name}
-                  className="flex items-center gap-3 rounded-xl border border-black/5 bg-zinc-50 p-4 dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <Home className="text-edg-brand h-5 w-5 shrink-0" />
-                  <span className="font-medium">{community.name}</span>
-                </div>
+      {/* ========== HERO ========== */}
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-white-r-blade-led-strip.jpg"
+            alt="White louvered pergola with LED lighting"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
+
+        <Container className="relative z-10">
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Service Area: Lake Geneva, WI
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Upgrade Your Lake Geneva Home with
+                <span className="text-edg-brand block">
+                  Four-Season Outdoor Living
+                </span>
+              </h1>
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                From the shores of Geneva Lake to the estates of Fontana and
+                Williams Bay, we design engineered shade systems built for
+                Wisconsin lakefront living.
+              </p>
+              <Link href="/contact">
+                <Button size="lg" className="px-8 text-lg">
+                  Request Lake Geneva Site Visit{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ========== LOCAL EXPERTISE ========== */}
+      <section className="bg-edg-dark border-t border-white/5 py-8">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-wrap justify-center gap-6 text-sm">
+              {localBenefits.map((benefit, i) => (
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                </span>
               ))}
             </div>
-          </Container>
-        </Section>
+          </FadeIn>
+        </Container>
+      </section>
 
-        {/* Local Considerations */}
-        <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
-          <Container>
-            <div className="grid items-start gap-16 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                  Why Lake Geneva Homeowners Choose EDG
-                </h2>
-                <div className="space-y-6">
-                  {localConsiderations.map((item) => (
-                    <div key={item.title} className="flex gap-4">
-                      <CheckCircle2 className="text-edg-brand mt-1 h-6 w-6 shrink-0" />
-                      <div>
-                        <h3 className="mb-1 text-lg font-bold">{item.title}</h3>
-                        <p className="text-muted-foreground">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Investment Guide */}
-        <Section className="bg-white py-20 dark:bg-black">
-          <Container>
-            <div className="mx-auto max-w-4xl">
-              <div className="mb-12 text-center">
-                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                  Lake Geneva Project Investments
-                </h2>
-                <p className="text-muted-foreground text-lg">
-                  Typical project ranges for lakefront properties, including
-                  high-wind engineering and installation.
-                </p>
-              </div>
-              <div className="grid gap-8 md:grid-cols-2">
-                <div className="rounded-2xl border border-black/5 bg-zinc-50 p-8 dark:border-white/10 dark:bg-zinc-900">
-                  <h3 className="mb-2 text-xl font-bold">Lakeside Pergolas</h3>
-                  <div className="text-edg-brand mb-4 text-3xl font-bold">
-                    $45k - $100k+
-                  </div>
-                  <p className="text-edg-gray-text mb-4 text-sm dark:text-gray-400">
-                    Includes heavy-duty engineering for open lake exposure.
-                    Often includes heaters and multiple wind screens.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-black/5 bg-zinc-50 p-8 dark:border-white/10 dark:bg-zinc-900">
-                  <h3 className="mb-2 text-xl font-bold">
-                    Retractable Glass Walls
-                  </h3>
-                  <div className="text-edg-brand mb-4 text-3xl font-bold">
-                    $1,500 - $3,000
-                  </div>
-                  <p className="text-edg-gray-text mb-4 text-sm dark:text-gray-400">
-                    Per linear foot. Creates true 4-season utility for porches
-                    and balconies.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* CTA */}
-        <Section className="bg-edg-brand text-edg-dark py-20">
-          <Container>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                Ready to Enhance Your Lake Home?
+      {/* ========== NEIGHBORHOODS ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Serving Every Lake Geneva Area Community
               </h2>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <TrackedLink href="/contact?area=lake-geneva">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-                  >
-                    Start Project <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </TrackedLink>
-                <TrackedPhoneLink href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10 rounded-full"
-                  >
-                    <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
-                  </Button>
-                </TrackedPhoneLink>
-              </div>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                We understand the unique character and requirements of Walworth County&apos;s lake communities.
+              </p>
             </div>
-          </Container>
-        </Section>
-      </main>
-    </>
+            <div className="grid gap-6 md:grid-cols-2">
+              {neighborhoods.map((neighborhood, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Built for Lake Geneva&apos;s Waterfront Conditions
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Our systems are engineered specifically for Wisconsin lakefront challenges.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {localConsiderations.map((item, i) => (
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Common Questions About Lake Geneva Projects
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Everything you need to know about outdoor living in the Geneva Lake area.
+              </p>
+            </div>
+            <div className="mx-auto max-w-3xl space-y-4">
+              {faqs.map((faq, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== CTA ========== */}
+      <section className="section-md bg-edg-brand">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to Start Your Lake Geneva Project?
+              </h2>
+              <p className="text-edg-dark/80 mb-8 text-xl">
+                Get a free consultation with our local design team.
+              </p>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="dark"
+                  className="px-8 text-lg"
+                >
+                  Schedule Free Consultation{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </section>
+    </div>
   );
 }

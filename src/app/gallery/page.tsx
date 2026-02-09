@@ -88,9 +88,9 @@ export default function GalleryPage() {
       <Section className="bg-black py-24 border-t border-white/10">
         <Container>
           <div className="text-center">
-            <p className="text-gray-500 text-sm uppercase tracking-widest animate-pulse flex justify-center items-center gap-2">
-              End of Portfolio <div className="h-1 w-1 bg-edg-brand rounded-full"></div>
-            </p>
+            <div className="text-gray-500 text-sm uppercase tracking-widest animate-pulse flex justify-center items-center gap-2">
+              End of Portfolio <span className="h-1 w-1 bg-edg-brand rounded-full"></span>
+            </div>
           </div>
         </Container>
       </Section>

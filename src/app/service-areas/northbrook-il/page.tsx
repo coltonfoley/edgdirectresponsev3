@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import Link from 'next/link';
 import {
   MapPin,
@@ -11,23 +14,24 @@ import {
   ShieldCheck,
   CheckCircle2,
   Snowflake,
+  Wind,
   Building,
-  FileCheck,
   Phone,
+  CloudSun,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Motorized Pergolas & Patio Shades in Northbrook, IL | EDG',
+  title: 'Outdoor Living Systems in Northbrook, IL | Pergolas & Shades | EDG',
   description:
-    'Transform your Northbrook home with hurricane-rated louvered pergolas and retractable screens. Custom designed for 60062 zoning codes and Georgian architecture.',
+    'Custom motorized pergolas and exterior shades for Northbrook homes. Serving Techny, Shermer Road, and Northbrook Heights. Zoning-compliant designs for Georgian architecture.',
   alternates: {
     canonical: '/service-areas/northbrook-il',
   },
 };
 
 const localBenefits = [
-  'Familiar with Village of Northbrook building codes',
-  'Experience with Georgian & Colonial architecture',
+  'Familiar with Village of Northbrook zoning codes',
+  'Georgian & Colonial architecture experience',
   '30psf snow load engineering standard',
   'Licensed & insured for Cook County',
 ];
@@ -36,17 +40,43 @@ const neighborhoods = [
   {
     name: 'Techny',
     description:
-      'The winding lanes of Techny feature expansive properties perfect for estate-scale outdoor living systems. Our large-span engineering minimizes columns while maximizing your view.',
+      'The winding lanes of Techny feature expansive properties perfect for estate-scale outdoor living systems. Our large-span engineering minimizes columns while maximizing your view of the mature tree canopy and open spaces that define this prestigious area.',
   },
   {
     name: 'Shermer Road Corridor',
     description:
-      'Classic brick colonials along Shermer Road benefit from our powder-coated systems that complement traditional architecture while adding modern functionality.',
+      'Classic brick colonials along Shermer Road benefit from our powder-coated systems that complement traditional architecture while adding modern functionality. We design with the established character of this corridor in mind.',
   },
   {
     name: 'Northbrook Heights',
     description:
-      'Elevated properties in Northbrook Heights experience significant wind exposure. Our Miami-Dade hurricane-rated systems provide peace of mind during storms.',
+      'Elevated properties in Northbrook Heights experience significant wind exposure. Our Miami-Dade hurricane-rated systems provide peace of mind during storms while delivering year-round outdoor comfort.',
+  },
+  {
+    name: 'Downtown Northbrook',
+    description:
+      'Homes near the Village Green and downtown area often have unique lot configurations. We specialize in maximizing outdoor living space in compact settings while meeting village setback and height requirements.',
+  },
+];
+
+const weatherConsiderations = [
+  {
+    title: 'Heavy Snow Loads',
+    description:
+      'Northbrook winters bring significant snowfall. Our louvers open automatically under snow load, preventing accumulation and protecting your structure. Rated for 30psf snow loads per village code requirements.',
+    icon: Snowflake,
+  },
+  {
+    title: 'High Wind Exposure',
+    description:
+      'Elevated areas in Northbrook experience strong winds. Our hurricane-rated systems withstand sustained winds, with louvers that adjust automatically to minimize exposure during storm conditions.',
+    icon: Wind,
+  },
+  {
+    title: 'Summer Heat & UV',
+    description:
+      'Northbrook summers can be intense with direct sun exposure. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your outdoor space comfortable even in July heat.',
+    icon: CloudSun,
   },
 ];
 
@@ -54,17 +84,17 @@ const faqs = [
   {
     question: 'Do I need a permit for a pergola in Northbrook?',
     answer:
-      'Yes, the Village of Northbrook requires permits for most outdoor structures. Our team handles the entire permit application process, including plat of survey markups, structural engineering stamps, and village meetings.',
+      'Yes, the Village of Northbrook requires permits for most outdoor structures. Our team handles the entire permit application process, including plat of survey markups, structural engineering stamps, and village meetings. We ensure 15ft height compliance and proper setbacks.',
   },
   {
     question: 'How long does permit approval take in Northbrook?',
     answer:
-      'Northbrook permit approval typically takes 4-6 weeks. We submit complete packages to minimize delays and attend any required village meetings on your behalf.',
+      'Northbrook permit approval typically takes 4-6 weeks. We submit complete packages to minimize delays and attend any required village meetings on your behalf. Our experience with the Village building department helps streamline the process.',
   },
   {
     question: 'Can you match my home\'s Georgian architecture?',
     answer:
-      'Absolutely. We offer custom powder coating to match your brick, trim, or window mullions. Our columns can be detailed to complement Georgian and Colonial styles common in Northbrook.',
+      'Absolutely. We offer custom powder coating to match your brick, trim, or window mullions. Our columns can be detailed to complement Georgian and Colonial styles common throughout Northbrook. We understand the architectural heritage of the area and design accordingly.',
   },
 ];
 
@@ -97,33 +127,40 @@ export default function NorthbrookHubPage() {
 
       {/* ========== HERO ========== */}
       <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage:
-              "url('/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        {/* Background Image - Using next/Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+            alt="Black louvered pergola with outdoor dining area and pool"
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+        </div>
 
         <Container className="relative z-10">
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
                 <MapPin className="h-4 w-4" /> Service Area: Northbrook, IL
               </span>
-              <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-                Motorized Pergolas & Shades
-                <span className="text-edg-brand block">for Northbrook Homes</span>
+              <h1 className="hero-title mb-6 text-white">
+                Upgrade Your Northbrook Home with
+                <span className="text-edg-brand block">
+                  Four-Season Outdoor Living
+                </span>
               </h1>
-              <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
-                Hurricane-rated louvered pergolas and retractable screens engineered
-                for Northbrook&apos;s 30psf snow loads. Custom designed to complement
-                the classic Georgian and Colonial architecture of 60062.
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                From the winding lanes of Techny to the Shermer Road corridor, we
+                design engineered shade systems that complement Northbrook&apos;s
+                classic Georgian architecture and handle its unique weather
+                challenges.
               </p>
               <Link href="/contact">
-                <Button size="lg" className="rounded-full px-8 text-lg">
-                  Request Northbrook Consultation{' '}
+                <Button size="lg" className="px-8 text-lg">
+                  Request Northbrook Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -138,7 +175,7 @@ export default function NorthbrookHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="flex items-center gap-2 text-gray-300">
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
                   <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
                 </span>
               ))}
@@ -147,75 +184,49 @@ export default function NorthbrookHubPage() {
         </Container>
       </section>
 
-      {/* ========== CHALLENGES ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      {/* ========== NEIGHBORHOODS ========== */}
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Built for Northbrook&apos;s Unique Challenges
+              <h2 className="section-title mb-4">
+                Serving Every Northbrook Neighborhood
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
-                Northbrook&apos;s weather and architecture require specialized solutions.
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                We understand the unique character and requirements of Northbrook&apos;s distinct areas.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900">
-                <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <Snowflake className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="mb-3 text-xl font-bold">Wind & Snow Load</h3>
-                <p className="text-muted-foreground">
-                  Northbrook code requires 30psf snow ratings. Our louvers open
-                  automatically to protect your structure from heavy snow accumulation.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900">
-                <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <Building className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="mb-3 text-xl font-bold">Architecture Match</h3>
-                <p className="text-muted-foreground">
-                  From Shermer Road to the winding lanes of Techny, we match the
-                  classic Georgian and Colonial styles with custom powder coating.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-900">
-                <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <FileCheck className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="mb-3 text-xl font-bold">Zoning Compliance</h3>
-                <p className="text-muted-foreground">
-                  We handle the entire Application for Permit process with the Village
-                  of Northbrook, ensuring 15ft height compliance.
-                </p>
-              </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {neighborhoods.map((neighborhood, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
+                  <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
             </div>
           </FadeIn>
         </Container>
       </Section>
 
-      {/* ========== NEIGHBORHOODS ========== */}
-      <Section className="bg-zinc-50 py-20 dark:bg-zinc-900">
+      {/* ========== WEATHER CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Serving Every Northbrook Neighborhood
+              <h2 className="section-title mb-4">
+                Built for Northbrook&apos;s Weather
               </h2>
-              <p className="text-muted-foreground mx-auto mt-4 max-w-2xl">
-                We understand the unique characteristics of Northbrook&apos;s distinct areas.
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Our systems are engineered specifically for North Shore climate challenges.
               </p>
             </div>
-            <div className="space-y-8">
-              {neighborhoods.map((neighborhood, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950"
-                >
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-muted-foreground">{neighborhood.description}</p>
-                </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {weatherConsiderations.map((item, i) => (
+                <Card key={i} variant="default" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -223,23 +234,23 @@ export default function NorthbrookHubPage() {
       </Section>
 
       {/* ========== FAQ ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="section-title mb-4">
                 Common Questions About Northbrook Projects
               </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Everything you need to know about outdoor living in Northbrook.
+              </p>
             </div>
-            <div className="mx-auto max-w-3xl space-y-6">
+            <div className="mx-auto max-w-3xl space-y-4">
               {faqs.map((faq, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900"
-                >
+                <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
+                  <p className="text-text-secondary">{faq.answer}</p>
+                </Card>
               ))}
             </div>
           </FadeIn>
@@ -247,67 +258,79 @@ export default function NorthbrookHubPage() {
       </Section>
 
       {/* ========== CLUSTER LINKS ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Explore Northbrook Resources
+              <h2 className="section-title mb-4">
+                Local Resources for Northbrook Homeowners
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-8 md:grid-cols-3">
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
               <Link
                 href="/service-areas/northbrook-il/zoning-guide"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="bg-edg-brand/10 mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                  <ShieldCheck className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Northbrook Zoning Guide
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Permits, setbacks, and height requirements specific to Northbrook.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  Read Guide <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
+                    Northbrook Zoning Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Permits, setbacks, and height requirements specific to Northbrook village codes.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/service-areas/northbrook-il/motorized-pergolas"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
-                  <Home className="h-6 w-6 text-blue-500" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  Louvered Pergolas
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Hurricane-rated systems engineered for Northbrook&apos;s weather.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  Learn More <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
+                    Motorized Pergolas
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Hurricane-rated systems engineered for Northbrook&apos;s weather conditions.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
 
               <Link
                 href="/projects"
-                className="group hover:border-edg-brand/50 relative rounded-2xl border border-zinc-200 bg-zinc-50 p-8 transition-all hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900"
+                className="group block"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/10">
-                  <Phone className="h-6 w-6 text-green-500" />
-                </div>
-                <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-xl font-bold transition-colors">
-                  View Local Projects
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  See completed projects in Northbrook and nearby communities.
-                </p>
-                <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                  View Gallery <ArrowRight className="h-4 w-4" />
-                </span>
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Phone} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
+                    View Local Projects
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    See completed projects in Northbrook and nearby North Shore communities.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    View Gallery <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
               </Link>
             </div>
           </FadeIn>
@@ -315,7 +338,7 @@ export default function NorthbrookHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <Section className="bg-edg-brand py-20">
+      <section className="section-md bg-edg-brand">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
@@ -328,8 +351,8 @@ export default function NorthbrookHubPage() {
               <Link href="/contact">
                 <Button
                   size="lg"
-                  variant="secondary"
-                  className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
+                  variant="dark"
+                  className="px-8 text-lg"
                 >
                   Schedule Free Consultation{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -338,7 +361,7 @@ export default function NorthbrookHubPage() {
             </div>
           </FadeIn>
         </Container>
-      </Section>
+      </section>
     </div>
   );
 }
