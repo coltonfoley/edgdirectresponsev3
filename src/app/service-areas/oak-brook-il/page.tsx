@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -22,9 +23,17 @@ export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Oak Brook, IL | Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Oak Brook estates. Serving Hinsdale, Burr Ridge, and Elmhurst. Zoning-compliant designs for luxury homes.',
+  openGraph: {
+    title: 'Oak Brook Outdoor Living | Pergolas & Shades | EDG',
+    description: 'Custom outdoor living systems for Oak Brook. Motorized pergolas, retractable screens, and professional installation.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/oak-brook-il',
   },
+  keywords: ['oak brook pergolas', 'oak brook outdoor living', 'oak brook il patio', 'pergola installation oak brook', 'oak brook backyard'],
 };
 
 const localBenefits = [
@@ -107,10 +116,16 @@ const faqs = [
   },
 ];
 
+const faqSchema = generateFAQSchema(faqs);
+
 export default function OakBrookHubPage() {
   return (
     <div className="min-h-screen">
       {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

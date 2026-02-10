@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -11,20 +12,30 @@ import {
   MapPin,
   ArrowRight,
   Home,
-  ShieldCheck,
   CheckCircle2,
   CloudSun,
-  Building,
   Wind,
+  ShieldCheck,
+  AlertTriangle,
+  Clock,
+  FileText,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Wilmette, IL | Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Wilmette homes. Serving the Cage neighborhood to Lake Michigan. Zoning-compliant designs for historic districts.',
+  openGraph: {
+    title: 'Wilmette Outdoor Living | North Shore Pergolas | EDG',
+    description: 'Luxury outdoor living systems for Wilmette homes. Motorized pergolas and screens designed for North Shore architecture.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/wilmette-il',
   },
+  keywords: ['wilmette pergolas', 'wilmette outdoor living', 'wilmette il patio', 'pergola installation wilmette', 'north shore pergolas'],
 };
 
 const localBenefits = [
@@ -126,6 +137,10 @@ export default function WilmetteHubPage() {
               'https://www.edgpatioshade.com/images/pergolas/residential-white-r-blade-led-strip.jpg',
           }),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
       />
 
       {/* ========== HERO ========== */}
@@ -235,8 +250,119 @@ export default function WilmetteHubPage() {
         </Container>
       </Section>
 
-      {/* ========== FAQ ========== */}
+      {/* ========== ZONING & CODES SECTION ========== */}
       <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Wilmette Zoning & Building Guide
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Wilmette has some of the strictest zoning codes on the North Shore. Here&apos;s what you need to know before you build.
+              </p>
+            </div>
+            <div className="mx-auto max-w-4xl space-y-8">
+              {/* Impermeable Surface Challenge */}
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
+                  <ShieldCheck className="text-edg-brand h-6 w-6" />
+                  The &quot;Impermeable Surface&quot; Challenge
+                </h3>
+                <p className="text-text-secondary mb-6">
+                  Most lots in Wilmette have a maximum allowable impermeable surface ratio (often 30-40%). If your lot is already maxed out with a driveway, patio, and garage, adding a solid roof structure might be prohibited.
+                </p>
+                <div className="bg-edg-brand/5 border-edg-brand/20 rounded-2xl border p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
+                      <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                    </div>
+                    <div>
+                      <h4 className="mb-2 text-lg font-bold">
+                        The Louvered Advantage
+                      </h4>
+                      <p className="text-text-secondary">
+                        In some interpretations, a{' '}
+                        <strong>louvered pergola</strong> can be argued as a
+                        &quot;permeable&quot; structure when open, potentially helping
+                        with zoning variances. EDG has experience navigating
+                        these specific conversations with the Village of
+                        Wilmette.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Setbacks */}
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
+                  <AlertTriangle className="text-edg-brand h-6 w-6" />
+                  Setback Requirements
+                </h3>
+                <p className="text-text-secondary mb-4">
+                  Detached accessory structures typically must be:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                    <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
+                    <span>
+                      At least <strong>3 feet</strong> from side property lines.
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                    <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
+                    <span>
+                      At least <strong>5 feet</strong> from rear property lines.
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                    <AlertTriangle className="h-5 w-5 shrink-0 text-amber-500" />
+                    <span>Often cannot be in the required front yard.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Timeline */}
+              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
+                  <Clock className="text-edg-brand h-6 w-6" />
+                  Permit Process Timeline
+                </h3>
+                <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+                  <Clock className="h-5 w-5 shrink-0 text-amber-600" />
+                  <p className="font-medium text-amber-800 dark:text-amber-200">
+                    Expect a 4-6 week review cycle in Wilmette.
+                  </p>
+                </div>
+                <p className="text-text-secondary mb-4">We handle:</p>
+                <ul className="grid gap-3 md:grid-cols-2">
+                  {[
+                    'Plat of survey markup',
+                    'Structural engineering stamps',
+                    'HOA approval packets (if applicable)',
+                    'Village permit application and meetings',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm">
+                      <FileText className="text-muted-foreground h-4 w-4" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <p className="text-muted-foreground text-center text-sm italic">
+                Disclaimer: Zoning codes change. This guide is for
+                informational purposes. EDG verifies all current codes during
+                our site assessment.
+              </p>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -270,29 +396,6 @@ export default function WilmetteHubPage() {
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
-                href="/service-areas/wilmette-il/zoning-guide"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
-                  padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
-                >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Wilmette Building & Zoning Guide
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Before you build, understand the &quot;Impermeable Surface&quot; limits
-                    and setbacks specific to Wilmette village codes.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Read the Guide <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
-              <Link
                 href="/service-areas/wilmette-il/louvered-pergolas"
                 className="group block"
               >
@@ -311,6 +414,29 @@ export default function WilmetteHubPage() {
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+
+              <Link
+                href="/contact?area=wilmette&source=hub-resources"
+                className="group block"
+              >
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Get Permit Assistance
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    We&apos;ve handled dozens of Wilmette permits. Let us manage the
+                    Village&apos;s strict zoning process for you.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Contact Us <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>

@@ -104,9 +104,9 @@ export function Footer() {
       {/* Main Footer */}
       <div className="border-t border-white/10 py-16">
         <Container>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-4 lg:gap-16">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
             {/* Brand & Location */}
-            <div className="md:col-span-2 space-y-8">
+            <div className="md:col-span-2 lg:col-span-2 space-y-8">
               <Link
                 href="/"
                 className="block text-4xl font-bold tracking-tighter text-white"
@@ -135,13 +135,34 @@ export function Footer() {
             <div>
               <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Explore</h4>
               <ul className="space-y-3">
+                <li><Link href="/systems" className="text-gray-400 hover:text-edg-brand transition-colors">All Systems</Link></li>
                 <li><Link href="/systems/pergolas" className="text-gray-400 hover:text-edg-brand transition-colors">Motorized Pergolas</Link></li>
                 <li><Link href="/systems/shades" className="text-gray-400 hover:text-edg-brand transition-colors">Retractable Screens</Link></li>
                 <li><Link href="/systems/enclosures" className="text-gray-400 hover:text-edg-brand transition-colors">Glass Enclosures</Link></li>
-                <li><Link href="/commercial" className="text-gray-400 hover:text-edg-brand transition-colors">Commercial</Link></li>
-                <li><Link href="/trade-partners" className="text-gray-400 hover:text-edg-brand transition-colors">Trade Partners</Link></li>
+                <li><Link href="/guides" className="text-gray-400 hover:text-edg-brand transition-colors">Guides & Resources</Link></li>
+                <li><Link href="/projects" className="text-gray-400 hover:text-edg-brand transition-colors">Projects</Link></li>
                 <li><Link href="/gallery" className="text-gray-400 hover:text-edg-brand transition-colors">Gallery</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-edg-brand transition-colors">Contact</Link></li>
+                <li><Link href="/showroom" className="text-gray-400 hover:text-edg-brand transition-colors">Showroom</Link></li>
+                <li><Link href="/design" className="text-gray-400 hover:text-edg-brand transition-colors">Design Process</Link></li>
+                <li><Link href="/price" className="text-gray-400 hover:text-edg-brand transition-colors">Pricing Guide</Link></li>
+              </ul>
+            </div>
+
+            {/* Service Areas & Commercial */}
+            <div>
+              <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Service Areas</h4>
+              <ul className="space-y-3">
+                <li><Link href="/service-areas" className="text-gray-400 hover:text-edg-brand transition-colors">All Service Areas</Link></li>
+                <li><Link href="/service-areas/wilmette-il" className="text-gray-400 hover:text-edg-brand transition-colors">Wilmette, IL</Link></li>
+                <li><Link href="/service-areas/winnetka-il" className="text-gray-400 hover:text-edg-brand transition-colors">Winnetka, IL</Link></li>
+                <li><Link href="/service-areas/northbrook-il" className="text-gray-400 hover:text-edg-brand transition-colors">Northbrook, IL</Link></li>
+                <li><Link href="/service-areas/barrington-il" className="text-gray-400 hover:text-edg-brand transition-colors">Barrington, IL</Link></li>
+                <li><Link href="/service-areas/naperville-il" className="text-gray-400 hover:text-edg-brand transition-colors">Naperville, IL</Link></li>
+              </ul>
+              <h4 className="mt-8 mb-6 font-bold uppercase tracking-widest text-white text-xs">Commercial</h4>
+              <ul className="space-y-3">
+                <li><Link href="/commercial" className="text-gray-400 hover:text-edg-brand transition-colors">Commercial Solutions</Link></li>
+                <li><Link href="/trade-partners" className="text-gray-400 hover:text-edg-brand transition-colors">Trade Partners</Link></li>
               </ul>
             </div>
 
@@ -155,6 +176,7 @@ export function Footer() {
                 <li><a href="https://linkedin.com" className="text-gray-400 hover:text-edg-brand transition-colors">LinkedIn</a></li>
               </ul>
               <div className="mt-8 pt-8 border-t border-white/10 space-y-2">
+                <Link href="/html-sitemap" className="block text-xs text-gray-500 hover:text-white">Site Map</Link>
                 <Link href="/privacy" className="block text-xs text-gray-500 hover:text-white">Privacy Policy</Link>
                 <Link href="/terms" className="block text-xs text-gray-500 hover:text-white">Terms of Service</Link>
                 <div className="text-xs text-gray-600 mt-4">© {new Date().getFullYear()} EDG Patio & Shade</div>

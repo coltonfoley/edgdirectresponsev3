@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -17,15 +18,25 @@ import {
   Droplets,
   Sun,
   FileText,
+  AlertTriangle,
+  Info,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Sanibel Outdoor Living: Hurricane-Rated Pergolas & Lanais | EDG',
+  title: 'Sanibel Outdoor Living | Hurricane-Rated Pergolas | EDG',
   description:
     'Premium louvered roof systems and motorized screens designed for Sanibel Island\'s strict sanctuary codes and coastal climate. Miami-Dade rated for hurricane protection.',
+  openGraph: {
+    title: 'Sanibel Outdoor Living | Hurricane-Rated Pergolas | EDG',
+    description: 'Hurricane-rated outdoor living systems for Sanibel Island. Pergolas, screens, and enclosures engineered for Florida weather.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/sanibel-outdoor-living',
   },
+  keywords: ['sanibel outdoor living', 'sanibel pergolas', 'florida outdoor living', 'hurricane rated pergolas', 'sanibel lanai'],
 };
 
 const localBenefits = [
@@ -85,6 +96,33 @@ const localConsiderations = [
   },
 ];
 
+const zoningConsiderations = [
+  {
+    title: 'Impermeable Coverage Limits',
+    description:
+      'Sanibel strictly caps your property\'s "Developed Area" based on ecological zone—typically 40% maximum. This includes your house, pool, lanai, and even standard pavers.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Post-Hurricane Ian Regulations',
+    description:
+      'Updated building codes now require stricter wind force requirements and flood elevation adjustments. If repair costs exceed 50% of your home\'s value, the entire structure must be brought to current flood codes.',
+    icon: AlertTriangle,
+  },
+  {
+    title: 'Hurricane-Rated Engineering',
+    description:
+      'Our louvered roof systems meet or exceed Miami-Dade standards—the strictest in the nation. New ordinances allow for taller structures to meet required flood elevations without looking "stacked."',
+    icon: Wind,
+  },
+  {
+    title: 'Ecological Considerations',
+    description:
+      'Sanibel\'s "Sanctuary" ethos means strict vegetation protection and habitat preservation. We design structures that work within these constraints while maximizing your outdoor living space.',
+    icon: Info,
+  },
+];
+
 const faqs = [
   {
     question: 'Do your pergolas meet Florida\'s hurricane building codes?',
@@ -133,6 +171,10 @@ export default function SanibelHubPage() {
               'https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
           }),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
       />
 
       {/* ========== HERO ========== */}
@@ -242,8 +284,68 @@ export default function SanibelHubPage() {
         </Container>
       </Section>
 
-      {/* ========== FAQ ========== */}
+      {/* ========== ZONING & CODES SECTION ========== */}
       <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Navigating Sanibel&apos;s Zoning & Building Codes
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Post-Hurricane Ian regulations are complex. Here&apos;s what you need to know about Sanibel&apos;s strict sanctuary codes.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {zoningConsiderations.map((item, i) => (
+                <Card key={i} variant="muted" padding="lg">
+                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary">{item.description}</p>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-8 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <h4 className="mb-4 flex items-center gap-2 font-bold">
+                <Info className="h-5 w-5 text-blue-500" />
+                What Counts as Impermeable?
+              </h4>
+              <ul className="grid gap-3 text-sm text-zinc-600 sm:grid-cols-2 dark:text-zinc-400">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  Screen Enclosures & Lanais
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  Concrete Pads & Decks
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  Stairs & Walkways
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  Standard Non-Permeable Pavers
+                </li>
+              </ul>
+              <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
+                <strong>Our Strategy:</strong> We help homeowners maximize outdoor living by utilizing lightweight, high-performance systems that often have a smaller footprint or can be integrated into existing structures to stay within coverage limits.
+              </p>
+            </div>
+            <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
+                <p className="text-sm text-amber-800 dark:text-amber-200">
+                  <strong>50% Rule Warning:</strong> If repair costs exceed 50% of your home&apos;s value, the entire structure must be brought to current flood codes. We can help assess your situation and design accordingly.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -277,29 +379,6 @@ export default function SanibelHubPage() {
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
-                href="/service-areas/sanibel-outdoor-living/zoning-guide"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
-                  padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
-                >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Sanibel Building & Zoning Guide
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Navigate Sanibel&apos;s strict impermeable surface limits,
-                    vegetation protection codes, and post-Hurricane Ian rebuilding requirements.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Read the Guide <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
-              <Link
                 href="/service-areas/sanibel-outdoor-living/louvered-pergolas"
                 className="group block"
               >
@@ -318,6 +397,29 @@ export default function SanibelHubPage() {
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+
+              <Link
+                href="/contact?area=sanibel&source=hub-resources"
+                className="group block"
+              >
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Request a Zoning Analysis
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Don&apos;t start your permit application until you&apos;ve consulted
+                    with a specialist who understands Sanibel&apos;s sanctuary codes.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Free Site Assessment <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>

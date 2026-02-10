@@ -221,8 +221,8 @@ Use consistent spacing scale:
 ### ❌ CSS Background Images
 ```tsx
 // WRONG
-<div style={{ backgroundImage: 'url(...)' }} />
-<div className="bg-[url('/images/...')]" />
+{/* <div style={{ backgroundImage: 'url(...)' }} /> */}
+{/* <div className="bg&#8209;[url('/images/...')]" /> */}
 
 // CORRECT
 <Image src="/images/..." fill className="object-cover" />

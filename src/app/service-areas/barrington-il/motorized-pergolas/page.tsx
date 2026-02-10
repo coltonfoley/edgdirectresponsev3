@@ -214,7 +214,7 @@ export default function BarringtonPergolaPage() {
                 limit and accessory structure setbacks. Read our local guide.
               </p>
             </div>
-            <Link href="/service-areas/barrington-il/zoning-guide">
+            <Link href="/service-areas/barrington-il#zoning">
               <Button
                 variant="secondary"
                 className="border-edg-brand text-edg-brand hover:bg-edg-brand rounded-full px-8 py-6 font-bold hover:text-white"

@@ -193,6 +193,40 @@ const nextConfig: NextConfig = {
       },
 
       // ══════════════════════════════════════════════════════════
+      // ZONING GUIDE REDIRECTS (Consolidated to service area pages)
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/service-areas/barrington-il/zoning-guide',
+        destination: '/service-areas/barrington-il',
+        permanent: true,
+      },
+      {
+        source: '/service-areas/naperville-il/zoning-guide',
+        destination: '/service-areas/naperville-il',
+        permanent: true,
+      },
+      {
+        source: '/service-areas/northbrook-il/zoning-guide',
+        destination: '/service-areas/northbrook-il',
+        permanent: true,
+      },
+      {
+        source: '/service-areas/sanibel-outdoor-living/zoning-guide',
+        destination: '/service-areas/sanibel-outdoor-living',
+        permanent: true,
+      },
+      {
+        source: '/service-areas/wilmette-il/zoning-guide',
+        destination: '/service-areas/wilmette-il',
+        permanent: true,
+      },
+      {
+        source: '/service-areas/winnetka-il/zoning-guide',
+        destination: '/service-areas/winnetka-il',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
       // SERVICE AREA PAGES
       // ══════════════════════════════════════════════════════════
       {

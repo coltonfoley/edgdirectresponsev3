@@ -48,14 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
       priority: 0.8,
     },
-    {
-      url: '/service-areas/sanibel-outdoor-living/zoning-guide',
-      priority: 0.7,
-    },
     { url: '/service-areas/barrington-il/motorized-pergolas', priority: 0.8 },
-    { url: '/service-areas/barrington-il/zoning-guide', priority: 0.7 },
     { url: '/service-areas/northbrook-il/motorized-pergolas', priority: 0.8 },
-    { url: '/service-areas/northbrook-il/zoning-guide', priority: 0.7 },
     // New Guides
     { url: '/guides', priority: 0.8 },
     { url: '/guides/louvered-pergolas', priority: 0.9 },
@@ -72,10 +66,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // New Local Clusters
     { url: '/service-areas/wilmette-il', priority: 0.8 },
-    { url: '/service-areas/wilmette-il/zoning-guide', priority: 0.7 },
     { url: '/service-areas/wilmette-il/louvered-pergolas', priority: 0.8 },
     { url: '/service-areas/winnetka-il', priority: 0.8 },
-    { url: '/service-areas/winnetka-il/zoning-guide', priority: 0.7 },
     { url: '/service-areas/winnetka-il/louvered-pergolas', priority: 0.8 },
 
     // Existing Sitemap Page

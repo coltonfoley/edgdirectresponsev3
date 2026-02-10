@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -21,9 +22,17 @@ export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Lake Geneva, WI | Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Lake Geneva homes. Serving Fontana, Williams Bay, and surrounding lake communities. Engineered for lakefront conditions.',
+  openGraph: {
+    title: 'Lake Geneva Outdoor Living | Waterfront Pergolas | EDG',
+    description: 'Waterfront outdoor living systems for Lake Geneva estates. Pergolas, screens, and enclosures designed for Wisconsin lake life.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/lake-geneva-wi',
   },
+  keywords: ['lake geneva pergolas', 'lake geneva outdoor living', 'wisconsin lakefront outdoor', 'lake geneva patio', 'wisconsin pergolas'],
 };
 
 const localBenefits = [
@@ -107,6 +116,8 @@ const faqs = [
 ];
 
 export default function LakeGenevaHubPage() {
+  const faqSchema = generateFAQSchema(faqs);
+
   return (
     <div className="min-h-screen">
       {/* JSON-LD Schema */}
@@ -289,6 +300,12 @@ export default function LakeGenevaHubPage() {
           </FadeIn>
         </Container>
       </section>
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   );
 }

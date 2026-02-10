@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -18,15 +19,25 @@ import {
   Building,
   Phone,
   CloudSun,
+  AlertTriangle,
+  Ruler,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Northbrook, IL | Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Northbrook homes. Serving Techny, Shermer Road, and Northbrook Heights. Zoning-compliant designs for Georgian architecture.',
+  openGraph: {
+    title: 'Northbrook Outdoor Living | Pergolas & Screens | EDG',
+    description: 'Outdoor living systems for Northbrook homes. Motorized pergolas, screens, and glass enclosures.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/northbrook-il',
   },
+  keywords: ['northbrook pergolas', 'northbrook outdoor living', 'northbrook il patio', 'pergola installation northbrook', 'north shore outdoor'],
 };
 
 const localBenefits = [
@@ -98,10 +109,16 @@ const faqs = [
   },
 ];
 
+const faqSchema = generateFAQSchema(faqs);
+
 export default function NorthbrookHubPage() {
   return (
     <div className="min-h-screen">
       {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -208,8 +225,60 @@ export default function NorthbrookHubPage() {
         </Container>
       </Section>
 
-      {/* ========== WEATHER CONSIDERATIONS ========== */}
+      {/* ========== ZONING & PERMITS ========== */}
       <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <h2 className="section-title mb-4">Zoning & Permits in Northbrook</h2>
+            <p className="text-text-secondary max-w-3xl">
+              The Village of Northbrook has strict requirements for accessory structures. Here are the key regulations you need to know.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-8">
+              <Card>
+                <h3 className="font-bold mb-2 flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-amber-500" />
+                  30% Coverage Limit
+                </h3>
+                <p className="text-sm text-text-secondary">
+                  Maximum 30% lot coverage for the rear yard. Pergolas with hard flooring (pavers/concrete) count toward this limit.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2 flex items-center gap-2">
+                  <Ruler className="h-4 w-4 text-edg-brand" />
+                  15-Foot Height Cap
+                </h3>
+                <p className="text-sm text-text-secondary">
+                  Accessory structures cannot exceed 15 feet in height. Critical for 2-story installations or elevated decks.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2">Side Setback</h3>
+                <p className="text-sm text-text-secondary">
+                  Must maintain a 5-foot setback from side lot lines.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2">Rear Setback</h3>
+                <p className="text-sm text-text-secondary">
+                  Typically 10 feet from the rear lot line (varies by zoning district R-2 to R-5).
+                </p>
+              </Card>
+            </div>
+            
+            <div className="mt-8 p-6 bg-white border-l-4 border-edg-brand-dark">
+              <h4 className="font-bold mb-2">Village Hall Permitting</h4>
+              <p className="text-text-secondary">
+                We handle all paperwork submissions to the Village Hall at 1225 Cedar Lane, including plat of survey, engineering specs, and HOA approvals for areas like Techny.
+              </p>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== WEATHER CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -266,29 +335,7 @@ export default function NorthbrookHubPage() {
                 Local Resources for Northbrook Homeowners
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-3">
-              <Link
-                href="/service-areas/northbrook-il/zoning-guide"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
-                  padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
-                >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
-                    Northbrook Zoning Guide
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Permits, setbacks, and height requirements specific to Northbrook village codes.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Read Guide <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
+            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
                 href="/service-areas/northbrook-il/motorized-pergolas"
                 className="group block"

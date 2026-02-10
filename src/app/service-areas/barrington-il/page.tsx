@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -18,15 +19,17 @@ import {
   Building,
   Trees,
   Ruler,
+  Snowflake,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Outdoor Living Systems in Barrington, IL | Estate Pergolas | EDG',
+  title: 'Barrington Outdoor Living | Estate Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Barrington area estates. Serving Barrington Hills, South Barrington, Lake Barrington. Zoning-compliant designs for estate properties.',
   alternates: {
     canonical: '/service-areas/barrington-il',
   },
+  keywords: ['barrington pergolas', 'barrington outdoor living', 'barrington il patio', 'pergola installation barrington', 'barrington estate outdoor'],
   openGraph: {
     title: 'Barrington Outdoor Living | Estate-Grade Design | EDG',
     description:
@@ -115,6 +118,8 @@ const faqs = [
 ];
 
 export default function BarringtonHubPage() {
+  const faqSchema = generateFAQSchema(faqs);
+
   return (
     <div className="min-h-screen">
       {/* JSON-LD Schema */}
@@ -224,8 +229,45 @@ export default function BarringtonHubPage() {
         </Container>
       </Section>
 
-      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      {/* ========== ZONING & PERMITS ========== */}
       <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <h2 className="section-title mb-4">Zoning & Permits in Barrington</h2>
+            <p className="text-text-secondary max-w-3xl">
+              The Village of Barrington has a strict 50% &quot;Impermeable Coverage&quot; limit that often surprises homeowners planning large patios or pool decks.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-8">
+              <Card>
+                <h3 className="font-bold mb-2">50% Coverage Limit</h3>
+                <p className="text-sm text-text-secondary">
+                  Total impervious surface cannot exceed 50% of lot area. This includes house, driveway, patios, and accessory structures.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2">Accessory Structure Setbacks</h3>
+                <p className="text-sm text-text-secondary">
+                  Must be 5 feet from principal building, 5 feet from rear lot line, and 3 feet from side lot line.
+                </p>
+              </Card>
+            </div>
+            
+            <div className="mt-8 p-6 bg-white border-l-4 border-edg-brand-dark">
+              <h4 className="font-bold mb-2 flex items-center gap-2">
+                <Snowflake className="h-5 w-5 text-edg-brand" />
+                Snow Load Engineering
+              </h4>
+              <p className="text-text-secondary">
+                Barrington&apos;s primary engineering challenge is snow load. Our systems are engineered for heavy, wet Chicagoland snow without buckling.
+              </p>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -285,29 +327,6 @@ export default function BarringtonHubPage() {
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
-                href="/service-areas/barrington-il/zoning-guide"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
-                  padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
-                >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Barrington Zoning Guide
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Navigate the 50% impermeable coverage limit, 5-foot accessory 
-                    separation, and estate setback rules for Barrington Hills.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Read the Guide <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
-              <Link
                 href="/service-areas/barrington-il/motorized-pergolas"
                 className="group block"
               >
@@ -359,6 +378,12 @@ export default function BarringtonHubPage() {
           </FadeIn>
         </Container>
       </section>
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   );
 }

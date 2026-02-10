@@ -1,6 +1,6 @@
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': 'https://www.edgpatioshade.com/#organization',
   name: 'EDG Outdoor Living',
   description:
@@ -139,5 +139,31 @@ export function generateFAQSchema(
         text: faq.answer,
       },
     })),
+  };
+}
+
+export function generateProductSchema(params: {
+  name: string;
+  description: string;
+  image?: string;
+  brand?: string;
+  category?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: params.name,
+    description: params.description,
+    brand: {
+      '@type': 'Brand',
+      name: params.brand || 'EDG Outdoor Living',
+    },
+    ...(params.category && { category: params.category }),
+    ...(params.image && { image: params.image }),
+    offers: {
+      '@type': 'Offer',
+      availability: 'https://schema.org/InStock',
+      url: 'https://www.edgpatioshade.com/contact',
+    },
   };
 }

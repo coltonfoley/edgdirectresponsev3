@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -21,9 +22,17 @@ export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Hinsdale, IL | Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Hinsdale homes. Serving The Lane, Katherine Legge area, and throughout the Village. Zoning-compliant designs for historic estates.',
+  openGraph: {
+    title: 'Hinsdale Outdoor Living | Estate Pergolas & Shades | EDG',
+    description: 'Premium outdoor living systems for Hinsdale estates. Motorized pergolas, retractable screens, and glass enclosures.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/hinsdale-il',
   },
+  keywords: ['hinsdale pergolas', 'hinsdale outdoor living', 'hinsdale il patio', 'pergola installation hinsdale', 'hinsdale backyard'],
 };
 
 const localBenefits = [
@@ -107,6 +116,8 @@ const faqs = [
 ];
 
 export default function HinsdaleHubPage() {
+  const faqSchema = generateFAQSchema(faqs);
+
   return (
     <div className="min-h-screen">
       {/* JSON-LD Schema */}
@@ -290,6 +301,12 @@ export default function HinsdaleHubPage() {
           </FadeIn>
         </Container>
       </section>
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </div>
   );
 }

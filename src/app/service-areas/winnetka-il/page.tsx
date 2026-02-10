@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -17,15 +18,26 @@ import {
   TreeDeciduous,
   Eye,
   Wind,
+  FileCheck,
+  Droplets,
+  Quote,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Estate Outdoor Living in Winnetka, IL | Pergolas & Shades | EDG',
   description:
     'Luxury motorized pergolas and exterior shades for Winnetka estates. Historic district compliance, architectural review board expertise. Large-span engineering for expansive patios.',
+  openGraph: {
+    title: 'Winnetka Outdoor Living | Estate Pergolas | EDG',
+    description: 'Estate-grade outdoor living systems for Winnetka. Custom pergolas, screens, and enclosures for North Shore properties.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/winnetka-il',
   },
+  keywords: ['winnetka pergolas', 'winnetka outdoor living', 'winnetka il patio', 'pergola installation winnetka', 'north shore outdoor'],
 };
 
 const localBenefits = [
@@ -134,6 +146,10 @@ export default function WinnetkaHubPage() {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+      />
 
       {/* ========== HERO ========== */}
       <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
@@ -241,8 +257,96 @@ export default function WinnetkaHubPage() {
         </Container>
       </Section>
 
-      {/* ========== FAQ ========== */}
+      {/* ========== ZONING & CODES SECTION ========== */}
       <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mb-12 text-center">
+              <h2 className="section-title mb-4">
+                Winnetka Design Guide: Zoning & Building Beyond the Patio
+              </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Winnetka&apos;s beauty comes from strict preservation. Whether you are on the lake, near a ravine, or in a historic district, here&apos;s what to expect.
+              </p>
+            </div>
+            <div className="mx-auto max-w-4xl space-y-6">
+              {/* Ravine Protection */}
+              <div className="flex gap-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-500/10">
+                  <TreeDeciduous className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="mb-3 text-xl font-bold">
+                    Ravine Protection Ordinance
+                  </h3>
+                  <p className="text-text-secondary mb-4">
+                    If your property touches a ravine, construction is heavily regulated.
+                  </p>
+                  <ul className="text-text-secondary space-y-2 text-sm">
+                    <li>
+                      <strong>Setbacks:</strong> Structures often must be set back significantly from the &quot;tableland&quot; edge of the ravine.
+                    </li>
+                    <li>
+                      <strong>Drainage:</strong> You cannot increase runoff into the ravine. Our louvered systems with integrated gutters can be piped into stormwater management systems to comply.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Impervious Surface */}
+              <div className="flex gap-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-500/10">
+                  <Droplets className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="mb-3 text-xl font-bold">
+                    Impervious Surface Limits
+                  </h3>
+                  <p className="text-text-secondary mb-4">
+                    Like much of the North Shore, Winnetka limits how much of your lot can be covered by impermeable surfaces.
+                  </p>
+                  <div className="bg-edg-brand/5 border-edg-brand rounded-r-lg border-l-4 p-4">
+                    <Quote className="text-edg-brand mb-2 h-4 w-4" />
+                    <p className="text-text-secondary text-sm italic">
+                      &quot;A louvered roof is often the only way to get a &apos;covered&apos; porch feel without triggering the same density penalties as a solid roof addition.&quot;
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Architectural Review */}
+              <div className="flex gap-6 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <div className="bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+                  <FileCheck className="text-edg-brand-text dark:text-edg-brand h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="mb-3 text-xl font-bold">
+                    Architectural Review Committee (ARC)
+                  </h3>
+                  <p className="text-text-secondary mb-4">
+                    For historic districts, the Village wants to ensure new structures blend with the existing home. We support your application with:
+                  </p>
+                  <ul className="text-text-secondary space-y-2 text-sm">
+                    <li>
+                      • 3D renderings matching your home&apos;s siding/brick textures
+                    </li>
+                    <li>• Color samples (custom powder coating)</li>
+                    <li>• Detailed elevation drawings showing sightlines</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p className="text-muted-foreground mx-auto mt-8 max-w-3xl text-center text-sm italic">
+              Disclaimer: This page is a general guide. EDG manages the
+              specific permit application and architectural review board
+              presentation for our clients.
+            </p>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== FAQ ========== */}
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -276,29 +380,6 @@ export default function WinnetkaHubPage() {
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
-                href="/service-areas/winnetka-il/zoning-guide"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
-                  padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
-                >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Winnetka Permitting & Zoning
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Navigating the Village of Winnetka&apos;s strict architectural
-                    review board and ravine protection ordinances.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Read the Guide <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
-              <Link
                 href="/service-areas/winnetka-il/louvered-pergolas"
                 className="group block"
               >
@@ -317,6 +398,29 @@ export default function WinnetkaHubPage() {
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+
+              <Link
+                href="/contact?area=winnetka&source=hub-resources"
+                className="group block"
+              >
+                <Card 
+                  variant="muted" 
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Get Permit Assistance
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    We&apos;ve navigated the architectural review board many times. Let
+                    us handle your permit process for your Winnetka estate.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Contact Us <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>

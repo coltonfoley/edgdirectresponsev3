@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -17,15 +18,24 @@ import {
   Building,
   Wind,
   FileText,
+  AlertTriangle,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Naperville, IL | Pergolas & Shades | EDG',
   description:
     'Custom motorized pergolas and exterior shades for Naperville homes. Serving Downtown, South Naperville, East Ogden corridor, and Ranchlands. Zoning-compliant designs for DuPage County.',
+  openGraph: {
+    title: 'Naperville Outdoor Living | Pergolas & Shades | EDG',
+    description: 'Motorized pergolas and retractable screens for Naperville homes. Professional design and installation.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
   alternates: {
     canonical: '/service-areas/naperville-il',
   },
+  keywords: ['naperville pergolas', 'naperville outdoor living', 'naperville il patio', 'pergola installation naperville', 'naperville backyard'],
 };
 
 const localBenefits = [
@@ -108,10 +118,16 @@ const faqs = [
   },
 ];
 
+const faqSchema = generateFAQSchema(faqs);
+
 export default function NapervilleHubPage() {
   return (
     <div className="min-h-screen">
       {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -217,8 +233,53 @@ export default function NapervilleHubPage() {
         </Container>
       </Section>
 
-      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      {/* ========== ZONING & PERMITS ========== */}
       <Section className="section-md bg-surface-muted">
+        <Container>
+          <FadeIn>
+            <h2 className="section-title mb-4">Zoning & Permits in Naperville</h2>
+            <p className="text-text-secondary max-w-3xl">
+              Naperville&apos;s building codes and subdivision requirements can be complex. Here is what you need to know before building.
+            </p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mt-8">
+              <Card>
+                <h3 className="font-bold mb-2 flex items-center gap-2">
+                  <AlertTriangle className="h-4 w-4 text-amber-500" />
+                  Subdivision/PUD Factor
+                </h3>
+                <p className="text-sm text-text-secondary">
+                  Many Naperville homes are part of Planned Unit Developments (PUDs) or have strict HOA covenants that may impose additional restrictions beyond city codes.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2">Standard Setbacks</h3>
+                <p className="text-sm text-text-secondary">
+                  Detached accessory structures must maintain a minimum 5-10 foot setback from side and rear property lines.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2">Impervious Surface Limits</h3>
+                <p className="text-sm text-text-secondary">
+                  Pergolas over new patios contribute to your lot&apos;s impervious surface ratio, monitored closely for stormwater management.
+                </p>
+              </Card>
+              <Card>
+                <h3 className="font-bold mb-2 flex items-center gap-2">
+                  <FileText className="h-4 w-4 text-edg-brand" />
+                  TED Permitting
+                </h3>
+                <p className="text-sm text-text-secondary">
+                  We handle the entire Transportation, Engineering, & Development (TED) permitting process at 400 S. Eagle Street.
+                </p>
+              </Card>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL CONSIDERATIONS ========== */}
+      <Section className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -275,30 +336,7 @@ export default function NapervilleHubPage() {
                 Local Resources for Naperville Homeowners
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-              <Link
-                href="/service-areas/naperville-il/zoning-guide"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
-                  padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
-                >
-                  <IconWrapper icon={FileText} variant="brand" size="lg" className="mb-4" />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Naperville Building & Zoning Guide
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Before you build, understand the setback requirements, lot coverage rules, 
-                    and permit processes specific to Naperville and DuPage County.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Read the Guide <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
+            <div className="mx-auto max-w-2xl">
               <Link
                 href="/service-areas/naperville-il/motorized-pergolas"
                 className="group block"

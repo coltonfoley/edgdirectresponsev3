@@ -180,29 +180,43 @@ export function Navbar() {
 
             {/* Complete Your Space Dropdown */}
             <div className="relative" ref={systemsDropdownRef}>
-              <button
-                onClick={() => {
-                  setSystemsOpen(!systemsOpen);
-                  setAreasOpen(false);
-                }}
+              <Link
+                href="/systems"
+                onMouseEnter={() => setSystemsOpen(true)}
                 className={cn(
                   'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
-                aria-label="Complete your outdoor space"
-                aria-expanded={systemsOpen}
+                aria-label="View outdoor systems"
               >
-                Complete Space
+                Systems
                 <ChevronDown
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSystemsOpen(!systemsOpen);
+                    setAreasOpen(false);
+                  }}
                   className={cn(
-                    'h-4 w-4 transition-transform',
+                    'h-4 w-4 transition-transform cursor-pointer',
                     systemsOpen && 'rotate-180'
                   )}
                 />
-              </button>
+              </Link>
 
               {systemsOpen && (
                 <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-72 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
+                  <Link
+                    href="/systems"
+                    onClick={() => setSystemsOpen(false)}
+                    className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
+                  >
+                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                      All Systems
+                    </div>
+                    <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                      Compare all outdoor living solutions
+                    </div>
+                  </Link>
                   {completeYourSpace.map((item) => (
                     <Link
                       key={item.href}
@@ -373,6 +387,19 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+              </div>
+
+              <div className="h-px bg-white/10" />
+
+              {/* All Systems Link */}
+              <div className="space-y-4">
+                <Link
+                  href="/systems"
+                  className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
+                  onClick={() => setIsOpen(false)}
+                >
+                  All Systems
+                </Link>
               </div>
 
               <div className="h-px bg-white/10" />

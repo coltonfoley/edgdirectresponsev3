@@ -10,27 +10,21 @@ import {
   ArrowLeft,
   ArrowRight,
   ChevronRight,
-  Trophy,
-  Wine,
-  Users,
-  Umbrella,
-  GlassWater,
-  Hotel,
-  Utensils,
-  CheckCircle2,
+  // IconName, // Replace with actual icon from lucide-react
 } from 'lucide-react';
 
+// ═══════════════════════════════════════════════════════════
+// METADATA
+// ═══════════════════════════════════════════════════════════
 export const metadata: Metadata = {
-  title: 'Country Club Outdoor Living | Chicago IL | EDG',
-  description:
-    'Upgrade your country club amenities with premium patio covers. Create deeper member engagement with shaded dining, pool decks, and event spaces.',
+  title: 'Page Title | EDG',
+  description: 'Page description for SEO.',
   alternates: {
-    canonical: '/commercial/country-club-outdoor-spaces',
+    canonical: '/commercial/page-slug',
   },
   openGraph: {
-    title: 'Country Club Outdoor Spaces | EDG Commercial',
-    description:
-      'Premium shade and shelter for discerning members. Country club patio covers.',
+    title: 'Page Title | EDG Commercial',
+    description: 'Page description.',
   },
 };
 
@@ -39,74 +33,51 @@ export const metadata: Metadata = {
 // ═══════════════════════════════════════════════════════════
 const faqs = [
   {
-    question: 'How do louvered pergolas enhance the 19th hole experience?',
-    answer:
-      'Our motorized pergolas allow members to enjoy post-round drinks and dining in complete comfort. Adjust louvers to block harsh afternoon sun while maintaining airflow, or close them completely during unexpected rain. Integrated heating and lighting options extend the usability into cooler evenings, encouraging members to linger longer.',
+    question: 'Question one?',
+    answer: 'Answer one.',
   },
   {
-    question: 'Are your systems suitable for pool decks and cabanas?',
-    answer:
-      'Absolutely. Our aluminum pergolas are ideal for pool environments—they resist corrosion, require minimal maintenance, and provide essential UV protection for families. The motorized louvers allow poolside guests to control their sun exposure, and optional side screens add privacy for premium cabana experiences.',
+    question: 'Question two?',
+    answer: 'Answer two.',
   },
   {
-    question: 'Can you help us host more events outdoors?',
-    answer:
-      'Yes. Our weatherproof systems transform outdoor terraces into reliable event venues. Rain sensors automatically close louvers at the first drop, integrated gutter systems manage heavy downpours, and wind sensors ensure safety during gusty conditions. This means no more last-minute event cancellations or tent rentals.',
+    question: 'Question three?',
+    answer: 'Answer three.',
   },
   {
-    question: 'What member amenities work best with your systems?',
-    answer:
-      'Country clubs see excellent results with dining terraces, poolside cabanas, outdoor bars, wedding venues, and tournament viewing areas. Any space where members gather outdoors benefits from climate control—keeping them comfortable, protecting them from UV exposure, and encouraging longer visits.',
+    question: 'Question four?',
+    answer: 'Answer four.',
   },
 ];
 
 const keyFeatures = [
   {
-    icon: Trophy,
-    title: 'Championship Comfort',
-    description:
-      'Create resort-quality outdoor spaces that match the prestige of your club with premium finishes and elegant design.',
+    icon: ArrowRight, // Replace with actual icon from lucide-react
+    title: 'Feature One',
+    description: 'Description of feature one.',
   },
   {
-    icon: Wine,
-    title: '19th Hole Excellence',
-    description:
-      'Keep members comfortable at the bar and dining terrace with adjustable shade and protection from sudden weather changes.',
+    icon: ArrowRight, // Replace with actual icon from lucide-react
+    title: 'Feature Two',
+    description: 'Description of feature two.',
   },
   {
-    icon: Users,
-    title: 'Event Flexibility',
-    description:
-      'Host weddings, tournaments, and member events with confidence—rain or shine. Expand your venue capacity year-round.',
+    icon: ArrowRight, // Replace with actual icon from lucide-react
+    title: 'Feature Three',
+    description: 'Description of feature three.',
   },
   {
-    icon: Umbrella,
-    title: 'Poolside Luxury',
-    description:
-      'Provide UV protection for families while maintaining a premium resort aesthetic that elevates your pool deck experience.',
-  },
-];
-
-const amenityAreas = [
-  {
-    title: 'The 19th Hole & Dining Terrace',
-    description:
-      'Members want to linger after a round, but not if they&apos;re baking in the sun. Our Commercial Patio Enclosures allow you to host events and dining in any weather.',
-    benefits: ['Expand event capacity without new construction', 'Protect wedding bookings from rain'],
-  },
-  {
-    title: 'Pool Deck & Cabanas',
-    description:
-      'Upgrade your poolside experience with motorized commercial outdoor shades that give members control over their environment.',
-    benefits: ['UV protection for families', 'Premium cabana aesthetic'],
+    icon: ArrowRight, // Replace with actual icon from lucide-react
+    title: 'Feature Four',
+    description: 'Description of feature four.',
   },
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Country Club Outdoor Living Solutions',
-  description: 'Premium motorized pergolas and shade systems for country club amenities',
+  name: 'Service Name',
+  description: 'Service description.',
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -128,7 +99,7 @@ const schema = {
 // ═══════════════════════════════════════════════════════════
 // PAGE COMPONENT
 // ═══════════════════════════════════════════════════════════
-export default function CountryClubPage() {
+export default function CommercialSubPage() {
   return (
     <main className="min-h-screen">
       {/* JSON-LD Schema */}
@@ -145,7 +116,7 @@ export default function CountryClubPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/pergolas/pergola-lifestyle.jpg')",
+            backgroundImage: "url('/images/hero-image.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
@@ -157,7 +128,7 @@ export default function CountryClubPage() {
             <Breadcrumb
               items={[
                 { label: 'Commercial', href: '/commercial' },
-                { label: 'Country Clubs' },
+                { label: 'Page Name' },
               ]}
               className="text-gray-400"
             />
@@ -166,19 +137,17 @@ export default function CountryClubPage() {
           {/* Text - Left Aligned */}
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
-              Club & Member Amenities
+              Category Label
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Elevate Member Experience with{' '}
-              <span className="text-edg-brand">Country Club Patio Covers</span>.
+              Page Headline
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              From the 19th hole to the pool deck, provide the premium comfort
-              your members expect. Shade, shelter, and style.
+              Page description text goes here.
             </p>
             <Link href="/contact">
               <Button size="lg" className="rounded-none">
-                Discuss Club Needs
+                CTA Button
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -187,56 +156,16 @@ export default function CountryClubPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          AMENITY AREAS SECTION
+          FEATURES SECTION
           ═══════════════════════════════════════════════════════ */}
       <Section className="py-24 bg-white dark:bg-zinc-950">
         <Container>
-          <div className="grid gap-12 md:grid-cols-2">
-            {amenityAreas.map((area) => (
-              <div key={area.title}>
-                <h2 className="text-3xl font-bold mb-6">{area.title}</h2>
-                <p className="text-lg text-gray-600 mb-6">{area.description}</p>
-                <ul className="space-y-3">
-                  {area.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <CheckCircle2 className="text-edg-brand h-5 w-5" />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          {/* Image */}
-          <div className="relative mt-16 h-[400px] overflow-hidden rounded-3xl">
-            <img
-              src="/images/pergolas/pergola-pool-spa.jpg"
-              alt="Country Club Pool Deck Pergola"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute right-8 bottom-8 left-8 text-white">
-              <p className="mb-2 text-sm font-bold tracking-widest uppercase">
-                Member Amenities
-              </p>
-              <h3 className="text-3xl font-bold">Resort-Style Pool Decks</h3>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          FEATURES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
-        <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Elevate Every Member Experience
+              Features Title
             </h2>
             <p className="text-lg text-gray-600">
-              Premium outdoor living systems designed for the discerning expectations of private club members.
+              Features description text.
             </p>
           </div>
 
@@ -267,15 +196,15 @@ export default function CountryClubPage() {
       {/* ═══════════════════════════════════════════════════════
           FAQ SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Country Club Outdoor Living FAQs
+              Common Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, i) => (
-                <Card key={i} variant="outline" padding="lg">
+                <Card key={i} variant="default" padding="lg">
                   <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
                   <p className="text-gray-600">{faq.answer}</p>
                 </Card>
@@ -288,7 +217,7 @@ export default function CountryClubPage() {
       {/* ═══════════════════════════════════════════════════════
           RELATED SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-zinc-100 border-t border-gray-200 dark:border-gray-800">
+      <Section className="py-16 bg-white border-t border-gray-200 dark:border-gray-800">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link
@@ -298,18 +227,12 @@ export default function CountryClubPage() {
               <ArrowLeft className="h-4 w-4" />
               <span className="font-medium">All Commercial Solutions</span>
             </Link>
-            <div className="flex gap-4 flex-wrap justify-center">
+            <div className="flex gap-4">
               <Link
-                href="/commercial/hotel-pergolas"
+                href="/commercial/related-page"
                 className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
               >
-                Hotel Solutions <ChevronRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/commercial/restaurant-patio-solutions"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
-              >
-                Restaurant Solutions <ChevronRight className="h-4 w-4" />
+                Related Page <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
@@ -323,15 +246,18 @@ export default function CountryClubPage() {
         <Container>
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Plan Your 2026 Club Improvements
+              CTA Headline
             </h2>
+            <p className="text-xl text-black/80 mb-8">
+              CTA description text.
+            </p>
             <Link href="/contact">
               <Button
                 size="lg"
                 variant="secondary"
                 className="bg-black text-white hover:bg-gray-900"
               >
-                Schedule Assessment
+                CTA Button
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

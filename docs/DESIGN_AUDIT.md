@@ -280,7 +280,7 @@ Footer:
 }} />
 
 // Homepage split sections
-<div className="bg-[url('/images/...')]" />
+{/* <div className="bg&#8209;[url('/images/...')]" /> */}
 
 // Pergolas gallery
 <div style={{ backgroundImage: "url('/images/...')" }} />

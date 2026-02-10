@@ -1,10 +1,8 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import Image from 'next/image';
 import galleryData from '@/data/gallery-images.json';
-import { ArrowDown } from 'lucide-react';
 
 interface GalleryImage {
   src: string;
@@ -28,10 +26,20 @@ const shimmer = (w: number, h: number) => `
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
 </svg>`;
 
-const toBase64 = (str: string) =>
-  typeof window === 'undefined'
-    ? Buffer.from(str).toString('base64')
-    : window.btoa(str);
+const toBase64 = (str: string) => Buffer.from(str).toString('base64');
+
+export const metadata: Metadata = {
+  title: 'Project Gallery | EDG Outdoor Living Work',
+  description: 'View our portfolio of motorized pergola and screen installations across Chicago, Wisconsin, and Florida.',
+  alternates: { canonical: '/gallery' },
+  openGraph: {
+    title: 'Project Gallery | EDG Outdoor Living',
+    description: 'Portfolio of outdoor living installations.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
+};
 
 export default function GalleryPage() {
   const displayImages: GalleryImage[] = [...galleryData].sort((a, b) =>

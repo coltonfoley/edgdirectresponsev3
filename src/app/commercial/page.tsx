@@ -1,9 +1,12 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowLeft,
   Check,
@@ -16,6 +19,12 @@ import {
   Phone,
   Shield,
   TrendingUp,
+  Building2,
+  Utensils,
+  Trees,
+  Hotel,
+  MapPin,
+  ChevronRight,
 } from 'lucide-react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
@@ -45,6 +54,19 @@ const faqs = [
 
 import { generateFAQSchema } from '@/lib/schema';
 
+export const metadata: Metadata = {
+  title: 'Commercial Outdoor Living | Hospitality & Restaurant Systems | EDG',
+  description: 'Motorized pergolas and retractable screens for commercial properties. Serving restaurants, hotels, and hospitality venues nationwide.',
+  alternates: { canonical: '/commercial' },
+  openGraph: {
+    title: 'Commercial Outdoor Living | EDG',
+    description: 'Motorized pergolas and screens for hospitality and restaurants.',
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'EDG Outdoor Living',
+  },
+};
+
 export default function CommercialPage() {
   const faqSchema = generateFAQSchema(faqs);
 
@@ -57,12 +79,10 @@ export default function CommercialPage() {
       {/* ========== HERO ========== */}
       <Section className="bg-black text-white pt-32 pb-20 border-b border-white/10">
         <Container>
-          <Link
-            href="/"
-            className="text-gray-400 hover:text-white mb-8 inline-flex items-center text-xs font-bold uppercase tracking-widest transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
-          </Link>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb items={[{ label: 'Commercial' }]} className="text-gray-400" />
+          </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
@@ -178,6 +198,150 @@ export default function CommercialPage() {
         </Container>
       </Section>
 
+      {/* ========== SOLUTIONS BY INDUSTRY ========== */}
+      <Section className="bg-white py-24 border-b border-black/5">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-4">
+              <span className="h-px w-8 bg-edg-brand-text" />
+              Solutions
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Commercial Solutions by Industry
+            </h2>
+            <p className="text-text-secondary">
+              Specialized outdoor living systems designed for the unique demands of hospitality and food service.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Hotels */}
+            <Link href="/commercial/hotel-pergolas" className="group">
+              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
+                <IconWrapper icon={Hotel} variant="brand" size="lg" className="mb-6" />
+                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Hotels & Rooftops
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Transform rooftop bars and pool decks into year-round revenue centers.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Card>
+            </Link>
+
+            {/* Restaurants */}
+            <Link href="/commercial/restaurant-patio-solutions" className="group">
+              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
+                <IconWrapper icon={Utensils} variant="brand" size="lg" className="mb-6" />
+                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Restaurants
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Add 40-100 weatherproof seats with motorized pergolas and enclosures.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Card>
+            </Link>
+
+            {/* Country Clubs */}
+            <Link href="/commercial/country-club-outdoor-spaces" className="group">
+              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
+                <IconWrapper icon={Trees} variant="brand" size="lg" className="mb-6" />
+                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Country Clubs
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Elevate member experiences with premium outdoor dining and event spaces.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Card>
+            </Link>
+
+            {/* Hospitality Group */}
+            <Link href="/commercial/chicago-hospitality-outdoor-living" className="group">
+              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
+                <IconWrapper icon={Building2} variant="brand" size="lg" className="mb-6" />
+                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Hospitality Groups
+                </h3>
+                <p className="text-text-secondary text-sm mb-4">
+                  Multi-location solutions for restaurant groups and hotel chains.
+                </p>
+                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Card>
+            </Link>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ========== SOLUTIONS BY LOCATION ========== */}
+      <Section className="bg-surface-muted py-24 border-b border-border">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-4">
+                <MapPin className="h-4 w-4" />
+                Local Solutions
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                Chicago Commercial Outdoor Living
+              </h2>
+              <p className="text-text-secondary text-lg mb-8">
+                From Fulton Market rooftops to Gold Coast hotels, we understand Chicago's unique permitting, wind conditions, and design aesthetic.
+              </p>
+              <div className="space-y-4">
+                <Link
+                  href="/commercial/west-loop"
+                  className="flex items-center justify-between p-4 bg-white border border-border hover:border-edg-brand transition-colors group"
+                >
+                  <div>
+                    <h3 className="font-bold group-hover:text-edg-brand-text transition-colors">West Loop / Fulton Market</h3>
+                    <p className="text-sm text-text-secondary">Terrace enclosures for Chicago's restaurant row</p>
+                  </div>
+                  <ChevronRight className="h-5 w-5 text-text-muted group-hover:text-edg-brand-text group-hover:translate-x-1 transition-all" />
+                </Link>
+                <Link
+                  href="/commercial/restaurant-patio-enclosures"
+                  className="flex items-center justify-between p-4 bg-white border border-border hover:border-edg-brand transition-colors group"
+                >
+                  <div>
+                    <h3 className="font-bold group-hover:text-edg-brand-text transition-colors">Restaurant Patio Enclosures</h3>
+                    <p className="text-sm text-text-secondary">Glass and screen solutions for year-round dining</p>
+                  </div>
+                  <ChevronRight className="h-5 w-5 text-text-muted group-hover:text-edg-brand-text group-hover:translate-x-1 transition-all" />
+                </Link>
+                <Link
+                  href="/commercial/hotel-roof-deck-systems"
+                  className="flex items-center justify-between p-4 bg-white border border-border hover:border-edg-brand transition-colors group"
+                >
+                  <div>
+                    <h3 className="font-bold group-hover:text-edg-brand-text transition-colors">Hotel Roof Deck Systems</h3>
+                    <p className="text-sm text-text-secondary">Structural solutions for elevated outdoor spaces</p>
+                  </div>
+                  <ChevronRight className="h-5 w-5 text-text-muted group-hover:text-edg-brand-text group-hover:translate-x-1 transition-all" />
+                </Link>
+              </div>
+            </div>
+            <div className="relative aspect-[4/3]">
+              <Image
+                src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+                alt="Commercial outdoor living installation in Chicago"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* ========== CAPABILITIES GRID ========== */}
       <Section className="py-24">
         <Container>
@@ -227,6 +391,53 @@ export default function CommercialPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ========== RELATED RESOURCES ========== */}
+      <Section className="bg-surface-muted py-24 border-t border-border">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+              Explore Our Systems
+            </h2>
+            <p className="text-text-secondary">
+              The commercial solutions above are built on our core outdoor living systems.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <Link href="/systems/pergolas" className="group">
+              <Card variant="default" padding="lg" className="text-center h-full hover:border-edg-brand transition-colors">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Motorized Pergolas
+                </h3>
+                <p className="text-text-secondary text-sm">
+                  Adjustable louvers for sun, shade, and rain control
+                </p>
+              </Card>
+            </Link>
+            <Link href="/systems/shades" className="group">
+              <Card variant="default" padding="lg" className="text-center h-full hover:border-edg-brand transition-colors">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Retractable Screens
+                </h3>
+                <p className="text-text-secondary text-sm">
+                  Wind-rated screens for wind, sun, and insect protection
+                </p>
+              </Card>
+            </Link>
+            <Link href="/systems/enclosures" className="group">
+              <Card variant="default" padding="lg" className="text-center h-full hover:border-edg-brand transition-colors">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
+                  Glass Enclosures
+                </h3>
+                <p className="text-text-secondary text-sm">
+                  Frameless glass walls for year-round outdoor rooms
+                </p>
+              </Card>
+            </Link>
           </div>
         </Container>
       </Section>

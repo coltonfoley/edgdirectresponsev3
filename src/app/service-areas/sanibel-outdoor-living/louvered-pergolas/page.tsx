@@ -216,7 +216,7 @@ export default function SanibelPergolaPage() {
                 comprehensive guide.
               </p>
             </div>
-            <Link href="/service-areas/sanibel-outdoor-living/zoning-guide">
+            <Link href="/service-areas/sanibel-outdoor-living#zoning">
               <Button
                 variant="secondary"
                 className="border-edg-brand text-edg-brand hover:bg-edg-brand rounded-full px-8 py-6 font-bold hover:text-white"
