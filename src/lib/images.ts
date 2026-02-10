@@ -22,7 +22,7 @@ export const brand = {
   /** Hero section images - large impactful shots */
   hero: {
     pergola: '/images/brand/hero-pergola.jpg',
-    screens: '/images/brand/hero-screens.jpg',
+    screens: '/images/brand/hero-screens-new.jpg',
     glass: '/images/brand/hero-glass.jpg',
     lifestyle: '/images/brand/hero-lifestyle.jpg',
     showroom: '/images/brand/hero-showroom.jpg',
@@ -308,10 +308,10 @@ export const allImagePaths = [
   ...Object.values(brand.hero),
   ...Object.values(brand.detail),
   ...Object.values(brand.context),
-  
+
   // Project images
   ...Object.values(projects).flatMap(p => [p.card, p.hero, ...p.gallery]),
-  
+
   // Page-specific images
   pages.home.heroVideo,
   pages.price.shadesHero,
@@ -330,7 +330,7 @@ export const allImagePaths = [
   pages.serviceAreas.sanibelPergola,
   pages.serviceAreas.sanibelShade,
   pages.locations.defaultHero,
-  
+
   // Assets
   assets.logo,
   assets.ogImage,
