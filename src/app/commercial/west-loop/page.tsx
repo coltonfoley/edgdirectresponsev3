@@ -207,7 +207,7 @@ export default function WestLoopPage() {
       {/* ═══════════════════════════════════════════════════════
           INTRO SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -220,13 +220,13 @@ export default function WestLoopPage() {
                 Randolph Street&apos;s restaurant row to the hotel rooftops along 
                 Halsted, outdoor space is at a premium.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-gray-600 ">
                 Our commercial outdoor living systems are engineered for the specific 
                 challenges of Chicago&apos;s climate and West Loop building requirements. 
                 We handle everything from permits to installation.
               </p>
             </div>
-            <div className="bg-zinc-100 dark:bg-zinc-900 p-8 rounded-lg">
+            <div className="bg-zinc-100 p-8 rounded-2xl">
               <h3 className="text-xl font-bold mb-6">Service Area Coverage</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-center gap-2">
@@ -258,7 +258,7 @@ export default function WestLoopPage() {
       {/* ═══════════════════════════════════════════════════════
           FEATURES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-50 dark:bg-zinc-900/50">
+      <Section className="py-24 bg-zinc-50">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -296,7 +296,7 @@ export default function WestLoopPage() {
       {/* ═══════════════════════════════════════════════════════
           AMENITY AREAS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -337,7 +337,7 @@ export default function WestLoopPage() {
       {/* ═══════════════════════════════════════════════════════
           FAQ SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -358,7 +358,7 @@ export default function WestLoopPage() {
       {/* ═══════════════════════════════════════════════════════
           RELATED SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200 dark:border-gray-800">
+      <Section className="py-16 bg-white border-t border-gray-200">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link

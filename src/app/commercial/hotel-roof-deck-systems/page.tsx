@@ -10,11 +10,9 @@ import {
   ArrowLeft,
   ArrowRight,
   ChevronRight,
-  Hotel,
   Waves,
   Wind,
   ShieldCheck,
-  Utensils,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -166,7 +164,7 @@ export default function HotelRoofDeckPage() {
       {/* ═══════════════════════════════════════════════════════
           FEATURES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="grid gap-8 md:grid-cols-3">
             {keyFeatures.map((feature) => (
@@ -211,7 +209,7 @@ export default function HotelRoofDeckPage() {
       {/* ═══════════════════════════════════════════════════════
           FAQ SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -232,7 +230,7 @@ export default function HotelRoofDeckPage() {
       {/* ═══════════════════════════════════════════════════════
           RELATED SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200 dark:border-gray-800">
+      <Section className="py-16 bg-white border-t border-gray-200">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link

@@ -48,6 +48,12 @@ The Editorial/Sharp design language reflects EDG's positioning as a technical sp
 | `--color-border-strong` | `#d4d4d8` | Emphasized borders |
 | `--color-border-inverse` | `rgba(255,255,255,0.1)` | Borders on dark |
 
+### Dark Mode
+
+**Dark mode is disabled** for brand consistency. The site remains in light mode regardless of system preferences.
+
+Do not use `dark:` prefixes in Tailwind classes.
+
 ---
 
 ## Typography

@@ -233,7 +233,7 @@ export default function ChicagoHospitalityPage() {
       {/* ═══════════════════════════════════════════════════════
           INDUSTRY SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -272,7 +272,7 @@ export default function ChicagoHospitalityPage() {
                   <p className="text-gray-600 mb-6">{solution.description}</p>
                   <Link
                     href={solution.href}
-                    className="text-edg-brand-text dark:text-edg-brand inline-flex items-center font-bold hover:underline"
+                    className="text-edg-brand-text inline-flex items-center font-bold hover:underline"
                   >
                     {solution.cta} <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
@@ -286,7 +286,7 @@ export default function ChicagoHospitalityPage() {
       {/* ═══════════════════════════════════════════════════════
           FEATURES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -324,7 +324,7 @@ export default function ChicagoHospitalityPage() {
       {/* ═══════════════════════════════════════════════════════
           LOCAL EXPERTISE SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
@@ -342,7 +342,7 @@ export default function ChicagoHospitalityPage() {
                 {localBenefits.map((benefit) => (
                   <div key={benefit.title} className="flex gap-4">
                     <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                      <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                      <CheckCircle2 className="text-edg-brand-text h-5 w-5" />
                     </div>
                     <div>
                       <h4 className="mb-1 text-lg font-bold">{benefit.title}</h4>
@@ -352,7 +352,7 @@ export default function ChicagoHospitalityPage() {
                 ))}
               </div>
             </div>
-            <div className="relative min-h-[500px] overflow-hidden rounded-3xl bg-zinc-100 dark:bg-zinc-800">
+            <div className="relative min-h-[500px] overflow-hidden rounded-3xl bg-zinc-800">
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
@@ -376,7 +376,7 @@ export default function ChicagoHospitalityPage() {
       {/* ═══════════════════════════════════════════════════════
           FAQ SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -397,7 +397,7 @@ export default function ChicagoHospitalityPage() {
       {/* ═══════════════════════════════════════════════════════
           RELATED SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-zinc-100 border-t border-gray-200 dark:border-gray-800">
+      <Section className="py-16 bg-zinc-100 border-t border-gray-200">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link

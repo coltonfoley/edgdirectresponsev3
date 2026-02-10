@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -14,15 +13,9 @@ import {
   Sun,
   Calendar,
   TrendingUp,
-  MessageCircle,
-  Users,
-  Star,
   Wine,
   PartyPopper,
   Building,
-  Landmark,
-  DoorOpen,
-  Utensils,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -234,7 +227,7 @@ export default function HotelPergolasPage() {
       {/* ═══════════════════════════════════════════════════════
           FEATURES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -272,7 +265,7 @@ export default function HotelPergolasPage() {
       {/* ═══════════════════════════════════════════════════════
           USE CASES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-50 dark:bg-zinc-900/50">
+      <Section className="py-24 bg-zinc-50">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -308,7 +301,7 @@ export default function HotelPergolasPage() {
       {/* ═══════════════════════════════════════════════════════
           FAQ SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -329,7 +322,7 @@ export default function HotelPergolasPage() {
       {/* ═══════════════════════════════════════════════════════
           RELATED SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200 dark:border-gray-800">
+      <Section className="py-16 bg-white border-t border-gray-200">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link

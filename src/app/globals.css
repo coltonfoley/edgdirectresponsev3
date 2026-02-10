@@ -63,13 +63,8 @@
   --font-barlow: 'Barlow', sans-serif;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #fafafa;
-  }
-}
+/* NOTE: Dark mode disabled for brand consistency */
+/* The site remains in light mode regardless of system preferences */
 
 body {
   background: var(--background);

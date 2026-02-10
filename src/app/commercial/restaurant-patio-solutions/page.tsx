@@ -15,9 +15,6 @@ import {
   Building2,
   Leaf,
   Utensils,
-  Wine,
-  Sun,
-  Thermometer,
   Check,
   Quote,
   Star,
@@ -193,11 +190,11 @@ export default function RestaurantPatioSolutionsPage() {
       {/* ═══════════════════════════════════════════════════════
           PROBLEM/SOLUTION SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
-              <span className="text-edg-brand-text dark:text-edg-brand mb-2 block text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand-text mb-2 block text-sm font-bold tracking-wider uppercase">
                 The Problem We Solve
               </span>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
@@ -214,8 +211,7 @@ export default function RestaurantPatioSolutionsPage() {
                 {keyFeatures.slice(0, 4).map((f, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-3 rounded-xl bg-zinc-50 p-4 dark:bg-zinc-900"
-                  >
+                    className="flex items-center gap-3 rounded-xl bg-zinc-50 p-4">
                     <IconWrapper icon={f.icon} variant="brand" size="sm" />
                     <span className="font-medium text-sm">{f.title}</span>
                   </div>
@@ -253,7 +249,7 @@ export default function RestaurantPatioSolutionsPage() {
       {/* ═══════════════════════════════════════════════════════
           SOLUTION TYPES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -274,7 +270,7 @@ export default function RestaurantPatioSolutionsPage() {
                   {solution.features.map((feature, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm">
                       <div className="bg-edg-brand/10 flex h-6 w-6 items-center justify-center rounded-full">
-                        <Check className="text-edg-brand-text dark:text-edg-brand h-3 w-3" />
+                        <Check className="text-edg-brand-text h-3 w-3" />
                       </div>
                       {feature}
                     </li>
@@ -289,7 +285,7 @@ export default function RestaurantPatioSolutionsPage() {
       {/* ═══════════════════════════════════════════════════════
           FEATURES SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white dark:bg-zinc-950">
+      <Section className="py-24 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -327,7 +323,7 @@ export default function RestaurantPatioSolutionsPage() {
       {/* ═══════════════════════════════════════════════════════
           FAQ SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100 dark:bg-zinc-900">
+      <Section className="py-24 bg-zinc-100">
         <Container>
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -348,7 +344,7 @@ export default function RestaurantPatioSolutionsPage() {
       {/* ═══════════════════════════════════════════════════════
           RELATED SOLUTIONS SECTION
           ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200 dark:border-gray-800">
+      <Section className="py-16 bg-white border-t border-gray-200">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link
