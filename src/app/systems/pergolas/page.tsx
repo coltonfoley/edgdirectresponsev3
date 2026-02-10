@@ -205,7 +205,7 @@ export default function PergolasPage() {
     description:
       'Premium motorized pergolas with adjustable louvers for sun, shade, and rain control. System-agnostic recommendations for residential and commercial projects.',
     url: 'https://www.edgpatioshade.com/systems/pergolas',
-    image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`, 
+    image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`,
   });
 
   const productSchema = generateProductSchema({
@@ -251,8 +251,8 @@ export default function PergolasPage() {
                 The Motorized <br /> Pergola.
               </h1>
               <p className="text-xl text-text-secondary mb-10 leading-relaxed max-w-md">
-                Architectural shade control. 135° of rotation gives you sun when you want it, 
-                and a watertight seal when you do not. Built for the Chicago climate by the 
+                Architectural shade control. 135° of rotation gives you sun when you want it,
+                and a watertight seal when you do not. Built for the Chicago climate by the
                 specialists who know it best.
               </p>
 
@@ -287,9 +287,7 @@ export default function PergolasPage() {
 
             {/* Gallery */}
             <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="relative aspect-[4/5] bg-surface-muted overflow-hidden">
-                <ProductGallery items={galleryImages} />
-              </div>
+              <ProductGallery items={galleryImages} />
             </div>
           </div>
         </Container>
@@ -313,22 +311,22 @@ export default function PergolasPage() {
               <h2 className="section-title mb-6">A Louvered Roof That Adapts to Your Day</h2>
               <div className="space-y-4 text-text-secondary leading-relaxed">
                 <p>
-                  A motorized louvered pergola is an architectural outdoor structure with a roof 
-                  made of rotating aluminum blades. Unlike traditional pergolas with fixed slats 
-                  or fabric canopies, the louvers rotate up to 135 degrees to control sunlight, 
+                  A motorized louvered pergola is an architectural outdoor structure with a roof
+                  made of rotating aluminum blades. Unlike traditional pergolas with fixed slats
+                  or fabric canopies, the louvers rotate up to 135 degrees to control sunlight,
                   ventilation, and rain protection on demand.
                 </p>
                 <p>
-                  When open, the louvers allow filtered sunlight and natural airflow, creating 
-                  a cooling updraft effect. When closed, they form a solid, watertight roof that 
-                  channels rain through internal gutters and down the posts. All controlled with 
+                  When open, the louvers allow filtered sunlight and natural airflow, creating
+                  a cooling updraft effect. When closed, they form a solid, watertight roof that
+                  channels rain through internal gutters and down the posts. All controlled with
                   the touch of a button, voice command, or automated sensors.
                 </p>
                 <p>
-                  For homeowners across the Chicago-Milwaukee corridor, this means finally 
-                  having an outdoor space that works as hard as your indoor spaces—usable in 
-                  bright sun, light rain, or that perfect summer evening. For builders and 
-                  architects nationwide, it means specifying a system your clients will love, 
+                  For homeowners across the Chicago-Milwaukee corridor, this means finally
+                  having an outdoor space that works as hard as your indoor spaces—usable in
+                  bright sun, light rain, or that perfect summer evening. For builders and
+                  architects nationwide, it means specifying a system your clients will love,
                   backed by a partner who handles the complexity.
                 </p>
               </div>
@@ -358,7 +356,7 @@ export default function PergolasPage() {
             <div className="label-editorial-brand mb-4 text-edg-brand">Features</div>
             <h2 className="section-title mb-6">Engineered for Performance</h2>
             <p className="text-text-inverse-muted text-lg">
-              Every component is designed to work together, creating an outdoor structure 
+              Every component is designed to work together, creating an outdoor structure
               that outperforms and outlasts conventional alternatives.
             </p>
           </div>
@@ -390,9 +388,8 @@ export default function PergolasPage() {
               {specifications.map((spec, index) => (
                 <div
                   key={spec.label}
-                  className={`flex items-center justify-between p-6 ${
-                    index !== specifications.length - 1 ? 'border-b border-border' : ''
-                  }`}
+                  className={`flex items-center justify-between p-6 ${index !== specifications.length - 1 ? 'border-b border-border' : ''
+                    }`}
                 >
                   <span className="text-text-secondary">{spec.label}</span>
                   <span className="font-semibold text-text-primary">{spec.value}</span>
@@ -499,7 +496,7 @@ export default function PergolasPage() {
               <div className="label-editorial-brand mb-4 text-edg-brand">Enhancements</div>
               <h2 className="section-title mb-6">Options & Upgrades</h2>
               <p className="text-text-inverse-muted mb-8 leading-relaxed">
-                Customize your pergola with integrated systems that extend functionality 
+                Customize your pergola with integrated systems that extend functionality
                 and create a truly personalized outdoor environment.
               </p>
               <div className="space-y-6">
@@ -508,7 +505,7 @@ export default function PergolasPage() {
                   <div>
                     <h4 className="font-bold mb-1">Retractable Screens</h4>
                     <p className="text-sm text-text-inverse-muted">
-                      Zip-track motorized screens for wind, privacy, and insect protection 
+                      Zip-track motorized screens for wind, privacy, and insect protection
                       that integrates seamlessly with your pergola frame.
                     </p>
                   </div>
@@ -518,7 +515,7 @@ export default function PergolasPage() {
                   <div>
                     <h4 className="font-bold mb-1">Heating Systems</h4>
                     <p className="text-sm text-text-inverse-muted">
-                      Infrared heaters mounted to the frame provide warmth without the 
+                      Infrared heaters mounted to the frame provide warmth without the
                       orange glow, extending your outdoor season by months.
                     </p>
                   </div>
@@ -528,7 +525,7 @@ export default function PergolasPage() {
                   <div>
                     <h4 className="font-bold mb-1">Sensor Packages</h4>
                     <p className="text-sm text-text-inverse-muted">
-                      Wind and rain sensors automatically adjust louvers and retract 
+                      Wind and rain sensors automatically adjust louvers and retract
                       screens to protect your investment.
                     </p>
                   </div>
@@ -555,7 +552,7 @@ export default function PergolasPage() {
             <div className="label-editorial-brand mb-4">Customize</div>
             <h2 className="section-title mb-4">Make It Yours</h2>
             <p className="text-text-secondary">
-              Every project is custom-configured to your specifications. Start with the 
+              Every project is custom-configured to your specifications. Start with the
               fundamentals and build from there.
             </p>
           </div>
@@ -570,7 +567,7 @@ export default function PergolasPage() {
             <div className="label-editorial-brand mb-4">How We Work</div>
             <h2 className="section-title">From Vision to Reality</h2>
             <p className="text-text-secondary mt-4">
-              A proven process refined over hundreds of installations. We handle the complexity 
+              A proven process refined over hundreds of installations. We handle the complexity
               so you can enjoy the results.
             </p>
           </div>
@@ -598,8 +595,8 @@ export default function PergolasPage() {
               <div className="label-editorial-brand mb-4">Visit Us</div>
               <h2 className="section-title mb-6">See It in Person</h2>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                Our Spring Grove showroom features working displays of multiple pergola systems. 
-                Experience the smooth operation, test the controls, and see color samples in natural light. 
+                Our Spring Grove showroom features working displays of multiple pergola systems.
+                Experience the smooth operation, test the controls, and see color samples in natural light.
                 Most competitors do not have a showroom—this is one way we are different.
               </p>
               <div className="flex items-start gap-3 text-sm">
@@ -613,7 +610,7 @@ export default function PergolasPage() {
             <div className="bg-surface p-8 border border-border">
               <h3 className="font-bold text-lg mb-4">Schedule a Showroom Visit</h3>
               <p className="text-text-secondary text-sm mb-6">
-                See the products, meet the team, and get your questions answered. 
+                See the products, meet the team, and get your questions answered.
                 Perfect for homeowners and trade partners alike.
               </p>
               <TrackedLink href="/contact?type=showroom">
@@ -710,7 +707,7 @@ export default function PergolasPage() {
                 Ready for a Quote?
               </h2>
               <p className="text-xl text-text-inverse-muted mb-8 max-w-md">
-                We can provide a preliminary price range with just a photo of your space 
+                We can provide a preliminary price range with just a photo of your space
                 and rough dimensions. No commitment required.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
