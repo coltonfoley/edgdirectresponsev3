@@ -141,7 +141,7 @@ export default function BarringtonHubPage() {
             },
             url: 'https://www.edgpatioshade.com/service-areas/barrington-il',
             image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg',
+              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
           }),
         }}
       />
@@ -151,7 +151,7 @@ export default function BarringtonHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pergolas/residential-black-r-blade-01.jpg"
+            src="/images/brand/hero-pergola.jpg"
             alt="Black louvered pergola for Barrington estate"
             fill
             priority

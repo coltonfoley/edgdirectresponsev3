@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { brandImages } from '@/lib/brand-images';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -332,7 +333,7 @@ export default function CommercialPage() {
             </div>
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+                src={brandImages.context.commercial}
                 alt="Commercial outdoor living installation in Chicago"
                 fill
                 className="object-cover"

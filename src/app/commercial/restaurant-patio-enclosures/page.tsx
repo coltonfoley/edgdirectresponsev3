@@ -152,7 +152,7 @@ export default function RestaurantPatioEnclosuresPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/luxury-restaurant-patio-enclosure.jpg')",
+            backgroundImage: "url('/images/brand/context-commercial.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
@@ -262,7 +262,7 @@ export default function RestaurantPatioEnclosuresPage() {
             </div>
             <div className="relative min-h-[400px] overflow-hidden rounded-3xl">
               <img
-                src="/images/motorized-retractable-screens-patio.jpg"
+                src="/images/brand/hero-screens.jpg"
                 alt="Restaurant Patio Shades"
                 className="absolute inset-0 h-full w-full object-cover"
               />

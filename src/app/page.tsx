@@ -8,6 +8,7 @@ import { IconWrapper } from '@/components/ui/IconWrapper';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { ArrowRight, Check } from 'lucide-react';
 import { HeroFormClient } from '@/components/features/home/HeroFormClient';
+import { brandImages } from '@/lib/brand-images';
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
@@ -31,7 +32,7 @@ export default function Home() {
             muted
             loop
             playsInline
-            poster="/images/pergolas/pergola-hero.jpg"
+            poster={brandImages.hero.pergola}
             className="h-full w-full object-cover opacity-60"
           >
             <source
@@ -107,7 +108,7 @@ export default function Home() {
             {/* Background Image using next/Image */}
             <div className="absolute inset-0">
               <Image
-                src="/images/pergolas/pergola-hero.jpg"
+                src={brandImages.hero.pergola}
                 alt="Motorized pergola installation"
                 fill
                 className="object-cover opacity-60 grayscale transition-all duration-700 group-hover:opacity-40 group-hover:grayscale-0"
@@ -134,7 +135,7 @@ export default function Home() {
             {/* Background Image using next/Image */}
             <div className="absolute inset-0">
               <Image
-                src="/images/motorized-retractable-screens-patio.jpg"
+                src={brandImages.hero.screens}
                 alt="Motorized retractable screens on patio"
                 fill
                 className="object-cover opacity-60 transition-opacity duration-700 group-hover:opacity-40"
@@ -175,7 +176,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
                 <Image
-                  src="/images/pergolas/pergola-hero.jpg"
+                  src={brandImages.hero.pergola}
                   alt="Motorized louvered pergola"
                   fill
                   className="object-cover"
@@ -214,7 +215,7 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="md:order-2 relative aspect-[4/3] bg-gray-100 overflow-hidden">
                 <Image
-                  src="/images/motorized-retractable-screens-patio.jpg"
+                  src={brandImages.hero.screens}
                   alt="Motorized retractable screens"
                   fill
                   className="object-cover"

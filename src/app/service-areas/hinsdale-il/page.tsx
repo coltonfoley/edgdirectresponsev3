@@ -139,7 +139,7 @@ export default function HinsdaleHubPage() {
             },
             url: 'https://www.edgpatioshade.com/service-areas/hinsdale-il',
             image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-03.jpg',
+              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
           }),
         }}
       />
@@ -149,7 +149,7 @@ export default function HinsdaleHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pergolas/residential-black-r-blade-03.jpg"
+            src="/images/brand/hero-pergola.jpg"
             alt="Black louvered pergola on luxury estate"
             fill
             priority

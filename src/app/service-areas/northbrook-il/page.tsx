@@ -137,7 +137,7 @@ export default function NorthbrookHubPage() {
             },
             url: 'https://www.edgpatioshade.com/service-areas/northbrook-il',
             image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png',
+              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
           }),
         }}
       />
@@ -147,7 +147,7 @@ export default function NorthbrookHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+            src="/images/brand/hero-pergola.jpg"
             alt="Black louvered pergola with outdoor dining area and pool"
             fill
             priority

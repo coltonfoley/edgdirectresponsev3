@@ -163,7 +163,7 @@ export default function WestLoopPage() {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
             backgroundImage:
-              "url('/images/commercial/hotel-rooftop-restaurant.jpg')",
+              "url('/images/brand/hero-lifestyle.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

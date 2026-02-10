@@ -24,6 +24,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
+import { brandImages, pageGalleries } from '@/lib/brand-images';
 
 export const metadata: Metadata = {
   title: 'Frameless Glass Enclosures | Retractable Glass Walls | EDG',
@@ -39,39 +40,17 @@ export const metadata: Metadata = {
   alternates: { canonical: '/systems/enclosures' },
 };
 
-// Gallery images for the client component
-const galleryImages = [
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
-    alt: 'Commercial glass enclosure at night with outdoor dining',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg',
-    alt: 'Retractable glass panels open on commercial patio during the day',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg',
-    alt: 'Glass wall system with elegant hanging lights',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg',
-    alt: 'Interior view of glass enclosure on wood deck',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/glass-enclosure-closed-exterior.jpg',
-    alt: 'Frameless glass enclosure closed showing weather seal',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/glass-enclosure-partial-open.jpg',
-    alt: 'Glass enclosure panels partially open for ventilation',
-  },
-];
+// Gallery images for the client component (from brand images)
+const galleryImages = pageGalleries.enclosures.map((src, index) => ({
+  type: 'image' as const,
+  src,
+  alt: [
+    'Frameless glass enclosure detail',
+    'Outdoor living lifestyle',
+    'Poolside glass enclosure',
+    'LED lighting feature',
+  ][index] || 'Glass enclosure image',
+}));
 
 // Quick specs for hero section
 const specs = [
@@ -190,7 +169,7 @@ const serviceSchema = generateServiceSchema({
   name: 'Frameless Glass Enclosure Installation',
   description: 'Professional installation of frameless retractable glass wall systems for year-round outdoor living. Design and supply services nationwide.',
   url: 'https://www.edgpatioshade.com/systems/enclosures',
-  image: 'https://www.edgpatioshade.com/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
+  image: `https://www.edgpatioshade.com${brandImages.hero.glass}`,
 });
 
 const productSchema = {
@@ -528,7 +507,7 @@ export default function EnclosuresPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src="/images/enclosures/glass-detail.jpg"
+                  src={brandImages.detail.glass}
                   alt="Frameless glass detail showing edge seal"
                   fill
                   className="object-cover"
@@ -537,7 +516,7 @@ export default function EnclosuresPage() {
               </div>
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src="/images/enclosures/glass-closed.jpg"
+                  src={brandImages.context.commercial}
                   alt="Glass enclosure panels closed"
                   fill
                   className="object-cover"
@@ -546,7 +525,7 @@ export default function EnclosuresPage() {
               </div>
               <div className="relative aspect-square bg-surface-dark overflow-hidden col-span-2">
                 <Image
-                  src="/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg"
+                  src={brandImages.hero.glass}
                   alt="Commercial glass enclosure exterior view"
                   fill
                   className="object-cover"

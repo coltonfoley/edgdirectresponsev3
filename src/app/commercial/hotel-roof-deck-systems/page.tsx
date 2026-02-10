@@ -119,7 +119,7 @@ export default function HotelRoofDeckPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/frameless-sliding-glass-walls.jpg')",
+            backgroundImage: "url('/images/brand/hero-glass.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
@@ -186,7 +186,7 @@ export default function HotelRoofDeckPage() {
           {/* Feature Image */}
           <div className="relative mt-16 h-[500px] overflow-hidden rounded-3xl">
             <img
-              src="/images/shades/shade-deployed-screens-01.jpg"
+              src="/images/brand/hero-screens.jpg"
               alt="Hotel Terrace Amenities"
               className="absolute inset-0 h-full w-full object-cover"
             />

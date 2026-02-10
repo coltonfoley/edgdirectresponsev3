@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import { generateServiceSchema, generateFAQSchema, generateProductSchema } from '@/lib/schema';
+import { brandImages, pageGalleries } from '@/lib/brand-images';
 
 export const metadata: Metadata = {
   title: 'Premium Outdoor Furniture | Teak, Wicker & Aluminum | EDG',
@@ -43,28 +44,11 @@ export const metadata: Metadata = {
   },
 };
 
-const galleryImages = [
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg',
-    alt: 'Modern outdoor lounge furniture under a louvered pergola by the pool',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg',
-    alt: 'Poolside outdoor seating with privacy walls and premium furniture',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/residential-pergola-heaters-interior.jpg',
-    alt: 'Comfortable outdoor dining furniture in a glass enclosure',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
-    alt: 'White outdoor furniture set under a modern pergola structure',
-  },
-];
+const galleryImages = pageGalleries.furniture.map((src) => ({
+  type: 'image' as const,
+  src,
+  alt: 'Premium outdoor furniture collection showcasing weather-resistant materials and comfortable design',
+}));
 
 const features = [
   {
@@ -203,19 +187,19 @@ const applications = [
     title: 'Residential Dining',
     description:
       'Extendable dining tables and comfortable seating for everyday meals and special occasions.',
-    image: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
+    image: brandImages.hero.lifestyle,
   },
   {
     title: 'Poolside Lounging',
     description:
       'Chaise lounges and deep seating designed for wet environments and full sun exposure.',
-    image: '/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg',
+    image: brandImages.context.pool,
   },
   {
     title: 'Hospitality & Commercial',
     description:
       'Heavy-duty frames and commercial-grade upholstery for restaurants, hotels, and rooftop bars.',
-    image: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg',
+    image: brandImages.context.commercial,
   },
 ];
 
@@ -225,16 +209,14 @@ export default function FurniturePage() {
     description:
       'Premium outdoor furniture collections featuring weather-resistant teak, aluminum, and all-weather wicker with professional design service.',
     url: 'https://www.edgpatioshade.com/systems/furniture',
-    image:
-      'https://www.edgpatioshade.com/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg',
+    image: `https://www.edgpatioshade.com${brandImages.hero.lifestyle}`,
   });
 
   const productSchema = generateProductSchema({
     name: 'Premium Outdoor Furniture',
     description:
       'Curated outdoor furniture collections including teak, aluminum, and wicker sectionals, dining sets, and lounge seating.',
-    image:
-      'https://www.edgpatioshade.com/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg',
+    image: `https://www.edgpatioshade.com${brandImages.hero.lifestyle}`,
     category: 'Outdoor Furniture',
   });
 

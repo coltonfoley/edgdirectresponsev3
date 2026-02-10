@@ -134,7 +134,7 @@ export default function WilmetteHubPage() {
             },
             url: 'https://www.edgpatioshade.com/service-areas/wilmette-il',
             image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-white-r-blade-led-strip.jpg',
+              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
           }),
         }}
       />
@@ -148,7 +148,7 @@ export default function WilmetteHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pergolas/residential-white-r-blade-led-strip.jpg"
+            src="/images/brand/hero-pergola.jpg"
             alt="White louvered pergola with LED lighting"
             fill
             priority

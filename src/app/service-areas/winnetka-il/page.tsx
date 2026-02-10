@@ -142,7 +142,7 @@ export default function WinnetkaHubPage() {
             },
             url: 'https://www.edgpatioshade.com/service-areas/winnetka-il',
             image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg',
+              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
           }),
         }}
       />
@@ -156,7 +156,7 @@ export default function WinnetkaHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg"
+            src="/images/brand/hero-pergola.jpg"
             alt="Dark gray louvered pergola with LED lighting"
             fill
             priority

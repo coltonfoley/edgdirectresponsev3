@@ -16,6 +16,7 @@ import {
   generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
+import { brandImages, pageGalleries } from '@/lib/brand-images';
 import {
   Sun,
   CloudRain,
@@ -46,39 +47,17 @@ export const metadata: Metadata = {
   },
 };
 
-// Gallery images for the hero
-const galleryImages = [
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-black-r-blade-01.jpg',
-    alt: 'Modern black R-Blade pergola installation by pool',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
-    alt: 'Gray bronze R-Blade pergola with white louvers over patio',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg',
-    alt: 'Gray and white R-Shade pergola over outdoor kitchen',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-white-r-blade-led-strip.jpg',
-    alt: 'White R-Blade pergola with integrated LED lighting',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg',
-    alt: 'Dark gray pergola with warm LED lighting at dusk',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/pergola-pool-spa.jpg',
-    alt: 'Pergola installation poolside with spa integration',
-  },
-];
+// Gallery images for the hero - uses brand image set
+const galleryImages = pageGalleries.pergolas.map((src, index) => ({
+  type: 'image' as const,
+  src,
+  alt: [
+    'Precision-engineered aluminum louver detail',
+    'Luxury poolside pergola installation',
+    'Pergola with integrated LED lighting at dusk',
+    'Smart home integration with motorized controls',
+  ][index] || 'Motorized pergola installation',
+}));
 
 // Specifications data
 const specifications = [
@@ -226,7 +205,7 @@ export default function PergolasPage() {
     description:
       'Premium motorized pergolas with adjustable louvers for sun, shade, and rain control. System-agnostic recommendations for residential and commercial projects.',
     url: 'https://www.edgpatioshade.com/systems/pergolas',
-    image: 'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg',
+    image: `https://www.edgpatioshade.com${brandImages.hero.pergola}`, 
   });
 
   const productSchema = generateProductSchema({
@@ -322,7 +301,7 @@ export default function PergolasPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/pergolas/pergola-lifestyle.jpg"
+                src={brandImages.hero.lifestyle}
                 alt="Family enjoying outdoor living space under motorized pergola"
                 fill
                 className="object-cover"
@@ -441,7 +420,7 @@ export default function PergolasPage() {
             <Card variant="muted" padding="lg" className="relative overflow-hidden">
               <div className="relative h-64 mb-6 -m-8 mb-6">
                 <Image
-                  src="/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+                  src={brandImages.context.pool}
                   alt="Residential pergola with outdoor dining area by the pool"
                   fill
                   className="object-cover"
@@ -477,7 +456,7 @@ export default function PergolasPage() {
             <Card variant="muted" padding="lg" className="relative overflow-hidden">
               <div className="relative h-64 mb-6 -m-8 mb-6">
                 <Image
-                  src="/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg"
+                  src={brandImages.context.lake}
                   alt="Commercial pergola installation with lounge seating"
                   fill
                   className="object-cover"
@@ -558,7 +537,7 @@ export default function PergolasPage() {
             </div>
             <div className="relative aspect-square">
               <Image
-                src="/images/pergolas/residential-black-r-blade-privacy-walls-pool.jpg"
+                src={brandImages.detail.louver}
                 alt="Pergola with integrated privacy screens and poolside location"
                 fill
                 className="object-cover"

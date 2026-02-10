@@ -29,6 +29,7 @@ import {
   generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
+import { brandImages, pageGalleries } from '@/lib/brand-images';
 
 export const metadata: Metadata = {
   title: 'Outdoor Heating Systems | Infrared Heaters & Fire Features | EDG',
@@ -45,28 +46,16 @@ export const metadata: Metadata = {
   },
 };
 
-const galleryImages = [
-  {
-    type: 'image' as const,
-    src: '/images/enclosures/residential-pergola-heaters-interior.jpg',
-    alt: 'Outdoor pergola with integrated infrared heating system',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/appliances/patio-heater.png',
-    alt: 'Modern outdoor patio heater installation',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/appliances/outdoor-kitchen-hero.png',
-    alt: 'Outdoor living space with heating and kitchen appliances',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg',
-    alt: 'Evening outdoor dining with integrated heating',
-  },
-];
+// Gallery images using brand image set
+const galleryImages = pageGalleries.heating.map((src, index) => ({
+  type: 'image' as const,
+  src,
+  alt: [
+    'Family enjoying heated outdoor living space',
+    'Infrared heater detail installation',
+    'Outdoor living in winter with heating system',
+  ][index] || 'Outdoor heating system installation',
+}));
 
 const features = [
   {
@@ -242,8 +231,7 @@ export default function HeatingPage() {
     description:
       'Infrared heating and fire feature installation for outdoor living spaces.',
     url: 'https://www.edgpatioshade.com/systems/heating',
-    image:
-      'https://www.edgpatioshade.com/images/enclosures/residential-pergola-heaters-interior.jpg',
+    image: `https://www.edgpatioshade.com${brandImages.detail.heater}`,
   });
 
   const productSchema = generateProductSchema({
@@ -251,8 +239,7 @@ export default function HeatingPage() {
     description:
       'Premium infrared heaters and fire features for extending outdoor living seasons.',
     category: 'Outdoor Heating',
-    image:
-      'https://www.edgpatioshade.com/images/enclosures/residential-pergola-heaters-interior.jpg',
+    image: `https://www.edgpatioshade.com${brandImages.detail.heater}`,
   });
 
   const faqSchema = generateFAQSchema(faqs);

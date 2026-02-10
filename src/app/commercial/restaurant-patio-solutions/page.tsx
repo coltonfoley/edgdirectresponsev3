@@ -146,7 +146,7 @@ export default function RestaurantPatioSolutionsPage() {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
             backgroundImage:
-              "url('/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg')",
+              "url('/images/brand/context-commercial.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

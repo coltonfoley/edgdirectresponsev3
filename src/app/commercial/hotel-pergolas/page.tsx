@@ -157,7 +157,7 @@ export default function HotelPergolasPage() {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
             backgroundImage:
-              "url('/images/commercial/hotel-rooftop-wedding-guests.png')",
+              "url('/images/brand/hero-lifestyle.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

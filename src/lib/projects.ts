@@ -4,8 +4,8 @@ export interface Project {
   location: string;
   type: string;
   systems: string[];
-  cardImage: string; // Used on the main projects list
-  heroImage: string; // Used on the project detail page banner
+  cardImage: string;
+  heroImage: string;
   galleryImages: string[];
   description: string;
   challenge: string;
@@ -17,6 +17,31 @@ export interface Project {
   serviceAreaSlug?: string;
 }
 
+/** Helper to generate project image paths */
+function projectImages(slug: string) {
+  const base = `/images/projects/${slug}`;
+  return {
+    card: `${base}/card.jpg`,
+    hero: `${base}/hero.jpg`,
+    gallery: [
+      `${base}/gallery-01.jpg`,
+      `${base}/gallery-02.jpg`,
+      `${base}/gallery-03.jpg`,
+    ],
+  };
+}
+
+// Project image paths
+const img = {
+  lakeForest: projectImages('lake-forest-pergola'),
+  barrington: projectImages('barrington-outdoor-room'),
+  lakeGeneva: projectImages('lake-geneva-restaurant'),
+  libertyville: projectImages('libertyville-shade-system'),
+  highlandPark: projectImages('highland-park-builder'),
+  wilmette: projectImages('wilmette-country-club'),
+  barringtonHills: projectImages('barrington-hills-estate'),
+};
+
 export const projects: Project[] = [
   {
     slug: 'lake-forest-pergola',
@@ -24,14 +49,9 @@ export const projects: Project[] = [
     location: 'Lake Forest, IL',
     type: 'Residential',
     systems: ['Louvered Pergola', 'Motorized Shades'],
-    cardImage: '/images/projects/project-01.jpg',
-    heroImage:
-      '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
-    galleryImages: [
-      '/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg',
-      '/images/shades/shades-hero.jpg',
-      '/images/staging/residential-white-pergola-pool-glass-doors-03.jpg',
-    ],
+    cardImage: img.lakeForest.card,
+    heroImage: img.lakeForest.hero,
+    galleryImages: img.lakeForest.gallery,
     description:
       'A comprehensive outdoor living solution for a family seeking year-round usability on their Lake Michigan property.',
     challenge:
@@ -67,14 +87,9 @@ export const projects: Project[] = [
     location: 'Barrington, IL',
     type: 'Residential',
     systems: ['Louvered Pergola', 'Glass Enclosure'],
-    cardImage: '/images/frameless-sliding-glass-walls.jpg',
-    heroImage:
-      '/images/staging/residential-white-pergola-pool-glass-doors-03.jpg',
-    galleryImages: [
-      '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
-      '/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg',
-      '/images/shades/shades-hero.jpg',
-    ],
+    cardImage: img.barrington.card,
+    heroImage: img.barrington.hero,
+    galleryImages: img.barrington.gallery,
     description:
       'An underutilized concrete patio transformed into a true four-season room with full weather protection.',
     challenge:
@@ -111,13 +126,9 @@ export const projects: Project[] = [
     location: 'Lake Geneva, WI',
     type: 'Commercial',
     systems: ['Louvered Pergola', 'Integrated Heating'],
-    cardImage: '/images/commercial-restaurant-patio-enclosure.jpg',
-    heroImage: '/images/commercial-pergola-glass-enclosure-day-dining-01.jpg',
-    galleryImages: [
-      '/images/commercial-glass-enclosure-day-exterior-01.jpg',
-      '/images/commercial-glass-enclosure-night-dining-01.jpg',
-      '/images/commercial-glass-enclosure-interior-wood-deck-01.jpg',
-    ],
+    cardImage: img.lakeGeneva.card,
+    heroImage: img.lakeGeneva.hero,
+    galleryImages: img.lakeGeneva.gallery,
     description:
       'A lakeside fine dining restaurant eliminates weather cancellations and extends their patio season by 10 weeks.',
     challenge:
@@ -153,13 +164,9 @@ export const projects: Project[] = [
     location: 'Libertyville, IL',
     type: 'Residential',
     systems: ['Motorized Shades'],
-    cardImage: '/images/motorized-retractable-screens-patio.jpg',
-    heroImage: '/images/shades/shades-hero.jpg',
-    galleryImages: [
-      '/images/pergolas/residential-black-r-blade-04.jpg',
-      '/images/staging/residential-white-pergola-pool-glass-doors-03.jpg',
-      '/images/pergolas/residential-gray-bronze-r-blade-pool-chairs.jpg',
-    ],
+    cardImage: img.libertyville.card,
+    heroImage: img.libertyville.hero,
+    galleryImages: img.libertyville.gallery,
     description:
       'Six motorized exterior shades protecting a south-facing home from summer heat while preserving backyard views.',
     challenge:
@@ -195,13 +202,9 @@ export const projects: Project[] = [
     location: 'Highland Park, IL',
     type: 'Builder Project',
     systems: ['Louvered Pergola', 'Motorized Shades', 'Glass Enclosure'],
-    cardImage: '/images/projects/project-05.jpg',
-    heroImage: '/images/pergolas/residential-black-r-blade-01.jpg',
-    galleryImages: [
-      '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
-      '/images/staging/residential-white-pergola-pool-glass-doors-03.jpg',
-      '/images/shades/shades-hero.jpg',
-    ],
+    cardImage: img.highlandPark.card,
+    heroImage: img.highlandPark.hero,
+    galleryImages: img.highlandPark.gallery,
     description:
       'A complete outdoor living package coordinated during new construction for seamless integration.',
     challenge:
@@ -237,14 +240,9 @@ export const projects: Project[] = [
     location: 'Wilmette, IL',
     type: 'Commercial',
     systems: ['Louvered Pergola'],
-    cardImage:
-      '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
-    heroImage: '/images/commercial-white-r-blade-screens-lake.jpg',
-    galleryImages: [
-      '/images/commercial-glass-enclosure-day-exterior-01.jpg',
-      '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
-      '/images/staging/residential-white-pergola-pool-glass-doors-03.jpg',
-    ],
+    cardImage: img.wilmette.card,
+    heroImage: img.wilmette.hero,
+    galleryImages: img.wilmette.gallery,
     description:
       'Twin pergola structures providing all-weather coverage for the member pool deck at a private country club.',
     challenge:
@@ -274,57 +272,15 @@ export const projects: Project[] = [
     },
     relatedProjects: ['lake-geneva-restaurant'],
   },
-  /*
-    {
-        slug: "sanibel-stilt-home-retreat",
-        title: "Island Stilt Home Retreat",
-        location: "Sanibel Island, FL",
-        type: "Residential",
-        systems: ["Louvered Pergola", "Motorized Screens"],
-        cardImage: "/images/shades/shade-patio-close-01.jpg",
-        heroImage: "/images/pergolas/residential-black-r-blade-01.jpg",
-        galleryImages: [
-            "/images/shades/shade-patio-close-01.jpg",
-            "/images/pergolas/residential-black-r-blade-04.jpg",
-            "/images/shades/shades-hero.jpg"
-        ],
-        description: "A post-Ian rebuild project featuring a lightweight aluminum louvered roof integrated onto an elevated stilt home deck.",
-        challenge: "The homeowners lost their traditional wood pergola during Hurricane Ian. For the rebuild, they needed a system that met Sanibel's strict new zoning codes for impermeable coverage, while remaining light enough to be installed on an elevated second-story deck without expensive structural steel reinforcement. They also faced intense Gulf heat and mosquito pressure during the summer months.",
-        solution: "We designed a lightweight, Miami-Dade hurricane-rated louvered roof system. By using extruded aluminum, we avoided the weight issues of steel or heavy timber. The system includes four motorized 'Pet-Screen' reinforced meshes to handle both wind and insects, and the entire structure is anchored to meet the 160mph Gulf wind requirements. The 'Sanctuary-Approved' design footprint was carefully calculated to stay within their ecological zone's coverage limits.",
-        results: [
-            "Successfully permitted under newest Sanibel zoning ordinances",
-            "160mph hurricane rating for peace of mind in the Gulf",
-            "Added 320 sq ft of bug-free living space on an elevated deck",
-            "Protected interior rooms from intense western sun exposure",
-        ],
-        specs: [
-            { label: "Size", value: "16' x 20' (320 sq ft)" },
-            { label: "Engineering", value: "Miami-Dade Hurricane Rated (160mph)" },
-            { label: "Compliance", value: "Sanibel Sanctuary/Impermeable Zone Approved" },
-            { label: "Features", value: "Motorized louvers, insect screens, integrated solar tracking" },
-        ],
-        testimonial: {
-            quote: "EDG understood the island's rules better than our local contractor. The system is beautiful and we feel safe knowing it's hurricane rated.",
-            name: "The Miller Family",
-            title: "Sanibel Homeowners"
-        },
-        relatedProjects: ["lake-forest-pergola", "barrington-outdoor-room"],
-        serviceAreaSlug: "sanibel-outdoor-living"
-    }
-    */
   {
     slug: 'barrington-hills-estate',
     title: 'Barrington Hills Estate',
     location: 'Barrington Hills, IL',
     type: 'Residential',
     systems: ['Louvered Pergola', 'Motorized Screens'],
-    cardImage: '/images/pergolas/residential-black-r-blade-01.jpg',
-    heroImage: '/images/projects/naples-tuscany/naples-tuscany-03.jpg',
-    galleryImages: [
-      '/images/pergolas/residential-black-r-blade-04.jpg',
-      '/images/shades/shade-patio-close-01.jpg',
-      '/images/staging/residential-white-pergola-pool-glass-doors-03.jpg',
-    ],
+    cardImage: img.barringtonHills.card,
+    heroImage: img.barringtonHills.hero,
+    galleryImages: img.barringtonHills.gallery,
     description:
       'A 5-acre estate adds a snow-load engineered outdoor living room that respects the strict impermeable coverage limits of the Village.',
     challenge:

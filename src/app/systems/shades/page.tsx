@@ -7,6 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
+import { brandImages, pageGalleries } from '@/lib/brand-images';
 import {
   ArrowRight,
   Wind,
@@ -34,28 +35,16 @@ export const metadata: Metadata = {
 };
 
 // ===== DATA =====
-const galleryImages = [
-  {
-    type: 'image' as const,
-    src: '/images/shades/shade-deployed-screens-01.jpg',
-    alt: 'Motorized mesh screens deployed on white pergola providing UV protection',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/shades/shade-patio-close-01.jpg',
-    alt: 'Exterior screen shades providing sun protection on residential patio',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/shades/commercial-white-r-blade-screens-lake.jpg',
-    alt: 'Commercial pergola with retractable shade screens overlooking lake',
-  },
-  {
-    type: 'image' as const,
-    src: '/images/shades/shades-hero.jpg',
-    alt: 'Pergola with solid shade panel closed for complete privacy',
-  },
-];
+const galleryImages = pageGalleries.shades.map((src, index) => ({
+  type: 'image' as const,
+  src,
+  alt: [
+    'Motorized mesh screens deployed on white pergola providing UV protection',
+    'Exterior screen shades providing sun protection on residential patio',
+    'Commercial pergola with retractable shade screens overlooking lake',
+    'Pergola with solid shade panel closed for complete privacy',
+  ][index],
+}));
 
 const specs = [
   { label: 'Maximum Width', value: "Up to 30'" },
@@ -241,6 +230,11 @@ export default function ShadesPage() {
     },
     category: 'Motorized Exterior Shades',
     material: 'Vinyl-coated polyester mesh, aluminum housing',
+    image: [
+      brandImages.hero.screens,
+      brandImages.detail.screen,
+      brandImages.context.lake,
+    ],
     offers: {
       '@type': 'AggregateOffer',
       availability: 'https://schema.org/InStock',

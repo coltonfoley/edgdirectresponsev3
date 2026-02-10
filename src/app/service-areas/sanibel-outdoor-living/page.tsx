@@ -168,7 +168,7 @@ export default function SanibelHubPage() {
             },
             url: 'https://www.edgpatioshade.com/service-areas/sanibel-outdoor-living',
             image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
+              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
           }),
         }}
       />
@@ -182,7 +182,7 @@ export default function SanibelHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+            src="/images/brand/hero-pergola.jpg"
             alt="White louvered pergola for coastal home"
             fill
             priority

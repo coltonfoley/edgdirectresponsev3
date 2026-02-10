@@ -143,7 +143,7 @@ export default function CountryClubPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/pergolas/pergola-lifestyle.jpg')",
+            backgroundImage: "url('/images/brand/hero-lifestyle.jpg')",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
@@ -209,7 +209,7 @@ export default function CountryClubPage() {
           {/* Image */}
           <div className="relative mt-16 h-[400px] overflow-hidden rounded-3xl">
             <img
-              src="/images/pergolas/pergola-pool-spa.jpg"
+              src="/images/brand/context-pool.jpg"
               alt="Country Club Pool Deck Pergola"
               className="absolute inset-0 h-full w-full object-cover"
             />
