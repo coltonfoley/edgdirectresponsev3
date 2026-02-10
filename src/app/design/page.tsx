@@ -59,6 +59,8 @@ const faqs = [
 ];
 
 import { generateFAQSchema } from '@/lib/schema';
+import * as images from '@/lib/images';
+
 
 export default function DesignPage() {
   const faqSchema = generateFAQSchema(faqs);
@@ -209,7 +211,7 @@ export default function DesignPage() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('/images/frameless-sliding-glass-walls.jpg')",
+                    "url(images.pages.design.framelessGlass)",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

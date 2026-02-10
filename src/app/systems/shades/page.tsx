@@ -7,7 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 import {
   ArrowRight,
   Wind,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 };
 
 // ===== DATA =====
-const galleryImages = pageGalleries.shades.map((src, index) => ({
+const galleryImages = images.galleries.shades.map((src, index) => ({
   type: 'image' as const,
   src,
   alt: [
@@ -231,9 +231,9 @@ export default function ShadesPage() {
     category: 'Motorized Exterior Shades',
     material: 'Vinyl-coated polyester mesh, aluminum housing',
     image: [
-      brandImages.hero.screens,
-      brandImages.detail.screen,
-      brandImages.context.lake,
+      images.brand.hero.screens,
+      images.brand.detail.screen,
+      images.brand.context.lake,
     ],
     offers: {
       '@type': 'AggregateOffer',

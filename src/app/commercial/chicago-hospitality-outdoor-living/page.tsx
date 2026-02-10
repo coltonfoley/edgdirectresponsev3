@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import * as images from '@/lib/images';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -96,7 +97,7 @@ const industrySolutions = [
       'Maximize cover counts and eliminate reservation cancellations. See how leading Chicago restaurants protect their revenue.',
     href: '/commercial/restaurant-patio-enclosures',
     cta: 'Restaurant Solutions',
-    image: '/images/brand/context-commercial.jpg',
+    image: images.brand.context.commercial,
   },
   {
     icon: GlassWater,
@@ -105,7 +106,7 @@ const industrySolutions = [
       'Enhance member amenities with premium outdoor dining and event spaces. Create the perfect 19th hole environment.',
     href: '/commercial/country-club-outdoor-spaces',
     cta: 'Club Solutions',
-    image: '/images/brand/hero-pergola.jpg',
+    image: images.brand.hero.pergola,
   },
   {
     icon: Hotel,
@@ -114,7 +115,7 @@ const industrySolutions = [
       'Transform underutilized rooftops and terraces into year-round event venues and bars.',
     href: '/commercial/hotel-roof-deck-systems',
     cta: 'Hotel Solutions',
-    image: '/images/brand/hero-glass.jpg',
+    image: images.brand.hero.glass,
   },
 ];
 
@@ -179,7 +180,7 @@ export default function ChicagoHospitalityPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/brand/context-commercial.jpg')",
+            backgroundImage: "url(${images.brand.context.commercial})",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
@@ -356,7 +357,7 @@ export default function ChicagoHospitalityPage() {
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage: "url('/images/brand/context-commercial.jpg')",
+                  backgroundImage: "url(images.brand.context.commercial)",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>

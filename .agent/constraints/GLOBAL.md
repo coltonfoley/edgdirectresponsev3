@@ -62,7 +62,34 @@ export function ContactFormClient() {
 
 ---
 
-## 3. Image Requirements
+## 3. Image Requirements (CRITICAL)
+
+### Use the Image Registry - NEVER Hardcode Paths
+
+All images MUST be imported from the centralized registry:
+
+```typescript
+// ✅ CORRECT - Type-safe, single source of truth
+import * as images from '@/lib/images';
+
+<Image src={images.brand.hero.pergola} alt="..." />
+<div style={{ backgroundImage: `url(${images.brand.context.commercial})` }} />
+```
+
+```typescript
+// ❌ WRONG - String paths are not allowed
+<Image src="/images/brand/hero-pergola.jpg" alt="..." />
+<div style={{ backgroundImage: "url('/images/brand/context-commercial.jpg')" }} />
+```
+
+**Why:**
+- TypeScript autocomplete prevents typos
+- Change image in one place, updates everywhere
+- Build validation ensures images exist
+- Easy to find all usages of an image
+
+**Registry file:** `src/lib/images.ts`
+**Documentation:** [`.agent/patterns/images.md`](../patterns/images.md)
 
 ### ALWAYS Use next/image
 

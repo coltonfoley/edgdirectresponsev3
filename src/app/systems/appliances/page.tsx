@@ -25,7 +25,7 @@ import {
   generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Premium Outdoor Appliances | Grills, Pizza Ovens & Heaters',
@@ -45,17 +45,17 @@ export const metadata: Metadata = {
 const galleryImages = [
   {
     type: 'image' as const,
-    src: pageGalleries.appliances[0],
+    src: images.galleries.appliances[0],
     alt: 'Luxury outdoor kitchen with stainless steel grill and pizza oven',
   },
   {
     type: 'image' as const,
-    src: pageGalleries.appliances[1],
+    src: images.galleries.appliances[1],
     alt: 'Modern outdoor patio heater next to lounge seating',
   },
   {
     type: 'image' as const,
-    src: pageGalleries.appliances[2],
+    src: images.galleries.appliances[2],
     alt: 'Outdoor living space with integrated appliances',
   },
 ];
@@ -184,14 +184,14 @@ export default function AppliancesPage() {
     description:
       'Premium outdoor grills, pizza ovens, and heating solutions for sophisticated outdoor living.',
     url: 'https://www.edgpatioshade.com/systems/appliances',
-    image: `https://www.edgpatioshade.com${pageGalleries.appliances[0]}`,
+    image: `https://www.edgpatioshade.com${images.galleries.appliances[0]}`,
   });
 
   const productSchema = generateProductSchema({
     name: 'Outdoor Kitchen Appliances',
     description:
       'Premium outdoor kitchen appliances, grills, and heating systems for outdoor living spaces.',
-    image: `https://www.edgpatioshade.com${pageGalleries.appliances[0]}`,
+    image: `https://www.edgpatioshade.com${images.galleries.appliances[0]}`,
   });
 
   const faqSchema = generateFAQSchema(faqs);
@@ -326,17 +326,17 @@ export default function AppliancesPage() {
               {
                 title: 'The Outdoor Chef',
                 desc: 'Everything you need to cook gourmet meals outside: grills, side burners, and refrigeration.',
-                image: brandImages.hero.lifestyle,
+                image: images.brand.hero.lifestyle,
               },
               {
                 title: 'Year-Round Comfort',
                 desc: "Don't let the chill drive you inside. Powerful heaters keep your space usable well into autumn.",
-                image: brandImages.context.commercial,
+                image: images.brand.context.commercial,
               },
               {
                 title: 'Pizza Night',
                 desc: 'Create memories with family and friends around a wood-fired or gas pizza oven.',
-                image: brandImages.detail.led,
+                image: images.brand.detail.led,
               },
             ].map((item) => (
               <div

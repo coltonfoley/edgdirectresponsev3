@@ -805,6 +805,83 @@
     "id": "/images/brand/hero-showroom.jpg"
   },
   {
+    "src": "/images/misc/frameless-sliding-glass-walls.jpg",
+    "width": 1707,
+    "height": 2560,
+    "alt": "frameless sliding glass walls",
+    "id": "/images/misc/frameless-sliding-glass-walls.jpg"
+  },
+  {
+    "src": "/images/misc/guide-cover.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "guide cover",
+    "id": "/images/misc/guide-cover.png"
+  },
+  {
+    "src": "/images/pergolas/pergola-hero.jpg",
+    "width": 2000,
+    "height": 1334,
+    "alt": "pergola hero",
+    "id": "/images/pergolas/pergola-hero.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-01.jpg",
+    "width": 2560,
+    "height": 1706,
+    "alt": "residential black r blade 01",
+    "id": "/images/pergolas/residential-black-r-blade-01.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-02.jpg",
+    "width": 2560,
+    "height": 1706,
+    "alt": "residential black r blade 02",
+    "id": "/images/pergolas/residential-black-r-blade-02.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-04.jpg",
+    "width": 2560,
+    "height": 1707,
+    "alt": "residential black r blade 04",
+    "id": "/images/pergolas/residential-black-r-blade-04.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png",
+    "width": 2560,
+    "height": 1920,
+    "alt": "residential black r blade outdoor dining pool",
+    "id": "/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+  },
+  {
+    "src": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg",
+    "width": 2560,
+    "height": 1706,
+    "alt": "residential gray bronze r blade white louvers 01",
+    "id": "/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg",
+    "width": 2560,
+    "height": 1855,
+    "alt": "residential white gray bronze r blade screen",
+    "id": "/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg",
+    "width": 2560,
+    "height": 1706,
+    "alt": "residential white pergola pool glass doors 03",
+    "id": "/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg"
+  },
+  {
+    "src": "/images/pergolas/residential-white-r-blade-led-strip.jpg",
+    "width": 2560,
+    "height": 1706,
+    "alt": "residential white r blade led strip",
+    "id": "/images/pergolas/residential-white-r-blade-led-strip.jpg"
+  },
+  {
     "src": "/images/projects/barrington-hills-estate/card.jpg",
     "width": 2560,
     "height": 1706,
@@ -1048,5 +1125,19 @@
     "height": 1707,
     "alt": "hero",
     "id": "/images/projects/wilmette-country-club/hero.jpg"
+  },
+  {
+    "src": "/images/shades/shade-deployed-screens-01.jpg",
+    "width": 1707,
+    "height": 2560,
+    "alt": "shade deployed screens 01",
+    "id": "/images/shades/shade-deployed-screens-01.jpg"
+  },
+  {
+    "src": "/images/shades/shades-hero.jpg",
+    "width": 1600,
+    "height": 1160,
+    "alt": "shades hero",
+    "id": "/images/shades/shades-hero.jpg"
   }
 ]

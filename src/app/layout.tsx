@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og-image.jpg',
+        url: images.assets.ogImage,
         width: 1200,
         height: 630,
         alt: 'EDG Patio & Shade - Motorized Pergolas & Shades',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: 'EDG | Motorized Pergolas & Outdoor Shades',
     description:
       'Premium outdoor living systems. Serving Chicago to Milwaukee with nationwide design and supply for motorized pergolas, shades, and glass enclosures.',
-    images: ['/og-image.jpg'],
+    images: [images.assets.ogImage],
   },
   robots: {
     index: true,
@@ -84,6 +84,8 @@ export const metadata: Metadata = {
 
 // LocalBusiness JSON-LD Schema
 import { localBusinessSchema } from '@/lib/schema';
+import * as images from '@/lib/images';
+
 
 // WebSite Schema for Sitelinks Search Box
 const websiteSchema = {

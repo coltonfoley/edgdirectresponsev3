@@ -3,7 +3,7 @@
 > **Project:** edgdirectresponsev3  
 > **Type:** Next.js Marketing Website  
 > **Language:** TypeScript (English)  
-> **Last Updated:** 2026-02-09
+> **Last Updated:** 2026-02-10
 
 ---
 
@@ -138,6 +138,7 @@ src/
 |------|----------|
 | [`.agent/patterns/components.md`](.agent/patterns/components.md) | Container, Button, Image APIs |
 | [`.agent/patterns/architecture.md`](.agent/patterns/architecture.md) | Server/Client patterns, file structure |
+| [`.agent/patterns/images.md`](.agent/patterns/images.md) | Image management system, registry usage |
 
 ---
 
@@ -194,6 +195,47 @@ Every service area hub MUST have:
 
 ---
 
+## Image Management (CRITICAL)
+
+All images MUST be managed through the centralized registry. **Never hardcode image paths.**
+
+### Quick Reference
+
+```typescript
+// ✅ CORRECT - Use the registry
+import * as images from '@/lib/images';
+
+<Image src={images.brand.hero.pergola} alt="..." />
+<Image src={images.pages.pro.blackBlade} alt="..." />
+<ProductGallery items={images.galleries.pergolas} />
+```
+
+```typescript
+// ❌ WRONG - Never hardcode paths
+<Image src="/images/brand/hero-pergola.jpg" alt="..." />
+```
+
+### Image Registry Structure
+
+| Category | Usage | Example |
+|----------|-------|---------|
+| `images.brand.hero.*` | Hero section images | `images.brand.hero.pergola` |
+| `images.brand.detail.*` | Feature close-ups | `images.brand.detail.louver` |
+| `images.brand.context.*` | Lifestyle/environment | `images.brand.context.pool` |
+| `images.projects.*` | Project galleries | `images.projects.lakeForest.hero` |
+| `images.pages.*` | Page-specific images | `images.pages.pro.blackBlade` |
+| `images.galleries.*` | Pre-built arrays | `images.galleries.pergolas` |
+
+### Adding New Images
+
+1. Add image to `public/images/{folder}/`
+2. Register in `src/lib/images.ts`
+3. Run `npm run validate-images`
+
+**Full documentation:** [`.agent/patterns/images.md`](.agent/patterns/images.md)
+
+---
+
 ## Common Tasks
 
 ### Create New Service Area
@@ -234,6 +276,7 @@ npm run test:e2e
 | File | Purpose |
 |------|---------|
 | `next.config.ts` | Redirects (100+ legacy URLs), image domains, security headers |
+| `src/lib/images.ts` | Image registry (ALL images) |
 | `src/lib/schema.ts` | JSON-LD schema generators |
 | `src/lib/projects.ts` | Project registry |
 | `src/lib/utils.ts` | `cn()` Tailwind class merger |

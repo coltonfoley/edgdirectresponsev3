@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import * as images from '@/lib/images';
 import {
   CheckCircle2,
   ArrowRight,
@@ -63,7 +64,7 @@ export default function GuideReadPage() {
       <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-zinc-900 text-white">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/guide-cover.png"
+            src={images.pages.guides.cover}
             alt="Guide Cover"
             fill
             className="object-cover opacity-50"
@@ -228,7 +229,7 @@ export default function GuideReadPage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/pergolas/residential-black-r-blade-01.jpg"
+                  src={images.pages.serviceAreas.barringtonPergola1}
                   alt="Pergola"
                   fill
                   className="object-cover"
@@ -261,7 +262,7 @@ export default function GuideReadPage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/motorized-retractable-screens-patio.jpg"
+                  src={images.brand.detail.screen}
                   alt="Shades"
                   fill
                   className="object-cover"
@@ -294,7 +295,7 @@ export default function GuideReadPage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/frameless-sliding-glass-walls.jpg"
+                  src={images.pages.design.framelessGlass}
                   alt="Glass"
                   fill
                   className="object-cover"

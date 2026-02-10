@@ -16,7 +16,7 @@ import {
   generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 import {
   Sun,
   CloudRain,
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 // Gallery images for the hero - uses brand image set
-const galleryImages = pageGalleries.pergolas.map((src, index) => ({
+const galleryImages = images.galleries.pergolas.map((src, index) => ({
   type: 'image' as const,
   src,
   alt: [
@@ -205,7 +205,7 @@ export default function PergolasPage() {
     description:
       'Premium motorized pergolas with adjustable louvers for sun, shade, and rain control. System-agnostic recommendations for residential and commercial projects.',
     url: 'https://www.edgpatioshade.com/systems/pergolas',
-    image: `https://www.edgpatioshade.com${brandImages.hero.pergola}`, 
+    image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`, 
   });
 
   const productSchema = generateProductSchema({
@@ -301,7 +301,7 @@ export default function PergolasPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="relative aspect-[4/3]">
               <Image
-                src={brandImages.hero.lifestyle}
+                src={images.brand.hero.lifestyle}
                 alt="Family enjoying outdoor living space under motorized pergola"
                 fill
                 className="object-cover"
@@ -420,7 +420,7 @@ export default function PergolasPage() {
             <Card variant="muted" padding="lg" className="relative overflow-hidden">
               <div className="relative h-64 mb-6 -m-8 mb-6">
                 <Image
-                  src={brandImages.context.pool}
+                  src={images.brand.context.pool}
                   alt="Residential pergola with outdoor dining area by the pool"
                   fill
                   className="object-cover"
@@ -456,7 +456,7 @@ export default function PergolasPage() {
             <Card variant="muted" padding="lg" className="relative overflow-hidden">
               <div className="relative h-64 mb-6 -m-8 mb-6">
                 <Image
-                  src={brandImages.context.lake}
+                  src={images.brand.context.lake}
                   alt="Commercial pergola installation with lounge seating"
                   fill
                   className="object-cover"
@@ -537,7 +537,7 @@ export default function PergolasPage() {
             </div>
             <div className="relative aspect-square">
               <Image
-                src={brandImages.detail.louver}
+                src={images.brand.detail.louver}
                 alt="Pergola with integrated privacy screens and poolside location"
                 fill
                 className="object-cover"

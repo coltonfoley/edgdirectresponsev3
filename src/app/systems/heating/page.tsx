@@ -29,7 +29,7 @@ import {
   generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Outdoor Heating Systems | Infrared Heaters & Fire Features | EDG',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 // Gallery images using brand image set
-const galleryImages = pageGalleries.heating.map((src, index) => ({
+const galleryImages = images.galleries.heating.map((src, index) => ({
   type: 'image' as const,
   src,
   alt: [
@@ -231,7 +231,7 @@ export default function HeatingPage() {
     description:
       'Infrared heating and fire feature installation for outdoor living spaces.',
     url: 'https://www.edgpatioshade.com/systems/heating',
-    image: `https://www.edgpatioshade.com${brandImages.detail.heater}`,
+    image: `https://www.edgpatioshade.com${images.brand.detail.heater}`,
   });
 
   const productSchema = generateProductSchema({
@@ -239,7 +239,7 @@ export default function HeatingPage() {
     description:
       'Premium infrared heaters and fire features for extending outdoor living seasons.',
     category: 'Outdoor Heating',
-    image: `https://www.edgpatioshade.com${brandImages.detail.heater}`,
+    image: `https://www.edgpatioshade.com${images.brand.detail.heater}`,
   });
 
   const faqSchema = generateFAQSchema(faqs);

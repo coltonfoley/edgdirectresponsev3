@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
+import * as images from '@/lib/images';
 import {
   ArrowLeft,
   ArrowRight,
@@ -146,7 +147,7 @@ export default function RestaurantPatioSolutionsPage() {
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
             backgroundImage:
-              "url('/images/brand/context-commercial.jpg')",
+              "url(images.brand.context.commercial)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

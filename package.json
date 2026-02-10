@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-gallery-data.mjs && next build",
+    "build": "npm run validate-images && node scripts/generate-gallery-data.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
     "test:e2e": "playwright test",
-    "generate": "plop"
+    "generate": "plop",
+    "validate-images": "node scripts/validate-images.mjs",
+    "migrate-images": "node scripts/migrate-images.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.1",

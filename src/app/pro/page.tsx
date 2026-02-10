@@ -57,6 +57,8 @@ const faqs = [
 ];
 
 import { generateFAQSchema } from '@/lib/schema';
+import * as images from '@/lib/images';
+
 
 export default function ProPage() {
   const faqSchema = generateFAQSchema(faqs);
@@ -199,7 +201,7 @@ export default function ProPage() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('/images/pergolas/residential-black-r-blade-02.jpg')",
+                    "url(images.pages.pro.blackBlade)",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

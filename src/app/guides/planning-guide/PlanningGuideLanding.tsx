@@ -17,6 +17,8 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import Link from 'next/link';
+import * as images from '@/lib/images';
+
 
 export default function PlanningGuideLanding() {
   return (
@@ -28,7 +30,7 @@ export default function PlanningGuideLanding() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('/images/pergolas/pergola-hero.jpg')",
+            backgroundImage: "url(images.pages.guides.louveredPergolasHero)",
           }}
         />
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-black/40" />

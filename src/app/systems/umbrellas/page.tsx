@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { generateServiceSchema, generateFAQSchema, generateProductSchema } from '@/lib/schema';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 import {
   ArrowRight,
   CheckCircle2,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
 };
 
-const galleryImages = pageGalleries.umbrellas.map((src, index) => ({
+const galleryImages = images.galleries.umbrellas.map((src, index) => ({
   type: 'image' as const,
   src,
   alt: index === 0
@@ -187,14 +187,14 @@ export default function UmbrellasPage() {
     description:
       'Commercial-grade cantilever and center pole umbrellas with marine-grade construction and wind stability engineering.',
     url: 'https://www.edgpatioshade.com/systems/umbrellas',
-    image: `https://www.edgpatioshade.com${brandImages.context.pool}`,
+    image: `https://www.edgpatioshade.com${images.brand.context.pool}`,
   });
 
   const productSchema = generateProductSchema({
     name: 'Architectural Umbrella System',
     description:
       'Commercial-grade outdoor umbrellas with cantilever or center pole designs, marine-grade materials, and wind ratings up to 35 mph.',
-    image: `https://www.edgpatioshade.com${brandImages.context.pool}`,
+    image: `https://www.edgpatioshade.com${images.brand.context.pool}`,
     category: 'Outdoor Shade',
   });
 
@@ -222,7 +222,7 @@ export default function UmbrellasPage() {
             {/* Gallery */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-none">
               <Image
-                src={brandImages.context.pool}
+                src={images.brand.context.pool}
                 alt="Commercial-grade cantilever umbrella shading outdoor dining area"
                 fill
                 className="object-cover"

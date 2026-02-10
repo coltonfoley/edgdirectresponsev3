@@ -20,6 +20,8 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import type { Metadata } from 'next';
+import * as images from '@/lib/images';
+
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems | Pergolas, Shades & Enclosures | EDG',
@@ -54,7 +56,7 @@ const systems = [
     shortTitle: 'Pergolas',
     description:
       'Architectural aluminum structures with rotating louvers for complete climate control. Sun when you want it, watertight seal when you do not.',
-    image: '/images/pergolas/residential-black-r-blade-01.jpg',
+    image: images.pages.serviceAreas.barringtonPergola1,
     features: ['135° adjustable louvers', 'Wind-rated to 120 mph', 'Smart home integration', 'LED lighting options'],
     bestFor: ['Patios & terraces', 'Poolside lounges', 'Outdoor kitchens', 'Decks'],
     priceRange: 'From $25,000',
@@ -67,7 +69,7 @@ const systems = [
     shortTitle: 'Screens',
     description:
       'Wind-rated exterior screens with MagnaTrack self-correcting technology. Block 97% of UV rays while keeping your view.',
-    image: '/images/shades/shade-deployed-screens-01.jpg',
+    image: images.pages.serviceAreas.sanibelShade,
     features: ['MagnaTrack technology', '97% UV blockage', 'Up to 35 mph wind rated', 'Insect protection'],
     bestFor: ['Existing porches', 'Pergola sides', 'Patio enclosures', 'Bug protection'],
     priceRange: 'From $3,500',

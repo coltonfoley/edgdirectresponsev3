@@ -3,7 +3,8 @@
  * Uses standardized brand images for consistency
  */
 
-import { brandImages } from '@/lib/brand-images';
+import * as images from '@/lib/images';
+
 
 export const socialProof = {
   projectsDelivered: 75,
@@ -20,8 +21,8 @@ export const testimonial = {
 } as const;
 
 export const heroVideo = {
-  src: '/images/enclosures/commercial-pergola-video-clip-01.mp4',
-  poster: brandImages.hero.pergola,
+  src: images.pages.home.heroVideo,
+  poster: images.brand.hero.pergola,
 } as const;
 
 export const systems = [
@@ -37,7 +38,7 @@ export const systems = [
       'Integrated LED & heating',
       'Smart home ready',
     ],
-    image: brandImages.hero.pergola,
+    image: images.brand.hero.pergola,
     pricingUrl: '/price?product=pergola',
     quoteUrl: '/contact?type=design&product=pergola',
   },
@@ -48,7 +49,7 @@ export const systems = [
     description:
       'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view. Retract completely when not needed.',
     features: ['Heat reduction', 'UV protection', 'Wind rated'],
-    image: brandImages.hero.screens,
+    image: images.brand.hero.screens,
     quoteUrl: '/contact?type=price&product=shades',
   },
   {
@@ -58,7 +59,7 @@ export const systems = [
     description:
       'Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage without heavy construction.',
     features: ['Weatherproof', 'Adds value', 'Year-round use'],
-    image: brandImages.hero.glass,
+    image: images.brand.hero.glass,
     quoteUrl: '/contact?type=design&product=enclosure',
   },
 ] as const;

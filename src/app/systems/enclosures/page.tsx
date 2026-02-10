@@ -24,7 +24,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Frameless Glass Enclosures | Retractable Glass Walls | EDG',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 // Gallery images for the client component (from brand images)
-const galleryImages = pageGalleries.enclosures.map((src, index) => ({
+const galleryImages = images.galleries.enclosures.map((src, index) => ({
   type: 'image' as const,
   src,
   alt: [
@@ -169,7 +169,7 @@ const serviceSchema = generateServiceSchema({
   name: 'Frameless Glass Enclosure Installation',
   description: 'Professional installation of frameless retractable glass wall systems for year-round outdoor living. Design and supply services nationwide.',
   url: 'https://www.edgpatioshade.com/systems/enclosures',
-  image: `https://www.edgpatioshade.com${brandImages.hero.glass}`,
+  image: `https://www.edgpatioshade.com${images.brand.hero.glass}`,
 });
 
 const productSchema = {
@@ -507,7 +507,7 @@ export default function EnclosuresPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src={brandImages.detail.glass}
+                  src={images.brand.detail.glass}
                   alt="Frameless glass detail showing edge seal"
                   fill
                   className="object-cover"
@@ -516,7 +516,7 @@ export default function EnclosuresPage() {
               </div>
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src={brandImages.context.commercial}
+                  src={images.brand.context.commercial}
                   alt="Glass enclosure panels closed"
                   fill
                   className="object-cover"
@@ -525,7 +525,7 @@ export default function EnclosuresPage() {
               </div>
               <div className="relative aspect-square bg-surface-dark overflow-hidden col-span-2">
                 <Image
-                  src={brandImages.hero.glass}
+                  src={images.brand.hero.glass}
                   alt="Commercial glass enclosure exterior view"
                   fill
                   className="object-cover"

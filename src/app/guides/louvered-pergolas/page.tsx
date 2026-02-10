@@ -17,6 +17,8 @@ import {
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import { generateFAQSchema } from '@/lib/schema';
+import * as images from '@/lib/images';
+
 
 export const metadata: Metadata = {
   title: 'The Complete Guide to Louvered Pergolas | 2026 Edition',
@@ -103,7 +105,7 @@ export default function LouveredPergolaGuide() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url('/images/pergolas/pergola-hero.jpg')",
+            backgroundImage: "url(images.pages.guides.louveredPergolasHero)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

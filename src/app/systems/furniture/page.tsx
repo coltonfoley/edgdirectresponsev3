@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import { generateServiceSchema, generateFAQSchema, generateProductSchema } from '@/lib/schema';
-import { brandImages, pageGalleries } from '@/lib/brand-images';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Premium Outdoor Furniture | Teak, Wicker & Aluminum | EDG',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   },
 };
 
-const galleryImages = pageGalleries.furniture.map((src) => ({
+const galleryImages = images.galleries.furniture.map((src) => ({
   type: 'image' as const,
   src,
   alt: 'Premium outdoor furniture collection showcasing weather-resistant materials and comfortable design',
@@ -187,19 +187,19 @@ const applications = [
     title: 'Residential Dining',
     description:
       'Extendable dining tables and comfortable seating for everyday meals and special occasions.',
-    image: brandImages.hero.lifestyle,
+    image: images.brand.hero.lifestyle,
   },
   {
     title: 'Poolside Lounging',
     description:
       'Chaise lounges and deep seating designed for wet environments and full sun exposure.',
-    image: brandImages.context.pool,
+    image: images.brand.context.pool,
   },
   {
     title: 'Hospitality & Commercial',
     description:
       'Heavy-duty frames and commercial-grade upholstery for restaurants, hotels, and rooftop bars.',
-    image: brandImages.context.commercial,
+    image: images.brand.context.commercial,
   },
 ];
 
@@ -209,14 +209,14 @@ export default function FurniturePage() {
     description:
       'Premium outdoor furniture collections featuring weather-resistant teak, aluminum, and all-weather wicker with professional design service.',
     url: 'https://www.edgpatioshade.com/systems/furniture',
-    image: `https://www.edgpatioshade.com${brandImages.hero.lifestyle}`,
+    image: `https://www.edgpatioshade.com${images.brand.hero.lifestyle}`,
   });
 
   const productSchema = generateProductSchema({
     name: 'Premium Outdoor Furniture',
     description:
       'Curated outdoor furniture collections including teak, aluminum, and wicker sectionals, dining sets, and lounge seating.',
-    image: `https://www.edgpatioshade.com${brandImages.hero.lifestyle}`,
+    image: `https://www.edgpatioshade.com${images.brand.hero.lifestyle}`,
     category: 'Outdoor Furniture',
   });
 

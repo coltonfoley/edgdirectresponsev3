@@ -114,13 +114,34 @@
 
 **File:** `next/image`
 
+**CRITICAL:** All images MUST come from the registry. See [`.agent/patterns/images.md`](images.md) for full details.
+
+```typescript
+// ✅ CORRECT - Use the registry
+import * as images from '@/lib/images';
+
+<Image
+  src={images.brand.hero.pergola}
+  alt="Descriptive alt text including location"
+  fill
+  priority
+  className="object-cover"
+  sizes="100vw"
+/>
+
+// ❌ WRONG - Never hardcode paths
+<Image src="/images/brand/hero-pergola.jpg" ... />
+```
+
 ### Hero Image Pattern
 
 ```typescript
+import * as images from '@/lib/images';
+
 <section className="relative h-[60vh] min-h-[500px]">
   <Image
-    src="/images/hero.jpg"
-    alt="Descriptive alt text including location"
+    src={images.brand.hero.pergola}
+    alt="Louvered pergola installation in Lake Forest, IL"
     fill
     priority  // Load immediately for LCP
     className="object-cover"
@@ -167,12 +188,15 @@
 
 ### Image Guidelines
 
-1. **Always use next/image** - Never CSS background images
-2. **Always include alt text** - Descriptive, include location for local pages
-3. **Use `priority` for LCP** - Above-fold hero images only
-4. **Use `loading="lazy"` for below-fold** - Gallery, content images
-5. **Always specify sizes** - Helps Next.js optimize
-6. **Use fill + object-cover for responsive** - Most common pattern
+1. **ALWAYS use the image registry** - Import from `@/lib/images`, never hardcode paths
+2. **Always use next/image** - Never CSS background images for content
+3. **Always include alt text** - Descriptive, include location for local pages
+4. **Use `priority` for LCP** - Above-fold hero images only
+5. **Use `loading="lazy"` for below-fold** - Gallery, content images
+6. **Always specify sizes** - Helps Next.js optimize
+7. **Use fill + object-cover for responsive** - Most common pattern
+
+**Full Image Management Guide:** [`.agent/patterns/images.md`](images.md)
 
 ---
 
