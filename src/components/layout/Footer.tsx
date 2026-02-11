@@ -311,50 +311,10 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/service-areas/barrington-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Barrington Area
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/service-areas/naperville-il"
                     className="hover:text-edg-brand transition-colors"
                   >
                     Naperville & West Suburbs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/oak-brook-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Oak Brook & Hinsdale
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/northbrook-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Northbrook, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/wilmette-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Wilmette, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/winnetka-il"
-                    className="hover:text-edg-brand transition-colors"
-                  >
-                    Winnetka, IL
                   </Link>
                 </li>
                 <li>

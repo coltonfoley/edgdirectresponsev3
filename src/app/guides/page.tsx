@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
-import { Link } from '@/components/ui/Link';
+import Link from 'next/link';
 import { BookOpen, Scale, ArrowRight, Library } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ export default function GuidesIndexPage() {
           <FadeIn delay={0.2}>
             <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
               {guides.map((guide, i) => (
-                <Link key={i} href={guide.href} className="group block h-full">
+                <Link key={i} href={guide.href} className="group block h-full" prefetch={false}>
                   <div className="hover:border-edg-brand h-full rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900">
                     <div className="mb-8 flex items-start justify-between">
                       <div className="group-hover:bg-edg-brand/10 group-hover:border-edg-brand/20 rounded-2xl border border-zinc-100 bg-zinc-50 p-4 transition-colors dark:border-zinc-700 dark:bg-zinc-800">

@@ -1,7 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 
 interface FadeInProps {
   children: ReactNode;
@@ -12,26 +11,50 @@ interface FadeInProps {
 
 export function FadeIn({
   children,
-  className,
+  className = '',
   delay = 0,
   direction = 'up',
 }: FadeInProps) {
-  const directions = {
-    up: { y: 20, x: 0 },
-    down: { y: -20, x: 0 },
-    left: { x: 20, y: 0 },
-    right: { x: -20, y: 0 },
-  };
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '-50px',
+      }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const directionClass = {
+    up: 'animate-fade-in-up',
+    down: 'animate-fade-in-down',
+    left: 'animate-fade-in-left',
+    right: 'animate-fade-in-right',
+  }[direction];
+
+  const delayClass = delay > 0 ? `animation-delay-${Math.round(delay * 1000)}` : '';
 
   return (
-    <motion.div
-      initial={{ opacity: 0, ...directions[direction] }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay, ease: 'easeOut' }}
-      className={className}
+    <div
+      ref={ref}
+      className={`${isVisible ? directionClass : 'opacity-0'} ${delayClass} ${className}`}
+      style={delay > 0 && !delayClass ? { animationDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
