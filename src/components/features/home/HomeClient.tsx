@@ -3,6 +3,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { images } from '@/lib/images';
 
 import { FadeIn } from '@/components/ui/FadeIn';
 import {
@@ -150,7 +151,7 @@ export default function HomeClient() {
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{
-                    backgroundImage: "url('/images/pergolas/pergola-hero.jpg')",
+                    backgroundImage: `url(${images.systems.pergolas.hero})`,
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
@@ -209,7 +210,7 @@ export default function HomeClient() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={{
                       backgroundImage:
-                        "url('/images/motorized-retractable-screens-patio.jpg')",
+                        `url(${images.brand.design.screens})`,
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -249,7 +250,7 @@ export default function HomeClient() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={{
                       backgroundImage:
-                        "url('/images/frameless-sliding-glass-walls.jpg')",
+                        `url(${images.brand.design.glassWalls})`,
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />

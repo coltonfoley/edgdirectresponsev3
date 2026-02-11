@@ -3,6 +3,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { LeadCaptureForm } from '@/components/features/contact/LeadCaptureForm';
+import { images } from '@/lib/images';
 import {
   CheckCircle2,
   Sun,
@@ -28,7 +29,7 @@ export default function PlanningGuideLanding() {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
           style={{
-            backgroundImage: "url('/images/pergolas/pergola-hero.jpg')",
+            backgroundImage: `url(${images.systems.pergolas.hero})`,
           }}
         />
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-black/40" />

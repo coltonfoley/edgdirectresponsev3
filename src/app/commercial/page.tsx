@@ -18,6 +18,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import type { Metadata } from 'next';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Commercial Pergolas & Restaurant Patio Enclosures | EDG',
@@ -202,8 +203,7 @@ export default function CommercialPage() {
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage:
-                    "url('/images/commercial-restaurant-patio-enclosure.jpg')",
+                  backgroundImage: `url(${images.brand.commercial.restaurant})`,
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

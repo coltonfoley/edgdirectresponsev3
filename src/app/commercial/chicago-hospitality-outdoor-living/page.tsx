@@ -20,6 +20,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import type { Metadata } from 'next';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Chicago Hospitality Outdoor Living | Restaurant & Hotel Pergolas',
@@ -107,7 +108,7 @@ export default function ChicagoHospitalityPage() {
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{
                     backgroundImage:
-                      "url('/images/luxury-restaurant-patio-enclosure.jpg')",
+                      `url(${images.brand.commercial.luxury})`,
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10"></div>
@@ -136,7 +137,7 @@ export default function ChicagoHospitalityPage() {
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{
-                    backgroundImage: "url('/images/pergolas/pergola-hero.jpg')",
+                    backgroundImage: `url(${images.systems.pergolas.hero})`,
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10"></div>
@@ -166,7 +167,7 @@ export default function ChicagoHospitalityPage() {
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{
                     backgroundImage:
-                      "url('/images/frameless-sliding-glass-walls.jpg')",
+                      `url(${images.brand.design.glassWalls})`,
                   }}
                 ></div>
                 <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10"></div>
@@ -258,7 +259,7 @@ export default function ChicagoHospitalityPage() {
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
                   backgroundImage:
-                    "url('/images/luxury-restaurant-patio-enclosure.jpg')",
+                    `url(${images.brand.commercial.luxury})`,
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
