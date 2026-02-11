@@ -7,102 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const systemsDropdown = [
-  {
-    href: '/systems/pergolas',
-    label: 'Louvered Pergolas',
-    desc: 'Motorized aluminum with rotating louvers',
-  },
-  {
-    href: '/systems/shades',
-    label: 'Motorized Shades',
-    desc: 'Wind-rated exterior screens',
-  },
-  {
-    href: '/systems/enclosures',
-    label: 'Glass Enclosures',
-    desc: 'Retractable glass wall systems',
-  },
-  {
-    href: '/systems/appliances',
-    label: 'Outdoor Appliances',
-    desc: 'Grills, heaters & outdoor kitchens',
-  },
-];
-
-const areasDropdown = [
-  {
-    href: '/service-areas/lake-county-il',
-    label: 'Lake County, IL',
-    desc: 'Libertyville, Lake Forest, Highland Park',
-  },
-  {
-    href: '/service-areas/north-shore-chicago',
-    label: 'North Shore Chicago',
-    desc: 'Wilmette, Winnetka, Glencoe',
-  },
-  {
-    href: '/service-areas/oak-brook-il',
-    label: 'Oak Brook & Hinsdale',
-    desc: 'Burr Ridge, Elmhurst, Western Springs',
-  },
-  {
-    href: '/service-areas/barrington-il',
-    label: 'Barrington Area',
-    desc: 'North, South, and Lake Barrington',
-  },
-  {
-    href: '/service-areas/naperville-il',
-    label: 'Naperville & West Suburbs',
-    desc: 'Downers Grove, Lisle, Aurora',
-  },
-  {
-    href: '/service-areas/mchenry-county-il',
-    label: 'McHenry County, IL',
-    desc: 'Crystal Lake, Algonquin, Woodstock',
-  },
-  {
-    href: '/service-areas/southeast-wisconsin',
-    label: 'Southeast Wisconsin',
-    desc: 'Lake Geneva, Kenosha, Racine',
-  },
-  {
-    href: '/service-areas/lake-geneva-wi',
-    label: 'Lake Geneva, WI',
-    desc: 'Lake Geneva,  Fontana,  Williams Bay',
-  },
-  {
-    href: '/service-areas/hinsdale-il',
-    label: 'Hinsdale',
-    desc: 'Southeast Hinsdale,  The Woodlands,  Fullersburg',
-  },
-  {
-    href: '/service-areas/northbrook-il',
-    label: 'Northbrook, IL',
-    desc: 'Northbrook, Techny, Glenview North',
-  },
-  {
-    href: '/service-areas/wilmette-il',
-    label: 'Wilmette, IL',
-    desc: 'Village Center, East Wilmette, Indian Hill',
-  },
-  {
-    href: '/service-areas/winnetka-il',
-    label: 'Winnetka, IL',
-    desc: 'Winnetka Estates, Hubbard Woods, Indian Hill',
-  },
-  {
-    href: '/service-areas/sanibel-outdoor-living',
-    label: 'Sanibel / Captiva, FL',
-    desc: 'Sanibel Island, Captiva, Fort Myers',
-  },
-  {
-    href: '/commercial/chicago-hospitality-outdoor-living',
-    label: 'Hospitality & Commercial',
-    desc: 'Restaurants, Hotels, & Country Clubs',
-  },
-];
+import { useSiteConfig } from '@/hooks/useSanityData';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -112,6 +17,7 @@ export function Navbar() {
   const systemsDropdownRef = useRef<HTMLDivElement>(null);
   const areasDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const { config, loading } = useSiteConfig();
 
   if (pathname?.startsWith('/admin')) return null;
 
@@ -123,7 +29,6 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -142,6 +47,18 @@ export function Navbar() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  const phone = config?.companyInfo?.phone || '(815) 581-0138';
+  const phoneRaw = config?.companyInfo?.phoneRaw || '+18155810138';
+  const systemsDropdown = config?.navigation?.systemsDropdown || [];
+  const areasDropdown = config?.navigation?.areasDropdown || [];
+  const mainLinks = config?.navigation?.mainLinks || [
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Guides', href: '/guides' },
+    { label: 'Design', href: '/design' },
+    { label: 'Pricing', href: '/price' },
+    { label: 'For Pros', href: '/pro' },
+  ];
 
   return (
     <header
@@ -196,7 +113,7 @@ export function Navbar() {
 
               {systemsOpen && (
                 <div className="absolute top-full left-0 mt-2 w-72 overflow-hidden rounded-xl border border-black/5 bg-white shadow-xl dark:border-white/10 dark:bg-zinc-900">
-                  {systemsDropdown.map((item) => (
+                  {systemsDropdown.map((item: any) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -207,7 +124,7 @@ export function Navbar() {
                         {item.label}
                       </div>
                       <div className="text-muted-foreground text-xs">
-                        {item.desc}
+                        {item.description}
                       </div>
                     </Link>
                   ))}
@@ -249,7 +166,7 @@ export function Navbar() {
                       Chicago to Milwaukee corridor
                     </div>
                   </Link>
-                  {areasDropdown.map((item) => (
+                  {areasDropdown.map((item: any) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -260,7 +177,7 @@ export function Navbar() {
                         {item.label}
                       </div>
                       <div className="text-muted-foreground text-xs">
-                        {item.desc}
+                        {item.description}
                       </div>
                     </Link>
                   ))}
@@ -268,43 +185,22 @@ export function Navbar() {
               )}
             </div>
 
-            <Link
-              href="/gallery"
-              className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/guides"
-              className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
-            >
-              Guides
-            </Link>
-            <Link
-              href="/design"
-              className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
-            >
-              Design
-            </Link>
-            <Link
-              href="/price"
-              className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link
-              href="/pro"
-              className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
-            >
-              For Pros
-            </Link>
+            {mainLinks.map((link: any) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand text-sm font-medium transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           <div className="ml-auto flex items-center gap-4">
             {/* Desktop CTAs */}
             <div className="hidden items-center gap-4 lg:flex">
               <a
-                href="tel:+18155810138"
+                href={`tel:${phoneRaw}`}
                 onClick={() =>
                   (window as any).dataLayer?.push({
                     event: 'conversion_event',
@@ -313,10 +209,10 @@ export function Navbar() {
                   })
                 }
                 className="text-foreground/80 hover:text-edg-brand-text dark:hover:text-edg-brand flex items-center gap-2 text-sm font-medium transition-colors"
-                aria-label="Call EDG Outdoor Living at (815) 581-0138"
+                aria-label={`Call EDG Outdoor Living at ${phone}`}
               >
                 <Phone className="h-4 w-4" />
-                <span className="hidden xl:inline">(815) 581-0138</span>
+                <span className="hidden xl:inline">{phone}</span>
               </a>
               <Link
                 href="/contact"
@@ -335,7 +231,7 @@ export function Navbar() {
             {/* Mobile: Phone + Menu Toggle */}
             <div className="flex items-center gap-3 lg:hidden">
               <a
-                href="tel:+18155810138"
+                href={`tel:${phoneRaw}`}
                 onClick={() =>
                   (window as any).dataLayer?.push({
                     event: 'conversion_event',
@@ -366,19 +262,17 @@ export function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="bg-background border-edg-gray/10 animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex max-h-[80vh] flex-col gap-2 overflow-y-auto border-b p-4 shadow-lg lg:hidden">
-            {/* Service Note (Mobile Only) */}
             <div className="bg-edg-brand/10 border-edg-brand/20 mx-4 mt-2 mb-2 rounded-md border p-2 text-center">
               <span className="text-edg-brand text-xs font-bold tracking-wider uppercase">
                 Full-Service Installation within 60 Miles • Design & Supply
                 Nationwide
               </span>
             </div>
-            {/* Systems Section */}
             <div className="px-4 py-2">
               <div className="text-edg-gray-text dark:text-muted-foreground mb-2 text-xs font-semibold tracking-wider uppercase">
                 Our Systems
               </div>
-              {systemsDropdown.map((item) => (
+              {systemsDropdown.map((item: any) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -392,7 +286,6 @@ export function Navbar() {
 
             <div className="border-edg-gray/10 my-2 border-t" />
 
-            {/* Service Areas Section */}
             <div className="px-4 py-2">
               <div className="text-edg-gray-text dark:text-muted-foreground mb-2 text-xs font-semibold tracking-wider uppercase">
                 Service Areas
@@ -404,7 +297,7 @@ export function Navbar() {
               >
                 All Areas →
               </Link>
-              {areasDropdown.map((item) => (
+              {areasDropdown.map((item: any) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -418,45 +311,20 @@ export function Navbar() {
 
             <div className="border-edg-gray/10 my-2 border-t" />
 
-            <Link
-              href="/gallery"
-              className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
-              onClick={() => setIsOpen(false)}
-            >
-              Gallery
-            </Link>
-            <Link
-              href="/guides"
-              className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
-              onClick={() => setIsOpen(false)}
-            >
-              Guides
-            </Link>
-            <Link
-              href="/design"
-              className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
-              onClick={() => setIsOpen(false)}
-            >
-              Design
-            </Link>
-            <Link
-              href="/price"
-              className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
-              onClick={() => setIsOpen(false)}
-            >
-              Pricing
-            </Link>
-            <Link
-              href="/pro"
-              className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
-              onClick={() => setIsOpen(false)}
-            >
-              For Pros
-            </Link>
+            {mainLinks.map((link: any) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
 
             <div className="border-edg-gray/10 mt-2 space-y-3 border-t pt-4">
               <a
-                href="tel:+18155810138"
+                href={`tel:${phoneRaw}`}
                 className="text-edg-brand-text dark:text-edg-brand flex items-center gap-3 px-4 py-2 font-bold"
                 onClick={() => {
                   setIsOpen(false);
@@ -468,7 +336,7 @@ export function Navbar() {
                 }}
               >
                 <Phone className="h-5 w-5" />
-                (815) 581-0138
+                {phone}
               </a>
               <Link
                 href="/contact"

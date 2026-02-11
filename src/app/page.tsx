@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import HomeClient from '@/components/features/home/HomeClient';
+import { getHomepage } from '@/sanity/lib/fetch';
+import HomePageClient from './HomePageClient';
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas Chicago | Outdoor Shades & Glass Enclosures',
@@ -10,6 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return <HomeClient />;
+export default async function Home() {
+  const homepage = await getHomepage();
+  
+  return <HomePageClient homepage={homepage} />;
 }

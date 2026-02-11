@@ -10,7 +10,59 @@ import { useSearchParams } from 'next/navigation';
 
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 
-function ContactForm() {
+interface ProcessStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+interface ContactContent {
+  heroHeadline?: string;
+  heroDescription?: string;
+  sidebarTitle?: string;
+  processSteps?: ProcessStep[];
+  contactTitle?: string;
+  phone?: string;
+  phoneRaw?: string;
+  hours?: string;
+  locationName?: string;
+  address?: {
+    street?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+  };
+}
+
+// Fallback content
+const fallbackContent: ContactContent = {
+  heroHeadline: "Let's start the right conversation.",
+  heroDescription: "Tell us about yourself and your project. We'll respond within 1 business day with next steps tailored to your needs.",
+  sidebarTitle: "What happens next?",
+  processSteps: [
+    { step: 1, title: "We review your request", description: "Within 1 business day" },
+    { step: 2, title: "Discovery call (15 min)", description: "Understand your goals" },
+    { step: 3, title: "Site visit (if applicable)", description: "Measure & assess" },
+    { step: 4, title: "Custom proposal", description: "Clear pricing & timeline" },
+  ],
+  contactTitle: "Prefer to call?",
+  phone: "(815) 581-0138",
+  phoneRaw: "+18155810138",
+  hours: "Mon-Fri, 7am-4pm CT",
+  locationName: "Spring Grove Showroom",
+  address: {
+    street: "1802 Holian Drive",
+    city: "Spring Grove",
+    state: "IL",
+    zip: "60081",
+  },
+};
+
+interface ContactClientProps {
+  content?: ContactContent;
+}
+
+function ContactForm({ content }: { content: ContactContent }) {
   const searchParams = useSearchParams();
   const [formType, setFormType] = useState<'homeowner' | 'pro' | 'commercial'>(
     'homeowner'
@@ -104,11 +156,10 @@ function ContactForm() {
           </Link>
           <div className="max-w-4xl">
             <h1 className="text-foreground mb-6 text-4xl font-medium tracking-tight md:text-5xl lg:text-6xl">
-              Let's start the right conversation.
+              {content.heroHeadline}
             </h1>
             <p className="text-muted-foreground max-w-2xl text-xl leading-relaxed">
-              Tell us about yourself and your project. We'll respond within 1
-              business day with next steps tailored to your needs.
+              {content.heroDescription}
             </p>
           </div>
         </Container>
@@ -280,65 +331,32 @@ function ContactForm() {
             <div className="space-y-6">
               {/* What Happens Next */}
               <div className="rounded-2xl border border-black/5 bg-white p-6 dark:border-white/10 dark:bg-zinc-900">
-                <h3 className="mb-4 text-lg font-bold">What happens next?</h3>
+                <h3 className="mb-4 text-lg font-bold">{content.sidebarTitle}</h3>
                 <ol className="space-y-4">
-                  <li className="flex gap-3">
-                    <div className="bg-edg-brand text-edg-dark flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold">
-                      1
-                    </div>
-                    <div>
-                      <div className="font-medium">We review your request</div>
-                      <div className="text-muted-foreground text-sm">
-                        Within 1 business day
+                  {content.processSteps?.map((step) => (
+                    <li key={step.step} className="flex gap-3">
+                      <div className="bg-edg-brand text-edg-dark flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                        {step.step}
                       </div>
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <div className="bg-edg-brand text-edg-dark flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold">
-                      2
-                    </div>
-                    <div>
-                      <div className="font-medium">Discovery call (15 min)</div>
-                      <div className="text-muted-foreground text-sm">
-                        Understand your goals
+                      <div>
+                        <div className="font-medium">{step.title}</div>
+                        <div className="text-muted-foreground text-sm">
+                          {step.description}
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <div className="bg-edg-brand text-edg-dark flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold">
-                      3
-                    </div>
-                    <div>
-                      <div className="font-medium">
-                        Site visit (if applicable)
-                      </div>
-                      <div className="text-muted-foreground text-sm">
-                        Measure & assess
-                      </div>
-                    </div>
-                  </li>
-                  <li className="flex gap-3">
-                    <div className="bg-edg-brand text-edg-dark flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-sm font-bold">
-                      4
-                    </div>
-                    <div>
-                      <div className="font-medium">Custom proposal</div>
-                      <div className="text-muted-foreground text-sm">
-                        Clear pricing & timeline
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ol>
               </div>
 
               {/* Contact Info */}
               <div className="rounded-2xl border border-black/5 bg-white p-6 dark:border-white/10 dark:bg-zinc-900">
-                <h3 className="mb-4 text-lg font-bold">Prefer to call?</h3>
+                <h3 className="mb-4 text-lg font-bold">{content.contactTitle}</h3>
                 <div className="space-y-4 text-sm">
                   <div className="flex items-center gap-3">
                     <Phone className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
                     <a
-                      href="tel:+18155810138"
+                      href={`tel:${content.phoneRaw}`}
                       className="text-edg-brand-text dark:text-edg-brand font-bold transition-colors hover:underline"
                       onClick={() =>
                         (window as any).dataLayer?.push({
@@ -348,21 +366,21 @@ function ContactForm() {
                         })
                       }
                     >
-                      (815) 581-0138
+                      {content.phone}
                     </a>
                   </div>
                   <div className="flex items-center gap-3">
                     <Clock className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
                     <span className="text-edg-gray-text font-medium dark:text-gray-400">
-                      Mon-Fri, 7am-4pm CT
+                      {content.hours}
                     </span>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="text-edg-brand-text dark:text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
                     <div className="text-edg-gray-text font-medium dark:text-gray-400">
-                      <div>Spring Grove Showroom</div>
-                      <div>1802 Holian Drive</div>
-                      <div>Spring Grove, IL 60081</div>
+                      <div>{content.locationName}</div>
+                      <div>{content.address?.street}</div>
+                      <div>{content.address?.city}, {content.address?.state} {content.address?.zip}</div>
                     </div>
                   </div>
                 </div>
@@ -375,7 +393,9 @@ function ContactForm() {
   );
 }
 
-export default function ContactClient() {
+export default function ContactClient({ content }: ContactClientProps) {
+  const mergedContent = { ...fallbackContent, ...content };
+  
   return (
     <Suspense
       fallback={
@@ -387,7 +407,7 @@ export default function ContactClient() {
         </main>
       }
     >
-      <ContactForm />
+      <ContactForm content={mergedContent} />
     </Suspense>
   );
 }
