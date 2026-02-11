@@ -1,11 +1,19 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { ArrowLeft, ArrowRight, Eye, Palette, Wind, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Estate-Grade Louvered Pergolas Winnetka, IL | EDG Outdoor Living',
+  description:
+    'Large-span louvered roof systems for Winnetka estates. 20-24 foot clear spans, hurricane-rated wind resistance, and historic architectural matching. Private consultations available.',
+  alternates: {
+    canonical: '/service-areas/winnetka-il/louvered-pergolas',
+  },
+};
 
 const reasons = [
   {
@@ -91,7 +99,7 @@ export default function WinnetkaProductPage() {
               </h2>
               <p className="text-edg-dark/80 mb-6">
                 We respect the privacy of our Winnetka clients. We are happy to
-                arrange a private site walk to discuss your estate's needs.
+                arrange a private site walk to discuss your estate&apos;s needs.
               </p>
               <Link href="/contact">
                 <Button

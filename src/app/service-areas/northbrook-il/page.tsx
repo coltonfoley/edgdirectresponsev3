@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Motorized Pergolas & Patio Shades in Northbrook, IL | EDG',
   description:
     'Transform your Northbrook home with hurricane-rated louvered pergolas and retractable screens. Custom designed for 60062 zoning codes and Georgian architecture.',
+  alternates: {
+    canonical: '/service-areas/northbrook-il',
+  },
 };
 
 export default function NorthbrookHub() {

@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -13,6 +12,15 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Estate Outdoor Living in Winnetka, IL | Pergolas & Shades | EDG',
+  description:
+    'Luxury motorized pergolas and exterior shades for Winnetka estates. Historic district compliance, architectural review board expertise. Large-span engineering for expansive patios.',
+  alternates: {
+    canonical: '/service-areas/winnetka-il',
+  },
+};
 
 const localBenefits = [
   'Estate-scale installation experience',
@@ -46,8 +54,8 @@ export default function WinnetkaHubPage() {
                 <span className="text-edg-brand block">for Winnetka</span>
               </h1>
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
-                We understand that in Winnetka, "outdoor living" means more than
-                a patio. It's an extension of a historic estate. Our systems are
+                We understand that in Winnetka, &quot;outdoor living&quot; means more than
+                a patio. It&apos;s an extension of a historic estate. Our systems are
                 engineered to match your grandeur.
               </p>
               <Link href="/contact">
@@ -98,7 +106,7 @@ export default function WinnetkaHubPage() {
                   Winnetka Permitting & Zoning
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Navigating the Village of Winnetka's strict architectural
+                  Navigating the Village of Winnetka&apos;s strict architectural
                   review board and ravine protection ordinances.
                 </p>
                 <span className="text-edg-brand-text dark:text-edg-brand flex items-center gap-2 font-bold transition-all group-hover:gap-3">
