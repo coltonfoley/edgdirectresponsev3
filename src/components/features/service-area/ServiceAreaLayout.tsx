@@ -71,10 +71,10 @@ export function ServiceAreaLayout({
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link href="/contact">
-                  <Button size="lg">Get a {location} Quote</Button>
+                  <Button size="lg" className="rounded-none">Get a {location} Quote</Button>
                 </Link>
                 <Link href="tel:+18155810138">
-                  <Button variant="secondary" size="lg">
+                  <Button variant="secondary" size="lg" className="rounded-none">
                     Call (815) 581-0138
                   </Button>
                 </Link>
@@ -142,7 +142,7 @@ export function ServiceAreaLayout({
             <div className="grid gap-4 md:grid-cols-3">
               {links.map((link, idx) => (
                 <Link key={idx} href={link.href} className="group block h-full">
-                  <div className="hover:border-edg-brand/50 flex h-full flex-col justify-between rounded-xl border border-black/5 bg-white p-6 transition-colors dark:border-white/10 dark:bg-black">
+                  <div className="hover:border-edg-brand/50 flex h-full flex-col justify-between rounded-none border border-black/5 bg-white p-6 transition-colors dark:border-white/10 dark:bg-black">
                     <span className="group-hover:text-edg-brand-text text-lg font-semibold transition-colors">
                       {link.title}
                     </span>

@@ -96,7 +96,7 @@ export function LeadCaptureForm({
             href={downloadUrl}
             download
             className={cn(
-              'focus-visible:ring-ring inline-flex h-10 cursor-pointer items-center justify-center rounded-md px-6 py-2 font-medium transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
+              'focus-visible:ring-ring inline-flex h-10 cursor-pointer items-center justify-center rounded-none px-6 py-2 font-medium transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
               'border-edg-brand text-edg-brand hover:bg-edg-brand w-full border hover:text-white sm:w-auto'
             )}
           >
@@ -191,7 +191,7 @@ export function LeadCaptureForm({
               type="submit"
               size="lg"
               disabled={loading}
-              className="shadow-edg-brand/5 rounded-xl px-6 text-sm whitespace-nowrap shadow-lg md:text-base"
+              className="shadow-edg-brand/5 rounded-none px-6 text-sm whitespace-nowrap shadow-lg md:text-base"
             >
               {loading ? (
                 <>
@@ -210,7 +210,7 @@ export function LeadCaptureForm({
             type="submit"
             size="lg"
             disabled={loading}
-            className="shadow-edg-brand/5 w-full rounded-xl shadow-lg"
+            className="shadow-edg-brand/5 w-full rounded-none shadow-lg"
           >
             {loading ? (
               <>
@@ -291,7 +291,7 @@ export function LeadCaptureForm({
           type="submit"
           size="lg"
           disabled={loading}
-          className="rounded-xl px-8 whitespace-nowrap"
+          className="rounded-none px-8 whitespace-nowrap"
         >
           {loading ? (
             <>

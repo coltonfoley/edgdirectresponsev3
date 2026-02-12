@@ -111,7 +111,7 @@ export default function SystemsClient({ products }: SystemsClientProps) {
                       {product.shortDescription}
                     </p>
                     <Link href={`/systems/${product.slug}`}>
-                      <Button className="w-full">
+                      <Button className="w-full rounded-none">
                         Explore {product.name.split(' ').pop()} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>

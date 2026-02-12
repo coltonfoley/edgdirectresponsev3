@@ -72,7 +72,7 @@ export default function PricePageClient({ page }: PricePageProps) {
               {hero.description || "We know you've been burned by contractors who quote low and invoice high. That's why we take the time to understand your project before we quote—then stand behind our number."}
             </p>
             <TrackedLink href={hero.ctaUrl || '/contact?type=price'}>
-              <Button size="lg" className="rounded-full px-8 text-lg">
+              <Button size="lg" className="rounded-none px-8 text-lg">
                 {hero.ctaText || 'Request Your Quote'} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </TrackedLink>
@@ -275,7 +275,7 @@ export default function PricePageClient({ page }: PricePageProps) {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={finalCta.ctaUrl || '/contact?type=price'}>
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-none px-8 text-lg">
                   {finalCta.ctaText || 'Request Your Quote'} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
@@ -283,7 +283,7 @@ export default function PricePageClient({ page }: PricePageProps) {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="rounded-full border-white/30 px-8 text-lg text-white hover:bg-white/10"
+                  className="rounded-none border-white/30 px-8 text-lg text-white hover:bg-white/10"
                 >
                   <Phone className="mr-2 h-5 w-5" /> {finalCta.secondaryCtaText || 'Call Now'}
                 </Button>

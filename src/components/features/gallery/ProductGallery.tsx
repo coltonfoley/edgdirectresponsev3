@@ -64,7 +64,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
               e.stopPropagation();
               prevSlide();
             }}
-            className="pointer-events-auto h-10 w-10 rounded-full bg-white/80 shadow-lg backdrop-blur"
+            className="pointer-events-auto h-10 w-10 rounded-none bg-white/80 shadow-lg backdrop-blur"
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
@@ -75,7 +75,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
               e.stopPropagation();
               nextSlide();
             }}
-            className="pointer-events-auto h-10 w-10 rounded-full bg-white/80 shadow-lg backdrop-blur"
+            className="pointer-events-auto h-10 w-10 rounded-none bg-white/80 shadow-lg backdrop-blur"
           >
             <ChevronRight className="h-5 w-5" />
           </Button>

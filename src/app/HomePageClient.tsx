@@ -163,10 +163,10 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                   </ul>
                   <div className="flex flex-wrap gap-4">
                     <Link href="/price?product=pergola">
-                      <Button size="lg" className="rounded-full">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                      <Button size="lg" className="rounded-none">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
                     </Link>
                     <Link href="/contact?type=design&product=pergola">
-                      <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">Get Quote</Button>
+                      <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Get Quote</Button>
                     </Link>
                   </div>
                 </div>
@@ -321,7 +321,7 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                 </ul>
 
                 <Link href={guideOffer.ctaUrl || '/guides/planning-guide'}>
-                  <Button size="lg" className="shadow-edg-brand/5 w-full rounded-xl shadow-lg sm:w-auto">
+                  <Button size="lg" className="shadow-edg-brand/5 w-full rounded-none shadow-lg sm:w-auto">
                     {guideOffer.ctaText || "Get the Free Guide"} <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -334,7 +334,7 @@ export default function HomePageClient({ homepage }: HomePageProps) {
 
                 <div className="space-y-4">
                   <Link href="/contact" className="block">
-                    <Button size="lg" className="w-full rounded-lg">Book a Free Consultation <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                    <Button size="lg" className="w-full rounded-none">Book a Free Consultation <ArrowRight className="ml-2 h-5 w-5" /></Button>
                   </Link>
 
                   <div className="relative">
@@ -541,7 +541,7 @@ function HeroForm() {
           type="submit"
           size="lg"
           disabled={loading}
-          className="w-full rounded-xl md:col-span-2"
+          className="w-full rounded-none md:col-span-2"
         >
           {loading ? 'Sending...' : 'Get Free Consultation'} <ArrowRight className="ml-2 h-5 w-5" />
         </Button>

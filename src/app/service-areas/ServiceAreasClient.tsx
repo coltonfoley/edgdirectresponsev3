@@ -240,7 +240,7 @@ export default function ServiceAreasClient({ areas }: ServiceAreasClientProps) {
               </ul>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/contact">
-                  <Button size="lg" className="rounded-full">
+                  <Button size="lg" className="rounded-none">
                     Schedule a Consultation{' '}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -249,7 +249,7 @@ export default function ServiceAreasClient({ areas }: ServiceAreasClientProps) {
                   <Button
                     size="lg"
                     variant="secondary"
-                    className="rounded-full"
+                    className="rounded-none"
                   >
                     <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                   </Button>
@@ -281,7 +281,7 @@ export default function ServiceAreasClient({ areas }: ServiceAreasClientProps) {
               qualified local partners.
             </p>
             <Link href="/contact">
-              <Button variant="secondary" className="rounded-full">
+              <Button variant="secondary" className="rounded-none">
                 Contact Us to Discuss
               </Button>
             </Link>

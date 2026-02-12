@@ -59,7 +59,7 @@ export default function GuidesClient({ guides }: GuidesClientProps) {
         <Container>
           <FadeIn>
             <div className="max-w-4xl">
-              <span className="text-edg-brand-text dark:text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand-text dark:text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-none border px-4 py-2 text-sm font-bold tracking-wider uppercase">
                 <Library className="h-4 w-4" /> Resources & Learning
               </span>
               <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-zinc-900 md:text-5xl lg:text-6xl dark:text-zinc-50">
@@ -95,7 +95,7 @@ export default function GuidesClient({ guides }: GuidesClientProps) {
                           <Icon className="text-edg-brand-text dark:text-edg-brand h-8 w-8" />
                         </div>
                         {guide.readTime && (
-                          <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-bold tracking-wider text-zinc-500 uppercase dark:bg-zinc-800">
+                          <span className="rounded-none bg-zinc-100 px-4 py-1.5 text-xs font-bold tracking-wider text-zinc-500 uppercase dark:bg-zinc-800">
                             {guide.readTime}
                           </span>
                         )}

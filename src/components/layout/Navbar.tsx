@@ -262,7 +262,7 @@ export function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="bg-background border-edg-gray/10 animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex max-h-[80vh] flex-col gap-2 overflow-y-auto border-b p-4 shadow-lg lg:hidden">
-            <div className="bg-edg-brand/10 border-edg-brand/20 mx-4 mt-2 mb-2 rounded-md border p-2 text-center">
+            <div className="bg-edg-brand/10 border-edg-brand/20 mx-4 mt-2 mb-2 rounded-none border p-2 text-center">
               <span className="text-edg-brand text-xs font-bold tracking-wider uppercase">
                 Full-Service Installation within 60 Miles • Design & Supply
                 Nationwide
@@ -315,7 +315,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-md px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
+                className="rounded-none px-4 py-2 font-medium hover:bg-zinc-50 dark:hover:bg-zinc-800"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
