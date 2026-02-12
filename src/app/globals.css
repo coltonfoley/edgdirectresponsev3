@@ -3,7 +3,7 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-rajdhani), var(--font-bahnschrift);
 
   /* EDG Brand Colors */
   --color-edg-brand: #42ffc1;
@@ -17,7 +17,10 @@
 :root {
   --background: #fafafa;
   --foreground: #0a0a0a;
-  --font-inter: 'Inter', sans-serif;
+  /* Rajdhani (Google Font) as primary - looks like Bahnschrift, works everywhere */
+  --font-rajdhani: 'Rajdhani', sans-serif;
+  /* Bahnschrift as fallback for Windows users who prefer it */
+  --font-bahnschrift: 'Bahnschrift SemiBold', 'Bahnschrift', 'Segoe UI', 'Helvetica Neue', 'Arial Narrow', Arial, sans-serif;
 }
 
 /* Optional Dark Mode overrides if needed, but defaulting to the "Calm" light/neutral base for now */
@@ -31,7 +34,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter);
+  font-family: var(--font-rajdhani), var(--font-bahnschrift);
+  font-weight: 600; /* SemiBold weight */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

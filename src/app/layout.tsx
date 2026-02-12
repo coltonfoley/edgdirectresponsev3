@@ -1,15 +1,16 @@
 import type { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { Inter } from 'next/font/google';
+import { Rajdhani } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({
-  variable: '--font-inter',
+const rajdhani = Rajdhani({
+  variable: '--font-rajdhani',
   subsets: ['latin'],
+  weight: ['500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -99,7 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} bg-background text-foreground antialiased`}
+        className={`${rajdhani.variable} bg-background text-foreground antialiased`}
       >
         <Navbar />
         {children}
