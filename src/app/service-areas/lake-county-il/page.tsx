@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
+import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Lake County Outdoor Living | EDG Outdoor Living',
@@ -59,6 +60,8 @@ const defaultTestimonial = {
   project: 'Motorized Pergola',
 };
 
+const lakeCountySchema = serviceAreaLocalBusinessSchema('lake-county-il', 'Lake County, IL');
+
 export default async function LakeCountyPage() {
   const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'lake-county-il' });
 
@@ -67,22 +70,30 @@ export default async function LakeCountyPage() {
   }
 
   return (
-    <ServiceAreaClient
-      area={{
-        name: area.name || 'Lake County',
-        slug: area.slug?.current || 'lake-county-il',
-        description: area.description,
-        communities: area.communities || defaultCommunities,
-      }}
-      heroTitle={area.heroTitle}
-      heroDescription={area.heroDescription}
-      badge={area.badge}
-      communities={area.communities || defaultCommunities}
-      localConsiderations={area.localConsiderations || defaultLocalConsiderations}
-      localKnowledgeTitle={area.localKnowledgeTitle}
-      localKnowledgeText={area.localKnowledgeText}
-      testimonial={area.testimonial || defaultTestimonial}
-      popularSystems={defaultPopularSystems}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(lakeCountySchema),
+        }}
+      />
+      <ServiceAreaClient
+        area={{
+          name: area.name || 'Lake County',
+          slug: area.slug?.current || 'lake-county-il',
+          description: area.description,
+          communities: area.communities || defaultCommunities,
+        }}
+        heroTitle={area.heroTitle}
+        heroDescription={area.heroDescription}
+        badge={area.badge}
+        communities={area.communities || defaultCommunities}
+        localConsiderations={area.localConsiderations || defaultLocalConsiderations}
+        localKnowledgeTitle={area.localKnowledgeTitle}
+        localKnowledgeText={area.localKnowledgeText}
+        testimonial={area.testimonial || defaultTestimonial}
+        popularSystems={defaultPopularSystems}
+      />
+    </>
   );
 }

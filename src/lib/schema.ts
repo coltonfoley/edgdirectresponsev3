@@ -1,10 +1,9 @@
-export const localBusinessSchema = {
+export const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'Organization',
   '@id': 'https://www.edgpatioshade.com/#organization',
   name: 'EDG Outdoor Living',
-  description:
-    'Premium motorized pergolas, exterior shades, and glass enclosures for outdoor living spaces. Serving the Chicago-Milwaukee corridor and nationwide.',
+  description: 'Premium motorized pergolas, exterior shades, and glass enclosures for outdoor living spaces. Serving the Chicago-Milwaukee corridor and nationwide.',
   url: 'https://www.edgpatioshade.com',
   telephone: '+1-815-581-0138',
   email: 'info@edgpatioshade.com',
@@ -23,40 +22,7 @@ export const localBusinessSchema = {
     latitude: 42.4439,
     longitude: -88.2356,
   },
-  areaServed: [
-    {
-      '@type': 'State',
-      name: 'Illinois',
-      containsPlace: [
-        { '@type': 'AdministrativeArea', name: 'Lake County' },
-        { '@type': 'AdministrativeArea', name: 'McHenry County' },
-        { '@type': 'AdministrativeArea', name: 'Cook County' },
-        { '@type': 'City', name: 'Chicago' },
-        { '@type': 'City', name: 'Naperville' },
-        { '@type': 'City', name: 'Barrington' },
-        { '@type': 'City', name: 'Oak Brook' },
-        { '@type': 'City', name: 'Hinsdale' },
-      ],
-    },
-    {
-      '@type': 'State',
-      name: 'Wisconsin',
-      containsPlace: [
-        { '@type': 'AdministrativeArea', name: 'Kenosha County' },
-        { '@type': 'AdministrativeArea', name: 'Racine County' },
-        { '@type': 'AdministrativeArea', name: 'Milwaukee County' },
-        { '@type': 'City', name: 'Lake Geneva' },
-      ],
-    },
-    {
-      '@type': 'State',
-      name: 'Florida',
-      containsPlace: [
-        { '@type': 'City', name: 'Sanibel' },
-        { '@type': 'City', name: 'Captiva' },
-      ],
-    },
-  ],
+  areaServed: 'Chicago to Milwaukee corridor',
   priceRange: '$$$',
   openingHoursSpecification: [
     {
@@ -79,8 +45,7 @@ export const localBusinessSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Louvered Pergola Installation',
-          description:
-            'Motorized aluminum pergolas with rotating louvers for sun and rain control',
+          description: 'Motorized aluminum pergolas with rotating louvers for sun and rain control',
         },
       },
       {
@@ -88,8 +53,7 @@ export const localBusinessSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Motorized Exterior Shades',
-          description:
-            'Wind-rated exterior screens for heat and glare reduction',
+          description: 'Wind-rated exterior screens for heat and glare reduction',
         },
       },
       {
@@ -97,14 +61,122 @@ export const localBusinessSchema = {
         itemOffered: {
           '@type': 'Service',
           name: 'Glass Enclosure Systems',
-          description:
-            'Frameless retractable glass walls for weatherproof outdoor spaces',
+          description: 'Frameless retractable glass walls for weatherproof outdoor spaces',
         },
       },
     ],
   },
 };
 
+export const localBusinessSchema = {
+  ...organizationSchema,
+  '@type': 'LocalBusiness',
+  '@id': 'https://www.edgpatioshade.com/#localbusiness',
+};
+
+export const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://www.edgpatioshade.com/#website',
+  name: 'EDG Outdoor Living',
+  url: 'https://www.edgpatioshade.com/',
+  publisher: {
+    '@id': 'https://www.edgpatioshade.com/#organization',
+  },
+};
+
+export function serviceAreaLocalBusinessSchema(areaSlug: string, areaName: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `https://www.edgpatioshade.com/#localbusiness-${areaSlug}`,
+    name: `EDG Outdoor Living - ${areaName}`,
+    description: `Premium outdoor living solutions serving ${areaName}.`,
+    url: `https://www.edgpatioshade.com/service-areas/${areaSlug}`,
+    telephone: organizationSchema.telephone,
+    address: organizationSchema.address,
+    geo: organizationSchema.geo,
+    parentOrganization: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    areaServed: areaName,
+  };
+}
+
+export function productSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+  priceRange: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: params.name,
+    description: params.description,
+    image: params.image,
+    url: params.url,
+    brand: {
+      '@type': 'Brand',
+      '@id': 'https://www.edgpatioshade.com/#organization',
+      name: 'EDG Outdoor Living',
+    },
+    offers: {
+      '@type': 'Offer',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        price: params.priceRange,
+        priceCurrency: 'USD',
+      },
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@id': 'https://www.edgpatioshade.com/#organization',
+      },
+    },
+  };
+}
+
+export function articleSchema(params: {
+  headline: string;
+  author: string;
+  datePublished: string;
+  image?: string;
+  description: string;
+  url: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: params.headline,
+    description: params.description,
+    author: {
+      '@type': 'Person',
+      name: params.author,
+    },
+    datePublished: params.datePublished,
+    image: params.image ? [params.image] : [],
+    publisher: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': params.url,
+    },
+  };
+}
+
+export const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact EDG Outdoor Living',
+  url: 'https://www.edgpatioshade.com/contact',
+  about: {
+    '@id': 'https://www.edgpatioshade.com/#organization',
+  },
+};
+
+// Existing functions
 export function generateServiceSchema(params: {
   name: string;
   description: string;
@@ -119,14 +191,13 @@ export function generateServiceSchema(params: {
     provider: {
       '@id': 'https://www.edgpatioshade.com/#organization',
     },
-    areaServed: localBusinessSchema.areaServed,
     url: params.url,
     ...(params.image && { image: params.image }),
   };
 }
 
 export function generateFAQSchema(
-  faqs: { question: string; answer: string }[]
+  faqs: Array<{ question: string; answer: string }>,
 ) {
   return {
     '@context': 'https://schema.org',
