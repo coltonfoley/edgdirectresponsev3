@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
+import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'McHenry County Outdoor Living | Crystal Lake, Algonquin, Woodstock',
@@ -64,6 +65,8 @@ const defaultTestimonial = {
   project: 'Louvered Pergola',
 };
 
+const mchenrySchema = serviceAreaLocalBusinessSchema('mchenry-county-il', 'McHenry County, IL');
+
 export default async function McHenryCountyPage() {
   const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'mchenry-county-il' });
 
@@ -72,22 +75,30 @@ export default async function McHenryCountyPage() {
   }
 
   return (
-    <ServiceAreaClient
-      area={{
-        name: area.name || 'McHenry County',
-        slug: area.slug?.current || 'mchenry-county-il',
-        description: area.description,
-        communities: area.communities || defaultCommunities,
-      }}
-      heroTitle={area.heroTitle}
-      heroDescription={area.heroDescription}
-      badge={area.badge}
-      communities={area.communities || defaultCommunities}
-      localConsiderations={area.localConsiderations || defaultLocalConsiderations}
-      localKnowledgeTitle={area.localKnowledgeTitle || 'Our Spring Grove Location'}
-      localKnowledgeText={area.localKnowledgeText || defaultLocalKnowledgeText}
-      testimonial={area.testimonial || defaultTestimonial}
-      popularSystems={defaultPopularSystems}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(mchenrySchema),
+        }}
+      />
+      <ServiceAreaClient
+        area={{
+          name: area.name || 'McHenry County',
+          slug: area.slug?.current || 'mchenry-county-il',
+          description: area.description,
+          communities: area.communities || defaultCommunities,
+        }}
+        heroTitle={area.heroTitle}
+        heroDescription={area.heroDescription}
+        badge={area.badge}
+        communities={area.communities || defaultCommunities}
+        localConsiderations={area.localConsiderations || defaultLocalConsiderations}
+        localKnowledgeTitle={area.localKnowledgeTitle || 'Our Spring Grove Location'}
+        localKnowledgeText={area.localKnowledgeText || defaultLocalKnowledgeText}
+        testimonial={area.testimonial || defaultTestimonial}
+        popularSystems={defaultPopularSystems}
+      />
+    </>
   );
 }
