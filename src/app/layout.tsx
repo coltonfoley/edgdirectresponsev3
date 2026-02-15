@@ -81,8 +81,8 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness JSON-LD Schema
-import { localBusinessSchema } from '@/lib/schema';
+// Organization JSON-LD Schema
+import { organizationSchema } from '@/lib/schema';
 
 export default function RootLayout({
   children,
@@ -95,7 +95,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
+            __html: JSON.stringify(organizationSchema),
           }}
         />
       </head>

@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, articleSchema } from '@/lib/schema';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -90,9 +90,21 @@ const faqs = [
 
 export default function LouveredPergolaGuide() {
   const faqSchema = generateFAQSchema(faqs);
+  const article = articleSchema({
+    headline: guideData.title,
+    description: guideData.intro,
+    author: guideData.author,
+    datePublished: guideData.publishedDate,
+    url: 'https://www.edgpatioshade.com/guides/louvered-pergolas',
+    image: 'https://www.edgpatioshade.com/images/pergolas-hero.jpg',
+  });
 
   return (
     <article className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

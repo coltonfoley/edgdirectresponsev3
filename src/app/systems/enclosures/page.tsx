@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getProduct } from '@/sanity/lib/fetch';
 import EnclosuresPageClient from './EnclosuresPageClient';
+import { productSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Glass Patio Enclosures | Retractable Glass Walls',
@@ -16,8 +17,26 @@ export const metadata: Metadata = {
   },
 };
 
+const enclosuresProductSchema = productSchema({
+  name: 'Glass Enclosure Systems',
+  description: 'Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage.',
+  url: 'https://www.edgpatioshade.com/systems/enclosures',
+  image: 'https://www.edgpatioshade.com/images/enclosures-hero.jpg',
+  priceRange: '$25,000 - $75,000+',
+});
+
 export default async function EnclosuresPage() {
   const product = await getProduct('enclosures');
   
-  return <EnclosuresPageClient product={product} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(enclosuresProductSchema),
+        }}
+      />
+      <EnclosuresPageClient product={product} />
+    </>
+  );
 }
