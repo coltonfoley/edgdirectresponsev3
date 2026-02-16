@@ -7,13 +7,20 @@ import { MapPin, Phone, Mail, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useSiteConfig } from '@/hooks/useSanityData';
 
-export function Footer() {
+// @ts-ignore
+export function Footer({ config }: { config: any }) {
   const pathname = usePathname();
-  const { config, loading } = useSiteConfig();
+
+  /*
+  if (error) {
+    console.error('Footer: Error loading Sanity config', error);
+  }
+  */
 
   if (
     pathname === '/guides/planning-guide/read' ||
-    pathname?.startsWith('/admin')
+    pathname?.startsWith('/admin') ||
+    pathname?.startsWith('/studio')
   )
     return null;
 

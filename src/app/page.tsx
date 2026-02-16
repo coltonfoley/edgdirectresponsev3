@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { getHomepage } from '@/sanity/lib/fetch';
+import { getHomepage } from '@/sanity/lib/server-fetch';
 import HomePageClient from './HomePageClient';
 
 export const metadata: Metadata = {
@@ -13,6 +13,6 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const homepage = await getHomepage();
-  
+
   return <HomePageClient homepage={homepage} />;
 }

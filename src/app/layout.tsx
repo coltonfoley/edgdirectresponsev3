@@ -6,6 +6,9 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@vercel/analytics/react';
+import { draftMode } from 'next/headers';
+import { getSiteConfig } from '@/sanity/lib/server-fetch';
+import SanityVisualEditing from '@/components/SanityVisualEditing';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -83,7 +86,7 @@ export const metadata: Metadata = {
 // LocalBusiness JSON-LD Schema
 import { localBusinessSchema } from '@/lib/schema';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -101,12 +104,15 @@ export default function RootLayout({
       <body
         className={`${inter.variable} bg-background text-foreground antialiased`}
       >
-        <Navbar />
+        <Navbar config={await getSiteConfig()} />
         {children}
-        <Footer />
+        <Footer config={await getSiteConfig()} />
         <GoogleTagManager gtmId="GTM-MJWNZD3F" />
         <SpeedInsights />
         <Analytics />
+        <div className="absolute top-0 right-0 z-50">
+          {(await draftMode()).isEnabled && <SanityVisualEditing />}
+        </div>
       </body>
     </html>
   );
