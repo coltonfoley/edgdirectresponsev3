@@ -5,13 +5,23 @@ import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
 import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'McHenry County Outdoor Living | Crystal Lake, Algonquin, Woodstock',
-  description: 'Premium outdoor living systems for McHenry County. Larger properties, rural settings, and expert local knowledge for your outdoor project.',
-  alternates: {
-    canonical: '/service-areas/mchenry-county-il',
-  },
-};
+import { urlFor } from '@/sanity/lib/image';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'mchenry-county-il' });
+  const seo = area?.seo || {};
+
+  return {
+    title: seo.metaTitle || 'McHenry County Outdoor Living | Crystal Lake, Algonquin, Woodstock',
+    description: seo.metaDescription || 'Premium outdoor living systems for McHenry County. Larger properties, rural settings, and expert local knowledge for your outdoor project.',
+    alternates: {
+      canonical: '/service-areas/mchenry-county-il',
+    },
+    openGraph: seo.ogImage ? {
+      images: [urlFor(seo.ogImage).url()],
+    } : undefined,
+  };
+}
 
 const defaultPopularSystems = [
   {

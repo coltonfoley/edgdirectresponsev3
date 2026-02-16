@@ -5,13 +5,23 @@ import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
 import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Sanibel Outdoor Living | Hurricane-Rated Pergolas & Lanais',
-  description: "Premium louvered roof systems and motorized screens designed for Sanibel Island's strict zoning and coastal climate. Miami-Dade hurricane rated.",
-  alternates: {
-    canonical: '/service-areas/sanibel-outdoor-living',
-  },
-};
+import { urlFor } from '@/sanity/lib/image';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'sanibel-outdoor-living' });
+  const seo = area?.seo || {};
+
+  return {
+    title: seo.metaTitle || 'Sanibel Outdoor Living | Hurricane-Rated Pergolas & Lanais',
+    description: seo.metaDescription || "Premium louvered roof systems and motorized screens designed for Sanibel Island's strict zoning and coastal climate. Miami-Dade hurricane rated.",
+    alternates: {
+      canonical: '/service-areas/sanibel-outdoor-living',
+    },
+    openGraph: seo.ogImage ? {
+      images: [urlFor(seo.ogImage).url()],
+    } : undefined,
+  };
+}
 
 const defaultPopularSystems = [
   {

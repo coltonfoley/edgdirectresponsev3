@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getGalleryImages } from '@/sanity/lib/server-fetch';
 import { urlFor } from '@/sanity/lib/image';
-import galleryData from '@/data/gallery-images.json';
 
 export const metadata: Metadata = {
   title: 'Gallery | EDG Outdoor Living',
@@ -18,15 +17,21 @@ export const metadata: Metadata = {
 export default async function GalleryPage() {
   const sanityImages = await getGalleryImages();
 
-  // Mix in fallbacks if Sanity is empty, or just use Sanity
-  // Given the goal is 100% complete, we should prefer Sanity but allow fallback for dev
-  const displayImages = sanityImages?.length > 0 ? sanityImages.map((img: any) => ({
+  if (!sanityImages || sanityImages.length === 0) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-black text-white">
+        <p className="text-xl opacity-50">No gallery images found in Sanity.</p>
+      </main>
+    );
+  }
+
+  const displayImages = sanityImages.map((img: any) => ({
     id: img._id,
-    src: urlFor(img.src).url(), // Note: galleryImagesQuery maps image.asset->url to 'src' if I recall, but let's check fetch
+    src: urlFor(img.src).url(),
     width: img.width || 800,
     height: img.height || 600,
     alt: img.alt || 'EDG Outdoor Living Project',
-  })) : [...galleryData].sort((a, b) => a.src.localeCompare(b.src));
+  }));
 
   return (
     <main className="min-h-screen bg-black text-white">

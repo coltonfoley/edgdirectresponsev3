@@ -5,13 +5,23 @@ import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
 import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Naperville Outdoor Living | EDG Patio',
-  description: 'Premium outdoor living systems for Naperville. Transform your backyard into a year-round retreat with motorized pergolas and glass systems.',
-  alternates: {
-    canonical: '/service-areas/naperville-il',
-  },
-};
+import { urlFor } from '@/sanity/lib/image';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'naperville-il' });
+  const seo = area?.seo || {};
+
+  return {
+    title: seo.metaTitle || 'Naperville Outdoor Living | EDG Patio',
+    description: seo.metaDescription || 'Premium outdoor living systems for Naperville. Transform your backyard into a year-round retreat with motorized pergolas and glass systems.',
+    alternates: {
+      canonical: '/service-areas/naperville-il',
+    },
+    openGraph: seo.ogImage ? {
+      images: [urlFor(seo.ogImage).url()],
+    } : undefined,
+  };
+}
 
 const defaultPopularSystems = [
   {

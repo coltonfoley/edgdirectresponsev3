@@ -54,12 +54,19 @@ export async function generateMetadata({
     return {};
   }
 
+  const seo = project.seo || {};
+
   return {
-    title: `${project.title} | EDG Projects`,
-    description: project.description,
+    title: seo.metaTitle || `${project.title} | EDG Projects`,
+    description: seo.metaDescription || project.description,
     alternates: {
       canonical: `/projects/${slug}`,
     },
+    openGraph: seo.ogImage ? {
+      images: [urlFor(seo.ogImage).url()],
+    } : (project.heroImage ? {
+      images: [urlFor(project.heroImage).url()]
+    } : undefined),
   };
 }
 
