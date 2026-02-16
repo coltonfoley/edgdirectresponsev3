@@ -80,7 +80,7 @@ export default function CommercialPageClient({ page }: CommercialPageProps) {
               We build outdoor infrastructure that <strong>pays for itself in one season</strong>.
             </p>
             <TrackedLink href={hero.ctaUrl || '/contact?type=commercial'}>
-              <Button size="lg" className="rounded-full px-8 text-lg">
+              <Button size="lg" className="rounded-none px-8 text-lg">
                 {hero.ctaText || 'Schedule Site Assessment'} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </TrackedLink>
@@ -363,7 +363,7 @@ export default function CommercialPageClient({ page }: CommercialPageProps) {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={finalCta.ctaUrl || '/contact?type=commercial'}>
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-none px-8 text-lg">
                   {finalCta.ctaText || 'Schedule Site Assessment'} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
@@ -371,7 +371,7 @@ export default function CommercialPageClient({ page }: CommercialPageProps) {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="rounded-full border-white/30 px-8 text-lg text-white hover:bg-white/10"
+                  className="rounded-none border-white/30 px-8 text-lg text-white hover:bg-white/10"
                 >
                   <Phone className="mr-2 h-5 w-5" /> {finalCta.secondaryCtaText || '(815) 581-0138'}
                 </Button>

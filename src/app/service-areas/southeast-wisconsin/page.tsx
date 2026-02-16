@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
+import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Southeast Wisconsin Outdoor Living | Kenosha, Racine',
@@ -62,6 +63,8 @@ const defaultTestimonial = {
   project: 'Louvered Pergola + Shades',
 };
 
+const seWisconsinSchema = serviceAreaLocalBusinessSchema('southeast-wisconsin', 'Southeast Wisconsin');
+
 export default async function SoutheastWisconsinPage() {
   const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'southeast-wisconsin' });
 
@@ -70,22 +73,30 @@ export default async function SoutheastWisconsinPage() {
   }
 
   return (
-    <ServiceAreaClient
-      area={{
-        name: area.name || 'Southeast Wisconsin',
-        slug: area.slug?.current || 'southeast-wisconsin',
-        description: area.description,
-        communities: area.communities || defaultCommunities,
-      }}
-      heroTitle={area.heroTitle}
-      heroDescription={area.heroDescription}
-      badge={area.badge}
-      communities={area.communities || defaultCommunities}
-      localConsiderations={area.localConsiderations || defaultLocalConsiderations}
-      localKnowledgeTitle={area.localKnowledgeTitle}
-      localKnowledgeText={area.localKnowledgeText}
-      testimonial={area.testimonial || defaultTestimonial}
-      popularSystems={defaultPopularSystems}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(seWisconsinSchema),
+        }}
+      />
+      <ServiceAreaClient
+        area={{
+          name: area.name || 'Southeast Wisconsin',
+          slug: area.slug?.current || 'southeast-wisconsin',
+          description: area.description,
+          communities: area.communities || defaultCommunities,
+        }}
+        heroTitle={area.heroTitle}
+        heroDescription={area.heroDescription}
+        badge={area.badge}
+        communities={area.communities || defaultCommunities}
+        localConsiderations={area.localConsiderations || defaultLocalConsiderations}
+        localKnowledgeTitle={area.localKnowledgeTitle}
+        localKnowledgeText={area.localKnowledgeText}
+        testimonial={area.testimonial || defaultTestimonial}
+        popularSystems={defaultPopularSystems}
+      />
+    </>
   );
 }

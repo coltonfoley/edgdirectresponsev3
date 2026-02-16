@@ -17,7 +17,7 @@ const Button = ({
     <button
       ref={ref}
       className={cn(
-        'focus-visible:ring-ring inline-flex cursor-pointer items-center justify-center rounded-md font-medium transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
+        'focus-visible:ring-ring inline-flex cursor-pointer items-center justify-center rounded-none font-medium transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50',
         {
           'bg-edg-brand text-edg-dark hover:bg-edg-brand/90':
             variant === 'primary',

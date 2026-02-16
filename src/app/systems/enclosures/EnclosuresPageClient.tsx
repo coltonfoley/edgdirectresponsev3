@@ -98,10 +98,10 @@ export default function EnclosuresPageClient({ product }: EnclosuresPageProps) {
 
               <div className="flex flex-col gap-3 pt-4 sm:flex-row">
                 <TrackedLink href={product?.quoteUrl || '/contact?type=price&product=enclosure'} className="flex-1">
-                  <Button size="lg" className="w-full rounded-lg">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                  <Button size="lg" className="w-full rounded-none">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138" className="flex-1">
-                  <Button size="lg" variant="secondary" className="w-full rounded-lg"><Phone className="mr-2 h-5 w-5" /> Call Us</Button>
+                  <Button size="lg" variant="secondary" className="w-full rounded-none"><Phone className="mr-2 h-5 w-5" /> Call Us</Button>
                 </TrackedPhoneLink>
               </div>
 
@@ -248,12 +248,12 @@ export default function EnclosuresPageClient({ product }: EnclosuresPageProps) {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={product?.quoteUrl || '/contact?type=price&product=enclosure'}>
-                <Button size="lg" variant="secondary" className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white">
+                <Button size="lg" variant="secondary" className="bg-edg-dark hover:bg-edg-dark/90 rounded-none px-8 text-lg text-white">
                   Get Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
               <Link href="/gallery">
-                <Button size="lg" variant="ghost" className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg">
+                <Button size="lg" variant="ghost" className="text-edg-dark hover:bg-edg-dark/10 rounded-none px-8 text-lg">
                   See Gallery <ChevronRight className="ml-1 h-5 w-5" />
                 </Button>
               </Link>

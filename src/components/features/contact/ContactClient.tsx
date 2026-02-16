@@ -181,7 +181,7 @@ function ContactForm({ content }: { content: ContactContent }) {
                     <button
                       key={type.id}
                       onClick={() => setFormType(type.id as typeof formType)}
-                      className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                      className={`rounded-none px-4 py-2 text-sm font-medium transition-colors ${
                         formType === type.id
                           ? 'bg-edg-brand text-edg-dark'
                           : 'text-muted-foreground bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700'
@@ -319,7 +319,7 @@ function ContactForm({ content }: { content: ContactContent }) {
                     type="submit"
                     size="lg"
                     disabled={loading}
-                    className="w-full rounded-lg"
+                    className="w-full rounded-none"
                   >
                     {loading ? 'Sending...' : 'Submit Request'}
                   </Button>

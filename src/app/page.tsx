@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getHomepage } from '@/sanity/lib/server-fetch';
 import HomePageClient from './HomePageClient';
+import { websiteSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas Chicago | Outdoor Shades & Glass Enclosures',
@@ -14,5 +15,15 @@ export const metadata: Metadata = {
 export default async function Home() {
   const homepage = await getHomepage();
 
-  return <HomePageClient homepage={homepage} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema),
+        }}
+      />
+      <HomePageClient homepage={homepage} />
+    </>
+  );
 }

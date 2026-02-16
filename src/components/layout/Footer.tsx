@@ -66,7 +66,7 @@ export function Footer({ config }: { config: any }) {
                 <Link href="/guides/planning-guide" className="block">
                   <Button
                     size="lg"
-                    className="shadow-edg-brand/5 w-full rounded-xl shadow-lg"
+                    className="shadow-edg-brand/5 w-full rounded-none shadow-lg"
                   >
                     Get the Free Guide <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -101,7 +101,7 @@ export function Footer({ config }: { config: any }) {
                     >
                       <Button
                         size="lg"
-                        className="shadow-edg-brand/5 group-hover:shadow-edg-brand/10 rounded-xl px-8 whitespace-nowrap shadow-lg transition-all"
+                        className="shadow-edg-brand/5 group-hover:shadow-edg-brand/10 rounded-none px-8 whitespace-nowrap shadow-lg transition-all"
                       >
                         Book a Consultation{' '}
                         <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -116,7 +116,7 @@ export function Footer({ config }: { config: any }) {
                           value: 0,
                         })
                       }
-                      className="inline-flex h-12 items-center justify-center gap-3 rounded-xl border border-white/10 px-6 font-medium whitespace-nowrap text-white backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/5"
+                      className="inline-flex h-12 items-center justify-center gap-3 rounded-none border border-white/10 px-6 font-medium whitespace-nowrap text-white backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/5"
                     >
                       <Phone className="text-edg-brand h-5 w-5" />
                       {phone}

@@ -71,7 +71,7 @@ export default function DesignPageClient({ page }: DesignPageProps) {
               {hero.description || "Most homeowners start by asking \"how much?\" The smart ones start by asking \"what's possible?\" Our design-first approach has protected over 500 homeowners from expensive mistakes."}
             </p>
             <Link href={hero.ctaUrl || '/contact?type=design'}>
-              <Button size="lg" className="rounded-full px-8 text-lg">
+              <Button size="lg" className="rounded-none px-8 text-lg">
                 {hero.ctaText || 'Get Your Free Design Assessment'} <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -180,7 +180,7 @@ export default function DesignPageClient({ page }: DesignPageProps) {
             </div>
             <div className="mt-12 text-center">
               <Link href="/contact?type=design">
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-none">
                   Schedule Your Free Assessment <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -294,7 +294,7 @@ export default function DesignPageClient({ page }: DesignPageProps) {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href={finalCta.ctaUrl || '/contact?type=design'}>
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-none px-8 text-lg">
                   {finalCta.ctaText || 'Schedule Discovery Call'} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -302,7 +302,7 @@ export default function DesignPageClient({ page }: DesignPageProps) {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="rounded-full border-white/30 px-8 text-lg text-white hover:bg-white/10"
+                  className="rounded-none border-white/30 px-8 text-lg text-white hover:bg-white/10"
                 >
                   <Phone className="mr-2 h-5 w-5" /> {finalCta.secondaryCtaText || '(815) 581-0138'}
                 </Button>

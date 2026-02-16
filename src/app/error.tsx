@@ -35,12 +35,12 @@ export default function Error({
           the problem persists.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Button onClick={reset} className="rounded-lg">
+          <Button onClick={reset} className="rounded-none">
             Try again
           </Button>
           <a
             href="/"
-            className="rounded-lg border border-white/20 px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
+            className="rounded-none border border-white/20 px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
           >
             Go home
           </a>

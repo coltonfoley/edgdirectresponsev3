@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { Inter } from 'next/font/google';
+import { Rajdhani } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
@@ -10,9 +10,10 @@ import { draftMode } from 'next/headers';
 import { getSiteConfig } from '@/sanity/lib/server-fetch';
 import SanityVisualEditing from '@/components/SanityVisualEditing';
 
-const inter = Inter({
-  variable: '--font-inter',
+const rajdhani = Rajdhani({
+  variable: '--font-rajdhani',
   subsets: ['latin'],
+  weight: ['500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -83,8 +84,8 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness JSON-LD Schema
-import { localBusinessSchema } from '@/lib/schema';
+// Organization JSON-LD Schema
+import { organizationSchema } from '@/lib/schema';
 
 export default async function RootLayout({
   children,
@@ -97,12 +98,12 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
+            __html: JSON.stringify(organizationSchema),
           }}
         />
       </head>
       <body
-        className={`${inter.variable} bg-background text-foreground antialiased`}
+        className={`${rajdhani.variable} bg-background text-foreground antialiased`}
       >
         <Navbar config={await getSiteConfig()} />
         {children}

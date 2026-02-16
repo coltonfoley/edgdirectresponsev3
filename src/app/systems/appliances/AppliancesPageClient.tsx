@@ -110,10 +110,10 @@ export default function AppliancesPageClient({ product }: AppliancesPageProps) {
 
               <div className="flex flex-col items-stretch gap-3 pt-4 sm:flex-row">
                 <TrackedLink href={product?.quoteUrl || '/contact?type=price&product=appliances'} className="flex-1">
-                  <Button size="lg" className="h-full w-full rounded-lg">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                  <Button size="lg" className="h-full w-full rounded-none">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138" className="flex-1">
-                  <Button size="lg" variant="secondary" className="h-full w-full rounded-lg"><Phone className="mr-2 h-5 w-5" /> Call Us</Button>
+                  <Button size="lg" variant="secondary" className="h-full w-full rounded-none"><Phone className="mr-2 h-5 w-5" /> Call Us</Button>
                 </TrackedPhoneLink>
               </div>
 
@@ -203,12 +203,12 @@ export default function AppliancesPageClient({ product }: AppliancesPageProps) {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <TrackedLink href={product?.quoteUrl || '/contact?type=price&product=appliances'}>
-                <Button size="lg" className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 rounded-full px-10 text-lg transition-all hover:scale-105">
+                <Button size="lg" className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 rounded-none px-10 text-lg transition-all hover:scale-105">
                   Get Pricing <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
               <Link href="/gallery">
-                <Button size="lg" variant="ghost" className="rounded-full px-10 text-lg text-white hover:bg-white/10">
+                <Button size="lg" variant="ghost" className="rounded-none px-10 text-lg text-white hover:bg-white/10">
                   View Gallery <ChevronRight className="ml-1 h-5 w-5" />
                 </Button>
               </Link>

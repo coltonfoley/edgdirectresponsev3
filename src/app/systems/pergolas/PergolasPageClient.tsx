@@ -103,10 +103,10 @@ export default function PergolasPageClient({ product }: PergolasPageProps) {
               {/* CTA Buttons */}
               <div className="flex flex-col gap-3 pt-4 sm:flex-row">
                 <TrackedLink href={product?.pricingUrl || '/price?product=pergola'} className="flex-1">
-                  <Button size="lg" className="w-full rounded-lg">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                  <Button size="lg" className="w-full rounded-none">Get a Quote <ArrowRight className="ml-2 h-5 w-5" /></Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138" className="flex-1">
-                  <Button size="lg" variant="secondary" className="w-full rounded-lg">
+                  <Button size="lg" variant="secondary" className="w-full rounded-none">
                     <Phone className="mr-2 h-5 w-5" /> Call Us
                   </Button>
                 </TrackedPhoneLink>
@@ -268,12 +268,12 @@ export default function PergolasPageClient({ product }: PergolasPageProps) {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={product?.quoteUrl || '/contact?type=design&product=pergola'}>
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-none px-8 text-lg">
                   Get Your Custom Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
               <TrackedPhoneLink href="tel:+18155810138">
-                <Button size="lg" variant="secondary" className="rounded-full border-white/30 px-8 text-lg text-white hover:bg-white/10">
+                <Button size="lg" variant="secondary" className="rounded-none border-white/30 px-8 text-lg text-white hover:bg-white/10">
                   <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                 </Button>
               </TrackedPhoneLink>

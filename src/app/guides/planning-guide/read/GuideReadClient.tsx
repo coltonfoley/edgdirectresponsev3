@@ -645,7 +645,7 @@ export default function GuideReadPage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="bg-edg-brand inline-flex items-center justify-center gap-2 rounded-full px-8 py-5 text-lg font-bold text-zinc-900 shadow-[0_0_20px_rgba(66,255,193,0.3)] transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(66,255,193,0.5)]"
+                className="bg-edg-brand inline-flex items-center justify-center gap-2 rounded-none px-8 py-5 text-lg font-bold text-zinc-900 shadow-[0_0_20px_rgba(66,255,193,0.3)] transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(66,255,193,0.5)]"
               >
                 Book Your Design Consultation <ArrowRight className="h-5 w-5" />
               </Link>

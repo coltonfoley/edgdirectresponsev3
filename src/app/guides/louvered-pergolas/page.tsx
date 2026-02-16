@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, articleSchema } from '@/lib/schema';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -90,9 +90,21 @@ const faqs = [
 
 export default function LouveredPergolaGuide() {
   const faqSchema = generateFAQSchema(faqs);
+  const article = articleSchema({
+    headline: guideData.title,
+    description: guideData.intro,
+    author: guideData.author,
+    datePublished: guideData.publishedDate,
+    url: 'https://www.edgpatioshade.com/guides/louvered-pergolas',
+    image: 'https://www.edgpatioshade.com/images/pergolas-hero.jpg',
+  });
 
   return (
     <article className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(article) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -119,7 +131,7 @@ export default function LouveredPergolaGuide() {
                 <ArrowLeft className="h-4 w-4" /> Back to All Guides
               </Link>
               <br />
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-none border px-4 py-2 text-sm font-bold tracking-wider uppercase">
                 Pillar Guide
               </span>
               <h1 className="mb-4 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -303,7 +315,7 @@ export default function LouveredPergolaGuide() {
 
                 <div className="text-center">
                   <Link href="/contact">
-                    <Button size="lg" className="rounded-full">
+                    <Button size="lg" className="rounded-none">
                       Get an Exact Quote <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
@@ -363,7 +375,7 @@ export default function LouveredPergolaGuide() {
                   <Button
                     size="lg"
                     variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
+                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-none px-8 text-lg text-white"
                   >
                     Request Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -372,7 +384,7 @@ export default function LouveredPergolaGuide() {
                   <Button
                     size="lg"
                     variant="ghost"
-                    className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg"
+                    className="text-edg-dark hover:bg-edg-dark/10 rounded-none px-8 text-lg"
                   >
                     View Gallery
                   </Button>

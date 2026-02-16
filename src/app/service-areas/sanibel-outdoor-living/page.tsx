@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { client } from '@/sanity/lib/client';
 import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
+import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Sanibel Outdoor Living | Hurricane-Rated Pergolas & Lanais',
@@ -59,6 +60,8 @@ const defaultTestimonial = {
   project: 'Hurricane-Rated Louvered Pergola',
 };
 
+const sanibelSchema = serviceAreaLocalBusinessSchema('sanibel-outdoor-living', 'Sanibel, FL');
+
 export default async function SanibelPage() {
   const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'sanibel-outdoor-living' });
 
@@ -67,22 +70,30 @@ export default async function SanibelPage() {
   }
 
   return (
-    <ServiceAreaClient
-      area={{
-        name: area.name || 'Sanibel',
-        slug: area.slug?.current || 'sanibel-outdoor-living',
-        description: area.description,
-        communities: area.communities || defaultCommunities,
-      }}
-      heroTitle={area.heroTitle || "Sanibel Outdoor Living"}
-      heroDescription={area.heroDescription || "Premium, hurricane-rated pergolas and motorized screens designed to respect Sanibel's unique ecology while expanding your living space."}
-      badge={area.badge}
-      communities={area.communities || defaultCommunities}
-      localConsiderations={area.localConsiderations || defaultLocalConsiderations}
-      localKnowledgeTitle={area.localKnowledgeTitle || defaultLocalKnowledgeTitle}
-      localKnowledgeText={area.localKnowledgeText || defaultLocalKnowledgeText}
-      testimonial={area.testimonial || defaultTestimonial}
-      popularSystems={defaultPopularSystems}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(sanibelSchema),
+        }}
+      />
+      <ServiceAreaClient
+        area={{
+          name: area.name || 'Sanibel',
+          slug: area.slug?.current || 'sanibel-outdoor-living',
+          description: area.description,
+          communities: area.communities || defaultCommunities,
+        }}
+        heroTitle={area.heroTitle || "Sanibel Outdoor Living"}
+        heroDescription={area.heroDescription || "Premium, hurricane-rated pergolas and motorized screens designed to respect Sanibel's unique ecology while expanding your living space."}
+        badge={area.badge}
+        communities={area.communities || defaultCommunities}
+        localConsiderations={area.localConsiderations || defaultLocalConsiderations}
+        localKnowledgeTitle={area.localKnowledgeTitle || defaultLocalKnowledgeTitle}
+        localKnowledgeText={area.localKnowledgeText || defaultLocalKnowledgeText}
+        testimonial={area.testimonial || defaultTestimonial}
+        popularSystems={defaultPopularSystems}
+      />
+    </>
   );
 }

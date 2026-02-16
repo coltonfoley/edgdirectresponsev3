@@ -82,7 +82,7 @@ export default function HotelPergolasPage() {
                 year-round event spaces with motorized louvered pergolas.
               </p>
               <Link href="/contact">
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-none px-8 text-lg">
                   Schedule Commercial Consultation{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -248,7 +248,7 @@ export default function HotelPergolasPage() {
                   <Button
                     size="lg"
                     variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
+                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-none px-8 text-lg text-white"
                   >
                     Schedule Consultation{' '}
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -258,7 +258,7 @@ export default function HotelPergolasPage() {
                   <Button
                     size="lg"
                     variant="ghost"
-                    className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg"
+                    className="text-edg-dark hover:bg-edg-dark/10 rounded-none px-8 text-lg"
                   >
                     Restaurant Solutions
                   </Button>

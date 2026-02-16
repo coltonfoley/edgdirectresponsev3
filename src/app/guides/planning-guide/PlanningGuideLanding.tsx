@@ -45,7 +45,7 @@ export default function PlanningGuideLanding() {
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left: Copy */}
             <div className="space-y-8">
-              <div className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium tracking-wider uppercase">
+              <div className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 inline-flex items-center gap-2 rounded-none border px-4 py-2 text-sm font-medium tracking-wider uppercase">
                 <BookOpen className="h-4 w-4" />
                 Free Planning Guide
               </div>

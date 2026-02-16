@@ -79,13 +79,13 @@ export default function ProPageClient({ page }: ProPageProps) {
             </p>
             <div className="flex flex-wrap gap-4">
               <TrackedLink href={hero.ctaUrl || '/contact?type=pro&action=plans'}>
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-none">
                   {hero.ctaText || 'Request Quote'} <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
               {hero.secondaryCtaText && (
                 <TrackedLink href={hero.secondaryCtaUrl || '/contact?type=pro'}>
-                  <Button size="lg" variant="secondary" className="rounded-full">
+                  <Button size="lg" variant="secondary" className="rounded-none">
                     {hero.secondaryCtaText}
                   </Button>
                 </TrackedLink>
@@ -318,7 +318,7 @@ export default function ProPageClient({ page }: ProPageProps) {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={finalCta.ctaUrl || '/contact?type=pro&action=plans'}>
-                <Button size="lg" className="rounded-full px-8 text-lg">
+                <Button size="lg" className="rounded-none px-8 text-lg">
                   {finalCta.ctaText || 'Request Quote'}
                 </Button>
               </TrackedLink>
@@ -326,7 +326,7 @@ export default function ProPageClient({ page }: ProPageProps) {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="rounded-full border-white/30 px-8 text-lg text-white hover:bg-white/10"
+                  className="rounded-none border-white/30 px-8 text-lg text-white hover:bg-white/10"
                 >
                   <Phone className="mr-2 h-5 w-5" /> {finalCta.secondaryCtaText || '(815) 581-0138'}
                 </Button>

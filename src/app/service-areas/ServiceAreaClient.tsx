@@ -118,12 +118,12 @@ export default function ServiceAreaClient({
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <TrackedLink href={`/contact?area=${areaSlug}`}>
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-none">
                   Get a {areaName.split(',')[0]} Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
               <TrackedPhoneLink href="tel:+18155810138">
-                <Button size="lg" variant="secondary" className="rounded-full border-white/30 text-white hover:bg-white/10">
+                <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">
                   <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                 </Button>
               </TrackedPhoneLink>
@@ -219,7 +219,7 @@ export default function ServiceAreaClient({
                 <p className="text-muted-foreground mb-4">{system.description}</p>
                 <p className="text-edg-brand mb-6 text-sm font-medium">→ {system.why}</p>
                 <Link href={system.href}>
-                  <Button variant="secondary" size="sm" className="w-full rounded-lg">
+                  <Button variant="secondary" size="sm" className="w-full rounded-none">
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -260,12 +260,12 @@ export default function ServiceAreaClient({
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={`/contact?area=${areaSlug}`}>
-                <Button size="lg" variant="secondary" className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white">
+                <Button size="lg" variant="secondary" className="bg-edg-dark hover:bg-edg-dark/90 rounded-none text-white">
                   Schedule Consultation <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
               <TrackedPhoneLink href="tel:+18155810138">
-                <Button size="lg" variant="secondary" className="border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10 rounded-full">
+                <Button size="lg" variant="secondary" className="border-edg-dark/30 text-edg-dark hover:bg-edg-dark/10 rounded-none">
                   <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
                 </Button>
               </TrackedPhoneLink>
