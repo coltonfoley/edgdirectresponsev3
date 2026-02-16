@@ -8,6 +8,7 @@ export default defineType({
   icon: Home,
   groups: [
     { name: 'hero', title: 'Hero Section' },
+    { name: 'social', title: 'Social Proof' },
     { name: 'systems', title: 'Systems' },
     { name: 'content', title: 'Content Sections' },
     { name: 'cta', title: 'CTA Sections' },
@@ -45,7 +46,7 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'subheadline',
+          name: 'subtitle',
           title: 'Subheadline',
           type: 'text',
           initialValue: 'Full-Service Installation Across Chicago & Milwaukee. Design & Supply Available Nationwide.',
@@ -76,7 +77,19 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'systemsSection',
+      name: 'socialProof',
+      title: 'Social Proof Bar',
+      type: 'object',
+      group: 'social',
+      fields: [
+        defineField({ name: 'projectsDelivered', title: 'Projects Delivered', type: 'number', initialValue: 75 }),
+        defineField({ name: 'builderPartners', title: 'Builder Partners', type: 'number', initialValue: 20 }),
+        defineField({ name: 'googleRating', title: 'Google Rating', type: 'number', initialValue: 5.0 }),
+        defineField({ name: 'yearsExperience', title: 'Years Experience', type: 'number', initialValue: 10 }),
+      ],
+    }),
+    defineField({
+      name: 'productsSection',
       title: 'Systems Section',
       type: 'object',
       group: 'systems',
@@ -88,7 +101,7 @@ export default defineType({
           initialValue: 'Motorized Pergolas, Outdoor Shades & Glass Enclosures Chicago',
         }),
         defineField({
-          name: 'description',
+          name: 'subtitle',
           title: 'Section Description',
           type: 'text',
           initialValue: "We're not tied to one manufacturer. We match the right system to your site, your style, and your goals.",
@@ -103,7 +116,7 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'whySection',
+      name: 'featuresSection',
       title: 'Why EDG Section',
       type: 'object',
       group: 'content',
@@ -115,13 +128,13 @@ export default defineType({
           initialValue: 'Why work with EDG?',
         }),
         defineField({
-          name: 'description',
+          name: 'subtitle',
           title: 'Section Description',
           type: 'text',
           initialValue: "We're not a product showroom. We're a design-build partner that helps you avoid costly mistakes before you break ground.",
         }),
         defineField({
-          name: 'valueProps',
+          name: 'features',
           title: 'Value Propositions',
           type: 'array',
           of: [{
@@ -141,13 +154,13 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'guideCTA',
+      name: 'guideOffer',
       title: 'Guide CTA Section',
       type: 'object',
       group: 'cta',
       fields: [
         defineField({ name: 'title', title: 'Title', type: 'string', initialValue: 'Not ready to talk yet?' }),
-        defineField({ name: 'highlightText', title: 'Highlighted Text', type: 'string', initialValue: 'Start with our free guide.' }),
+        defineField({ name: 'subtitle', title: 'Highlighted Text', type: 'string', initialValue: 'Start with our free guide.' }),
         defineField({ name: 'description', title: 'Description', type: 'text' }),
         defineField({
           name: 'benefits',
@@ -160,7 +173,7 @@ export default defineType({
       ],
     }),
     defineField({
-      name: 'pathCards',
+      name: 'pathsSection',
       title: 'Path Cards Section',
       type: 'object',
       group: 'cta',
@@ -178,7 +191,7 @@ export default defineType({
           initialValue: "Tell us what you're here for and we'll begin the right conversation.",
         }),
         defineField({
-          name: 'cards',
+          name: 'paths',
           title: 'Path Cards',
           type: 'array',
           of: [{

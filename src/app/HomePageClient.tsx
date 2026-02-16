@@ -22,6 +22,7 @@ import { useState } from 'react';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
+import { urlFor } from '@/sanity/lib/image';
 
 interface HomePageProps {
   homepage: any;
@@ -35,6 +36,9 @@ export default function HomePageClient({ homepage }: HomePageProps) {
   const guideOffer = homepage?.guideOffer || {};
   const pathsSection = homepage?.pathsSection || {};
 
+  const videoPosterUrl = hero.videoPoster ? urlFor(hero.videoPoster).url() : "/images/pergolas/pergola-hero.jpg";
+  const videoSrcUrl = hero.videoSrc || "/images/enclosures/commercial-pergola-video-clip-01.mp4";
+
   return (
     <main className="flex min-h-screen flex-col">
       {/* HERO SECTION */}
@@ -45,11 +49,11 @@ export default function HomePageClient({ homepage }: HomePageProps) {
           muted
           loop
           playsInline
-          poster="/images/pergolas/pergola-hero.jpg"
+          poster={videoPosterUrl}
           className="absolute inset-0 z-0 h-full w-full object-cover opacity-40 motion-reduce:hidden"
         >
           <source
-            src="/images/enclosures/commercial-pergola-video-clip-01.mp4"
+            src={videoSrcUrl}
             type="video/mp4"
           />
         </video>
@@ -139,71 +143,109 @@ export default function HomePageClient({ homepage }: HomePageProps) {
             </div>
 
             <div className="space-y-12">
-              {/* Pergolas - Full Width Feature */}
-              <div className="group relative overflow-hidden rounded-3xl bg-black">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${images.systems.pergolas.hero})` }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-                <div className="relative z-10 flex min-h-[500px] max-w-2xl flex-col justify-center p-12 md:p-16 lg:p-20">
-                  <span className="text-edg-brand mb-4 text-sm font-bold tracking-wider uppercase">
-                    Most Popular
-                  </span>
-                  <h3 className="mb-6 text-4xl font-bold text-white md:text-5xl">Louvered Pergolas</h3>
-                  <p className="mb-8 text-xl leading-relaxed text-gray-200">
-                    Motorized aluminum louvers that rotate from full sun to full shade—and close completely for rain protection.
-                  </p>
-                  <ul className="mb-8 grid grid-cols-2 gap-4">
-                    {['Rain drainage built-in', 'Snow load rated', 'Integrated LED & heating', 'Smart home ready'].map((item) => (
-                      <li key={item} className="flex items-center text-gray-300">
-                        <CheckCircle2 className="text-edg-brand mr-2 h-5 w-5 shrink-0" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-4">
-                    <Link href="/price?product=pergola">
-                      <Button size="lg" className="rounded-none">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
-                    </Link>
-                    <Link href="/contact?type=design&product=pergola">
-                      <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Get Quote</Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              {/* Dynamic / Fallback Systems Rendering */}
+              {(() => {
+                const systems = productsSection.systems || [];
+                const pergola = systems.find((s: any) => s.category === 'pergolas' || s.slug?.current === 'pergolas');
+                const shade = systems.find((s: any) => s.category === 'shades' || s.slug?.current === 'shades');
+                const enclosure = systems.find((s: any) => s.category === 'enclosures' || s.slug?.current === 'enclosures');
 
-              {/* Two-Column: Shades + Enclosures */}
-              <div className="grid gap-8 md:grid-cols-2">
-                <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                  <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${images.brand.design.screens})` }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
-                    <h3 className="mb-3 text-3xl font-bold text-white">Motorized Shades</h3>
-                    <p className="mb-6 leading-relaxed text-gray-200">Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.</p>
-                    <div className="mb-6 flex flex-wrap gap-3">
-                      {['Heat reduction', 'UV protection', 'Wind rated'].map((tag) => (
-                        <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
-                      ))}
+                return (
+                  <>
+                    {/* Pergolas - Full Width Feature */}
+                    <div className="group relative overflow-hidden rounded-3xl bg-black">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url(${pergola?.heroImage ? urlFor(pergola.heroImage).url() : images.systems.pergolas.hero})`
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
+                      <div className="relative z-10 flex min-h-[500px] max-w-2xl flex-col justify-center p-12 md:p-16 lg:p-20">
+                        <span className="text-edg-brand mb-4 text-sm font-bold tracking-wider uppercase">
+                          {pergola?.tagline || 'Most Popular'}
+                        </span>
+                        <h3 className="mb-6 text-4xl font-bold text-white md:text-5xl">
+                          {pergola?.name || 'Louvered Pergolas'}
+                        </h3>
+                        <p className="mb-8 text-xl leading-relaxed text-gray-200">
+                          {pergola?.shortDescription || 'Motorized aluminum louvers that rotate from full sun to full shade—and close completely for rain protection.'}
+                        </p>
+                        <ul className="mb-8 grid grid-cols-2 gap-4">
+                          {(pergola?.quickFeatures || ['Rain drainage built-in', 'Snow load rated', 'Integrated LED & heating', 'Smart home ready']).map((item: string) => (
+                            <li key={item} className="flex items-center text-gray-300">
+                              <CheckCircle2 className="text-edg-brand mr-2 h-5 w-5 shrink-0" /> {item}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="flex flex-wrap gap-4">
+                          <Link href={pergola?.pricingUrl || "/price?product=pergola"}>
+                            <Button size="lg" className="rounded-none">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                          </Link>
+                          <Link href={pergola?.quoteUrl || "/contact?type=design&product=pergola"}>
+                            <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Get Quote</Button>
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                    <Link href="/contact?type=price&product=shades" className="text-edg-brand inline-flex items-center font-bold hover:underline">Get Quote <ChevronRight className="ml-1 h-5 w-5" /></Link>
-                  </div>
-                </div>
 
-                <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                  <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${images.brand.design.glassWalls})` }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
-                    <h3 className="mb-3 text-3xl font-bold text-white">Glass Enclosures</h3>
-                    <p className="mb-6 leading-relaxed text-gray-200">Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage.</p>
-                    <div className="mb-6 flex flex-wrap gap-3">
-                      {['Weatherproof', 'Adds value', 'Year-round use'].map((tag) => (
-                        <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
-                      ))}
+                    {/* Two-Column: Shades + Enclosures */}
+                    <div className="grid gap-8 md:grid-cols-2">
+                      <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                          style={{
+                            backgroundImage: `url(${shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens})`
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                        <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
+                          <h3 className="mb-3 text-3xl font-bold text-white">
+                            {shade?.name || 'Motorized Shades'}
+                          </h3>
+                          <p className="mb-6 leading-relaxed text-gray-200">
+                            {shade?.shortDescription || 'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.'}
+                          </p>
+                          <div className="mb-6 flex flex-wrap gap-3">
+                            {(shade?.quickFeatures || ['Heat reduction', 'UV protection', 'Wind rated']).map((tag: string) => (
+                              <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
+                            ))}
+                          </div>
+                          <Link href={shade?.quoteUrl || "/contact?type=price&product=shades"} className="text-edg-brand inline-flex items-center font-bold hover:underline">
+                            Get Quote <ChevronRight className="ml-1 h-5 w-5" />
+                          </Link>
+                        </div>
+                      </div>
+
+                      <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                          style={{
+                            backgroundImage: `url(${enclosure?.heroImage ? urlFor(enclosure.heroImage).url() : images.brand.design.glassWalls})`
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                        <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
+                          <h3 className="mb-3 text-3xl font-bold text-white">
+                            {enclosure?.name || 'Glass Enclosures'}
+                          </h3>
+                          <p className="mb-6 leading-relaxed text-gray-200">
+                            {enclosure?.shortDescription || 'Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage.'}
+                          </p>
+                          <div className="mb-6 flex flex-wrap gap-3">
+                            {(enclosure?.quickFeatures || ['Weatherproof', 'Adds value', 'Year-round use']).map((tag: string) => (
+                              <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
+                            ))}
+                          </div>
+                          <Link href={enclosure?.quoteUrl || "/contact?type=design&product=enclosure"} className="text-edg-brand inline-flex items-center font-bold hover:underline">
+                            Start Consultation <ChevronRight className="ml-1 h-5 w-5" />
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                    <Link href="/contact?type=design&product=enclosure" className="text-edg-brand inline-flex items-center font-bold hover:underline">Start Consultation <ChevronRight className="ml-1 h-5 w-5" /></Link>
-                  </div>
-                </div>
-              </div>
+                  </>
+                );
+              })()}
             </div>
           </FadeIn>
         </Container>
@@ -233,36 +275,36 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                       </div>
                     </div>
                   )) || (
-                    <>
-                      <div className="flex gap-4">
-                        <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                          <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                      <>
+                        <div className="flex gap-4">
+                          <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
+                            <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                          </div>
+                          <div>
+                            <h4 className="mb-1 text-lg font-bold">System-Agnostic Guidance</h4>
+                            <p className="text-edg-gray-text dark:text-gray-400">We match the right system to your site—not push one brand.</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="mb-1 text-lg font-bold">System-Agnostic Guidance</h4>
-                          <p className="text-edg-gray-text dark:text-gray-400">We match the right system to your site—not push one brand.</p>
+                        <div className="flex gap-4">
+                          <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
+                            <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                          </div>
+                          <div>
+                            <h4 className="mb-1 text-lg font-bold">Design-Build Integration</h4>
+                            <p className="text-edg-gray-text dark:text-gray-400">Permitting, engineering, installation—all coordinated by one team.</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                          <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                        <div className="flex gap-4">
+                          <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
+                            <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
+                          </div>
+                          <div>
+                            <h4 className="mb-1 text-lg font-bold">Transparent Process</h4>
+                            <p className="text-edg-gray-text dark:text-gray-400">You know what to expect at every stage. No surprises.</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="mb-1 text-lg font-bold">Design-Build Integration</h4>
-                          <p className="text-edg-gray-text dark:text-gray-400">Permitting, engineering, installation—all coordinated by one team.</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                          <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
-                        </div>
-                        <div>
-                          <h4 className="mb-1 text-lg font-bold">Transparent Process</h4>
-                          <p className="text-edg-gray-text dark:text-gray-400">You know what to expect at every stage. No surprises.</p>
-                        </div>
-                      </div>
-                    </>
-                  )}
+                      </>
+                    )}
                 </div>
               </div>
               {/* Testimonial Block */}
@@ -395,53 +437,53 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                   </div>
                 </Link>
               )) || (
-                <>
-                  <Link href="/design" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
-                    <div className="flex flex-grow flex-col p-8">
-                      <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                        <LayoutTemplate className="h-6 w-6" />
+                  <>
+                    <Link href="/design" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
+                      <div className="flex flex-grow flex-col p-8">
+                        <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                          <LayoutTemplate className="h-6 w-6" />
+                        </div>
+                        <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">Guidance First</div>
+                        <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Plan a Four-Season Space</h3>
+                        <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">I need design guidance, feasibility checks, and a thoughtful planning process.</p>
+                        <div className="flex items-center text-sm font-bold">Start Here <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
                       </div>
-                      <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">Guidance First</div>
-                      <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Plan a Four-Season Space</h3>
-                      <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">I need design guidance, feasibility checks, and a thoughtful planning process.</p>
-                      <div className="flex items-center text-sm font-bold">Start Here <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
-                    </div>
-                  </Link>
-                  <Link href="/price" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
-                    <div className="flex flex-grow flex-col p-8">
-                      <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                        <Calculator className="h-6 w-6" />
+                    </Link>
+                    <Link href="/price" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
+                      <div className="flex flex-grow flex-col p-8">
+                        <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                          <Calculator className="h-6 w-6" />
+                        </div>
+                        <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">Fast & Transparent</div>
+                        <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Get a Starting Price</h3>
+                        <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">I know what I want. Show me pricing models and budget ranges.</p>
+                        <div className="flex items-center text-sm font-bold">View Pricing <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
                       </div>
-                      <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">Fast & Transparent</div>
-                      <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Get a Starting Price</h3>
-                      <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">I know what I want. Show me pricing models and budget ranges.</p>
-                      <div className="flex items-center text-sm font-bold">View Pricing <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
-                    </div>
-                  </Link>
-                  <Link href="/pro" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
-                    <div className="flex flex-grow flex-col p-8">
-                      <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                        <HardHat className="h-6 w-6" />
+                    </Link>
+                    <Link href="/pro" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
+                      <div className="flex flex-grow flex-col p-8">
+                        <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                          <HardHat className="h-6 w-6" />
+                        </div>
+                        <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">Trade Only</div>
+                        <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Builders & Professionals</h3>
+                        <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">I need specs, plan takeoffs, and trade coordination for active projects.</p>
+                        <div className="flex items-center text-sm font-bold">Trade Portal <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
                       </div>
-                      <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">Trade Only</div>
-                      <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Builders & Professionals</h3>
-                      <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">I need specs, plan takeoffs, and trade coordination for active projects.</p>
-                      <div className="flex items-center text-sm font-bold">Trade Portal <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
-                    </div>
-                  </Link>
-                  <Link href="/commercial" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
-                    <div className="flex flex-grow flex-col p-8">
-                      <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
-                        <Building2 className="h-6 w-6" />
+                    </Link>
+                    <Link href="/commercial" className="group hover:border-edg-brand/30 relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-zinc-50 transition-all duration-300 hover:shadow-xl dark:border-white/10 dark:bg-zinc-900">
+                      <div className="flex flex-grow flex-col p-8">
+                        <div className="bg-edg-brand/10 text-edg-brand-text dark:text-edg-brand mb-4 flex h-12 w-12 items-center justify-center rounded-full">
+                          <Building2 className="h-6 w-6" />
+                        </div>
+                        <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">High ROI</div>
+                        <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Restaurants, Hotels & Clubs</h3>
+                        <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">High-ROI outdoor design for hospitality. Increase capacity and revenue year-round.</p>
+                        <div className="flex items-center text-sm font-bold">Commercial Info <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
                       </div>
-                      <div className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">High ROI</div>
-                      <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-3 text-2xl font-bold transition-colors">Restaurants, Hotels & Clubs</h3>
-                      <p className="text-edg-gray-text mb-6 flex-grow dark:text-gray-400">High-ROI outdoor design for hospitality. Increase capacity and revenue year-round.</p>
-                      <div className="flex items-center text-sm font-bold">Commercial Info <ChevronRight className="text-edg-brand-text dark:text-edg-brand ml-1 h-4 w-4" /></div>
-                    </div>
-                  </Link>
-                </>
-              )}
+                    </Link>
+                  </>
+                )}
             </div>
           </FadeIn>
         </Container>

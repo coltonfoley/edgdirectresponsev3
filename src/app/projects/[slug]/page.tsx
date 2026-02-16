@@ -12,12 +12,35 @@ import {
   Clock,
 } from 'lucide-react';
 import { notFound } from 'next/navigation';
-
-import { getAllProjects, getProject } from '@/lib/projects';
-
-// Project data imported from central source
-
 import { Metadata } from 'next';
+import { getProject, getProjects } from '@/sanity/lib/server-fetch';
+import { urlFor } from '@/sanity/lib/image';
+
+// Robust string renderer for potentially block-like or object data
+const renderText = (val: any): string => {
+  if (!val) return '';
+  if (typeof val === 'string') return val;
+  if (typeof val === 'object') {
+    if (val.text) return val.text;
+    if (val.name) return val.name;
+    if (val.label) return val.label;
+    if (val.value) return val.value;
+    // If it's a block, we'll try to extract text from children
+    if (val._type === 'block' && Array.isArray(val.children)) {
+      return val.children.map((c: any) => c.text || '').join('');
+    }
+    // Final fallback to JSON stringify to avoid React child error
+    try {
+      return JSON.stringify(val);
+    } catch {
+      return '[Object]';
+    }
+  }
+  if (Array.isArray(val)) {
+    return val.map(item => renderText(item)).join(' ');
+  }
+  return String(val);
+};
 
 export async function generateMetadata({
   params,
@@ -25,7 +48,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
 
   if (!project) {
     return {};
@@ -41,7 +64,10 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
-  return getAllProjects().map((project) => ({ slug: project.slug }));
+  const projects = await getProjects();
+  return projects.map((project: any) => ({
+    slug: typeof project.slug === 'string' ? project.slug : project.slug?.current
+  }));
 }
 
 export default async function ProjectPage({
@@ -50,11 +76,17 @@ export default async function ProjectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
 
   if (!project) {
     notFound();
   }
+
+  // Handle differences between hardcoded and Sanity data structures
+  const displaySystems = project.systems?.map((s: any) => renderText(s.name || s)) || project.systemNames?.map((s: any) => renderText(s)) || [];
+  const galleryImages = project.gallery?.map((img: any) => img.image ? urlFor(img.image).url() : (img.url || img)) || project.galleryImages || [];
+  const displayServiceAreaSlug = project.serviceArea?.slug?.current || project.serviceAreaSlug;
+  const heroImageUrl = project.heroImage ? urlFor(project.heroImage).url() : '';
 
   return (
     <main className="bg-edg-light min-h-screen dark:bg-black">
@@ -62,7 +94,7 @@ export default async function ProjectPage({
       <section className="relative h-[60vh] min-h-[500px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${project.heroImage}')` }}
+          style={{ backgroundImage: `url('${heroImageUrl}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         <Container className="relative z-10 flex h-full flex-col justify-end pb-12">
@@ -73,9 +105,9 @@ export default async function ProjectPage({
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to gallery
             </Link>
-            {project.serviceAreaSlug && (
+            {displayServiceAreaSlug && (
               <Link
-                href={`/service-areas/${project.serviceAreaSlug}`}
+                href={`/service-areas/${displayServiceAreaSlug}`}
                 className="inline-flex items-center border-l border-white/20 pl-4 text-sm text-white/80 transition-colors hover:text-white"
               >
                 <MapPin className="mr-2 h-4 w-4" /> View Service Area
@@ -104,7 +136,7 @@ export default async function ProjectPage({
               <div>
                 <h2 className="mb-4 text-2xl font-bold">Overview</h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  {project.description}
+                  {renderText(project.description)}
                 </p>
               </div>
 
@@ -112,7 +144,7 @@ export default async function ProjectPage({
               <div>
                 <h2 className="mb-4 text-2xl font-bold">The Challenge</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {project.challenge}
+                  {renderText(project.challenge)}
                 </p>
               </div>
 
@@ -120,7 +152,7 @@ export default async function ProjectPage({
               <div>
                 <h2 className="mb-4 text-2xl font-bold">Our Solution</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {project.solution}
+                  {renderText(project.solution)}
                 </p>
               </div>
 
@@ -128,10 +160,10 @@ export default async function ProjectPage({
               <div>
                 <h2 className="mb-4 text-2xl font-bold">Results</h2>
                 <ul className="space-y-3">
-                  {project.results.map((result, i) => (
+                  {project.results?.map((result: any, i: number) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
-                      <span>{result}</span>
+                      <span>{renderText(result)}</span>
                     </li>
                   ))}
                 </ul>
@@ -141,7 +173,7 @@ export default async function ProjectPage({
               <div>
                 <h2 className="mb-4 text-2xl font-bold">Gallery</h2>
                 <div className="grid grid-cols-3 gap-4">
-                  {project.galleryImages.map((img, i) => (
+                  {galleryImages.map((img: string, i: number) => (
                     <div
                       key={i}
                       className="aspect-square overflow-hidden rounded-xl bg-cover bg-center"
@@ -158,12 +190,12 @@ export default async function ProjectPage({
               <div className="rounded-2xl bg-zinc-100 p-6 dark:bg-zinc-900">
                 <h3 className="mb-4 text-lg font-bold">Project Specs</h3>
                 <dl className="space-y-4">
-                  {project.specs.map((spec) => (
-                    <div key={spec.label}>
+                  {project.specs?.map((spec: any) => (
+                    <div key={renderText(spec.label)}>
                       <dt className="text-muted-foreground text-sm">
-                        {spec.label}
+                        {renderText(spec.label)}
                       </dt>
-                      <dd className="font-medium">{spec.value}</dd>
+                      <dd className="font-medium">{renderText(spec.value)}</dd>
                     </div>
                   ))}
                 </dl>
@@ -173,7 +205,7 @@ export default async function ProjectPage({
               <div className="rounded-2xl bg-zinc-100 p-6 dark:bg-zinc-900">
                 <h3 className="mb-4 text-lg font-bold">Systems Used</h3>
                 <div className="flex flex-wrap gap-2">
-                  {project.systems.map((system) => (
+                  {displaySystems.map((system: string) => (
                     <span
                       key={system}
                       className="bg-edg-brand/10 text-edg-brand rounded-full px-3 py-1 text-sm font-medium"
@@ -224,33 +256,29 @@ export default async function ProjectPage({
         <Container>
           <h2 className="mb-8 text-2xl font-bold">Related Projects</h2>
           <div className="grid gap-8 md:grid-cols-2">
-            {project.relatedProjects.map((relatedSlug) => {
-              const related = getProject(relatedSlug);
-              if (!related) return null;
-              return (
-                <Link
-                  key={relatedSlug}
-                  href={`/projects/${relatedSlug}`}
-                  className="group flex overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-300 hover:shadow-xl dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <div
-                    className="w-1/3 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${related.heroImage}')` }}
-                  />
-                  <div className="w-2/3 p-6">
-                    <span className="text-edg-brand text-xs font-semibold">
-                      {related.type}
-                    </span>
-                    <h3 className="group-hover:text-edg-brand mt-1 mb-2 text-lg font-bold transition-colors">
-                      {related.title}
-                    </h3>
-                    <div className="text-muted-foreground flex items-center text-sm">
-                      <MapPin className="mr-1 h-4 w-4" /> {related.location}
-                    </div>
+            {project.relatedProjects?.map((related: any) => (
+              <Link
+                key={related._id}
+                href={`/projects/${related.slug?.current || related.slug}`}
+                className="group flex overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-300 hover:shadow-xl dark:border-white/5 dark:bg-zinc-900"
+              >
+                <div
+                  className="w-1/3 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  style={{ backgroundImage: `url('${related.cardImage ? urlFor(related.cardImage).url() : (related.heroImage ? urlFor(related.heroImage).url() : '')}')` }}
+                />
+                <div className="w-2/3 p-6">
+                  <span className="text-edg-brand text-xs font-semibold">
+                    {related.type}
+                  </span>
+                  <h3 className="group-hover:text-edg-brand mt-1 mb-2 text-lg font-bold transition-colors">
+                    {related.title}
+                  </h3>
+                  <div className="text-muted-foreground flex items-center text-sm">
+                    <MapPin className="mr-1 h-4 w-4" /> {related.location}
                   </div>
-                </Link>
-              );
-            })}
+                </div>
+              </Link>
+            ))}
           </div>
         </Container>
       </Section>

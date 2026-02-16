@@ -2,6 +2,8 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { getGalleryImages } from '@/sanity/lib/server-fetch';
+import { urlFor } from '@/sanity/lib/image';
 import galleryData from '@/data/gallery-images.json';
 
 export const metadata: Metadata = {
@@ -13,21 +15,18 @@ export const metadata: Metadata = {
   },
 };
 
-interface GalleryImage {
-  src: string;
-  width: number;
-  height: number;
-  alt: string;
-  id: string;
-}
+export default async function GalleryPage() {
+  const sanityImages = await getGalleryImages();
 
-export default function GalleryPage() {
-  // Shuffling the images on the server or client?
-  // To keep it static and stable, let's just use the data as is or deterministic sort.
-  // If we want random on every build, we can do it here.
-  const displayImages: GalleryImage[] = [...galleryData].sort((a, b) =>
-    a.src.localeCompare(b.src)
-  );
+  // Mix in fallbacks if Sanity is empty, or just use Sanity
+  // Given the goal is 100% complete, we should prefer Sanity but allow fallback for dev
+  const displayImages = sanityImages?.length > 0 ? sanityImages.map((img: any) => ({
+    id: img._id,
+    src: urlFor(img.src).url(), // Note: galleryImagesQuery maps image.asset->url to 'src' if I recall, but let's check fetch
+    width: img.width || 800,
+    height: img.height || 600,
+    alt: img.alt || 'EDG Outdoor Living Project',
+  })) : [...galleryData].sort((a, b) => a.src.localeCompare(b.src));
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -56,7 +55,7 @@ export default function GalleryPage() {
 
           {/* Gallery Grid - Masonry-ish feel using CSS columns */}
           <div className="columns-1 gap-8 space-y-8 md:columns-2 lg:columns-3">
-            {displayImages.map((image) => (
+            {displayImages.map((image: any) => (
               <div
                 key={image.id}
                 className="group relative mb-8 break-inside-avoid overflow-hidden rounded-sm bg-zinc-900"

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { urlFor } from '@/sanity/lib/image';
 
 interface Product {
   _id: string;
@@ -14,53 +15,29 @@ interface Product {
   category: string;
   tagline?: string;
   shortDescription?: string;
-  heroImage?: string;
+  heroImage?: any;
 }
 
 interface SystemsClientProps {
   products: Product[];
 }
 
-// Fallback images for each system (since hero images aren't in Sanity yet)
-const fallbackImages: Record<string, string> = {
-  pergolas: '/images/pergolas/residential-black-r-blade-01.jpg',
-  shades: '/images/shades/shade-deployed-screens-01.jpg',
-  enclosures: '/images/enclosures/glass-system-03.jpg',
-  appliances: '/images/appliances/outdoor-kitchen-hero.png',
-};
-
 export default function SystemsClient({ products }: SystemsClientProps) {
-  // Ensure we have products, use fallbacks if empty
-  const displayProducts = products.length > 0 ? products : [
-    {
-      _id: '1',
-      name: 'Louvered Pergolas',
-      slug: 'pergolas',
-      category: 'pergolas',
-      shortDescription: 'Motorized aluminum structures with rotating louvers for complete climate control.',
-    },
-    {
-      _id: '2',
-      name: 'Motorized Shades',
-      slug: 'shades',
-      category: 'shades',
-      shortDescription: 'Wind-rated exterior screens that block heat and glare while preserving your view.',
-    },
-    {
-      _id: '3',
-      name: 'Glass Enclosures',
-      slug: 'enclosures',
-      category: 'enclosures',
-      shortDescription: 'Frameless retractable glass walls that add weatherproof square footage.',
-    },
-    {
-      _id: '4',
-      name: 'Outdoor Appliances',
-      slug: 'appliances',
-      category: 'appliances',
-      shortDescription: 'Premium grills, pizza ovens, and heaters for the ultimate outdoor kitchen.',
-    },
-  ];
+  // If no products are found in Sanity, show a message
+  if (products.length === 0) {
+    return (
+      <main className="min-h-screen bg-white dark:bg-black">
+        <Section className="py-20 text-center">
+          <Container>
+            <h2 className="text-2xl font-bold">No systems found.</h2>
+            <p className="text-muted-foreground mt-4">Please check your Sanity Studio. Coming soon!</p>
+          </Container>
+        </Section>
+      </main>
+    );
+  }
+
+  const displayProducts = products;
 
   return (
     <main className="min-h-screen bg-white dark:bg-black">
@@ -84,11 +61,13 @@ export default function SystemsClient({ products }: SystemsClientProps) {
         <Container>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {displayProducts.map((product) => {
-              const imageSrc = product.heroImage || fallbackImages[product.category] || fallbackImages[product.slug] || '/images/placeholder.jpg';
-              
+              const imageSrc = product.heroImage ? urlFor(product.heroImage).url() : '/images/placeholder.jpg';
+
+              const slugValue = typeof product.slug === 'string' ? product.slug : (product.slug as any).current;
+
               return (
-                <div 
-                  key={product._id} 
+                <div
+                  key={product._id}
                   className="group hover:border-edg-brand overflow-hidden rounded-2xl border border-black/10 transition-colors dark:border-white/10"
                 >
                   <div className="relative aspect-[4/3] bg-gray-200 dark:bg-gray-800">
@@ -110,7 +89,7 @@ export default function SystemsClient({ products }: SystemsClientProps) {
                     <p className="text-muted-foreground mb-6">
                       {product.shortDescription}
                     </p>
-                    <Link href={`/systems/${product.slug}`}>
+                    <Link href={`/systems/${slugValue}`}>
                       <Button className="w-full rounded-none">
                         Explore {product.name.split(' ').pop()} <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>

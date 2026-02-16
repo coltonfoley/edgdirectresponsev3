@@ -23,6 +23,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema } from '@/lib/schema';
+import { urlFor } from '@/sanity/lib/image';
 
 interface PergolasPageProps {
   product: any;
@@ -38,45 +39,49 @@ const iconMap: Record<string, any> = {
   Wifi,
 };
 
-const galleryImages = [
-  { type: 'image' as const, src: '/images/pergolas/residential-black-r-blade-01.jpg', alt: 'Modern black R-Blade pergola installation' },
-  { type: 'image' as const, src: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg', alt: 'Gray bronze R-Blade with white louvers' },
-  { type: 'image' as const, src: '/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg', alt: 'Gray and white R-Shade over outdoor kitchen' },
-  { type: 'image' as const, src: '/images/pergolas/residential-white-r-blade-led-strip.jpg', alt: 'White R-Blade with integrated LED lighting' },
-  { type: 'image' as const, src: '/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg', alt: 'Dark gray R-Blade with recessed lights' },
-];
-
-const colorOptions = [
-  { name: 'White', hex: '#FFFFFF' },
-  { name: 'Black', hex: '#1a1a1a' },
-  { name: 'Bronze', hex: '#4a3728' },
-  { name: 'Graphite', hex: '#4a4a4a' },
-  { name: 'Sand', hex: '#c2b280' },
-  { name: 'Custom RAL', hex: 'linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1)' },
-];
-
 export default function PergolasPageClient({ product }: PergolasPageProps) {
   const serviceSchema = generateServiceSchema({
     name: product?.name || 'Louvered Pergola Installation',
     description: product?.shortDescription || 'Motorized aluminum louvers that rotate from full sun to full shade.',
     url: 'https://www.edgpatioshade.com/systems/pergolas',
-    image: 'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg',
+    image: product?.heroImage ? urlFor(product.heroImage).url() : 'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg',
   });
 
   const features = product?.features || [];
   const specs = product?.specifications || [];
   const quickFeatures = product?.quickFeatures || ['Rotating louvers (0-135°)', 'Rain & snow protection', 'Integrated LED lighting', 'Smart home ready'];
 
+  const galleryImages = product?.gallery?.map((item: any) => ({
+    type: 'image' as const,
+    src: item.image ? urlFor(item.image).url() : (item.url || item),
+    alt: item.alt || product?.name || 'Pergola image',
+  })) || [
+      { type: 'image' as const, src: '/images/pergolas/residential-black-r-blade-01.jpg', alt: 'Modern black R-Blade pergola installation' },
+      { type: 'image' as const, src: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg', alt: 'Gray bronze R-Blade with white louvers' },
+      { type: 'image' as const, src: '/images/pergolas/residential-gray-white-r-shade-outdoor-kitchen.jpg', alt: 'Gray and white R-Shade over outdoor kitchen' },
+      { type: 'image' as const, src: '/images/pergolas/residential-white-r-blade-led-strip.jpg', alt: 'White R-Blade with integrated LED lighting' },
+      { type: 'image' as const, src: '/images/pergolas/residential-dark-gray-r-blade-led-lights.jpg', alt: 'Dark gray R-Blade with recessed lights' },
+    ];
+
+  const colorOptions = product?.colorOptions || [
+    { name: 'White', hex: '#FFFFFF' },
+    { name: 'Black', hex: '#1a1a1a' },
+    { name: 'Bronze', hex: '#4a3728' },
+    { name: 'Graphite', hex: '#4a4a4a' },
+    { name: 'Sand', hex: '#c2b280' },
+    { name: 'Custom RAL', hex: 'linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1)' },
+  ];
+
   return (
     <main className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      
+
       {/* HERO WITH GALLERY */}
       <section className="bg-white pt-8 pb-16 dark:bg-black">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <ProductGallery items={galleryImages} />
-            
+
             <div className="space-y-6 lg:sticky lg:top-40">
               <div>
                 <p className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
@@ -118,46 +123,64 @@ export default function PergolasPageClient({ product }: PergolasPageProps) {
         </Container>
       </section>
 
-      {/* HOW IT WORKS */}
+      {/* HOW IT WORKS / LIFESTYLE */}
       <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
         <Container>
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">See How It Works</h2>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+              {product?.lifestyleTitle || 'See How It Works'}
+            </h2>
             <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-              From blazing sun to sudden rainstorm—adapt your outdoor space in seconds.
+              {product?.lifestyleSubtitle || 'From blazing sun to sudden rainstorm—adapt your outdoor space in seconds.'}
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
-            <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
-              <div className="relative aspect-video">
-                <img src="/images/pergolas/pergola-lifestyle.jpg" alt="Louvers fully open" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute right-4 bottom-4 left-4">
-                  <p className="text-lg font-bold text-white">Full Sun</p>
-                  <p className="text-sm text-white/80">Louvers open at 135°</p>
+            {product?.lifestyleGallery?.length > 0 ? (
+              product.lifestyleGallery.map((item: any, i: number) => (
+                <div key={i} className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
+                  <div className="relative aspect-video">
+                    <img src={urlFor(item.image).url()} alt={item.label || 'Lifestyle image'} className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute right-4 bottom-4 left-4">
+                      <p className="text-lg font-bold text-white">{item.label}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
-              <div className="relative aspect-video">
-                <img src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg" alt="Louvers partially closed" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute right-4 bottom-4 left-4">
-                  <p className="text-lg font-bold text-white">Filtered Light</p>
-                  <p className="text-sm text-white/80">Louvers angled at 45°</p>
+              ))
+            ) : (
+              <>
+                <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
+                  <div className="relative aspect-video">
+                    <img src="/images/pergolas/pergola-lifestyle.jpg" alt="Louvers fully open" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute right-4 bottom-4 left-4">
+                      <p className="text-lg font-bold text-white">Full Sun</p>
+                      <p className="text-sm text-white/80">Louvers open at 135°</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
-              <div className="relative aspect-video">
-                <img src="/images/pergolas/pergola-closed-louvers.jpg" alt="Louvers fully closed" className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute right-4 bottom-4 left-4">
-                  <p className="text-lg font-bold text-white">Full Shade / Rain</p>
-                  <p className="text-sm text-white/80">Louvers closed at 0°</p>
+                <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
+                  <div className="relative aspect-video">
+                    <img src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-03.jpg" alt="Louvers partially closed" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute right-4 bottom-4 left-4">
+                      <p className="text-lg font-bold text-white">Filtered Light</p>
+                      <p className="text-sm text-white/80">Louvers angled at 45°</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+                <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
+                  <div className="relative aspect-video">
+                    <img src="/images/pergolas/pergola-closed-louvers.jpg" alt="Louvers fully closed" className="h-full w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute right-4 bottom-4 left-4">
+                      <p className="text-lg font-bold text-white">Full Shade / Rain</p>
+                      <p className="text-sm text-white/80">Louvers closed at 0°</p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </Container>
       </Section>
@@ -181,10 +204,10 @@ export default function PergolasPageClient({ product }: PergolasPageProps) {
               </ul>
             </div>
             <BeforeAfter
-              beforeImage="/images/pergolas/pergola-before.jpg"
-              afterImage="/images/pergolas/pergola-after.jpg"
-              beforeLabel="Before"
-              afterLabel="After"
+              beforeImage={product?.beforeAfter?.beforeImage ? urlFor(product.beforeAfter.beforeImage).url() : "/images/pergolas/pergola-before.jpg"}
+              afterImage={product?.beforeAfter?.afterImage ? urlFor(product.beforeAfter.afterImage).url() : "/images/pergolas/pergola-after.jpg"}
+              beforeLabel={product?.beforeAfter?.beforeLabel || "Before"}
+              afterLabel={product?.beforeAfter?.afterLabel || "After"}
             />
           </div>
         </Container>
@@ -240,7 +263,7 @@ export default function PergolasPageClient({ product }: PergolasPageProps) {
                 Powder-coated aluminum finishes that resist fading and corrosion.
               </p>
               <div className="grid grid-cols-3 gap-4">
-                {colorOptions.map((color) => (
+                {colorOptions.map((color: any) => (
                   <div key={color.name} className="text-center">
                     <div
                       className="mx-auto mb-2 h-16 w-16 rounded-full border-2 border-gray-200 shadow-sm dark:border-gray-700"

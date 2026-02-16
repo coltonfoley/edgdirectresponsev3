@@ -21,6 +21,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema } from '@/lib/schema';
+import { urlFor } from '@/sanity/lib/image';
 
 interface ShadesPageProps {
   product: any;
@@ -35,42 +36,46 @@ const iconMap: Record<string, any> = {
   Shield,
 };
 
-const galleryImages = [
-  { type: 'image' as const, src: '/images/shades/shade-deployed-screens-01.jpg', alt: 'Motorized mesh screens deployed on white pergola' },
-  { type: 'image' as const, src: '/images/shades/shade-patio-close-01.jpg', alt: 'Exterior screen shades providing sun protection on patio' },
-  { type: 'image' as const, src: '/images/shades/commercial-white-r-blade-screens-lake.jpg', alt: 'Commercial pergola with retractable shade screens overlooking lake' },
-  { type: 'image' as const, src: '/images/shades/shades-hero.jpg', alt: 'Pergola with solid shade panel closed for privacy' },
-];
-
-const fabricOptions = [
-  { name: '5% Openness', desc: 'Maximum view, moderate heat reduction', opacity: 'bg-gray-300' },
-  { name: '3% Openness', desc: 'Balanced view and solar control', opacity: 'bg-gray-500' },
-  { name: '1% Openness', desc: 'Maximum heat/glare reduction', opacity: 'bg-gray-700' },
-  { name: 'Blackout', desc: 'Complete light blockage', opacity: 'bg-gray-900' },
-];
-
 export default function ShadesPageClient({ product }: ShadesPageProps) {
   const serviceSchema = generateServiceSchema({
     name: product?.name || 'Motorized Exterior Shades',
     description: product?.shortDescription || 'Wind-rated exterior screens that block heat and glare.',
     url: 'https://www.edgpatioshade.com/systems/shades',
-    image: 'https://www.edgpatioshade.com/images/shades/shade-deployed-screens-01.jpg',
+    image: product?.heroImage ? urlFor(product.heroImage).url() : 'https://www.edgpatioshade.com/images/shades/shade-deployed-screens-01.jpg',
   });
 
   const features = product?.features || [];
   const specs = product?.specifications || [];
   const quickFeatures = product?.quickFeatures || ['Block 80%+ solar heat', 'Wind rated to 35+ mph', 'Preserve outward view', 'Smart home ready'];
 
+  const galleryImages = product?.gallery?.map((item: any) => ({
+    type: 'image' as const,
+    src: item.image ? urlFor(item.image).url() : (item.url || item),
+    alt: item.alt || product?.name || 'Shade image',
+  })) || [
+      { type: 'image' as const, src: '/images/shades/shade-deployed-screens-01.jpg', alt: 'Motorized mesh screens deployed on white pergola' },
+      { type: 'image' as const, src: '/images/shades/shade-patio-close-01.jpg', alt: 'Exterior screen shades providing sun protection on patio' },
+      { type: 'image' as const, src: '/images/shades/commercial-white-r-blade-screens-lake.jpg', alt: 'Commercial pergola with retractable shade screens overlooking lake' },
+      { type: 'image' as const, src: '/images/shades/shades-hero.jpg', alt: 'Pergola with solid shade panel closed for privacy' },
+    ];
+
+  const fabricOptions = [
+    { name: '5% Openness', desc: 'Maximum view, moderate heat reduction', opacity: 'bg-gray-300' },
+    { name: '3% Openness', desc: 'Balanced view and solar control', opacity: 'bg-gray-500' },
+    { name: '1% Openness', desc: 'Maximum heat/glare reduction', opacity: 'bg-gray-700' },
+    { name: 'Blackout', desc: 'Complete light blockage', opacity: 'bg-gray-900' },
+  ];
+
   return (
     <main className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      
+
       {/* HERO WITH GALLERY */}
       <section className="bg-white pt-8 pb-16 dark:bg-black">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <ProductGallery items={galleryImages} />
-            
+
             <div className="space-y-6 lg:sticky lg:top-40">
               <div>
                 <p className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
@@ -113,10 +118,10 @@ export default function ShadesPageClient({ product }: ShadesPageProps) {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <BeforeAfter
-              beforeImage="/images/shades/shade-before.jpg"
-              afterImage="/images/shades/shade-after.jpg"
-              beforeLabel="Unshaded Patio"
-              afterLabel="With Motorized Shades"
+              beforeImage={product?.beforeAfter?.beforeImage ? urlFor(product.beforeAfter.beforeImage).url() : "/images/shades/shade-before.jpg"}
+              afterImage={product?.beforeAfter?.afterImage ? urlFor(product.beforeAfter.afterImage).url() : "/images/shades/shade-after.jpg"}
+              beforeLabel={product?.beforeAfter?.beforeLabel || "Unshaded Patio"}
+              afterLabel={product?.beforeAfter?.afterLabel || "With Motorized Shades"}
             />
             <div>
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">Feel the Difference</h2>

@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
+import { BeforeAfter } from '@/components/features/gallery/BeforeAfter';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -20,6 +21,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema } from '@/lib/schema';
+import { urlFor } from '@/sanity/lib/image';
 
 interface AppliancesPageProps {
   product: any;
@@ -33,18 +35,6 @@ const iconMap: Record<string, any> = {
   Zap,
   Shield,
 };
-
-const galleryImages = [
-  { type: 'image' as const, src: '/images/appliances/outdoor-kitchen-hero.png', alt: 'Luxury outdoor kitchen with stainless steel grill and pizza oven' },
-  { type: 'image' as const, src: '/images/appliances/patio-heater.png', alt: 'Modern outdoor patio heater next to lounge seating' },
-  { type: 'image' as const, src: '/images/pergolas/residential-black-r-blade-01.jpg', alt: 'Outdoor living space with integrated appliances' },
-];
-
-const useCases = [
-  { title: 'The Outdoor Chef', desc: 'Everything you need to cook gourmet meals outside: grills, side burners, and refrigeration.', image: '/images/appliances/outdoor-kitchen-hero.png' },
-  { title: 'Year-Round Comfort', desc: "Don't let the chill drive you inside. Powerful heaters keep your space usable well into autumn.", image: '/images/appliances/patio-heater.png' },
-  { title: 'Pizza Night', desc: 'Create memories with family and friends around a wood-fired or gas pizza oven.', image: '/images/pergolas/residential-black-r-blade-01.jpg' },
-];
 
 const defaultFeatures = [
   { icon: 'Flame', title: 'High-Performance Grills', description: 'Chef-grade stainless steel grills with precision heat control for the perfect sear every time.' },
@@ -69,23 +59,60 @@ export default function AppliancesPageClient({ product }: AppliancesPageProps) {
     name: product?.name || 'Outdoor Kitchen Appliances',
     description: product?.shortDescription || 'Premium outdoor grills, pizza ovens, and heating solutions for sophisticated outdoor living.',
     url: 'https://www.edgpatioshade.com/systems/appliances',
-    image: 'https://www.edgpatioshade.com/images/appliances/outdoor-kitchen-hero.png',
+    image: product?.heroImage ? urlFor(product.heroImage).url() : 'https://www.edgpatioshade.com/images/appliances/outdoor-kitchen-hero.png',
   });
 
   const features = product?.features || defaultFeatures;
   const specs = product?.specifications || defaultSpecs;
   const quickFeatures = product?.quickFeatures || ['Professional-grade grills', 'Infrared patio heating', 'Outdoor pizza ovens', 'Custom outdoor kitchens'];
 
+  const galleryImages = product?.gallery?.map((item: any) => ({
+    type: 'image' as const,
+    src: item.image ? urlFor(item.image).url() : (item.url || item),
+    alt: item.alt || product?.name || 'Appliance image',
+  })) || [
+      { type: 'image' as const, src: '/images/appliances/outdoor-kitchen-hero.png', alt: 'Luxury outdoor kitchen with stainless steel grill and pizza oven' },
+      { type: 'image' as const, src: '/images/appliances/patio-heater.png', alt: 'Modern outdoor patio heater next to lounge seating' },
+      { type: 'image' as const, src: '/images/pergolas/residential-black-r-blade-01.jpg', alt: 'Outdoor living space with integrated appliances' },
+    ];
+
+  const beforeAfterSection = product?.beforeAfter?.beforeImage ? (
+    <Section className="bg-white py-20 dark:bg-black">
+      <Container>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Total Transformation</h2>
+            <p className="text-edg-gray-text mb-6 text-lg font-medium dark:text-gray-400">
+              See how the right appliances and heating solutions turn a simple patio into a high-end outdoor kitchen.
+            </p>
+          </div>
+          <BeforeAfter
+            beforeImage={urlFor(product.beforeAfter.beforeImage).url()}
+            afterImage={urlFor(product.beforeAfter.afterImage).url()}
+            beforeLabel={product.beforeAfter.beforeLabel || "Before"}
+            afterLabel={product.beforeAfter.afterLabel || "After"}
+          />
+        </div>
+      </Container>
+    </Section>
+  ) : null;
+
+  const useCases = [
+    { title: 'The Outdoor Chef', desc: 'Everything you need to cook gourmet meals outside: grills, side burners, and refrigeration.', image: '/images/appliances/outdoor-kitchen-hero.png' },
+    { title: 'Year-Round Comfort', desc: "Don't let the chill drive you inside. Powerful heaters keep your space usable well into autumn.", image: '/images/appliances/patio-heater.png' },
+    { title: 'Pizza Night', desc: 'Create memories with family and friends around a wood-fired or gas pizza oven.', image: '/images/pergolas/residential-black-r-blade-01.jpg' },
+  ];
+
   return (
     <main className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      
+
       {/* HERO WITH GALLERY */}
       <section className="bg-white pt-8 pb-16 dark:bg-black">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <ProductGallery items={galleryImages} />
-            
+
             <div className="space-y-6 lg:sticky lg:top-40">
               <div>
                 <p className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
@@ -144,6 +171,8 @@ export default function AppliancesPageClient({ product }: AppliancesPageProps) {
           </div>
         </Container>
       </Section>
+
+      {beforeAfterSection}
 
       {/* FEATURES */}
       <Section className="bg-edg-dark py-20 text-white">
