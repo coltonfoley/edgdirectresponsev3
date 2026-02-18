@@ -21,7 +21,6 @@ import {
 import { useState } from 'react';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import Link from 'next/link';
-import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { urlFor } from '@/sanity/lib/image';
 
@@ -45,18 +44,6 @@ export default function HomePageClient({ homepage }: HomePageProps) {
       {/* HERO SECTION */}
       <section className="bg-edg-dark relative flex min-h-[85vh] items-center justify-center overflow-hidden pt-24">
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 via-black to-gray-800"></div>
-        
-        {/* Optimized hero image with priority for LCP */}
-        <Image
-          src="/images/pergolas/pergola-hero.jpg"
-          alt=""
-          fill
-          priority
-          className="absolute inset-0 z-0 object-cover opacity-60"
-          sizes="100vw"
-        />
-        
-        {/* Video with lazy loading - only loads when user scrolls near or interaction */}
         <video
           autoPlay
           muted
@@ -168,13 +155,11 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                   <>
                     {/* Pergolas - Full Width Feature */}
                     <div className="group relative overflow-hidden rounded-3xl bg-black">
-                      {/* Next.js Image for SEO optimization */}
-                      <Image
-                        src={pergola?.heroImage ? urlFor(pergola.heroImage).url() : images.systems.pergolas.hero}
-                        alt={pergola?.name || 'Louvered pergola system with motorized adjustable roof'}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        sizes="(max-width: 1280px) 100vw, 1280px"
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        style={{
+                          backgroundImage: `url(${pergola?.heroImage ? urlFor(pergola.heroImage).url() : images.systems.pergolas.hero})`
+                        }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
                       <div className="relative z-10 flex min-h-[500px] max-w-2xl flex-col justify-center p-12 md:p-16 lg:p-20">
@@ -207,37 +192,12 @@ export default function HomePageClient({ homepage }: HomePageProps) {
 
                     {/* Two-Column: Shades + Enclosures */}
                     <div className="grid gap-8 md:grid-cols-2">
-                      {/* Shades */}
                       <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                        {/* Next.js Image for SEO optimization */}
-                        <Image
-                          src={shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens}
-                          alt={shade?.name || 'Motorized retractable screens for patio shade and insect protection'}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                        <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
-                          <h3 className="mb-3 text-3xl font-bold text-white">{shade?.name || 'Motorized Shades'}</h3>
-                          <p className="mb-6 leading-relaxed text-gray-200">{shade?.shortDescription || 'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.'}</p>
-                          <div className="mb-6 flex flex-wrap gap-3">
-                            {(shade?.quickFeatures || ['Heat reduction', 'UV protection', 'Wind rated']).map((tag: string) => (
-                              <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
-                            ))}
-                          </div>
-
-                    {/* Two-Column: Shades + Enclosures */}
-                    <div className="grid gap-8 md:grid-cols-2">
-                      {/* Shades */}
-                      <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                        {/* Next.js Image for SEO optimization */}
-                        <Image
-                          src={shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens}
-                          alt={shade?.name || 'Motorized Shades'}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                          style={{
+                            backgroundImage: `url(${shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens})`
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                         <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
@@ -258,15 +218,12 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                         </div>
                       </div>
 
-                      {/* Enclosures */}
                       <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                        {/* Next.js Image for SEO optimization */}
-                        <Image
-                          src={enclosure?.heroImage ? urlFor(enclosure.heroImage).url() : images.brand.design.glassWalls}
-                          alt={enclosure?.name || 'Glass Enclosures'}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                        <div
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                          style={{
+                            backgroundImage: `url(${enclosure?.heroImage ? urlFor(enclosure.heroImage).url() : images.brand.design.glassWalls})`
+                          }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                         <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
