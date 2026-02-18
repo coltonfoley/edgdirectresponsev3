@@ -337,6 +337,7 @@ export default function CommercialPage() {
                 alt="Commercial outdoor living installation in Chicago"
                 fill
                 className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
           </div>

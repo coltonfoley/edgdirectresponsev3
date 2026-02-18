@@ -1,278 +1,139 @@
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
-import Image from 'next/image';
-import {
-  ArrowLeft,
-  ArrowRight,
-  MapPin,
-  CheckCircle2,
-} from 'lucide-react';
-import { notFound } from 'next/navigation';
-
-import { getAllProjects, getProject } from '@/lib/projects';
-
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Script from 'next/script';
+import { getProject, getAllProjects } from '@/lib/projects';
+import {
+  enrichProject,
+  findRelatedProjects,
+  parseLocation,
+} from './lib/project-utils';
+import { generateProjectSchema } from './lib/project-schema';
 
+import { ProjectHero } from './components/ProjectHero';
+import { ProjectContent } from './components/ProjectContent';
+import { ProjectSidebar } from './components/ProjectSidebar';
+import { RelatedProjects } from './components/RelatedProjects';
+
+// Cache Components: Static shell with dynamic content streaming
+// No revalidate needed - uses 'use cache' for data fetching
+// Dynamic params handled by generateStaticParams
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+/**
+ * Generate metadata for the project page
+ */
 export async function generateMetadata({
   params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
 
   if (!project) {
-    return {};
+    return { title: 'Project Not Found | EDG Outdoor Living' };
   }
 
+  const location = parseLocation(project.location);
+
   return {
-    title: `${project.title} | EDG Projects`,
-    description: project.description,
+    title: `${project.title} | ${location.city} ${project.type} | EDG Projects`,
+    description: `${project.description} Professional ${project.systems.join(', ')} installation in ${project.location}.`,
+    keywords: [
+      project.type,
+      ...project.systems,
+      location.city,
+      'outdoor living',
+      'pergola',
+      'patio shade',
+      `${location.city} pergola`,
+    ],
     alternates: {
       canonical: `/projects/${slug}`,
+    },
+    openGraph: {
+      title: `${project.title} | EDG Outdoor Living`,
+      description: project.description,
+      type: 'article',
+      url: `/projects/${slug}`,
+      images: project.heroImage ? [{ url: project.heroImage }] : undefined,
     },
   };
 }
 
+/**
+ * Generate static params for build-time generation
+ */
 export async function generateStaticParams() {
-  return getAllProjects().map((project) => ({ slug: project.slug }));
+  return getAllProjects().map((project) => ({
+    slug: project.slug,
+  }));
 }
 
-// ISR: Revalidate every hour to pick up new projects
-export const revalidate = 3600;
-
-// Allow new projects to be generated on-demand
-export const dynamicParams = true;
-
-export default async function ProjectPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+/**
+ * Main Project Detail Page
+ * Handles incomplete data gracefully with conditional rendering
+ */
+export default async function ProjectPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = getProject(slug);
+  const rawProject = getProject(slug);
 
-  if (!project) {
+  if (!rawProject) {
     notFound();
   }
 
+  // Enrich project data with computed flags
+  const project = enrichProject(rawProject);
+
+  // Find related projects dynamically
+  const relatedProjects = findRelatedProjects(rawProject, 3);
+  const enrichedProject = {
+    ...project,
+    hasRelatedProjects: relatedProjects.length > 0,
+  };
+
+  // Generate structured data for SEO
+  const projectSchema = generateProjectSchema(enrichedProject);
+
   return (
-    <main className="bg-edg-light min-h-screen dark:bg-black">
-      {/* ========== HERO ========== */}
-      <section className="relative h-[60vh] min-h-[500px]">
-        <Image
-          src={project.heroImage}
-          alt={project.title}
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-        <Container className="relative z-10 flex h-full flex-col justify-end pb-12">
-          <div className="mb-6 flex flex-wrap gap-4">
-            <Link
-              href="/gallery"
-              className="inline-flex items-center text-sm text-white/80 transition-colors hover:text-white"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" /> Back to gallery
-            </Link>
-            {project.serviceAreaSlug && (
-              <Link
-                href={`/service-areas/${project.serviceAreaSlug}`}
-                className="inline-flex items-center border-l border-white/20 pl-4 text-sm text-white/80 transition-colors hover:text-white"
-              >
-                <MapPin className="mr-2 h-4 w-4" /> View Service Area
-              </Link>
-            )}
-          </div>
-          <span className="bg-edg-brand text-edg-dark mb-4 w-fit rounded-full px-3 py-1 text-sm font-semibold">
-            {project.type}
-          </span>
-          <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-            {project.title}
-          </h1>
-          <div className="flex items-center text-white/80">
-            <MapPin className="mr-2 h-5 w-5" /> {project.location}
-          </div>
-        </Container>
-      </section>
+    <>
+      {/* Structured Data for SEO */}
+      <Script
+        id="project-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
 
-      {/* ========== PROJECT DETAILS ========== */}
-      <Section className="bg-white py-16 dark:bg-black">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-3">
-            {/* Main Content */}
-            <div className="space-y-12 lg:col-span-2">
-              {/* Overview */}
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">Overview</h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {project.description}
-                </p>
+      <main className="min-h-screen bg-edg-light dark:bg-black">
+        {/* Hero Section */}
+        <ProjectHero project={enrichedProject} />
+
+        {/* Main Content + Sidebar */}
+        <section className="bg-white py-16 dark:bg-black">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-12 lg:grid-cols-3">
+              {/* Main Content - Conditional Sections */}
+              <div className="lg:col-span-2">
+                <ProjectContent project={enrichedProject} />
               </div>
 
-              {/* Challenge */}
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">The Challenge</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.challenge}
-                </p>
-              </div>
-
-              {/* Solution */}
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">Our Solution</h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.solution}
-                </p>
-              </div>
-
-              {/* Results */}
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">Results</h2>
-                <ul className="space-y-3">
-                  {project.results.map((result, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
-                      <span>{result}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Gallery */}
-              <div>
-                <h2 className="mb-4 text-2xl font-bold">Gallery</h2>
-                <div className="grid grid-cols-3 gap-4">
-                  {project.galleryImages.map((img, i) => (
-                    <div
-                      key={i}
-                      className="relative aspect-square overflow-hidden rounded-xl"
-                    >
-                      <Image
-                        src={img}
-                        alt={`${project.title} gallery image ${i + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 33vw, 20vw"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-8">
-              {/* Specs */}
-              <div className="rounded-2xl bg-zinc-100 p-6 dark:bg-zinc-900">
-                <h3 className="mb-4 text-lg font-bold">Project Specs</h3>
-                <dl className="space-y-4">
-                  {project.specs.map((spec) => (
-                    <div key={spec.label}>
-                      <dt className="text-muted-foreground text-sm">
-                        {spec.label}
-                      </dt>
-                      <dd className="font-medium">{spec.value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-
-              {/* Systems Used */}
-              <div className="rounded-2xl bg-zinc-100 p-6 dark:bg-zinc-900">
-                <h3 className="mb-4 text-lg font-bold">Systems Used</h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.systems.map((system) => (
-                    <span
-                      key={system}
-                      className="bg-edg-brand/10 text-edg-brand rounded-full px-3 py-1 text-sm font-medium"
-                    >
-                      {system}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Testimonial */}
-              {project.testimonial && (
-                <div className="bg-edg-dark rounded-2xl p-6 text-white">
-                  <blockquote className="mb-4 text-lg leading-relaxed">
-                    &quot;{project.testimonial.quote}&quot;
-                  </blockquote>
-                  <div>
-                    <div className="font-bold">{project.testimonial.name}</div>
-                    <div className="text-sm text-gray-400">
-                      {project.testimonial.title}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* CTA */}
-              <div className="bg-edg-brand text-edg-dark rounded-2xl p-6 text-center">
-                <h3 className="mb-2 text-lg font-bold">Start your project</h3>
-                <p className="mb-4 text-sm">
-                  Let&apos;s discuss what&apos;s possible for your space.
-                </p>
-                <Link href="/contact">
-                  <Button
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 w-full text-white"
-                  >
-                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
+              {/* Sidebar - Specs, Systems, CTA */}
+              <aside className="space-y-8">
+                <ProjectSidebar project={enrichedProject} />
+              </aside>
             </div>
           </div>
-        </Container>
-      </Section>
+        </section>
 
-      {/* ========== RELATED PROJECTS ========== */}
-      <Section className="bg-zinc-100 py-16 dark:bg-zinc-950">
-        <Container>
-          <h2 className="mb-8 text-2xl font-bold">Related Projects</h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            {project.relatedProjects.map((relatedSlug) => {
-              const related = getProject(relatedSlug);
-              if (!related) return null;
-              return (
-                <Link
-                  key={relatedSlug}
-                  href={`/projects/${relatedSlug}`}
-                  className="group flex overflow-hidden rounded-2xl border border-black/5 bg-white transition-all duration-300 hover:shadow-xl dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <div className="relative w-1/3 overflow-hidden">
-                    <Image
-                      src={related.heroImage}
-                      alt={related.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 33vw, 20vw"
-                    />
-                  </div>
-                  <div className="w-2/3 p-6">
-                    <span className="text-edg-brand text-xs font-semibold">
-                      {related.type}
-                    </span>
-                    <h3 className="group-hover:text-edg-brand mt-1 mb-2 text-lg font-bold transition-colors">
-                      {related.title}
-                    </h3>
-                    <div className="text-muted-foreground flex items-center text-sm">
-                      <MapPin className="mr-1 h-4 w-4" /> {related.location}
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </Container>
-      </Section>
-    </main>
+        {/* Related Projects */}
+        {enrichedProject.hasRelatedProjects && (
+          <RelatedProjects
+            projects={relatedProjects}
+            currentLocation={project.location}
+          />
+        )}
+      </main>
+    </>
   );
 }

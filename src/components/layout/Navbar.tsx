@@ -300,6 +300,16 @@ export function Navbar() {
             >
               Gallery
             </Link>
+
+            <Link
+              href="/projects"
+              className={cn(
+                'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                textColor
+              )}
+            >
+              Projects
+            </Link>
           </nav>
 
           {/* Right side actions */}
@@ -423,14 +433,30 @@ export function Navbar() {
 
               <div className="h-px bg-white/10" />
 
+              {/* Work Section */}
               <div className="space-y-4">
+                <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
+                  Our Work
+                </div>
                 <Link
-                  href="/gallery"
-                  className="block text-lg font-bold text-white transition-colors hover:text-edg-brand"
+                  href="/projects"
+                  className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
                   onClick={() => setIsOpen(false)}
                 >
-                  View Gallery
+                  Projects
                 </Link>
+                <Link
+                  href="/gallery"
+                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Gallery
+                </Link>
+              </div>
+
+              <div className="h-px bg-white/10" />
+
+              <div className="space-y-4">
                 <Link
                   href="/trade-partners"
                   className="block text-lg font-bold text-white transition-colors hover:text-edg-brand"

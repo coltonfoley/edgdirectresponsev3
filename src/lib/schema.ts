@@ -148,6 +148,8 @@ export function generateProductSchema(params: {
   image?: string;
   brand?: string;
   category?: string;
+  sku?: string;
+  priceRange?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -160,10 +162,237 @@ export function generateProductSchema(params: {
     },
     ...(params.category && { category: params.category }),
     ...(params.image && { image: params.image }),
+    ...(params.sku && { sku: params.sku }),
     offers: {
-      '@type': 'Offer',
+      '@type': 'AggregateOffer',
       availability: 'https://schema.org/InStock',
       url: 'https://www.edgpatioshade.com/contact',
+      ...(params.priceRange && { priceCurrency: 'USD', priceRange: params.priceRange }),
     },
+  };
+}
+
+/**
+ * Generate BreadcrumbList Schema
+ * 
+ * UX Impact: Enables breadcrumb display in Google search results
+ * SEO Impact: Improves click-through rates, helps understand site structure
+ * AI Impact: Helps AI understand page hierarchy and relationships
+ */
+export function generateBreadcrumbSchema(
+  items: { name: string; url?: string }[],
+  baseUrl: string = 'https://www.edgpatioshade.com'
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      ...(item.url && { item: `${baseUrl}${item.url}` }),
+    })),
+  };
+}
+
+/**
+ * Generate HowTo Schema
+ * 
+ * UX Impact: Step-by-step instructions may appear in rich snippets
+ * SEO Impact: Eligible for How-To rich results in Google
+ * AI Impact: Structured steps help AI understand processes
+ */
+export function generateHowToSchema(params: {
+  name: string;
+  description: string;
+  totalTime?: string; // ISO 8601 duration, e.g., "PT30M"
+  estimatedCost?: { currency: string; value: string };
+  supply?: string[];
+  tool?: string[];
+  step: {
+    name: string;
+    text: string;
+    url?: string;
+    image?: string;
+  }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: params.name,
+    description: params.description,
+    ...(params.totalTime && { totalTime: params.totalTime }),
+    ...(params.estimatedCost && {
+      estimatedCost: {
+        '@type': 'MonetaryAmount',
+        currency: params.estimatedCost.currency,
+        value: params.estimatedCost.value,
+      },
+    }),
+    ...(params.supply && {
+      supply: params.supply.map((s) => ({ '@type': 'HowToSupply', name: s })),
+    }),
+    ...(params.tool && {
+      tool: params.tool.map((t) => ({ '@type': 'HowToTool', name: t })),
+    }),
+    step: params.step.map((s, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: s.name,
+      text: s.text,
+      ...(s.url && { url: s.url }),
+      ...(s.image && { image: s.image }),
+    })),
+  };
+}
+
+/**
+ * Generate Organization Schema
+ * 
+ * UX Impact: Brand knowledge panel in search results
+ * SEO Impact: Entity understanding for E-A-T signals
+ * AI Impact: Critical for AI visibility and knowledge graphs
+ */
+export function generateOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://www.edgpatioshade.com/#organization',
+    name: 'EDG Patio & Shade',
+    alternateName: ['EDG Outdoor Living', 'EDG'],
+    url: 'https://www.edgpatioshade.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.edgpatioshade.com/logo.png',
+      width: 512,
+      height: 512,
+    },
+    image: 'https://www.edgpatioshade.com/og-image.jpg',
+    description:
+      'Design and supply partner for motorized pergolas, exterior shades, and glass enclosures. Serving the Chicago-Milwaukee corridor with nationwide trade partnerships.',
+    foundingDate: '2018',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1802 Holian Drive',
+      addressLocality: 'Spring Grove',
+      addressRegion: 'IL',
+      postalCode: '60081',
+      addressCountry: 'US',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 42.4439,
+      longitude: -88.2356,
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+1-815-581-0138',
+      contactType: 'Sales',
+      email: 'info@edgpatioshade.com',
+      areaServed: ['US-IL', 'US-WI', 'US-FL'],
+      availableLanguage: ['English'],
+    },
+    sameAs: [
+      'https://facebook.com/edgpatioshade',
+      'https://instagram.com/edgpatioshade',
+      // Add more social profiles as they become available
+    ],
+  };
+}
+
+/**
+ * Generate Article Schema for Guides/Blog Posts
+ * 
+ * UX Impact: Article rich snippets with author, publish date
+ * SEO Impact: Eligible for Top Stories (if news), article features
+ * AI Impact: Clear content attribution and freshness signals
+ */
+/**
+ * Generate ServiceArea Schema for Local SEO
+ * 
+ * UX Impact: May appear in local pack results with area served
+ * SEO Impact: Strengthens local relevance signals
+ * AI Impact: Helps AI understand geographic service coverage
+ */
+export function generateServiceAreaSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+  area: {
+    city: string;
+    state: string;
+    county?: string;
+  };
+  services?: string[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ServiceArea',
+    name: params.name,
+    description: params.description,
+    url: params.url,
+    ...(params.image && { image: params.image }),
+    provider: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: params.area.city,
+      containedInPlace: {
+        '@type': 'State',
+        name: params.area.state,
+        ...(params.area.county && {
+          containsPlace: {
+            '@type': 'AdministrativeArea',
+            name: params.area.county,
+          },
+        }),
+      },
+    },
+    ...(params.services && {
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: `Services in ${params.area.city}`,
+        itemListElement: params.services.map((service) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service,
+          },
+        })),
+      },
+    }),
+  };
+}
+
+export function generateArticleSchema(params: {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  datePublished: string;
+  dateModified?: string;
+  author?: string;
+  category?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: params.title,
+    description: params.description,
+    url: params.url,
+    ...(params.image && { image: params.image }),
+    datePublished: params.datePublished,
+    ...(params.dateModified && { dateModified: params.dateModified }),
+    author: {
+      '@type': params.author ? 'Person' : 'Organization',
+      name: params.author || 'EDG Patio & Shade',
+      ...(params.author && { '@id': 'https://www.edgpatioshade.com/#organization' }),
+    },
+    publisher: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    ...(params.category && { articleSection: params.category }),
   };
 }

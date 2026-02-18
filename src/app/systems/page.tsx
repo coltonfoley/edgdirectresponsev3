@@ -82,7 +82,7 @@ const systems = [
     shortTitle: 'Enclosures',
     description:
       'Frameless retractable glass walls that transform outdoor spaces into year-round rooms. Weatherproof square footage added to your home.',
-    image: '/images/enclosures/glass-system-03.jpg',
+    image: '/images/_archive/enclosures/glass-system-03.jpg',
     features: ['Frameless design', 'Retractable panels', 'Weather sealing', 'Year-round use'],
     bestFor: ['Three-season rooms', 'Restaurant patios', 'Event venues', 'Home additions'],
     priceRange: 'From $15,000',
@@ -95,7 +95,7 @@ const systems = [
     shortTitle: 'Kitchens',
     description:
       'Premium built-in grills, appliances, and cabinetry designed for outdoor use. Create the ultimate outdoor cooking and entertaining space.',
-    image: '/images/appliances/outdoor-kitchen-hero.png',
+    image: '/images/_archive/outdoor-kitchen-hero.png',
     features: ['Built-in grills', 'Refrigeration', 'Storage solutions', 'Weather-resistant'],
     bestFor: ['Outdoor cooking', 'Entertaining', 'Complete kitchens', 'Grill islands'],
     priceRange: 'From $8,000',

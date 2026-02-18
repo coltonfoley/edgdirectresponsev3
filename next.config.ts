@@ -2,6 +2,17 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
+
+  // Disable streaming metadata for bots that expect full HTML
+  // This ensures crawlers see complete metadata in <head>
+  htmlLimitedBots: /Twitterbot|Slackbot|Bingbot|LinkedInBot|WhatsApp|FacebookBot|Discordbot/,
+
+  // Enable Cache Components (Partial Prerendering)
+  // SEO Impact: Static shell renders instantly, dynamic content streams
+  // UX Impact: Faster TTFB, better perceived performance
+  // Second-order: Improves Core Web Vitals (LCP, INP)
+  cacheComponents: true,
+
   images: {
     remotePatterns: [
       {

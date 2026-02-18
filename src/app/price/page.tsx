@@ -51,6 +51,11 @@ const faqs = [
     answer:
       'Typically 50% at contract signing, 40% when materials arrive, 10% at completion. For larger projects, we can discuss milestone-based payments.',
   },
+  {
+    question: 'Do you offer financing?',
+    answer:
+      'Yes, we partner with financing providers to offer payment options for qualified buyers. Terms vary based on credit approval. Ask us about financing during your consultation.',
+  },
 ];
 
 import { generateFAQSchema } from '@/lib/schema';
@@ -226,8 +231,108 @@ export default function PricePage() {
         </Container>
       </Section>
 
-      {/* ========== WHAT AFFECTS YOUR QUOTE ========== */}
+      {/* ========== BALLPARK PRICING GUIDANCE ========== */}
       <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+        <Container>
+          <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
+            Ballpark investment ranges
+          </h2>
+          <p className="text-muted-foreground mx-auto mb-12 max-w-3xl text-center text-lg">
+            Every project is unique, but here are typical investment ranges based on project size and complexity. 
+            <strong>Your specific quote may vary</strong> based on site conditions, options, and permitting requirements.
+          </p>
+          
+          <div className="mx-auto max-w-5xl space-y-6">
+            {/* Pergola Pricing Tiers */}
+            <div className="rounded-2xl border border-zinc-200/50 bg-white p-8 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex-1">
+                  <h3 className="mb-2 text-2xl font-bold">Motorized Pergolas</h3>
+                  <p className="text-muted-foreground">
+                    All-weather louvered roof systems with motorized operation, integrated drainage, and smart controls.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-4 lg:gap-8">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Small Projects</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$35K–$50K</div>
+                    <div className="text-xs text-muted-foreground">12×12 to 16×16</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Typical Range</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$50K–$85K</div>
+                    <div className="text-xs text-muted-foreground">16×16 to 20×20</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Large/Custom</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$85K+</div>
+                    <div className="text-xs text-muted-foreground">20×24+ or complex</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Screens Pricing */}
+            <div className="rounded-2xl border border-zinc-200/50 bg-white p-8 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex-1">
+                  <h3 className="mb-2 text-2xl font-bold">Retractable Screens</h3>
+                  <p className="text-muted-foreground">
+                    Motorized exterior screens with MagnaTrack technology for wind resistance and insect protection.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-4 lg:gap-8">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Single Opening</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$4K–$8K</div>
+                    <div className="text-xs text-muted-foreground">Per opening</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Multi-Sided</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$12K–$25K</div>
+                    <div className="text-xs text-muted-foreground">3–4 sides</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Glass Enclosures */}
+            <div className="rounded-2xl border border-zinc-200/50 bg-white p-8 shadow-sm dark:border-zinc-700 dark:bg-zinc-800">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="flex-1">
+                  <h3 className="mb-2 text-2xl font-bold">Glass Enclosure Systems</h3>
+                  <p className="text-muted-foreground">
+                    Frameless sliding or folding glass walls for year-round outdoor room conversion.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-4 lg:gap-8">
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Typical Range</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$35K–$75K</div>
+                    <div className="text-xs text-muted-foreground">Standard openings</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-sm text-muted-foreground mb-1">Large/Custom</div>
+                    <div className="text-2xl font-bold text-edg-brand-text">$75K+</div>
+                    <div className="text-xs text-muted-foreground">Wide spans, corners</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              <strong>Note:</strong> Prices include professional installation but exclude permits, 
+              electrical rough-in by others, and any required structural modifications. 
+              Financing options available for qualified buyers.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ========== WHAT AFFECTS YOUR QUOTE ========== */}
+      <Section className="bg-white py-20 dark:bg-black">
         <Container>
           <h2 className="mb-4 text-center text-3xl font-bold md:text-4xl">
             What affects your quote
@@ -318,7 +423,7 @@ export default function PricePage() {
       </Section>
 
       {/* ========== FAQ ========== */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900" id="pricing-faq">
         <Container>
           <h2 className="mb-12 text-center text-3xl font-bold">
             Pricing Questions

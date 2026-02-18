@@ -1,0 +1,402 @@
+{
+  "generatedAt": "2026-02-18T18:37:32.515Z",
+  "totalProjects": 24,
+  "totalImages": 130,
+  "basePath": "/projects",
+  "projects": [
+    {
+      "slug": "lake-forest-pergola",
+      "title": "Lakefront Pergola & Shades",
+      "location": "Lake Forest, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/lake-forest-pergola/hero.jpg",
+        "gallery": [
+          "/projects/lake-forest-pergola/1.jpg",
+          "/projects/lake-forest-pergola/2.jpg",
+          "/projects/lake-forest-pergola/3.jpg",
+          "/projects/lake-forest-pergola/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "barrington-outdoor-room",
+      "title": "Complete Outdoor Room",
+      "location": "Barrington, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/barrington-outdoor-room/hero.jpg",
+        "gallery": [
+          "/projects/barrington-outdoor-room/1.jpg",
+          "/projects/barrington-outdoor-room/2.jpg",
+          "/projects/barrington-outdoor-room/3.jpg",
+          "/projects/barrington-outdoor-room/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "libertyville-shade-system",
+      "title": "Whole-Home Shade System",
+      "location": "Libertyville, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/libertyville-shade-system/hero.jpg",
+        "gallery": [
+          "/projects/libertyville-shade-system/1.jpg",
+          "/projects/libertyville-shade-system/2.jpg",
+          "/projects/libertyville-shade-system/3.jpg",
+          "/projects/libertyville-shade-system/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "barrington-hills-estate",
+      "title": "Barrington Hills Estate",
+      "location": "Barrington Hills, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/barrington-hills-estate/hero.jpg",
+        "gallery": [
+          "/projects/barrington-hills-estate/1.jpg",
+          "/projects/barrington-hills-estate/2.jpg",
+          "/projects/barrington-hills-estate/3.jpg",
+          "/projects/barrington-hills-estate/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "winnetka-lakeside-retreat",
+      "title": "Winnetka Lakeside Retreat",
+      "location": "Winnetka, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/winnetka-lakeside-retreat/hero.jpg",
+        "gallery": [
+          "/projects/winnetka-lakeside-retreat/1.jpg",
+          "/projects/winnetka-lakeside-retreat/2.jpg",
+          "/projects/winnetka-lakeside-retreat/3.jpg",
+          "/projects/winnetka-lakeside-retreat/4.jpg",
+          "/projects/winnetka-lakeside-retreat/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "northbrook-family-entertaining",
+      "title": "Northbrook Family Entertaining Space",
+      "location": "Northbrook, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/northbrook-family-entertaining/hero.jpg",
+        "gallery": [
+          "/projects/northbrook-family-entertaining/1.jpg",
+          "/projects/northbrook-family-entertaining/2.jpg",
+          "/projects/northbrook-family-entertaining/3.jpg",
+          "/projects/northbrook-family-entertaining/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "glencoe-modern-estate",
+      "title": "Glencoe Modern Estate",
+      "location": "Glencoe, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/glencoe-modern-estate/hero.jpg",
+        "gallery": [
+          "/projects/glencoe-modern-estate/1.jpg",
+          "/projects/glencoe-modern-estate/2.jpg",
+          "/projects/glencoe-modern-estate/3.jpg",
+          "/projects/glencoe-modern-estate/4.jpg",
+          "/projects/glencoe-modern-estate/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "kenilworth-heritage-home",
+      "title": "Kenilworth Heritage Home",
+      "location": "Kenilworth, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/kenilworth-heritage-home/hero.jpg",
+        "gallery": [
+          "/projects/kenilworth-heritage-home/1.jpg",
+          "/projects/kenilworth-heritage-home/2.jpg",
+          "/projects/kenilworth-heritage-home/3.jpg",
+          "/projects/kenilworth-heritage-home/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "evanston-rooftop-terrace",
+      "title": "Evanston Rooftop Terrace",
+      "location": "Evanston, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/evanston-rooftop-terrace/hero.jpg",
+        "gallery": [
+          "/projects/evanston-rooftop-terrace/1.jpg",
+          "/projects/evanston-rooftop-terrace/2.jpg",
+          "/projects/evanston-rooftop-terrace/3.jpg",
+          "/projects/evanston-rooftop-terrace/4.jpg",
+          "/projects/evanston-rooftop-terrace/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "deerfield-backyard-oasis",
+      "title": "Deerfield Backyard Oasis",
+      "location": "Deerfield, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/deerfield-backyard-oasis/hero.jpg",
+        "gallery": [
+          "/projects/deerfield-backyard-oasis/1.jpg",
+          "/projects/deerfield-backyard-oasis/2.jpg",
+          "/projects/deerfield-backyard-oasis/3.jpg",
+          "/projects/deerfield-backyard-oasis/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "hinsdale-garden-room",
+      "title": "Hinsdale Garden Room",
+      "location": "Hinsdale, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/hinsdale-garden-room/hero.jpg",
+        "gallery": [
+          "/projects/hinsdale-garden-room/1.jpg",
+          "/projects/hinsdale-garden-room/2.jpg",
+          "/projects/hinsdale-garden-room/3.jpg",
+          "/projects/hinsdale-garden-room/4.jpg",
+          "/projects/hinsdale-garden-room/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "naperville-pool-pavilion",
+      "title": "Naperville Pool Pavilion",
+      "location": "Naperville, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/naperville-pool-pavilion/hero.jpg",
+        "gallery": [
+          "/projects/naperville-pool-pavilion/1.jpg",
+          "/projects/naperville-pool-pavilion/2.jpg",
+          "/projects/naperville-pool-pavilion/3.jpg",
+          "/projects/naperville-pool-pavilion/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "wheaton-outdoor-dining",
+      "title": "Wheaton Outdoor Dining Pavilion",
+      "location": "Wheaton, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/wheaton-outdoor-dining/hero.jpg",
+        "gallery": [
+          "/projects/wheaton-outdoor-dining/1.jpg",
+          "/projects/wheaton-outdoor-dining/2.jpg",
+          "/projects/wheaton-outdoor-dining/3.jpg",
+          "/projects/wheaton-outdoor-dining/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "elmhurst-entertainment-space",
+      "title": "Elmhurst Entertainment Space",
+      "location": "Elmhurst, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/elmhurst-entertainment-space/hero.jpg",
+        "gallery": [
+          "/projects/elmhurst-entertainment-space/1.jpg",
+          "/projects/elmhurst-entertainment-space/2.jpg",
+          "/projects/elmhurst-entertainment-space/3.jpg",
+          "/projects/elmhurst-entertainment-space/4.jpg",
+          "/projects/elmhurst-entertainment-space/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "lake-geneva-restaurant",
+      "title": "Restaurant Patio Expansion",
+      "location": "Lake Geneva, WI",
+      "type": "Commercial",
+      "images": {
+        "hero": "/projects/lake-geneva-restaurant/hero.jpg",
+        "gallery": [
+          "/projects/lake-geneva-restaurant/1.jpg",
+          "/projects/lake-geneva-restaurant/2.jpg",
+          "/projects/lake-geneva-restaurant/3.jpg",
+          "/projects/lake-geneva-restaurant/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "wilmette-country-club",
+      "title": "Country Club Pool Deck",
+      "location": "Wilmette, IL",
+      "type": "Commercial",
+      "images": {
+        "hero": "/projects/wilmette-country-club/hero.jpg",
+        "gallery": [
+          "/projects/wilmette-country-club/1.jpg",
+          "/projects/wilmette-country-club/2.jpg",
+          "/projects/wilmette-country-club/3.jpg",
+          "/projects/wilmette-country-club/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "st-charles-winery",
+      "title": "St. Charles Winery Tasting Room",
+      "location": "St. Charles, IL",
+      "type": "Commercial",
+      "images": {
+        "hero": "/projects/st-charles-winery/hero.jpg",
+        "gallery": [
+          "/projects/st-charles-winery/1.jpg",
+          "/projects/st-charles-winery/2.jpg",
+          "/projects/st-charles-winery/3.jpg",
+          "/projects/st-charles-winery/4.jpg",
+          "/projects/st-charles-winery/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "arlington-heights-hotel",
+      "title": "Arlington Heights Hotel Patio",
+      "location": "Arlington Heights, IL",
+      "type": "Commercial",
+      "images": {
+        "hero": "/projects/arlington-heights-hotel/hero.jpg",
+        "gallery": [
+          "/projects/arlington-heights-hotel/1.jpg",
+          "/projects/arlington-heights-hotel/2.jpg",
+          "/projects/arlington-heights-hotel/3.jpg",
+          "/projects/arlington-heights-hotel/4.jpg",
+          "/projects/arlington-heights-hotel/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "buffalo-grove-brewery",
+      "title": "Buffalo Grove Brewery Garden",
+      "location": "Buffalo Grove, IL",
+      "type": "Commercial",
+      "images": {
+        "hero": "/projects/buffalo-grove-brewery/hero.jpg",
+        "gallery": [
+          "/projects/buffalo-grove-brewery/1.jpg",
+          "/projects/buffalo-grove-brewery/2.jpg",
+          "/projects/buffalo-grove-brewery/3.jpg",
+          "/projects/buffalo-grove-brewery/4.jpg",
+          "/projects/buffalo-grove-brewery/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "highland-park-builder",
+      "title": "New Construction Integration",
+      "location": "Highland Park, IL",
+      "type": "Builder Project",
+      "images": {
+        "hero": "/projects/highland-park-builder/hero.jpg",
+        "gallery": [
+          "/projects/highland-park-builder/1.jpg",
+          "/projects/highland-park-builder/2.jpg",
+          "/projects/highland-park-builder/3.jpg",
+          "/projects/highland-park-builder/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "lake-forest-estate-builder",
+      "title": "Lake Forest Estate Builder Project",
+      "location": "Lake Forest, IL",
+      "type": "Builder Project",
+      "images": {
+        "hero": "/projects/lake-forest-estate-builder/hero.jpg",
+        "gallery": [
+          "/projects/lake-forest-estate-builder/1.jpg",
+          "/projects/lake-forest-estate-builder/2.jpg",
+          "/projects/lake-forest-estate-builder/3.jpg",
+          "/projects/lake-forest-estate-builder/4.jpg",
+          "/projects/lake-forest-estate-builder/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "winnetka-modern-builder",
+      "title": "Winnetka Modern Builder Integration",
+      "location": "Winnetka, IL",
+      "type": "Builder Project",
+      "images": {
+        "hero": "/projects/winnetka-modern-builder/hero.jpg",
+        "gallery": [
+          "/projects/winnetka-modern-builder/1.jpg",
+          "/projects/winnetka-modern-builder/2.jpg",
+          "/projects/winnetka-modern-builder/3.jpg",
+          "/projects/winnetka-modern-builder/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "glencoe-renovation-builder",
+      "title": "Glencoe Major Renovation",
+      "location": "Glencoe, IL",
+      "type": "Builder Project",
+      "images": {
+        "hero": "/projects/glencoe-renovation-builder/hero.jpg",
+        "gallery": [
+          "/projects/glencoe-renovation-builder/1.jpg",
+          "/projects/glencoe-renovation-builder/2.jpg",
+          "/projects/glencoe-renovation-builder/3.jpg",
+          "/projects/glencoe-renovation-builder/4.jpg",
+          "/projects/glencoe-renovation-builder/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "hinsdale-custom-builder",
+      "title": "Hinsdale Custom Build",
+      "location": "Hinsdale, IL",
+      "type": "Builder Project",
+      "images": {
+        "hero": "/projects/hinsdale-custom-builder/hero.jpg",
+        "gallery": [
+          "/projects/hinsdale-custom-builder/1.jpg",
+          "/projects/hinsdale-custom-builder/2.jpg",
+          "/projects/hinsdale-custom-builder/3.jpg",
+          "/projects/hinsdale-custom-builder/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    }
+  ]
+}

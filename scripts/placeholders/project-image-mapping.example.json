@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-02-18T10:00:00.000Z",
+  "totalProjects": 24,
+  "totalImages": 108,
+  "basePath": "/projects",
+  "notes": "This is an example structure. Run generate.ts to create the actual mapping file.",
+  "projects": [
+    {
+      "slug": "lake-forest-pergola",
+      "title": "Lakefront Pergola & Shades",
+      "location": "Lake Forest, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/lake-forest-pergola/hero.jpg",
+        "gallery": [
+          "/projects/lake-forest-pergola/1.jpg",
+          "/projects/lake-forest-pergola/2.jpg",
+          "/projects/lake-forest-pergola/3.jpg",
+          "/projects/lake-forest-pergola/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    },
+    {
+      "slug": "winnetka-lakeside-retreat",
+      "title": "Winnetka Lakeside Retreat",
+      "location": "Winnetka, IL",
+      "type": "Residential",
+      "images": {
+        "hero": "/projects/winnetka-lakeside-retreat/hero.jpg",
+        "gallery": [
+          "/projects/winnetka-lakeside-retreat/1.jpg",
+          "/projects/winnetka-lakeside-retreat/2.jpg",
+          "/projects/winnetka-lakeside-retreat/3.jpg",
+          "/projects/winnetka-lakeside-retreat/4.jpg",
+          "/projects/winnetka-lakeside-retreat/5.jpg"
+        ]
+      },
+      "imageCount": 6
+    },
+    {
+      "slug": "lake-geneva-restaurant",
+      "title": "Restaurant Patio Expansion",
+      "location": "Lake Geneva, WI",
+      "type": "Commercial",
+      "images": {
+        "hero": "/projects/lake-geneva-restaurant/hero.jpg",
+        "gallery": [
+          "/projects/lake-geneva-restaurant/1.jpg",
+          "/projects/lake-geneva-restaurant/2.jpg",
+          "/projects/lake-geneva-restaurant/3.jpg",
+          "/projects/lake-geneva-restaurant/4.jpg"
+        ]
+      },
+      "imageCount": 5
+    }
+  ]
+}

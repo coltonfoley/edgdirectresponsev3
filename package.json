@@ -11,7 +11,11 @@
     "test:e2e": "playwright test",
     "generate": "plop",
     "validate-images": "node scripts/validate-images.mjs",
-    "migrate-images": "node scripts/migrate-images.mjs"
+    "migrate-images": "node scripts/migrate-images.mjs",
+    "placeholders": "bash scripts/placeholders/manage.sh",
+    "placeholders:generate": "npx tsx scripts/placeholders/generate.ts",
+    "placeholders:list": "npx tsx scripts/placeholders/generate.ts --list",
+    "placeholders:clean": "rm -rf public/projects"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.1",

@@ -82,9 +82,12 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness JSON-LD Schema
-import { localBusinessSchema } from '@/lib/schema';
+// JSON-LD Schemas
+import { localBusinessSchema, generateOrganizationSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
+
+// Organization schema for enhanced AI entity understanding
+const organizationSchema = generateOrganizationSchema();
 
 
 // WebSite Schema for Sitelinks Search Box
@@ -108,6 +111,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Preconnect to critical third-party domains for performance */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { generateBreadcrumbSchema } from '@/lib/schema';
 
 export interface BreadcrumbItem {
   label: string;
@@ -10,13 +11,28 @@ export interface BreadcrumbItem {
 interface BreadcrumbProps {
   items: BreadcrumbItem[];
   className?: string;
+  includeSchema?: boolean; // Option to include JSON-LD schema (default: true)
 }
 
 /**
  * Breadcrumb Component - Server Component
  * 
  * Navigation breadcrumb showing page hierarchy.
- * Use on nested pages to show path from home.
+ * Includes JSON-LD structured data for SEO.
+ * 
+ * UX Impact:
+ * - Clear navigation path for users
+ * - Clickable parent pages for easy back-navigation
+ * - Screen reader accessible
+ * 
+ * SEO Impact:
+ * - BreadcrumbList schema for rich snippets
+ * - Internal linking for crawlability
+ * - Site structure clarity for search engines
+ * 
+ * AI Impact:
+ * - Clear page hierarchy helps AI understand content relationships
+ * - Structured data enables better entity extraction
  * 
  * @example
  * <Breadcrumb
@@ -27,38 +43,74 @@ interface BreadcrumbProps {
  *   ]}
  * />
  */
-export function Breadcrumb({ items, className }: BreadcrumbProps) {
-  return (
-    <nav
-      aria-label="Breadcrumb"
-      className={cn(
-        'flex items-center gap-2 text-sm text-gray-500 flex-wrap',
-        className
-      )}
-    >
-      <Link
-        href="/"
-        className="flex items-center gap-1 hover:text-edg-brand-text transition-colors"
-      >
-        <Home className="h-4 w-4" />
-        <span className="sr-only">Home</span>
-      </Link>
+export function Breadcrumb({ items, className, includeSchema = true }: BreadcrumbProps) {
+  // Build schema items (including Home)
+  const schemaItems = [
+    { name: 'Home', url: '/' },
+    ...items.map(item => ({ name: item.label, url: item.href })),
+  ];
 
-      {items.map((item, index) => (
-        <div key={index} className="flex items-center gap-2">
-          <ChevronRight className="h-4 w-4 text-gray-400" />
-          {item.href ? (
-            <Link
-              href={item.href}
-              className="hover:text-edg-brand-text transition-colors"
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <span className="text-gray-900 font-medium">{item.label}</span>
-          )}
+  const breadcrumbSchema = generateBreadcrumbSchema(schemaItems);
+
+  return (
+    <>
+      {/* JSON-LD Structured Data */}
+      {includeSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
+      )}
+
+      {/* Visual Breadcrumb Navigation */}
+      <nav
+        aria-label="Breadcrumb"
+        className={cn(
+          'flex items-center gap-2 text-sm text-gray-500 flex-wrap',
+          className
+        )}
+        itemScope
+        itemType="https://schema.org/BreadcrumbList"
+      >
+        {/* Home Link */}
+        <div itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+          <Link
+            href="/"
+            itemProp="item"
+            className="flex items-center gap-1 hover:text-edg-brand-text transition-colors"
+          >
+            <Home className="h-4 w-4" />
+            <span itemProp="name" className="sr-only">Home</span>
+          </Link>
+          <meta itemProp="position" content="1" />
         </div>
-      ))}
-    </nav>
+
+        {items.map((item, index) => (
+          <div 
+            key={index} 
+            className="flex items-center gap-2"
+            itemProp="itemListElement" 
+            itemScope 
+            itemType="https://schema.org/ListItem"
+          >
+            <ChevronRight className="h-4 w-4 text-gray-400" />
+            {item.href ? (
+              <Link
+                href={item.href}
+                itemProp="item"
+                className="hover:text-edg-brand-text transition-colors"
+              >
+                <span itemProp="name">{item.label}</span>
+              </Link>
+            ) : (
+              <span itemProp="name" className="text-gray-900 font-medium" aria-current="page">
+                {item.label}
+              </span>
+            )}
+            <meta itemProp="position" content={String(index + 2)} />
+          </div>
+        ))}
+      </nav>
+    </>
   );
 }

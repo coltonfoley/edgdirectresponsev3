@@ -1,8 +1,10 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin, Clock, Phone, Calendar } from 'lucide-react';
 import type { Metadata } from 'next';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
     title: 'Visit Our Showroom | EDG Patio & Shade',
@@ -53,11 +55,16 @@ export default function ShowroomPage() {
                                 </Link>
                             </div>
                         </div>
-                        {/* Placeholder for Showroom Image - Using a generic color block for now or existing image if available */}
+                        {/* Showroom Hero Image */}
                         <div className="relative aspect-video overflow-hidden rounded-2xl bg-zinc-800 border border-white/10">
-                            <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                                <span className="text-sm">Showroom Image Needed</span>
-                            </div>
+                            <Image
+                                src={images.brand.hero.showroom}
+                                alt="EDG Patio & Shade showroom in Spring Grove, IL featuring motorized pergola and retractable screen displays"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                priority
+                            />
                         </div>
                     </div>
                 </Container>
@@ -113,10 +120,10 @@ export default function ShowroomPage() {
                                 you through the displays.
                             </p>
                             <Link
-                                href="tel:1-847-555-0123"
+                                href="tel:1-815-581-0138"
                                 className="text-edg-brand-text dark:text-edg-brand text-lg font-bold hover:underline"
                             >
-                                (847) 555-0123
+                                (815) 581-0138
                             </Link>
                         </div>
                     </div>

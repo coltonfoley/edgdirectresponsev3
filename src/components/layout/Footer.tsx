@@ -6,9 +6,15 @@ import { Button } from '@/components/ui/Button';
 
 import { MapPin, Phone, Mail, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export function Footer() {
   const pathname = usePathname();
+  const [year, setYear] = useState(2026);
+  
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   // Completely hide footer on the interactive guide reading page or admin pages
   if (
@@ -43,8 +49,8 @@ export function Footer() {
                 <Link href="/guides/planning-guide" className="inline-block">
                   <Button
                     size="lg"
-                    variant="secondary"
-                    className="border-white/20 hover:bg-white hover:text-black rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider"
+                    variant="outline"
+                    className="bg-white text-black border-white hover:bg-edg-brand hover:text-black hover:border-edg-brand rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider"
                   >
                     Get the Guide <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -179,7 +185,7 @@ export function Footer() {
                 <Link href="/html-sitemap" className="block text-xs text-gray-500 hover:text-white">Site Map</Link>
                 <Link href="/privacy" className="block text-xs text-gray-500 hover:text-white">Privacy Policy</Link>
                 <Link href="/terms" className="block text-xs text-gray-500 hover:text-white">Terms of Service</Link>
-                <div className="text-xs text-gray-600 mt-4">© {new Date().getFullYear()} EDG Patio & Shade</div>
+                <div className="text-xs text-gray-600 mt-4">© {year} EDG Patio & Shade</div>
               </div>
             </div>
           </div>

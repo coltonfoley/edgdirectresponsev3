@@ -791,6 +791,13 @@
     "id": "/images/brand/hero-pergola.jpg"
   },
   {
+    "src": "/images/brand/hero-screens-new.jpg",
+    "width": 1100,
+    "height": 700,
+    "alt": "hero screens new",
+    "id": "/images/brand/hero-screens-new.jpg"
+  },
+  {
     "src": "/images/brand/hero-screens.jpg",
     "width": 1600,
     "height": 1160,
