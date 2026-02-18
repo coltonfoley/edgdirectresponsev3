@@ -157,64 +157,6 @@ export default function HomePageClient({ homepage }: HomePageProps) {
             </div>
 
             <div className="space-y-12">
-<<<<<<< HEAD
-              {/* Pergolas - Full Width Feature */}
-              <div className="group relative overflow-hidden rounded-3xl bg-black">
-                {/* Next.js Image for SEO optimization */}
-                <Image
-                  src={images.systems.pergolas.hero}
-                  alt="Louvered pergola system with motorized adjustable roof"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1280px) 100vw, 1280px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
-                <div className="relative z-10 flex min-h-[500px] max-w-2xl flex-col justify-center p-12 md:p-16 lg:p-20">
-                  <span className="text-edg-brand mb-4 text-sm font-bold tracking-wider uppercase">
-                    Most Popular
-                  </span>
-                  <h3 className="mb-6 text-4xl font-bold text-white md:text-5xl">Louvered Pergolas</h3>
-                  <p className="mb-8 text-xl leading-relaxed text-gray-200">
-                    Motorized aluminum louvers that rotate from full sun to full shade—and close completely for rain protection.
-                  </p>
-                  <ul className="mb-8 grid grid-cols-2 gap-4">
-                    {['Rain drainage built-in', 'Snow load rated', 'Integrated LED & heating', 'Smart home ready'].map((item) => (
-                      <li key={item} className="flex items-center text-gray-300">
-                        <CheckCircle2 className="text-edg-brand mr-2 h-5 w-5 shrink-0" /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-4">
-                    <Link href="/price?product=pergola">
-                      <Button size="lg" className="rounded-none">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
-                    </Link>
-                    <Link href="/contact?type=design&product=pergola">
-                      <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Get Quote</Button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              {/* Two-Column: Shades + Enclosures */}
-              <div className="grid gap-8 md:grid-cols-2">
-                <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                  {/* Next.js Image for SEO optimization */}
-                  <Image
-                    src={images.brand.design.screens}
-                    alt="Motorized retractable screens for patio shade and insect protection"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
-                    <h3 className="mb-3 text-3xl font-bold text-white">Motorized Shades</h3>
-                    <p className="mb-6 leading-relaxed text-gray-200">Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.</p>
-                    <div className="mb-6 flex flex-wrap gap-3">
-                      {['Heat reduction', 'UV protection', 'Wind rated'].map((tag) => (
-                        <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
-                      ))}
-=======
               {/* Dynamic / Fallback Systems Rendering */}
               {(() => {
                 const systems = productsSection.systems || [];
@@ -226,11 +168,13 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                   <>
                     {/* Pergolas - Full Width Feature */}
                     <div className="group relative overflow-hidden rounded-3xl bg-black">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                        style={{
-                          backgroundImage: `url(${pergola?.heroImage ? urlFor(pergola.heroImage).url() : images.systems.pergolas.hero})`
-                        }}
+                      {/* Next.js Image for SEO optimization */}
+                      <Image
+                        src={pergola?.heroImage ? urlFor(pergola.heroImage).url() : images.systems.pergolas.hero}
+                        alt={pergola?.name || 'Louvered pergola system with motorized adjustable roof'}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 1280px) 100vw, 1280px"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
                       <div className="relative z-10 flex min-h-[500px] max-w-2xl flex-col justify-center p-12 md:p-16 lg:p-20">
@@ -259,36 +203,41 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                           </Link>
                         </div>
                       </div>
->>>>>>> dcf647b7ed8c20f8a3bb0c9ea81a7f123c69be68
                     </div>
 
-<<<<<<< HEAD
-                <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                  {/* Next.js Image for SEO optimization */}
-                  <Image
-                    src={images.brand.design.glassWalls}
-                    alt="Frameless glass wall enclosure system for year-round outdoor living"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                  <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
-                    <h3 className="mb-3 text-3xl font-bold text-white">Glass Enclosures</h3>
-                    <p className="mb-6 leading-relaxed text-gray-200">Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage.</p>
-                    <div className="mb-6 flex flex-wrap gap-3">
-                      {['Weatherproof', 'Adds value', 'Year-round use'].map((tag) => (
-                        <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
-                      ))}
-=======
                     {/* Two-Column: Shades + Enclosures */}
                     <div className="grid gap-8 md:grid-cols-2">
+                      {/* Shades */}
                       <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                        <div
-                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                          style={{
-                            backgroundImage: `url(${shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens})`
-                          }}
+                        {/* Next.js Image for SEO optimization */}
+                        <Image
+                          src={shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens}
+                          alt={shade?.name || 'Motorized retractable screens for patio shade and insect protection'}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                        <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
+                          <h3 className="mb-3 text-3xl font-bold text-white">{shade?.name || 'Motorized Shades'}</h3>
+                          <p className="mb-6 leading-relaxed text-gray-200">{shade?.shortDescription || 'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view.'}</p>
+                          <div className="mb-6 flex flex-wrap gap-3">
+                            {(shade?.quickFeatures || ['Heat reduction', 'UV protection', 'Wind rated']).map((tag: string) => (
+                              <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
+                            ))}
+                          </div>
+
+                    {/* Two-Column: Shades + Enclosures */}
+                    <div className="grid gap-8 md:grid-cols-2">
+                      {/* Shades */}
+                      <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
+                        {/* Next.js Image for SEO optimization */}
+                        <Image
+                          src={shade?.heroImage ? urlFor(shade.heroImage).url() : images.brand.design.screens}
+                          alt={shade?.name || 'Motorized Shades'}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                         <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
@@ -309,12 +258,15 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                         </div>
                       </div>
 
+                      {/* Enclosures */}
                       <div className="group relative min-h-[450px] overflow-hidden rounded-3xl bg-black">
-                        <div
-                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                          style={{
-                            backgroundImage: `url(${enclosure?.heroImage ? urlFor(enclosure.heroImage).url() : images.brand.design.glassWalls})`
-                          }}
+                        {/* Next.js Image for SEO optimization */}
+                        <Image
+                          src={enclosure?.heroImage ? urlFor(enclosure.heroImage).url() : images.brand.design.glassWalls}
+                          alt={enclosure?.name || 'Glass Enclosures'}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                         <div className="absolute right-0 bottom-0 left-0 z-10 p-8 md:p-10">
@@ -334,7 +286,6 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                           </Link>
                         </div>
                       </div>
->>>>>>> dcf647b7ed8c20f8a3bb0c9ea81a7f123c69be68
                     </div>
                   </>
                 );
