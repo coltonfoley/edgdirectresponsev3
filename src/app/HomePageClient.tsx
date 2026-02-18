@@ -277,7 +277,7 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                   {featuresSection.title || "Why work with EDG?"}
                 </h2>
                 <p className="text-muted-foreground mb-8 text-lg">
-                  We're not a product showroom. We're a design-build partner that helps you avoid costly mistakes before you break ground.
+                  {featuresSection.subtitle || "We're a design and supply partner that helps you avoid costly mistakes before you break ground."}
                 </p>
                 <div className="space-y-6">
                   {featuresSection.features?.map((feature: any) => (
