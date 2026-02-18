@@ -183,6 +183,9 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                           <Link href={pergola?.pricingUrl || "/price?product=pergola"}>
                             <Button size="lg" className="rounded-none">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
                           </Link>
+                          <Link href="/systems/pergolas">
+                            <Button size="lg" variant="outline" className="rounded-none border-white/30 text-white hover:bg-white/10">Learn More</Button>
+                          </Link>
                           <Link href={pergola?.quoteUrl || "/contact?type=design&product=pergola"}>
                             <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Get Quote</Button>
                           </Link>
@@ -212,9 +215,15 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                               <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
                             ))}
                           </div>
-                          <Link href={shade?.quoteUrl || "/contact?type=price&product=shades"} className="text-edg-brand inline-flex items-center font-bold hover:underline">
-                            Get Quote <ChevronRight className="ml-1 h-5 w-5" />
-                          </Link>
+                          <div className="flex items-center gap-4">
+                            <Link href="/systems/shades" className="text-edg-brand inline-flex items-center font-bold hover:underline">
+                              Learn More <ChevronRight className="ml-1 h-5 w-5" />
+                            </Link>
+                            <span className="text-white/30">|</span>
+                            <Link href={shade?.quoteUrl || "/contact?type=price&product=shades"} className="text-edg-brand inline-flex items-center font-bold hover:underline">
+                              Get Quote <ChevronRight className="ml-1 h-5 w-5" />
+                            </Link>
+                          </div>
                         </div>
                       </div>
 
@@ -238,9 +247,15 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                               <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-sm text-white backdrop-blur">{tag}</span>
                             ))}
                           </div>
-                          <Link href={enclosure?.quoteUrl || "/contact?type=design&product=enclosure"} className="text-edg-brand inline-flex items-center font-bold hover:underline">
-                            Start Consultation <ChevronRight className="ml-1 h-5 w-5" />
-                          </Link>
+                          <div className="flex items-center gap-4">
+                            <Link href="/systems/enclosures" className="text-edg-brand inline-flex items-center font-bold hover:underline">
+                              Learn More <ChevronRight className="ml-1 h-5 w-5" />
+                            </Link>
+                            <span className="text-white/30">|</span>
+                            <Link href={enclosure?.quoteUrl || "/contact?type=design&product=enclosure"} className="text-edg-brand inline-flex items-center font-bold hover:underline">
+                              Start Consultation <ChevronRight className="ml-1 h-5 w-5" />
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </div>
