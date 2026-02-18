@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import {
   ArrowLeft,
@@ -9,6 +10,9 @@ import {
   Zap,
   Settings,
   Sun,
+  MapPin,
+  HelpCircle,
+  Home,
 } from 'lucide-react';
 import { Metadata } from 'next';
 
@@ -45,6 +49,56 @@ const features = [
     description:
       'Sleek, modern aluminum construction that provides maximum shade without blocking your garden views.',
     icon: Sun,
+  },
+];
+
+const neighborhoods = [
+  {
+    name: 'Ashbury',
+    description:
+      'Elegant estate homes benefit from custom pergola designs that complement the sophisticated architecture while maximizing outdoor entertaining space.',
+  },
+  {
+    name: 'Cress Creek',
+    description:
+      'Golf course properties enjoy panoramic views through frameless aluminum structures that frame the fairways without obstructing sightlines.',
+  },
+  {
+    name: 'Tall Grass',
+    description:
+      'New construction homes integrate seamlessly with smart home automation, allowing residents to control their outdoor environment from anywhere.',
+  },
+  {
+    name: 'Downtown Naperville',
+    description:
+      'Historic properties near the Riverwalk gain modern outdoor functionality while respecting the traditional character of the neighborhood.',
+  },
+  {
+    name: 'Southeast Naperville Estates',
+    description:
+      'Spacious lots accommodate expansive pergola installations with room for full outdoor kitchens, fire features, and multiple seating areas.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Do I need a permit for a motorized pergola in Naperville?',
+    answer:
+      'Yes, permits are typically required for motorized pergola installations in Naperville. The specific requirements depend on your property location, setback distances, and the structure size. Our team handles the entire permit process for you. For detailed information about Naperville\'s zoning regulations, setbacks, and permit requirements, visit our comprehensive ',
+    link: {
+      text: 'Naperville Zoning Guide',
+      href: '/service-areas/naperville-il/zoning-guide',
+    },
+  },
+  {
+    question: 'How much does a motorized pergola cost in Naperville?',
+    answer:
+      'Motorized pergola installations in Naperville typically range from $45,000 to $85,000 depending on size, features, and customization options. Smaller residential systems start around $45K, while larger estates with integrated lighting, heating, and automation features can reach $85K or more. We provide detailed proposals after a complimentary site survey.',
+  },
+  {
+    question: 'How long does installation take?',
+    answer:
+      'From deposit to completion, most motorized pergola projects take 6-10 weeks. This includes engineering review, permit acquisition, custom fabrication, and scheduling. The on-site installation typically requires 2-3 days for standard residential projects. Commercial installations or complex custom designs may require additional time.',
   },
 ];
 
@@ -85,6 +139,14 @@ export default function NapervilleMotorizedPergolas() {
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Naperville
             </Link>
+            <Breadcrumb
+              items={[
+                { label: 'Service Areas', href: '/service-areas' },
+                { label: 'Naperville, IL', href: '/service-areas/naperville-il' },
+                { label: 'Motorized Pergolas' },
+              ]}
+              className="mb-6"
+            />
             <div className="max-w-4xl">
               <h1 className="mb-6 text-4xl font-bold md:text-6xl">
                 Motorized Pergolas <br /> for Naperville Living
@@ -169,6 +231,128 @@ export default function NapervilleMotorizedPergolas() {
                   alt="Motorized pergola installation"
                   className="h-full w-full object-cover"
                 />
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        {/* Local Neighborhoods Section */}
+        <Section className="bg-white py-24 dark:bg-zinc-950">
+          <Container>
+            <div className="mx-auto max-w-4xl text-center">
+              <MapPin className="text-edg-brand mx-auto mb-6 h-12 w-12" />
+              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+                Serving Naperville's Finest Neighborhoods
+              </h2>
+              <p className="text-muted-foreground mb-12 text-lg">
+                We design motorized pergolas that complement the unique character
+                of each Naperville community, from modern subdivisions to historic
+                districts.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {neighborhoods.map((neighborhood) => (
+                <div
+                  key={neighborhood.name}
+                  className="rounded-2xl border border-black/5 bg-zinc-50 p-6 dark:border-white/5 dark:bg-zinc-900"
+                >
+                  <h3 className="mb-3 text-lg font-bold">{neighborhood.name}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {neighborhood.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 text-center">
+              <p className="text-muted-foreground">
+                Don't see your neighborhood? We serve all of{' '}
+                <Link
+                  href="/service-areas/naperville-il"
+                  className="text-edg-brand hover:underline"
+                >
+                  Naperville and surrounding areas
+                </Link>
+                .
+              </p>
+            </div>
+          </Container>
+        </Section>
+
+        {/* FAQ Section */}
+        <Section className="bg-zinc-100 py-24 dark:bg-zinc-900">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-12 text-center">
+                <HelpCircle className="text-edg-brand mx-auto mb-6 h-12 w-12" />
+                <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                  Common Questions About Motorized Pergolas in Naperville
+                </h2>
+                <p className="text-muted-foreground text-lg">
+                  Everything you need to know before investing in your outdoor living space.
+                </p>
+              </div>
+              <div className="space-y-6">
+                {faqs.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="rounded-2xl border border-black/5 bg-white p-8 dark:border-white/5 dark:bg-zinc-950"
+                  >
+                    <h3 className="mb-4 text-lg font-bold">{faq.question}</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                      {faq.link && (
+                        <>
+                          <Link
+                            href={faq.link.href}
+                            className="text-edg-brand hover:underline"
+                          >
+                            {faq.link.text}
+                          </Link>
+                          .
+                        </>
+                      )}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        {/* Enhanced CTA Section */}
+        <Section className="bg-edg-dark py-24 text-white">
+          <Container>
+            <div className="mx-auto max-w-4xl text-center">
+              <Home className="text-edg-brand mx-auto mb-6 h-12 w-12" />
+              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+                Ready to Transform Your Naperville Outdoor Space?
+              </h2>
+              <p className="mb-6 text-lg leading-relaxed text-gray-300">
+                Whether you're in a new construction home in Tall Grass or a
+                historic property near the Riverwalk, we bring the same
+                engineering rigor to every project. Our showroom in Spring Grove
+                is just 45 minutes away—come see the systems in action before
+                you decide.
+              </p>
+              <p className="mb-10 text-gray-400">
+                Schedule a complimentary site survey and receive a detailed
+                proposal tailored to your Naperville property.
+              </p>
+              <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <Link href="/contact?area=naperville&product=motorized_pergola">
+                  <Button size="lg" className="rounded-full">
+                    Get Your Free Proposal <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full border-white/20 text-white hover:bg-white/10"
+                  >
+                    Schedule Showroom Visit
+                  </Button>
+                </Link>
               </div>
             </div>
           </Container>

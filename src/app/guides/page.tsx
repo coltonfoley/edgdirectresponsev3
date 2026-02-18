@@ -3,7 +3,7 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Link } from '@/components/ui/Link';
-import { BookOpen, Scale, ArrowRight, Library } from 'lucide-react';
+import { BookOpen, Scale, ArrowRight, Library, Layers, FileText } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Knowledge Base | Guides & Resources',
@@ -16,6 +16,13 @@ export const metadata: Metadata = {
 
 const guides = [
   {
+    title: 'Free Outdoor Living Planning Guide',
+    desc: 'The complete workbook for planning your project. Budget ranges, system comparisons, and the 7 mistakes to avoid.',
+    href: '/guides/planning-guide',
+    icon: FileText,
+    readTime: '15 min read',
+  },
+  {
     title: 'The Complete Guide to Louvered Pergolas',
     desc: 'Everything you need to know about cost, installation, and winter performance.',
     href: '/guides/louvered-pergolas',
@@ -23,8 +30,15 @@ const guides = [
     readTime: '12 min read',
   },
   {
+    title: 'Louvered Pergola Brands Compared',
+    desc: 'Brustor vs Azenco vs Sundance: An objective comparison from a dealer who installs all three.',
+    href: '/guides/louvered-pergola-brands-compared',
+    icon: Layers,
+    readTime: '10 min read',
+  },
+  {
     title: 'Pergola vs. Patio Cover vs. Awning',
-    desc: "A side-by-side comparison of shade systems to help you choose what's right for your home.",
+    desc: "Understanding the differences between shade systems and how we match the right solution to your home.",
     href: '/guides/pergola-vs-patio-cover',
     icon: Scale,
     readTime: '8 min read',

@@ -464,6 +464,26 @@ const nextConfig: NextConfig = {
       },
 
       // ══════════════════════════════════════════════════════════
+      // ORPHANED PAGES - Redirect orphaned /locations to service-areas
+      // These pages have no internal links and duplicate service area content
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/locations/lake-forest',
+        destination: '/service-areas',
+        permanent: true,
+      },
+      {
+        source: '/locations/highland-park',
+        destination: '/service-areas',
+        permanent: true,
+      },
+      {
+        source: '/locations/lake-geneva',
+        destination: '/service-areas/lake-geneva-wi',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
       // CATCH-ALL: Old blog date structures (must be last)
       // ══════════════════════════════════════════════════════════
       {

@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -72,8 +73,17 @@ export default function SanibelPergolaPage() {
             href="/service-areas/sanibel-outdoor-living"
             className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Sanibel Service Area
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Sanibel
           </Link>
+
+          <Breadcrumb
+            items={[
+              { label: 'Service Areas', href: '/service-areas' },
+              { label: 'Sanibel, FL', href: '/service-areas/sanibel-outdoor-living' },
+              { label: 'Louvered Pergolas' },
+            ]}
+            className="mb-6"
+          />
 
           <div className="max-w-2xl">
             <div className="bg-edg-brand/10 border-edg-brand/20 text-edg-brand mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold tracking-widest uppercase">

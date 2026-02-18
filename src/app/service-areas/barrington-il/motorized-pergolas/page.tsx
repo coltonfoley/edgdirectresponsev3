@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -69,11 +70,20 @@ export default function BarringtonPergolaPage() {
         </div>
 
         <Container className="relative z-20">
+          <Breadcrumb
+            items={[
+              { label: 'Service Areas', href: '/service-areas' },
+              { label: 'Barrington, IL', href: '/service-areas/barrington-il' },
+              { label: 'Motorized Pergolas' },
+            ]}
+            className="mb-6"
+          />
+
           <Link
             href="/service-areas/barrington-il"
             className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Barrington Service Area
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Barrington
           </Link>
 
           <div className="max-w-2xl">

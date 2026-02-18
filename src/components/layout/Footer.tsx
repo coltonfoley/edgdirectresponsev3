@@ -164,6 +164,10 @@ export function Footer() {
                 <li><Link href="/service-areas/northbrook-il" className="text-gray-400 hover:text-edg-brand transition-colors">Northbrook, IL</Link></li>
                 <li><Link href="/service-areas/barrington-il" className="text-gray-400 hover:text-edg-brand transition-colors">Barrington, IL</Link></li>
                 <li><Link href="/service-areas/naperville-il" className="text-gray-400 hover:text-edg-brand transition-colors">Naperville, IL</Link></li>
+                <li><Link href="/service-areas/hinsdale-il" className="text-gray-400 hover:text-edg-brand transition-colors">Hinsdale, IL</Link></li>
+                <li><Link href="/service-areas/oak-brook-il" className="text-gray-400 hover:text-edg-brand transition-colors">Oak Brook, IL</Link></li>
+                <li><Link href="/service-areas/sanibel-outdoor-living" className="text-gray-400 hover:text-edg-brand transition-colors">Sanibel, FL</Link></li>
+                <li><Link href="/service-areas/lake-geneva-wi" className="text-gray-400 hover:text-edg-brand transition-colors">Lake Geneva, WI</Link></li>
               </ul>
               <h4 className="mt-8 mb-6 font-bold uppercase tracking-widest text-white text-xs">Commercial</h4>
               <ul className="space-y-3">

@@ -18,9 +18,9 @@ import * as images from '@/lib/images';
 
 
 export const metadata: Metadata = {
-  title: 'Pergola vs. Patio Cover: Which Is Right for Your Home?',
+  title: 'Pergola vs. Patio Cover: How We Match Systems to Your Needs',
   description:
-    'Compare pergolas, patio covers, and louvered systems side-by-side. Learn the pros, cons, and costs to choose the best shade solution for your Chicagoland home.',
+    'Understanding the differences between pergolas, patio covers, and louvered systems. Learn how we recommend the right shade solution based on your home, climate, and priorities.',
   alternates: {
     canonical: '/guides/pergola-vs-patio-cover',
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 
 const guideData = {
   title: 'Pergola vs. Patio Cover',
-  subtitle: 'Which Is Right For Your Home?',
+  subtitle: 'How We Determine the Right Solution',
   intro:
-    "Confused by the terminology? You're not alone. Here's exactly how to choose between a pergola, a patio cover, and a gazebo for your Chicagoland home.",
+    "Confused by the terminology? You are not alone. Here is how we think about matching the right outdoor structure to your home's architecture, your climate, and how you plan to use the space.",
 };
 
 const comparisonMatrix = [

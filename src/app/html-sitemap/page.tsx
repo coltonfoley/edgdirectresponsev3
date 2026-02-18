@@ -19,7 +19,7 @@ const sitemapLinks = [
       { href: '/contact', label: 'Contact' },
       { href: '/design', label: 'Design Process' },
       { href: '/price', label: 'Pricing' },
-      { href: '/pro', label: 'For Pros' },
+      { href: '/trade-partners', label: 'For Pros' },
       { href: '/gallery', label: 'Gallery' },
     ],
   },

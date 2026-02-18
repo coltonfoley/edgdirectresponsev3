@@ -54,15 +54,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/guides', priority: 0.8 },
     { url: '/guides/louvered-pergolas', priority: 0.9 },
     { url: '/guides/pergola-vs-patio-cover', priority: 0.8 },
+    { url: '/guides/louvered-pergola-brands-compared', priority: 0.8 },
 
     // New Commercial Pages
     { url: '/commercial/hotel-pergolas', priority: 0.9 },
     { url: '/commercial/restaurant-patio-systems', priority: 0.9 },
-
-    // Locations
-    { url: '/locations/lake-forest', priority: 0.8 },
-    { url: '/locations/highland-park', priority: 0.8 },
-    { url: '/locations/lake-geneva', priority: 0.8 },
+    { url: '/commercial/restaurant-patio-solutions', priority: 0.7 },
 
     // New Local Clusters
     { url: '/service-areas/wilmette-il', priority: 0.8 },
