@@ -56,8 +56,25 @@ export function Navbar({ config }: { config: any }) {
 
   const phone = config?.companyInfo?.phone || '(815) 581-0138';
   const phoneRaw = config?.companyInfo?.phoneRaw || '+18155810138';
-  const systemsDropdown = config?.navigation?.systemsDropdown || [];
-  const areasDropdown = config?.navigation?.areasDropdown || [];
+  
+  // Fallback navigation data if Sanity CMS is not populated
+  const systemsDropdown = config?.navigation?.systemsDropdown || [
+    { label: 'Louvered Pergolas', href: '/systems/pergolas', description: 'Motorized aluminum louvers for sun and rain control' },
+    { label: 'Motorized Shades', href: '/systems/shades', description: 'Wind-rated exterior screens for heat and glare protection' },
+    { label: 'Glass Enclosures', href: '/systems/enclosures', description: 'Frameless glass walls for year-round outdoor living' },
+    { label: 'Outdoor Appliances', href: '/systems/appliances', description: 'Heaters, lighting, audio and outdoor kitchen equipment' },
+  ];
+  
+  const areasDropdown = config?.navigation?.areasDropdown || [
+    { label: 'Lake County, IL', href: '/service-areas/lake-county-il', description: 'Local installations throughout Lake County' },
+    { label: 'McHenry County, IL', href: '/service-areas/mchenry-county-il', description: 'Serving McHenry and surrounding areas' },
+    { label: 'Naperville, IL', href: '/service-areas/naperville-il', description: 'DuPage County installations and design' },
+    { label: 'Lake Geneva, WI', href: '/service-areas/lake-geneva-wi', description: 'Wisconsin lake country specialists' },
+    { label: 'Southeast Wisconsin', href: '/service-areas/southeast-wisconsin', description: 'Kenosha, Racine, and Milwaukee corridor' },
+    { label: 'Chicago North Shore', href: '/service-areas/north-shore-chicago', description: 'Winnetka, Wilmette, Highland Park area' },
+    { label: 'All Service Areas', href: '/service-areas', description: 'View all locations we serve' },
+  ];
+  
   const mainLinks = config?.navigation?.mainLinks || [
     { label: 'Gallery', href: '/gallery' },
     { label: 'Guides', href: '/guides' },
