@@ -32,7 +32,8 @@ export const homepageQuery = groq`*[_type == "homepage"][0] {
   },
   guideOffer,
   pathsSection,
-  socialProof
+  socialProof,
+  showroomSection
 }`;
 
 // Products

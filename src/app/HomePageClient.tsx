@@ -17,6 +17,8 @@ import {
   Star,
   BookOpen,
   Phone,
+  MapPin,
+  Clock,
 } from 'lucide-react';
 import { useState } from 'react';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
@@ -35,6 +37,7 @@ export default function HomePageClient({ homepage }: HomePageProps) {
   const featuresSection = homepage?.featuresSection || {};
   const guideOffer = homepage?.guideOffer || {};
   const pathsSection = homepage?.pathsSection || {};
+  const showroomSection = homepage?.showroomSection || {};
 
   const videoPosterUrl = hero.videoPoster ? urlFor(hero.videoPoster).url() : "/images/pergolas/pergola-hero.jpg";
   const videoSrcUrl = hero.videoSrc || "/images/enclosures/commercial-pergola-video-clip-01.mp4";
@@ -337,6 +340,100 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                     <div className="text-muted-foreground text-sm">Lake Forest, IL</div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* SHOWROOM SECTION */}
+      <Section className="bg-white py-24 dark:bg-zinc-950">
+        <Container>
+          <FadeIn>
+            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+              {/* Left: content */}
+              <div>
+                <div className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium tracking-wider uppercase">
+                  <MapPin className="h-4 w-4" />
+                  Spring Grove, IL
+                </div>
+                <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                  {showroomSection.title || "Visit Our Showroom"}
+                </h2>
+                <p className="text-muted-foreground mb-8 text-lg">
+                  {showroomSection.subtitle || "The only showroom in the region where you can see motorized pergolas, screens, and glass enclosures running side by side."}
+                </p>
+
+                <ul className="mb-8 space-y-3">
+                  {(showroomSection.highlights || [
+                    'See live demonstrations of multiple systems',
+                    'Compare manufacturers side by side',
+                    'Training facility for trade partners nationwide',
+                    'By-appointment visits — no sales pressure',
+                  ]).map((item: string) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mb-8 space-y-3">
+                  <div className="flex items-center gap-3 text-sm">
+                    <MapPin className="text-edg-brand h-4 w-4 shrink-0" />
+                    <span className="text-muted-foreground">
+                      {showroomSection.address || "1802 Holian Drive, Spring Grove, IL 60081"}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-sm">
+                    <Clock className="text-edg-brand h-4 w-4 shrink-0" />
+                    <span className="text-muted-foreground">
+                      {showroomSection.hours || "Mon–Fri, 7am–4pm CT"}
+                    </span>
+                  </div>
+                </div>
+
+                <Link href={showroomSection.ctaUrl || "/contact"}>
+                  <Button size="lg" className="rounded-none">
+                    {showroomSection.ctaText || "Schedule a Visit"} <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Right: image or styled callout */}
+              <div className="relative">
+                {showroomSection.image ? (
+                  <div className="overflow-hidden rounded-2xl">
+                    <img
+                      src={urlFor(showroomSection.image).width(800).url()}
+                      alt="EDG Patio & Shade showroom"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="bg-edg-dark flex min-h-[420px] flex-col justify-between overflow-hidden rounded-2xl p-10">
+                    <div>
+                      <div className="text-edg-brand mb-2 text-sm font-bold tracking-wider uppercase">The Only One in the Region</div>
+                      <h3 className="mb-4 text-3xl font-bold text-white">See It Running Before You Buy</h3>
+                      <p className="text-lg leading-relaxed text-gray-300">
+                        Most people buy motorized outdoor systems without ever seeing them in action. We think that's backwards.
+                        Our showroom lets you operate the systems yourself—so you know exactly what you're getting.
+                      </p>
+                    </div>
+                    <div className="mt-8 border-t border-white/10 pt-8">
+                      <div className="grid grid-cols-2 gap-6 text-center">
+                        <div>
+                          <div className="text-edg-brand text-2xl font-bold">3</div>
+                          <div className="mt-1 text-sm text-gray-400">Live Systems on Display</div>
+                        </div>
+                        <div>
+                          <div className="text-edg-brand text-2xl font-bold">1</div>
+                          <div className="mt-1 text-sm text-gray-400">Location in the Region</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </FadeIn>
