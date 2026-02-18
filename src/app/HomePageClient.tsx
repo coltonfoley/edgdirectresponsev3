@@ -184,7 +184,7 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                             <Button size="lg" className="rounded-none">See Pricing <ArrowRight className="ml-2 h-5 w-5" /></Button>
                           </Link>
                           <Link href="/systems/pergolas">
-                            <Button size="lg" variant="outline" className="rounded-none border-white/30 text-white hover:bg-white/10">Learn More</Button>
+                            <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Learn More</Button>
                           </Link>
                           <Link href={pergola?.quoteUrl || "/contact?type=design&product=pergola"}>
                             <Button size="lg" variant="secondary" className="rounded-none border-white/30 text-white hover:bg-white/10">Get Quote</Button>
