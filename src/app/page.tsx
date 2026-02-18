@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = homepage?.seo || {};
 
   return {
-    title: seo.metaTitle || 'Motorized Pergolas Chicago | Outdoor Shades & Glass Enclosures',
+    title: seo.metaTitle || 'Motorized Pergolas Chicago & Milwaukee | EDG Outdoor Living',
     description: seo.metaDescription || 'Premium motorized pergolas, exterior shades, and glass enclosures. Full-service installation for the Chicago to Milwaukee region, with nationwide design and supply available.',
     alternates: {
       canonical: '/',

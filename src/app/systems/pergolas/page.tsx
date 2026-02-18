@@ -4,14 +4,14 @@ import PergolasPageClient from './PergolasPageClient';
 import { productSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Louvered Pergola Systems | Motorized Aluminum Pergolas',
+  title: 'Louvered Pergolas Chicago & Milwaukee | EDG Outdoor Living',
   description:
     'Premium louvered pergola systems with rotating aluminum louvers for complete sun, shade, and rain control. Smart home ready with integrated lighting and heating options.',
   alternates: {
     canonical: '/systems/pergolas',
   },
   openGraph: {
-    title: 'Louvered Pergolas | EDG Outdoor Living',
+    title: 'Louvered Pergolas Chicago & Milwaukee | EDG Outdoor Living',
     description:
       'Motorized aluminum pergolas with rotating louvers. The ultimate four-season outdoor room.',
   },

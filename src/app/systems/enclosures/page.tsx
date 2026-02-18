@@ -4,14 +4,14 @@ import EnclosuresPageClient from './EnclosuresPageClient';
 import { productSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Glass Patio Enclosures | Retractable Glass Walls',
+  title: 'Glass Patio Enclosures Chicago & Milwaukee | EDG Outdoor Living',
   description:
     'Frameless retractable glass wall systems that stack, fold, and disappear. Add weatherproof square footage without heavy construction. Year-round outdoor living.',
   alternates: {
     canonical: '/systems/enclosures',
   },
   openGraph: {
-    title: 'Glass Enclosures | EDG Outdoor Living',
+    title: 'Glass Patio Enclosures Chicago & Milwaukee | EDG Outdoor Living',
     description:
       'Retractable glass walls that add weatherproof square footage to your outdoor space.',
   },

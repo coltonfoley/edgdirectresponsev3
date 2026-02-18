@@ -4,14 +4,14 @@ import ShadesPageClient from './ShadesPageClient';
 import { productSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Motorized Exterior Shades | Outdoor Privacy Screens',
+  title: 'Motorized Exterior Shades Chicago & Milwaukee | EDG Outdoor Living',
   description:
     'Premium motorized exterior shades and outdoor screens. Wind-rated up to 35+ mph, UV protection, and smart home integration. Block heat while preserving your view.',
   alternates: {
     canonical: '/systems/shades',
   },
   openGraph: {
-    title: 'Motorized Exterior Shades | EDG Outdoor Living',
+    title: 'Motorized Exterior Shades Chicago & Milwaukee | EDG Outdoor Living',
     description:
       'Wind-rated exterior screens that block heat and glare while preserving your view.',
   },
