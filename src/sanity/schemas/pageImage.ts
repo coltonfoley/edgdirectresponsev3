@@ -26,8 +26,9 @@ export default defineType({
       group: 'usage',
       description: 'Unique identifier for this image slot (e.g., "homepage-hero-bg", "pergolas-system-card")',
       validation: (Rule) => Rule.required().regex(/^[a-z0-9-]+$/, {
-        message: 'Use only lowercase letters, numbers, and hyphens',
-      }),
+        name: 'lowercase-letters-numbers-hyphens',
+        invert: false,
+      }).error('Use only lowercase letters, numbers, and hyphens'),
     }),
     defineField({
       name: 'title',
