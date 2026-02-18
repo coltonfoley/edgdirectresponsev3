@@ -107,6 +107,12 @@ const nextConfig: NextConfig = {
         destination: '/systems/shades',
         permanent: true,
       },
+      // NEW: Motorized shades 404 fix (SEO audit)
+      {
+        source: '/motorized-shades',
+        destination: '/systems/shades',
+        permanent: true,
+      },
       // NEW: Enclosures brand page
       {
         source: '/lacantina',
