@@ -5,10 +5,20 @@ import { serviceAreaBySlugQuery } from '@/sanity/lib/queries';
 import ServiceAreaClient from '../ServiceAreaClient';
 import { serviceAreaLocalBusinessSchema } from '@/lib/schema';
 
-export const metadata: Metadata = {
-  title: 'Lake County Outdoor Living | EDG Outdoor Living',
-  description: "We're based in Lake County. We design and build outdoor systems that handle our tough winters and maximize our summers. Get a free consultation.",
-};
+import { urlFor } from '@/sanity/lib/image';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const area = await client.fetch(serviceAreaBySlugQuery, { slug: 'lake-county-il' });
+  const seo = area?.seo || {};
+
+  return {
+    title: seo.metaTitle || 'Lake County Outdoor Living | EDG Outdoor Living',
+    description: seo.metaDescription || "We're based in Lake County. We design and build outdoor systems that handle our tough winters and maximize our summers. Get a free consultation.",
+    openGraph: seo.ogImage ? {
+      images: [urlFor(seo.ogImage).url()],
+    } : undefined,
+  };
+}
 
 const defaultPopularSystems = [
   {

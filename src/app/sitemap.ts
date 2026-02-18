@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next';
-import { getAllProjects } from '@/lib/projects';
+import { getProjects } from '@/sanity/lib/server-fetch';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.edgpatioshade.com';
-  const projects = getAllProjects();
+  const projects = await getProjects();
 
   // Main pages from project structure
   const routes = [
@@ -82,8 +82,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route.priority,
   }));
 
-  const projectPages = projects.map((project) => ({
-    url: `${baseUrl}/projects/${project.slug}`,
+  const projectPages = projects.map((project: any) => ({
+    url: `${baseUrl}/projects/${project.slug?.current || project.slug}`,
     lastModified: undefined,
     changeFrequency: 'monthly' as const,
     priority: 0.7,

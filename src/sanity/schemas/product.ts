@@ -74,6 +74,8 @@ export default defineType({
       type: 'image',
       group: 'gallery',
       options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
+      description: 'Main product image shown on cards and lists. 16:9 ratio recommended.',
     }),
     defineField({
       name: 'gallery',
@@ -155,8 +157,8 @@ export default defineType({
       type: 'object',
       group: 'gallery',
       fields: [
-        defineField({ name: 'beforeImage', title: 'Before Image', type: 'image', options: { hotspot: true } }),
-        defineField({ name: 'afterImage', title: 'After Image', type: 'image', options: { hotspot: true } }),
+        defineField({ name: 'beforeImage', title: 'Before Image', type: 'image', options: { hotspot: true }, validation: (Rule) => Rule.required() }),
+        defineField({ name: 'afterImage', title: 'After Image', type: 'image', options: { hotspot: true }, validation: (Rule) => Rule.required() }),
         defineField({ name: 'beforeLabel', title: 'Before Label', type: 'string', initialValue: 'Before' }),
         defineField({ name: 'afterLabel', title: 'After Label', type: 'string', initialValue: 'After' }),
       ],
@@ -200,9 +202,9 @@ export default defineType({
       type: 'object',
       group: 'seo',
       fields: [
-        defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string' }),
-        defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text' }),
-        defineField({ name: 'ogImage', title: 'OG Image', type: 'image' }),
+        defineField({ name: 'metaTitle', title: 'Meta Title', type: 'string', validation: (Rule) => Rule.required().max(60).warning('Should be under 60 characters') }),
+        defineField({ name: 'metaDescription', title: 'Meta Description', type: 'text', validation: (Rule) => Rule.required().max(160).warning('Should be under 160 characters') }),
+        defineField({ name: 'ogImage', title: 'OG Image', type: 'image', description: 'Social share image. 1200x630px' }),
       ],
     }),
     defineField({

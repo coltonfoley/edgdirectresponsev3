@@ -6,18 +6,21 @@ export const siteConfigQuery = groq`*[_type == "siteConfig"][0]`;
 // Homepage
 export const homepageQuery = groq`*[_type == "homepage"][0] {
   ...,
-  "systems": systems[]-> {
-    _id,
-    name,
-    slug,
-    category,
-    tagline,
-    shortDescription,
-    "heroImage": heroImage.asset->url,
-    pricingUrl,
-    quoteUrl
+  "productsSection": productsSection {
+    ...,
+    "systems": systems[]-> {
+      _id,
+      name,
+      slug,
+      category,
+      tagline,
+      shortDescription,
+      heroImage,
+      pricingUrl,
+      quoteUrl
+    }
   },
-  whySection {
+  "featuresSection": featuresSection {
     ...,
     "testimonial": testimonial-> {
       quote,
@@ -26,7 +29,10 @@ export const homepageQuery = groq`*[_type == "homepage"][0] {
       location,
       projectType
     }
-  }
+  },
+  guideOffer,
+  pathsSection,
+  socialProof
 }`;
 
 // Products
@@ -38,7 +44,7 @@ export const productsQuery = groq`*[_type == "product"] | order(order asc) {
   tagline,
   shortDescription,
   description,
-  "heroImage": heroImage.asset->url,
+  heroImage,
   "gallery": gallery[] {
     "url": image.asset->url,
     alt,
@@ -55,20 +61,15 @@ export const productsQuery = groq`*[_type == "product"] | order(order asc) {
 
 export const productBySlugQuery = groq`*[_type == "product" && slug.current == $slug][0] {
   ...,
-  "heroImage": heroImage.asset->url,
+  heroImage,
   "gallery": gallery[] {
-    "url": image.asset->url,
+    image,
     alt,
     caption
   },
-  "beforeAfter": beforeAfter {
-    "beforeImage": beforeImage.asset->url,
-    "afterImage": afterImage.asset->url,
-    beforeLabel,
-    afterLabel
-  },
+  beforeAfter,
   "lifestyleGallery": lifestyleGallery[] {
-    "url": image.asset->url,
+    image,
     label
   },
   "relatedProducts": relatedProducts[]-> {
@@ -76,7 +77,7 @@ export const productBySlugQuery = groq`*[_type == "product" && slug.current == $
     name,
     slug,
     category,
-    "heroImage": heroImage.asset->url,
+    heroImage,
     shortDescription
   }
 }`;
@@ -189,7 +190,7 @@ export const testimonialsQuery = groq`*[_type == "testimonial"] | order(order as
   company,
   projectType,
   type,
-  "image": image.asset->url,
+  image,
   featured
 }`;
 
@@ -200,7 +201,7 @@ export const featuredTestimonialsQuery = groq`*[_type == "testimonial" && featur
   location,
   company,
   projectType,
-  "image": image.asset->url
+  image,
 }`;
 
 // FAQs
@@ -223,8 +224,8 @@ export const projectsQuery = groq`*[_type == "project"] | order(_createdAt desc)
   slug,
   location,
   type,
-  "cardImage": cardImage.asset->url,
-  "heroImage": heroImage.asset->url,
+  cardImage,
+  heroImage,
   description,
   featured,
   systemNames
@@ -232,10 +233,10 @@ export const projectsQuery = groq`*[_type == "project"] | order(_createdAt desc)
 
 export const projectBySlugQuery = groq`*[_type == "project" && slug.current == $slug][0] {
   ...,
-  "cardImage": cardImage.asset->url,
-  "heroImage": heroImage.asset->url,
+  cardImage,
+  heroImage,
   "gallery": gallery[] {
-    "url": image.asset->url,
+    image,
     alt,
     caption
   },
@@ -249,7 +250,7 @@ export const projectBySlugQuery = groq`*[_type == "project" && slug.current == $
     title,
     slug,
     location,
-    "cardImage": cardImage.asset->url
+    cardImage
   }
 }`;
 
@@ -266,7 +267,7 @@ export const serviceAreasQuery = groq`*[_type == "serviceArea"] | order(name asc
 
 export const serviceAreaBySlugQuery = groq`*[_type == "serviceArea" && slug.current == $slug][0] {
   ...,
-  "heroImage": heroImage.asset->url,
+  heroImage,
   localProjects[]-> {
     _id,
     title,
@@ -280,7 +281,7 @@ export const serviceAreaBySlugQuery = groq`*[_type == "serviceArea" && slug.curr
 export const galleryImagesQuery = groq`*[_type == "galleryImage"] | order(order asc) {
   _id,
   title,
-  "src": image.asset->url,
+  "src": image,
   "width": image.asset->metadata.dimensions.width,
   "height": image.asset->metadata.dimensions.height,
   alt,
@@ -292,7 +293,7 @@ export const galleryImagesQuery = groq`*[_type == "galleryImage"] | order(order 
 export const galleryImagesByCategoryQuery = groq`*[_type == "galleryImage" && category == $category] | order(order asc) {
   _id,
   title,
-  "src": image.asset->url,
+  "src": image,
   "width": image.asset->metadata.dimensions.width,
   "height": image.asset->metadata.dimensions.height,
   alt

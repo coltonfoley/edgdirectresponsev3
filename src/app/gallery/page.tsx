@@ -2,7 +2,8 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import galleryData from '@/data/gallery-images.json';
+import { getGalleryImages } from '@/sanity/lib/server-fetch';
+import { urlFor } from '@/sanity/lib/image';
 
 export const metadata: Metadata = {
   title: 'Gallery | EDG Outdoor Living',
@@ -13,21 +14,24 @@ export const metadata: Metadata = {
   },
 };
 
-interface GalleryImage {
-  src: string;
-  width: number;
-  height: number;
-  alt: string;
-  id: string;
-}
+export default async function GalleryPage() {
+  const sanityImages = await getGalleryImages();
 
-export default function GalleryPage() {
-  // Shuffling the images on the server or client?
-  // To keep it static and stable, let's just use the data as is or deterministic sort.
-  // If we want random on every build, we can do it here.
-  const displayImages: GalleryImage[] = [...galleryData].sort((a, b) =>
-    a.src.localeCompare(b.src)
-  );
+  if (!sanityImages || sanityImages.length === 0) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-black text-white">
+        <p className="text-xl opacity-50">No gallery images found in Sanity.</p>
+      </main>
+    );
+  }
+
+  const displayImages = sanityImages.map((img: any) => ({
+    id: img._id,
+    src: urlFor(img.src).url(),
+    width: img.width || 800,
+    height: img.height || 600,
+    alt: img.alt || 'EDG Outdoor Living Project',
+  }));
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -56,7 +60,7 @@ export default function GalleryPage() {
 
           {/* Gallery Grid - Masonry-ish feel using CSS columns */}
           <div className="columns-1 gap-8 space-y-8 md:columns-2 lg:columns-3">
-            {displayImages.map((image) => (
+            {displayImages.map((image: any) => (
               <div
                 key={image.id}
                 className="group relative mb-8 break-inside-avoid overflow-hidden rounded-sm bg-zinc-900"

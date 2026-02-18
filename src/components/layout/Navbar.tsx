@@ -9,7 +9,8 @@ import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useSiteConfig } from '@/hooks/useSanityData';
 
-export function Navbar() {
+// @ts-ignore
+export function Navbar({ config }: { config: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [systemsOpen, setSystemsOpen] = useState(false);
@@ -17,9 +18,14 @@ export function Navbar() {
   const systemsDropdownRef = useRef<HTMLDivElement>(null);
   const areasDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
-  const { config, loading } = useSiteConfig();
 
-  if (pathname?.startsWith('/admin')) return null;
+  useEffect(() => {
+    if (config) {
+      console.log('Sanity Site Config Loaded:', config);
+    }
+  }, [config]);
+
+  if (pathname?.startsWith('/admin') || pathname?.startsWith('/studio')) return null;
 
   useEffect(() => {
     const handleScroll = () => {

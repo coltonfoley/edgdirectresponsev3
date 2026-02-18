@@ -21,6 +21,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema } from '@/lib/schema';
+import { urlFor } from '@/sanity/lib/image';
 
 interface EnclosuresPageProps {
   product: any;
@@ -35,45 +36,49 @@ const iconMap: Record<string, any> = {
   Droplets,
 };
 
-const galleryImages = [
-  { type: 'image' as const, src: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg', alt: 'Commercial glass enclosure at night with outdoor dining' },
-  { type: 'image' as const, src: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg', alt: 'Retractable glass panels open on commercial patio during the day' },
-  { type: 'image' as const, src: '/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg', alt: 'Glass wall system with elegant hanging lights' },
-  { type: 'image' as const, src: '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg', alt: 'Interior view of glass enclosure on wood deck' },
-  { type: 'image' as const, src: '/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg', alt: 'Glass enclosure interior lighting at night' },
-  { type: 'image' as const, src: '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg', alt: 'Residential white pergola with glass sliding doors by the pool' },
-  { type: 'image' as const, src: '/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg', alt: 'Modern louvered roof with glass enclosure exterior view' },
-  { type: 'image' as const, src: '/images/enclosures/residential-glass-enclosure-lifestyle.jpg', alt: 'Residential glass enclosure with people lounging inside' },
-];
-
-const systemTypes = [
-  { name: 'Bi-Fold', desc: 'Panels fold accordion-style to one or both sides. Best for large openings.', image: '/images/frameless-sliding-glass-walls.jpg' },
-  { name: 'Stacking', desc: 'Individual panels slide and stack. Great for partial openings.', image: '/images/staging/residential-white-pergola-pool-glass-doors-01.jpg' },
-  { name: 'Sliding', desc: 'Panels slide on tracks. Ideal for narrow spaces or straight runs.', image: '/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg' },
-];
-
 export default function EnclosuresPageClient({ product }: EnclosuresPageProps) {
   const serviceSchema = generateServiceSchema({
     name: product?.name || 'Glass Enclosure Systems',
     description: product?.shortDescription || 'Frameless retractable glass walls that transform your patio into a year-round room.',
     url: 'https://www.edgpatioshade.com/systems/enclosures',
-    image: 'https://www.edgpatioshade.com/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
+    image: product?.heroImage ? urlFor(product.heroImage).url() : 'https://www.edgpatioshade.com/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
   });
 
   const features = product?.features || [];
   const specs = product?.specifications || [];
   const quickFeatures = product?.quickFeatures || ['Panels stack & disappear', 'Weatherproof seals', 'Year-round use', 'Adds home value'];
 
+  const galleryImages = product?.gallery?.map((item: any) => ({
+    type: 'image' as const,
+    src: item.image ? urlFor(item.image).url() : (item.url || item),
+    alt: item.alt || product?.name || 'Enclosure image',
+  })) || [
+      { type: 'image' as const, src: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg', alt: 'Commercial glass enclosure at night with outdoor dining' },
+      { type: 'image' as const, src: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg', alt: 'Retractable glass panels open on commercial patio during the day' },
+      { type: 'image' as const, src: '/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg', alt: 'Glass wall system with elegant hanging lights' },
+      { type: 'image' as const, src: '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg', alt: 'Interior view of glass enclosure on wood deck' },
+      { type: 'image' as const, src: '/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg', alt: 'Glass enclosure interior lighting at night' },
+      { type: 'image' as const, src: '/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg', alt: 'Residential white pergola with glass sliding doors by the pool' },
+      { type: 'image' as const, src: '/images/pergolas/residential-white-pergola-pool-glass-doors-02.jpg', alt: 'Modern louvered roof with glass enclosure exterior view' },
+      { type: 'image' as const, src: '/images/enclosures/residential-glass-enclosure-lifestyle.jpg', alt: 'Residential glass enclosure with people lounging inside' },
+    ];
+
+  const systemTypes = [
+    { name: 'Bi-Fold', desc: 'Panels fold accordion-style to one or both sides. Best for large openings.', image: '/images/frameless-sliding-glass-walls.jpg' },
+    { name: 'Stacking', desc: 'Individual panels slide and stack. Great for partial openings.', image: '/images/staging/residential-white-pergola-pool-glass-doors-01.jpg' },
+    { name: 'Sliding', desc: 'Panels slide on tracks. Ideal for narrow spaces or straight runs.', image: '/images/staging/Photo B250XL Brustor - REF_2022NL04 (5).jpg' },
+  ];
+
   return (
     <main className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      
+
       {/* HERO WITH GALLERY */}
       <section className="bg-white pt-8 pb-16 dark:bg-black">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <ProductGallery items={galleryImages} />
-            
+
             <div className="space-y-6 lg:sticky lg:top-40">
               <div>
                 <p className="text-edg-brand-text dark:text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
@@ -111,27 +116,42 @@ export default function EnclosuresPageClient({ product }: EnclosuresPageProps) {
         </Container>
       </section>
 
-      {/* SYSTEM TYPES */}
+      {/* SYSTEM TYPES / LIFESTYLE */}
       <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
         <Container>
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Opening Configurations</h2>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+              {product?.lifestyleTitle || 'Opening Configurations'}
+            </h2>
             <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
-              Choose how your space opens based on your layout and preferences.
+              {product?.lifestyleSubtitle || 'Choose how your space opens based on your layout and preferences.'}
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
-            {systemTypes.map((type) => (
-              <div key={type.name} className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
-                <div className="relative aspect-video">
-                  <img src={type.image} alt={type.name} className="h-full w-full object-cover" />
+            {product?.lifestyleGallery?.length > 0 ? (
+              product.lifestyleGallery.map((item: any) => (
+                <div key={item._key} className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
+                  <div className="relative aspect-video">
+                    <img src={urlFor(item.image).url()} alt={item.label} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-bold">{item.label}</h3>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold">{type.name}</h3>
-                  <p className="text-edg-gray-text font-medium dark:text-gray-400">{type.desc}</p>
+              ))
+            ) : (
+              systemTypes.map((type) => (
+                <div key={type.name} className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-800">
+                  <div className="relative aspect-video">
+                    <img src={type.image} alt={type.name} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-bold">{type.name}</h3>
+                    <p className="text-edg-gray-text font-medium dark:text-gray-400">{type.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </Container>
       </Section>
@@ -155,10 +175,10 @@ export default function EnclosuresPageClient({ product }: EnclosuresPageProps) {
               </ul>
             </div>
             <BeforeAfter
-              beforeImage="/images/enclosures/glass-enclosure-partial-open.jpg"
-              afterImage="/images/enclosures/glass-enclosure-closed-exterior.jpg"
-              beforeLabel="Open Patio"
-              afterLabel="Enclosed"
+              beforeImage={product?.beforeAfter?.beforeImage ? urlFor(product.beforeAfter.beforeImage).url() : "/images/enclosures/glass-enclosure-partial-open.jpg"}
+              afterImage={product?.beforeAfter?.afterImage ? urlFor(product.beforeAfter.afterImage).url() : "/images/enclosures/glass-enclosure-closed-exterior.jpg"}
+              beforeLabel={product?.beforeAfter?.beforeLabel || "Open Patio"}
+              afterLabel={product?.beforeAfter?.afterLabel || "Enclosed"}
             />
           </div>
         </Container>
