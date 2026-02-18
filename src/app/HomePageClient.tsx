@@ -353,7 +353,7 @@ export default function HomePageClient({ homepage }: HomePageProps) {
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
               {/* Left: content */}
               <div>
-                <div className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium tracking-wider uppercase">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-zinc-100 px-4 py-2 text-sm font-medium tracking-wider text-zinc-800 uppercase dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200">
                   <MapPin className="h-4 w-4" />
                   Spring Grove, IL
                 </div>
@@ -423,8 +423,8 @@ export default function HomePageClient({ homepage }: HomePageProps) {
                     <div className="mt-8 border-t border-white/10 pt-8">
                       <div className="grid grid-cols-2 gap-6 text-center">
                         <div>
-                          <div className="text-edg-brand text-2xl font-bold">3</div>
-                          <div className="mt-1 text-sm text-gray-400">Live Systems on Display</div>
+                          <div className="text-edg-brand text-2xl font-bold">15</div>
+                          <div className="mt-1 text-sm text-gray-400">Products on Display</div>
                         </div>
                         <div>
                           <div className="text-edg-brand text-2xl font-bold">1</div>
