@@ -9,6 +9,7 @@ import serviceArea from './serviceArea';
 import galleryImage from './galleryImage';
 import guide from './guide';
 import contactPage from './contactPage';
+import pageImage from './pageImage';
 
 export const schemaTypes = [
   siteConfig,
@@ -22,4 +23,5 @@ export const schemaTypes = [
   galleryImage,
   guide,
   contactPage,
+  pageImage,
 ];
