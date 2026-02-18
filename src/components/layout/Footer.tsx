@@ -28,8 +28,25 @@ export function Footer({ config }: { config: any }) {
 
   const company = config?.companyInfo;
   const footer = config?.footer;
-  const quickLinks = footer?.quickLinks || [];
-  const serviceAreas = footer?.serviceAreas || [];
+  
+  // Fallback footer navigation if Sanity CMS is not populated
+  const quickLinks = footer?.quickLinks || [
+    { label: 'Our Systems', href: '/systems/pergolas' },
+    { label: 'Project Gallery', href: '/gallery' },
+    { label: 'Design Consultation', href: '/design' },
+    { label: 'Pricing Guide', href: '/price' },
+    { label: 'Planning Guides', href: '/guides' },
+    { label: 'Contact Us', href: '/contact' },
+  ];
+  
+  const serviceAreas = footer?.serviceAreas || [
+    { label: 'Lake County, IL', href: '/service-areas/lake-county-il' },
+    { label: 'McHenry County, IL', href: '/service-areas/mchenry-county-il' },
+    { label: 'Naperville, IL', href: '/service-areas/naperville-il' },
+    { label: 'Lake Geneva, WI', href: '/service-areas/lake-geneva-wi' },
+    { label: 'Southeast Wisconsin', href: '/service-areas/southeast-wisconsin' },
+    { label: 'All Areas', href: '/service-areas' },
+  ];
 
   const phone = company?.phone || '(815) 581-0138';
   const phoneRaw = company?.phoneRaw || '+18155810138';
