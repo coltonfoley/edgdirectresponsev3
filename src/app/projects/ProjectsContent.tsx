@@ -9,7 +9,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { projects as csvProjects } from '../../lib/projects-data';
 import { getProjectSlug } from '@/lib/project-slug-mapping';
 import { useState, useMemo } from 'react';
-import { MapPin, ArrowRight, Filter } from 'lucide-react';
+import { MapPin, ArrowRight, Filter, Camera } from 'lucide-react';
 
 // Extract unique cities and types for filters
 const cities = Array.from(new Set(csvProjects.map(p => p.city))).sort();
@@ -59,6 +59,35 @@ export function ProjectsContent() {
                 See how we help homeowners and businesses across Chicagoland and beyond create 
                 outdoor spaces they can use year-round.
               </p>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* Notice Banner */}
+      <Section className="bg-edg-brand/10 py-6">
+        <Container>
+          <FadeIn>
+            <div className="flex flex-col items-center gap-4 rounded-none border border-edg-brand/30 bg-white/50 p-6 text-center backdrop-blur-sm md:flex-row md:justify-between md:text-left dark:bg-zinc-900/50">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-edg-brand text-edg-dark">
+                  <Camera className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="mb-1 text-lg font-bold text-edg-dark dark:text-white">
+                    Professional Photography Coming Soon
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Professional project photography coming soon. Interested in seeing examples of our work? Contact us and we&apos;d be happy to share project photos with you directly.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/contact"
+                className="shrink-0 rounded-none bg-edg-brand px-6 py-3 text-sm font-bold text-edg-dark transition-colors hover:bg-edg-dark hover:text-white"
+              >
+                Contact Us
+              </Link>
             </div>
           </FadeIn>
         </Container>
