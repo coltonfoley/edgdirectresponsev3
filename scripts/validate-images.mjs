@@ -105,16 +105,15 @@ const expectedImages = {
     '/images/brand/context-snow.jpg',
   ],
   
-  // Project images
+  // Project images (from src/lib/images.ts)
   'Projects': [
     ...['barrington-hills-estate', 'barrington-outdoor-room', 'highland-park-builder',
         'lake-forest-pergola', 'lake-geneva-restaurant', 'libertyville-shade-system',
         'wilmette-country-club'].flatMap(slug => [
-      `/images/projects/${slug}/card.jpg`,
-      `/images/projects/${slug}/hero.jpg`,
-      `/images/projects/${slug}/gallery-01.jpg`,
-      `/images/projects/${slug}/gallery-02.jpg`,
-      `/images/projects/${slug}/gallery-03.jpg`,
+      `/projects/${slug}/hero.jpg`,
+      `/projects/${slug}/1.jpg`,
+      `/projects/${slug}/2.jpg`,
+      `/projects/${slug}/3.jpg`,
     ]),
   ],
   
