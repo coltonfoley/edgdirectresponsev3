@@ -194,7 +194,7 @@ export default function ChicagoHospitalityPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'Chicago Hospitality' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 

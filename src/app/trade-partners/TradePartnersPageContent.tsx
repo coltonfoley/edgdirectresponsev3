@@ -205,9 +205,9 @@ export function TradePartnersPageContent() {
                   >
                     <div>
                       <div className="font-bold text-text-primary group-hover:text-edg-brand-text transition-colors">
-                        Download Capability Statement
+                        Discuss Your Project
                       </div>
-                      <div className="text-sm text-text-muted">PDF with full service details</div>
+                      <div className="text-sm text-text-muted">Talk to our trade team about your specs</div>
                     </div>
                     <div className="flex h-10 w-10 items-center justify-center bg-edg-dark text-white">
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />

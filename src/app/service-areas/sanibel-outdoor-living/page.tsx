@@ -225,7 +225,7 @@ export default function SanibelHubPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
                 <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
                 </span>
               ))}
             </div>
@@ -312,19 +312,19 @@ export default function SanibelHubPage() {
               </h4>
               <ul className="grid gap-3 text-sm text-zinc-600 sm:grid-cols-2 dark:text-zinc-400">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />
                   Screen Enclosures & Lanais
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />
                   Concrete Pads & Decks
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />
                   Stairs & Walkways
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" />
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />
                   Standard Non-Permeable Pavers
                 </li>
               </ul>

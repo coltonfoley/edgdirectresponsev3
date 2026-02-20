@@ -82,7 +82,7 @@ const systems = [
     shortTitle: 'Enclosures',
     description:
       'Frameless retractable glass walls that transform outdoor spaces into year-round rooms. Weatherproof square footage added to your home.',
-    image: '/images/_archive/enclosures/glass-system-03.jpg',
+    image: images.brand.hero.glass,
     features: ['Frameless design', 'Retractable panels', 'Weather sealing', 'Year-round use'],
     bestFor: ['Three-season rooms', 'Restaurant patios', 'Event venues', 'Home additions'],
     priceRange: 'From $15,000',
@@ -95,7 +95,7 @@ const systems = [
     shortTitle: 'Kitchens',
     description:
       'Premium built-in grills, appliances, and cabinetry designed for outdoor use. Create the ultimate outdoor cooking and entertaining space.',
-    image: '/images/_archive/outdoor-kitchen-hero.png',
+    image: images.pages.systems.blackBladePool,
     features: ['Built-in grills', 'Refrigeration', 'Storage solutions', 'Weather-resistant'],
     bestFor: ['Outdoor cooking', 'Entertaining', 'Complete kitchens', 'Grill islands'],
     priceRange: 'From $8,000',
@@ -185,7 +185,7 @@ export default function SystemsPage() {
         <Container>
           {/* Breadcrumb */}
           <div className="mb-8">
-            <Breadcrumb items={[{ label: 'Systems' }]} className="text-gray-400" />
+            <Breadcrumb items={[{ label: 'Systems' }]} className="text-zinc-400" />
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -443,7 +443,7 @@ export default function SystemsPage() {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Wind Rated</h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-zinc-300 text-sm">
                       Pergolas withstand 120 mph winds. Screens handle 35 mph gusts with MagnaTrack self-correcting technology.
                     </p>
                   </div>
@@ -454,7 +454,7 @@ export default function SystemsPage() {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Snow Load Engineered</h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-zinc-300 text-sm">
                       Structural engineering for up to 40 psf snow loads—handling the heaviest Midwest winters without deflection.
                     </p>
                   </div>
@@ -465,7 +465,7 @@ export default function SystemsPage() {
                   </div>
                   <div>
                     <h3 className="font-bold mb-1">Year-Round Use</h3>
-                    <p className="text-gray-400 text-sm">
+                    <p className="text-zinc-300 text-sm">
                       Integrated heating, weather sealing, and insulation options extend your outdoor season into the colder months.
                     </p>
                   </div>

@@ -221,7 +221,7 @@ export default function AppliancesPage() {
                 <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
                   Premium Appliances
                 </h1>
-                <p className="text-edg-gray-text text-xl leading-relaxed dark:text-text-secondary">
+                <p className="text-edg-gray-text text-xl leading-relaxed dark:text-zinc-300">
                   The finishing touches for your outdoor space. Kitchens,
                   heating, and appliances that complete your pergola or screen
                   system.
@@ -354,7 +354,7 @@ export default function AppliancesPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-                  <p className="text-edg-gray-text dark:text-text-secondary">
+                  <p className="text-edg-gray-text dark:text-zinc-300">
                     {item.desc}
                   </p>
                 </div>

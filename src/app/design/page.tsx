@@ -143,7 +143,7 @@ export default function DesignPage() {
                     <item.icon className="h-8 w-8 text-red-400" />
                   </div>
                   <h3 className="mb-2 text-xl font-bold">{item.title}</h3>
-                  <p className="text-gray-400">{item.desc}</p>
+                  <p className="text-zinc-400">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -198,7 +198,7 @@ export default function DesignPage() {
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand mt-0.5 h-6 w-6 shrink-0" />
                     <div>
                       <div className="font-semibold">{item.title}</div>
-                      <div className="text-edg-gray-text text-sm dark:text-gray-400">
+                      <div className="text-edg-gray-text text-sm">
                         {item.desc}
                       </div>
                     </div>
@@ -261,7 +261,7 @@ export default function DesignPage() {
               >
                 <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand mb-4 h-8 w-8" />
                 <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                <p className="text-edg-gray-text text-sm dark:text-gray-400">
+                <p className="text-edg-gray-text text-sm dark:text-zinc-300">
                   {item.desc}
                 </p>
               </div>
@@ -319,7 +319,7 @@ export default function DesignPage() {
                   {item.step}
                 </div>
                 <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                <p className="text-edg-gray-text mb-2 text-sm dark:text-gray-400">
+                <p className="text-edg-gray-text mb-2 text-sm">
                   {item.desc}
                 </p>
                 <p className="text-edg-brand-text dark:text-edg-brand text-xs font-bold tracking-wider uppercase">
@@ -385,7 +385,7 @@ export default function DesignPage() {
                 </blockquote>
                 <div>
                   <div className="font-bold">{item.name}</div>
-                  <div className="text-edg-gray-text text-sm font-medium dark:text-gray-400">
+                  <div className="text-edg-gray-text text-sm font-medium">
                     {item.location}
                   </div>
                   <div className="text-edg-brand-text dark:text-edg-brand mt-1 text-sm font-bold tracking-tight uppercase">

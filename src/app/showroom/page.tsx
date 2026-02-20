@@ -33,7 +33,7 @@ export default function ShowroomPage() {
                             </p>
                             <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
                                 See it before <br />
-                                <span className="text-gray-400">you build it.</span>
+                                <span className="text-zinc-300">you build it.</span>
                             </h1>
                             <p className="text-gray-300 mb-8 max-w-lg text-xl leading-relaxed">
                                 Most outdoor living companies sell from a catalog. We invite you

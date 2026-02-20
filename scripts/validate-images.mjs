@@ -94,7 +94,7 @@ const expectedImages = {
     '/images/brand/detail-louver.jpg',
     '/images/brand/detail-screen.jpg',
     '/images/brand/detail-glass.jpg',
-    '/images/brand/detail-led.jpg',
+    '/images/brand/detail-led.webp',
     '/images/brand/detail-heater.jpg',
     '/images/brand/detail-remote.jpg',
   ],
@@ -135,15 +135,15 @@ const expectedImages = {
     '/images/misc/frameless-sliding-glass-walls.jpg',
   ],
   'Page - Pro': [
-    '/images/pergolas/residential-black-r-blade-02.jpg',
+    '/images/pergolas/residential-black-r-blade-02.webp',
   ],
   'Page - Systems': [
-    '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png',
+    '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
     '/images/pergolas/residential-white-r-blade-led-strip.jpg',
   ],
   'Page - Service Areas': [
-    '/images/pergolas/residential-black-r-blade-01.jpg',
-    '/images/pergolas/residential-black-r-blade-04.jpg',
+    '/images/pergolas/residential-black-r-blade-01.webp',
+    '/images/pergolas/residential-black-r-blade-04.webp',
     '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
     '/images/shades/shade-deployed-screens-01.jpg',
   ],

@@ -81,13 +81,13 @@ export default function BarringtonPergolaPage() {
 
           <Link
             href="/service-areas/barrington-il"
-            className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
+            className="hover:text-edg-brand-dark mb-8 inline-flex items-center text-sm text-zinc-300 transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Barrington
           </Link>
 
           <div className="max-w-2xl">
-            <div className="bg-edg-brand/10 border-edg-brand/20 text-edg-brand mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+            <div className="bg-edg-brand/10 border-edg-brand/20 text-edg-brand-dark mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-bold tracking-widest uppercase">
               <MapPin className="h-3 w-3" /> Estate-Grade Systems
             </div>
             <h1 className="mb-6 text-4xl leading-tight font-bold md:text-6xl">
@@ -143,7 +143,7 @@ export default function BarringtonPergolaPage() {
                 key={feature.title}
                 className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900"
               >
-                <feature.icon className="text-edg-brand mb-6 h-10 w-10" />
+                <feature.icon className="text-edg-brand-dark mb-6 h-10 w-10" />
                 <h3 className="mb-3 text-xl font-bold">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
@@ -193,7 +193,7 @@ export default function BarringtonPergolaPage() {
                   'Smart Home Integration (Lutron/Control4)',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                    <CheckCircle2 className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <span className="font-medium">{item}</span>
                   </li>
                 ))}
@@ -227,7 +227,7 @@ export default function BarringtonPergolaPage() {
             <Link href="/service-areas/barrington-il#zoning">
               <Button
                 variant="secondary"
-                className="border-edg-brand text-edg-brand hover:bg-edg-brand rounded-full px-8 py-6 font-bold hover:text-white"
+                className="border-edg-brand-dark text-edg-brand-dark hover:bg-edg-brand-dark rounded-full px-8 py-6 font-bold hover:text-white"
               >
                 View Zoning Guide <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -245,7 +245,7 @@ export default function BarringtonPergolaPage() {
               Village permits. The result looks like it's always been part of
               the house."
             </blockquote>
-            <div className="text-edg-brand text-lg font-bold">
+            <div className="text-edg-brand-dark text-lg font-bold">
               — Barrington Hills Homeowner
             </div>
           </div>

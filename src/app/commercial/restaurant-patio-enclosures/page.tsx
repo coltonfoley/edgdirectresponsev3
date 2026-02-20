@@ -167,7 +167,7 @@ export default function RestaurantPatioEnclosuresPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'Restaurant Enclosures' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 
@@ -216,7 +216,7 @@ export default function RestaurantPatioEnclosuresPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 &quot;We used to close the patio when it looked like rain.&quot;
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-gray-400">
+              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
                 Chicago weather is unpredictable. If you rely on umbrellas or
                 simple awnings, you&apos;re losing money every time the forecast is
                 &quot;iffy.&quot;
@@ -231,7 +231,7 @@ export default function RestaurantPatioEnclosuresPage() {
                     <span className="font-bold text-white">
                       Motorized Louvered Roof:
                     </span>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-zinc-300">
                       Closes in 60 seconds to become completely waterproof.
                     </p>
                   </div>
@@ -242,7 +242,7 @@ export default function RestaurantPatioEnclosuresPage() {
                     <span className="font-bold text-white">
                       Integrated Heating:
                     </span>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-zinc-300">
                       Keep guests comfortable for 8-9 months of the year.
                     </p>
                   </div>
@@ -253,7 +253,7 @@ export default function RestaurantPatioEnclosuresPage() {
                     <span className="font-bold text-white">
                       Wind-Rated Screens:
                     </span>
-                    <p className="text-sm text-gray-400">
+                    <p className="text-sm text-zinc-300">
                       Block the wind without blocking the view. Rated for
                       commercial use.
                     </p>

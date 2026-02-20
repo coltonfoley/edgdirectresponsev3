@@ -201,7 +201,7 @@ export default function NapervilleHubPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
                 <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
                 </span>
               ))}
             </div>
@@ -266,7 +266,7 @@ export default function NapervilleHubPage() {
               </Card>
               <Card>
                 <h3 className="font-bold mb-2 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-edg-brand" />
+                  <FileText className="h-4 w-4 text-edg-brand-dark" />
                   TED Permitting
                 </h3>
                 <p className="text-sm text-text-secondary">
@@ -372,7 +372,7 @@ export default function NapervilleHubPage() {
               <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 Ready to Start Your Naperville Project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
+              <p className="text-edg-dark mb-8 text-xl">
                 Get a free consultation with our local design team.
               </p>
               <Link href="/contact">

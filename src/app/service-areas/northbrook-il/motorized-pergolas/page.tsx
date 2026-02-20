@@ -64,14 +64,14 @@ export default function NorthbrookPergolaPage() {
             />
             <Link
               href="/service-areas/northbrook-il"
-              className="mb-6 inline-flex items-center text-white/80 transition-colors hover:text-white"
+              className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Northbrook
             </Link>
             <h1 className="mb-6 text-4xl font-bold md:text-6xl">
               The Only "Northbrook-Ready" Pergola
             </h1>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-white/90 md:text-2xl">
+            <p className="mx-auto mb-8 max-w-2xl text-xl text-white md:text-2xl">
               Engineered to withstand 115mph winds and heavy Chicagoland snow
               loads without sacrificing elegance.
             </p>
@@ -138,15 +138,15 @@ export default function NorthbrookPergolaPage() {
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
-                    <Check className="text-edg-brand h-4 w-4" />{' '}
+                    <Check className="text-edg-brand-dark h-4 w-4" />{' '}
                     <span>Custom Color Matching (RAL)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="text-edg-brand h-4 w-4" />{' '}
+                    <Check className="text-edg-brand-dark h-4 w-4" />{' '}
                     <span>Hidden Fasteners (No ugly bolts)</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="text-edg-brand h-4 w-4" />{' '}
+                    <Check className="text-edg-brand-dark h-4 w-4" />{' '}
                     <span>Integrated LED Lighting</span>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export default function NorthbrookPergolaPage() {
               <div className="flex flex-wrap justify-center gap-4">
                 <Link
                   href="/service-areas/northbrook-il"
-                  className="text-edg-brand-text inline-flex items-center font-medium hover:underline"
+                  className="text-edg-brand-dark inline-flex items-center font-medium hover:underline"
                 >
                   <ArrowLeft className="mr-1 h-4 w-4" /> Back to Northbrook
                 </Link>
@@ -189,7 +189,7 @@ export default function NorthbrookPergolaPage() {
                 </span>
                 <Link
                   href="/service-areas/northbrook-il/zoning-guide"
-                  className="text-edg-brand-text inline-flex items-center font-medium hover:underline"
+                  className="text-edg-brand-dark inline-flex items-center font-medium hover:underline"
                 >
                   View Zoning Requirements →
                 </Link>
@@ -334,13 +334,13 @@ export default function NorthbrookPergolaPage() {
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                 Ready for Your Northbrook Outdoor Living Space?
               </h2>
-              <p className="mx-auto mb-6 max-w-2xl text-lg text-white/80">
+              <p className="mx-auto mb-6 max-w-2xl text-lg text-zinc-200">
                 We understand Northbrook&apos;s unique requirements—from the
                 historic homes near the village center to new construction in
                 Anets Woods. Every system is engineered for your specific site
                 conditions.
               </p>
-              <p className="mx-auto mb-8 max-w-2xl text-white/70">
+              <p className="mx-auto mb-8 max-w-2xl text-zinc-300">
                 Get a complimentary design consultation and see how a motorized
                 pergola can transform your patio into a year-round outdoor room.
               </p>

@@ -193,7 +193,7 @@ export default function WilmetteHubPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
                 <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
                 </span>
               ))}
             </div>
@@ -266,7 +266,7 @@ export default function WilmetteHubPage() {
               {/* Impermeable Surface Challenge */}
               <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
-                  <ShieldCheck className="text-edg-brand h-6 w-6" />
+                  <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   The &quot;Impermeable Surface&quot; Challenge
                 </h3>
                 <p className="text-text-secondary mb-6">
@@ -297,7 +297,7 @@ export default function WilmetteHubPage() {
               {/* Setbacks */}
               <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
-                  <AlertTriangle className="text-edg-brand h-6 w-6" />
+                  <AlertTriangle className="text-edg-brand-dark h-6 w-6" />
                   Setback Requirements
                 </h3>
                 <p className="text-text-secondary mb-4">
@@ -326,7 +326,7 @@ export default function WilmetteHubPage() {
               {/* Timeline */}
               <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
-                  <Clock className="text-edg-brand h-6 w-6" />
+                  <Clock className="text-edg-brand-dark h-6 w-6" />
                   Permit Process Timeline
                 </h3>
                 <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
@@ -344,14 +344,14 @@ export default function WilmetteHubPage() {
                     'Village permit application and meetings',
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm">
-                      <FileText className="text-muted-foreground h-4 w-4" />
+                      <FileText className="h-4 w-4 text-zinc-400" />
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <p className="text-muted-foreground text-center text-sm italic">
+              <p className="text-center text-sm text-zinc-400 italic">
                 Disclaimer: Zoning codes change. This guide is for
                 informational purposes. EDG verifies all current codes during
                 our site assessment.

@@ -178,7 +178,7 @@ export default function WestLoopPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'West Loop' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 

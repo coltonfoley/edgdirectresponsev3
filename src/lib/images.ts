@@ -33,7 +33,7 @@ export const brand = {
     louver: '/images/brand/detail-louver.jpg',
     screen: '/images/brand/detail-screen.jpg',
     glass: '/images/brand/detail-glass.jpg',
-    led: '/images/brand/detail-led.jpg',
+    led: '/images/brand/detail-led.webp',
     heater: '/images/brand/detail-heater.jpg',
     remote: '/images/brand/detail-remote.jpg',
   },
@@ -171,12 +171,12 @@ export const pages = {
 
   /** Pro page */
   pro: {
-    blackBlade: '/images/pergolas/residential-black-r-blade-02.jpg',
+    blackBlade: '/images/pergolas/residential-black-r-blade-02.webp',
   },
 
   /** Systems index */
   systems: {
-    blackBladePool: '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png',
+    blackBladePool: '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
     grayBladeWhite: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
     whiteLedStrip: '/images/pergolas/residential-white-r-blade-led-strip.jpg',
   },
@@ -184,8 +184,8 @@ export const pages = {
   /** Service areas */
   serviceAreas: {
     defaultHero: brand.hero.pergola,
-    barringtonPergola1: '/images/pergolas/residential-black-r-blade-01.jpg',
-    barringtonPergola4: '/images/pergolas/residential-black-r-blade-04.jpg',
+    barringtonPergola1: '/images/pergolas/residential-black-r-blade-01.webp',
+    barringtonPergola4: '/images/pergolas/residential-black-r-blade-04.webp',
     sanibelPergola: '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
     sanibelShade: '/images/shades/shade-deployed-screens-01.jpg',
   },

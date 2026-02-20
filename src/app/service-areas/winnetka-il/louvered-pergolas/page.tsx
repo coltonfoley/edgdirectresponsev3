@@ -141,11 +141,11 @@ export default function WinnetkaProductPage() {
               />
               <Link
                 href="/service-areas/winnetka-il"
-                className="text-edg-brand mb-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                className="text-edg-brand-dark mb-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
               >
                 <ArrowLeft className="h-4 w-4" /> Back to Winnetka
               </Link>
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-bold tracking-wider uppercase">
+              <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm font-bold tracking-wider uppercase">
                 <Crown className="h-3 w-3" /> Estate-Grade
               </span>
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl">
@@ -247,7 +247,7 @@ export default function WinnetkaProductPage() {
               <div className="mt-8">
                 <Link
                   href="/service-areas/winnetka-il/zoning-guide"
-                  className="text-edg-brand inline-flex items-center gap-2 font-medium hover:underline"
+                  className="text-edg-brand-dark inline-flex items-center gap-2 font-medium hover:underline"
                 >
                   View Winnetka Zoning Requirements{' '}
                   <ArrowRight className="h-4 w-4" />
@@ -343,7 +343,7 @@ export default function WinnetkaProductPage() {
                     className="rounded-xl border border-zinc-200 bg-white p-6 dark:border-zinc-700 dark:bg-zinc-800"
                   >
                     <h3 className="text-edg-dark mb-3 flex items-start gap-3 text-lg font-semibold dark:text-white">
-                      <CheckCircle className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                      <CheckCircle className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                       {faq.question}
                     </h3>
                     <p className="text-muted-foreground pl-8 leading-relaxed">

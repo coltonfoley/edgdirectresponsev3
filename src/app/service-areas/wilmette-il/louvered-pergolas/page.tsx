@@ -116,7 +116,7 @@ export default function WilmetteProductPage() {
               />
               <Link
                 href="/service-areas/wilmette-il"
-                className="text-edg-brand mb-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                className="text-edg-brand-dark mb-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
               >
                 <ArrowLeft className="h-4 w-4" /> Back to Wilmette
               </Link>
@@ -255,7 +255,7 @@ export default function WilmetteProductPage() {
               <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <ul className="grid gap-4 md:grid-cols-2">
                   <li className="flex items-start gap-3">
-                    <Wind className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                    <Wind className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <div>
                       <span className="font-semibold">Wind Rating:</span>
                       <p className="text-muted-foreground text-sm">
@@ -264,7 +264,7 @@ export default function WilmetteProductPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Settings className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                    <Settings className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <div>
                       <span className="font-semibold">Beam Span:</span>
                       <p className="text-muted-foreground text-sm">
@@ -273,7 +273,7 @@ export default function WilmetteProductPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Settings className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                    <Settings className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <div>
                       <span className="font-semibold">Motor Type:</span>
                       <p className="text-muted-foreground text-sm">
@@ -282,7 +282,7 @@ export default function WilmetteProductPage() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <Smartphone className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
+                    <Smartphone className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <div>
                       <span className="font-semibold">Smart Home:</span>
                       <p className="text-muted-foreground text-sm">

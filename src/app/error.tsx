@@ -30,7 +30,7 @@ export default function Error({
         <h2 className="mb-3 text-2xl font-bold text-white">
           Something went wrong
         </h2>
-        <p className="mb-8 text-gray-400">
+        <p className="mb-8 text-zinc-300">
           We apologize for the inconvenience. Please try again or contact us if
           the problem persists.
         </p>

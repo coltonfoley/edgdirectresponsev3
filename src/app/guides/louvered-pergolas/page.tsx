@@ -134,7 +134,7 @@ export default function LouveredPergolaGuide() {
               </p>
 
               {/* Author & Meta */}
-              <div className="flex items-center justify-center gap-6 text-sm text-gray-400">
+              <div className="flex items-center justify-center gap-6 text-sm text-zinc-300">
                 <span className="flex items-center gap-2">
                   <User className="h-4 w-4" /> {guideData.author}
                 </span>
@@ -224,7 +224,7 @@ export default function LouveredPergolaGuide() {
                       <th className="text-edg-brand p-5 font-bold">
                         Louvered (Aluminum)
                       </th>
-                      <th className="p-5 font-bold text-gray-400">
+                      <th className="p-5 font-bold text-zinc-300">
                         Traditional (Wood)
                       </th>
                     </tr>
@@ -275,7 +275,7 @@ export default function LouveredPergolaGuide() {
 
                 <div className="mb-8 grid gap-6 md:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-                    <p className="mb-2 text-sm text-gray-400">
+                    <p className="mb-2 text-sm text-zinc-300">
                       Small (10' x 10')
                     </p>
                     <p className="text-3xl font-bold">$18k - $24k</p>
@@ -290,7 +290,7 @@ export default function LouveredPergolaGuide() {
                     </span>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
-                    <p className="mb-2 text-sm text-gray-400">
+                    <p className="mb-2 text-sm text-zinc-300">
                       Large / Multi-zone
                     </p>
                     <p className="text-3xl font-bold">$50k+</p>

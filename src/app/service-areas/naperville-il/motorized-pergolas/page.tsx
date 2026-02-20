@@ -135,7 +135,7 @@ export default function NapervilleMotorizedPergolas() {
           <Container>
             <Link
               href="/service-areas/naperville-il"
-              className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-gray-400 transition-colors"
+              className="hover:text-edg-brand-dark mb-8 inline-flex items-center text-sm text-zinc-300 transition-colors"
             >
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Naperville
             </Link>
@@ -174,7 +174,7 @@ export default function NapervilleMotorizedPergolas() {
                   key={feature.title}
                   className="rounded-2xl border border-black/5 bg-zinc-50 p-8 dark:border-white/5 dark:bg-zinc-900"
                 >
-                  <feature.icon className="text-edg-brand mb-6 h-10 w-10" />
+                  <feature.icon className="text-edg-brand-dark mb-6 h-10 w-10" />
                   <h3 className="mb-3 text-xl font-bold">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {feature.description}
@@ -210,7 +210,7 @@ export default function NapervilleMotorizedPergolas() {
                       key={item}
                       className="flex items-center gap-3 font-medium"
                     >
-                      <Shield className="text-edg-brand h-5 w-5" />
+                      <Shield className="text-edg-brand-dark h-5 w-5" />
                       {item}
                     </li>
                   ))}
@@ -240,7 +240,7 @@ export default function NapervilleMotorizedPergolas() {
         <Section className="bg-white py-24 dark:bg-zinc-950">
           <Container>
             <div className="mx-auto max-w-4xl text-center">
-              <MapPin className="text-edg-brand mx-auto mb-6 h-12 w-12" />
+              <MapPin className="text-edg-brand-dark mx-auto mb-6 h-12 w-12" />
               <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                 Serving Naperville's Finest Neighborhoods
               </h2>
@@ -268,7 +268,7 @@ export default function NapervilleMotorizedPergolas() {
                 Don't see your neighborhood? We serve all of{' '}
                 <Link
                   href="/service-areas/naperville-il"
-                  className="text-edg-brand hover:underline"
+                  className="text-edg-brand-dark hover:underline"
                 >
                   Naperville and surrounding areas
                 </Link>
@@ -283,7 +283,7 @@ export default function NapervilleMotorizedPergolas() {
           <Container>
             <div className="mx-auto max-w-4xl">
               <div className="mb-12 text-center">
-                <HelpCircle className="text-edg-brand mx-auto mb-6 h-12 w-12" />
+                <HelpCircle className="text-edg-brand-dark mx-auto mb-6 h-12 w-12" />
                 <h2 className="mb-4 text-3xl font-bold md:text-4xl">
                   Common Questions About Motorized Pergolas in Naperville
                 </h2>
@@ -304,7 +304,7 @@ export default function NapervilleMotorizedPergolas() {
                         <>
                           <Link
                             href={faq.link.href}
-                            className="text-edg-brand hover:underline"
+                            className="text-edg-brand-dark hover:underline"
                           >
                             {faq.link.text}
                           </Link>
@@ -323,7 +323,7 @@ export default function NapervilleMotorizedPergolas() {
         <Section className="bg-edg-dark py-24 text-white">
           <Container>
             <div className="mx-auto max-w-4xl text-center">
-              <Home className="text-edg-brand mx-auto mb-6 h-12 w-12" />
+              <Home className="text-edg-brand-dark mx-auto mb-6 h-12 w-12" />
               <h2 className="mb-6 text-3xl font-bold md:text-4xl">
                 Ready to Transform Your Naperville Outdoor Space?
               </h2>
@@ -334,7 +334,7 @@ export default function NapervilleMotorizedPergolas() {
                 is just 45 minutes away—come see the systems in action before
                 you decide.
               </p>
-              <p className="mb-10 text-gray-400">
+              <p className="mb-10 text-zinc-300">
                 Schedule a complimentary site survey and receive a detailed
                 proposal tailored to your Naperville property.
               </p>

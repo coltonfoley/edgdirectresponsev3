@@ -21,9 +21,9 @@
   /* Text Colors */
   --color-text-primary: #0a0a0a;
   --color-text-secondary: #52525b;
-  --color-text-muted: #71717a;
+  --color-text-muted: #6b6b75;
   --color-text-inverse: #ffffff;
-  --color-text-inverse-muted: #a1a1aa;
+  --color-text-inverse-muted: #d4d4d8;
 
   /* Surface Colors */
   --color-surface: #ffffff;
@@ -36,6 +36,7 @@
   --color-border: #e4e4e7;
   --color-border-strong: #d4d4d8;
   --color-border-inverse: rgba(255, 255, 255, 0.1);
+  --color-border-ui: #71717a;
 
   /* Border Radius - Editorial/Sharp (minimal) */
   --radius-none: 0px;

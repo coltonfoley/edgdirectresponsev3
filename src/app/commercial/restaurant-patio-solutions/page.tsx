@@ -161,7 +161,7 @@ export default function RestaurantPatioSolutionsPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'Restaurant Solutions' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 
@@ -235,11 +235,11 @@ export default function RestaurantPatioSolutionsPage() {
               <div className="grid grid-cols-2 gap-6 border-t border-white/10 pt-6">
                 <div>
                   <span className="text-edg-brand block text-4xl font-bold">40</span>
-                  <span className="text-sm text-gray-400">New Seats Added</span>
+                  <span className="text-sm text-zinc-300">New Seats Added</span>
                 </div>
                 <div>
                   <span className="text-edg-brand block text-4xl font-bold">4mo</span>
-                  <span className="text-sm text-gray-400">ROI Payback</span>
+                  <span className="text-sm text-zinc-300">ROI Payback</span>
                 </div>
               </div>
             </Card>

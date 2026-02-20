@@ -16,7 +16,7 @@ export default function NotFound() {
               Lost in the <br />
               <span className="text-edg-brand">Backyard?</span>
             </h1>
-            <p className="mx-auto mb-10 max-w-lg text-lg text-gray-400 md:text-xl">
+            <p className="mx-auto mb-10 max-w-lg text-lg text-zinc-300 md:text-xl">
               We can't seem to find the page you're looking for. But don't
               worry, we can still help you design the outdoor space of your
               dreams.
@@ -40,7 +40,7 @@ export default function NotFound() {
             </div>
 
             <div className="mt-12 border-t border-white/10 pt-12">
-              <p className="mb-6 text-sm font-medium tracking-wider text-gray-500 uppercase">
+              <p className="mb-6 text-sm font-medium tracking-wider text-zinc-400 uppercase">
                 Explore Our Systems
               </p>
               <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-gray-300">

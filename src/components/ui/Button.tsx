@@ -38,7 +38,7 @@ const Button = ({
       className={cn(
         // Base styles - sharp corners, uppercase tracking
         'inline-flex cursor-pointer items-center justify-center font-bold uppercase tracking-wider transition-all duration-200',
-        'focus-visible:ring-2 focus-visible:ring-edg-brand focus-visible:outline-none',
+        'focus-visible:ring-2 focus-visible:ring-edg-brand-dark focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',
         'disabled:pointer-events-none disabled:opacity-50',
         
         // Variant styles

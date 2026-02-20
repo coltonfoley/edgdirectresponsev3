@@ -1,6 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Simple in-memory rate limiter
+// For production with high traffic, use Redis instead
+const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
+const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
+const RATE_LIMIT_MAX = 5; // 5 requests per minute per IP
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record) {
+    rateLimitMap.set(ip, { count: 1, timestamp: now });
+    return true;
+  }
+  
+  if (now - record.timestamp > RATE_LIMIT_WINDOW) {
+    // Reset window
+    rateLimitMap.set(ip, { count: 1, timestamp: now });
+    return true;
+  }
+  
+  if (record.count >= RATE_LIMIT_MAX) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
+
 // Initialize Supabase Admin Client (lazy singleton to avoid crash if env vars missing at import time)
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let _supabase: any = null;
@@ -41,6 +70,18 @@ function validateEmail(email: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting check
+    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    if (!checkRateLimit(ip.split(',')[0].trim())) {
+      return NextResponse.json(
+        {
+          success: false,
+          errors: ['Too many requests. Please try again later.'],
+        },
+        { status: 429 }
+      );
+    }
+    
     const body = await request.json();
     const {
       email,
@@ -210,7 +251,8 @@ export async function POST(request: NextRequest) {
       {
         success: false,
         errors: ['Something went wrong. Please try again.'],
-        details: error.message,
+        // Only include error details in development
+        ...(process.env.NODE_ENV === 'development' && { details: error.message }),
       },
       { status: 500 }
     );

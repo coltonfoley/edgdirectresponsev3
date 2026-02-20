@@ -92,7 +92,7 @@ export default function PlanningGuideLanding() {
                       <h3 className="text-lg leading-tight font-bold text-white">
                         Four-Season Outdoor Living
                       </h3>
-                      <p className="mt-2 text-sm text-gray-400">
+                      <p className="mt-2 text-sm text-zinc-300">
                         Planning Guide 2026
                       </p>
                     </div>
@@ -119,7 +119,7 @@ export default function PlanningGuideLanding() {
       {/* ========== SOCIAL PROOF BAR ========== */}
       <section className="bg-edg-dark border-t border-white/5 py-6">
         <Container>
-          <div className="flex flex-wrap items-center justify-center gap-8 text-center text-sm text-gray-400">
+          <div className="flex flex-wrap items-center justify-center gap-8 text-center text-sm text-zinc-300">
             <div className="flex items-center gap-2">
               <span className="font-bold text-white">75+</span> projects
               delivered

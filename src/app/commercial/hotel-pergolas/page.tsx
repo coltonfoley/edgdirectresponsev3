@@ -172,7 +172,7 @@ export default function HotelPergolasPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'Hotel Pergolas' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 
@@ -207,19 +207,19 @@ export default function HotelPergolasPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-edg-brand mb-2">60s</div>
-              <p className="text-gray-400">Rain Response Time</p>
+              <p className="text-zinc-300">Rain Response Time</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-edg-brand mb-2">50+</div>
-              <p className="text-gray-400">Hotel Installations</p>
+              <p className="text-zinc-300">Hotel Installations</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-edg-brand mb-2">100k+</div>
-              <p className="text-gray-400">Guest Hours Served</p>
+              <p className="text-zinc-300">Guest Hours Served</p>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-edg-brand mb-2">10yr</div>
-              <p className="text-gray-400">Warranty</p>
+              <p className="text-zinc-300">Warranty</p>
             </div>
           </div>
         </Container>

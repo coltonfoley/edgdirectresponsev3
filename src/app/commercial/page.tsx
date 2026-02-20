@@ -82,7 +82,7 @@ export default function CommercialPage() {
         <Container>
           {/* Breadcrumb */}
           <div className="mb-8">
-            <Breadcrumb items={[{ label: 'Commercial' }]} className="text-gray-400" />
+            <Breadcrumb items={[{ label: 'Commercial' }]} className="text-zinc-400" />
           </div>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -93,7 +93,7 @@ export default function CommercialPage() {
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-[0.9]">
                 Profit from <br /> <span className="text-gray-500">every seat.</span>
               </h1>
-              <p className="text-xl text-gray-400 mb-10 leading-relaxed max-w-lg">
+              <p className="text-xl text-zinc-300 mb-10 leading-relaxed max-w-lg">
                 Turn weather from a liability into a revenue driver. Commercial-grade pergolas and enclosures that pay for themselves in one season.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -118,21 +118,21 @@ export default function CommercialPage() {
                   <CloudRain className="h-8 w-8 text-red-500 shrink-0" />
                   <div>
                     <div className="text-3xl font-bold text-white mb-1">42 Days</div>
-                    <div className="text-sm text-gray-400">Average rain days in Chicago season per year.</div>
+                    <div className="text-sm text-zinc-300">Average rain days in Chicago season per year.</div>
                   </div>
                 </div>
                 <div className="flex gap-6 items-start">
                   <DollarSign className="h-8 w-8 text-red-500 shrink-0" />
                   <div>
                     <div className="text-3xl font-bold text-white mb-1">$150,000+</div>
-                    <div className="text-sm text-gray-400">Annual revenue lost to unseated outdoor tables.</div>
+                    <div className="text-sm text-zinc-300">Annual revenue lost to unseated outdoor tables.</div>
                   </div>
                 </div>
                 <div className="flex gap-6 items-start">
                   <TrendingUp className="h-8 w-8 text-edg-brand shrink-0" />
                   <div>
                     <div className="text-3xl font-bold text-white mb-1">10 Weeks</div>
-                    <div className="text-sm text-gray-400">Additional season length with heaters & enclosures.</div>
+                    <div className="text-sm text-zinc-300">Additional season length with heaters & enclosures.</div>
                   </div>
                 </div>
               </div>
@@ -167,11 +167,11 @@ export default function CommercialPage() {
               <div className="bg-zinc-50 border border-black/5 p-8 md:p-12">
                 <div className="grid grid-cols-2 gap-8 mb-12">
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Project Cost</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Project Cost</div>
                     <div className="text-4xl font-bold text-black">$62,000</div>
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Payback Period</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Payback Period</div>
                     <div className="text-4xl font-bold text-edg-brand-text">4 Months</div>
                   </div>
                 </div>
@@ -452,7 +452,7 @@ export default function CommercialPage() {
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
                 Stop losing revenue to rain.
               </h2>
-              <p className="text-xl text-gray-400 mb-8 max-w-md">
+              <p className="text-xl text-zinc-300 mb-8 max-w-md">
                 We'll walk your space, calculate your ROI, and provide a fixed-price proposal.
               </p>
               <TrackedLink href="/contact?type=commercial">
@@ -464,7 +464,7 @@ export default function CommercialPage() {
             <div className="border-l border-white/20 pl-16 hidden md:block">
               <div className="space-y-6">
                 <h4 className="text-lg font-bold uppercase tracking-wide">Our Clients Include</h4>
-                <ul className="space-y-4 text-gray-400">
+                <ul className="space-y-4 text-zinc-300">
                   <li className="flex items-center gap-3">
                     <Check className="h-4 w-4 text-edg-brand" />
                     Fine Dining Restaurants

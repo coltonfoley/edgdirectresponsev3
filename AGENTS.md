@@ -228,9 +228,15 @@ import * as images from '@/lib/images';
 
 ### Adding New Images
 
-1. Add image to `public/images/{folder}/`
+1. Add image to `public/images/{folder}/` (brand/, pergolas/, shades/, misc/, projects/, videos/)
 2. Register in `src/lib/images.ts`
 3. Run `npm run validate-images`
+
+### Important Notes
+
+- **No `_archive` folder**: Previously archived images have been removed. All active images are in the registry.
+- **Gallery auto-generation**: Gallery images are auto-generated from `public/images/` (excluding `_archive`)
+- **Project images**: Go in `public/projects/{project-name}/` - NOT in the image registry
 
 **Full documentation:** [`.agent/patterns/images.md`](.agent/patterns/images.md)
 

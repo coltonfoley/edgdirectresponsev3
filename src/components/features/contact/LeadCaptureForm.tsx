@@ -90,7 +90,7 @@ export function LeadCaptureForm({
           </div>
         </div>
         <h3 className="mb-2 text-lg font-bold text-white">{successTitle}</h3>
-        <p className="mb-6 text-sm text-gray-400">{successMessage}</p>
+        <p className="mb-6 text-sm text-zinc-300">{successMessage}</p>
         {downloadUrl && (
           <Link
             href={downloadUrl}
@@ -144,7 +144,7 @@ export function LeadCaptureForm({
         >
           <div className={cn(variant === 'compact' ? 'min-w-0 flex-1' : '')}>
             {variant === 'default' && (
-              <label className="mb-2 block text-sm font-medium text-white/80">
+              <label className="mb-2 block text-sm font-medium text-zinc-200">
                 First Name
               </label>
             )}
@@ -156,7 +156,7 @@ export function LeadCaptureForm({
               required
               disabled={loading}
               className={cn(
-                'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30',
+                'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-400',
                 'focus:ring-edg-brand/50 focus:border-edg-brand/50 focus:ring-2 focus:outline-none',
                 'disabled:cursor-not-allowed disabled:opacity-50',
                 'transition-all duration-200'
@@ -167,7 +167,7 @@ export function LeadCaptureForm({
             className={cn(variant === 'compact' ? 'min-w-0 flex-[1.5]' : '')}
           >
             {variant === 'default' && (
-              <label className="mb-2 block text-sm font-medium text-white/80">
+              <label className="mb-2 block text-sm font-medium text-zinc-200">
                 Email
               </label>
             )}
@@ -179,7 +179,7 @@ export function LeadCaptureForm({
               required
               disabled={loading}
               className={cn(
-                'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30',
+                'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-400',
                 'focus:ring-edg-brand/50 focus:border-edg-brand/50 focus:ring-2 focus:outline-none',
                 'disabled:cursor-not-allowed disabled:opacity-50',
                 'transition-all duration-200'
@@ -232,7 +232,7 @@ export function LeadCaptureForm({
         )}
 
         {/* Privacy note */}
-        <p className="mt-2 text-center text-[10px] font-medium tracking-widest text-gray-400 uppercase">
+        <p className="mt-2 text-center text-[10px] font-medium tracking-widest text-zinc-300 uppercase">
           No spam, ever. Unsubscribe anytime.
         </p>
       </form>
@@ -267,7 +267,7 @@ export function LeadCaptureForm({
           required
           disabled={loading}
           className={cn(
-            'flex-1 rounded-xl border border-black/10 bg-white px-4 py-3 text-black placeholder:text-black/40',
+            'flex-1 rounded-xl border border-black/10 bg-white px-4 py-3 text-black placeholder:text-gray-500',
             'focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium focus:ring-2 focus:outline-none',
             'disabled:cursor-not-allowed disabled:opacity-50',
             'transition-all duration-200'
@@ -281,7 +281,7 @@ export function LeadCaptureForm({
           required
           disabled={loading}
           className={cn(
-            'flex-1 rounded-xl border border-black/10 bg-white px-4 py-3 text-black placeholder:text-black/40',
+            'flex-1 rounded-xl border border-black/10 bg-white px-4 py-3 text-black placeholder:text-gray-500',
             'focus:ring-edg-brand/50 focus:border-edg-brand/50 font-medium focus:ring-2 focus:outline-none',
             'disabled:cursor-not-allowed disabled:opacity-50',
             'transition-all duration-200'

@@ -9,6 +9,7 @@ import { IconWrapper } from '@/components/ui/IconWrapper';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { ArrowRight, Check } from 'lucide-react';
 import { HeroFormClient } from '@/components/features/home/HeroFormClient';
+import { ReviewsSection } from '@/components/features/ReviewsSection';
 import * as images from '@/lib/images';
 
 export function HomeClient() {
@@ -278,13 +279,13 @@ export function HomeClient() {
             <Section className="bg-zinc-50 py-24 dark:bg-zinc-950">
                 <Container>
                     <div className="mb-16 text-center">
-                        <span className="text-edg-brand mb-4 inline-block text-sm font-bold tracking-[0.2em] uppercase">
+                        <span className="text-edg-brand-dark mb-4 inline-block text-sm font-bold tracking-[0.2em] uppercase">
                             Our Work
                         </span>
                         <h2 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">
                             24 Outdoor Transformations
                         </h2>
-                        <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-zinc-300">
                             From Northbrook estates to Chicago rooftops, see how we help homeowners 
                             and businesses create outdoor spaces they use year-round.
                         </p>
@@ -297,7 +298,7 @@ export function HomeClient() {
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
                                     src="/projects/northbrook-family-entertaining/hero.jpg"
-                                    alt="Karp Residence - Northbrook"
+                                    alt="Karp - Northbrook"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
@@ -309,12 +310,12 @@ export function HomeClient() {
                             </div>
                             <div className="p-6">
                                 <div className="mb-2 flex items-center gap-1 text-sm text-gray-500">
-                                    <span className="text-edg-brand">Northbrook, IL</span>
+                                    <span className="text-edg-brand-dark">Northbrook, IL</span>
                                 </div>
                                 <h3 className="mb-2 text-xl font-bold group-hover:text-edg-brand transition-colors">
-                                    Karp Residence
+                                    Karp
                                 </h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                <p className="text-sm text-gray-600 dark:text-zinc-300 line-clamp-2">
                                     Multi Bay System with Wood Grain Panels and Privacy Wall
                                 </p>
                             </div>
@@ -337,12 +338,12 @@ export function HomeClient() {
                             </div>
                             <div className="p-6">
                                 <div className="mb-2 flex items-center gap-1 text-sm text-gray-500">
-                                    <span className="text-edg-brand">Chicago, IL</span>
+                                    <span className="text-edg-brand-dark">Chicago, IL</span>
                                 </div>
                                 <h3 className="mb-2 text-xl font-bold group-hover:text-edg-brand transition-colors">
                                     Carmine's
                                 </h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                <p className="text-sm text-gray-600 dark:text-zinc-300 line-clamp-2">
                                     Multi-Bay commercial system to increase outdoor seating on Rush Street
                                 </p>
                             </div>
@@ -353,7 +354,7 @@ export function HomeClient() {
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
                                     src="/projects/barrington-outdoor-room/hero.jpg"
-                                    alt="Wade Residence - Barrington"
+                                    alt="Wade - Barrington"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
@@ -365,12 +366,12 @@ export function HomeClient() {
                             </div>
                             <div className="p-6">
                                 <div className="mb-2 flex items-center gap-1 text-sm text-gray-500">
-                                    <span className="text-edg-brand">Barrington, IL</span>
+                                    <span className="text-edg-brand-dark">Barrington, IL</span>
                                 </div>
                                 <h3 className="mb-2 text-xl font-bold group-hover:text-edg-brand transition-colors">
-                                    Wade Residence
+                                    Wade
                                 </h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                <p className="text-sm text-gray-600 dark:text-zinc-300 line-clamp-2">
                                     Outdoor room with fully retractable louvers and motorized glass
                                 </p>
                             </div>
@@ -388,94 +389,8 @@ export function HomeClient() {
                 </Container>
             </Section>
 
-            {/* ========== TESTIMONIALS ========== */}
-            <Section className="bg-white py-24 dark:bg-black">
-                <Container>
-                    <div className="mb-16 text-center">
-                        <span className="text-edg-brand mb-4 inline-block text-sm font-bold tracking-[0.2em] uppercase">
-                            Client Stories
-                        </span>
-                        <h2 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">
-                            Trusted by Homeowners & Builders
-                        </h2>
-                        <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-                            Don&apos;t just take our word for it. Here&apos;s what clients say about working with EDG.
-                        </p>
-                    </div>
-
-                    {/* Testimonial Cards */}
-                    <div className="grid gap-8 md:grid-cols-3">
-                        {/* Testimonial 1 - Northbrook Homeowner */}
-                        <div className="bg-surface-muted dark:bg-zinc-900 p-8 rounded-lg border border-border">
-                            <div className="flex items-center gap-1 mb-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <svg key={i} className="w-5 h-5 text-edg-brand" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                ))}
-                            </div>
-                            <blockquote className="text-text-primary mb-6 leading-relaxed">
-                                &quot;We interviewed five companies. EDG was the only one that actually understood the engineering challenges of our ravine-top property. The installation was flawless, and we use our outdoor space 10 months a year now.&quot;
-                            </blockquote>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-edg-brand/10 rounded-full flex items-center justify-center">
-                                    <span className="text-edg-brand-text font-bold">SK</span>
-                                </div>
-                                <div>
-                                    <div className="font-bold text-text-primary">Sarah K.</div>
-                                    <div className="text-sm text-text-muted">Northbrook, IL • Residential</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Testimonial 2 - Builder */}
-                        <div className="bg-surface-muted dark:bg-zinc-900 p-8 rounded-lg border border-border">
-                            <div className="flex items-center gap-1 mb-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <svg key={i} className="w-5 h-5 text-edg-brand" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                ))}
-                            </div>
-                            <blockquote className="text-text-primary mb-6 leading-relaxed">
-                                &quot;As a builder, I need reliable specs and on-time delivery. EDG delivers both. Their CAD details are accurate, and they coordinate seamlessly with my site teams. They&apos;ve become my go-to for outdoor systems.&quot;
-                            </blockquote>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-edg-brand/10 rounded-full flex items-center justify-center">
-                                    <span className="text-edg-brand-text font-bold">MR</span>
-                                </div>
-                                <div>
-                                    <div className="font-bold text-text-primary">Mike R.</div>
-                                    <div className="text-sm text-text-muted">Barrington, IL • Builder</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Testimonial 3 - Winnetka Homeowner */}
-                        <div className="bg-surface-muted dark:bg-zinc-900 p-8 rounded-lg border border-border">
-                            <div className="flex items-center gap-1 mb-4">
-                                {[...Array(5)].map((_, i) => (
-                                    <svg key={i} className="w-5 h-5 text-edg-brand" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                    </svg>
-                                ))}
-                            </div>
-                            <blockquote className="text-text-primary mb-6 leading-relaxed">
-                                &quot;The Winnetka ARB process was daunting, but EDG handled everything—drawings, permit applications, the works. Our pergola passed inspection the first time, and it&apos;s the envy of the neighborhood.&quot;
-                            </blockquote>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 bg-edg-brand/10 rounded-full flex items-center justify-center">
-                                    <span className="text-edg-brand-text font-bold">JL</span>
-                                </div>
-                                <div>
-                                    <div className="font-bold text-text-primary">Jennifer L.</div>
-                                    <div className="text-sm text-text-muted">Winnetka, IL • Residential</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Container>
-            </Section>
+            {/* ========== GOOGLE REVIEWS ========== */}
+            <ReviewsSection />
         </main>
     );
 }

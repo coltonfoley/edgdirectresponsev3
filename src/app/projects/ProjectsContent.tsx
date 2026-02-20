@@ -55,7 +55,7 @@ export function ProjectsContent() {
               <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
                 24 Outdoor Living Transformations
               </h1>
-              <p className="mx-auto max-w-2xl text-lg text-gray-400">
+              <p className="mx-auto max-w-2xl text-lg text-zinc-300">
                 See how we help homeowners and businesses across Chicagoland and beyond create 
                 outdoor spaces they can use year-round.
               </p>
@@ -77,7 +77,7 @@ export function ProjectsContent() {
                   <h3 className="mb-1 text-lg font-bold text-edg-dark dark:text-white">
                     Professional Photography Coming Soon
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-gray-600 dark:text-zinc-300">
                     Professional project photography coming soon. Interested in seeing examples of our work? Contact us and we&apos;d be happy to share project photos with you directly.
                   </p>
                 </div>
@@ -98,7 +98,7 @@ export function ProjectsContent() {
         <Container>
           <FadeIn>
             <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-zinc-300">
                 <Filter className="h-4 w-4" />
                 <span>Filter by:</span>
               </div>
@@ -189,7 +189,7 @@ export function ProjectsContent() {
                     <h3 className="mb-2 text-xl font-bold group-hover:text-edg-brand transition-colors">
                       {project.title}
                     </h3>
-                    <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
+                    <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-zinc-300">
                       {project.description}
                     </p>
                     <div className="flex items-center gap-2 text-sm font-medium text-edg-brand">
@@ -224,7 +224,7 @@ export function ProjectsContent() {
               <h2 className="mb-4 text-3xl font-bold text-white">
                 Ready to Start Your Project?
               </h2>
-              <p className="mb-8 text-gray-400">
+              <p className="mb-8 text-zinc-300">
                 Let&apos;s discuss how we can transform your outdoor space into something you&apos;ll use every day.
               </p>
               <Link href="/contact">

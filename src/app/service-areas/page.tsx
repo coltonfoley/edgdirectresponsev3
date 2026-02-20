@@ -179,7 +179,7 @@ export default function ServiceAreasPage() {
                         {area.name}
                       </h3>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-edg-brand shrink-0 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-5 w-5 text-edg-brand-dark shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
                   <p className="text-text-secondary">{area.description}</p>
                 </Card>

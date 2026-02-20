@@ -134,7 +134,7 @@ export default function HotelRoofDeckPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'Roof Deck Systems' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 

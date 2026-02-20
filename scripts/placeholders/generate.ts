@@ -22,15 +22,12 @@ import { projectDefinitions, projectSlugs, type ProjectDefinition } from './data
 // Configuration
 const OUTPUT_BASE_DIR = path.join(process.cwd(), 'public', 'projects');
 
-// EDG Brand Colors (from brand guidelines)
+// EDG Brand Colors
 const BRAND = {
-  darkBlue: '#1a2744',      // Primary dark
-  blue: '#2c3e50',          // Secondary
-  gold: '#c9a961',          // Accent
-  lightGold: '#e0c080',     // Light accent
+  darkNavy: '#1a2744',      // Dark navy background
+  mint: '#42ffc1',          // Mint accent (brand color)
   white: '#ffffff',
-  lightGray: '#f5f5f5',
-  mediumGray: '#999999',
+  lightGray: '#9ca3af',     // For subtitles
 };
 
 // Image dimensions
@@ -61,7 +58,7 @@ function cleanDir(dir: string) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
-// Generate SVG placeholder as a Buffer
+// Generate SVG placeholder as a Buffer (MINT STYLING - matches moody project)
 function generatePlaceholderSVG(
   project: ProjectDefinition,
   index: number,
@@ -71,113 +68,64 @@ function generatePlaceholderSVG(
 ): Buffer {
   const isHero = type === 'hero';
   
-  // Create a gradient background based on project type
-  let gradientStart = BRAND.darkBlue;
-  let gradientEnd = BRAND.blue;
-  
-  if (project.type === 'Commercial') {
-    gradientStart = '#2a3f5f';
-    gradientEnd = '#1a2744';
-  } else if (project.type === 'Builder Project') {
-    gradientStart = '#3d4f6f';
-    gradientEnd = '#2a3f5f';
-  }
-
-  // Generate pattern based on index
-  const patternOpacity = 0.05;
-  const patternSize = 40;
+  // Dark navy background - consistent for all
+  const bgColor = BRAND.darkNavy;
+  const mintColor = BRAND.mint;
   
   // Text content
   const title = project.title;
-  const subtitle = project.location;
-  const imageLabel = isHero ? 'Hero Image' : `Gallery Image ${index}`;
-  const dimensions = `${width}×${height}`;
+  const subtitle = isHero ? 'Two-Bay Residential System' : project.location;
   
   // Calculate font sizes based on image size
-  const titleSize = Math.max(24, Math.floor(width / 25));
-  const subtitleSize = Math.max(14, Math.floor(width / 45));
-  const labelSize = Math.max(12, Math.floor(width / 60));
+  const titleSize = Math.max(72, Math.floor(width / 12));
+  const subtitleSize = Math.max(16, Math.floor(width / 60));
+  const smallSize = Math.max(12, Math.floor(width / 80));
+  const labelSize = Math.max(14, Math.floor(width / 70));
   
   const svg = `
 <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:${gradientStart};stop-opacity:1" />
-      <stop offset="100%" style="stop-color:${gradientEnd};stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Pattern -->
-    <pattern id="grid" width="${patternSize}" height="${patternSize}" patternUnits="userSpaceOnUse">
-      <path d="M ${patternSize} 0 L 0 0 0 ${patternSize}" fill="none" stroke="${BRAND.gold}" stroke-width="0.5" opacity="${patternOpacity}"/>
-    </pattern>
-    
-    <!-- Gold Accent Line Gradient -->
-    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:${BRAND.gold};stop-opacity:0" />
-      <stop offset="50%" style="stop-color:${BRAND.gold};stop-opacity:1" />
-      <stop offset="100%" style="stop-color:${BRAND.gold};stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  
   <!-- Background -->
-  <rect width="100%" height="100%" fill="url(#bg)" />
-  <rect width="100%" height="100%" fill="url(#grid)" />
+  <rect width="100%" height="100%" fill="${bgColor}" />
   
-  <!-- Decorative corner accents -->
-  <path d="M 0 0 L 100 0 L 0 100 Z" fill="${BRAND.gold}" opacity="0.1" />
-  <path d="M ${width} ${height} L ${width - 100} ${height} L ${width} ${height - 100} Z" fill="${BRAND.gold}" opacity="0.1" />
+  <!-- Top mint line -->
+  <rect x="${width * 0.42}" y="${height * 0.28}" width="${width * 0.16}" height="3" fill="${mintColor}" />
   
-  <!-- Gold accent line -->
-  <rect x="${width * 0.2}" y="${height * 0.45}" width="${width * 0.6}" height="2" fill="url(#goldLine)" />
-  
-  <!-- Project Type Badge -->
-  <rect x="${width / 2 - 60}" y="${height * 0.25 - 15}" width="120" height="30" rx="15" fill="${BRAND.gold}" opacity="0.9" />
-  <text x="${width / 2}" y="${height * 0.25 + 5}" 
+  <!-- Project Type Label -->
+  <text x="${width / 2}" y="${height * 0.35}" 
         font-family="system-ui, -apple-system, sans-serif" 
         font-size="${labelSize}" 
-        font-weight="600"
-        fill="${BRAND.darkBlue}" 
-        text-anchor="middle">${project.type.toUpperCase()}</text>
+        font-weight="500"
+        fill="${mintColor}" 
+        letter-spacing="4"
+        text-anchor="middle">${project.type.toUpperCase()} PROJECT</text>
   
   <!-- Main Title -->
-  <text x="${width / 2}" y="${height * 0.4}" 
+  <text x="${width / 2}" y="${height * 0.44}" 
         font-family="system-ui, -apple-system, sans-serif" 
         font-size="${titleSize}" 
         font-weight="700"
-        fill="${BRAND.white}" 
+        fill="white" 
         text-anchor="middle">${escapeXml(title)}</text>
   
-  <!-- Location -->
-  <text x="${width / 2}" y="${height * 0.4 + titleSize + 10}" 
+  <!-- Description -->
+  <text x="${width / 2}" y="${height * 0.52}" 
         font-family="system-ui, -apple-system, sans-serif" 
         font-size="${subtitleSize}" 
-        fill="${BRAND.lightGold}" 
+        fill="#9ca3af" 
         text-anchor="middle">${escapeXml(subtitle)}</text>
   
-  <!-- Image Label -->
-  <text x="${width / 2}" y="${height * 0.55}" 
-        font-family="system-ui, -apple-system, sans-serif" 
-        font-size="${labelSize}" 
-        fill="${BRAND.mediumGray}" 
-        text-anchor="middle">${imageLabel}</text>
+  <!-- Bottom mint line -->
+  <rect x="${width * 0.3}" y="${height * 0.58}" width="${width * 0.4}" height="1" fill="${mintColor}" opacity="0.6" />
   
-  <!-- Dimensions -->
-  <text x="${width / 2}" y="${height * 0.55 + labelSize + 8}" 
+  <!-- EDG Brand at bottom -->
+  <text x="${width / 2}" y="${height * 0.92}" 
         font-family="system-ui, -apple-system, sans-serif" 
-        font-size="${Math.floor(labelSize * 0.8)}" 
-        fill="${BRAND.mediumGray}" 
-        text-anchor="middle" opacity="0.7">${dimensions}</text>
-  
-  <!-- EDG Logo placeholder -->
-  <text x="${width / 2}" y="${height - 30}" 
-        font-family="system-ui, -apple-system, sans-serif" 
-        font-size="${Math.floor(labelSize * 0.9)}" 
+        font-size="${smallSize}" 
         font-weight="600"
-        fill="${BRAND.gold}" 
-        text-anchor="middle" opacity="0.8">EDG PatioShade</text>
-</svg>
-  `.trim();
+        fill="${mintColor}" 
+        letter-spacing="3"
+        text-anchor="middle">EDG PATIO SHADE</text>
+</svg>`;
   
   return Buffer.from(svg);
 }
@@ -297,23 +245,26 @@ async function main(): Promise<void> {
     projectsToGenerate = projectDefinitions.filter(p => p.slug === projectFilter);
     console.log(`Generating images for: ${projectFilter}\n`);
   } else {
-    console.log(`Generating images for ${projectsToGenerate.length} projects...\n`);
+    console.log(`Generating images for all ${projectDefinitions.length} projects\n`);
   }
   
   // Clean output directory if requested
-  if (shouldClean && !projectFilter) {
-    console.log('🧹 Cleaning output directory...');
+  if (shouldClean) {
+    console.log('🧹 Cleaning output directory...\n');
     cleanDir(OUTPUT_BASE_DIR);
-  } else {
-    ensureDir(OUTPUT_BASE_DIR);
   }
   
+  // Ensure output directory exists
+  ensureDir(OUTPUT_BASE_DIR);
+  
   // Generate images for each project
-  const generated: ProjectDefinition[] = [];
+  const generatedProjects: ProjectDefinition[] = [];
+  
   for (const project of projectsToGenerate) {
     const projectDir = path.join(OUTPUT_BASE_DIR, project.slug);
     
-    if (shouldClean && projectFilter) {
+    // Clean specific project directory if it exists
+    if (fs.existsSync(projectDir)) {
       cleanDir(projectDir);
     } else {
       ensureDir(projectDir);
@@ -321,24 +272,27 @@ async function main(): Promise<void> {
     
     try {
       await generateProjectImages(project);
-      generated.push(project);
+      generatedProjects.push(project);
     } catch (error) {
-      console.error(`❌ Error generating images for ${project.slug}:`, error);
+      console.error(`\n❌ Error generating images for ${project.slug}:`, error);
     }
   }
   
   // Generate mapping file
-  generateMappingFile(generated);
+  generateMappingFile(generatedProjects);
   
   // Summary
-  const totalImages = generated.reduce((sum, p) => sum + p.imageCount + 1, 0);
-  console.log(`\n✅ Generated ${totalImages} placeholder images for ${generated.length} projects`);
-  console.log(`📂 Output directory: ${OUTPUT_BASE_DIR}`);
+  console.log('\n' + '='.repeat(50));
+  console.log('✅ Generation Complete!');
+  console.log('='.repeat(50));
+  console.log(`\nProjects: ${generatedProjects.length}`);
+  console.log(`Total images: ${generatedProjects.reduce((sum, p) => sum + p.imageCount + 1, 0)}`);
+  console.log(`\n📂 Output: ${OUTPUT_BASE_DIR}`);
   console.log('\nNext steps:');
   console.log('  1. Replace placeholder images with real photos as they become available');
   console.log('  2. Update project data in src/lib/projects.ts to reference new paths');
   console.log('  3. See PLACEHOLDER_SYSTEM.md for detailed documentation');
 }
 
-// Run
+// Run the script
 main().catch(console.error);

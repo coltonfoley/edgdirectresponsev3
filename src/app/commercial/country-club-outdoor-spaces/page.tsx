@@ -158,7 +158,7 @@ export default function CountryClubPage() {
                 { label: 'Commercial', href: '/commercial' },
                 { label: 'Country Clubs' },
               ]}
-              className="text-gray-400"
+              className="text-zinc-300"
             />
           </div>
 

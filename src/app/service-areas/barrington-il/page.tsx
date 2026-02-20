@@ -196,7 +196,7 @@ export default function BarringtonHubPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
                 <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
                 </span>
               ))}
             </div>
@@ -255,7 +255,7 @@ export default function BarringtonHubPage() {
             
             <div className="mt-8 p-6 bg-white border-l-4 border-edg-brand-dark">
               <h4 className="font-bold mb-2 flex items-center gap-2">
-                <Snowflake className="h-5 w-5 text-edg-brand" />
+                <Snowflake className="h-5 w-5 text-edg-brand-dark" />
                 Snow Load Engineering
               </h4>
               <p className="text-text-secondary">

@@ -134,7 +134,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
           onClick={() => setLightboxOpen(false)}
         >
           <button
-            className="absolute top-4 right-4 z-50 p-2 text-white/70 transition-colors hover:text-white"
+            className="absolute top-4 right-4 z-50 p-2 text-zinc-300 transition-colors hover:text-white"
             onClick={() => setLightboxOpen(false)}
           >
             <X className="h-8 w-8" />

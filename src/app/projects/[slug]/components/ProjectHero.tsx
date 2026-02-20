@@ -30,8 +30,8 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       {/* Professional Photos Notice Banner */}
       <div className="absolute inset-x-0 top-0 z-20 bg-black/70 px-4 py-3 backdrop-blur-sm">
         <div className="container mx-auto flex items-center justify-center gap-2 sm:gap-4">
-          <Camera className="h-4 w-4 flex-shrink-0 text-white/90" />
-          <span className="text-sm text-white/90">
+          <Camera className="h-4 w-4 flex-shrink-0 text-white" />
+          <span className="text-sm text-zinc-100">
             Professional photos coming soon —{' '}
             <Link
               href="/contact"
@@ -50,7 +50,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         <nav className="mb-6 flex flex-wrap gap-4" aria-label="Breadcrumb">
           <Link
             href="/gallery"
-            className="inline-flex items-center text-sm text-white/80 transition-colors hover:text-white"
+            className="inline-flex items-center text-sm text-zinc-200 transition-colors hover:text-white"
           >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to gallery
@@ -59,7 +59,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           {project.serviceAreaSlug && (
             <Link
               href={`/service-areas/${project.serviceAreaSlug}`}
-              className="inline-flex items-center border-l border-white/20 pl-4 text-sm text-white/80 transition-colors hover:text-white"
+              className="inline-flex items-center border-l border-white/20 pl-4 text-sm text-zinc-200 transition-colors hover:text-white"
             >
               <MapPin className="mr-2 h-4 w-4" />
               View Service Area
@@ -79,7 +79,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
 
         {/* Location - Prominent for Local SEO */}
         <div
-          className="flex items-center text-white/80"
+          className="flex items-center text-zinc-200"
           itemProp="location"
           itemScope
           itemType="https://schema.org/Place"

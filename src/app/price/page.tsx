@@ -148,7 +148,7 @@ export default function PricePage() {
                   <item.icon className="text-edg-brand-text dark:text-edg-brand h-7 w-7" />
                 </div>
                 <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
-                <p className="text-edg-gray-text dark:text-gray-400">
+                <p className="text-edg-gray-text dark:text-zinc-300">
                   {item.desc}
                 </p>
               </div>
@@ -362,7 +362,7 @@ export default function PricePage() {
               <div key={item.title} className="text-center">
                 <Calculator className="text-edg-brand-text dark:text-edg-brand mx-auto mb-4 h-10 w-10" />
                 <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
-                <p className="text-edg-gray-text text-sm dark:text-gray-400">
+                <p className="text-edg-gray-text text-sm dark:text-zinc-300">
                   {item.desc}
                 </p>
               </div>
@@ -412,7 +412,7 @@ export default function PricePage() {
                 <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand mt-0.5 h-6 w-6 shrink-0" />
                 <div>
                   <div className="font-semibold">{item.title}</div>
-                  <div className="text-edg-gray-text text-sm dark:text-gray-400">
+                  <div className="text-edg-gray-text text-sm dark:text-zinc-300">
                     {item.desc}
                   </div>
                 </div>

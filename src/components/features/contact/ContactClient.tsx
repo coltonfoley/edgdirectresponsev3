@@ -93,7 +93,7 @@ function ContactForm() {
         <div className="relative z-10">
           <Link
             href="/"
-            className="text-gray-400 hover:text-white mb-12 inline-flex items-center text-xs font-bold uppercase tracking-widest transition-colors"
+            className="text-zinc-400 hover:text-white mb-12 inline-flex items-center text-xs font-bold uppercase tracking-widest transition-colors"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to home
           </Link>
@@ -101,7 +101,7 @@ function ContactForm() {
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-[0.9]">
             Start your <br /> project.
           </h1>
-          <p className="text-xl text-gray-400 mb-12 leading-relaxed max-w-md">
+          <p className="text-xl text-zinc-300 mb-12 leading-relaxed max-w-md">
             Tell us about your space. We'll provide a preliminary budget, timeline, and design concepts.
           </p>
 
@@ -112,7 +112,7 @@ function ContactForm() {
               </div>
               <div>
                 <h4 className="font-bold text-lg mb-1">Fast Response</h4>
-                <p className="text-sm text-gray-500">Same-day review of your request.</p>
+                <p className="text-sm text-zinc-400">Same-day review of your request.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -121,7 +121,7 @@ function ContactForm() {
               </div>
               <div>
                 <h4 className="font-bold text-lg mb-1">Local Experts</h4>
-                <p className="text-sm text-gray-500">Serving Chicago, Milwaukee & Lake Geneva.</p>
+                <p className="text-sm text-zinc-400">Serving Chicago, Milwaukee & Lake Geneva.</p>
               </div>
             </div>
           </div>
@@ -131,11 +131,11 @@ function ContactForm() {
         <div className="relative z-10 mt-12 pt-12 border-t border-white/10">
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Call Us</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Call Us</div>
               <div className="text-lg font-bold">815.581.0138</div>
             </div>
             <div>
-              <div className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Email</div>
+              <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Email</div>
               <div className="text-lg font-bold">sales@edgpatioshade.com</div>
             </div>
           </div>
@@ -176,7 +176,7 @@ function ContactForm() {
                 onChange={handleChange}
                 required
                 disabled={loading}
-                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-200 transition-colors"
+                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-500 transition-colors"
                 placeholder="John"
               />
             </div>
@@ -189,7 +189,7 @@ function ContactForm() {
                 onChange={handleChange}
                 required
                 disabled={loading}
-                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-200 transition-colors"
+                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-500 transition-colors"
                 placeholder="Doe"
               />
             </div>
@@ -204,7 +204,7 @@ function ContactForm() {
               onChange={handleChange}
               required
               disabled={loading}
-              className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-200 transition-colors"
+              className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-500 transition-colors"
               placeholder="john@example.com"
             />
           </div>
@@ -218,7 +218,7 @@ function ContactForm() {
                 value={formData.phone}
                 onChange={handleChange}
                 disabled={loading}
-                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-200 transition-colors"
+                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-500 transition-colors"
                 placeholder="(555) 555-5555"
               />
             </div>
@@ -231,7 +231,7 @@ function ContactForm() {
                 onChange={handleChange}
                 required
                 disabled={loading}
-                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-200 transition-colors"
+                className="w-full border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-500 transition-colors"
                 placeholder="60601"
               />
             </div>
@@ -263,7 +263,7 @@ function ContactForm() {
               onChange={handleChange}
               disabled={loading}
               rows={3}
-              className="w-full border-b-2 border-black/10 bg-transparent py-2 text-lg text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-300 transition-colors resize-none"
+              className="w-full border-b-2 border-black/10 bg-transparent py-2 text-lg text-black focus:border-edg-brand focus:outline-none rounded-none placeholder:text-gray-500 transition-colors resize-none"
               placeholder="Notes on dimensions, timeline, or specific needs..."
             />
           </div>

@@ -200,7 +200,7 @@ export default function WinnetkaHubPage() {
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
                 <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
                 </span>
               ))}
             </div>
@@ -306,7 +306,7 @@ export default function WinnetkaHubPage() {
                     Like much of the North Shore, Winnetka limits how much of your lot can be covered by impermeable surfaces.
                   </p>
                   <div className="bg-edg-brand/5 border-edg-brand rounded-r-lg border-l-4 p-4">
-                    <Quote className="text-edg-brand mb-2 h-4 w-4" />
+                    <Quote className="text-edg-brand-dark mb-2 h-4 w-4" />
                     <p className="text-text-secondary text-sm italic">
                       &quot;A louvered roof is often the only way to get a &apos;covered&apos; porch feel without triggering the same density penalties as a solid roof addition.&quot;
                     </p>
@@ -336,7 +336,7 @@ export default function WinnetkaHubPage() {
                 </div>
               </div>
             </div>
-            <p className="text-muted-foreground mx-auto mt-8 max-w-3xl text-center text-sm italic">
+            <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-zinc-400 italic">
               Disclaimer: This page is a general guide. EDG manages the
               specific permit application and architectural review board
               presentation for our clients.

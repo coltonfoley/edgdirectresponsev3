@@ -126,7 +126,7 @@ export const projects: Project[] = [
   },
   {
     id: "jake-everly-residence",
-    name: "Jake Everly Residence",
+    name: "Jake",
     address: "6913 Rhode Island Trail, Crystal Lake, IL 60012",
     city: "Crystal Lake",
     state: "IL",
@@ -276,7 +276,7 @@ export const projects: Project[] = [
   },
   {
     id: "boden-residence",
-    name: "Boden Residence",
+    name: "Boden",
     address: "211 Apple Tree Rd, Winnetka, IL 60093",
     city: "Winnetka",
     state: "IL",
@@ -370,7 +370,7 @@ export const projects: Project[] = [
   },
   {
     id: "tony-koch",
-    name: "Tony Koch",
+    name: "Tony",
     address: "211 Elm St, Glenview, IL 60025",
     city: "Glenview",
     state: "IL",

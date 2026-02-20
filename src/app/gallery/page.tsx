@@ -58,7 +58,7 @@ export default function GalleryPage() {
             <h1 className="mb-8 text-6xl md:text-8xl font-bold tracking-tighter text-white">
               The Work.
             </h1>
-            <p className="max-w-xl text-xl leading-relaxed text-gray-400 mb-12">
+            <p className="max-w-xl text-xl leading-relaxed text-zinc-300 mb-12">
               Transformations across Chicago and Wisconsin. No render ghosts. Just built reality.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function GalleryPage() {
       <Section className="bg-black py-24 border-t border-white/10">
         <Container>
           <div className="text-center">
-            <div className="text-gray-500 text-sm uppercase tracking-widest animate-pulse flex justify-center items-center gap-2">
+            <div className="text-zinc-400 text-sm uppercase tracking-widest animate-pulse flex justify-center items-center gap-2">
               End of Portfolio <span className="h-1 w-1 bg-edg-brand rounded-full"></span>
             </div>
           </div>

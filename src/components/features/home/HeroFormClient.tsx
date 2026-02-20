@@ -54,7 +54,7 @@ export function HeroFormClient() {
     <div className="w-full max-w-md bg-black/80 p-8 border border-white/10 shadow-2xl backdrop-blur-sm">
       <div className="mb-6 text-white">
         <h3 className="text-xl font-bold uppercase tracking-wide">Request Information</h3>
-        <p className="text-sm text-gray-400">Get pricing or verify feasibility for your project.</p>
+        <p className="text-sm text-zinc-300">Get pricing or verify feasibility for your project.</p>
       </div>
       <form
         onSubmit={handleSubmit}

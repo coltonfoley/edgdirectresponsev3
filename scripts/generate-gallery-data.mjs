@@ -17,6 +17,12 @@ async function getGalleryImages(dir) {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
 
+    // Skip _archive folder - archived images not for production use
+    if (entry.isDirectory() && entry.name === '_archive') {
+      console.log('Skipping _archive folder...');
+      continue;
+    }
+
     if (entry.isDirectory()) {
       images.push(...(await getGalleryImages(fullPath)));
     } else if (/\.(jpg|jpeg|png|webp|avif)$/i.test(entry.name)) {

@@ -69,7 +69,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
             <div className="font-bold" itemProp="name">
               {project.testimonial.name}
             </div>
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-zinc-400">
               {project.testimonial.title}
             </div>
           </div>

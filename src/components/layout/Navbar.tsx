@@ -105,8 +105,7 @@ export function Navbar() {
   const areasDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  if (pathname?.startsWith('/admin')) return null;
-
+  // Close dropdowns when clicking outside
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -134,6 +133,9 @@ export function Navbar() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
+
+  // Hide navbar on admin pages
+  if (pathname?.startsWith('/admin')) return null;
 
   // Determine logo/text color based on scroll state
   const isDarkBg = !scrolled;

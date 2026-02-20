@@ -23,8 +23,8 @@ export const projectSlugMapping: Record<string, string> = {
   'haiti': 'lake-forest-pergola', // reuse for Haiti
   'dalesandro': 'highland-park-builder',
   'moody': 'winnetka-modern-builder',
-  'tony-koch': 'northbrook-family-entertaining', // reuse
-  'avaella': 'barrington-hills-estate',
+  'tony-koch': 'tony-koch',
+  'avaella': 'avaella',
 };
 
 // Reverse mapping for lookups
