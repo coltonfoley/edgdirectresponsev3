@@ -263,7 +263,7 @@ export default function RestaurantPatioEnclosuresPage() {
             </div>
             <div className="relative min-h-[400px] overflow-hidden rounded-3xl">
               <img
-                src="/images/brand/hero-screens.jpg"
+                src={images.brand.hero.screensOld}
                 alt="Restaurant Patio Shades"
                 className="absolute inset-0 h-full w-full object-cover"
               />

@@ -15,6 +15,7 @@ import {
   Home,
 } from 'lucide-react';
 import { Metadata } from 'next';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas Naperville IL | Luxury Louvered Roofs | EDG',
@@ -112,8 +113,7 @@ export default function NapervilleMotorizedPergolas() {
             '@context': 'https://schema.org',
             '@type': 'Product',
             name: 'Luxury Motorized Pergola System - Naperville',
-            image:
-              'https://www.edgpatioshade.com/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg',
+            image: `https://www.edgpatioshade.com${images.pages.price.whitePergolaPool}`,
             description:
               'Premium motorized louvered roof systems for Naperville estates, featuring integrated lighting and heating.',
             brand: {
@@ -227,7 +227,7 @@ export default function NapervilleMotorizedPergolas() {
               </div>
               <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="/images/pergolas/residential-white-pergola-pool-glass-doors-01.jpg"
+                  src={images.pages.serviceAreas.napervillePergolaPool01}
                   alt="Motorized pergola installation"
                   className="h-full w-full object-cover"
                 />

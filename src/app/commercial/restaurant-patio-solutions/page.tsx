@@ -146,8 +146,7 @@ export default function RestaurantPatioSolutionsPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage:
-              "url(images.brand.context.commercial)",
+            backgroundImage: `url(${images.brand.context.commercial})`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

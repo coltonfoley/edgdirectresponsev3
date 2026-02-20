@@ -15,6 +15,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import type { Metadata } from 'next';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title:
@@ -61,7 +62,7 @@ export default function SanibelPergolaPage() {
         <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 opacity-30">
           <div className="from-edg-dark to-edg-dark absolute inset-0 z-10 bg-gradient-to-l via-transparent" />
           <Image
-            src="/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg"
+            src={images.pages.serviceAreas.sanibelPergola}
             alt="Hurricane-rated white pergola with integrated screens"
             fill
             className="object-cover"
@@ -158,7 +159,7 @@ export default function SanibelPergolaPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl">
               <Image
-                src="/images/shades/shade-deployed-screens-01.jpg"
+                src={images.pages.serviceAreas.sanibelShade}
                 alt="Motorized screens deployed for hurricane protection and privacy"
                 fill
                 className="object-cover"

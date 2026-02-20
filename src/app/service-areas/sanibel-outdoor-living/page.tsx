@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import * as images from '@/lib/images';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -167,8 +168,7 @@ export default function SanibelHubPage() {
               name: 'Sanibel',
             },
             url: 'https://www.edgpatioshade.com/service-areas/sanibel-outdoor-living',
-            image:
-              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
+            image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`,
           }),
         }}
       />
@@ -182,7 +182,7 @@ export default function SanibelHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/brand/hero-pergola.jpg"
+            src={images.brand.hero.pergola}
             alt="White louvered pergola for coastal home"
             fill
             priority

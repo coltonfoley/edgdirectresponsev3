@@ -213,7 +213,7 @@ export default function SystemsPage() {
             </div>
             <div className="relative aspect-[4/3] lg:aspect-square">
               <Image
-                src="/images/pergolas/residential-black-r-blade-outdoor-dining-pool.png"
+                src={images.pages.systems.blackBladePool}
                 alt="Complete outdoor living system with motorized pergola and outdoor kitchen"
                 fill
                 className="object-cover"
@@ -474,7 +474,7 @@ export default function SystemsPage() {
             </div>
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+                src={images.pages.systems.grayBladeWhite}
                 alt="Pergola engineered for Chicago climate"
                 fill
                 className="object-cover"
@@ -525,7 +525,7 @@ export default function SystemsPage() {
             </div>
             <div className="relative aspect-[4/3]">
               <Image
-                src="/images/pergolas/residential-white-r-blade-led-strip.jpg"
+                src={images.pages.systems.whiteLedStrip}
                 alt="EDG Outdoor Living showroom displays"
                 fill
                 className="object-cover"

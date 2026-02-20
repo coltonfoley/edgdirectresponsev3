@@ -1,117 +1,63 @@
 /**
- * Project Image Path Helpers
+ * @deprecated This file is deprecated and will be removed in a future version.
+ * All project image functionality has been consolidated into `images.ts`.
  * 
- * This module provides helper functions for generating project image paths.
- * Supports both legacy and new project structures.
+ * MIGRATION GUIDE:
+ * - `projectImages(slug)` → `getProjectImageSet(slug)` from `@/lib/images`
+ * - `newProjectImages(slug, count)` → `getProjectImageSet(slug, count)` from `@/lib/images`
+ * - `legacyProjectImages(slug)` → `getProjectImageSet(slug)` from `@/lib/images`
+ * - `getProjectTitle(slug)` → Use project data from `@/lib/projects`
+ * - `isLegacyProject(slug)` → No longer needed (unified path structure)
+ * - `PROJECT_TITLES` → Use project data from `@/lib/projects`
  * 
- * Legacy pattern: /images/projects/{slug}/{card|hero|gallery-01}.jpg
- * New pattern:    /projects/{slug}/{hero|1|2|3|4|5}.jpg
+ * New unified path structure: /projects/{slug}/{hero|1|2|3}.jpg
+ * All projects now use the same pattern - no more legacy vs new distinction.
  */
 
-export interface ProjectImageSet {
-  hero: string;
-  gallery: string[];
-  // Optional card image (for project listings)
-  card?: string;
-}
+// Re-export everything from images.ts for backward compatibility
+export {
+  getProjectHero,
+  getProjectGallery,
+  getProjectImageSet,
+  featuredProjects,
+} from './images';
+
+import { getProjectImageSet } from './images';
+import type { ProjectImageSet } from './images';
 
 /**
- * Generate image paths for legacy projects (7 existing projects)
- * Pattern: /images/projects/{slug}/
- */
-export function legacyProjectImages(slug: string): ProjectImageSet {
-  const base = `/images/projects/${slug}`;
-  return {
-    hero: `${base}/hero.jpg`,
-    card: `${base}/card.jpg`,
-    gallery: [`${base}/gallery-01.jpg`, `${base}/gallery-02.jpg`, `${base}/gallery-03.jpg`],
-  };
-}
-
-/**
- * Generate image paths for new projects (17+ new projects)
- * Pattern: /projects/{slug}/
+ * @deprecated Use `getProjectImageSet(slug, count)` from `@/lib/images` instead
  */
 export function newProjectImages(slug: string, imageCount: number = 4): ProjectImageSet {
-  const base = `/projects/${slug}`;
-  return {
-    hero: `${base}/hero.jpg`,
-    gallery: Array.from({ length: imageCount }, (_, i) => `${base}/${i + 1}.jpg`),
-  };
+  return getProjectImageSet(slug, imageCount);
 }
 
 /**
- * Unified project image helper
- * Automatically detects if project is legacy or new based on slug
+ * @deprecated Use `getProjectImageSet(slug)` from `@/lib/images` instead
+ * All projects now use the unified path structure
  */
-const LEGACY_SLUGS = [
-  'lake-forest-pergola',
-  'barrington-outdoor-room',
-  'lake-geneva-restaurant',
-  'libertyville-shade-system',
-  'highland-park-builder',
-  'wilmette-country-club',
-  'barrington-hills-estate',
-];
+export function legacyProjectImages(slug: string): ProjectImageSet {
+  return getProjectImageSet(slug, 3);
+}
 
+/**
+ * @deprecated Use `getProjectImageSet(slug)` from `@/lib/images` instead
+ * All projects now use the unified path structure
+ */
 export function projectImages(slug: string, imageCount?: number): ProjectImageSet {
-  if (LEGACY_SLUGS.includes(slug)) {
-    return legacyProjectImages(slug);
-  }
-  return newProjectImages(slug, imageCount);
+  return getProjectImageSet(slug, imageCount);
 }
 
 /**
- * Check if a project uses the legacy image path structure
+ * @deprecated All projects now use the unified path structure
  */
-export function isLegacyProject(slug: string): boolean {
-  return LEGACY_SLUGS.includes(slug);
+export function isLegacyProject(_slug: string): boolean {
+  return false;
 }
 
 /**
- * Get placeholder URL from external service (fallback)
- * Useful when local images are not available
- */
-export function getExternalPlaceholder(
-  width: number,
-  height: number,
-  options: {
-    service?: 'picsum' | 'placeholder.com';
-    seed?: string;
-    text?: string;
-  } = {}
-): string {
-  const { service = 'picsum', seed = 'edg', text = 'EDG' } = options;
-
-  if (service === 'picsum') {
-    return `https://picsum.photos/seed/${seed}/${width}/${height}`;
-  }
-
-  // placeholder.com style
-  return `https://via.placeholder.com/${width}x${height}/1a2744/c9a961?text=${encodeURIComponent(text)}`;
-}
-
-/**
- * Generate a data URL for a simple SVG placeholder
- * Useful for SSR when images might not be available
- */
-export function getSvgPlaceholder(
-  width: number,
-  height: number,
-  text: string = 'EDG'
-): string {
-  const svg = `
-    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="100%" fill="#1a2744"/>
-      <text x="50%" y="50%" font-family="system-ui" font-size="24" fill="#c9a961" text-anchor="middle" dy=".3em">${text}</text>
-    </svg>
-  `;
-  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
-}
-
-/**
- * Project slug to title mapping
- * Used for generating placeholder text
+ * @deprecated Use project data from `@/lib/projects` instead
+ * Kept for backward compatibility during migration
  */
 export const PROJECT_TITLES: Record<string, string> = {
   'lake-forest-pergola': 'Lakefront Pergola & Shades',
@@ -128,6 +74,7 @@ export const PROJECT_TITLES: Record<string, string> = {
   'evanston-rooftop-terrace': 'Evanston Rooftop Terrace',
   'deerfield-backyard-oasis': 'Deerfield Backyard Oasis',
   'hinsdale-garden-room': 'Hinsdale Garden Room',
+  'hinsdale-custom-builder': 'Hinsdale Custom Builder Project',
   'oak-park-historic-renovation': 'Oak Park Historic Renovation',
   'riverside-outdoor-kitchen': 'Riverside Outdoor Kitchen',
   'geneva-lake-house': 'Geneva Lake House',
@@ -148,8 +95,46 @@ export const PROJECT_TITLES: Record<string, string> = {
 };
 
 /**
- * Get display title for a project slug
+ * @deprecated Use project data from `@/lib/projects` instead
  */
 export function getProjectTitle(slug: string): string {
   return PROJECT_TITLES[slug] || slug.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+}
+
+/**
+ * @deprecated Use external placeholder services directly or brand images from `@/lib/images`
+ */
+export function getExternalPlaceholder(
+  width: number,
+  height: number,
+  options: {
+    service?: 'picsum' | 'placeholder.com';
+    seed?: string;
+    text?: string;
+  } = {}
+): string {
+  const { service = 'picsum', seed = 'edg', text = 'EDG' } = options;
+
+  if (service === 'picsum') {
+    return `https://picsum.photos/seed/${seed}/${width}/${height}`;
+  }
+
+  return `https://via.placeholder.com/${width}x${height}/1a2744/c9a961?text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * @deprecated Use a CSS-based fallback or brand images from `@/lib/images`
+ */
+export function getSvgPlaceholder(
+  width: number,
+  height: number,
+  text: string = 'EDG'
+): string {
+  const svg = `
+    <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100%" height="100%" fill="#1a2744"/>
+      <text x="50%" y="50%" font-family="system-ui" font-size="24" fill="#c9a961" text-anchor="middle" dy=".3em">${text}</text>
+    </svg>
+  `;
+  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }

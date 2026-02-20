@@ -15,6 +15,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import type { Metadata } from 'next';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Pergola & Shade Pricing | Get a Custom Quote',
@@ -172,7 +173,7 @@ export default function PricePage() {
             <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/shades/shades-hero.jpg"
+                  src={images.pages.price.shadesHero}
                   alt="Motorized exterior shades"
                   fill
                   className="object-cover"
@@ -194,7 +195,7 @@ export default function PricePage() {
               </div>
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg"
+                  src={images.pages.price.pergolaGray}
                   alt="Louvered pergola system"
                   fill
                   className="object-cover"
@@ -213,7 +214,7 @@ export default function PricePage() {
             <div className="overflow-hidden rounded-2xl border border-black/10 dark:border-white/10">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/images/staging/residential-white-pergola-pool-glass-doors-03.jpg"
+                  src={images.pages.price.whitePergolaPool}
                   alt="Glass enclosure system"
                   fill
                   className="object-cover"

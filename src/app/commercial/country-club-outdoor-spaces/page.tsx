@@ -210,7 +210,7 @@ export default function CountryClubPage() {
           {/* Image */}
           <div className="relative mt-16 h-[400px] overflow-hidden rounded-3xl">
             <img
-              src="/images/brand/context-pool.jpg"
+              src={images.brand.context.pool}
               alt="Country Club Pool Deck Pergola"
               className="absolute inset-0 h-full w-full object-cover"
             />

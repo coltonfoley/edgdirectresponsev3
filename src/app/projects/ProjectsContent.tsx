@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { projects as csvProjects } from '../../lib/projects-data';
 import { getProjectSlug } from '@/lib/project-slug-mapping';
+import { getProjectHero, getProjectGallery } from '@/lib/images';
 import { useState, useMemo } from 'react';
 import { MapPin, ArrowRight, Filter, Camera } from 'lucide-react';
 
@@ -25,8 +26,8 @@ const projects = csvProjects.map(p => {
     city: p.city,
     type: p.projectType,
     description: p.description,
-    image: `/projects/${imageSlug}/hero.jpg`,
-    fallbackImage: `/projects/${imageSlug}/1.jpg`,
+    image: getProjectHero(imageSlug),
+    fallbackImage: getProjectGallery(imageSlug, 3)[0],
   };
 });
 

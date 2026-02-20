@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import * as images from '@/lib/images';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -141,8 +142,7 @@ export default function WinnetkaHubPage() {
               name: 'Winnetka',
             },
             url: 'https://www.edgpatioshade.com/service-areas/winnetka-il',
-            image:
-              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
+            image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`,
           }),
         }}
       />
@@ -156,7 +156,7 @@ export default function WinnetkaHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/brand/hero-pergola.jpg"
+            src={images.brand.hero.pergola}
             alt="Dark gray louvered pergola with LED lighting"
             fill
             priority

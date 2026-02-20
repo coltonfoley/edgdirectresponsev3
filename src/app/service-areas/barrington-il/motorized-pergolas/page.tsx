@@ -17,6 +17,7 @@ import {
   Thermometer,
 } from 'lucide-react';
 import type { Metadata } from 'next';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas Barrington IL | Snow Load Rated Systems | EDG',
@@ -62,7 +63,7 @@ export default function BarringtonPergolaPage() {
         <div className="pointer-events-none absolute top-0 right-0 h-full w-1/2 opacity-30">
           <div className="from-edg-dark to-edg-dark absolute inset-0 z-10 bg-gradient-to-l via-transparent" />
           <Image
-            src="/images/pergolas/residential-black-r-blade-01.jpg"
+            src={images.pages.serviceAreas.barringtonPergola1}
             alt="Barrington Estate Pergola"
             fill
             className="object-cover"
@@ -160,7 +161,7 @@ export default function BarringtonPergolaPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div className="relative h-[500px] overflow-hidden rounded-3xl shadow-2xl">
               <Image
-                src="/images/pergolas/residential-black-r-blade-04.jpg"
+                src={images.pages.serviceAreas.barringtonPergola4}
                 alt="Black R-Blade motorized louvered roof engineered for snow"
                 fill
                 className="object-cover"

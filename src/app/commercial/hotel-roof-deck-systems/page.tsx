@@ -187,7 +187,7 @@ export default function HotelRoofDeckPage() {
           {/* Feature Image */}
           <div className="relative mt-16 h-[500px] overflow-hidden rounded-3xl">
             <img
-              src="/images/brand/hero-screens.jpg"
+              src={images.brand.hero.screensOld}
               alt="Hotel Terrace Amenities"
               className="absolute inset-0 h-full w-full object-cover"
             />

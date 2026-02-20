@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import * as images from '@/lib/images';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -143,8 +144,7 @@ export default function OakBrookHubPage() {
               name: 'Oak Brook',
             },
             url: 'https://www.edgpatioshade.com/service-areas/oak-brook-il',
-            image:
-              'https://www.edgpatioshade.com/images/brand/hero-pergola.jpg',
+            image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`,
           }),
         }}
       />
@@ -154,7 +154,7 @@ export default function OakBrookHubPage() {
         {/* Background Image - Using next/Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/brand/hero-pergola.jpg"
+            src={images.brand.hero.pergola}
             alt="White louvered pergola with glass doors on estate"
             fill
             priority

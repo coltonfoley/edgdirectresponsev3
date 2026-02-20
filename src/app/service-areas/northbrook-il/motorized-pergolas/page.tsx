@@ -5,6 +5,7 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { ArrowLeft, Check, Wind, ShieldCheck } from 'lucide-react';
 import { Metadata } from 'next';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Motorized Louvered Pergolas Northbrook, IL | Hurricane Rated',
@@ -25,8 +26,7 @@ export default function NorthbrookPergolaPage() {
             '@context': 'https://schema.org',
             '@type': 'Product',
             name: 'Northbrook-Engineered Motorized Pergola',
-            image:
-              'https://www.edgpatioshade.com/images/pergolas/pergola-hero.jpg',
+            image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
             description:
               "The only pergola engineered for Northbrook's 30psf snow loads and 115mph winds. Custom designed for 60062 zoning codes.",
             brand: {
@@ -49,7 +49,7 @@ export default function NorthbrookPergolaPage() {
         <div className="relative flex h-[60vh] min-h-[500px] items-center justify-center overflow-hidden text-white">
           <div className="absolute inset-0 z-10 bg-black/60" />
           <img
-            src="/images/pergolas/pergola-hero.jpg"
+            src={images.pages.locations.defaultHero}
             alt="Luxury Motorized Pergola in Northbrook"
             className="absolute inset-0 h-full w-full object-cover"
           />

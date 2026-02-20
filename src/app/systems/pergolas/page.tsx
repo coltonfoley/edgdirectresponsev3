@@ -212,7 +212,7 @@ export default function PergolasPage() {
     name: 'Motorized Louvered Pergola',
     description:
       'Architectural aluminum pergola with 135° rotating louvers, integrated rain management, and smart home compatibility.',
-    image: 'https://www.edgpatioshade.com/images/pergolas/residential-black-r-blade-01.jpg',
+    image: `https://www.edgpatioshade.com${images.pages.serviceAreas.barringtonPergola1}`,
   });
 
   const faqSchema = generateFAQSchema(faqs);

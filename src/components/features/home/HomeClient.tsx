@@ -28,7 +28,7 @@ export function HomeClient() {
                         className="h-full w-full object-cover opacity-60"
                     >
                         <source
-                            src="/images/videos/commercial-pergola-video-clip-01.mp4"
+                            src={images.pages.home.heroVideo}
                             type="video/mp4"
                         />
                     </video>
@@ -297,7 +297,7 @@ export function HomeClient() {
                         <Link href="/projects/karp" className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
-                                    src="/projects/northbrook-family-entertaining/hero.jpg"
+                                    src={images.projects.northbrookFamily.hero}
                                     alt="Karp - Northbrook"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -325,7 +325,7 @@ export function HomeClient() {
                         <Link href="/projects/carmines" className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
-                                    src="/projects/arlington-heights-hotel/hero.jpg"
+                                    src={images.projects.arlingtonHeightsHotel.hero}
                                     alt="Carmine's - Chicago"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -353,7 +353,7 @@ export function HomeClient() {
                         <Link href="/projects/wade" className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
-                                    src="/projects/barrington-outdoor-room/hero.jpg"
+                                    src={images.projects.barringtonOutdoor.hero}
                                     alt="Wade - Barrington"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"

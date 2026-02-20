@@ -1,5 +1,6 @@
 import { projects as csvProjects } from './projects-data';
 import { getProjectSlug } from './project-slug-mapping';
+import { getProjectHero, getProjectGallery } from './images';
 
 export interface Project {
   slug: string;
@@ -97,13 +98,9 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     state,
     type: csvProject.projectType,
     systems,
-    cardImage: `/projects/${imageSlug}/hero.jpg`,
-    heroImage: `/projects/${imageSlug}/hero.jpg`,
-    galleryImages: [
-      `/projects/${imageSlug}/1.jpg`,
-      `/projects/${imageSlug}/2.jpg`,
-      `/projects/${imageSlug}/3.jpg`,
-    ],
+    cardImage: getProjectHero(imageSlug),
+    heroImage: getProjectHero(imageSlug),
+    galleryImages: getProjectGallery(imageSlug, 3),
     description: csvProject.description,
     challenge: csvProject.challenge,
     solution: csvProject.solution || 'Custom outdoor living solution designed and installed by EDG Outdoor Living.',
