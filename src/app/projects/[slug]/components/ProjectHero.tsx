@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MapPin, ArrowLeft, Camera } from 'lucide-react';
+import { MapPin, ArrowLeft } from 'lucide-react';
 import { EnrichedProject, parseLocation } from '../lib/project-utils';
 import { ImageWithFallback } from './ImageWithFallback';
 
@@ -26,23 +26,6 @@ export function ProjectHero({ project }: ProjectHeroProps) {
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-
-      {/* Professional Photos Notice Banner */}
-      <div className="absolute inset-x-0 top-0 z-20 bg-black/70 px-4 py-3 backdrop-blur-sm">
-        <div className="container mx-auto flex items-center justify-center gap-2 sm:gap-4">
-          <Camera className="h-4 w-4 flex-shrink-0 text-white" />
-          <span className="text-sm text-zinc-100">
-            Professional photos coming soon —{' '}
-            <Link
-              href="/contact"
-              className="font-semibold text-white underline underline-offset-2 transition-colors hover:text-edg-brand"
-            >
-              Contact Us
-            </Link>{' '}
-            to see more examples of our work
-          </span>
-        </div>
-      </div>
 
       {/* Content */}
       <div className="container relative z-10 mx-auto flex h-full flex-col justify-end px-4 pb-12 sm:px-6 lg:px-8">

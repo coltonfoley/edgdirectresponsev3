@@ -51,75 +51,71 @@ export const brand = {
 // PROJECT IMAGES - Portfolio case studies
 // ============================================================================
 
+// NOTE: Only 7 projects are defined here with full image sets.
+// All 24 projects use placeholders from /projects/{slug}/hero.jpg
+// See src/lib/projects.ts for the full project list
 export const projects = {
   barringtonHills: {
     slug: 'barrington-hills-estate',
-    card: '/images/projects/barrington-hills-estate/card.jpg',
-    hero: '/images/projects/barrington-hills-estate/hero.jpg',
+    hero: '/projects/barrington-hills-estate/hero.jpg',
     gallery: [
-      '/images/projects/barrington-hills-estate/gallery-01.jpg',
-      '/images/projects/barrington-hills-estate/gallery-02.jpg',
-      '/images/projects/barrington-hills-estate/gallery-03.jpg',
+      '/projects/barrington-hills-estate/1.jpg',
+      '/projects/barrington-hills-estate/2.jpg',
+      '/projects/barrington-hills-estate/3.jpg',
     ],
   },
   barringtonOutdoor: {
     slug: 'barrington-outdoor-room',
-    card: '/images/projects/barrington-outdoor-room/card.jpg',
-    hero: '/images/projects/barrington-outdoor-room/hero.jpg',
+    hero: '/projects/barrington-outdoor-room/hero.jpg',
     gallery: [
-      '/images/projects/barrington-outdoor-room/gallery-01.jpg',
-      '/images/projects/barrington-outdoor-room/gallery-02.jpg',
-      '/images/projects/barrington-outdoor-room/gallery-03.jpg',
+      '/projects/barrington-outdoor-room/1.jpg',
+      '/projects/barrington-outdoor-room/2.jpg',
+      '/projects/barrington-outdoor-room/3.jpg',
     ],
   },
   highlandPark: {
     slug: 'highland-park-builder',
-    card: '/images/projects/highland-park-builder/card.jpg',
-    hero: '/images/projects/highland-park-builder/hero.jpg',
+    hero: '/projects/highland-park-builder/hero.jpg',
     gallery: [
-      '/images/projects/highland-park-builder/gallery-01.jpg',
-      '/images/projects/highland-park-builder/gallery-02.jpg',
-      '/images/projects/highland-park-builder/gallery-03.jpg',
+      '/projects/highland-park-builder/1.jpg',
+      '/projects/highland-park-builder/2.jpg',
+      '/projects/highland-park-builder/3.jpg',
     ],
   },
   lakeForest: {
     slug: 'lake-forest-pergola',
-    card: '/images/projects/lake-forest-pergola/card.jpg',
-    hero: '/images/projects/lake-forest-pergola/hero.jpg',
+    hero: '/projects/lake-forest-pergola/hero.jpg',
     gallery: [
-      '/images/projects/lake-forest-pergola/gallery-01.jpg',
-      '/images/projects/lake-forest-pergola/gallery-02.jpg',
-      '/images/projects/lake-forest-pergola/gallery-03.jpg',
+      '/projects/lake-forest-pergola/1.jpg',
+      '/projects/lake-forest-pergola/2.jpg',
+      '/projects/lake-forest-pergola/3.jpg',
     ],
   },
   lakeGeneva: {
     slug: 'lake-geneva-restaurant',
-    card: '/images/projects/lake-geneva-restaurant/card.jpg',
-    hero: '/images/projects/lake-geneva-restaurant/hero.jpg',
+    hero: '/projects/lake-geneva-restaurant/hero.jpg',
     gallery: [
-      '/images/projects/lake-geneva-restaurant/gallery-01.jpg',
-      '/images/projects/lake-geneva-restaurant/gallery-02.jpg',
-      '/images/projects/lake-geneva-restaurant/gallery-03.jpg',
+      '/projects/lake-geneva-restaurant/1.jpg',
+      '/projects/lake-geneva-restaurant/2.jpg',
+      '/projects/lake-geneva-restaurant/3.jpg',
     ],
   },
   libertyville: {
     slug: 'libertyville-shade-system',
-    card: '/images/projects/libertyville-shade-system/card.jpg',
-    hero: '/images/projects/libertyville-shade-system/hero.jpg',
+    hero: '/projects/libertyville-shade-system/hero.jpg',
     gallery: [
-      '/images/projects/libertyville-shade-system/gallery-01.jpg',
-      '/images/projects/libertyville-shade-system/gallery-02.jpg',
-      '/images/projects/libertyville-shade-system/gallery-03.jpg',
+      '/projects/libertyville-shade-system/1.jpg',
+      '/projects/libertyville-shade-system/2.jpg',
+      '/projects/libertyville-shade-system/3.jpg',
     ],
   },
   wilmette: {
     slug: 'wilmette-country-club',
-    card: '/images/projects/wilmette-country-club/card.jpg',
-    hero: '/images/projects/wilmette-country-club/hero.jpg',
+    hero: '/projects/wilmette-country-club/hero.jpg',
     gallery: [
-      '/images/projects/wilmette-country-club/gallery-01.jpg',
-      '/images/projects/wilmette-country-club/gallery-02.jpg',
-      '/images/projects/wilmette-country-club/gallery-03.jpg',
+      '/projects/wilmette-country-club/1.jpg',
+      '/projects/wilmette-country-club/2.jpg',
+      '/projects/wilmette-country-club/3.jpg',
     ],
   },
 } as const;
@@ -132,10 +128,9 @@ export function getProjectImages(slug: string) {
   const project = Object.values(projects).find(p => p.slug === slug);
   if (!project) return null;
   return {
-    card: project.card,
     hero: project.hero,
     gallery: project.gallery,
-    all: [project.card, project.hero, ...project.gallery],
+    all: [project.hero, ...project.gallery],
   };
 }
 
@@ -310,7 +305,7 @@ export const allImagePaths = [
   ...Object.values(brand.context),
 
   // Project images
-  ...Object.values(projects).flatMap(p => [p.card, p.hero, ...p.gallery]),
+  ...Object.values(projects).flatMap(p => [p.hero, ...p.gallery]),
 
   // Page-specific images
   pages.home.heroVideo,

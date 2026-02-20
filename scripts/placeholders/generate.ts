@@ -12,6 +12,7 @@
  *   --clean     Remove existing images before generating
  *   --project   Generate only for specific project slug
  *   --list      List all projects without generating
+ *   --validate  Validate all existing images without regenerating
  */
 
 import * as fs from 'fs';
@@ -22,12 +23,12 @@ import { projectDefinitions, projectSlugs, type ProjectDefinition } from './data
 // Configuration
 const OUTPUT_BASE_DIR = path.join(process.cwd(), 'public', 'projects');
 
-// EDG Brand Colors
+// EDG Brand Colors - FROM globals.css
 const BRAND = {
-  darkNavy: '#1a2744',      // Dark navy background
-  mint: '#42ffc1',          // Mint accent (brand color)
-  white: '#ffffff',
-  lightGray: '#9ca3af',     // For subtitles
+  background: '#000000',    // Black background (--color-edg-dark)
+  mint: '#42ffc1',          // Mint accent (--color-edg-brand)
+  white: '#ffffff',         // White text (--color-edg-light)
+  muted: '#71717a',         // Muted text (--color-border-ui)
 };
 
 // Image dimensions
@@ -42,6 +43,7 @@ const args = process.argv.slice(2);
 const shouldClean = args.includes('--clean');
 const projectFilter = args.find((_, i) => args[i - 1] === '--project');
 const shouldList = args.includes('--list');
+const shouldValidate = args.includes('--validate');
 
 // Utility: Ensure directory exists
 function ensureDir(dir: string) {
@@ -58,7 +60,17 @@ function cleanDir(dir: string) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
-// Generate SVG placeholder as a Buffer (MINT STYLING - matches moody project)
+// Escape XML special characters
+function escapeXml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+// Generate SVG placeholder as a Buffer (CONSISTENT STYLING for all projects)
 function generatePlaceholderSVG(
   project: ProjectDefinition,
   index: number,
@@ -68,13 +80,15 @@ function generatePlaceholderSVG(
 ): Buffer {
   const isHero = type === 'hero';
   
-  // Dark navy background - consistent for all
-  const bgColor = BRAND.darkNavy;
+  // Black background - EDG brand dark
+  const bgColor = BRAND.background;
   const mintColor = BRAND.mint;
   
-  // Text content
+  // Text content - USE ACTUAL PROJECT DATA (NOT HARDCODED)
   const title = project.title;
-  const subtitle = isHero ? 'Two-Bay Residential System' : project.location;
+  // FIX: Use project description for hero, location for gallery
+  const subtitle = isHero ? project.description : project.location;
+  const typeLabel = project.type.toUpperCase();
   
   // Calculate font sizes based on image size
   const titleSize = Math.max(72, Math.floor(width / 12));
@@ -82,12 +96,18 @@ function generatePlaceholderSVG(
   const smallSize = Math.max(12, Math.floor(width / 80));
   const labelSize = Math.max(14, Math.floor(width / 70));
   
+  // Truncate long descriptions for better display
+  const maxSubtitleLength = isHero ? 70 : 50;
+  const displaySubtitle = subtitle.length > maxSubtitleLength 
+    ? subtitle.substring(0, maxSubtitleLength - 3) + '...'
+    : subtitle;
+  
   const svg = `
 <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
   <rect width="100%" height="100%" fill="${bgColor}" />
   
-  <!-- Top mint line -->
+  <!-- Top mint line (centered, consistent width) -->
   <rect x="${width * 0.42}" y="${height * 0.28}" width="${width * 0.16}" height="3" fill="${mintColor}" />
   
   <!-- Project Type Label -->
@@ -97,7 +117,7 @@ function generatePlaceholderSVG(
         font-weight="500"
         fill="${mintColor}" 
         letter-spacing="4"
-        text-anchor="middle">${project.type.toUpperCase()} PROJECT</text>
+        text-anchor="middle">${typeLabel} PROJECT</text>
   
   <!-- Main Title -->
   <text x="${width / 2}" y="${height * 0.44}" 
@@ -107,14 +127,14 @@ function generatePlaceholderSVG(
         fill="white" 
         text-anchor="middle">${escapeXml(title)}</text>
   
-  <!-- Description -->
+  <!-- Description / Subtitle -->
   <text x="${width / 2}" y="${height * 0.52}" 
         font-family="system-ui, -apple-system, sans-serif" 
         font-size="${subtitleSize}" 
-        fill="#9ca3af" 
-        text-anchor="middle">${escapeXml(subtitle)}</text>
+        fill="#71717a" 
+        text-anchor="middle">${escapeXml(displaySubtitle)}</text>
   
-  <!-- Bottom mint line -->
+  <!-- Bottom mint line (faded) -->
   <rect x="${width * 0.3}" y="${height * 0.58}" width="${width * 0.4}" height="1" fill="${mintColor}" opacity="0.6" />
   
   <!-- EDG Brand at bottom -->
@@ -130,21 +150,13 @@ function generatePlaceholderSVG(
   return Buffer.from(svg);
 }
 
-// Escape XML special characters
-function escapeXml(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
-}
-
 // Generate images for a single project
 async function generateProjectImages(project: ProjectDefinition): Promise<void> {
   const projectDir = path.join(OUTPUT_BASE_DIR, project.slug);
   
   console.log(`\n📁 ${project.slug}/`);
+  console.log(`   Title: ${project.title}`);
+  console.log(`   Desc: ${project.description.substring(0, 50)}...`);
   
   // Generate hero image
   const heroSvg = generatePlaceholderSVG(
@@ -188,9 +200,11 @@ function generateMappingFile(generatedProjects: ProjectDefinition[]): void {
     basePath: '/projects',
     projects: generatedProjects.map(p => ({
       slug: p.slug,
+      csvId: p.csvId,
       title: p.title,
       location: p.location,
       type: p.type,
+      description: p.description,
       images: {
         hero: `/projects/${p.slug}/hero.jpg`,
         gallery: Array.from({ length: p.imageCount }, (_, i) => 
@@ -224,12 +238,63 @@ function listProjects(): void {
   console.log(`\nTotal images to generate: ${projectDefinitions.reduce((s, p) => s + p.imageCount + 1, 0)}`);
 }
 
+// Validate existing images
+async function validateImages(): Promise<void> {
+  console.log('\n🔍 Validating existing images...\n');
+  
+  let validCount = 0;
+  let missingCount = 0;
+  let errorCount = 0;
+  
+  for (const project of projectDefinitions) {
+    const projectDir = path.join(OUTPUT_BASE_DIR, project.slug);
+    const heroPath = path.join(projectDir, 'hero.jpg');
+    
+    process.stdout.write(`${project.slug.padEnd(35)} `);
+    
+    // Check hero exists
+    if (!fs.existsSync(heroPath)) {
+      console.log('❌ MISSING hero.jpg');
+      missingCount++;
+      continue;
+    }
+    
+    // Check dimensions
+    try {
+      const metadata = await sharp(heroPath).metadata();
+      if (metadata.width === DIMENSIONS.hero.width && metadata.height === DIMENSIONS.hero.height) {
+        console.log(`✅ ${metadata.width}×${metadata.height}`);
+        validCount++;
+      } else {
+        console.log(`⚠️  WRONG SIZE ${metadata.width}×${metadata.height} (expected ${DIMENSIONS.hero.width}×${DIMENSIONS.hero.height})`);
+        errorCount++;
+      }
+    } catch (err) {
+      console.log('❌ ERROR reading file');
+      errorCount++;
+    }
+  }
+  
+  console.log('\n' + '='.repeat(50));
+  console.log(`Valid: ${validCount}, Missing: ${missingCount}, Errors: ${errorCount}`);
+  console.log('='.repeat(50));
+  
+  if (missingCount > 0 || errorCount > 0) {
+    console.log('\n💡 Run without --validate to regenerate all images');
+  }
+}
+
 // Main function
 async function main(): Promise<void> {
   console.log('🎨 EDG PatioShade Placeholder Image Generator\n');
   
   if (shouldList) {
     listProjects();
+    return;
+  }
+  
+  if (shouldValidate) {
+    await validateImages();
     return;
   }
   

@@ -477,18 +477,6 @@ export declare function validateProject(project: unknown): {
 };
 
 /**
- * Transforms a raw CSV row into a Project object
- * 
- * @param row - The CSV row data
- * @param rowNumber - The row number for error tracking
- * @returns The transformed Project or null if invalid
- */
-export declare function transformCSVRow(
-  row: ProjectCSVRow, 
-  rowNumber: number
-): Project | null;
-
-/**
  * Calculates data completeness score for a project
  * 
  * @param project - The project to analyze
