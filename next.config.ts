@@ -7,11 +7,12 @@ const nextConfig: NextConfig = {
   // This ensures crawlers see complete metadata in <head>
   htmlLimitedBots: /Twitterbot|Slackbot|Bingbot|LinkedInBot|WhatsApp|FacebookBot|Discordbot/,
 
-  // Enable Cache Components (Partial Prerendering)
+  // Enable Cache Components (Partial Prerendering) - PRODUCTION ONLY
   // SEO Impact: Static shell renders instantly, dynamic content streams
   // UX Impact: Faster TTFB, better perceived performance
   // Second-order: Improves Core Web Vitals (LCP, INP)
-  cacheComponents: true,
+  // NOTE: Disabled in dev due to build-manifest issues with dynamic routes
+  cacheComponents: process.env.NODE_ENV === 'production',
 
   images: {
     remotePatterns: [
