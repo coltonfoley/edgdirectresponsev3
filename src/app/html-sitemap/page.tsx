@@ -1,5 +1,6 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { Metadata } from 'next';
 
@@ -87,6 +88,14 @@ export default function SitemapPage() {
     <main className="bg-background min-h-screen pt-24 pb-16">
       <Section>
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Sitemap' },
+              ]}
+            />
+          </div>
           <div className="mx-auto max-w-4xl">
             <h1 className="mb-8 text-4xl font-bold md:text-5xl">Sitemap</h1>
             <p className="text-muted-foreground mb-12 text-lg">

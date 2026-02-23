@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { MapPin, ArrowLeft } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { EnrichedProject, parseLocation } from '../lib/project-utils';
 import { ImageWithFallback } from './ImageWithFallback';
 
@@ -30,25 +31,14 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       {/* Content */}
       <div className="container relative z-10 mx-auto flex h-full flex-col justify-end px-4 pb-12 sm:px-6 lg:px-8">
         {/* Breadcrumb Navigation */}
-        <nav className="mb-6 flex flex-wrap gap-4" aria-label="Breadcrumb">
-          <Link
-            href="/gallery"
-            className="inline-flex items-center text-sm text-zinc-200 transition-colors hover:text-white"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to gallery
-          </Link>
-
-          {project.serviceAreaSlug && (
-            <Link
-              href={`/service-areas/${project.serviceAreaSlug}`}
-              className="inline-flex items-center border-l border-white/20 pl-4 text-sm text-zinc-200 transition-colors hover:text-white"
-            >
-              <MapPin className="mr-2 h-4 w-4" />
-              View Service Area
-            </Link>
-          )}
-        </nav>
+        <div className="mb-6">
+          <Breadcrumb
+            items={[
+              { label: 'Projects', href: '/projects' },
+              { label: project.title },
+            ]}
+          />
+        </div>
 
         {/* Project Type Badge */}
         <span className="bg-edg-brand text-edg-dark mb-4 w-fit rounded-full px-3 py-1 text-sm font-semibold">

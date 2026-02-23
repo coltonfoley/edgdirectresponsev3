@@ -3,6 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -218,6 +219,15 @@ export default function UmbrellasPage() {
       {/* ========== HERO SECTION ========== */}
       <Section className="bg-white pt-8 pb-16 dark:bg-black">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-8 pt-16">
+            <Breadcrumb
+              items={[
+                { label: 'Systems', href: '/systems' },
+                { label: 'Umbrellas' },
+              ]}
+            />
+          </div>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             {/* Gallery */}
             <div className="relative aspect-[4/3] overflow-hidden rounded-none">

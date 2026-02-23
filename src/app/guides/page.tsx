@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Link } from '@/components/ui/Link';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { BookOpen, Scale, ArrowRight, Library, Layers, FileText } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -51,6 +52,14 @@ export default function GuidesIndexPage() {
       {/* ========== HERO SECTION ========== */}
       <section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 pt-32 pb-20 dark:border-zinc-800 dark:bg-zinc-900">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Guides' },
+              ]}
+            />
+          </div>
           <FadeIn>
             <div className="max-w-4xl">
               <span className="text-edg-brand-text dark:text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">

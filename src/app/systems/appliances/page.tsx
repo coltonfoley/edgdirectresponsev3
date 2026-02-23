@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -208,6 +209,15 @@ export default function AppliancesPage() {
       {/* ========== HERO WITH GALLERY ========== */}
       <section className="bg-white pt-8 pb-16 dark:bg-black">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-8 pt-16">
+            <Breadcrumb
+              items={[
+                { label: 'Systems', href: '/systems' },
+                { label: 'Outdoor Appliances' },
+              ]}
+            />
+          </div>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             {/* Gallery */}
             <ProductGallery items={galleryImages} />

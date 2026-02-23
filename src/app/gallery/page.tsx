@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Image from 'next/image';
 import galleryData from '@/data/gallery-images.json';
 
@@ -50,6 +51,14 @@ export default function GalleryPage() {
     <main className="min-h-screen bg-black text-white">
       <Section className="bg-black pt-32 pb-24 border-b border-white/10">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Gallery' },
+              ]}
+            />
+          </div>
           <div className="max-w-4xl">
             <p className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3">
               <span className="h-px w-8 bg-edg-brand"></span>

@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { FadeIn } from '@/components/ui/FadeIn';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { projects as csvProjects } from '../../lib/projects-data';
 import { getProjectSlug } from '@/lib/project-slug-mapping';
 import { getProjectHero, getProjectGallery } from '@/lib/images';
@@ -48,6 +49,14 @@ export function ProjectsContent() {
       {/* Hero */}
       <Section className="bg-edg-dark py-24 md:py-32">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Projects' },
+              ]}
+            />
+          </div>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
               <span className="text-edg-brand mb-4 inline-block text-sm font-bold tracking-[0.2em] uppercase">

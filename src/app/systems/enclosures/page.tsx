@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { IconWrapper } from '@/components/ui/IconWrapper';
@@ -242,6 +243,15 @@ export default function EnclosuresPage() {
       {/* ========== HERO: SPLIT SCREEN PRODUCT ========== */}
       <section className="pt-32 pb-12 lg:min-h-screen flex flex-col justify-center">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Systems', href: '/systems' },
+                { label: 'Glass Enclosures' },
+              ]}
+            />
+          </div>
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
             <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
               <div className="label-editorial-brand mb-6 flex items-center gap-3">

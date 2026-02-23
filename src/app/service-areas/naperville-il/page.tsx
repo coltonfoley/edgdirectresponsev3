@@ -8,6 +8,7 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import {
   MapPin,
@@ -167,6 +168,15 @@ export default function NapervilleHubPage() {
         </div>
 
         <Container className="relative z-10">
+          {/* Breadcrumb */}
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Service Areas', href: '/service-areas' },
+                { label: 'Naperville, IL' },
+              ]}
+            />
+          </div>
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
               <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">

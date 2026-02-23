@@ -3,6 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -93,6 +94,14 @@ export default function ServiceAreasPage() {
       {/* Hero */}
       <section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32 md:pb-24">
         <Container>
+          {/* Breadcrumb */}
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Service Areas' },
+              ]}
+            />
+          </div>
           <div className="max-w-4xl">
             <div className="border border-edg-brand/30 bg-edg-brand/10 px-4 py-2 text-edg-brand-dark inline-flex items-center gap-2 mb-6">
               <MapPin className="h-4 w-4" />

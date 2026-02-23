@@ -1,10 +1,10 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  ArrowLeft,
   CheckCircle2,
   ArrowRight,
   Phone,
@@ -73,12 +73,14 @@ export default function PricePage() {
       {/* ========== HERO ========== */}
       <Section className="bg-white pt-24 pb-16 md:pt-32 dark:bg-black">
         <Container>
-          <Link
-            href="/"
-            className="text-edg-gray-text hover:text-edg-brand-text mb-8 inline-flex items-center text-sm font-medium transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
-          </Link>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Pricing' },
+              ]}
+            />
+          </div>
           <div className="max-w-4xl">
             <p className="text-edg-brand-text mb-4 text-sm font-semibold tracking-wider uppercase">
               For Budget-Conscious Homeowners

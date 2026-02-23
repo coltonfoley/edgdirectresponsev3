@@ -3,8 +3,9 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import { ArrowLeft, MapPin, Phone, Mail, Clock, ArrowRight, Check } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ArrowRight, Check } from 'lucide-react';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
@@ -91,12 +92,14 @@ function ContactForm() {
       {/* LEFT COLUMN: Context & Info */}
       <div className="bg-black text-white p-12 lg:p-24 flex flex-col justify-between relative overflow-hidden">
         <div className="relative z-10">
-          <Link
-            href="/"
-            className="text-zinc-400 hover:text-white mb-12 inline-flex items-center text-xs font-bold uppercase tracking-widest transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to home
-          </Link>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Contact' },
+              ]}
+            />
+          </div>
 
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-[0.9]">
             Start your <br /> project.

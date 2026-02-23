@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as images from '@/lib/images';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import {
   CheckCircle2,
   ArrowRight,
@@ -74,13 +75,16 @@ export default function GuideReadPage() {
         </div>
 
         <div className="relative z-10 max-w-5xl px-6 pt-20 text-center">
-          <Link
-            href="/guides/planning-guide"
-            className="hover:text-edg-brand mb-12 inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" /> Back to Details
-          </Link>
-          <br />
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Guides', href: '/guides' },
+                { label: 'Free Planning Guide', href: '/guides/planning-guide' },
+                { label: 'Read' },
+              ]}
+            />
+          </div>
           <div className="border-edg-brand/30 bg-edg-brand/10 text-edg-brand mb-8 inline-block rounded-full border px-5 py-2 text-sm font-bold tracking-widest uppercase backdrop-blur-sm">
             The 2026 Homeowner's Report
           </div>

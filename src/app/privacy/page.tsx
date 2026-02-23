@@ -1,7 +1,6 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,12 +17,14 @@ export default function PrivacyPage() {
     <main className="min-h-screen bg-white dark:bg-black">
       <Section className="pt-24 pb-16 md:pt-32">
         <Container>
-          <Link
-            href="/"
-            className="text-muted-foreground hover:text-foreground mb-8 inline-flex items-center text-sm font-medium transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to home
-          </Link>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Privacy Policy' },
+              ]}
+            />
+          </div>
 
           <div className="max-w-3xl">
             <h1 className="text-foreground mb-8 text-4xl font-bold tracking-tight md:text-5xl">

@@ -1,5 +1,6 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin, Clock, Phone, Calendar } from 'lucide-react';
@@ -26,6 +27,14 @@ export default function ShowroomPage() {
             {/* Hero Section */}
             <Section className="bg-zinc-900 pt-32 pb-20 text-white">
                 <Container>
+                    {/* Breadcrumb */}
+                    <div className="mb-6">
+                        <Breadcrumb
+                            items={[
+                                { label: 'Showroom' },
+                            ]}
+                        />
+                    </div>
                     <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
                         <div>
                             <p className="text-edg-brand mb-4 text-sm font-semibold tracking-wider uppercase">

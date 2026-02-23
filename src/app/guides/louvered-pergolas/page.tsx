@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import {
   CheckCircle2,
   Info,
@@ -111,15 +112,17 @@ export default function LouveredPergolaGuide() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
         <Container className="relative z-10">
+          {/* Breadcrumb */}
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Guides', href: '/guides' },
+                { label: 'Complete Guide to Louvered Pergolas' },
+              ]}
+            />
+          </div>
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <Link
-                href="/guides"
-                className="text-edg-brand mb-8 inline-flex items-center gap-2 text-sm font-medium opacity-80 transition-opacity hover:underline hover:opacity-100"
-              >
-                <ArrowLeft className="h-4 w-4" /> Back to All Guides
-              </Link>
-              <br />
               <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
                 Pillar Guide
               </span>

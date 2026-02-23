@@ -1,9 +1,9 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import {
-  ArrowLeft,
   CheckCircle2,
   ArrowRight,
   XCircle,
@@ -74,12 +74,14 @@ export default function DesignPage() {
       {/* ========== HERO: LEAD WITH THE PROBLEM ========== */}
       <Section className="bg-white pt-24 pb-16 md:pt-32 dark:bg-black">
         <Container>
-          <Link
-            href="/"
-            className="text-edg-gray-text hover:text-edg-brand-text mb-8 inline-flex items-center text-sm font-medium transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to options
-          </Link>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Design Consultation' },
+              ]}
+            />
+          </div>
           <div className="max-w-4xl">
             <p className="text-edg-brand-text mb-4 text-sm font-semibold tracking-wider uppercase">
               For Homeowners Who Want It Done Right

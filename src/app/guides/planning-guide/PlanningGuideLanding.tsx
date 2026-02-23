@@ -3,6 +3,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { LeadCaptureForm } from '@/components/features/contact/LeadCaptureForm';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import {
   CheckCircle2,
   Sun,
@@ -36,12 +37,15 @@ export default function PlanningGuideLanding() {
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-black/40" />
 
         <Container className="relative z-20 py-20">
-          <Link
-            href="/guides"
-            className="hover:text-edg-brand mb-12 inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" /> Back to Knowledge Base
-          </Link>
+          {/* Breadcrumb */}
+          <div className="mb-8">
+            <Breadcrumb
+              items={[
+                { label: 'Guides', href: '/guides' },
+                { label: 'Free Planning Guide' },
+              ]}
+            />
+          </div>
 
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             {/* Left: Copy */}
