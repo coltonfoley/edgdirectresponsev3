@@ -579,7 +579,7 @@ export default function PergolasPage() {
                 <h3 className="font-bold text-lg mb-2">{step.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{step.description}</p>
                 {index < processSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-full w-full h-px bg-border" />
+                  <div className="hidden md:block absolute top-12 -right-3 w-6 h-px bg-border" />
                 )}
               </div>
             ))}
