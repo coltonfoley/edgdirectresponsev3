@@ -15,6 +15,43 @@
  */
 
 // ============================================================================
+// PENDING IMAGES - Add photos to these folders, then uncomment the paths below
+// ============================================================================
+// See public/images/{category}/README.txt for naming conventions and photo guidance.
+//
+// UMBRELLAS — /images/umbrellas/
+// export const umbrellaImages = {
+//   hero:       '/images/umbrellas/umbrella-hero.jpg',
+//   poolside:   '/images/umbrellas/umbrella-poolside.jpg',
+//   dining:     '/images/umbrellas/umbrella-dining.jpg',
+//   commercial: '/images/umbrellas/umbrella-commercial.jpg',
+// } as const;
+//
+// FURNITURE — /images/furniture/
+// export const furnitureImages = {
+//   hero:       '/images/furniture/furniture-hero.jpg',
+//   dining:     '/images/furniture/furniture-dining.jpg',
+//   poolside:   '/images/furniture/furniture-poolside.jpg',
+//   commercial: '/images/furniture/furniture-commercial.jpg',
+// } as const;
+//
+// APPLIANCES — /images/appliances/
+// export const applianceImages = {
+//   hero:       '/images/appliances/appliances-hero.jpg',
+//   pizzaOven:  '/images/appliances/appliances-pizza-oven.jpg',
+//   kitchen:    '/images/appliances/appliances-kitchen.jpg',
+//   heater:     '/images/appliances/appliances-heater.jpg',
+// } as const;
+//
+// ENCLOSURES — /images/enclosures/
+// export const enclosureImages = {
+//   hero:       '/images/enclosures/enclosures-hero.jpg',
+//   detail:     '/images/enclosures/enclosures-detail.jpg',
+//   interior:   '/images/enclosures/enclosures-interior.jpg',
+//   restaurant: '/images/enclosures/enclosures-restaurant.jpg',
+// } as const;
+
+// ============================================================================
 // BRAND IMAGES - Core website imagery (15 images)
 // ============================================================================
 
