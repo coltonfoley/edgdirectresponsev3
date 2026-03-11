@@ -28,12 +28,12 @@
 // } as const;
 //
 // FURNITURE — /images/furniture/
-// export const furnitureImages = {
-//   hero:       '/images/furniture/furniture-hero.jpg',
-//   dining:     '/images/furniture/furniture-dining.jpg',
-//   poolside:   '/images/furniture/furniture-poolside.jpg',
-//   commercial: '/images/furniture/furniture-commercial.jpg',
-// } as const;
+export const furnitureImages = {
+  hero:       '/images/furniture/furniture-hero.jpg',
+  dining:     '/images/furniture/furniture-dining.jpg',
+  poolside:   '/images/furniture/furniture-poolside.jpg',
+  commercial: '/images/furniture/furniture-commercial.jpg',
+} as const;
 //
 // APPLIANCES — /images/appliances/
 // export const applianceImages = {
