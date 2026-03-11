@@ -346,7 +346,7 @@ export default function AppliancesPage() {
               {
                 title: 'Pizza Night',
                 desc: 'Create memories with family and friends around a wood-fired or gas pizza oven.',
-                image: images.brand.detail.led,
+                image: images.brand.hero.showroom,
               },
             ].map((item) => (
               <div

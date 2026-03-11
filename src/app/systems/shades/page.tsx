@@ -41,9 +41,9 @@ const galleryImages = images.galleries.shades.map((src, index) => ({
   src,
   alt: [
     'Motorized mesh screens deployed on white pergola providing UV protection',
-    'Exterior screen shades providing sun protection on residential patio',
+    'Close-up detail of motorized screen fabric and track system',
     'Commercial pergola with retractable shade screens overlooking lake',
-    'Pergola with solid shade panel closed for complete privacy',
+    'Motorized screen deployed to provide sun shade on a residential patio',
   ][index],
 }));
 

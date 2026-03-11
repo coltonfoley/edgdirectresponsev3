@@ -46,10 +46,10 @@ const galleryImages = images.galleries.enclosures.map((src, index) => ({
   type: 'image' as const,
   src,
   alt: [
-    'Frameless glass enclosure detail',
-    'Outdoor living lifestyle',
-    'Poolside glass enclosure',
-    'LED lighting feature',
+    'Frameless glass enclosure exterior view',
+    'Glass panel close-up or hardware detail',
+    'White louvered pergola with integrated glass doors',
+    'Interior view through frameless sliding glass walls',
   ][index] || 'Glass enclosure image',
 }));
 

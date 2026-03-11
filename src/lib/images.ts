@@ -330,44 +330,26 @@ export const galleries = {
 
   /** Shades system page gallery */
   shades: [
+    pages.price.shadesHero,
     brand.detail.screen,
     brand.context.lake,
-    brand.hero.lifestyle,
-    brand.detail.led,
+    pages.serviceAreas.sanibelShade,
   ],
 
   /** Enclosures system page gallery */
   enclosures: [
+    brand.hero.glass,
     brand.detail.glass,
-    brand.hero.lifestyle,
-    brand.context.pool,
-    brand.detail.led,
+    pages.price.whitePergolaPool,
+    pages.design.framelessGlass,
   ],
 
   /** Appliances system page gallery */
   appliances: [
+    brand.hero.showroom,
+    brand.detail.heater,
     brand.hero.lifestyle,
     brand.context.commercial,
-    brand.detail.led,
-  ],
-
-  /** Heating system page gallery */
-  heating: [
-    brand.hero.lifestyle,
-    brand.detail.heater,
-    brand.context.snow,
-  ],
-
-  /** Furniture system page gallery */
-  furniture: [
-    brand.hero.lifestyle,
-    brand.context.pool,
-  ],
-
-  /** Umbrellas system page gallery */
-  umbrellas: [
-    brand.context.pool,
-    brand.hero.pergola,
   ],
 
   /** Commercial page gallery */
