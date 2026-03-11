@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { Check } from 'lucide-react';
 
 interface ColorOption {
@@ -96,9 +97,11 @@ export function PergolaConfiguratorClient() {
               Not sure which color works best with your home? Schedule a consultation and 
               we will bring samples to your site.
             </p>
-            <Button variant="outline" className="w-full">
-              Book Consultation
-            </Button>
+            <TrackedLink href="/contact?type=consultation&product=pergola">
+              <Button variant="outline" className="w-full">
+                Book Consultation
+              </Button>
+            </TrackedLink>
           </div>
         </Card>
       </div>

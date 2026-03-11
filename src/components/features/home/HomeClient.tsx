@@ -125,7 +125,7 @@ export function HomeClient() {
                     </Link>
 
                     {/* Residential Side */}
-                    <Link href="/design" className="group relative block min-h-[40vh] md:min-h-[60vh] overflow-hidden bg-zinc-900 border-t md:border-t-0 md:border-l border-white/10">
+                    <Link href="/contact?type=homeowner" className="group relative block min-h-[40vh] md:min-h-[60vh] overflow-hidden bg-zinc-900 border-t md:border-t-0 md:border-l border-white/10">
                         {/* Background Image using next/Image */}
                         <div className="absolute inset-0">
                             <Image

@@ -149,7 +149,7 @@ export function Footer() {
                 <li><Link href="/projects" className="text-zinc-300 hover:text-edg-brand transition-colors">Projects</Link></li>
                 <li><Link href="/gallery" className="text-zinc-300 hover:text-edg-brand transition-colors">Gallery</Link></li>
                 <li><Link href="/showroom" className="text-zinc-300 hover:text-edg-brand transition-colors">Showroom</Link></li>
-                <li><Link href="/design" className="text-zinc-300 hover:text-edg-brand transition-colors">Design Process</Link></li>
+                <li><Link href="/contact" className="text-zinc-300 hover:text-edg-brand transition-colors">Contact</Link></li>
                 <li><Link href="/price" className="text-zinc-300 hover:text-edg-brand transition-colors">Pricing Guide</Link></li>
               </ul>
             </div>
@@ -182,8 +182,6 @@ export function Footer() {
               <ul className="space-y-3">
                 <li><a href="mailto:info@edgpatioshade.com" className="text-zinc-300 hover:text-edg-brand transition-colors">info@edgpatioshade.com</a></li>
                 <li><a href="tel:+18155810138" className="text-zinc-300 hover:text-edg-brand transition-colors">(815) 581-0138</a></li>
-                <li><a href="https://instagram.com" className="text-zinc-300 hover:text-edg-brand transition-colors">Instagram</a></li>
-                <li><a href="https://linkedin.com" className="text-zinc-300 hover:text-edg-brand transition-colors">LinkedIn</a></li>
               </ul>
               <div className="mt-8 pt-8 border-t border-white/10 space-y-2">
                 <Link href="/html-sitemap" className="block text-xs text-zinc-400 hover:text-white">Site Map</Link>
