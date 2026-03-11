@@ -68,7 +68,7 @@ function ContactForm() {
 
   if (success) {
     return (
-      <main className="bg-zinc-50 min-h-screen flex items-center justify-center">
+      <div className="bg-zinc-50 min-h-screen flex items-center justify-center">
         <div className="bg-white border border-black/5 p-16 max-w-2xl text-center shadow-2xl">
           <div className="bg-black text-white mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full">
             <Check className="h-10 w-10" />
@@ -83,12 +83,12 @@ function ContactForm() {
             <Button className="bg-edg-brand text-black hover:bg-black hover:text-white rounded-none px-10 py-4 font-bold uppercase tracking-wider">Return Home</Button>
           </Link>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="bg-white min-h-screen grid lg:grid-cols-2">
+    <div className="bg-white min-h-screen grid lg:grid-cols-2">
       {/* LEFT COLUMN: Context & Info */}
       <div className="bg-black text-white p-12 lg:p-24 flex flex-col justify-between relative overflow-hidden">
         <div className="relative z-10">
@@ -292,7 +292,7 @@ function ContactForm() {
           </div>
         </form>
       </div>
-    </main>
+    </div>
   );
 }
 
@@ -300,12 +300,12 @@ export default function ContactClient() {
   return (
     <Suspense
       fallback={
-        <main className="bg-white min-h-screen flex items-center justify-center">
+        <div className="bg-white min-h-screen flex items-center justify-center">
           <div className="text-center">
             <div className="border-black mx-auto mb-6 h-8 w-8 animate-spin rounded-full border-4 border-t-transparent"></div>
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Loading experience...</p>
           </div>
-        </main>
+        </div>
       }
     >
       <ContactForm />

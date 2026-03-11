@@ -63,6 +63,11 @@ const nextConfig: NextConfig = {
         destination: '/contact',
         permanent: true,
       },
+      {
+        source: '/price',
+        destination: '/contact',
+        permanent: true,
+      },
 
       // ══════════════════════════════════════════════════════════
       // OLD WORDPRESS CORE PRODUCT PAGES

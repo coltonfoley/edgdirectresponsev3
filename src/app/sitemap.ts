@@ -20,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/gallery', priority: 0.8 },
     { url: '/guides/planning-guide', priority: 0.8 },
     { url: '/guides/planning-guide/read', priority: 0.7 },
-    { url: '/price', priority: 0.8 },
     { url: '/showroom', priority: 0.8 },
     { url: '/trade-partners', priority: 0.8 },
     { url: '/privacy', priority: 0.5 },

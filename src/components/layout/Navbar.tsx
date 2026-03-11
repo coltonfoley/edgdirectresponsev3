@@ -8,37 +8,37 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-// Core Product Links (direct nav items per brand source)
-const coreProducts = [
+// Products dropdown - all systems combined
+const productsDropdown = [
   {
     href: '/systems/pergolas',
     label: 'Pergolas',
+    desc: 'Motorized louvered roof systems',
   },
   {
     href: '/systems/shades',
     label: 'Screens',
+    desc: 'Retractable exterior shades',
   },
   {
     href: '/systems/enclosures',
     label: 'Enclosures',
+    desc: 'Glass wall systems',
   },
-];
-
-// Secondary Offerings - "Complete Your Space" dropdown per brand source
-const completeYourSpace = [
   {
     href: '/systems/appliances',
     label: 'Outdoor Kitchens',
-    desc: 'Built-in grills, appliances, cabinetry',
+    desc: 'Built-in grills & appliances',
   },
   {
     href: '/systems/saunas',
-    label: 'Custom Saunas',
+    label: 'Saunas',
     desc: 'Premium outdoor sauna systems',
   },
 ];
 
-const areasDropdown = [
+// Locations dropdown (renamed from Areas)
+const locationsDropdown = [
   {
     href: '/service-areas/wilmette-il',
     label: 'Wilmette, IL',
@@ -89,10 +89,12 @@ const areasDropdown = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [systemsOpen, setSystemsOpen] = useState(false);
-  const [areasOpen, setAreasOpen] = useState(false);
-  const systemsDropdownRef = useRef<HTMLDivElement>(null);
-  const areasDropdownRef = useRef<HTMLDivElement>(null);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [locationsOpen, setLocationsOpen] = useState(false);
+  const [workOpen, setWorkOpen] = useState(false);
+  const productsDropdownRef = useRef<HTMLDivElement>(null);
+  const locationsDropdownRef = useRef<HTMLDivElement>(null);
+  const workDropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   // Close dropdowns when clicking outside
@@ -108,16 +110,22 @@ export function Navbar() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        systemsDropdownRef.current &&
-        !systemsDropdownRef.current.contains(event.target as Node)
+        productsDropdownRef.current &&
+        !productsDropdownRef.current.contains(event.target as Node)
       ) {
-        setSystemsOpen(false);
+        setProductsOpen(false);
       }
       if (
-        areasDropdownRef.current &&
-        !areasDropdownRef.current.contains(event.target as Node)
+        locationsDropdownRef.current &&
+        !locationsDropdownRef.current.contains(event.target as Node)
       ) {
-        setAreasOpen(false);
+        setLocationsOpen(false);
+      }
+      if (
+        workDropdownRef.current &&
+        !workDropdownRef.current.contains(event.target as Node)
+      ) {
+        setWorkOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -155,65 +163,50 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav - Increased breakpoint to xl for more space */}
-          <nav className="hidden items-center gap-6 xl:flex">
-            {/* Core Product Links */}
-            {coreProducts.map((product) => (
-              <Link
-                key={product.href}
-                href={product.href}
-                className={cn(
-                  'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
-                  textColor
-                )}
-              >
-                {product.label}
-              </Link>
-            ))}
-
-            {/* Complete Your Space Dropdown */}
-            <div className="relative" ref={systemsDropdownRef}>
-              <Link
-                href="/systems"
-                onMouseEnter={() => setSystemsOpen(true)}
+          <nav className="hidden items-center gap-8 xl:flex">
+            {/* Products Dropdown */}
+            <div className="relative" ref={productsDropdownRef}>
+              <button
+                onClick={() => {
+                  setProductsOpen(!productsOpen);
+                  setLocationsOpen(false);
+                  setWorkOpen(false);
+                }}
                 className={cn(
                   'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
-                aria-label="View outdoor systems"
+                aria-label="View products"
+                aria-expanded={productsOpen}
               >
-                Systems
+                Products
                 <ChevronDown
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSystemsOpen(!systemsOpen);
-                    setAreasOpen(false);
-                  }}
                   className={cn(
-                    'h-4 w-4 transition-transform cursor-pointer',
-                    systemsOpen && 'rotate-180'
+                    'h-4 w-4 transition-transform',
+                    productsOpen && 'rotate-180'
                   )}
                 />
-              </Link>
+              </button>
 
-              {systemsOpen && (
+              {productsOpen && (
                 <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-72 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
                   <Link
                     href="/systems"
-                    onClick={() => setSystemsOpen(false)}
+                    onClick={() => setProductsOpen(false)}
                     className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
                     <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
-                      All Systems
+                      All Products
                     </div>
                     <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
-                      Compare all outdoor living solutions
+                      View complete product line
                     </div>
                   </Link>
-                  {completeYourSpace.map((item) => (
+                  {productsDropdown.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      onClick={() => setSystemsOpen(false)}
+                      onClick={() => setProductsOpen(false)}
                       className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                     >
                       <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
@@ -228,46 +221,47 @@ export function Navbar() {
               )}
             </div>
 
-            {/* Service Areas Dropdown */}
-            <div className="relative" ref={areasDropdownRef}>
+            {/* Locations Dropdown */}
+            <div className="relative" ref={locationsDropdownRef}>
               <button
                 onClick={() => {
-                  setAreasOpen(!areasOpen);
-                  setSystemsOpen(false);
+                  setLocationsOpen(!locationsOpen);
+                  setProductsOpen(false);
+                  setWorkOpen(false);
                 }}
                 className={cn(
                   'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                   textColor
                 )}
-                aria-label="View service areas"
-                aria-expanded={areasOpen}
+                aria-label="View locations"
+                aria-expanded={locationsOpen}
               >
-                Areas
+                Locations
                 <ChevronDown
                   className={cn(
                     'h-4 w-4 transition-transform',
-                    areasOpen && 'rotate-180'
+                    locationsOpen && 'rotate-180'
                   )}
                 />
               </button>
 
-              {areasOpen && (
+              {locationsOpen && (
                 <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-80 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
                   <Link
                     href="/service-areas"
-                    onClick={() => setAreasOpen(false)}
+                    onClick={() => setLocationsOpen(false)}
                     className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
                     <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
-                      All Service Areas
+                      All Locations
                     </div>
                   </Link>
                   <div className="max-h-[60vh] overflow-y-auto">
-                    {areasDropdown.map((item) => (
+                    {locationsDropdown.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        onClick={() => setAreasOpen(false)}
+                        onClick={() => setLocationsOpen(false)}
                         className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                       >
                         <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
@@ -283,24 +277,69 @@ export function Navbar() {
               )}
             </div>
 
-            <Link
-              href="/gallery"
-              className={cn(
-                'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
-                textColor
-              )}
-            >
-              Gallery
-            </Link>
+            {/* Our Work Dropdown */}
+            <div className="relative" ref={workDropdownRef}>
+              <button
+                onClick={() => {
+                  setWorkOpen(!workOpen);
+                  setProductsOpen(false);
+                  setLocationsOpen(false);
+                }}
+                className={cn(
+                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                  textColor
+                )}
+                aria-label="View our work"
+                aria-expanded={workOpen}
+              >
+                Our Work
+                <ChevronDown
+                  className={cn(
+                    'h-4 w-4 transition-transform',
+                    workOpen && 'rotate-180'
+                  )}
+                />
+              </button>
 
+              {workOpen && (
+                <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-64 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
+                  <Link
+                    href="/projects"
+                    onClick={() => setWorkOpen(false)}
+                    className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
+                  >
+                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                      Projects
+                    </div>
+                    <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                      Case studies & installations
+                    </div>
+                  </Link>
+                  <Link
+                    href="/gallery"
+                    onClick={() => setWorkOpen(false)}
+                    className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
+                  >
+                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                      Gallery
+                    </div>
+                    <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                      Browse our portfolio
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Guides - Direct Link */}
             <Link
-              href="/projects"
+              href="/guides"
               className={cn(
                 'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
                 textColor
               )}
             >
-              Projects
+              Guides
             </Link>
           </nav>
 
@@ -374,12 +413,12 @@ export function Navbar() {
         {isOpen && (
           <div className="animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex h-screen flex-col overflow-y-auto bg-black p-6 text-white xl:hidden">
             <div className="flex flex-col gap-8 pt-10">
-              {/* Core Products Section */}
+              {/* Products Section */}
               <div className="space-y-4">
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
-                  Systems
+                  Products
                 </div>
-                {coreProducts.map((item) => (
+                {productsDropdown.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -389,29 +428,23 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
-              </div>
-
-              <div className="h-px bg-white/10" />
-
-              {/* All Systems Link */}
-              <div className="space-y-4">
                 <Link
                   href="/systems"
-                  className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
+                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
                   onClick={() => setIsOpen(false)}
                 >
-                  All Systems
+                  View All Products
                 </Link>
               </div>
 
               <div className="h-px bg-white/10" />
 
-              {/* Complete Your Space Section */}
+              {/* Locations Section */}
               <div className="space-y-4">
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
-                  Complete Your Space
+                  Locations
                 </div>
-                {completeYourSpace.map((item) => (
+                {locationsDropdown.slice(0, 5).map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -421,11 +454,18 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+                <Link
+                  href="/service-areas"
+                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  View All Locations
+                </Link>
               </div>
 
               <div className="h-px bg-white/10" />
 
-              {/* Work Section */}
+              {/* Our Work Section */}
               <div className="space-y-4">
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
                   Our Work
@@ -448,7 +488,15 @@ export function Navbar() {
 
               <div className="h-px bg-white/10" />
 
+              {/* Guides & Trade */}
               <div className="space-y-4">
+                <Link
+                  href="/guides"
+                  className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Guides
+                </Link>
                 <Link
                   href="/trade-partners"
                   className="block text-lg font-bold text-white transition-colors hover:text-edg-brand"

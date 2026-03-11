@@ -150,7 +150,7 @@ export function Footer() {
                 <li><Link href="/gallery" className="text-zinc-300 hover:text-edg-brand transition-colors">Gallery</Link></li>
                 <li><Link href="/showroom" className="text-zinc-300 hover:text-edg-brand transition-colors">Showroom</Link></li>
                 <li><Link href="/contact" className="text-zinc-300 hover:text-edg-brand transition-colors">Contact</Link></li>
-                <li><Link href="/price" className="text-zinc-300 hover:text-edg-brand transition-colors">Pricing Guide</Link></li>
+
               </ul>
             </div>
 
