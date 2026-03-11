@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import { getProduct } from '@/sanity/lib/fetch';
 import SaunasPageClient from './SaunasPageClient';
-import { productSchema, generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Container } from '@/components/ui/Container';
 
@@ -18,15 +17,6 @@ export const metadata: Metadata = {
       'Indoor and outdoor sauna installation — traditional steam, infrared, and barrel-style — tailored to your space.',
   },
 };
-
-const saunasProductSchema = productSchema({
-  name: 'Custom Sauna Installation',
-  description: 'Premium indoor and outdoor saunas — traditional Finnish steam, infrared, and barrel-style — professionally specified and installed.',
-  url: 'https://www.edgpatioshade.com/systems/saunas',
-  image: 'https://www.edgpatioshade.com/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp',
-  minPrice: 8000,
-  maxPrice: 40000,
-});
 
 const saunasFAQSchema = generateFAQSchema([
   {
@@ -52,22 +42,14 @@ const saunasFAQSchema = generateFAQSchema([
 ]);
 
 const saunasBreadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', href: '/' },
-  { name: 'Systems', href: '/systems' },
-  { name: 'Saunas', href: '/systems/saunas' },
+  { name: 'Home', url: '/' },
+  { name: 'Systems', url: '/systems' },
+  { name: 'Saunas', url: '/systems/saunas' },
 ]);
 
-export default async function SaunasPage() {
-  const product = await getProduct('saunas');
-
+export default function SaunasPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(saunasProductSchema),
-        }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -89,7 +71,7 @@ export default async function SaunasPage() {
           __html: JSON.stringify(saunasFAQSchema),
         }}
       />
-      <SaunasPageClient product={product} />
+      <SaunasPageClient />
     </>
   );
 }

@@ -120,7 +120,7 @@ export default function HotelRoofDeckPage() {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30"
           style={{
-            backgroundImage: "url(images.brand.hero.glass)",
+            backgroundImage: "url(/images/enclosures/frameless-sliding-glass-walls.jpg)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />

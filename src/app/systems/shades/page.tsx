@@ -233,7 +233,7 @@ export default function ShadesPage() {
     material: 'Vinyl-coated polyester mesh, aluminum housing',
     image: [
       images.brand.hero.screens,
-      images.brand.detail.screen,
+      '/images/shades/shade-deployed-screens-01.jpg',
       images.brand.context.lake,
     ],
     offers: {

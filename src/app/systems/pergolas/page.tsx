@@ -534,7 +534,7 @@ export default function PergolasPage() {
             </div>
             <div className="relative aspect-square">
               <Image
-                src={images.brand.detail.louver}
+                src='/images/pergolas/pergola-hero.jpg'
                 alt="Pergola with integrated privacy screens and poolside location"
                 fill
                 className="object-cover"

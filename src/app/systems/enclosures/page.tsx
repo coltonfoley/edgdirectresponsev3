@@ -41,17 +41,13 @@ export const metadata: Metadata = {
   alternates: { canonical: '/systems/enclosures' },
 };
 
-// Gallery images for the client component (from brand images)
-const galleryImages = images.galleries.enclosures.map((src, index) => ({
-  type: 'image' as const,
-  src,
-  alt: [
-    'Frameless glass enclosure exterior view',
-    'Glass panel close-up or hardware detail',
-    'White louvered pergola with integrated glass doors',
-    'Interior view through frameless sliding glass walls',
-  ][index] || 'Glass enclosure image',
-}));
+// Gallery images for the client component - ALL SHOW REAL GLASS
+const galleryImages = [
+  { type: 'image' as const, src: images.systems.enclosures.framelessGlass, alt: 'Frameless sliding glass walls residential' },
+  { type: 'image' as const, src: images.systems.enclosures.partialOpen, alt: 'Sliding glass panels partially open' },
+  { type: 'image' as const, src: images.systems.enclosures.closedExterior, alt: 'Glass enclosure with closed panels' },
+  { type: 'image' as const, src: images.systems.enclosures.commercialNightExterior, alt: 'Commercial glass enclosure at night' },
+];
 
 // Quick specs for hero section
 const specs = [
@@ -170,7 +166,7 @@ const serviceSchema = generateServiceSchema({
   name: 'Frameless Glass Enclosure Installation',
   description: 'Professional installation of frameless retractable glass wall systems for year-round outdoor living. Design and supply services nationwide.',
   url: 'https://www.edgpatioshade.com/systems/enclosures',
-  image: `https://www.edgpatioshade.com${images.brand.hero.glass}`,
+  image: `https://www.edgpatioshade.com${images.systems.enclosures.hero}`,
 });
 
 const productSchema = {
@@ -517,8 +513,8 @@ export default function EnclosuresPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src={images.brand.detail.glass}
-                  alt="Frameless glass detail showing edge seal"
+                  src={images.systems.enclosures.partialOpen}
+                  alt="Sliding glass panels partially open"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 25vw"
@@ -526,8 +522,8 @@ export default function EnclosuresPage() {
               </div>
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src={images.brand.context.commercial}
-                  alt="Glass enclosure panels closed"
+                  src={images.systems.enclosures.closedExterior}
+                  alt="Glass enclosure with closed panels"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 25vw"
@@ -535,8 +531,8 @@ export default function EnclosuresPage() {
               </div>
               <div className="relative aspect-square bg-surface-dark overflow-hidden col-span-2">
                 <Image
-                  src={images.brand.hero.glass}
-                  alt="Commercial glass enclosure exterior view"
+                  src={images.systems.enclosures.commercialNightExterior}
+                  alt="Commercial glass enclosure at night"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

@@ -82,27 +82,26 @@ function checkFile(relativePath, category) {
 // ============================================================================
 
 const expectedImages = {
-  // Brand images
+  // Brand images - UPDATED with accurate names
   'Brand - Hero': [
     '/images/brand/hero-pergola.jpg',
-    '/images/brand/hero-screens.jpg',
-    '/images/brand/hero-glass.jpg',
-    '/images/brand/hero-lifestyle.jpg',
-    '/images/brand/hero-showroom.jpg',
+    '/images/brand/hero-screens-new.jpg',
+    '/images/brand/hero-pergola-modern-white.jpg',
+    '/images/brand/context-restaurant-retractable-roof.jpg',
+    '/images/brand/hero-outdoor-dining-showcase.jpg',
   ],
   'Brand - Detail': [
-    '/images/brand/detail-louver.jpg',
-    '/images/brand/detail-screen.jpg',
-    '/images/brand/detail-glass.jpg',
+    '/images/brand/context-outdoor-lounge-night.jpg',
+    '/images/brand/detail-pergola-solid-roof-firepit.jpg',
+    '/images/brand/detail-house-deck-pergola.jpg',
     '/images/brand/detail-led.webp',
     '/images/brand/detail-heater.jpg',
-    '/images/brand/detail-remote.jpg',
+    '/images/brand/context-outdoor-living-dusk.jpg',
   ],
   'Brand - Context': [
     '/images/brand/context-pool.jpg',
     '/images/brand/context-lake.jpg',
     '/images/brand/context-commercial.jpg',
-    '/images/brand/context-snow.jpg',
   ],
   
   // Project images (from src/lib/images.ts)

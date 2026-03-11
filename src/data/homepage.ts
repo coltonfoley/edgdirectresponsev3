@@ -59,7 +59,7 @@ export const systems = [
     description:
       'Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage without heavy construction.',
     features: ['Weatherproof', 'Adds value', 'Year-round use'],
-    image: images.brand.hero.glass,
+    image: '/images/enclosures/frameless-sliding-glass-walls.jpg',
     quoteUrl: '/contact?type=design&product=enclosure',
   },
 ] as const;

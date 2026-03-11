@@ -1,5 +1,54 @@
 [
   {
+    "src": "/images/appliances/OLD-covered-patio-beverage-station.jpg",
+    "width": 1024,
+    "height": 768,
+    "alt": "OLD covered patio beverage station",
+    "id": "/images/appliances/OLD-covered-patio-beverage-station.jpg"
+  },
+  {
+    "src": "/images/appliances/OLD-griddle-grill-outdoor-kitchen.jpg",
+    "width": 1024,
+    "height": 1536,
+    "alt": "OLD griddle grill outdoor kitchen",
+    "id": "/images/appliances/OLD-griddle-grill-outdoor-kitchen.jpg"
+  },
+  {
+    "src": "/images/appliances/outdoor-kitchen-countertop.jpg",
+    "width": 1024,
+    "height": 1536,
+    "alt": "outdoor kitchen countertop",
+    "id": "/images/appliances/outdoor-kitchen-countertop.jpg"
+  },
+  {
+    "src": "/images/appliances/outdoor-kitchen-grill-station.jpg",
+    "width": 1024,
+    "height": 683,
+    "alt": "outdoor kitchen grill station",
+    "id": "/images/appliances/outdoor-kitchen-grill-station.jpg"
+  },
+  {
+    "src": "/images/appliances/outdoor-kitchen-hero.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "outdoor kitchen hero",
+    "id": "/images/appliances/outdoor-kitchen-hero.png"
+  },
+  {
+    "src": "/images/appliances/outdoor-kitchen-social.png",
+    "width": 873,
+    "height": 821,
+    "alt": "outdoor kitchen social",
+    "id": "/images/appliances/outdoor-kitchen-social.png"
+  },
+  {
+    "src": "/images/appliances/patio-heater.png",
+    "width": 1024,
+    "height": 1024,
+    "alt": "patio heater",
+    "id": "/images/appliances/patio-heater.png"
+  },
+  {
     "src": "/images/brand/context-commercial.jpg",
     "width": 2560,
     "height": 1707,
@@ -14,11 +63,32 @@
     "id": "/images/brand/context-lake.jpg"
   },
   {
+    "src": "/images/brand/context-outdoor-living-dusk.jpg",
+    "width": 2560,
+    "height": 1706,
+    "alt": "context outdoor living dusk",
+    "id": "/images/brand/context-outdoor-living-dusk.jpg"
+  },
+  {
+    "src": "/images/brand/context-outdoor-lounge-night.jpg",
+    "width": 1600,
+    "height": 1066,
+    "alt": "context outdoor lounge night",
+    "id": "/images/brand/context-outdoor-lounge-night.jpg"
+  },
+  {
     "src": "/images/brand/context-pool.jpg",
     "width": 2560,
     "height": 1706,
     "alt": "context pool",
     "id": "/images/brand/context-pool.jpg"
+  },
+  {
+    "src": "/images/brand/context-restaurant-retractable-roof.jpg",
+    "width": 1920,
+    "height": 1281,
+    "alt": "context restaurant retractable roof",
+    "id": "/images/brand/context-restaurant-retractable-roof.jpg"
   },
   {
     "src": "/images/brand/context-snow.jpg",
@@ -28,18 +98,18 @@
     "id": "/images/brand/context-snow.jpg"
   },
   {
-    "src": "/images/brand/detail-glass.jpg",
-    "width": 1600,
-    "height": 1312,
-    "alt": "detail glass",
-    "id": "/images/brand/detail-glass.jpg"
-  },
-  {
     "src": "/images/brand/detail-heater.jpg",
     "width": 1707,
     "height": 2560,
     "alt": "detail heater",
     "id": "/images/brand/detail-heater.jpg"
+  },
+  {
+    "src": "/images/brand/detail-house-deck-pergola.jpg",
+    "width": 1600,
+    "height": 1312,
+    "alt": "detail house deck pergola",
+    "id": "/images/brand/detail-house-deck-pergola.jpg"
   },
   {
     "src": "/images/brand/detail-led.webp",
@@ -49,39 +119,32 @@
     "id": "/images/brand/detail-led.webp"
   },
   {
-    "src": "/images/brand/detail-louver.jpg",
-    "width": 1600,
-    "height": 1066,
-    "alt": "detail louver",
-    "id": "/images/brand/detail-louver.jpg"
-  },
-  {
-    "src": "/images/brand/detail-remote.jpg",
-    "width": 2560,
-    "height": 1706,
-    "alt": "detail remote",
-    "id": "/images/brand/detail-remote.jpg"
-  },
-  {
-    "src": "/images/brand/detail-screen.jpg",
+    "src": "/images/brand/detail-pergola-solid-roof-firepit.jpg",
     "width": 1600,
     "height": 1067,
-    "alt": "detail screen",
-    "id": "/images/brand/detail-screen.jpg"
+    "alt": "detail pergola solid roof firepit",
+    "id": "/images/brand/detail-pergola-solid-roof-firepit.jpg"
   },
   {
-    "src": "/images/brand/hero-glass.jpg",
+    "src": "/images/brand/hero-outdoor-dining-showcase.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "hero outdoor dining showcase",
+    "id": "/images/brand/hero-outdoor-dining-showcase.jpg"
+  },
+  {
+    "src": "/images/brand/hero-pergola-modern-white.jpg",
+    "width": 1600,
+    "height": 1160,
+    "alt": "hero pergola modern white",
+    "id": "/images/brand/hero-pergola-modern-white.jpg"
+  },
+  {
+    "src": "/images/brand/hero-pergola-open-louvered-backyard.jpg",
     "width": 1600,
     "height": 1200,
-    "alt": "hero glass",
-    "id": "/images/brand/hero-glass.jpg"
-  },
-  {
-    "src": "/images/brand/hero-lifestyle.jpg",
-    "width": 1920,
-    "height": 1281,
-    "alt": "hero lifestyle",
-    "id": "/images/brand/hero-lifestyle.jpg"
+    "alt": "hero pergola open louvered backyard",
+    "id": "/images/brand/hero-pergola-open-louvered-backyard.jpg"
   },
   {
     "src": "/images/brand/hero-pergola.jpg",
@@ -98,18 +161,256 @@
     "id": "/images/brand/hero-screens-new.jpg"
   },
   {
-    "src": "/images/brand/hero-screens.jpg",
-    "width": 1600,
-    "height": 1160,
-    "alt": "hero screens",
-    "id": "/images/brand/hero-screens.jpg"
+    "src": "/images/brochure/cover-bg.jpg",
+    "width": 2000,
+    "height": 1333,
+    "alt": "cover bg",
+    "id": "/images/brochure/cover-bg.jpg"
   },
   {
-    "src": "/images/brand/hero-showroom.jpg",
+    "src": "/images/brochure/maintenance-footer.jpg",
+    "width": 2000,
+    "height": 1333,
+    "alt": "maintenance footer",
+    "id": "/images/brochure/maintenance-footer.jpg"
+  },
+  {
+    "src": "/images/brochure/page-2-problem.jpg",
+    "width": 2000,
+    "height": 1500,
+    "alt": "page 2 problem",
+    "id": "/images/brochure/page-2-problem.jpg"
+  },
+  {
+    "src": "/images/brochure/page-3-solution.jpg",
+    "width": 2000,
+    "height": 1289,
+    "alt": "page 3 solution",
+    "id": "/images/brochure/page-3-solution.jpg"
+  },
+  {
+    "src": "/images/brochure/page-5-proof.jpg",
+    "width": 2000,
+    "height": 1334,
+    "alt": "page 5 proof",
+    "id": "/images/brochure/page-5-proof.jpg"
+  },
+  {
+    "src": "/images/brochure/system-glass.jpg",
+    "width": 2000,
+    "height": 1333,
+    "alt": "system glass",
+    "id": "/images/brochure/system-glass.jpg"
+  },
+  {
+    "src": "/images/brochure/system-louver.jpg",
+    "width": 2000,
+    "height": 1640,
+    "alt": "system louver",
+    "id": "/images/brochure/system-louver.jpg"
+  },
+  {
+    "src": "/images/brochure/system-screens.jpg",
+    "width": 2000,
+    "height": 1449,
+    "alt": "system screens",
+    "id": "/images/brochure/system-screens.jpg"
+  },
+  {
+    "src": "/images/enclosures/OLD-house-deck-pergola.jpg",
     "width": 1600,
-    "height": 1067,
-    "alt": "hero showroom",
-    "id": "/images/brand/hero-showroom.jpg"
+    "height": 1312,
+    "alt": "OLD house deck pergola",
+    "id": "/images/enclosures/OLD-house-deck-pergola.jpg"
+  },
+  {
+    "src": "/images/enclosures/OLD-pergola-hotel-courtyard.jpg",
+    "width": 2560,
+    "height": 1707,
+    "alt": "OLD pergola hotel courtyard",
+    "id": "/images/enclosures/OLD-pergola-hotel-courtyard.jpg"
+  },
+  {
+    "src": "/images/enclosures/OLD-pergola-interior-heaters-sofa.jpg",
+    "width": 1707,
+    "height": 2560,
+    "alt": "OLD pergola interior heaters sofa",
+    "id": "/images/enclosures/OLD-pergola-interior-heaters-sofa.jpg"
+  },
+  {
+    "src": "/images/enclosures/OLD-pergola-open-louvered-backyard.jpg",
+    "width": 1600,
+    "height": 1200,
+    "alt": "OLD pergola open louvered backyard",
+    "id": "/images/enclosures/OLD-pergola-open-louvered-backyard.jpg"
+  },
+  {
+    "src": "/images/enclosures/OLD-pergola-patio-outdoor-living.jpg",
+    "width": 1600,
+    "height": 900,
+    "alt": "OLD pergola patio outdoor living",
+    "id": "/images/enclosures/OLD-pergola-patio-outdoor-living.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
+    "width": 1920,
+    "height": 1325,
+    "alt": "commercial glass enclosure day exterior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg",
+    "width": 1920,
+    "height": 1243,
+    "alt": "commercial glass enclosure day interior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg",
+    "width": 2560,
+    "height": 1762,
+    "alt": "commercial glass enclosure interior wood deck 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg",
+    "width": 1920,
+    "height": 1272,
+    "alt": "commercial glass enclosure night dining 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg",
+    "width": 1920,
+    "height": 1301,
+    "alt": "commercial glass enclosure night exterior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg",
+    "width": 2560,
+    "height": 1650,
+    "alt": "commercial glass enclosure night interior 01",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg",
+    "width": 1920,
+    "height": 1293,
+    "alt": "commercial glass enclosure night interior 02",
+    "id": "/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "commercial pergola glass enclosure day dining 01",
+    "id": "/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg",
+    "width": 1920,
+    "height": 1281,
+    "alt": "commercial pergola glass enclosure hanging lights 01",
+    "id": "/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/frameless-sliding-glass-walls.jpg",
+    "width": 1707,
+    "height": 2560,
+    "alt": "frameless sliding glass walls",
+    "id": "/images/enclosures/frameless-sliding-glass-walls.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-enclosure-closed-exterior.jpg",
+    "width": 1707,
+    "height": 2560,
+    "alt": "glass enclosure closed exterior",
+    "id": "/images/enclosures/glass-enclosure-closed-exterior.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-enclosure-partial-open.jpg",
+    "width": 2560,
+    "height": 1707,
+    "alt": "glass enclosure partial open",
+    "id": "/images/enclosures/glass-enclosure-partial-open.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-01.jpg",
+    "width": 1920,
+    "height": 1272,
+    "alt": "glass system 01",
+    "id": "/images/enclosures/glass-system-01.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-02.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "glass system 02",
+    "id": "/images/enclosures/glass-system-02.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-03.jpg",
+    "width": 1920,
+    "height": 1281,
+    "alt": "glass system 03",
+    "id": "/images/enclosures/glass-system-03.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-04.jpg",
+    "width": 2560,
+    "height": 1762,
+    "alt": "glass system 04",
+    "id": "/images/enclosures/glass-system-04.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-05.jpg",
+    "width": 2560,
+    "height": 1650,
+    "alt": "glass system 05",
+    "id": "/images/enclosures/glass-system-05.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-06.jpg",
+    "width": 1920,
+    "height": 1293,
+    "alt": "glass system 06",
+    "id": "/images/enclosures/glass-system-06.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-07.jpg",
+    "width": 1920,
+    "height": 1243,
+    "alt": "glass system 07",
+    "id": "/images/enclosures/glass-system-07.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-08.jpg",
+    "width": 1920,
+    "height": 1301,
+    "alt": "glass system 08",
+    "id": "/images/enclosures/glass-system-08.jpg"
+  },
+  {
+    "src": "/images/enclosures/glass-system-09.jpg",
+    "width": 1920,
+    "height": 1325,
+    "alt": "glass system 09",
+    "id": "/images/enclosures/glass-system-09.jpg"
+  },
+  {
+    "src": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg",
+    "width": 1707,
+    "height": 2560,
+    "alt": "residential glass enclosure lifestyle",
+    "id": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg"
+  },
+  {
+    "src": "/images/hero/hero-main.jpg",
+    "width": 2600,
+    "height": 1733,
+    "alt": "hero main",
+    "id": "/images/hero/hero-main.jpg"
   },
   {
     "src": "/images/misc/frameless-sliding-glass-walls.jpg",
@@ -189,6 +490,48 @@
     "id": "/images/pergolas/residential-white-r-blade-led-strip.jpg"
   },
   {
+    "src": "/images/saunas/mande-spa-mw12-outdoor-sauna-12.webp",
+    "width": 800,
+    "height": 800,
+    "alt": "mande spa mw12 outdoor sauna 12",
+    "id": "/images/saunas/mande-spa-mw12-outdoor-sauna-12.webp"
+  },
+  {
+    "src": "/images/saunas/mande-spa-mw12-outdoor-sauna-2.webp",
+    "width": 800,
+    "height": 800,
+    "alt": "mande spa mw12 outdoor sauna 2",
+    "id": "/images/saunas/mande-spa-mw12-outdoor-sauna-2.webp"
+  },
+  {
+    "src": "/images/saunas/mande-spa-mw12-outdoor-sauna-5.webp",
+    "width": 800,
+    "height": 800,
+    "alt": "mande spa mw12 outdoor sauna 5",
+    "id": "/images/saunas/mande-spa-mw12-outdoor-sauna-5.webp"
+  },
+  {
+    "src": "/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp",
+    "width": 800,
+    "height": 800,
+    "alt": "mande spa mw16 outdoor sauna 15",
+    "id": "/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp"
+  },
+  {
+    "src": "/images/saunas/mande-spa-mw16-outdoor-sauna-23.webp",
+    "width": 800,
+    "height": 800,
+    "alt": "mande spa mw16 outdoor sauna 23",
+    "id": "/images/saunas/mande-spa-mw16-outdoor-sauna-23.webp"
+  },
+  {
+    "src": "/images/saunas/mande-spa-mw20-outdoor-sauna-6.webp",
+    "width": 800,
+    "height": 800,
+    "alt": "mande spa mw20 outdoor sauna 6",
+    "id": "/images/saunas/mande-spa-mw20-outdoor-sauna-6.webp"
+  },
+  {
     "src": "/images/shades/shade-deployed-screens-01.jpg",
     "width": 1707,
     "height": 2560,
@@ -201,5 +544,19 @@
     "height": 1160,
     "alt": "shades hero",
     "id": "/images/shades/shades-hero.jpg"
+  },
+  {
+    "src": "/images/testimonials/testimonial-01.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "testimonial 01",
+    "id": "/images/testimonials/testimonial-01.jpg"
+  },
+  {
+    "src": "/images/testimonials/testimonial-02.jpg",
+    "width": 1600,
+    "height": 1067,
+    "alt": "testimonial 02",
+    "id": "/images/testimonials/testimonial-02.jpg"
   }
 ]

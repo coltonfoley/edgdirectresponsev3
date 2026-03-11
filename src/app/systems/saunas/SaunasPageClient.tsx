@@ -21,10 +21,9 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema } from '@/lib/schema';
-import { urlFor } from '@/sanity/lib/image';
 
 interface SaunasPageProps {
-  product: any;
+  product?: any;
 }
 
 const iconMap: Record<string, any> = {
@@ -61,7 +60,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
     name: product?.name || 'Custom Sauna Installation',
     description: product?.shortDescription || 'Professionally specified and installed indoor and outdoor saunas for year-round wellness.',
     url: 'https://www.edgpatioshade.com/systems/saunas',
-    image: product?.heroImage ? urlFor(product.heroImage).url() : undefined,
+    image: 'https://www.edgpatioshade.com/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp',
   });
 
   const features = product?.features || defaultFeatures;
@@ -73,11 +72,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
     'Full-service installation',
   ];
 
-  const galleryImages = product?.gallery?.map((item: any) => ({
-    type: 'image' as const,
-    src: item.image ? urlFor(item.image).url() : (item.url || item),
-    alt: item.alt || product?.name || 'Sauna image',
-  })) || [
+  const galleryImages = [
     { type: 'image' as const, src: '/images/saunas/mande-spa-mw12-outdoor-sauna-12.webp', alt: 'Outdoor sauna cabin exterior' },
     { type: 'image' as const, src: '/images/saunas/mande-spa-mw12-outdoor-sauna-2.webp', alt: 'Outdoor sauna side view' },
     { type: 'image' as const, src: '/images/saunas/mande-spa-mw12-outdoor-sauna-5.webp', alt: 'Outdoor sauna detail' },
@@ -86,26 +81,8 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
     { type: 'image' as const, src: '/images/saunas/mande-spa-mw20-outdoor-sauna-6.webp', alt: 'Premium outdoor sauna installation' },
   ];
 
-  const beforeAfterSection = product?.beforeAfter?.beforeImage ? (
-    <Section className="bg-white py-20 dark:bg-black">
-      <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Total Transformation</h2>
-            <p className="text-edg-gray-text mb-6 text-lg font-medium dark:text-gray-400">
-              See how a custom sauna turns an unused corner of your property into a daily wellness retreat.
-            </p>
-          </div>
-          <BeforeAfter
-            beforeImage={urlFor(product.beforeAfter.beforeImage).url()}
-            afterImage={urlFor(product.beforeAfter.afterImage).url()}
-            beforeLabel={product.beforeAfter.beforeLabel || 'Before'}
-            afterLabel={product.beforeAfter.afterLabel || 'After'}
-          />
-        </div>
-      </Container>
-    </Section>
-  ) : null;
+  // Before/After section - disabled without Sanity CMS
+  const beforeAfterSection = null;
 
   const useCases = [
     {

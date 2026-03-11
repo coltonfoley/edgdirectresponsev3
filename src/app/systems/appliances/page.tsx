@@ -336,17 +336,17 @@ export default function AppliancesPage() {
               {
                 title: 'The Outdoor Chef',
                 desc: 'Everything you need to cook gourmet meals outside: grills, side burners, and refrigeration.',
-                image: images.brand.hero.lifestyle,
+                image: images.systems.appliances.kitchenComplete,
               },
               {
                 title: 'Year-Round Comfort',
                 desc: "Don't let the chill drive you inside. Powerful heaters keep your space usable well into autumn.",
-                image: images.brand.context.commercial,
+                image: images.systems.appliances.heater,
               },
               {
                 title: 'Pizza Night',
                 desc: 'Create memories with family and friends around a wood-fired or gas pizza oven.',
-                image: images.brand.hero.showroom,
+                image: images.systems.appliances.kitchenPizza,
               },
             ].map((item) => (
               <div

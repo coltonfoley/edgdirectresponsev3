@@ -35,21 +35,95 @@ export const furnitureImages = {
   commercial: '/images/furniture/furniture-commercial.jpg',
 } as const;
 //
-// APPLIANCES — /images/appliances/
-// export const applianceImages = {
-//   hero:       '/images/appliances/appliances-hero.jpg',
-//   pizzaOven:  '/images/appliances/appliances-pizza-oven.jpg',
-//   kitchen:    '/images/appliances/appliances-kitchen.jpg',
-//   heater:     '/images/appliances/appliances-heater.jpg',
-// } as const;
-//
-// ENCLOSURES — /images/enclosures/
-// export const enclosureImages = {
-//   hero:       '/images/enclosures/enclosures-hero.jpg',
-//   detail:     '/images/enclosures/enclosures-detail.jpg',
-//   interior:   '/images/enclosures/enclosures-interior.jpg',
-//   restaurant: '/images/enclosures/enclosures-restaurant.jpg',
-// } as const;
+// ============================================================================
+// PRODUCT SYSTEMS - Complete product category images
+// ============================================================================
+
+export const systems = {
+  /** Pergola system images */
+  pergolas: {
+    hero: '/images/pergolas/pergola-hero.jpg',
+    blackBlade01: '/images/pergolas/residential-black-r-blade-01.webp',
+    blackBlade02: '/images/pergolas/residential-black-r-blade-02.webp',
+    blackBlade04: '/images/pergolas/residential-black-r-blade-04.webp',
+    blackBladePool: '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
+    grayBronzeWhite: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
+    whiteScreen: '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
+    whitePoolGlass: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
+    whiteLedStrip: '/images/pergolas/residential-white-r-blade-led-strip.jpg',
+  },
+
+  /** Shade/screen system images */
+  shades: {
+    hero: '/images/shades/shades-hero.jpg',
+    deployed: '/images/shades/shade-deployed-screens-01.jpg',
+  },
+
+  /** Glass enclosure system images - ACTUAL GLASS WALLS */
+  enclosures: {
+    hero: '/images/enclosures/frameless-sliding-glass-walls.jpg',
+    partialOpen: '/images/enclosures/glass-enclosure-partial-open.jpg',
+    closedExterior: '/images/enclosures/glass-enclosure-closed-exterior.jpg',
+    lifestyle: '/images/enclosures/residential-glass-enclosure-lifestyle.jpg',
+    system01: '/images/enclosures/glass-system-01.jpg',
+    system02: '/images/enclosures/glass-system-02.jpg',
+    system03: '/images/enclosures/glass-system-03.jpg',
+    system04: '/images/enclosures/glass-system-04.jpg',
+    system05: '/images/enclosures/glass-system-05.jpg',
+    system06: '/images/enclosures/glass-system-06.jpg',
+    system07: '/images/enclosures/glass-system-07.jpg',
+    system08: '/images/enclosures/glass-system-08.jpg',
+    system09: '/images/enclosures/glass-system-09.jpg',
+    commercialDayExterior: '/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg',
+    commercialDayInterior: '/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg',
+    commercialNightDining: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
+    commercialNightExterior: '/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg',
+    commercialNightInterior01: '/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg',
+    commercialNightInterior02: '/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg',
+    commercialInteriorWood: '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg',
+    commercialPergolaDay: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg',
+    commercialPergolaLights: '/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg',
+    framelessGlass: '/images/enclosures/frameless-sliding-glass-walls.jpg',
+  },
+
+  /** Outdoor appliances - NOW AVAILABLE */
+  appliances: {
+    kitchen: '/images/appliances/outdoor-kitchen-hero.png',
+    heater: '/images/appliances/patio-heater.png',
+    kitchenGrill: '/images/appliances/outdoor-kitchen-grill-station.jpg',
+    kitchenCounter: '/images/appliances/outdoor-kitchen-countertop.jpg',
+    kitchenPizza: '/images/appliances/outdoor-kitchen-social.png',
+    kitchenComplete: '/images/appliances/outdoor-kitchen-hero.png',
+    kitchenSocial: '/images/appliances/outdoor-kitchen-social.png',
+  },
+
+  /** Saunas - NOW AVAILABLE */
+  saunas: {
+    mw12a: '/images/saunas/mande-spa-mw12-outdoor-sauna-12.webp',
+    mw12b: '/images/saunas/mande-spa-mw12-outdoor-sauna-2.webp',
+    mw12c: '/images/saunas/mande-spa-mw12-outdoor-sauna-5.webp',
+    mw16a: '/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp',
+    mw16b: '/images/saunas/mande-spa-mw16-outdoor-sauna-23.webp',
+    mw20: '/images/saunas/mande-spa-mw20-outdoor-sauna-6.webp',
+  },
+} as const;
+
+// ============================================================================
+// TESTIMONIALS - Customer photos
+// ============================================================================
+
+export const testimonials = {
+  testimonial01: '/images/testimonials/testimonial-01.jpg',
+  testimonial02: '/images/testimonials/testimonial-02.jpg',
+} as const;
+
+// ============================================================================
+// LEGACY HERO - For backward compatibility
+// ============================================================================
+
+export const legacyHero = {
+  main: '/images/hero/hero-main.jpg',
+} as const;
 
 // ============================================================================
 // BRAND IMAGES - Core website imagery (15 images)
@@ -60,20 +134,18 @@ export const brand = {
   hero: {
     pergola: '/images/brand/hero-pergola.jpg',
     screens: '/images/brand/hero-screens-new.jpg',
-    screensOld: '/images/brand/hero-screens.jpg',
-    glass: '/images/brand/hero-glass.jpg',
-    lifestyle: '/images/brand/hero-lifestyle.jpg',
-    showroom: '/images/brand/hero-showroom.jpg',
+    screensOld: '/images/brand/hero-pergola-modern-white.jpg',
+    lifestyle: '/images/brand/context-restaurant-retractable-roof.jpg',
+    showroom: '/images/brand/hero-outdoor-dining-showcase.jpg',
   },
 
   /** Detail shots - close-ups of features */
   detail: {
-    louver: '/images/brand/detail-louver.jpg',
-    screen: '/images/brand/detail-screen.jpg',
-    glass: '/images/brand/detail-glass.jpg',
+    louver: '/images/brand/context-outdoor-lounge-night.jpg',
+    screen: '/images/brand/detail-pergola-solid-roof-firepit.jpg',
     led: '/images/brand/detail-led.webp',
     heater: '/images/brand/detail-heater.jpg',
-    remote: '/images/brand/detail-remote.jpg',
+    remote: '/images/brand/context-outdoor-living-dusk.jpg',
   },
 
   /** Context shots - lifestyle/environment images */
@@ -81,7 +153,6 @@ export const brand = {
     pool: '/images/brand/context-pool.jpg',
     lake: '/images/brand/context-lake.jpg',
     commercial: '/images/brand/context-commercial.jpg',
-    snow: '/images/brand/context-snow.jpg',
   },
 } as const;
 
@@ -273,7 +344,7 @@ export const pages = {
 
   /** Design page */
   design: {
-    framelessGlass: '/images/misc/frameless-sliding-glass-walls.jpg',
+    framelessGlass: systems.enclosures.framelessGlass,
   },
 
   /** Pro page */
@@ -307,7 +378,7 @@ export const pages = {
   commercial: {
     countryClubHero: brand.hero.lifestyle,
     countryClubPool: brand.context.pool,
-    hotelGlass: brand.hero.glass,
+    hotelGlass: '/images/enclosures/frameless-sliding-glass-walls.jpg',
     hotelScreens: brand.hero.screens,
     restaurantsBg: brand.context.commercial,
     restaurantScreens: brand.hero.screens,
@@ -322,34 +393,34 @@ export const pages = {
 export const galleries = {
   /** Pergola system page gallery */
   pergolas: [
-    brand.detail.louver,
+    '/images/pergolas/pergola-hero.jpg',
     brand.context.pool,
-    brand.detail.led,
-    brand.detail.remote,
+    '/images/pergolas/residential-white-r-blade-led-strip.jpg',
+    '/images/pergolas/residential-black-r-blade-02.webp',
   ],
 
   /** Shades system page gallery */
   shades: [
     pages.price.shadesHero,
-    brand.detail.screen,
+    '/images/shades/shade-deployed-screens-01.jpg',
     brand.context.lake,
     pages.serviceAreas.sanibelShade,
   ],
 
-  /** Enclosures system page gallery */
+  /** Enclosures system page gallery - REAL GLASS IMAGES */
   enclosures: [
-    brand.hero.glass,
-    brand.detail.glass,
-    pages.price.whitePergolaPool,
-    pages.design.framelessGlass,
+    systems.enclosures.hero,
+    systems.enclosures.partialOpen,
+    systems.enclosures.closedExterior,
+    systems.enclosures.commercialDayExterior,
   ],
 
-  /** Appliances system page gallery */
+  /** Appliances system page gallery - REAL APPLIANCE IMAGES */
   appliances: [
-    brand.hero.showroom,
-    brand.detail.heater,
-    brand.hero.lifestyle,
-    brand.context.commercial,
+    systems.appliances.kitchen,
+    systems.appliances.heater,
+    systems.appliances.kitchenGrill,
+    systems.appliances.kitchenPizza,
   ],
 
   /** Commercial page gallery */
@@ -363,8 +434,8 @@ export const galleries = {
   serviceAreas: [
     brand.hero.pergola,
     brand.hero.screens,
-    brand.hero.glass,
-    brand.detail.louver,
+    '/images/enclosures/frameless-sliding-glass-walls.jpg',
+    '/images/pergolas/pergola-hero.jpg',
   ],
 } as const;
 
@@ -388,6 +459,8 @@ export type BrandContextKey = keyof typeof brand.context;
 export type FeaturedProjectKey = keyof typeof featuredProjects;
 export type ProjectKey = keyof typeof projects;
 export type GalleryKey = keyof typeof galleries;
+export type SystemsCategory = keyof typeof systems;
+export type TestimonialKey = keyof typeof testimonials;
 
 // ============================================================================
 // VALIDATION - All image paths for build-time checking
@@ -399,6 +472,19 @@ export const allImagePaths = [
   ...Object.values(brand.hero),
   ...Object.values(brand.detail),
   ...Object.values(brand.context),
+
+  // System images
+  ...Object.values(systems.pergolas),
+  ...Object.values(systems.shades),
+  ...Object.values(systems.enclosures),
+  ...Object.values(systems.appliances),
+  ...Object.values(systems.saunas),
+
+  // Testimonials
+  ...Object.values(testimonials),
+
+  // Legacy hero
+  ...Object.values(legacyHero),
 
   // Project images (from featuredProjects)
   ...Object.values(featuredProjects).flatMap(p => [p.hero, ...p.gallery]),

@@ -266,7 +266,7 @@ export default function GuideReadPage() {
             <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src={images.brand.detail.screen}
+                  src='/images/shades/shade-deployed-screens-01.jpg'
                   alt="Shades"
                   fill
                   className="object-cover"

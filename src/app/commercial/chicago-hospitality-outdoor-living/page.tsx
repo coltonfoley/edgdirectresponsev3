@@ -115,7 +115,7 @@ const industrySolutions = [
       'Transform underutilized rooftops and terraces into year-round event venues and bars.',
     href: '/commercial/hotel-roof-deck-systems',
     cta: 'Hotel Solutions',
-    image: images.brand.hero.glass,
+    image: '/images/enclosures/frameless-sliding-glass-walls.jpg',
   },
 ];
 
