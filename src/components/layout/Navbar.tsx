@@ -32,19 +32,9 @@ const completeYourSpace = [
     desc: 'Built-in grills, appliances, cabinetry',
   },
   {
-    href: '/systems/heating',
-    label: 'Heating Systems',
-    desc: 'Infrared heaters & fire features',
-  },
-  {
-    href: '/systems/furniture',
-    label: 'Outdoor Furniture',
-    desc: 'Premium outdoor furniture lines',
-  },
-  {
-    href: '/systems/umbrellas',
-    label: 'Umbrella Systems',
-    desc: 'Commercial-grade shade umbrellas',
+    href: '/systems/saunas',
+    label: 'Custom Saunas',
+    desc: 'Premium outdoor sauna systems',
   },
 ];
 

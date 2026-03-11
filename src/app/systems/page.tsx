@@ -106,22 +106,10 @@ const systems = [
 // Secondary systems
 const secondarySystems = [
   {
-    href: '/systems/heating',
-    title: 'Heating Systems',
-    description: 'Infrared heaters and fire features to extend your outdoor season.',
+    href: '/systems/saunas',
+    title: 'Custom Saunas',
+    description: 'Premium outdoor wood-fired and electric saunas for year-round wellness.',
     icon: Thermometer,
-  },
-  {
-    href: '/systems/furniture',
-    title: 'Outdoor Furniture',
-    description: 'Premium outdoor furniture lines designed for comfort and durability.',
-    icon: Home,
-  },
-  {
-    href: '/systems/umbrellas',
-    title: 'Umbrella Systems',
-    description: 'Commercial-grade shade umbrellas for flexible coverage.',
-    icon: Sun,
   },
 ];
 
