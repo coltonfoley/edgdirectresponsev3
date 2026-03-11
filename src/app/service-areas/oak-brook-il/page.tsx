@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Custom outdoor living systems for Oak Brook. Motorized pergolas, retractable screens, and professional installation.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/oak-brook-il',

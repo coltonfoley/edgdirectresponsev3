@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: 'Estate-grade outdoor living systems for Winnetka. Custom pergolas, screens, and enclosures for North Shore properties.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/winnetka-il',

@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'EDG | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee',
+    title: 'EDG Patio & Shade | Motorized Pergolas & Outdoor Shades | Chicago to Milwaukee',
     description:
       'Premium motorized pergolas, exterior shades, and glass enclosures. Serving North Chicago to Milwaukee with nationwide design and supply available.',
     url: 'https://www.edgpatioshade.com',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'EDG | Motorized Pergolas & Outdoor Shades',
+    title: 'EDG Patio & Shade | Motorized Pergolas & Outdoor Shades',
     description:
       'Premium outdoor living systems. Serving Chicago to Milwaukee with nationwide design and supply for motorized pergolas, shades, and glass enclosures.',
     images: [images.assets.ogImage],

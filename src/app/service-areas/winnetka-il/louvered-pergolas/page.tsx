@@ -109,7 +109,7 @@ export default function WinnetkaProductPage() {
     description:
       'Commercial-grade motorized louvered roof systems for Winnetka estates. Engineered for 20-24 foot beam spans, 140+ mph wind ratings, and seamless integration with historic and contemporary architecture along the North Shore.',
     category: 'Outdoor Living',
-    brand: 'EDG Outdoor Living',
+    brand: 'EDG Patio & Shade',
   });
 
   const faqSchema = generateFAQSchema(faqs);

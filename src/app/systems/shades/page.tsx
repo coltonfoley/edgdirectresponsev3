@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'MagnaTrack motorized screens with self-correcting track technology. Block wind, bugs, and UV while keeping your view.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: { canonical: '/systems/shades' },
 };

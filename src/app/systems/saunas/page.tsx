@@ -5,14 +5,14 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Container } from '@/components/ui/Container';
 
 export const metadata: Metadata = {
-  title: 'Custom Sauna Installation Chicago & Milwaukee | EDG Outdoor Living',
+  title: 'Custom Sauna Installation Chicago & Milwaukee | EDG Patio & Shade',
   description:
     'Premium sauna design and installation for your home or backyard. Traditional Finnish steam, infrared, and barrel saunas — professionally specified and installed in Chicago & Milwaukee.',
   alternates: {
     canonical: '/systems/saunas',
   },
   openGraph: {
-    title: 'Custom Sauna Installation | EDG Outdoor Living',
+    title: 'Custom Sauna Installation | EDG Patio & Shade',
     description:
       'Indoor and outdoor sauna installation — traditional steam, infrared, and barrel-style — tailored to your space.',
   },

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'Motorized pergolas and retractable screens for Naperville homes. Professional design and installation.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/naperville-il',

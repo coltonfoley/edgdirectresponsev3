@@ -180,7 +180,7 @@ export function Footer() {
             <div>
               <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Connect</h4>
               <ul className="space-y-3">
-                <li><a href="mailto:info@edgpatioshade.com" className="text-zinc-300 hover:text-edg-brand transition-colors">info@edgpatioshade.com</a></li>
+                <li><a href="mailto:sales@edgpatioshade.com" className="text-zinc-300 hover:text-edg-brand transition-colors">sales@edgpatioshade.com</a></li>
                 <li><a href="tel:+18155810138" className="text-zinc-300 hover:text-edg-brand transition-colors">(815) 581-0138</a></li>
               </ul>
               <div className="mt-8 pt-8 border-t border-white/10 space-y-2">

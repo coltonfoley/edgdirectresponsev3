@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'Waterfront outdoor living systems for Lake Geneva estates. Pergolas, screens, and enclosures designed for Wisconsin lake life.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/lake-geneva-wi',

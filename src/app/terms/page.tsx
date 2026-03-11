@@ -160,7 +160,7 @@ export default function TermsPage() {
                   <p className="text-foreground font-bold">EDG Patio & Shade</p>
                   <p>1802 Holian Drive</p>
                   <p>Spring Grove, IL 60081</p>
-                  <p>Email: info@edgpatioshade.com</p>
+                  <p>Email: sales@edgpatioshade.com</p>
                   <p>Phone: (815) 581-0138</p>
                 </div>
               </section>

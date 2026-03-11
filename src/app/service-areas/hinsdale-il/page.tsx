@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: 'Premium outdoor living systems for Hinsdale estates. Motorized pergolas, retractable screens, and glass enclosures.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/hinsdale-il',

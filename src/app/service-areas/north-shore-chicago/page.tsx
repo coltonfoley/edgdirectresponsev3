@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Luxury outdoor living systems for the North Shore. Motorized pergolas and screens designed for lakefront weather and historic districts.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/north-shore-chicago',

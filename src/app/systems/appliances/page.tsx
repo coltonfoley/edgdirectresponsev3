@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   keywords: ['outdoor kitchen appliances', 'built-in grills', 'outdoor heating', 'pizza ovens', 'outdoor refrigeration'],
   openGraph: {
-    title: 'Premium Outdoor Appliances | EDG Outdoor Living',
+    title: 'Premium Outdoor Appliances | EDG Patio & Shade',
     description:
       'Chef-grade outdoor kitchens and heating solutions for sophisticated outdoor living.',
   },

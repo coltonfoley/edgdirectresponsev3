@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sitemap | EDG Outdoor Living',
-  description: 'Complete overview of pages on EDG Outdoor Living website.',
+  title: 'Sitemap | EDG Patio & Shade',
+  description: 'Complete overview of pages on EDG Patio & Shade website.',
   alternates: {
     canonical: '/html-sitemap',
   },

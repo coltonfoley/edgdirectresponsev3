@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: 'Hurricane-rated outdoor living systems for Sanibel Island. Pergolas, screens, and enclosures engineered for Florida weather.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/sanibel-outdoor-living',

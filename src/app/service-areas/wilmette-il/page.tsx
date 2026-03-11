@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: 'Luxury outdoor living systems for Wilmette homes. Motorized pergolas and screens designed for North Shore architecture.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/wilmette-il',

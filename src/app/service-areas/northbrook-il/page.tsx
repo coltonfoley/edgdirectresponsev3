@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: 'Outdoor living systems for Northbrook homes. Motorized pergolas, screens, and glass enclosures.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/northbrook-il',

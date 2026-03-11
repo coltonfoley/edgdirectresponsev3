@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     canonical: '/systems',
   },
   openGraph: {
-    title: 'Outdoor Living Systems | EDG Outdoor Living',
+    title: 'Outdoor Living Systems | EDG Patio & Shade',
     description:
       'Complete outdoor living solutions: pergolas, screens, enclosures, and kitchens. Built for the Midwest climate.',
   },
@@ -514,7 +514,7 @@ export default function SystemsPage() {
             <div className="relative aspect-[4/3]">
               <Image
                 src={images.pages.systems.whiteLedStrip}
-                alt="EDG Outdoor Living showroom displays"
+                alt="EDG Patio & Shade showroom displays"
                 fill
                 className="object-cover"
               />

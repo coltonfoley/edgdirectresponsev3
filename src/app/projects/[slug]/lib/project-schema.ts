@@ -106,7 +106,7 @@ export function generateLocalSEOSchema(project: EnrichedProject) {
   return {
     '@context': 'https://schema.org',
     '@type': 'HomeAndConstructionBusiness',
-    name: `EDG Outdoor Living - ${location.city}`,
+    name: `EDG Patio & Shade - ${location.city}`,
     description: `${project.systems.join(', ')} installation services in ${project.location}`,
     areaServed: {
       '@type': 'City',

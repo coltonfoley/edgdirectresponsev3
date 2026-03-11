@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Luxury outdoor living systems for Wisconsin homes. Motorized pergolas and screens designed for harsh winter weather.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: {
     canonical: '/service-areas/southeast-wisconsin',

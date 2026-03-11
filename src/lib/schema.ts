@@ -2,7 +2,7 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
   '@id': 'https://www.edgpatioshade.com/#organization',
-  name: 'EDG Outdoor Living',
+  name: 'EDG Patio & Shade',
   description:
     'Premium motorized pergolas, exterior shades, and glass enclosures for outdoor living spaces. Serving the Chicago-Milwaukee corridor and nationwide.',
   url: 'https://www.edgpatioshade.com',
@@ -158,7 +158,7 @@ export function generateProductSchema(params: {
     description: params.description,
     brand: {
       '@type': 'Brand',
-      name: params.brand || 'EDG Outdoor Living',
+      name: params.brand || 'EDG Patio & Shade',
     },
     ...(params.category && { category: params.category }),
     ...(params.image && { image: params.image }),
@@ -259,7 +259,7 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     '@id': 'https://www.edgpatioshade.com/#organization',
     name: 'EDG Patio & Shade',
-    alternateName: ['EDG Outdoor Living', 'EDG'],
+    alternateName: ['EDG Patio & Shade', 'EDG'],
     url: 'https://www.edgpatioshade.com',
     logo: {
       '@type': 'ImageObject',

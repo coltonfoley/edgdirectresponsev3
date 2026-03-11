@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     description: 'Motorized pergolas and screens for hospitality and restaurants.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
 };
 

@@ -103,7 +103,7 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     galleryImages: getProjectGallery(imageSlug, 3),
     description: csvProject.description,
     challenge: csvProject.challenge,
-    solution: csvProject.solution || 'Custom outdoor living solution designed and installed by EDG Outdoor Living.',
+    solution: csvProject.solution || 'Custom outdoor living solution designed and installed by EDG Patio & Shade.',
     results,
     specs: [
       { label: 'Location', value: `${city}, ${state}` },

@@ -30,15 +30,15 @@ const shimmer = (w: number, h: number) => `
 const toBase64 = (str: string) => Buffer.from(str).toString('base64');
 
 export const metadata: Metadata = {
-  title: 'Project Gallery | EDG Outdoor Living Work',
+  title: 'Project Gallery | EDG Patio & Shade Work',
   description: 'View our portfolio of motorized pergola and screen installations across Chicago, Wisconsin, and Florida.',
   alternates: { canonical: '/gallery' },
   openGraph: {
-    title: 'Project Gallery | EDG Outdoor Living',
+    title: 'Project Gallery | EDG Patio & Shade',
     description: 'Portfolio of outdoor living installations.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
 };
 

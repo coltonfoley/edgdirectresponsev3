@@ -118,7 +118,7 @@ export default function NapervilleMotorizedPergolas() {
               'Premium motorized louvered roof systems for Naperville estates, featuring integrated lighting and heating.',
             brand: {
               '@type': 'Brand',
-              name: 'EDG Outdoor Living',
+              name: 'EDG Patio & Shade',
             },
             offers: {
               '@type': 'Offer',

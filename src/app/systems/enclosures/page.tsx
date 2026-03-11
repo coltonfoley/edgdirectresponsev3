@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: 'Frameless retractable glass wall systems for year-round outdoor living. Slide & turn operation, 10mm tempered safety glass.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
   alternates: { canonical: '/systems/enclosures' },
 };

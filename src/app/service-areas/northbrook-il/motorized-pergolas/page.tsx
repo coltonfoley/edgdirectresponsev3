@@ -31,7 +31,7 @@ export default function NorthbrookPergolaPage() {
               "The only pergola engineered for Northbrook's 30psf snow loads and 115mph winds. Custom designed for 60062 zoning codes.",
             brand: {
               '@type': 'Brand',
-              name: 'EDG Outdoor Living',
+              name: 'EDG Patio & Shade',
             },
             offers: {
               '@type': 'Offer',

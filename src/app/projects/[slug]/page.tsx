@@ -32,7 +32,7 @@ export async function generateMetadata({
   const project = getProject(slug);
 
   if (!project) {
-    return { title: 'Project Not Found | EDG Outdoor Living' };
+    return { title: 'Project Not Found | EDG Patio & Shade' };
   }
 
   const location = parseLocation(project.location);
@@ -53,7 +53,7 @@ export async function generateMetadata({
       canonical: `/projects/${slug}`,
     },
     openGraph: {
-      title: `${project.title} | EDG Outdoor Living`,
+      title: `${project.title} | EDG Patio & Shade`,
       description: project.description,
       type: 'article',
       url: `/projects/${slug}`,

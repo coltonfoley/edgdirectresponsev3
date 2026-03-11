@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   description: 'Design and supply partner for builders, architects, and contractors nationwide. Motorized pergolas, screens, and enclosures for your projects.',
   alternates: { canonical: '/trade-partners' },
   openGraph: {
-    title: 'Trade Partners | EDG Outdoor Living',
+    title: 'Trade Partners | EDG Patio & Shade',
     description: 'B2B design and supply partner for outdoor living systems.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'EDG Outdoor Living',
+    siteName: 'EDG Patio & Shade',
   },
 };
 

@@ -100,7 +100,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
           Serving {project.location}
         </h3>
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          EDG Outdoor Living designs and installs custom outdoor living
+          EDG Patio & Shade designs and installs custom outdoor living
           solutions throughout {project.location} and surrounding areas.
         </p>
       </div>

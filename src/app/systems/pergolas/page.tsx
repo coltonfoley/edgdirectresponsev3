@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   keywords: ['motorized pergolas', 'louvered pergolas', 'adjustable pergola', 'pergola chicago', 'pergola installation', 'outdoor pergola'],
   alternates: { canonical: '/systems/pergolas' },
   openGraph: {
-    title: 'Motorized Louvered Pergolas | EDG Outdoor Living',
+    title: 'Motorized Louvered Pergolas | EDG Patio & Shade',
     description:
       'Architectural shade control with 135° of rotation. Sun when you want it, watertight seal when you do not.',
   },
