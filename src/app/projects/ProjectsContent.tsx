@@ -27,6 +27,8 @@ const projects = csvProjects.map(p => {
     ? `/projects/${imageSlug}/wade-hero.jpg`
     : p.id === 'jake-everly-residence'
     ? `/projects/${imageSlug}/jake-hero.jpg`
+    : p.id === 'greco'
+    ? `/projects/${imageSlug}/greco-hero.png`
     : getProjectHero(imageSlug);
   const fallbackImage = p.id === 'carmines'
     ? `/projects/${imageSlug}/carmines-patio-city-view.jpg`
@@ -34,6 +36,8 @@ const projects = csvProjects.map(p => {
     ? `/projects/${imageSlug}/wade-exterior-wide.jpg`
     : p.id === 'jake-everly-residence'
     ? `/projects/${imageSlug}/jake-exterior-wide.jpg`
+    : p.id === 'greco'
+    ? `/projects/${imageSlug}/greco-pergola-structure.jpg`
     : getProjectGallery(imageSlug, 3)[0];
   return {
     id: p.id,

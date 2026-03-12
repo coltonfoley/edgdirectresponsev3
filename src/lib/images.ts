@@ -271,6 +271,29 @@ export const featuredProjects = {
       '/projects/jake/jake-structure-detail.jpg',
     ] as string[],
   },
+  /** St. Charles - Greco (Residential) */
+  greco: {
+    hero: '/projects/greco/greco-hero.png',
+    gallery: [
+      '/projects/greco/greco-pergola-structure.jpg',
+      '/projects/greco/greco-construction-view.jpg',
+      '/projects/greco/greco-installation-detail.jpg',
+      '/projects/greco/greco-aerial-house.jpg',
+      '/projects/greco/greco-pool-patio-aerial.jpg',
+      '/projects/greco/greco-backyard-overview.jpg',
+      '/projects/greco/greco-drone-wide.jpg',
+    ] as string[],
+    all: [
+      '/projects/greco/greco-hero.png',
+      '/projects/greco/greco-pergola-structure.jpg',
+      '/projects/greco/greco-construction-view.jpg',
+      '/projects/greco/greco-installation-detail.jpg',
+      '/projects/greco/greco-aerial-house.jpg',
+      '/projects/greco/greco-pool-patio-aerial.jpg',
+      '/projects/greco/greco-backyard-overview.jpg',
+      '/projects/greco/greco-drone-wide.jpg',
+    ] as string[],
+  },
   /** Buffalo Grove - Brewery (Commercial) */
   buffaloGroveBrewery: getProjectImageSet('buffalo-grove-brewery', 3),
   /** Deerfield - Backyard oasis (Residential) */
@@ -335,6 +358,7 @@ export const projects = {
   barringtonHills: { slug: 'barrington-hills-estate', ...featuredProjects.barringtonHillsEstate },
   wade: { slug: 'wade', ...featuredProjects.wade },
   jake: { slug: 'jake', ...featuredProjects.jake },
+  greco: { slug: 'greco', ...featuredProjects.greco },
   buffaloGroveBrewery: { slug: 'buffalo-grove-brewery', ...featuredProjects.buffaloGroveBrewery },
   deerfieldBackyardOasis: { slug: 'deerfield-backyard-oasis', ...featuredProjects.deerfieldBackyardOasis },
   elmhurstEntertainmentSpace: { slug: 'elmhurst-entertainment-space', ...featuredProjects.elmhurstEntertainmentSpace },

@@ -102,10 +102,12 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     cardImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
                csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
                csvProject.id === 'jake-everly-residence' ? `/projects/${imageSlug}/jake-hero.jpg` : 
+               csvProject.id === 'greco' ? `/projects/${imageSlug}/greco-hero.png` : 
                getProjectHero(imageSlug),
     heroImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
                csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
                csvProject.id === 'jake-everly-residence' ? `/projects/${imageSlug}/jake-hero.jpg` : 
+               csvProject.id === 'greco' ? `/projects/${imageSlug}/greco-hero.png` : 
                getProjectHero(imageSlug),
     galleryImages: csvProject.id === 'carmines' 
       ? [
@@ -136,6 +138,16 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
           `/projects/${imageSlug}/jake-evening-view.jpg`,
           `/projects/${imageSlug}/jake-structure-detail.jpg`,
           `/projects/${imageSlug}/jake-hero.jpg`,
+        ]
+      : csvProject.id === 'greco'
+      ? [
+          `/projects/${imageSlug}/greco-pergola-structure.jpg`,
+          `/projects/${imageSlug}/greco-construction-view.jpg`,
+          `/projects/${imageSlug}/greco-installation-detail.jpg`,
+          `/projects/${imageSlug}/greco-aerial-house.jpg`,
+          `/projects/${imageSlug}/greco-pool-patio-aerial.jpg`,
+          `/projects/${imageSlug}/greco-backyard-overview.jpg`,
+          `/projects/${imageSlug}/greco-drone-wide.jpg`,
         ]
       : getProjectGallery(imageSlug, 3),
     description: csvProject.description,

@@ -8,7 +8,7 @@ export const projectSlugMapping: Record<string, string> = {
   'the-district': 'wheaton-outdoor-dining',
   'chicago-winery': 'st-charles-winery',
   'jake-everly-residence': 'jake',  // Using new 'jake' folder with descriptive images
-  'greco': 'deerfield-backyard-oasis',
+  'greco': 'greco',
   'reddy': 'hinsdale-custom-builder',
   'arora': 'hinsdale-garden-room',
   'ike-oak': 'buffalo-grove-brewery',

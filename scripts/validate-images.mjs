@@ -122,6 +122,15 @@ const expectedImages = {
     '/projects/jake/jake-interior-seating.jpg',
     '/projects/jake/jake-evening-view.jpg',
     '/projects/jake/jake-structure-detail.jpg',
+    // Greco - St. Charles (custom named files from drone video and photos)
+    '/projects/greco/greco-hero.png',
+    '/projects/greco/greco-pergola-structure.jpg',
+    '/projects/greco/greco-construction-view.jpg',
+    '/projects/greco/greco-installation-detail.jpg',
+    '/projects/greco/greco-aerial-house.jpg',
+    '/projects/greco/greco-pool-patio-aerial.jpg',
+    '/projects/greco/greco-backyard-overview.jpg',
+    '/projects/greco/greco-drone-wide.jpg',
     // Other projects with standard naming
     ...['barrington-hills-estate', 'highland-park-builder',
         'lake-forest-pergola', 'lake-geneva-restaurant', 'libertyville-shade-system',

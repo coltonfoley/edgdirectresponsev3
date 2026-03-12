@@ -167,12 +167,18 @@ export const projects: Project[] = [
     state: "IL",
     zipCode: "60175",
     description: "Multi-bay residential system over sunken outdoor seating area",
-    challenge: "This had to be built into a waterfall structure that was next to a sunken seating area. The pergola covered this space. It created an amazing area. The sunken patio and wall made installation challenging to work around this unique obstancles.",
-    solution: "",
-    results: [],
+    challenge: "This had to be built into a waterfall structure that was next to a sunken seating area. The pergola covered this space. It created an amazing area. The sunken patio and wall made installation challenging to work around this unique obstacles.",
+    solution: "We designed and engineered a custom multi-bay motorized louvered pergola system that integrated seamlessly with the existing waterfall structure and sunken seating area. Our team developed specialized mounting solutions to secure the pergola to the stone walls while maintaining the structural integrity of the water feature. We coordinated the electrical routing to power the motorized louvers while protecting the waterfall's plumbing systems.",
+    results: [
+      "Successfully integrated the pergola system with the waterfall feature without compromising functionality",
+      "Created a unique multi-zone outdoor living space with the sunken seating area",
+      "Engineered custom mounting solutions for the stone wall integration",
+      "Protected all existing water features and plumbing during installation",
+      "Delivered a stunning architectural element that enhances the entire backyard design"
+    ],
     projectType: "Residential",
-    isComplete: false,
-    missingFields: ["solution", "results"]
+    isComplete: true,
+    missingFields: []
   },
   {
     id: "reddy",
