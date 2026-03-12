@@ -17,6 +17,7 @@ export interface Project {
   challenge: string;
   solution: string;
   results: string[];
+  videoUrl?: string;
   specs: { label: string; value: string }[];
   testimonial?: { quote: string; name: string; title: string };
   relatedProjects: string[];
@@ -98,8 +99,12 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     state,
     type: csvProject.projectType,
     systems,
-    cardImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : getProjectHero(imageSlug),
-    heroImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : getProjectHero(imageSlug),
+    cardImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
+               csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
+               getProjectHero(imageSlug),
+    heroImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
+               csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
+               getProjectHero(imageSlug),
     galleryImages: csvProject.id === 'carmines' 
       ? [
           `/projects/${imageSlug}/carmines-patio-city-view.jpg`,
@@ -110,11 +115,22 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
           `/projects/${imageSlug}/carmines-patio-street-view.jpg`,
           `/projects/${imageSlug}/carmines-patio-low-angle-signage.jpg`,
         ]
+      : csvProject.id === 'wade'
+      ? [
+          `/projects/${imageSlug}/wade-exterior-wide.jpg`,
+          `/projects/${imageSlug}/wade-bar-interior.jpg`,
+          `/projects/${imageSlug}/wade-interior-loungers.jpg`,
+          `/projects/${imageSlug}/wade-interior-seating.jpg`,
+          `/projects/${imageSlug}/wade-windows-open.jpg`,
+          `/projects/${imageSlug}/wade-exterior-glass.jpg`,
+          `/projects/${imageSlug}/wade-hero.jpg`,
+        ]
       : getProjectGallery(imageSlug, 3),
     description: csvProject.description,
     challenge: csvProject.challenge,
     solution: csvProject.solution || 'Custom outdoor living solution designed and installed by EDG Patio & Shade.',
     results,
+    videoUrl: csvProject.videoUrl,
     specs: [
       { label: 'Location', value: `${city}, ${state}` },
       { label: 'Type', value: csvProject.projectType },

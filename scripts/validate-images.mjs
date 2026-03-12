@@ -106,7 +106,16 @@ const expectedImages = {
   
   // Project images (from src/lib/images.ts)
   'Projects': [
-    ...['barrington-hills-estate', 'barrington-outdoor-room', 'highland-park-builder',
+    // Wade - Barrington (custom named files from video frames)
+    '/projects/wade/wade-hero.jpg',
+    '/projects/wade/wade-exterior-wide.jpg',
+    '/projects/wade/wade-bar-interior.jpg',
+    '/projects/wade/wade-interior-loungers.jpg',
+    '/projects/wade/wade-interior-seating.jpg',
+    '/projects/wade/wade-windows-open.jpg',
+    '/projects/wade/wade-exterior-glass.jpg',
+    // Other projects with standard naming
+    ...['barrington-hills-estate', 'highland-park-builder',
         'lake-forest-pergola', 'lake-geneva-restaurant', 'libertyville-shade-system',
         'wilmette-country-club'].flatMap(slug => [
       `/projects/${slug}/hero.jpg`,

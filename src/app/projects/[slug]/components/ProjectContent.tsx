@@ -115,6 +115,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
         </div>
       </ProjectSection>
 
+      {/* ===== VIDEO ===== */}
       {/* ===== GALLERY ===== */}
       <ProjectSection condition={project.hasGallery} id="gallery">
         <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">

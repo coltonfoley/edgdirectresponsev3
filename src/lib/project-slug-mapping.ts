@@ -3,7 +3,7 @@ export const projectSlugMapping: Record<string, string> = {
   'karp': 'northbrook-family-entertaining',
   // 'carmines' now uses its own folder 'carmines'
   'rosebud': 'lake-forest-estate-builder',
-  'wade': 'barrington-outdoor-room',
+  // 'wade' now uses its own folder 'wade'
   'the-elm': 'elmhurst-entertainment-space',
   'the-district': 'wheaton-outdoor-dining',
   'chicago-winery': 'st-charles-winery',

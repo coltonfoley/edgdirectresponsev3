@@ -13,6 +13,7 @@ export interface Project {
   challenge: string;
   solution: string;
   results: string[];
+  videoUrl?: string;
   projectType: 'Commercial' | 'Residential';
   isComplete: boolean;
   missingFields: string[];
@@ -79,11 +80,18 @@ export const projects: Project[] = [
     zipCode: null,
     description: "Outdoor room with fully retractable louvers and motorized glass.",
     challenge: "This system presernted a variety of challenges as we were pairing together a variety of different products and wanted to make sure everything integrated correctly. It also required lots of power and drainage that is all concealed and took some creativity to get completed. Having a system with motorized glass windows and louvers that both rotate and fully retract gives the client so much flexibility in the space. This allows them to entertain all year round next to their pool on their private property.",
-    solution: "",
-    results: [],
+    solution: "We designed and installed a custom outdoor room featuring motorized louvered roofing with integrated LED lighting, paired with floor-to-ceiling motorized glass walls. The system includes concealed drainage and electrical systems that seamlessly integrate with the home's existing infrastructure. The retractable glass walls completely open up to create an open-air experience, while the rotating louvers provide precise control over sunlight and ventilation.",
+    results: [
+      "Created a true four-season outdoor living space by the pool",
+      "Successfully integrated multiple motorized systems (louvers + glass walls) with seamless control",
+      "Concealed all electrical and drainage systems maintaining clean aesthetic",
+      "Enabled year-round entertaining with protection from wind, rain, and insects",
+      "Enhanced property value with stunning architectural addition"
+    ],
+    videoUrl: "https://youtube.com/shorts/7K8sbQ2YXQM",
     projectType: "Residential",
-    isComplete: false,
-    missingFields: ["solution", "results"]
+    isComplete: true,
+    missingFields: []
   },
   {
     id: "the-elm",

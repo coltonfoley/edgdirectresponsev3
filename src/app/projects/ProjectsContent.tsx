@@ -20,6 +20,17 @@ const types = Array.from(new Set(csvProjects.map(p => p.projectType))).sort();
 // Transform CSV data to display format
 const projects = csvProjects.map(p => {
   const imageSlug = getProjectSlug(p.id);
+  // Special handling for projects with custom named files
+  const image = p.id === 'carmines' 
+    ? `/projects/${imageSlug}/carmines-hero.jpg`
+    : p.id === 'wade'
+    ? `/projects/${imageSlug}/wade-hero.jpg`
+    : getProjectHero(imageSlug);
+  const fallbackImage = p.id === 'carmines'
+    ? `/projects/${imageSlug}/carmines-patio-city-view.jpg`
+    : p.id === 'wade'
+    ? `/projects/${imageSlug}/wade-exterior-wide.jpg`
+    : getProjectGallery(imageSlug, 3)[0];
   return {
     id: p.id,
     title: p.name,
@@ -27,8 +38,8 @@ const projects = csvProjects.map(p => {
     city: p.city,
     type: p.projectType,
     description: p.description,
-    image: getProjectHero(imageSlug),
-    fallbackImage: getProjectGallery(imageSlug, 3)[0],
+    image,
+    fallbackImage,
   };
 });
 

@@ -61,7 +61,7 @@ export function isLegacyProject(_slug: string): boolean {
  */
 export const PROJECT_TITLES: Record<string, string> = {
   'lake-forest-pergola': 'Lakefront Pergola & Shades',
-  'barrington-outdoor-room': 'Complete Outdoor Room',
+  'wade': 'Wade Outdoor Room',
   'lake-geneva-restaurant': 'Restaurant Patio Expansion',
   'libertyville-shade-system': 'Whole-Home Shade System',
   'highland-park-builder': 'New Construction Integration',
