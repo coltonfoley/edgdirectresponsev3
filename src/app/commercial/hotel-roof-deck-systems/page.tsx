@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -186,10 +187,12 @@ export default function HotelRoofDeckPage() {
 
           {/* Feature Image */}
           <div className="relative mt-16 h-[500px] overflow-hidden rounded-3xl">
-            <img
+            <Image
               src={images.brand.hero.screensOld}
               alt="Hotel Terrace Amenities"
-              className="absolute inset-0 h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 flex items-center justify-center p-8 text-center">

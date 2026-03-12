@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -262,10 +263,12 @@ export default function RestaurantPatioEnclosuresPage() {
               </ul>
             </div>
             <div className="relative min-h-[400px] overflow-hidden rounded-3xl">
-              <img
+              <Image
                 src={images.brand.hero.screensOld}
                 alt="Restaurant Patio Shades"
-                className="absolute inset-0 h-full w-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-black/20" />
               <div className="absolute right-8 bottom-8 left-8 rounded-2xl border border-white/10 bg-zinc-900/90 p-6 shadow-2xl backdrop-blur-sm">

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -159,7 +160,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
             {useCases.map((item) => (
               <div key={item.title} className="overflow-hidden rounded-2xl bg-white shadow-sm dark:bg-zinc-800">
                 <div className="relative aspect-video bg-zinc-200 dark:bg-zinc-700">
-                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                  <Image src={item.image} alt={item.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 <div className="p-6">
                   <h3 className="mb-2 text-xl font-bold">{item.title}</h3>

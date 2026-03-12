@@ -107,6 +107,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
                 fill
                 className="object-cover"
                 sizes="80px"
+                unoptimized
               />
             ) : (
               <div className="relative h-full w-full bg-zinc-900">

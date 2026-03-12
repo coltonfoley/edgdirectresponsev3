@@ -107,6 +107,7 @@ export function EnclosuresGallery({ items, className }: EnclosuresGalleryProps) 
                 fill
                 className="object-cover"
                 sizes="64px"
+                unoptimized
               />
             ) : (
               <div className="relative h-full w-full bg-surface-dark">

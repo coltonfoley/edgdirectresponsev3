@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -48,10 +49,13 @@ export default function NorthbrookPergolaPage() {
         {/* Hero */}
         <div className="relative flex h-[60vh] min-h-[500px] items-center justify-center overflow-hidden text-white">
           <div className="absolute inset-0 z-10 bg-black/60" />
-          <img
+          <Image
             src={images.pages.locations.defaultHero}
             alt="Luxury Motorized Pergola in Northbrook"
-            className="absolute inset-0 h-full w-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
           />
           <div className="relative z-20 max-w-4xl px-6 text-center">
             <Breadcrumb

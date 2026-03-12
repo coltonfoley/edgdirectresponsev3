@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -226,10 +227,12 @@ export default function NapervilleMotorizedPergolas() {
                 </Link>
               </div>
               <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl">
-                <img
+                <Image
                   src={images.pages.serviceAreas.napervillePergolaPool01}
                   alt="Motorized pergola installation"
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>

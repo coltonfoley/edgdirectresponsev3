@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -209,10 +210,12 @@ export default function CountryClubPage() {
 
           {/* Image */}
           <div className="relative mt-16 h-[400px] overflow-hidden rounded-3xl">
-            <img
+            <Image
               src={images.brand.context.pool}
               alt="Country Club Pool Deck Pergola"
-              className="absolute inset-0 h-full w-full object-cover"
+              fill
+              className="object-cover"
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/20" />
             <div className="absolute right-8 bottom-8 left-8 text-white">
