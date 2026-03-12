@@ -294,6 +294,19 @@ export const featuredProjects = {
       '/projects/greco/greco-drone-wide.jpg',
     ] as string[],
   },
+  /** Northbrook - Karp (Residential) */
+  karp: {
+    hero: '/projects/karp/karp-hero.jpg',
+    gallery: [
+      '/projects/karp/karp-wood-grain-louvers.jpg',
+      '/projects/karp/karp-poolside-structure.jpg',
+    ] as string[],
+    all: [
+      '/projects/karp/karp-hero.jpg',
+      '/projects/karp/karp-wood-grain-louvers.jpg',
+      '/projects/karp/karp-poolside-structure.jpg',
+    ] as string[],
+  },
   /** Buffalo Grove - Brewery (Commercial) */
   buffaloGroveBrewery: getProjectImageSet('buffalo-grove-brewery', 3),
   /** Deerfield - Backyard oasis (Residential) */
@@ -325,7 +338,18 @@ export const featuredProjects = {
   /** Naperville - Pool pavilion (Commercial) */
   napervillePoolPavilion: getProjectImageSet('naperville-pool-pavilion', 3),
   /** Northbrook - Karp family entertaining (Residential) */
-  northbrookFamilyEntertaining: getProjectImageSet('northbrook-family-entertaining', 3),
+  northbrookFamilyEntertaining: {
+    hero: '/projects/karp/karp-hero.jpg',
+    gallery: [
+      '/projects/karp/karp-wood-grain-louvers.jpg',
+      '/projects/karp/karp-poolside-structure.jpg',
+    ] as string[],
+    all: [
+      '/projects/karp/karp-hero.jpg',
+      '/projects/karp/karp-wood-grain-louvers.jpg',
+      '/projects/karp/karp-poolside-structure.jpg',
+    ] as string[],
+  },
   /** St Charles - Winery tasting room (Commercial) */
   stCharlesWinery: getProjectImageSet('st-charles-winery', 3),
   /** Wheaton - Outdoor dining (Commercial) */
@@ -359,6 +383,7 @@ export const projects = {
   wade: { slug: 'wade', ...featuredProjects.wade },
   jake: { slug: 'jake', ...featuredProjects.jake },
   greco: { slug: 'greco', ...featuredProjects.greco },
+  karp: { slug: 'karp', ...featuredProjects.karp },
   buffaloGroveBrewery: { slug: 'buffalo-grove-brewery', ...featuredProjects.buffaloGroveBrewery },
   deerfieldBackyardOasis: { slug: 'deerfield-backyard-oasis', ...featuredProjects.deerfieldBackyardOasis },
   elmhurstEntertainmentSpace: { slug: 'elmhurst-entertainment-space', ...featuredProjects.elmhurstEntertainmentSpace },
@@ -374,7 +399,7 @@ export const projects = {
   lakeGeneva: { slug: 'lake-geneva-restaurant', ...featuredProjects.lakeGenevaRestaurant },
   libertyville: { slug: 'libertyville-shade-system', ...featuredProjects.libertyvilleShadeSystem },
   napervillePoolPavilion: { slug: 'naperville-pool-pavilion', ...featuredProjects.napervillePoolPavilion },
-  northbrookFamily: { slug: 'northbrook-family-entertaining', ...featuredProjects.northbrookFamilyEntertaining },
+  northbrookFamily: { slug: 'karp', ...featuredProjects.northbrookFamilyEntertaining },
   stCharlesWinery: { slug: 'st-charles-winery', ...featuredProjects.stCharlesWinery },
   wheatonOutdoorDining: { slug: 'wheaton-outdoor-dining', ...featuredProjects.wheatonOutdoorDining },
   wilmette: { slug: 'wilmette-country-club', ...featuredProjects.wilmetteCountryClub },

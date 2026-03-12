@@ -1,6 +1,6 @@
 // Mapping between CSV project names and actual image directory names
 export const projectSlugMapping: Record<string, string> = {
-  'karp': 'northbrook-family-entertaining',
+  'karp': 'karp',  // Now using dedicated karp folder with descriptive images
   // 'carmines' now uses its own folder 'carmines'
   'rosebud': 'lake-forest-estate-builder',
   // 'wade' now uses its own folder 'wade'

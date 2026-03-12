@@ -103,11 +103,13 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
                csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
                csvProject.id === 'jake-everly-residence' ? `/projects/${imageSlug}/jake-hero.jpg` : 
                csvProject.id === 'greco' ? `/projects/${imageSlug}/greco-hero.png` : 
+               csvProject.id === 'karp' ? `/projects/${imageSlug}/karp-hero.jpg` : 
                getProjectHero(imageSlug),
     heroImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
                csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
                csvProject.id === 'jake-everly-residence' ? `/projects/${imageSlug}/jake-hero.jpg` : 
                csvProject.id === 'greco' ? `/projects/${imageSlug}/greco-hero.png` : 
+               csvProject.id === 'karp' ? `/projects/${imageSlug}/karp-hero.jpg` : 
                getProjectHero(imageSlug),
     galleryImages: csvProject.id === 'carmines' 
       ? [
@@ -148,6 +150,12 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
           `/projects/${imageSlug}/greco-pool-patio-aerial.jpg`,
           `/projects/${imageSlug}/greco-backyard-overview.jpg`,
           `/projects/${imageSlug}/greco-drone-wide.jpg`,
+        ]
+      : csvProject.id === 'karp'
+      ? [
+          `/projects/${imageSlug}/karp-wood-grain-louvers.jpg`,
+          `/projects/${imageSlug}/karp-poolside-structure.jpg`,
+          `/projects/${imageSlug}/karp-hero.jpg`,
         ]
       : getProjectGallery(imageSlug, 3),
     description: csvProject.description,

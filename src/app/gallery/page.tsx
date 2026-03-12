@@ -68,7 +68,7 @@ export default function GalleryPage() {
               The Work.
             </h1>
             <p className="max-w-xl text-xl leading-relaxed text-zinc-300 mb-12">
-              Transformations across Chicago and Wisconsin. No render ghosts. Just built reality.
+              Real projects, real results. See how we transform outdoor spaces across Chicagoland and beyond.
             </p>
           </div>
         </Container>

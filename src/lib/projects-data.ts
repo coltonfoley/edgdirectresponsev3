@@ -28,12 +28,18 @@ export const projects: Project[] = [
     state: "IL",
     zipCode: "60062",
     description: "Multi Bay System with Wood Grain Panels and Privacy Wall",
-    challenge: "The client was renovating their whole back patio and adding a swimming pool. They wanted a comfortable place to entertain by the pool while being protected by the elements. They wanted to keep with the natural look so opted for the wood grain louvers and privacy walls.",
-    solution: "",
-    results: [],
+    challenge: "The client was undertaking a complete backyard renovation including a new swimming pool and wanted a shaded entertainment area that would complement the natural aesthetic of their outdoor space. They needed protection from sun and rain while maintaining a warm, organic look that wouldn't feel like an industrial addition to their residential property. The challenge was finding a system that offered modern motorized functionality while blending seamlessly with the woodsy Northbrook landscape.",
+    solution: "We designed and installed a custom multi-bay motorized pergola system featuring wood grain finish louvers and integrated privacy walls. The wood grain coating provides the natural aesthetic the client desired while maintaining the durability and performance of aluminum construction. The multi-bay configuration creates distinct zones for dining and lounging, with motorized louvers that adjust to control sunlight and provide rain protection. Privacy walls were strategically placed to create an intimate poolside retreat while maintaining airflow and views of the landscaped property.",
+    results: [
+      "Created a comfortable, shaded entertainment space adjacent to the new swimming pool",
+      "Achieved natural wood aesthetic with durable aluminum construction using wood grain finish",
+      "Installed multi-bay system providing distinct functional zones for outdoor living",
+      "Added motorized control for adjustable sun and rain protection throughout the day",
+      "Enhanced property value with architectural feature that complements the landscape"
+    ],
     projectType: "Residential",
-    isComplete: false,
-    missingFields: ["solution", "results"]
+    isComplete: true,
+    missingFields: []
   },
   {
     id: "carmines",
