@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
   cacheComponents: process.env.NODE_ENV === 'production',
 
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
     remotePatterns: [
       {
         protocol: 'https',

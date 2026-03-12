@@ -203,7 +203,28 @@ export function getProjectImageSet(slug: string, galleryCount: number = 3): Proj
 
 export const featuredProjects = {
   /** Arlington Heights - Carmine's (Commercial) */
-  carmines: getProjectImageSet('carmines', 3),
+  carmines: {
+    hero: '/projects/carmines/carmines-hero.jpg',
+    gallery: [
+      '/projects/carmines/carmines-patio-city-view.jpg',
+      '/projects/carmines/carmines-pergola-corner-structure.jpg',
+      '/projects/carmines/carmines-louvers-sky-view.jpg',
+      '/projects/carmines/carmines-louvers-urban-skyline.jpg',
+      '/projects/carmines/carmines-under-pergola-signage.jpg',
+      '/projects/carmines/carmines-patio-street-view.jpg',
+      '/projects/carmines/carmines-patio-low-angle-signage.jpg',
+    ] as string[],
+    all: [
+      '/projects/carmines/carmines-hero.jpg',
+      '/projects/carmines/carmines-patio-city-view.jpg',
+      '/projects/carmines/carmines-pergola-corner-structure.jpg',
+      '/projects/carmines/carmines-louvers-sky-view.jpg',
+      '/projects/carmines/carmines-louvers-urban-skyline.jpg',
+      '/projects/carmines/carmines-under-pergola-signage.jpg',
+      '/projects/carmines/carmines-patio-street-view.jpg',
+      '/projects/carmines/carmines-patio-low-angle-signage.jpg',
+    ] as string[],
+  },
   /** Avaella - Downers Grove (Residential) */
   avaella: getProjectImageSet('avaella', 3),
   /** Barrington Hills - Large estate (Residential) */
