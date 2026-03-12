@@ -101,9 +101,11 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     systems,
     cardImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
                csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
+               csvProject.id === 'jake-everly-residence' ? `/projects/${imageSlug}/jake-hero.jpg` : 
                getProjectHero(imageSlug),
     heroImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : 
                csvProject.id === 'wade' ? `/projects/${imageSlug}/wade-hero.jpg` : 
+               csvProject.id === 'jake-everly-residence' ? `/projects/${imageSlug}/jake-hero.jpg` : 
                getProjectHero(imageSlug),
     galleryImages: csvProject.id === 'carmines' 
       ? [
@@ -124,6 +126,16 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
           `/projects/${imageSlug}/wade-windows-open.jpg`,
           `/projects/${imageSlug}/wade-exterior-glass.jpg`,
           `/projects/${imageSlug}/wade-hero.jpg`,
+        ]
+      : csvProject.id === 'jake-everly-residence'
+      ? [
+          `/projects/${imageSlug}/jake-exterior-wide.jpg`,
+          `/projects/${imageSlug}/jake-pergola-detail.jpg`,
+          `/projects/${imageSlug}/jake-louvered-ceiling.jpg`,
+          `/projects/${imageSlug}/jake-interior-seating.jpg`,
+          `/projects/${imageSlug}/jake-evening-view.jpg`,
+          `/projects/${imageSlug}/jake-structure-detail.jpg`,
+          `/projects/${imageSlug}/jake-hero.jpg`,
         ]
       : getProjectGallery(imageSlug, 3),
     description: csvProject.description,

@@ -229,6 +229,27 @@ export const featuredProjects = {
       '/projects/wade/wade-exterior-glass.jpg',
     ] as string[],
   },
+  /** Crystal Lake - Jake Everly Residence (Residential) */
+  jake: {
+    hero: '/projects/jake/jake-hero.jpg',
+    gallery: [
+      '/projects/jake/jake-exterior-wide.jpg',
+      '/projects/jake/jake-pergola-detail.jpg',
+      '/projects/jake/jake-louvered-ceiling.jpg',
+      '/projects/jake/jake-interior-seating.jpg',
+      '/projects/jake/jake-evening-view.jpg',
+      '/projects/jake/jake-structure-detail.jpg',
+    ] as string[],
+    all: [
+      '/projects/jake/jake-hero.jpg',
+      '/projects/jake/jake-exterior-wide.jpg',
+      '/projects/jake/jake-pergola-detail.jpg',
+      '/projects/jake/jake-louvered-ceiling.jpg',
+      '/projects/jake/jake-interior-seating.jpg',
+      '/projects/jake/jake-evening-view.jpg',
+      '/projects/jake/jake-structure-detail.jpg',
+    ] as string[],
+  },
   /** Buffalo Grove - Brewery (Commercial) */
   buffaloGroveBrewery: getProjectImageSet('buffalo-grove-brewery', 3),
   /** Deerfield - Backyard oasis (Residential) */
@@ -292,6 +313,7 @@ export const projects = {
   avaella: { slug: 'avaella', ...featuredProjects.avaella },
   barringtonHills: { slug: 'barrington-hills-estate', ...featuredProjects.barringtonHillsEstate },
   wade: { slug: 'wade', ...featuredProjects.wade },
+  jake: { slug: 'jake', ...featuredProjects.jake },
   buffaloGroveBrewery: { slug: 'buffalo-grove-brewery', ...featuredProjects.buffaloGroveBrewery },
   deerfieldBackyardOasis: { slug: 'deerfield-backyard-oasis', ...featuredProjects.deerfieldBackyardOasis },
   elmhurstEntertainmentSpace: { slug: 'elmhurst-entertainment-space', ...featuredProjects.elmhurstEntertainmentSpace },

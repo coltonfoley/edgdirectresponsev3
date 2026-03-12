@@ -114,6 +114,14 @@ const expectedImages = {
     '/projects/wade/wade-interior-seating.jpg',
     '/projects/wade/wade-windows-open.jpg',
     '/projects/wade/wade-exterior-glass.jpg',
+    // Jake - Crystal Lake (custom named files)
+    '/projects/jake/jake-hero.jpg',
+    '/projects/jake/jake-exterior-wide.jpg',
+    '/projects/jake/jake-pergola-detail.jpg',
+    '/projects/jake/jake-louvered-ceiling.jpg',
+    '/projects/jake/jake-interior-seating.jpg',
+    '/projects/jake/jake-evening-view.jpg',
+    '/projects/jake/jake-structure-detail.jpg',
     // Other projects with standard naming
     ...['barrington-hills-estate', 'highland-park-builder',
         'lake-forest-pergola', 'lake-geneva-restaurant', 'libertyville-shade-system',

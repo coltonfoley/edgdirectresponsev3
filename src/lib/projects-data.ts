@@ -147,11 +147,17 @@ export const projects: Project[] = [
     zipCode: "60012",
     description: "Multi-bay residential system designed for entertaining",
     challenge: "This was a part of a larger landscape project and had integrated electrical and drainage so required lots of planning to make sure everything went together correctly.",
-    solution: "",
-    results: [],
+    solution: "We coordinated closely with the landscape contractor to seamlessly integrate a multi-bay motorized louvered pergola system into the ongoing project. Our team designed a custom electrical plan that tied into the home's existing infrastructure while concealing all wiring within the structure. We engineered a drainage system that worked with the landscape grading, ensuring water flows properly away from the pergola and surrounding patio area. The multi-bay design creates distinct zones for dining and lounging while maintaining a cohesive aesthetic with the home's architecture.",
+    results: [
+      "Successfully integrated the pergola system with the landscape project without delays or conflicts",
+      "Concealed all electrical components within the structure for a clean, professional appearance",
+      "Created effective drainage solution that protects both the structure and surrounding landscape",
+      "Delivered a multi-zone outdoor living space perfect for entertaining large groups",
+      "Enhanced property value with a custom architectural addition that complements the home"
+    ],
     projectType: "Residential",
-    isComplete: false,
-    missingFields: ["solution", "results"]
+    isComplete: true,
+    missingFields: []
   },
   {
     id: "greco",

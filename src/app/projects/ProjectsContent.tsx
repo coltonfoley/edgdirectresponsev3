@@ -25,11 +25,15 @@ const projects = csvProjects.map(p => {
     ? `/projects/${imageSlug}/carmines-hero.jpg`
     : p.id === 'wade'
     ? `/projects/${imageSlug}/wade-hero.jpg`
+    : p.id === 'jake-everly-residence'
+    ? `/projects/${imageSlug}/jake-hero.jpg`
     : getProjectHero(imageSlug);
   const fallbackImage = p.id === 'carmines'
     ? `/projects/${imageSlug}/carmines-patio-city-view.jpg`
     : p.id === 'wade'
     ? `/projects/${imageSlug}/wade-exterior-wide.jpg`
+    : p.id === 'jake-everly-residence'
+    ? `/projects/${imageSlug}/jake-exterior-wide.jpg`
     : getProjectGallery(imageSlug, 3)[0];
   return {
     id: p.id,
