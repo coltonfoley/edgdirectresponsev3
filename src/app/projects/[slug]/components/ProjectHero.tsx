@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { EnrichedProject, parseLocation } from '../lib/project-utils';
-import { ImageWithFallback } from './ImageWithFallback';
 
 interface ProjectHeroProps {
   project: EnrichedProject;
@@ -13,17 +13,17 @@ export function ProjectHero({ project }: ProjectHeroProps) {
 
   return (
     <section className="relative h-[60vh] min-h-[500px]">
-      {/* Background Image with Fallback */}
-      <ImageWithFallback
-        src={project.heroImage}
-        alt={project.title}
-        fill
-        priority
-        fallbackType="gradient"
-        containerClassName="absolute inset-0"
-        sizes="100vw"
-        className="object-cover"
-      />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src={project.heroImage}
+          alt={project.title}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />

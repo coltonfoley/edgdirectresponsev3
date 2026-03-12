@@ -1,8 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { parseLocation } from '../lib/project-utils';
 import { Project } from '@/lib/projects';
-import { ImageWithFallback } from './ImageWithFallback';
 
 interface RelatedProjectsProps {
   projects: Project[];
@@ -44,14 +44,13 @@ function RelatedProjectCard({ project }: { project: Project }) {
       itemType="https://schema.org/CreativeWork"
     >
       {/* Thumbnail */}
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <ImageWithFallback
+      <div className="relative aspect-[16/10] overflow-hidden bg-zinc-200">
+        <Image
           src={project.cardImage || project.heroImage}
           alt={project.title}
           fill
-          fallbackType="gradient"
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <meta itemProp="image" content={project.heroImage || ''} />
       </div>

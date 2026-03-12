@@ -203,7 +203,7 @@ export function getProjectImageSet(slug: string, galleryCount: number = 3): Proj
 
 export const featuredProjects = {
   /** Arlington Heights - Carmine's (Commercial) */
-  arlingtonHeightsHotel: getProjectImageSet('arlington-heights-hotel', 3),
+  carmines: getProjectImageSet('carmines', 3),
   /** Avaella - Downers Grove (Residential) */
   avaella: getProjectImageSet('avaella', 3),
   /** Barrington Hills - Large estate (Residential) */
@@ -269,7 +269,7 @@ export const featuredProjectSlugs = Object.keys(featuredProjects).map(key => {
  * Legacy registry with slug field for backward compatibility
  */
 export const projects = {
-  arlingtonHeightsHotel: { slug: 'arlington-heights-hotel', ...featuredProjects.arlingtonHeightsHotel },
+  carmines: { slug: 'carmines', ...featuredProjects.carmines },
   avaella: { slug: 'avaella', ...featuredProjects.avaella },
   barringtonHills: { slug: 'barrington-hills-estate', ...featuredProjects.barringtonHillsEstate },
   barringtonOutdoor: { slug: 'barrington-outdoor-room', ...featuredProjects.barringtonOutdoorRoom },

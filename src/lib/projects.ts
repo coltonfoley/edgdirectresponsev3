@@ -98,9 +98,19 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     state,
     type: csvProject.projectType,
     systems,
-    cardImage: getProjectHero(imageSlug),
-    heroImage: getProjectHero(imageSlug),
-    galleryImages: getProjectGallery(imageSlug, 3),
+    cardImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : getProjectHero(imageSlug),
+    heroImage: csvProject.id === 'carmines' ? `/projects/${imageSlug}/carmines-hero.jpg` : getProjectHero(imageSlug),
+    galleryImages: csvProject.id === 'carmines' 
+      ? [
+          `/projects/${imageSlug}/carmines-patio-city-view.jpg`,
+          `/projects/${imageSlug}/carmines-pergola-corner-structure.jpg`,
+          `/projects/${imageSlug}/carmines-louvers-sky-view.jpg`,
+          `/projects/${imageSlug}/carmines-louvers-urban-skyline.jpg`,
+          `/projects/${imageSlug}/carmines-under-pergola-signage.jpg`,
+          `/projects/${imageSlug}/carmines-patio-street-view.jpg`,
+          `/projects/${imageSlug}/carmines-patio-low-angle-signage.jpg`,
+        ]
+      : getProjectGallery(imageSlug, 3),
     description: csvProject.description,
     challenge: csvProject.challenge,
     solution: csvProject.solution || 'Custom outdoor living solution designed and installed by EDG Patio & Shade.',

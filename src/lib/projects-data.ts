@@ -43,11 +43,17 @@ export const projects: Project[] = [
     zipCode: "60611",
     description: "Multi-Bay commercial system to increase outdoor seating",
     challenge: "This is a large commercial space that required a lot of planning, design, and engineering. This is also on a full angle that is also cantilevered. Very few systems are capable of doing this but our product autonomy allowed us to find the right solution for the client's needs. The client also wanted additional seating so to create longer spans steel beams and columns were added to reinforce the system allowing us to eliminate columns.",
-    solution: "",
-    results: [],
+    solution: "We designed and engineered a custom multi-bay motorized pergola system specifically for this challenging cantilevered rooftop space. Our solution utilized steel beams and reinforced columns to create longer spans without compromising structural integrity, effectively eliminating unnecessary columns and maximizing the usable outdoor seating area. The system's modular design allowed us to work with the building's unique angles while integrating seamlessly with the existing architecture.",
+    results: [
+      "Significantly increased outdoor seating capacity for the restaurant",
+      "Successfully installed cantilevered pergola system on challenging angled rooftop",
+      "Maximized usable space by eliminating columns through steel beam reinforcement",
+      "Created a year-round outdoor dining destination protected from Chicago's weather",
+      "Enhanced the restaurant's street presence and visibility with striking architectural addition"
+    ],
     projectType: "Commercial",
-    isComplete: false,
-    missingFields: ["solution", "results"]
+    isComplete: true,
+    missingFields: []
   },
   {
     id: "rosebud",

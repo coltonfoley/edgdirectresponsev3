@@ -33,7 +33,6 @@ export function ImageWithFallback({
   sizes,
 }: ImageWithFallbackProps) {
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   const showFallback = !src || error;
 
@@ -48,11 +47,6 @@ export function ImageWithFallback({
 
   return (
     <div className={cn('relative overflow-hidden', containerClassName)}>
-      {/* Loading skeleton */}
-      {loading && !showFallback && (
-        <div className="absolute inset-0 animate-pulse bg-zinc-200 dark:bg-zinc-800" />
-      )}
-
       {/* Actual image or fallback */}
       {showFallback ? (
         <div className={cn('h-full w-full', fallbackStyles[fallbackType])}>
@@ -67,13 +61,8 @@ export function ImageWithFallback({
           fill={fill}
           width={!fill ? width : undefined}
           height={!fill ? height : undefined}
-          className={cn(
-            'object-cover transition-opacity duration-300',
-            loading ? 'opacity-0' : 'opacity-100',
-            className
-          )}
+          className={cn('object-cover', className)}
           onError={() => setError(true)}
-          onLoad={() => setLoading(false)}
           priority={priority}
           sizes={sizes}
         />

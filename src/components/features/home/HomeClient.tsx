@@ -325,7 +325,7 @@ export function HomeClient() {
                         <Link href="/projects/carmines" className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900">
                             <div className="relative aspect-[4/3] overflow-hidden">
                                 <Image
-                                    src={images.projects.arlingtonHeightsHotel.hero}
+                                    src={images.projects.carmines.hero}
                                     alt="Carmine's - Chicago"
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
