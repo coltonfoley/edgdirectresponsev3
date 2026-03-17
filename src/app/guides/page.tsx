@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Link } from '@/components/ui/Link';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { BookOpen, Scale, ArrowRight, Library, Layers, FileText } from 'lucide-react';
+import { BookOpen, Scale, ArrowRight, Library, Layers, FileText, DollarSign } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Knowledge Base | Guides & Resources',
@@ -22,6 +22,13 @@ const guides = [
     href: '/guides/planning-guide',
     icon: FileText,
     readTime: '15 min read',
+  },
+  {
+    title: 'Pergola Cost Guide 2026',
+    desc: 'Comprehensive breakdown of what drives pergola pricing from $25K to $150K+. Compare premium systems to big-box alternatives.',
+    href: '/guides/pergola-cost',
+    icon: DollarSign,
+    readTime: '12 min read',
   },
   {
     title: 'The Complete Guide to Louvered Pergolas',

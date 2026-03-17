@@ -56,6 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/guides/louvered-pergolas', priority: 0.9 },
     { url: '/guides/pergola-vs-patio-cover', priority: 0.8 },
     { url: '/guides/louvered-pergola-brands-compared', priority: 0.8 },
+    { url: '/guides/pergola-cost', priority: 0.9 },
 
     // New Commercial Pages
     { url: '/commercial/hotel-pergolas', priority: 0.9 },
