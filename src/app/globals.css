@@ -218,3 +218,132 @@ body {
   line-height: 1.1;
   letter-spacing: -0.01em;
 }
+
+/* ========================================
+   PERFORMANCE-OPTIMIZED CSS ANIMATIONS
+   Replacing Framer Motion for better INP/LCP
+   ======================================== */
+
+/* Base animation setup - GPU accelerated */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When element is in view */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Direction variants */
+.animate-on-scroll[data-direction="down"] {
+  transform: translateY(-20px);
+}
+
+.animate-on-scroll[data-direction="left"] {
+  transform: translateX(20px);
+}
+
+.animate-on-scroll[data-direction="right"] {
+  transform: translateX(-20px);
+}
+
+/* Stagger delays via CSS custom properties */
+.animate-on-scroll {
+  transition-delay: var(--animation-delay, 0ms);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}
+
+/* ========================================
+   CRITICAL CSS FOR ABOVE-THE-FOLD CONTENT
+   These styles are essential for LCP
+   ======================================== */
+
+/* Ensure hero content is visible immediately */
+.hero-content-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Optimize image containers for CLS prevention */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ========================================
+   VIDEO OPTIMIZATION
+   Hide video on mobile to improve LCP
+   ======================================== */
+
+/* Mobile: Hide video, show poster/gradient fallback */
+@media (max-width: 768px) {
+  .hero-video {
+    display: none !important;
+  }
+  
+  .hero-video-fallback {
+    display: block !important;
+  }
+}
+
+/* Desktop: Show video, hide fallback */
+@media (min-width: 769px) {
+  .hero-video {
+    display: block;
+  }
+  
+  .hero-video-fallback {
+    display: none;
+  }
+}
+
+/* ========================================
+   CONTENT VISIBILITY FOR PERFORMANCE
+   Hint browser to defer off-screen rendering
+   ======================================== */
+
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* ========================================
+   LAZY LOADING OPTIMIZATION
+   ======================================== */
+
+/* Reserve space for lazy-loaded images to prevent CLS */
+.lazy-image-container {
+  background-color: var(--color-surface-muted);
+}
+
+/* Smooth fade-in for lazy images when loaded */
+.lazy-image-container img {
+  transition: opacity 0.3s ease;
+}
+
+.lazy-image-container img[loading="lazy"] {
+  opacity: 0;
+}
+
+.lazy-image-container img[loading="lazy"].loaded {
+  opacity: 1;
+}

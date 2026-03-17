@@ -14,9 +14,15 @@ const nextConfig: NextConfig = {
   // NOTE: Disabled in dev due to build-manifest issues with dynamic routes
   cacheComponents: process.env.NODE_ENV === 'production',
 
+  // ============================================
+  // IMAGE OPTIMIZATION
+  // ============================================
   images: {
+    // Use modern formats for smaller file sizes
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 60,
+    // Cache optimized images for 1 year (optimal for static assets)
+    minimumCacheTTL: 31536000,
+    // Enable remote images from CDNs
     remotePatterns: [
       {
         protocol: 'https',
@@ -27,10 +33,32 @@ const nextConfig: NextConfig = {
         hostname: 'image.pollinations.ai',
       },
     ],
+    // Device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    // Image sizes for srcset
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
   // Ensure consistent URL handling (expert recommendation)
   trailingSlash: false,
+
+  // ============================================
+  // COMPRESSION & PERFORMANCE
+  // ============================================
+  // Enable gzip compression
+  compress: true,
+
+  // ============================================
+  // EXPERIMENTAL FEATURES
+  // ============================================
+  experimental: {
+    // Optimize package imports for faster builds
+    optimizePackageImports: [
+      'lucide-react',
+      '@vercel/analytics',
+      '@vercel/speed-insights',
+    ],
+  },
 
   async redirects() {
     return [
@@ -548,6 +576,34 @@ const nextConfig: NextConfig = {
           {
             key: 'Content-Security-Policy',
             value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://image.pollinations.ai; font-src 'self'; connect-src 'self' https://*.supabase.co https://api.resend.com https://vitals.vercel-insights.com; frame-src https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
+          },
+        ],
+      },
+      // Cache static assets aggressively
+      {
+        source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/projects/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },
