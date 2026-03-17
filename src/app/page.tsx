@@ -7,8 +7,29 @@ import { Button } from '@/components/ui/Button';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { HeroFormClient } from '@/components/features/home/HeroFormClient';
 import { ReviewsSection } from '@/components/features/ReviewsSection';
+import { ImageSlider } from '@/components/ui/ImageSlider';
 import * as images from '@/lib/images';
 import { ArrowRight, Check } from 'lucide-react';
+
+// Pergola images for the slider
+const pergolaSliderImages = [
+  {
+    src: images.systems.pergolas.whitePoolGlass,
+    alt: 'White motorized pergola with glass doors by pool',
+  },
+  {
+    src: images.systems.pergolas.grayBronzeWhite,
+    alt: 'Gray bronze pergola with white louvers',
+  },
+  {
+    src: images.systems.pergolas.whiteLedStrip,
+    alt: 'White pergola with integrated LED lighting',
+  },
+  {
+    src: images.systems.pergolas.blackBladePool,
+    alt: 'Black R-Blade pergola by poolside',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
@@ -198,18 +219,14 @@ export default function Home() {
           </div>
 
           <div className="space-y-24">
-            {/* System 1 */}
+            {/* System 1 - Motorized Louvered Pergolas */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
-                <Image
-                  src={images.brand.hero.pergola}
-                  alt="Motorized louvered pergola"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  quality={75}
-                />
-              </div>
+              <ImageSlider
+                images={pergolaSliderImages}
+                interval={6}
+                className="relative aspect-[4/3] bg-gray-100"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               <div>
                 <div className="label-editorial-brand mb-4">Core Product</div>
                 <h3 className="text-3xl md:text-4xl font-bold mb-6">Motorized Louvered Pergolas</h3>
