@@ -1,170 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Apollo.io API Integration
-// Docs: https://docs.apollo.io/reference/create-a-contact
-const APOLLO_API_BASE = 'https://api.apollo.io/api/v1';
-
-interface ApolloContact {
-  id: string;
-  email: string;
-  first_name: string;
-  last_name?: string;
-  phone?: string;
-  title?: string;
-  organization_name?: string;
-  location?: string;
-}
-
-/**
- * Create a contact in Apollo.io
- * Docs: https://docs.apollo.io/reference/create-a-contact
- */
-async function createApolloContact(
-  apiKey: string,
-  contact: {
-    email: string;
-    firstName: string;
-    lastName?: string;
-    phone?: string;
-    location?: string;
-    projectType?: string;
-  }
-): Promise<ApolloContact | null> {
-  try {
-    const response = await fetch(`${APOLLO_API_BASE}/contacts`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Api-Key': apiKey,
-      },
-      body: JSON.stringify({
-        email: contact.email,
-        first_name: contact.firstName,
-        last_name: contact.lastName || '',
-        phone: contact.phone || '',
-        // Store additional info in custom fields if needed
-        // Apollo has limited standard fields, so we use title/organization for context
-        title: `Lead: ${contact.projectType || 'Outdoor Living Project'}`,
-        organization_name: contact.location || 'EDG Website Lead',
-        // Enable deduplication to avoid creating duplicate contacts
-        run_dedupe: true,
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Apollo Create Contact Error:', errorData);
-      return null;
-    }
-
-    const data = await response.json();
-    console.log('Apollo contact created:', data.contact?.id);
-    return data.contact;
-  } catch (error) {
-    console.error('Apollo create contact failed:', error);
-    return null;
-  }
-}
-
-/**
- * Add a contact to a sequence in Apollo.io
- * Docs: https://docs.apollo.io/reference/add-contacts-to-sequence
- * Note: Requires a Master API Key
- */
-async function addContactToSequence(
-  apiKey: string,
-  sequenceId: string,
-  contactId: string,
-  emailAccountId: string
-): Promise<boolean> {
-  try {
-    const response = await fetch(
-      `${APOLLO_API_BASE}/emailer_campaigns/${sequenceId}/add_contact_ids`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-Api-Key': apiKey,
-        },
-        body: JSON.stringify({
-          contact_ids: [contactId],
-          email_account_id: emailAccountId,
-          // Don't send immediately - let the sequence schedule handle it
-          // This respects the sequence's configured delay (e.g., 7 days)
-        }),
-      }
-    );
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Apollo Add to Sequence Error:', errorData);
-      return false;
-    }
-
-    console.log('Apollo contact added to sequence:', sequenceId);
-    return true;
-  } catch (error) {
-    console.error('Apollo add to sequence failed:', error);
-    return false;
-  }
-}
-
-/**
- * Process lead in Apollo.io: create contact and enroll in follow-up sequence
- * This runs asynchronously and doesn't block the form submission
- */
-async function processApolloEnrollment(
-  apiKey: string,
-  sequenceId: string | undefined,
-  emailAccountId: string | undefined,
-  lead: {
-    email: string;
-    firstName: string;
-    lastName?: string;
-    phone?: string;
-    location?: string;
-    projectType?: string;
-    source?: string;
-  }
-): Promise<void> {
-  // Skip if Apollo is not configured
-  if (!apiKey || !sequenceId || !emailAccountId) {
-    console.log('Apollo not configured, skipping enrollment');
-    return;
-  }
-
-  // Only enroll certain lead sources (e.g., guide downloads, contact forms)
-  // Skip if it's an internal/test lead
-  if (lead.source?.includes('test') || lead.email.includes('@test.com')) {
-    console.log('Skipping Apollo enrollment for test lead');
-    return;
-  }
-
-  // Step 1: Create the contact
-  const contact = await createApolloContact(apiKey, lead);
-  if (!contact) {
-    console.error('Failed to create Apollo contact for:', lead.email);
-    return;
-  }
-
-  // Step 2: Add to sequence (this will schedule the first email based on sequence settings)
-  const enrolled = await addContactToSequence(
-    apiKey,
-    sequenceId,
-    contact.id,
-    emailAccountId
-  );
-
-  if (enrolled) {
-    console.log(
-      `Lead ${lead.email} enrolled in Apollo sequence ${sequenceId}`
-    );
-  } else {
-    console.error(`Failed to enroll ${lead.email} in sequence`);
-  }
-}
-
 // Simple in-memory rate limiter
 // For production with high traffic, use Redis instead
 const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
@@ -230,6 +66,95 @@ interface LeadSubmission {
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+/**
+ * Send a scheduled follow-up email via Resend
+ * Schedules the email for 7 days from now
+ */
+async function scheduleFollowUpEmail(
+  apiKey: string,
+  lead: {
+    email: string;
+    firstName: string;
+    lastName?: string;
+    projectType?: string;
+    source?: string;
+  }
+): Promise<void> {
+  try {
+    // Calculate 7 days from now in ISO format
+    const scheduledDate = new Date();
+    scheduledDate.setDate(scheduledDate.getDate() + 7);
+    const scheduledAt = scheduledDate.toISOString();
+
+    const fromEmail =
+      process.env.FROM_EMAIL ||
+      'EDG Patio & Shade <notifications@email.edgpatioshade.com>';
+
+    // Personalize the email
+    const firstName = lead.firstName || 'there';
+    const projectType = lead.projectType || 'outdoor living project';
+
+    const subject = `Following up on your ${projectType} inquiry`;
+
+    const html = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #008a5c;">Hi ${firstName},</h2>
+        
+        <p>It's been a week since you reached out about your ${projectType.toLowerCase()}. 
+        I wanted to follow up and see if you have any questions or if you're ready to take the next step.</p>
+        
+        <p>At <strong>EDG Patio & Shade</strong>, we've helped hundreds of homeowners transform their outdoor spaces 
+        into year-round living areas with our premium louvered pergolas, motorized screens, and glass enclosures.</p>
+        
+        <h3 style="color: #008a5c;">What's the next step?</h3>
+        <ul>
+          <li><strong>Free Design Consultation</strong> – We'll visit your property and discuss your vision</li>
+          <li><strong>Custom 3D Renderings</strong> – See your project before we build it</li>
+          <li><strong>Detailed Quote</strong> – Transparent pricing with no surprises</li>
+        </ul>
+        
+        <p>Ready to get started? Simply reply to this email or give us a call at <strong>815-581-0138</strong>.</p>
+        
+        <p>Best regards,<br>
+        <strong>The EDG Patio & Shade Team</strong></p>
+        
+        <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+        <p style="font-size: 12px; color: #666;">
+          EDG Patio & Shade<br>
+          1802 Holian Drive, Spring Grove, IL 60081<br>
+          <a href="https://www.edgpatioshade.com">www.edgpatioshade.com</a> | 815-581-0138
+        </p>
+      </div>
+    `;
+
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: lead.email,
+        subject: subject,
+        html: html,
+        scheduled_at: scheduledAt,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Resend scheduled email error:', errorData);
+      return;
+    }
+
+    const data = await response.json();
+    console.log(`Follow-up email scheduled for ${lead.email} on ${scheduledAt}:`, data.id);
+  } catch (error) {
+    console.error('Failed to schedule follow-up email:', error);
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -325,30 +250,6 @@ export async function POST(request: NextRequest) {
     const leadId = data.id;
     const timestamp = data.created_at;
 
-    // Apollo.io: Enroll lead in follow-up sequence (async, non-blocking)
-    // This will add the lead to a sequence with a delayed first step (e.g., 7 days)
-    const apolloApiKey = process.env.APOLLO_MASTER_API_KEY;
-    const apolloSequenceId = process.env.APOLLO_SEQUENCE_ID;
-    const apolloEmailAccountId = process.env.APOLLO_EMAIL_ACCOUNT_ID;
-
-    // Fire and forget - don't block the response on Apollo
-    processApolloEnrollment(
-      apolloApiKey || '',
-      apolloSequenceId,
-      apolloEmailAccountId,
-      {
-        email: email.trim().toLowerCase(),
-        firstName: firstName.trim(),
-        lastName: lastName?.trim(),
-        phone: phone?.trim(),
-        location: location?.trim(),
-        projectType: projectType,
-        source: source,
-      }
-    ).catch((err) => {
-      console.error('Apollo enrollment error (non-blocking):', err);
-    });
-
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
     const notificationEmail =
@@ -357,7 +258,7 @@ export async function POST(request: NextRequest) {
     const emailLogs: any = {};
 
     if (resendApiKey) {
-      // 1. Admin Notification
+      // 1. Admin Notification (immediate)
       try {
         const isContactForm = source === 'contact_page';
         const adminSubject = isContactForm
@@ -423,6 +324,17 @@ export async function POST(request: NextRequest) {
         console.error('Failed to send admin notification:', adminErr);
         emailLogs.admin = { success: false, error: adminErr.message };
       }
+
+      // 2. Schedule 7-day follow-up email to the lead (non-blocking)
+      scheduleFollowUpEmail(resendApiKey, {
+        email: email.trim().toLowerCase(),
+        firstName: firstName.trim(),
+        lastName: lastName?.trim(),
+        projectType: projectType,
+        source: source,
+      }).catch((err) => {
+        console.error('Follow-up email scheduling error (non-blocking):', err);
+      });
     }
 
     return NextResponse.json(
