@@ -1,6 +1,170 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
+// Apollo.io API Integration
+// Docs: https://docs.apollo.io/reference/create-a-contact
+const APOLLO_API_BASE = 'https://api.apollo.io/api/v1';
+
+interface ApolloContact {
+  id: string;
+  email: string;
+  first_name: string;
+  last_name?: string;
+  phone?: string;
+  title?: string;
+  organization_name?: string;
+  location?: string;
+}
+
+/**
+ * Create a contact in Apollo.io
+ * Docs: https://docs.apollo.io/reference/create-a-contact
+ */
+async function createApolloContact(
+  apiKey: string,
+  contact: {
+    email: string;
+    firstName: string;
+    lastName?: string;
+    phone?: string;
+    location?: string;
+    projectType?: string;
+  }
+): Promise<ApolloContact | null> {
+  try {
+    const response = await fetch(`${APOLLO_API_BASE}/contacts`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Api-Key': apiKey,
+      },
+      body: JSON.stringify({
+        email: contact.email,
+        first_name: contact.firstName,
+        last_name: contact.lastName || '',
+        phone: contact.phone || '',
+        // Store additional info in custom fields if needed
+        // Apollo has limited standard fields, so we use title/organization for context
+        title: `Lead: ${contact.projectType || 'Outdoor Living Project'}`,
+        organization_name: contact.location || 'EDG Website Lead',
+        // Enable deduplication to avoid creating duplicate contacts
+        run_dedupe: true,
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Apollo Create Contact Error:', errorData);
+      return null;
+    }
+
+    const data = await response.json();
+    console.log('Apollo contact created:', data.contact?.id);
+    return data.contact;
+  } catch (error) {
+    console.error('Apollo create contact failed:', error);
+    return null;
+  }
+}
+
+/**
+ * Add a contact to a sequence in Apollo.io
+ * Docs: https://docs.apollo.io/reference/add-contacts-to-sequence
+ * Note: Requires a Master API Key
+ */
+async function addContactToSequence(
+  apiKey: string,
+  sequenceId: string,
+  contactId: string,
+  emailAccountId: string
+): Promise<boolean> {
+  try {
+    const response = await fetch(
+      `${APOLLO_API_BASE}/emailer_campaigns/${sequenceId}/add_contact_ids`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Api-Key': apiKey,
+        },
+        body: JSON.stringify({
+          contact_ids: [contactId],
+          email_account_id: emailAccountId,
+          // Don't send immediately - let the sequence schedule handle it
+          // This respects the sequence's configured delay (e.g., 7 days)
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Apollo Add to Sequence Error:', errorData);
+      return false;
+    }
+
+    console.log('Apollo contact added to sequence:', sequenceId);
+    return true;
+  } catch (error) {
+    console.error('Apollo add to sequence failed:', error);
+    return false;
+  }
+}
+
+/**
+ * Process lead in Apollo.io: create contact and enroll in follow-up sequence
+ * This runs asynchronously and doesn't block the form submission
+ */
+async function processApolloEnrollment(
+  apiKey: string,
+  sequenceId: string | undefined,
+  emailAccountId: string | undefined,
+  lead: {
+    email: string;
+    firstName: string;
+    lastName?: string;
+    phone?: string;
+    location?: string;
+    projectType?: string;
+    source?: string;
+  }
+): Promise<void> {
+  // Skip if Apollo is not configured
+  if (!apiKey || !sequenceId || !emailAccountId) {
+    console.log('Apollo not configured, skipping enrollment');
+    return;
+  }
+
+  // Only enroll certain lead sources (e.g., guide downloads, contact forms)
+  // Skip if it's an internal/test lead
+  if (lead.source?.includes('test') || lead.email.includes('@test.com')) {
+    console.log('Skipping Apollo enrollment for test lead');
+    return;
+  }
+
+  // Step 1: Create the contact
+  const contact = await createApolloContact(apiKey, lead);
+  if (!contact) {
+    console.error('Failed to create Apollo contact for:', lead.email);
+    return;
+  }
+
+  // Step 2: Add to sequence (this will schedule the first email based on sequence settings)
+  const enrolled = await addContactToSequence(
+    apiKey,
+    sequenceId,
+    contact.id,
+    emailAccountId
+  );
+
+  if (enrolled) {
+    console.log(
+      `Lead ${lead.email} enrolled in Apollo sequence ${sequenceId}`
+    );
+  } else {
+    console.error(`Failed to enroll ${lead.email} in sequence`);
+  }
+}
+
 // Simple in-memory rate limiter
 // For production with high traffic, use Redis instead
 const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
@@ -160,6 +324,30 @@ export async function POST(request: NextRequest) {
 
     const leadId = data.id;
     const timestamp = data.created_at;
+
+    // Apollo.io: Enroll lead in follow-up sequence (async, non-blocking)
+    // This will add the lead to a sequence with a delayed first step (e.g., 7 days)
+    const apolloApiKey = process.env.APOLLO_MASTER_API_KEY;
+    const apolloSequenceId = process.env.APOLLO_SEQUENCE_ID;
+    const apolloEmailAccountId = process.env.APOLLO_EMAIL_ACCOUNT_ID;
+
+    // Fire and forget - don't block the response on Apollo
+    processApolloEnrollment(
+      apolloApiKey || '',
+      apolloSequenceId,
+      apolloEmailAccountId,
+      {
+        email: email.trim().toLowerCase(),
+        firstName: firstName.trim(),
+        lastName: lastName?.trim(),
+        phone: phone?.trim(),
+        location: location?.trim(),
+        projectType: projectType,
+        source: source,
+      }
+    ).catch((err) => {
+      console.error('Apollo enrollment error (non-blocking):', err);
+    });
 
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
