@@ -115,7 +115,7 @@ async function scheduleFollowUpEmail(
           <li><strong>Detailed Quote</strong> – Transparent pricing with no surprises</li>
         </ul>
         
-        <p>Ready to get started? Simply reply to this email or give us a call at <strong>815-581-0138</strong>.</p>
+        <p>Ready to get started? Email us at <a href="mailto:sales@edgpatioshade.com">sales@edgpatioshade.com</a> or give us a call at <strong>815-581-0138</strong>.</p>
         
         <p>Best regards,<br>
         <strong>The EDG Patio & Shade Team</strong></p>
