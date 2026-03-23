@@ -203,25 +203,23 @@ export default function LanaiReplacementPage() {
       />
 
       {/* ========== HERO ========== */}
-      <section className="bg-edg-dark relative min-h-[85vh] overflow-hidden pt-24 pb-16 lg:min-h-[75vh]">
-        {/* Background Image - Bright and visible */}
-        <div className="absolute inset-0 lg:left-[35%]">
+      <section className="bg-edg-dark relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-24 pb-16 lg:min-h-[75vh]">
+        {/* Full Background Image */}
+        <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros}
             alt="Lanai replacement with modern gray and white louvered roof system"
             fill
             priority
             className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 65vw"
+            sizes="100vw"
           />
-          {/* Mobile gradient - lighter */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20 lg:hidden" />
-          {/* Desktop gradient - fade from left for text readability */}
-          <div className="from-edg-dark via-edg-dark/85 to-transparent absolute inset-0 hidden bg-gradient-to-r lg:block" />
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
         </div>
 
-        <Container className="relative z-10 h-full">
-          <div className="mb-8 lg:mb-12">
+        <Container className="relative z-10">
+          <div className="mb-6">
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
@@ -231,41 +229,35 @@ export default function LanaiReplacementPage() {
             />
           </div>
           
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
-            {/* Left: Text Content */}
-            <FadeIn>
-              <div className="max-w-xl">
-                <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
-                  <MapPin className="h-4 w-4" /> Post-Hurricane Ian Rebuilds
-                </span>
-                <h1 className="hero-title mb-6 text-white">
-                  Lanai Replacement in Sanibel:
-                  <span className="text-edg-brand block">Rebuild Smarter, Not the Same</span>
-                </h1>
-                <p className="text-text-inverse-muted mb-8 text-lg leading-relaxed md:text-xl">
-                  Your lanai was damaged. The 50% rule may require full reconstruction. 
-                  This is your opportunity to upgrade to a hurricane-rated louvered system.
-                </p>
-                <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
-                    <Button size="lg" className="px-8 text-lg">
-                      Get a Replacement Quote{' '}
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </Link>
-                  <a
-                    href="tel:+18155810138"
-                    className="text-text-inverse-muted hover:text-edg-brand-dark inline-flex items-center justify-center gap-2 text-sm transition-colors"
-                  >
-                    <Phone className="h-4 w-4" /> (815) 581-0138
-                  </a>
-                </div>
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Post-Hurricane Ian Rebuilds
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Lanai Replacement in Sanibel:
+                <span className="text-edg-brand block">Rebuild Smarter, Not the Same</span>
+              </h1>
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                Your lanai was damaged. The 50% rule may require full reconstruction. 
+                This is your opportunity to upgrade to a hurricane-rated louvered system.
+              </p>
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
+                  <Button size="lg" className="px-8 text-lg">
+                    Get a Replacement Quote{' '}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <a
+                  href="tel:+18155810138"
+                  className="text-text-inverse-muted hover:text-edg-brand-dark inline-flex items-center gap-2 text-sm transition-colors"
+                >
+                  <Phone className="h-4 w-4" /> (815) 581-0138
+                </a>
               </div>
-            </FadeIn>
-            
-            {/* Right: Spacer for image on desktop */}
-            <div className="hidden lg:block" />
-          </div>
+            </div>
+          </FadeIn>
         </Container>
       </section>
 

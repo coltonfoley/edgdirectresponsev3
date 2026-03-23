@@ -179,26 +179,24 @@ export default function SanibelHubPage() {
       />
 
       {/* ========== HERO ========== */}
-      <section className="bg-edg-dark relative min-h-[85vh] overflow-hidden pt-24 pb-16 lg:min-h-[75vh]">
-        {/* Background Image - Poolside pergola perfect for Florida/Sanibel vibe */}
-        <div className="absolute inset-0 lg:left-[40%]">
+      <section className="bg-edg-dark relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-24 pb-16 lg:min-h-[75vh]">
+        {/* Full Background Image */}
+        <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros02}
             alt="Gray and white louvered roof system - hurricane-rated outdoor living for Sanibel Island"
             fill
             priority
             className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 60vw"
+            sizes="100vw"
           />
-          {/* Mobile gradient - lighter for brighter image */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20 lg:hidden" />
-          {/* Desktop gradient - lighter fade from left for text readability */}
-          <div className="from-edg-dark via-edg-dark/85 to-transparent absolute inset-0 hidden bg-gradient-to-r lg:block" />
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
         </div>
 
-        <Container className="relative z-10 h-full">
+        <Container className="relative z-10">
           {/* Breadcrumb */}
-          <div className="mb-8 lg:mb-12">
+          <div className="mb-6">
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
@@ -207,34 +205,28 @@ export default function SanibelHubPage() {
             />
           </div>
           
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
-            {/* Left: Text Content */}
-            <FadeIn>
-              <div className="max-w-xl">
-                <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
-                  <MapPin className="h-4 w-4" /> Service Area: Sanibel & Captiva
-                </span>
-                <h1 className="hero-title mb-6 text-white">
-                  Hurricane-Rated Outdoor Living
-                  <span className="text-edg-brand block">for Sanibel Island</span>
-                </h1>
-                <p className="text-text-inverse-muted mb-8 text-lg leading-relaxed md:text-xl">
-                  Miami-Dade certified pergolas and motorized screens designed for
-                  the Gulf Coast. Engineered to withstand 175+ mph winds while
-                  respecting Sanibel&apos;s sanctuary conservation codes.
-                </p>
-                <Link href="/contact">
-                  <Button size="lg" className="px-8 text-lg">
-                    Request Sanibel Site Visit{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-              </div>
-            </FadeIn>
-            
-            {/* Right: Spacer for image on desktop */}
-            <div className="hidden lg:block" />
-          </div>
+          <FadeIn>
+            <div className="mx-auto max-w-4xl text-center">
+              <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+                <MapPin className="h-4 w-4" /> Service Area: Sanibel & Captiva
+              </span>
+              <h1 className="hero-title mb-6 text-white">
+                Hurricane-Rated Outdoor Living
+                <span className="text-edg-brand block">for Sanibel Island</span>
+              </h1>
+              <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
+                Miami-Dade certified pergolas and motorized screens designed for
+                the Gulf Coast. Engineered to withstand 175+ mph winds while
+                respecting Sanibel&apos;s sanctuary conservation codes.
+              </p>
+              <Link href="/contact">
+                <Button size="lg" className="px-8 text-lg">
+                  Request Sanibel Site Visit{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          </FadeIn>
         </Container>
       </section>
 

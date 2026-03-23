@@ -236,65 +236,55 @@ export default function SanibelPergolaPage() {
       />
 
       {/* Hero Section */}
-      <section className="bg-edg-dark relative min-h-[85vh] overflow-hidden pt-24 pb-16 text-white md:pt-32 lg:min-h-[75vh]">
-        {/* Background Image */}
-        <div className="absolute inset-0 lg:left-[38%]">
+      <section className="bg-edg-dark relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-24 pb-16 text-white md:pt-32 lg:min-h-[75vh]">
+        {/* Full Background Image */}
+        <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros02}
             alt="Hurricane-rated gray and white louvered pergola system for Sanibel Island coastal home"
             fill
             priority
             className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 62vw"
+            sizes="100vw"
           />
-          {/* Mobile gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20 lg:hidden" />
-          {/* Desktop gradient */}
-          <div className="from-edg-dark via-edg-dark/85 to-transparent absolute inset-0 hidden bg-gradient-to-r lg:block" />
+          {/* Gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
         </div>
 
-        <Container className="relative z-20 h-full">
-          <Link
-            href="/service-areas/sanibel-outdoor-living"
-            className="hover:text-edg-brand-dark mb-8 inline-flex items-center text-sm text-zinc-300 transition-colors"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Sanibel
-          </Link>
+        <Container className="relative z-20">
+          <div className="mb-6">
+            <Breadcrumb
+              items={[
+                { label: 'Service Areas', href: '/service-areas' },
+                { label: 'Sanibel, FL', href: '/service-areas/sanibel-outdoor-living' },
+                { label: 'Louvered Pergolas' },
+              ]}
+            />
+          </div>
 
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-8">
-            {/* Left: Text Content */}
-            <div className="max-w-2xl">
-              <Breadcrumb
-                items={[
-                  { label: 'Service Areas', href: '/service-areas' },
-                  { label: 'Sanibel, FL', href: '/service-areas/sanibel-outdoor-living' },
-                  { label: 'Louvered Pergolas' },
-                ]}
-                className="mb-6"
-              />
-              
-              <div className="bg-edg-brand/10 border-edg-brand/20 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
-                <MapPin className="h-3 w-3" /> Miami-Dade Hurricane Certified
-              </div>
-              <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
-                Hurricane-Rated Louvered Pergolas
-                <span className="text-edg-brand block">for Sanibel Island</span>
-              </h1>
-              <p className="mb-8 text-lg leading-relaxed text-gray-300 md:text-xl">
-                The evolution of outdoor living in Southwest Florida. Motorized louvered roof 
-                systems engineered to withstand 175+ mph winds while delivering adjustable shade, 
-                ventilation, and rain protection at the touch of a button.
-              </p>
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="bg-edg-brand/10 border-edg-brand/20 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+              <MapPin className="h-3 w-3" /> Miami-Dade Hurricane Certified
+            </div>
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+              Hurricane-Rated Louvered Pergolas
+              <span className="text-edg-brand block">for Sanibel Island</span>
+            </h1>
+            <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-gray-300 md:text-xl">
+              The evolution of outdoor living in Southwest Florida. Motorized louvered roof 
+              systems engineered to withstand 175+ mph winds while delivering adjustable shade, 
+              ventilation, and rain protection at the touch of a button.
+            </p>
 
-              <div className="flex flex-wrap gap-4">
-                {keyBenefits.map((benefit, i) => (
-                  <span key={i} className="text-text-inverse-muted flex items-center gap-2 text-sm">
-                    <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
-                  </span>
-                ))}
-              </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {keyBenefits.map((benefit, i) => (
+                <span key={i} className="text-text-inverse-muted flex items-center gap-2 text-sm">
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                </span>
+              ))}
+            </div>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href="/contact?area=sanibel&product=pergola&source=leads-sanibel-pergolas">
                   <Button
                     size="lg"
@@ -314,10 +304,6 @@ export default function SanibelPergolaPage() {
                 </a>
               </div>
             </div>
-            
-            {/* Right: Spacer for image on desktop */}
-            <div className="hidden lg:block" />
-          </div>
         </Container>
       </section>
 
