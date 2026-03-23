@@ -49,6 +49,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
       priority: 0.8,
     },
+    {
+      url: '/service-areas/sanibel-outdoor-living/modern-lanai',
+      priority: 0.8,
+    },
+    {
+      url: '/service-areas/sanibel-outdoor-living/lanai-replacement',
+      priority: 0.8,
+    },
     { url: '/service-areas/barrington-il/motorized-pergolas', priority: 0.8 },
     { url: '/service-areas/northbrook-il/motorized-pergolas', priority: 0.8 },
     // New Guides
