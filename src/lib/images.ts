@@ -51,6 +51,8 @@ export const systems = {
     whiteScreen: '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
     whitePoolGlass: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
     whiteLedStrip: '/images/pergolas/residential-white-r-blade-led-strip.jpg',
+    sanibelShoprosGrayWhite: '/images/pergolas/sanibel-shopros-gray-white.jpg',
+    sanibelShoprosGrayWhite02: '/images/pergolas/sanibel-shopros-gray-white-02.jpg',
   },
 
   /** Shade/screen system images */
@@ -477,6 +479,8 @@ export const pages = {
     barringtonPergola4: '/images/pergolas/residential-black-r-blade-04.webp',
     sanibelPergola: '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
     sanibelShade: '/images/shades/shade-deployed-screens-01.jpg',
+    sanibelShopros: systems.pergolas.sanibelShoprosGrayWhite,
+    sanibelShopros02: systems.pergolas.sanibelShoprosGrayWhite02,
     napervillePergolaPool01: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
   },
 
