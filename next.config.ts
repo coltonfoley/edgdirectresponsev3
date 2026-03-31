@@ -84,6 +84,11 @@ const nextConfig: NextConfig = {
         destination: '/guides/planning-guide/read',
         permanent: true,
       },
+      {
+        source: '/guide/sanibel-zoning-outdoor-living',
+        destination: '/service-areas/sanibel-outdoor-living',
+        permanent: true,
+      },
 
       // ══════════════════════════════════════════════════════════
       // PAGE REMOVALS
@@ -102,6 +107,26 @@ const nextConfig: NextConfig = {
       // ══════════════════════════════════════════════════════════
       // OLD WORDPRESS CORE PRODUCT PAGES
       // ══════════════════════════════════════════════════════════
+      {
+        source: '/pergola-patio-roof-systems',
+        destination: '/systems/pergolas',
+        permanent: true,
+      },
+      {
+        source: '/motorized-screens-and-shades',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      {
+        source: '/umbrellas-and-sunshades',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/outdoor-furniture',
+        destination: '/',
+        permanent: true,
+      },
       {
         source: '/custom-pergolas',
         destination: '/systems/pergolas',
@@ -136,6 +161,16 @@ const nextConfig: NextConfig = {
       // NEW: Shades brand page
       {
         source: '/progressivescreens',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      {
+        source: '/progressive-screens',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      {
+        source: '/sunshadescreen',
         destination: '/systems/shades',
         permanent: true,
       },
@@ -183,6 +218,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/copy-of-yoder-smokers',
+        destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
+        source: '/big-green-egg',
+        destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
+        source: '/evogrills',
+        destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
         source:
           '/challenger-designs-outdoor-kitchens-edg-patio-shade-authorized-dealer',
         destination: '/systems/appliances',
@@ -200,6 +250,36 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/luxury-outdoor-furniture',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/furniture',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/knotwood',
+        destination: '/systems/pergolas',
+        permanent: true,
+      },
+      {
+        source: '/marvel',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/heos',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/brands',
+        destination: '/systems',
+        permanent: true,
+      },
+      {
+        source: '/shop',
         destination: '/',
         permanent: true,
       },
@@ -231,6 +311,21 @@ const nextConfig: NextConfig = {
       // ══════════════════════════════════════════════════════════
       // HOSPITALITY / COMMERCIAL
       // ══════════════════════════════════════════════════════════
+      {
+        source: '/category/hospitality',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/commercial-projects',
+        destination: '/commercial',
+        permanent: true,
+      },
+      {
+        source: '/trending-hospitality-amenities-that-attract-more-guests',
+        destination: '/commercial',
+        permanent: true,
+      },
       {
         source: '/elevating-hospitality-spaces-with-custom-pergolas',
         destination: '/commercial',
@@ -286,6 +381,11 @@ const nextConfig: NextConfig = {
       // SERVICE AREA PAGES
       // ══════════════════════════════════════════════════════════
       {
+        source: '/kenosha-motorized-screens',
+        destination: '/service-areas/lake-geneva-wi',
+        permanent: true,
+      },
+      {
         source: '/rockford-motorized-screens',
         destination: '/',
         permanent: true,
@@ -340,6 +440,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/custom-aluminum-pergola-minneapolis-minnesota',
         destination: '/',
         permanent: true,
       },
@@ -410,6 +515,16 @@ const nextConfig: NextConfig = {
       // PORTFOLIO / PROJECTS
       // ══════════════════════════════════════════════════════════
       {
+        source: '/residential-projects',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/project-gallery',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
         source: '/portfolio-item/:slug*',
         destination: '/projects',
         permanent: true,
@@ -429,7 +544,17 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/aboutus',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/contact-us',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/contactus',
         destination: '/contact',
         permanent: true,
       },
