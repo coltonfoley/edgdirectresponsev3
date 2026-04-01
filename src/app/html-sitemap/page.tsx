@@ -18,8 +18,8 @@ const sitemapLinks = [
     links: [
       { href: '/', label: 'Home' },
       { href: '/contact', label: 'Contact' },
-      { href: '/design', label: 'Design Process' },
-      { href: '/price', label: 'Pricing' },
+      { href: '/contact', label: 'Project Planning' },
+      { href: '/contact', label: 'Pricing Consultation' },
       { href: '/trade-partners', label: 'For Pros' },
       { href: '/gallery', label: 'Gallery' },
     ],
@@ -110,7 +110,7 @@ export default function SitemapPage() {
                   </h2>
                   <ul className="space-y-3">
                     {section.links.map((link) => (
-                      <li key={link.href}>
+                      <li key={`${section.category}-${link.href}-${link.label}`}>
                         <Link
                           href={link.href}
                           className="text-muted-foreground hover:text-foreground transition-colors hover:underline"

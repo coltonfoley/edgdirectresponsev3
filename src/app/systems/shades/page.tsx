@@ -177,12 +177,12 @@ const relatedProducts = [
   {
     name: 'Glass Enclosures',
     description: 'Frameless glass walls for year-round outdoor rooms.',
-    href: '/systems/glass-enclosures',
+    href: '/systems/enclosures',
   },
   {
     name: 'Outdoor Heating',
     description: 'Infrared heaters and fire features to extend your season.',
-    href: '/systems/heating',
+    href: '/systems/appliances',
   },
 ];
 

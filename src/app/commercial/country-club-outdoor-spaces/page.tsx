@@ -142,12 +142,17 @@ export default function CountryClubPage() {
           ═══════════════════════════════════════════════════════ */}
       <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: "url(images.brand.hero.lifestyle)",
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src={images.brand.hero.lifestyle}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
         {/* Content */}

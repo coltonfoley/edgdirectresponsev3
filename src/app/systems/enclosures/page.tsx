@@ -133,8 +133,8 @@ const upgradeOptions = [
 // Related products
 const relatedProducts = [
   { name: 'Louvered Pergolas', href: '/systems/pergolas', description: 'Motorized adjustable roof systems' },
-  { name: 'Retractable Screens', href: '/systems/screens', description: 'Motorized insect and sun screens' },
-  { name: 'Outdoor Heating', href: '/systems/heating', description: 'Infrared heaters and fire features' },
+  { name: 'Retractable Screens', href: '/systems/shades', description: 'Motorized insect and sun screens' },
+  { name: 'Outdoor Heating', href: '/systems/appliances', description: 'Infrared heaters and fire features' },
 ];
 
 // FAQ data for schema
@@ -628,9 +628,9 @@ export default function EnclosuresPage() {
           <div className="text-center">
             <p className="text-text-secondary mb-4">Looking for glass enclosure installation in your area?</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link href="/service-areas/lake-forest-il" className="text-edg-brand-text hover:underline">Lake Forest</Link>
+              <Link href="/service-areas/lake-county-il" className="text-edg-brand-text hover:underline">Lake Forest</Link>
               <Link href="/service-areas/wilmette-il" className="text-edg-brand-text hover:underline">Wilmette</Link>
-              <Link href="/service-areas/highland-park-il" className="text-edg-brand-text hover:underline">Highland Park</Link>
+              <Link href="/service-areas/lake-county-il" className="text-edg-brand-text hover:underline">Highland Park</Link>
               <Link href="/service-areas/lake-geneva-wi" className="text-edg-brand-text hover:underline">Lake Geneva</Link>
               <Link href="/service-areas/barrington-il" className="text-edg-brand-text hover:underline">Barrington</Link>
             </div>

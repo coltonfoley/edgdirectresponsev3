@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
@@ -103,12 +104,17 @@ export default function LouveredPergolaGuide() {
       {/* ========== HERO SECTION ========== */}
       <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: "url(images.pages.guides.louveredPergolasHero)",
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src={images.pages.guides.louveredPergolasHero}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
         <Container className="relative z-10">

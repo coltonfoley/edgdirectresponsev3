@@ -87,9 +87,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  other: {
-    'google-site-verification': 'your-verification-code', // Add if you have one
-  },
 };
 
 // JSON-LD Schemas
@@ -98,17 +95,12 @@ import { localBusinessSchema, generateOrganizationSchema } from '@/lib/schema';
 // Organization schema for enhanced AI entity understanding
 const organizationSchema = generateOrganizationSchema();
 
-// WebSite Schema for Sitelinks Search Box
+// WebSite Schema for brand/entity understanding
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'EDG Patio & Shade',
   url: 'https://www.edgpatioshade.com',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://www.edgpatioshade.com/search?q={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
 };
 
 export default function RootLayout({

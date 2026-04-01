@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { LeadCaptureForm } from '@/components/features/contact/LeadCaptureForm';
@@ -28,12 +29,17 @@ export default function PlanningGuideLanding() {
       <section className="bg-edg-dark relative flex min-h-[90vh] items-center overflow-hidden pt-20">
         {/* Background layers */}
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
-          style={{
-            backgroundImage: "url(images.pages.guides.louveredPergolasHero)",
-          }}
-        />
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={images.pages.guides.louveredPergolasHero}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-20"
+          />
+        </div>
         <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-black/40" />
 
         <Container className="relative z-20 py-20">

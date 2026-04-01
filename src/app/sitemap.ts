@@ -15,11 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/systems/saunas', priority: 0.9 },
     { url: '/commercial', priority: 0.9 },
     { url: '/contact', priority: 0.8 },
-    { url: '/design', priority: 0.8 },
     { url: '/projects', priority: 0.8 },
     { url: '/gallery', priority: 0.8 },
     { url: '/guides/planning-guide', priority: 0.8 },
-    { url: '/guides/planning-guide/read', priority: 0.7 },
     { url: '/showroom', priority: 0.8 },
     { url: '/trade-partners', priority: 0.8 },
     { url: '/privacy', priority: 0.5 },
@@ -68,13 +66,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // New Commercial Pages
     { url: '/commercial/hotel-pergolas', priority: 0.9 },
-    { url: '/commercial/restaurant-patio-systems', priority: 0.9 },
     { url: '/commercial/restaurant-patio-solutions', priority: 0.7 },
 
     // New Local Clusters
-    { url: '/service-areas/wilmette-il', priority: 0.8 },
     { url: '/service-areas/wilmette-il/louvered-pergolas', priority: 0.8 },
-    { url: '/service-areas/winnetka-il', priority: 0.8 },
     { url: '/service-areas/winnetka-il/louvered-pergolas', priority: 0.8 },
 
     // Existing Sitemap Page

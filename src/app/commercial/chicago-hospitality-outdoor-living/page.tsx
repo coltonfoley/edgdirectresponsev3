@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import * as images from '@/lib/images';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -115,7 +116,7 @@ const industrySolutions = [
       'Transform underutilized rooftops and terraces into year-round event venues and bars.',
     href: '/commercial/hotel-roof-deck-systems',
     cta: 'Hotel Solutions',
-    image: '/images/enclosures/frameless-sliding-glass-walls.jpg',
+    image: images.systems.enclosures.framelessGlass,
   },
 ];
 
@@ -177,12 +178,17 @@ export default function ChicagoHospitalityPage() {
           ═══════════════════════════════════════════════════════ */}
       <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{
-            backgroundImage: "url(${images.brand.context.commercial})",
-          }}
-        />
+        <div className="absolute inset-0">
+          <Image
+            src={images.brand.context.commercial}
+            alt=""
+            aria-hidden="true"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
         {/* Content */}
@@ -256,9 +262,13 @@ export default function ChicagoHospitalityPage() {
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${solution.image}')` }}
+                  <Image
+                    src={solution.image}
+                    alt=""
+                    aria-hidden="true"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10" />
                 </div>
@@ -354,11 +364,13 @@ export default function ChicagoHospitalityPage() {
               </div>
             </div>
             <div className="relative min-h-[500px] overflow-hidden rounded-3xl bg-zinc-800">
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{
-                  backgroundImage: "url(images.brand.context.commercial)",
-                }}
+              <Image
+                src={images.brand.context.commercial}
+                alt=""
+                aria-hidden="true"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute right-0 bottom-0 left-0 p-10">

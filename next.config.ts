@@ -89,6 +89,11 @@ const nextConfig: NextConfig = {
         destination: '/service-areas/sanibel-outdoor-living',
         permanent: true,
       },
+      {
+        source: '/commercial/restaurant-patio-systems',
+        destination: '/commercial/restaurant-patio-solutions',
+        permanent: true,
+      },
 
       // ══════════════════════════════════════════════════════════
       // PAGE REMOVALS

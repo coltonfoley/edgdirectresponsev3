@@ -184,12 +184,12 @@ const relatedProducts = [
   {
     title: 'Retractable Screens',
     description: 'Add privacy and wind protection with motorized zip screens that integrate seamlessly with your pergola.',
-    href: '/systems/screens',
+    href: '/systems/shades',
   },
   {
     title: 'Glass Enclosures',
     description: 'Transform your outdoor space into a year-round room with motorized glass wall systems.',
-    href: '/systems/glass-enclosures',
+    href: '/systems/enclosures',
   },
   {
     title: 'Outdoor Heating',
