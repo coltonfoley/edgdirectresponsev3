@@ -268,6 +268,12 @@ export default function PergolasPage() {
                     Speak to a Designer
                   </div>
                 </TrackedPhoneLink>
+                <Link
+                  href="/service-areas/chicago-il/motorized-pergolas"
+                  className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                >
+                  Looking for a city-specific option? View our Chicago pergola page.
+                </Link>
               </div>
 
               {/* Quick Specs */}
@@ -681,6 +687,12 @@ export default function PergolasPage() {
               <span className="font-medium">Back to All Systems</span>
             </Link>
             <div className="flex gap-4">
+              <Link href="/service-areas/chicago-il/motorized-pergolas">
+                <Button variant="outline" size="sm">
+                  Chicago Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
               <Link href="/systems/shades">
                 <Button variant="outline" size="sm">
                   Explore Screens

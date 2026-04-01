@@ -327,6 +327,12 @@ export default function ShadesPage() {
                     <span className="h-px w-8 bg-black/20"></span>
                     Speak to a designer
                   </Link>
+                  <Link
+                    href="/service-areas/chicago-il/retractable-screens"
+                    className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                  >
+                    Comparing city installers? See our Chicago retractable screen page.
+                  </Link>
                 </div>
 
                 {/* Quick Specs */}
@@ -551,6 +557,16 @@ export default function ShadesPage() {
                   </Card>
                 </Link>
               ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              <Link
+                href="/service-areas/chicago-il/retractable-screens"
+                className="inline-flex items-center gap-2 text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+              >
+                Need a city-specific screen page? Explore Chicago retractable screens.
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </Container>
         </Section>

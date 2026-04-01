@@ -40,6 +40,11 @@ const productsDropdown = [
 // Locations dropdown (renamed from Areas)
 const locationsDropdown = [
   {
+    href: '/service-areas/chicago-il',
+    label: 'Chicago, IL',
+    desc: 'City rooftops, patios, and tight lots',
+  },
+  {
     href: '/service-areas/wilmette-il',
     label: 'Wilmette, IL',
     desc: 'North Shore historic districts',

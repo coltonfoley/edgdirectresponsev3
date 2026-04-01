@@ -24,6 +24,13 @@ export const metadata: Metadata = {
 
 const serviceAreas = [
   {
+    name: 'Chicago, IL',
+    slug: 'chicago-il',
+    description:
+      'Urban roof decks, masonry patios, and tight-lot outdoor living tailored to Chicago neighborhoods.',
+    region: 'Chicago',
+  },
+  {
     name: 'Wilmette, IL',
     slug: 'wilmette-il',
     description:
@@ -163,7 +170,8 @@ export default function ServiceAreasPage() {
             <h2 className="section-title">Find Your Area</h2>
             <p className="text-text-secondary mt-4 text-lg">
               Click your community to learn about local projects, considerations, and
-              how we can help.
+              how we can help. If you are inside city limits, start with Chicago and
+              then drill into the product pages that match your project.
             </p>
           </div>
 

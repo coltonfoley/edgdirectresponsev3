@@ -61,6 +61,15 @@ const sitemapLinks = [
     category: 'Service Areas',
     links: [
       { href: '/service-areas', label: 'All Service Areas' },
+      { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
+      {
+        href: '/service-areas/chicago-il/motorized-pergolas',
+        label: 'Chicago Motorized Pergolas',
+      },
+      {
+        href: '/service-areas/chicago-il/retractable-screens',
+        label: 'Chicago Retractable Screens',
+      },
       { href: '/service-areas/wilmette-il', label: 'Wilmette, IL' },
       { href: '/service-areas/winnetka-il', label: 'Winnetka, IL' },
       { href: '/service-areas/northbrook-il', label: 'Northbrook, IL' },

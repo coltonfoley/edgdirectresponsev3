@@ -159,6 +159,7 @@ export function Footer() {
               <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Service Areas</h4>
               <ul className="space-y-3">
                 <li><Link href="/service-areas" className="text-zinc-300 hover:text-edg-brand transition-colors">All Service Areas</Link></li>
+                <li><Link href="/service-areas/chicago-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Chicago, IL</Link></li>
                 <li><Link href="/service-areas/wilmette-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Wilmette, IL</Link></li>
                 <li><Link href="/service-areas/winnetka-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Winnetka, IL</Link></li>
                 <li><Link href="/service-areas/northbrook-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Northbrook, IL</Link></li>

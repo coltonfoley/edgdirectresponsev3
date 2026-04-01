@@ -192,17 +192,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/chicago-motorized-screens',
-        destination: '/systems/shades',
+        destination: '/service-areas/chicago-il/retractable-screens',
         permanent: true,
       },
       {
         source: '/motorized-screens-chicago',
-        destination: '/systems/shades',
+        destination: '/service-areas/chicago-il/retractable-screens',
         permanent: true,
       },
       {
         source: '/rooftop-louvered-pergola-chicago',
-        destination: '/systems/pergolas',
+        destination: '/service-areas/chicago-il/motorized-pergolas',
         permanent: true,
       },
       // NEW: Product pages wildcard
@@ -424,33 +424,8 @@ const nextConfig: NextConfig = {
       },
       // Out of service area locations
       {
-        source: '/custom-aluminum-pergola-cleveland-ohio',
-        destination: '/',
-        permanent: true,
-      },
-      {
         source: '/custom-aluminum-pergola-madison-wisconsin',
         destination: '/service-areas/lake-geneva-wi',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-grand-rapids-michigan',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-south-bend-indiana',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/custom-aluminum-pergola-minneapolis-minnesota',
-        destination: '/',
         permanent: true,
       },
 
@@ -466,7 +441,7 @@ const nextConfig: NextConfig = {
       {
         source:
           '/2025/04/07/motorized-screens-chicago-enjoy-your-patio-longer-better-with-edg-patio-shade',
-        destination: '/systems/shades',
+        destination: '/service-areas/chicago-il/retractable-screens',
         permanent: true,
       },
       {

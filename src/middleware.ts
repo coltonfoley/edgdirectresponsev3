@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+const GONE_PATHS = new Set([
+  '/custom-aluminum-pergola-cleveland-ohio',
+  '/custom-aluminum-pergola-grand-rapids-michigan',
+  '/custom-aluminum-pergola-south-bend-indiana',
+  '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
+  '/custom-aluminum-pergola-minneapolis-minnesota',
+]);
+
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
 
@@ -13,6 +21,15 @@ export function middleware(request: NextRequest) {
     url.port = ''; // Clear port if any
 
     return NextResponse.redirect(url, 301);
+  }
+
+  if (hostname === 'www.edgpatioshade.com' && GONE_PATHS.has(request.nextUrl.pathname)) {
+    return new NextResponse('Gone', {
+      status: 410,
+      headers: {
+        'X-Robots-Tag': 'noindex, nofollow',
+      },
+    });
   }
 
   return NextResponse.next();

@@ -132,15 +132,6 @@ export default function RootLayout({
           crossOrigin="anonymous" 
         />
         
-        {/* Preload critical hero image for LCP optimization */}
-        <link 
-          rel="preload" 
-          href="/images/brand/hero-pergola.jpg" 
-          as="image" 
-          type="image/jpeg"
-          fetchPriority="high"
-        />
-        
         {/* ============================================
             JSON-LD STRUCTURED DATA
             ============================================ */}
