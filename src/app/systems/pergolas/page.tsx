@@ -257,7 +257,7 @@ export default function PergolasPage() {
               </p>
 
               <div className="flex flex-col gap-4 mb-12">
-                <TrackedLink href="/contact?type=price&product=pergola">
+                <TrackedLink href="/systems/pergolas/configure">
                   <Button size="lg" className="w-full sm:w-auto">
                     Configure Your System
                   </Button>
@@ -723,7 +723,7 @@ export default function PergolasPage() {
                 and rough dimensions. No commitment required.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <TrackedLink href="/contact?type=price&product=pergola">
+                <TrackedLink href="/systems/pergolas/configure">
                   <Button size="lg">Start Your Quote</Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">

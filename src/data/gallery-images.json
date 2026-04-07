@@ -1,19 +1,5 @@
 [
   {
-    "src": "/images/pergolas/sanibel-shopros-gray-white.jpg",
-    "width": 5634,
-    "height": 3752,
-    "alt": "Sanibel Island modern lanai - gray and white louvered roof system by pool",
-    "id": "/images/pergolas/sanibel-shopros-gray-white.jpg"
-  },
-  {
-    "src": "/images/pergolas/sanibel-shopros-gray-white-02.jpg",
-    "width": 5634,
-    "height": 3752,
-    "alt": "Sanibel Island Florida - modern louvered pergola with R-Shade system",
-    "id": "/images/pergolas/sanibel-shopros-gray-white-02.jpg"
-  },
-  {
     "src": "/images/appliances/OLD-covered-patio-beverage-station.jpg",
     "width": 1024,
     "height": 768,
@@ -504,6 +490,20 @@
     "id": "/images/pergolas/residential-white-r-blade-led-strip.jpg"
   },
   {
+    "src": "/images/pergolas/sanibel-shopros-gray-white-02.jpg",
+    "width": 2560,
+    "height": 1705,
+    "alt": "sanibel shopros gray white 02",
+    "id": "/images/pergolas/sanibel-shopros-gray-white-02.jpg"
+  },
+  {
+    "src": "/images/pergolas/sanibel-shopros-gray-white.jpg",
+    "width": 2560,
+    "height": 1705,
+    "alt": "sanibel shopros gray white",
+    "id": "/images/pergolas/sanibel-shopros-gray-white.jpg"
+  },
+  {
     "src": "/images/saunas/mande-spa-mw12-outdoor-sauna-12.webp",
     "width": 800,
     "height": 800,
@@ -544,6 +544,34 @@
     "height": 800,
     "alt": "mande spa mw20 outdoor sauna 6",
     "id": "/images/saunas/mande-spa-mw20-outdoor-sauna-6.webp"
+  },
+  {
+    "src": "/images/service-areas/chicago-courtyard-pergola.jpg",
+    "width": 1350,
+    "height": 1800,
+    "alt": "chicago courtyard pergola",
+    "id": "/images/service-areas/chicago-courtyard-pergola.jpg"
+  },
+  {
+    "src": "/images/service-areas/chicago-retractable-screen-corner.jpg",
+    "width": 1800,
+    "height": 1350,
+    "alt": "chicago retractable screen corner",
+    "id": "/images/service-areas/chicago-retractable-screen-corner.jpg"
+  },
+  {
+    "src": "/images/service-areas/chicago-retractable-screen-exterior.jpg",
+    "width": 1800,
+    "height": 1350,
+    "alt": "chicago retractable screen exterior",
+    "id": "/images/service-areas/chicago-retractable-screen-exterior.jpg"
+  },
+  {
+    "src": "/images/service-areas/chicago-retractable-screen-restaurant.jpg",
+    "width": 1350,
+    "height": 1800,
+    "alt": "chicago retractable screen restaurant",
+    "id": "/images/service-areas/chicago-retractable-screen-restaurant.jpg"
   },
   {
     "src": "/images/shades/shade-deployed-screens-01.jpg",

@@ -143,6 +143,7 @@ export function Footer() {
               <ul className="space-y-3">
                 <li><Link href="/systems" className="text-zinc-300 hover:text-edg-brand transition-colors">All Systems</Link></li>
                 <li><Link href="/systems/pergolas" className="text-zinc-300 hover:text-edg-brand transition-colors">Motorized Pergolas</Link></li>
+                <li><Link href="/systems/pergolas/configure" className="text-zinc-300 hover:text-edg-brand transition-colors">Pergola Configurator</Link></li>
                 <li><Link href="/systems/shades" className="text-zinc-300 hover:text-edg-brand transition-colors">Retractable Screens</Link></li>
                 <li><Link href="/systems/enclosures" className="text-zinc-300 hover:text-edg-brand transition-colors">Glass Enclosures</Link></li>
                 <li><Link href="/guides" className="text-zinc-300 hover:text-edg-brand transition-colors">Guides & Resources</Link></li>

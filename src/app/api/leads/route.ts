@@ -261,33 +261,49 @@ export async function POST(request: NextRequest) {
       // 1. Admin Notification (immediate)
       try {
         const isContactForm = source === 'contact_page';
+        const isConfigurator = source === 'pergola-configurator';
         const adminSubject = isContactForm
           ? `New Contact Inquiry: ${firstName} ${lastName || ''} (${customerType || 'General'})`
-          : `New Guide Lead: ${firstName} (${source})`;
+          : isConfigurator
+          ? `New Pergola Configurator Lead: ${firstName} ${lastName || ''}`
+          : `New Lead: ${firstName} (${source})`;
 
         let adminHtmlContent = '';
-        if (isContactForm) {
+        if (isContactForm || isConfigurator) {
+          const emailTitle = isConfigurator
+            ? 'New Pergola Configurator Lead'
+            : 'New Contact Inquiry';
+          const messageLabel = isConfigurator ? 'Configuration Details' : 'Message';
+
           adminHtmlContent = `
-            <h1>New Contact Inquiry</h1>
+            <h1>${emailTitle}</h1>
             <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-            <p><strong>Type:</strong> ${customerType || 'Homeowner'}</p>
-            <p><strong>Location:</strong> ${location || 'Not provided'}</p>
-            <p><strong>Interested In:</strong> ${projectType || 'Not specified'}</p>
+            <p><strong>ZIP / Location:</strong> ${location || 'Not provided'}</p>
+            <p><strong>Project Type:</strong> ${projectType || 'Not specified'}</p>
+            ${!isConfigurator ? `<p><strong>Customer Type:</strong> ${customerType || 'Homeowner'}</p>` : ''}
             <hr />
-            <h3>Message:</h3>
-            <p style="white-space: pre-wrap;">${message || 'No message provided.'}</p>
+            <h3>${messageLabel}:</h3>
+            <pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message || 'No details provided.'}</pre>
             <hr />
             <p><small>Source: ${source} | Time: ${timestamp}</small></p>
           `;
         } else {
+          const sourceLabel = source === 'pergola-configurator'
+            ? 'Pergola Configurator'
+            : source || 'Website';
+
           adminHtmlContent = `
-            <h1>New Guide Download Lead</h1>
-            <p><strong>Name:</strong> ${firstName}</p>
+            <h1>New Lead: ${sourceLabel}</h1>
+            <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
             <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p><strong>ZIP / Location:</strong> ${location || 'Not provided'}</p>
+            <p><strong>Project Type:</strong> ${projectType || 'Not specified'}</p>
             <p><strong>Source:</strong> ${source}</p>
             <p><strong>Time:</strong> ${timestamp}</p>
+            ${message ? `<hr /><h3>Details / Configuration:</h3><pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message}</pre>` : ''}
           `;
         }
 

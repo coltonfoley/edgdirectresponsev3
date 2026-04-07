@@ -355,16 +355,27 @@ export default function WilmetteProductPage() {
                 Wilmette, and near Gilson Park. Ask to see our portfolio of
                 completed Wilmette projects during your consultation.
               </p>
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
-                >
-                  Schedule Design Consult{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full text-white"
+                  >
+                    Schedule Design Consult{' '}
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/systems/pergolas/configure">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="rounded-full border-edg-dark/30 text-edg-dark hover:bg-edg-dark/5"
+                  >
+                    Design in 3D <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </FadeIn>
         </Container>

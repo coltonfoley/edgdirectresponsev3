@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import { ArrowLeft, Check, Wind, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Wind, ShieldCheck } from 'lucide-react';
 import { Metadata } from 'next';
 import * as images from '@/lib/images';
 
@@ -79,14 +79,25 @@ export default function NorthbrookPergolaPage() {
               Engineered to withstand 115mph winds and heavy Chicagoland snow
               loads without sacrificing elegance.
             </p>
-            <Link href="/contact?source=northbrook_product">
-              <Button
-                size="lg"
-                className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90"
-              >
-                Get a Design Proposal
-              </Button>
-            </Link>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link href="/contact?source=northbrook_product">
+                <Button
+                  size="lg"
+                  className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90"
+                >
+                  Get a Design Proposal
+                </Button>
+              </Link>
+              <Link href="/systems/pergolas/configure">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  Design in 3D <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
 

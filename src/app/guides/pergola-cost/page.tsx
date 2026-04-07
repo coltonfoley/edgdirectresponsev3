@@ -828,6 +828,15 @@ export default function PergolaCostGuide() {
               <TrackedLink href="/contact?type=consultation&product=pergola">
                 <Button size="lg">Schedule Free Consultation</Button>
               </TrackedLink>
+              <TrackedLink href="/systems/pergolas/configure">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-text-inverse/20 text-text-inverse hover:bg-text-inverse/10"
+                >
+                  Configure & Price in 3D <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
               <TrackedLink href="/systems/pergolas">
                 <Button
                   variant="outline"

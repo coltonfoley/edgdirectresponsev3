@@ -247,11 +247,19 @@ export default function Home() {
                     <span className="text-text-primary font-medium">Heaters & LED Lighting Integrated</span>
                   </li>
                 </ul>
-                <Link href="/systems/pergolas">
-                  <Button variant="secondary" className="px-8 py-3">
-                    Explore Pergolas
-                  </Button>
-                </Link>
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link href="/systems/pergolas">
+                    <Button variant="secondary" className="px-8 py-3">
+                      Explore Pergolas
+                    </Button>
+                  </Link>
+                  <Link
+                    href="/systems/pergolas/configure"
+                    className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-edg-brand-dark hover:underline"
+                  >
+                    Configure in 3D <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
 

@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { url: '', priority: 1.0 },
     { url: '/systems/pergolas', priority: 0.9 },
+    { url: '/systems/pergolas/configure', priority: 0.85 },
     { url: '/systems/shades', priority: 0.9 },
     { url: '/systems/enclosures', priority: 0.9 },
     { url: '/systems/appliances', priority: 0.9 },

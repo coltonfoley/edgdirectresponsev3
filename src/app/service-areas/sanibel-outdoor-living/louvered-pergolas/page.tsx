@@ -293,6 +293,15 @@ export default function SanibelPergolaPage() {
                     Request Design Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
+                <Link href="/systems/pergolas/configure">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="rounded-none border-white/20 px-10 text-white hover:bg-white/10"
+                  >
+                    Design in 3D <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <a href="tel:+18155810138">
                   <Button
                     size="lg"

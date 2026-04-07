@@ -174,6 +174,11 @@ export default function ChicagoPergolasPage() {
                 <Link href="/contact?source=chicago_pergolas">
                   <Button size="lg">Get a Pergola Design Proposal</Button>
                 </Link>
+                <Link href="/systems/pergolas/configure">
+                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                    Design in 3D
+                  </Button>
+                </Link>
                 <Link href="/systems/pergolas">
                   <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                     View Full Pergola System Page

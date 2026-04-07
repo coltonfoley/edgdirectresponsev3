@@ -5,7 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Products dropdown - all systems combined
@@ -206,6 +206,21 @@ export function Navbar() {
                     <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
                       View complete product line
                     </div>
+                  </Link>
+                  <Link
+                    href="/systems/pergolas/configure"
+                    onClick={() => setProductsOpen(false)}
+                    className="group flex items-center justify-between border-b border-edg-brand/20 bg-edg-brand/5 px-5 py-3 transition-colors hover:bg-edg-brand/15"
+                  >
+                    <div>
+                      <div className="text-sm font-bold uppercase tracking-wide text-edg-brand-dark transition-colors">
+                        3D Pergola Configurator
+                      </div>
+                      <div className="mt-0.5 text-xs text-edg-brand-dark/70">
+                        Design your R-Blade in real-time 3D
+                      </div>
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-edg-brand-dark/50" />
                   </Link>
                   {productsDropdown.map((item) => (
                     <Link
@@ -433,6 +448,13 @@ export function Navbar() {
                     {item.label}
                   </Link>
                 ))}
+                <Link
+                  href="/systems/pergolas/configure"
+                  className="flex items-center gap-2 text-lg font-bold text-edg-brand transition-colors hover:text-edg-brand/80"
+                  onClick={() => setIsOpen(false)}
+                >
+                  3D Pergola Configurator <ArrowRight className="h-4 w-4" />
+                </Link>
                 <Link
                   href="/systems"
                   className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"

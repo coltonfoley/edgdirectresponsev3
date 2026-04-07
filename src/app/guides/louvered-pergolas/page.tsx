@@ -378,6 +378,15 @@ export default function LouveredPergolaGuide() {
                     Request Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
+                <Link href="/systems/pergolas/configure">
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="text-edg-dark hover:bg-edg-dark/10 rounded-full border border-edg-dark/20 px-8 text-lg"
+                  >
+                    Design in 3D <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
                 <Link href="/systems/pergolas">
                   <Button
                     size="lg"

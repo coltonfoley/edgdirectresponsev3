@@ -157,11 +157,18 @@ export default function NapervilleMotorizedPergolas() {
                 give you 100% control over your outdoor environment in
                 Naperville.
               </p>
-              <Link href="/contact?area=naperville&product=motorized_pergola">
-                <Button size="lg" className="rounded-full">
-                  Get Pricing & Proposal <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link href="/contact?area=naperville&product=motorized_pergola">
+                  <Button size="lg" className="rounded-full">
+                    Get Pricing & Proposal <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link href="/systems/pergolas/configure">
+                  <Button size="lg" variant="outline" className="rounded-full border-white/20 text-white hover:bg-white/10">
+                    Design in 3D <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </Container>
         </Section>
