@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { HeroFormClient } from '@/components/features/home/HeroFormClient';
 import { ReviewsSection } from '@/components/features/ReviewsSection';
+import { ClientLogoBar } from '@/components/features/ClientLogoBar';
 import { ImageSlider } from '@/components/ui/ImageSlider';
 import * as images from '@/lib/images';
 import { ArrowRight, Check } from 'lucide-react';
@@ -144,6 +145,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* ========== CLIENT LOGO BAR ========== */}
+      <ClientLogoBar />
 
       {/* ========== DIRECTORIES: RESIDENTIAL VS TRADE ========== */}
       <Section className="bg-white py-0">
