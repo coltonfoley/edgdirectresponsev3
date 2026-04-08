@@ -32,6 +32,22 @@ const pergolaSliderImages = [
   },
 ];
 
+// Retractable screen images for the slider
+const screenSliderImages = [
+  {
+    src: images.brand.hero.screens,
+    alt: 'Motorized retractable screens on patio',
+  },
+  {
+    src: images.systems.shades.hero,
+    alt: 'Retractable shade system installed on home',
+  },
+  {
+    src: images.systems.shades.deployed,
+    alt: 'Deployed retractable screens blocking wind and bugs',
+  },
+];
+
 export const metadata: Metadata = {
   title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
   description:
@@ -269,16 +285,12 @@ export default function Home() {
 
             {/* System 2 - Reversed */}
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="md:order-2 relative aspect-[4/3] bg-gray-100 overflow-hidden">
-                <Image
-                  src={images.brand.hero.screens}
-                  alt="Motorized retractable screens"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  quality={75}
-                />
-              </div>
+              <ImageSlider
+                images={screenSliderImages}
+                interval={6}
+                className="md:order-2 relative aspect-[4/3] bg-gray-100"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               <div className="md:order-1">
                 <div className="label-editorial-brand mb-4">Core Product</div>
                 <h3 className="text-3xl md:text-4xl font-bold mb-6">Retractable Screens</h3>
