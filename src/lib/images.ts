@@ -565,6 +565,17 @@ export const galleries = {
 export const assets = {
   logo: '/logo.png',
   ogImage: '/og-image.jpg',
+  clientLogos: {
+    carmines: '/images/logos/carmines.png',
+    chicagoWinery: '/images/logos/chicago-winery.png',
+    louMalnatis: '/images/logos/lou-malnatis.svg',
+    rosebud: '/images/logos/rosebud.png',
+    theDistrict: '/images/logos/the-district.avif',
+    theElm: '/images/logos/the-elm.webp',
+    palmSpringsAirport: '/images/logos/palm-springs-airport.webp',
+    ikeAndOak: '/images/logos/ike-and-oak.png',
+    hyattRegencyChicago: '/images/logos/hyatt-regency-chicago.svg',
+  },
 } as const;
 
 // ============================================================================
@@ -580,6 +591,7 @@ export type ProjectKey = keyof typeof projects;
 export type GalleryKey = keyof typeof galleries;
 export type SystemsCategory = keyof typeof systems;
 export type TestimonialKey = keyof typeof testimonials;
+export type ClientLogoKey = keyof typeof assets.clientLogos;
 
 // ============================================================================
 // VALIDATION - All image paths for build-time checking
@@ -630,6 +642,7 @@ export const allImagePaths = [
   // Assets
   assets.logo,
   assets.ogImage,
+  ...Object.values(assets.clientLogos),
 ] as const;
 
 /** Check if a path is a valid image path (for runtime validation) */
