@@ -24,7 +24,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     default: 'EDG Patio & Shade | Motorized Pergolas & Retractable Screens | Chicago to Milwaukee',
-    template: '%s | EDG Patio & Shade',
+    template: '%s',
   },
   description:
     'EDG Patio & Shade is the design and supply partner for motorized pergolas, retractable screens, and glass enclosures. Full-service installation for the Chicago-Milwaukee corridor, with nationwide design and supply for trade partners.',
@@ -68,13 +68,6 @@ export const metadata: Metadata = {
         alt: 'EDG Patio & Shade - Motorized Pergolas & Shades',
       },
     ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'EDG Patio & Shade | Motorized Pergolas & Outdoor Shades',
-    description:
-      'Premium outdoor living systems. Serving Chicago to Milwaukee with nationwide design and supply for motorized pergolas, shades, and glass enclosures.',
-    images: ['/images/brand/hero-pergola.jpg'],
   },
   robots: {
     index: true,

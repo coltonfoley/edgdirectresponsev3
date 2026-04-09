@@ -32,7 +32,10 @@ export default function ContactPage() {
 
   return (
     <>
-      <ContactClient />
+      <ContactClient
+        initialFormType="homeowner"
+        initialSource="contact_page"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}

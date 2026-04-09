@@ -30,12 +30,6 @@ export const metadata: Metadata = {
     ],
     type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Design Your Custom Pergola in 3D — Free Configurator',
-    description: 'Configure your Azenco R-Blade motorized pergola in real-time 3D.',
-    images: ['https://www.edgpatioshade.com/images/brand/hero-pergola.jpg'],
-  },
 };
 
 const configuratorSchema = {
@@ -97,7 +91,7 @@ export default function ConfigurePage() {
         full-screen canvas overlay. Provides keyword-rich text for indexing.
       */}
       <div className="sr-only" aria-hidden="true">
-        <h1>Azenco R-Blade 3D Pergola Configurator</h1>
+        <h2>Azenco R-Blade 3D Pergola Configurator</h2>
         <p>
           Design your custom motorized louvered pergola online. Use our free 3D configurator
           to visualize the Azenco R-Blade in your preferred size, color, and configuration

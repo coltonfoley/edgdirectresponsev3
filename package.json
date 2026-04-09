@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "npm run validate-images && node scripts/generate-gallery-data.mjs && next build",
     "start": "next start",
+    "postinstall": "node scripts/patch-next-metadata.mjs",
     "lint": "eslint",
     "format": "prettier --write .",
     "test:e2e": "playwright test",

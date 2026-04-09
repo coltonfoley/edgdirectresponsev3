@@ -1,21 +1,37 @@
 'use client';
 
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import { MapPin, Phone, Mail, Clock, ArrowRight, Check } from 'lucide-react';
-import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { MapPin, Clock, ArrowRight, Check } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 
-function ContactForm() {
-  const searchParams = useSearchParams();
-  const [formType, setFormType] = useState<'homeowner' | 'pro' | 'commercial'>(
-    'homeowner'
-  );
-  const [source, setSource] = useState('contact_page');
+export type ContactFormType = 'homeowner' | 'pro' | 'commercial';
+
+interface ContactClientProps {
+  initialFormType?: ContactFormType;
+  initialSource?: string;
+}
+
+function normalizeFormType(value: string | null): ContactFormType {
+  if (value === 'commercial' || value === 'pro') {
+    return value;
+  }
+
+  return 'homeowner';
+}
+
+function normalizeSource(value: string | null): string {
+  return value?.trim() || 'contact_page';
+}
+
+function ContactForm({
+  initialFormType = 'homeowner',
+  initialSource = 'contact_page',
+}: ContactClientProps) {
+  const [formType, setFormType] = useState<ContactFormType>(initialFormType);
+  const [leadSource, setLeadSource] = useState(initialSource);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -31,21 +47,15 @@ function ContactForm() {
   const { submitLead, loading, error, success } = useLeadSubmission();
 
   useEffect(() => {
-    const typeParam = searchParams.get('type');
-    const sourceParam = searchParams.get('source');
+    setFormType(initialFormType);
+    setLeadSource(initialSource);
+  }, [initialFormType, initialSource]);
 
-    if (
-      typeParam === 'commercial' ||
-      typeParam === 'pro' ||
-      typeParam === 'homeowner'
-    ) {
-      setFormType(typeParam as any);
-    }
-
-    if (sourceParam) {
-      setSource(sourceParam);
-    }
-  }, [searchParams]);
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setFormType(normalizeFormType(searchParams.get('type')));
+    setLeadSource(normalizeSource(searchParams.get('source')));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -62,7 +72,7 @@ function ContactForm() {
     await submitLead({
       ...formData,
       customerType: formType,
-      source: source,
+      source: leadSource,
     });
   };
 
@@ -296,19 +306,6 @@ function ContactForm() {
   );
 }
 
-export default function ContactClient() {
-  return (
-    <Suspense
-      fallback={
-        <div className="bg-white min-h-screen flex items-center justify-center">
-          <div className="text-center">
-            <div className="border-black mx-auto mb-6 h-8 w-8 animate-spin rounded-full border-4 border-t-transparent"></div>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Loading experience...</p>
-          </div>
-        </div>
-      }
-    >
-      <ContactForm />
-    </Suspense>
-  );
+export default function ContactClient(props: ContactClientProps) {
+  return <ContactForm {...props} />;
 }

@@ -22,6 +22,23 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+function buildProjectMetaDescription(
+  title: string,
+  location: string,
+  description: string
+) {
+  const fullDescription = `${title} in ${location}. ${description}`.replace(
+    /\s+/g,
+    ' '
+  );
+
+  if (fullDescription.length <= 160) {
+    return fullDescription;
+  }
+
+  return `${fullDescription.slice(0, 157).trimEnd()}...`;
+}
+
 /**
  * Generate metadata for the project page
  */
@@ -36,10 +53,15 @@ export async function generateMetadata({
   }
 
   const location = parseLocation(project.location);
+  const metaDescription = buildProjectMetaDescription(
+    project.title,
+    project.location,
+    project.description
+  );
 
   return {
     title: `${project.title} | ${location.city} ${project.type} | EDG Projects`,
-    description: `${project.description} Professional ${project.systems.join(', ')} installation in ${project.location}.`,
+    description: metaDescription,
     keywords: [
       project.type,
       ...project.systems,

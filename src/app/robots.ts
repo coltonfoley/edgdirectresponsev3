@@ -24,25 +24,22 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/_next/',
           '/private/',
-          '/*.json$',
         ],
       },
       {
         // Googlebot specific - allow image indexing
         userAgent: 'Googlebot',
         allow: ['/images/', '/'],
-        disallow: ['/api/', '/admin/', '/_next/'],
+        disallow: ['/api/', '/admin/'],
       },
       {
         // Bingbot specific
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/_next/'],
+        disallow: ['/api/', '/admin/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
   };
 }

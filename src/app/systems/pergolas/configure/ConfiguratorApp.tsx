@@ -200,8 +200,8 @@ export function ConfiguratorApp() {
               mobileTab !== 'configure' ? 'hidden lg:flex' : 'flex'
             }`}
           >
-            {/* ── Non-scrolling header — desktop only (mobile nav handled by tab bar) ── */}
-            <div className="hidden flex-shrink-0 border-b border-white/18 px-6 pb-4 pt-24 lg:block">
+            {/* ── Header shared across desktop and mobile to keep a single page H1 ── */}
+            <div className="flex-shrink-0 border-b border-white/18 px-5 pb-4 pt-6 lg:px-6 lg:pt-24">
               <Link
                 href="/systems/pergolas"
                 className="mb-4 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/60 transition-colors hover:text-white/85"
@@ -212,30 +212,13 @@ export function ConfiguratorApp() {
               <div className="mb-0.5 text-[10px] font-bold uppercase tracking-[0.25em] text-edg-brand">
                 Azenco R-Blade
               </div>
-              <h1 className="text-2xl font-bold tracking-tight text-white">
+              <h1 className="text-xl font-bold tracking-tight text-white lg:text-2xl">
                 Design Your Pergola
               </h1>
             </div>
 
             {/* Scrollable options */}
             <div className="flex-1 overflow-y-auto px-5 pb-6 pt-5 lg:px-6 lg:pt-6">
-              {/* Mobile title */}
-              <div className="mb-6 lg:hidden">
-                <Link
-                  href="/systems/pergolas"
-                  className="mb-4 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/60 transition-colors"
-                >
-                  <ChevronLeft className="h-3 w-3" />
-                  Back to Pergolas
-                </Link>
-                <div className="mb-0.5 text-[10px] font-bold uppercase tracking-[0.25em] text-edg-brand">
-                  Azenco R-Blade
-                </div>
-                <h1 className="text-xl font-bold tracking-tight text-white">
-                  Design Your Pergola
-                </h1>
-              </div>
-
               <div className="space-y-8">
                 {/* Dimensions */}
                 <section>

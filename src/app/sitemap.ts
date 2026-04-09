@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/systems/enclosures', priority: 0.9 },
     { url: '/systems/appliances', priority: 0.9 },
     { url: '/systems/saunas', priority: 0.9 },
+    { url: '/systems', priority: 0.8 },
     { url: '/commercial', priority: 0.9 },
     { url: '/contact', priority: 0.8 },
     { url: '/projects', priority: 0.8 },
@@ -21,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/guides/planning-guide', priority: 0.8 },
     { url: '/showroom', priority: 0.8 },
     { url: '/trade-partners', priority: 0.8 },
+    { url: '/design-your-pergola', priority: 0.8 },
     { url: '/privacy', priority: 0.5 },
     { url: '/terms', priority: 0.5 },
     // Service Areas
@@ -61,6 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/service-areas/chicago-il/motorized-pergolas', priority: 0.9 },
     { url: '/service-areas/chicago-il/retractable-screens', priority: 0.9 },
     { url: '/service-areas/northbrook-il/motorized-pergolas', priority: 0.8 },
+    { url: '/service-areas/naperville-il/motorized-pergolas', priority: 0.8 },
     // New Guides
     { url: '/guides', priority: 0.8 },
     { url: '/guides/louvered-pergolas', priority: 0.9 },

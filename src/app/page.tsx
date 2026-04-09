@@ -6,6 +6,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { HeroFormClient } from '@/components/features/home/HeroFormClient';
+import { HeroBackgroundMedia } from '@/components/features/home/HeroBackgroundMedia';
 import { ReviewsSection } from '@/components/features/ReviewsSection';
 import { ClientLogoBar } from '@/components/features/ClientLogoBar';
 import { ImageSlider } from '@/components/ui/ImageSlider';
@@ -58,11 +59,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Preload critical hero image for LCP optimization
-export const preload = () => {
-  // This hints to Next.js to prioritize this image
-};
-
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-white selection:bg-edg-brand selection:text-black">
@@ -70,44 +66,11 @@ export default function Home() {
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-24">
         {/* Background Visuals - Optimized for Performance */}
         <div className="absolute inset-0 z-0 bg-black">
-          {/* 
-            Desktop: Video background for engagement
-            Mobile: Static image for LCP performance
-            This prevents video from blocking mobile LCP
-          */}
-          
-          {/* Video - Desktop Only (hidden on mobile via CSS) */}
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <HeroBackgroundMedia
             poster={images.brand.hero.pergola}
-            className="hero-video h-full w-full object-cover opacity-60"
-            preload="none"
-          >
-            <source
-              src={images.pages.home.heroVideo}
-              type="video/mp4"
-            />
-          </video>
-          
-          {/* Static Image Fallback - Mobile Optimized */}
-          <div className="hero-video-fallback absolute inset-0">
-            <Image
-              src={images.brand.hero.pergola}
-              alt="Motorized pergola installation"
-              fill
-              priority
-              quality={75}
-              sizes="100vw"
-              className="object-cover opacity-60"
-              fetchPriority="high"
-            />
-          </div>
-          
-          {/* Gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
+            videoSrc={images.pages.home.heroVideo}
+            alt="Motorized pergola installation"
+          />
         </div>
 
         <Container className="relative z-10 w-full">

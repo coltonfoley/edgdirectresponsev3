@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
 
   // Disable streaming metadata for bots that expect full HTML
   // This ensures crawlers see complete metadata in <head>
-  htmlLimitedBots: /Twitterbot|Slackbot|Bingbot|LinkedInBot|WhatsApp|FacebookBot|Discordbot/,
+  htmlLimitedBots:
+    /[\w-]+-Google|Google-[\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight/i,
 
   // Enable Cache Components (Partial Prerendering) - PRODUCTION ONLY
   // SEO Impact: Static shell renders instantly, dynamic content streams
