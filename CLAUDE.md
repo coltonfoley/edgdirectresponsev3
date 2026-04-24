@@ -101,7 +101,8 @@ export const metadata: Metadata = {
 **POST /api/leads** - Lead capture with:
 - Rate limiting (5 req/min per IP)
 - Honeypot spam protection (`fax` field)
-- Supabase storage
+- Rainmaker lead intake when `RAINMAKER_BASE_URL`/`RAINMAKER_LEAD_INTAKE_URL` and `RAINMAKER_API_KEY` are configured
+- Supabase fallback during migration when Supabase env vars are still configured
 - Resend email notifications + 7-day follow-up scheduling
 - Source tracking for ROI
 

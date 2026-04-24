@@ -50,6 +50,25 @@ function getSupabase() {
   return _supabase;
 }
 
+function hasSupabaseConfig(): boolean {
+  return !!(
+    (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL) &&
+    process.env.SUPABASE_SERVICE_ROLE_KEY
+  );
+}
+
+function getRainmakerLeadIntakeUrl(): string | null {
+  if (process.env.RAINMAKER_LEAD_INTAKE_URL) {
+    return process.env.RAINMAKER_LEAD_INTAKE_URL;
+  }
+
+  if (!process.env.RAINMAKER_BASE_URL) {
+    return null;
+  }
+
+  return `${process.env.RAINMAKER_BASE_URL.replace(/\/$/, '')}/api/leads/intake`;
+}
+
 interface LeadSubmission {
   email: string;
   firstName: string;
@@ -63,9 +82,104 @@ interface LeadSubmission {
   fax?: string; // Honeypot
 }
 
+interface LeadRecord {
+  id: string;
+  created_at: string;
+  storage: 'rainmaker' | 'supabase';
+}
+
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
+  const intakeUrl = getRainmakerLeadIntakeUrl();
+  const apiKey = process.env.RAINMAKER_API_KEY;
+
+  if (!intakeUrl || !apiKey) {
+    throw new Error('Rainmaker lead intake is not configured');
+  }
+
+  const response = await fetch(intakeUrl, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: lead.email.trim().toLowerCase(),
+      firstName: lead.firstName.trim(),
+      lastName: lead.lastName?.trim(),
+      phone: lead.phone?.trim(),
+      location: lead.location?.trim(),
+      projectType: lead.projectType,
+      message: lead.message?.trim(),
+      source: lead.source || 'website',
+      customerType: lead.customerType,
+    }),
+  });
+
+  const result = await response.json().catch(() => null);
+
+  if (!response.ok || !result?.success) {
+    throw new Error(result?.message || `Rainmaker lead intake failed with ${response.status}`);
+  }
+
+  return {
+    id: `rainmaker:${result.quoteId}`,
+    created_at: new Date().toISOString(),
+    storage: 'rainmaker',
+  };
+}
+
+async function createSupabaseLead(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
+  const supabase = getSupabase();
+  const { data, error } = await supabase
+    .from('leads')
+    .insert([
+      {
+        email: lead.email.trim().toLowerCase(),
+        first_name: lead.firstName.trim(),
+        last_name: lead.lastName?.trim(),
+        phone: lead.phone?.trim(),
+        location: lead.location?.trim(),
+        project_type: lead.projectType,
+        message: lead.message?.trim(),
+        source: lead.source || 'guide-landing-page',
+        customer_type: lead.customerType,
+      },
+    ])
+    .select()
+    .single();
+
+  if (error) {
+    throw error;
+  }
+
+  return {
+    id: data.id,
+    created_at: data.created_at,
+    storage: 'supabase',
+  };
+}
+
+async function createLeadRecord(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
+  const hasRainmakerConfig = !!(getRainmakerLeadIntakeUrl() && process.env.RAINMAKER_API_KEY);
+
+  if (hasRainmakerConfig) {
+    try {
+      return await createRainmakerLead(lead);
+    } catch (error) {
+      console.error('Rainmaker lead intake failed:', error);
+
+      if (!hasSupabaseConfig()) {
+        throw error;
+      }
+    }
+  }
+
+  return createSupabaseLead(lead);
 }
 
 /**
@@ -223,32 +337,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, errors }, { status: 400 });
     }
 
-    // Insert into Supabase
-    const supabase = getSupabase();
-    const { data, error } = await supabase
-      .from('leads')
-      .insert([
-        {
-          email: email.trim().toLowerCase(),
-          first_name: firstName.trim(),
-          last_name: lastName?.trim(),
-          phone: phone?.trim(),
-          location: location?.trim(),
-          project_type: projectType,
-          message: message?.trim(),
-          source: source || 'guide-landing-page',
-          customer_type: customerType,
-        },
-      ])
-      .select()
-      .single();
+    const leadRecord = await createLeadRecord({
+      email,
+      firstName,
+      lastName,
+      phone,
+      location,
+      projectType,
+      message,
+      source,
+      customerType,
+    });
 
-    if (error) {
-      throw error;
-    }
-
-    const leadId = data.id;
-    const timestamp = data.created_at;
+    const leadId = leadRecord.id;
+    const timestamp = leadRecord.created_at;
 
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
@@ -282,6 +384,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
             <p><strong>ZIP / Location:</strong> ${location || 'Not provided'}</p>
             <p><strong>Project Type:</strong> ${projectType || 'Not specified'}</p>
+            <p><strong>Stored In:</strong> ${leadRecord.storage}</p>
             ${!isConfigurator ? `<p><strong>Customer Type:</strong> ${customerType || 'Homeowner'}</p>` : ''}
             <hr />
             <h3>${messageLabel}:</h3>
@@ -302,6 +405,7 @@ export async function POST(request: NextRequest) {
             <p><strong>ZIP / Location:</strong> ${location || 'Not provided'}</p>
             <p><strong>Project Type:</strong> ${projectType || 'Not specified'}</p>
             <p><strong>Source:</strong> ${source}</p>
+            <p><strong>Stored In:</strong> ${leadRecord.storage}</p>
             <p><strong>Time:</strong> ${timestamp}</p>
             ${message ? `<hr /><h3>Details / Configuration:</h3><pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message}</pre>` : ''}
           `;

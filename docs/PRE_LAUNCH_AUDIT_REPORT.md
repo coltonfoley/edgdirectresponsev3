@@ -49,7 +49,11 @@ Add to `next.config.ts` (around line 497):
 
 Create/update `.env.local` with:
 ```bash
-# Supabase
+# Rainmaker lead intake
+RAINMAKER_BASE_URL=your_rainmaker_url
+RAINMAKER_API_KEY=your_rainmaker_api_key
+
+# Supabase fallback during migration
 SUPABASE_URL=your_supabase_url
 SUPABASE_SERVICE_ROLE_KEY=your_service_key
 
