@@ -133,12 +133,18 @@ async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<L
     throw new Error('Rainmaker lead intake is not configured');
   }
 
+  const headers: Record<string, string> = {
+    Authorization: `Bearer ${apiKey}`,
+    'Content-Type': 'application/json',
+  };
+
+  if (process.env.RAINMAKER_VERCEL_BYPASS) {
+    headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
+  }
+
   const response = await fetch(intakeUrl, {
     method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
+    headers,
     body: JSON.stringify({
       email: lead.email.trim().toLowerCase(),
       firstName: lead.firstName.trim(),
