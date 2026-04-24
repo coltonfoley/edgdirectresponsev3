@@ -134,8 +134,13 @@ async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<L
     throw new Error(result?.message || `Rainmaker lead intake failed with ${response.status}`);
   }
 
+  const rainmakerId = result.leadId || result.accountId || result.quoteId;
+  if (!rainmakerId) {
+    throw new Error('Rainmaker lead intake succeeded without a lead ID');
+  }
+
   return {
-    id: `rainmaker:${result.quoteId}`,
+    id: `rainmaker:${rainmakerId}`,
     created_at: new Date().toISOString(),
     storage: 'rainmaker',
   };
