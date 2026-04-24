@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const RATE_LIMIT_MAX = 5; // 5 requests per minute per IP
+const DEFAULT_NOTIFICATION_EMAIL = 'cfoley@edgpatioshade.com';
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -99,6 +100,25 @@ interface LeadRecord {
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
+}
+
+function getNotificationRecipients(): string[] {
+  const configuredRecipients = (process.env.NOTIFICATION_EMAIL || '')
+    .split(',')
+    .map((email) => email.trim())
+    .filter(Boolean);
+  const seen = new Set<string>();
+
+  return [...configuredRecipients, DEFAULT_NOTIFICATION_EMAIL].filter((email) => {
+    const key = email.toLowerCase();
+
+    if (seen.has(key)) {
+      return false;
+    }
+
+    seen.add(key);
+    return true;
+  });
 }
 
 async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
@@ -378,8 +398,7 @@ export async function POST(request: NextRequest) {
 
     // Email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
-    const notificationEmail =
-      process.env.NOTIFICATION_EMAIL || 'cfoley@edgpatioshade.com';
+    const notificationRecipients = getNotificationRecipients();
 
     const emailLogs: any = {};
 
@@ -447,7 +466,7 @@ export async function POST(request: NextRequest) {
           },
           body: JSON.stringify({
             from: adminFromEmail,
-            to: notificationEmail,
+            to: notificationRecipients,
             subject: adminSubject,
             html: adminHtmlContent,
           }),
