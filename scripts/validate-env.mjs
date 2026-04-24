@@ -110,6 +110,9 @@ if ((has("SUPABASE_URL") || has("NEXT_PUBLIC_SUPABASE_URL") || has("SUPABASE_SER
 warnMissing("RESEND_API_KEY", "Lead notification emails will not send without it.");
 warnMissing("FROM_EMAIL", "Notification emails will use the built-in default sender.");
 warnMissing("NOTIFICATION_EMAIL", "Lead notifications will only send to cfoley@edgpatioshade.com unless more recipients are configured.");
+if (env.ENABLE_LEAD_FOLLOW_UP_EMAILS === "true") {
+  warnings.push("ENABLE_LEAD_FOLLOW_UP_EMAILS is true. Leads will receive an automatic 7-day follow-up email.");
+}
 warnMissing("ADMIN_API_KEY", "Legacy analytics/admin endpoints need this outside local development.");
 warnMissing("GOOGLE_PLACES_API_KEY", "Google review fetch scripts will not run without it.");
 

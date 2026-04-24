@@ -78,6 +78,10 @@ function allowsSupabaseLeadFallback(): boolean {
   return process.env.ALLOW_SUPABASE_LEAD_FALLBACK === 'true';
 }
 
+function allowsLeadFollowUpEmails(): boolean {
+  return process.env.ENABLE_LEAD_FOLLOW_UP_EMAILS === 'true';
+}
+
 interface LeadSubmission {
   email: string;
   firstName: string;
@@ -488,16 +492,20 @@ export async function POST(request: NextRequest) {
         emailLogs.admin = { success: false, error: adminErr.message };
       }
 
-      // 2. Schedule 7-day follow-up email to the lead (non-blocking)
-      scheduleFollowUpEmail(resendApiKey, {
-        email: email.trim().toLowerCase(),
-        firstName: firstName.trim(),
-        lastName: lastName?.trim(),
-        projectType: projectType,
-        source: source,
-      }).catch((err) => {
-        console.error('Follow-up email scheduling error (non-blocking):', err);
-      });
+      if (allowsLeadFollowUpEmails()) {
+        // 2. Schedule 7-day follow-up email to the lead (non-blocking)
+        scheduleFollowUpEmail(resendApiKey, {
+          email: email.trim().toLowerCase(),
+          firstName: firstName.trim(),
+          lastName: lastName?.trim(),
+          projectType: projectType,
+          source: source,
+        }).catch((err) => {
+          console.error('Follow-up email scheduling error (non-blocking):', err);
+        });
+      } else {
+        emailLogs.followUp = { skipped: true, reason: 'disabled' };
+      }
     }
 
     return NextResponse.json(
