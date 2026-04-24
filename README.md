@@ -16,6 +16,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Environment
+
+Copy `.env.example` to `.env.local` for local development. Website lead submissions are routed to Rainmaker with `RAINMAKER_BASE_URL` and `RAINMAKER_API_KEY`.
+
+Supabase is still used by legacy analytics/admin read endpoints. New production leads should not silently fall back to Supabase unless `ALLOW_SUPABASE_LEAD_FALLBACK=true` is intentionally set as a temporary emergency fallback.
+
+Run `npm run env:check` before changing deployment variables.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
