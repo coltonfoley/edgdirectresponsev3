@@ -69,6 +69,14 @@ function getRainmakerLeadIntakeUrl(): string | null {
   return `${process.env.RAINMAKER_BASE_URL.replace(/\/$/, '')}/api/leads/intake`;
 }
 
+function hasRainmakerConfig(): boolean {
+  return !!(getRainmakerLeadIntakeUrl() && process.env.RAINMAKER_API_KEY);
+}
+
+function allowsSupabaseLeadFallback(): boolean {
+  return process.env.ALLOW_SUPABASE_LEAD_FALLBACK === 'true';
+}
+
 interface LeadSubmission {
   email: string;
   firstName: string;
@@ -165,21 +173,32 @@ async function createSupabaseLead(lead: Omit<LeadSubmission, 'fax'>): Promise<Le
 }
 
 async function createLeadRecord(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
-  const hasRainmakerConfig = !!(getRainmakerLeadIntakeUrl() && process.env.RAINMAKER_API_KEY);
-
-  if (hasRainmakerConfig) {
+  if (hasRainmakerConfig()) {
     try {
       return await createRainmakerLead(lead);
     } catch (error) {
       console.error('Rainmaker lead intake failed:', error);
 
-      if (!hasSupabaseConfig()) {
-        throw error;
+      if (allowsSupabaseLeadFallback() && hasSupabaseConfig()) {
+        console.warn('Using explicit Supabase lead fallback after Rainmaker intake failure');
+        return createSupabaseLead(lead);
       }
+
+      throw error;
     }
   }
 
-  return createSupabaseLead(lead);
+  if (allowsSupabaseLeadFallback() && hasSupabaseConfig()) {
+    console.warn('Using explicit Supabase lead fallback because Rainmaker intake is not configured');
+    return createSupabaseLead(lead);
+  }
+
+  if (process.env.NODE_ENV !== 'production' && hasSupabaseConfig()) {
+    console.warn('Using local Supabase lead storage because Rainmaker intake is not configured');
+    return createSupabaseLead(lead);
+  }
+
+  throw new Error('Rainmaker lead intake is not configured');
 }
 
 /**
