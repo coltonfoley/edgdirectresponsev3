@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+Use Node.js 22.x for local development. The repo includes `.nvmrc` and the
+matching `package.json` engine declaration so local installs match CI and
+Vercel.
+
 First, run the development server:
 
 ```bash
