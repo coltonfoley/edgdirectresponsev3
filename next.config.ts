@@ -1,5 +1,18 @@
 import type { NextConfig } from 'next';
 
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://*.hs-scripts.com https://*.hs-analytics.net https://*.hs-banner.com https://*.hsforms.net https://js.usemessages.com https://*.clarity.ms https://static.klaviyo.com https://assets.apollo.io",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https://images.unsplash.com https://image.pollinations.ai https://www.googletagmanager.com https://www.google-analytics.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://*.hubspot.com https://*.hsforms.com https://*.hsforms.net https://*.clarity.ms https://*.klaviyo.com https://*.apollo.io",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "connect-src 'self' https://*.supabase.co https://api.resend.com https://vitals.vercel-insights.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://www.google.com https://www.googleadservices.com https://*.hubspot.com https://*.hsforms.com https://*.hsforms.net https://*.clarity.ms https://*.klaviyo.com https://*.apollo.io",
+  'frame-src https://www.googletagmanager.com https://*.hubspot.com https://*.hsforms.com https://*.hsforms.net',
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+
 const nextConfig: NextConfig = {
   /* config options here */
 
@@ -677,11 +690,12 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+            value:
+              'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://images.unsplash.com https://image.pollinations.ai; font-src 'self'; connect-src 'self' https://*.supabase.co https://api.resend.com https://vitals.vercel-insights.com; frame-src https://www.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
+            value: `${contentSecurityPolicy};`,
           },
         ],
       },

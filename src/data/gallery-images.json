@@ -413,6 +413,55 @@
     "id": "/images/hero/hero-main.jpg"
   },
   {
+    "src": "/images/logos/carmines.png",
+    "width": 1024,
+    "height": 256,
+    "alt": "carmines",
+    "id": "/images/logos/carmines.png"
+  },
+  {
+    "src": "/images/logos/chicago-winery.png",
+    "width": 1800,
+    "height": 197,
+    "alt": "chicago winery",
+    "id": "/images/logos/chicago-winery.png"
+  },
+  {
+    "src": "/images/logos/ike-and-oak.png",
+    "width": 688,
+    "height": 180,
+    "alt": "ike and oak",
+    "id": "/images/logos/ike-and-oak.png"
+  },
+  {
+    "src": "/images/logos/palm-springs-airport.webp",
+    "width": 425,
+    "height": 87,
+    "alt": "palm springs airport",
+    "id": "/images/logos/palm-springs-airport.webp"
+  },
+  {
+    "src": "/images/logos/rosebud.png",
+    "width": 450,
+    "height": 86,
+    "alt": "rosebud",
+    "id": "/images/logos/rosebud.png"
+  },
+  {
+    "src": "/images/logos/the-district.avif",
+    "width": 287,
+    "height": 99,
+    "alt": "the district",
+    "id": "/images/logos/the-district.avif"
+  },
+  {
+    "src": "/images/logos/the-elm.webp",
+    "width": 500,
+    "height": 288,
+    "alt": "the elm",
+    "id": "/images/logos/the-elm.webp"
+  },
+  {
     "src": "/images/misc/frameless-sliding-glass-walls.jpg",
     "width": 1707,
     "height": 2560,
