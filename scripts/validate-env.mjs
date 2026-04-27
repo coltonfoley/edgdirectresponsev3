@@ -68,13 +68,8 @@ function warnMissing(name, reason) {
   }
 }
 
-function hasSupabaseConfig() {
-  return (has("SUPABASE_URL") || has("NEXT_PUBLIC_SUPABASE_URL")) && has("SUPABASE_SERVICE_ROLE_KEY");
-}
-
 const isProduction = value("NODE_ENV") === "production" || value("VERCEL_ENV") === "production";
 const isPreview = value("VERCEL_ENV") === "preview";
-const allowSupabaseFallback = allowValue("ALLOW_SUPABASE_LEAD_FALLBACK", ["true", "false"], "false");
 
 if (isProduction || isPreview) {
   requireVars(["RAINMAKER_API_KEY"], "Website lead capture sends production/preview leads to Rainmaker.");
@@ -83,7 +78,7 @@ if (isProduction || isPreview) {
     "Website lead capture needs the Rainmaker intake URL or Rainmaker base URL."
   );
 } else {
-  warnMissing("RAINMAKER_API_KEY", "Local lead submissions will need Rainmaker unless Supabase fallback is configured.");
+  warnMissing("RAINMAKER_API_KEY", "Local lead submissions need Rainmaker.");
   if (!has("RAINMAKER_LEAD_INTAKE_URL") && !has("RAINMAKER_BASE_URL")) {
     warnings.push("RAINMAKER_BASE_URL or RAINMAKER_LEAD_INTAKE_URL is not set. Local lead submissions may fail.");
   }
@@ -94,17 +89,6 @@ if (
   [value("RAINMAKER_BASE_URL"), value("RAINMAKER_LEAD_INTAKE_URL")].some((url) => url.includes("localhost"))
 ) {
   errors.push("Rainmaker lead intake points at localhost in a deployed environment.");
-}
-
-if (allowSupabaseFallback === "true") {
-  if (!hasSupabaseConfig()) {
-    errors.push("Supabase fallback is enabled, but SUPABASE_URL/NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are not configured.");
-  }
-  warnings.push("ALLOW_SUPABASE_LEAD_FALLBACK is true. Use this only as a temporary emergency fallback.");
-}
-
-if ((has("SUPABASE_URL") || has("NEXT_PUBLIC_SUPABASE_URL") || has("SUPABASE_SERVICE_ROLE_KEY")) && !hasSupabaseConfig()) {
-  errors.push("Supabase is partially configured. Set a Supabase URL plus SUPABASE_SERVICE_ROLE_KEY, or remove the partial config.");
 }
 
 warnMissing("RESEND_API_KEY", "Lead notification emails will not send without it.");
@@ -123,7 +107,6 @@ console.log(
     : "Loaded env files: none; using process environment only."
 );
 console.log(`Runtime target: ${value("VERCEL_ENV", nodeEnv)}`);
-console.log(`Supabase fallback: ${allowSupabaseFallback}`);
 
 if (warnings.length) {
   console.log("\nWarnings:");

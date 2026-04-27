@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
+import { fetchRainmakerLeads, getRainmakerLeadIntakeUrl, toLegacyLead } from '@/lib/rainmaker-api';
 
 // Simple in-memory rate limiter
 // For production with high traffic, use Redis instead
@@ -31,51 +31,8 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
-// Initialize Supabase Admin Client (lazy singleton to avoid crash if env vars missing at import time)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let _supabase: any = null;
-
-function getSupabase() {
-  if (!_supabase) {
-    const supabaseUrl =
-      process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-    if (!supabaseUrl || !supabaseServiceKey) {
-      throw new Error(
-        'Missing Supabase credentials: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY'
-      );
-    }
-    _supabase = createClient(supabaseUrl, supabaseServiceKey);
-  }
-  return _supabase;
-}
-
-function hasSupabaseConfig(): boolean {
-  return !!(
-    (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL) &&
-    process.env.SUPABASE_SERVICE_ROLE_KEY
-  );
-}
-
-function getRainmakerLeadIntakeUrl(): string | null {
-  if (process.env.RAINMAKER_LEAD_INTAKE_URL) {
-    return process.env.RAINMAKER_LEAD_INTAKE_URL;
-  }
-
-  if (!process.env.RAINMAKER_BASE_URL) {
-    return null;
-  }
-
-  return `${process.env.RAINMAKER_BASE_URL.replace(/\/$/, '')}/api/leads/intake`;
-}
-
 function hasRainmakerConfig(): boolean {
   return !!(getRainmakerLeadIntakeUrl() && process.env.RAINMAKER_API_KEY);
-}
-
-function allowsSupabaseLeadFallback(): boolean {
-  return process.env.ALLOW_SUPABASE_LEAD_FALLBACK === 'true';
 }
 
 function allowsLeadFollowUpEmails(): boolean {
@@ -98,7 +55,7 @@ interface LeadSubmission {
 interface LeadRecord {
   id: string;
   created_at: string;
-  storage: 'rainmaker' | 'supabase';
+  storage: 'rainmaker';
 }
 
 function validateEmail(email: string): boolean {
@@ -176,61 +133,9 @@ async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<L
   };
 }
 
-async function createSupabaseLead(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
-  const supabase = getSupabase();
-  const { data, error } = await supabase
-    .from('leads')
-    .insert([
-      {
-        email: lead.email.trim().toLowerCase(),
-        first_name: lead.firstName.trim(),
-        last_name: lead.lastName?.trim(),
-        phone: lead.phone?.trim(),
-        location: lead.location?.trim(),
-        project_type: lead.projectType,
-        message: lead.message?.trim(),
-        source: lead.source || 'guide-landing-page',
-        customer_type: lead.customerType,
-      },
-    ])
-    .select()
-    .single();
-
-  if (error) {
-    throw error;
-  }
-
-  return {
-    id: data.id,
-    created_at: data.created_at,
-    storage: 'supabase',
-  };
-}
-
 async function createLeadRecord(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
   if (hasRainmakerConfig()) {
-    try {
-      return await createRainmakerLead(lead);
-    } catch (error) {
-      console.error('Rainmaker lead intake failed:', error);
-
-      if (allowsSupabaseLeadFallback() && hasSupabaseConfig()) {
-        console.warn('Using explicit Supabase lead fallback after Rainmaker intake failure');
-        return createSupabaseLead(lead);
-      }
-
-      throw error;
-    }
-  }
-
-  if (allowsSupabaseLeadFallback() && hasSupabaseConfig()) {
-    console.warn('Using explicit Supabase lead fallback because Rainmaker intake is not configured');
-    return createSupabaseLead(lead);
-  }
-
-  if (process.env.NODE_ENV !== 'production' && hasSupabaseConfig()) {
-    console.warn('Using local Supabase lead storage because Rainmaker intake is not configured');
-    return createSupabaseLead(lead);
+    return createRainmakerLead(lead);
   }
 
   throw new Error('Rainmaker lead intake is not configured');
@@ -559,19 +464,18 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const supabase = getSupabase();
-  const { data, error } = await supabase
-    .from('leads')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(100);
+  try {
+    const leads = (await fetchRainmakerLeads({ status: 'all', limit: 100 })).map(toLegacyLead);
 
-  if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({
+      total: leads.length,
+      leads,
+    });
+  } catch (error: any) {
+    console.error('Lead admin read error:', error);
+    return NextResponse.json(
+      { error: error.message || 'Failed to fetch leads from Rainmaker' },
+      { status: 500 }
+    );
   }
-
-  return NextResponse.json({
-    total: data.length,
-    leads: data,
-  });
 }

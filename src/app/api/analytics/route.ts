@@ -1,39 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createClient } from '@supabase/supabase-js';
-
-// Lazy singleton to avoid crash if env vars missing at import time
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let _supabase: any = null;
-
-function getSupabase() {
-  if (!_supabase) {
-    const supabaseUrl =
-      process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-    if (!supabaseUrl || !supabaseServiceKey) {
-      throw new Error(
-        'Missing Supabase credentials: SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY'
-      );
-    }
-    _supabase = createClient(supabaseUrl, supabaseServiceKey);
-  }
-  return _supabase;
-}
-
-interface Lead {
-  id: string;
-  email: string;
-  first_name: string;
-  last_name?: string;
-  phone?: string;
-  location?: string;
-  project_type?: string;
-  message?: string;
-  source?: string;
-  customer_type?: string;
-  created_at: string;
-}
+import { fetchRainmakerLeads, toLegacyLead, type LegacyLead } from '@/lib/rainmaker-api';
 
 function getDateRange(period: string): Date {
   const now = new Date();
@@ -51,12 +17,35 @@ function getDateRange(period: string): Date {
   }
 }
 
-export async function GET(request: NextRequest) {
-  // Auth check
+function requireAdmin(request: NextRequest) {
   const authHeader = request.headers.get('x-admin-key');
   const adminKey = process.env.ADMIN_API_KEY || 'dev-secret-key';
 
-  if (process.env.NODE_ENV === 'production' && authHeader !== adminKey) {
+  return process.env.NODE_ENV !== 'production' || authHeader === adminKey;
+}
+
+function countBy<T extends string>(leads: LegacyLead[], getValue: (lead: LegacyLead) => T | undefined) {
+  const counts: Record<string, number> = {};
+
+  leads.forEach((lead) => {
+    const key = getValue(lead) || 'unknown';
+    counts[key] = (counts[key] || 0) + 1;
+  });
+
+  return counts;
+}
+
+function toSortedEntries<TLabel extends string>(
+  counts: Record<string, number>,
+  labelKey: TLabel,
+) {
+  return Object.entries(counts)
+    .map(([label, count]) => ({ [labelKey]: label, count }) as Record<TLabel, string> & { count: number })
+    .sort((a, b) => b.count - a.count);
+}
+
+export async function GET(request: NextRequest) {
+  if (!requireAdmin(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -65,73 +54,24 @@ export async function GET(request: NextRequest) {
   const startDate = getDateRange(period);
 
   try {
-    // Fetch all leads
-    const supabase = getSupabase();
-    const { data: allLeads, error: allError } = await supabase
-      .from('leads')
-      .select('*')
-      .order('created_at', { ascending: false });
+    const allLeads = (await fetchRainmakerLeads({ status: 'all', limit: 200 })).map(toLegacyLead);
+    const leads = allLeads.filter((lead) => new Date(lead.created_at) >= startDate);
 
-    if (allError) throw allError;
+    const bySource = countBy(leads, (lead) => lead.source);
+    const byCustomerType = countBy(leads, (lead) => lead.customer_type);
+    const byProjectType = countBy(leads, (lead) => lead.project_type);
+    const byLocation = countBy(leads, (lead) => lead.location);
 
-    // Fetch leads within period
-    const { data: periodLeads, error: periodError } = await supabase
-      .from('leads')
-      .select('*')
-      .gte('created_at', startDate.toISOString())
-      .order('created_at', { ascending: false });
-
-    if (periodError) throw periodError;
-
-    const leads = periodLeads as Lead[];
-    const allLeadsTyped = allLeads as Lead[];
-
-    // Aggregate by source
-    const bySource: Record<string, number> = {};
-    leads.forEach((lead) => {
-      const source = lead.source || 'unknown';
-      bySource[source] = (bySource[source] || 0) + 1;
-    });
-
-    // Aggregate by customer type
-    const byCustomerType: Record<string, number> = {};
-    leads.forEach((lead) => {
-      const type = lead.customer_type || 'unknown';
-      byCustomerType[type] = (byCustomerType[type] || 0) + 1;
-    });
-
-    // Aggregate by project type
-    const byProjectType: Record<string, number> = {};
-    leads.forEach((lead) => {
-      const type = lead.project_type || 'unknown';
-      byProjectType[type] = (byProjectType[type] || 0) + 1;
-    });
-
-    // Aggregate by location (for service area insights)
-    const byLocation: Record<string, number> = {};
-    leads.forEach((lead) => {
-      const location = lead.location || 'unknown';
-      byLocation[location] = (byLocation[location] || 0) + 1;
-    });
-
-    // Daily breakdown for chart
-    const dailyBreakdown: Record<string, number> = {};
-    leads.forEach((lead) => {
-      const date = lead.created_at.split('T')[0];
-      dailyBreakdown[date] = (dailyBreakdown[date] || 0) + 1;
-    });
-
-    // Sort daily breakdown by date
+    const dailyBreakdown = countBy(leads, (lead) => lead.created_at.split('T')[0]);
     const sortedDaily = Object.entries(dailyBreakdown)
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([date, count]) => ({ date, count }));
 
-    // Calculate trends (compare to previous period)
     const previousPeriodStart = new Date(startDate);
     const periodLength = Date.now() - startDate.getTime();
     previousPeriodStart.setTime(previousPeriodStart.getTime() - periodLength);
 
-    const previousPeriodLeads = allLeadsTyped.filter((lead) => {
+    const previousPeriodLeads = allLeads.filter((lead) => {
       const created = new Date(lead.created_at);
       return created >= previousPeriodStart && created < startDate;
     });
@@ -150,19 +90,11 @@ export async function GET(request: NextRequest) {
       totalLeads: currentCount,
       previousPeriodLeads: previousCount,
       trendPercentage: Math.round(trend),
-      allTimeLeads: allLeadsTyped.length,
-      bySource: Object.entries(bySource)
-        .map(([source, count]) => ({ source, count }))
-        .sort((a, b) => b.count - a.count),
-      byCustomerType: Object.entries(byCustomerType)
-        .map(([type, count]) => ({ type, count }))
-        .sort((a, b) => b.count - a.count),
-      byProjectType: Object.entries(byProjectType)
-        .map(([type, count]) => ({ type, count }))
-        .sort((a, b) => b.count - a.count),
-      byLocation: Object.entries(byLocation)
-        .map(([location, count]) => ({ location, count }))
-        .sort((a, b) => b.count - a.count),
+      allTimeLeads: allLeads.length,
+      bySource: toSortedEntries(bySource, 'source'),
+      byCustomerType: toSortedEntries(byCustomerType, 'type'),
+      byProjectType: toSortedEntries(byProjectType, 'type'),
+      byLocation: toSortedEntries(byLocation, 'location'),
       dailyBreakdown: sortedDaily,
       recentLeads: leads.slice(0, 10).map((lead) => ({
         id: lead.id,
@@ -178,8 +110,8 @@ export async function GET(request: NextRequest) {
   } catch (error: any) {
     console.error('Analytics error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch analytics' },
-      { status: 500 }
+      { error: error.message || 'Failed to fetch Rainmaker analytics' },
+      { status: 500 },
     );
   }
 }

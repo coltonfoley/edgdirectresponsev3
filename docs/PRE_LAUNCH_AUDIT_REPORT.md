@@ -31,7 +31,7 @@ Add to `next.config.ts` (around line 497):
 ```typescript
 {
   key: 'Content-Security-Policy',
-  value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://image.pollinations.ai; font-src 'self'; connect-src 'self' https://*.supabase.co https://api.resend.com https://vitals.vercel-insights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
+  value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://image.pollinations.ai; font-src 'self'; connect-src 'self' https://api.resend.com https://vitals.vercel-insights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';",
 },
 {
   key: 'Strict-Transport-Security',
@@ -52,10 +52,6 @@ Create/update `.env.local` with:
 # Rainmaker lead intake
 RAINMAKER_BASE_URL=your_rainmaker_url
 RAINMAKER_API_KEY=your_rainmaker_api_key
-
-# Supabase fallback during migration
-SUPABASE_URL=your_supabase_url
-SUPABASE_SERVICE_ROLE_KEY=your_service_key
 
 # Email
 RESEND_API_KEY=your_resend_key

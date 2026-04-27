@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 Copy `.env.example` to `.env.local` for local development. Website lead submissions are routed to Rainmaker with `RAINMAKER_BASE_URL` and `RAINMAKER_API_KEY`.
 
-Supabase is still used by legacy analytics/admin read endpoints. New production leads should not silently fall back to Supabase unless `ALLOW_SUPABASE_LEAD_FALLBACK=true` is intentionally set as a temporary emergency fallback.
+Website leads and lead analytics now use Rainmaker as the source of truth.
 
 Run `npm run env:check` before changing deployment variables.
 
