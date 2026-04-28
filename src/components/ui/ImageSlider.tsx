@@ -27,6 +27,7 @@ export function ImageSlider({
 }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [canLoadAllImages, setCanLoadAllImages] = useState(false);
   const [isLoaded, setIsLoaded] = useState<boolean[]>(new Array(images.length).fill(false));
 
   useEffect(() => {
@@ -43,14 +44,37 @@ export function ImageSlider({
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion || images.length <= 1) return;
+    if (prefersReducedMotion || !canLoadAllImages || images.length <= 1) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, interval * 1000);
 
     return () => clearInterval(timer);
-  }, [interval, images.length, prefersReducedMotion]);
+  }, [canLoadAllImages, interval, images.length, prefersReducedMotion]);
+
+  useEffect(() => {
+    if (prefersReducedMotion || images.length <= 1) {
+      return;
+    }
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(
+        () => {
+          setCanLoadAllImages(true);
+        },
+        { timeout: 2500 }
+      );
+
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timer = globalThis.setTimeout(() => {
+      setCanLoadAllImages(true);
+    }, 2500);
+
+    return () => globalThis.clearTimeout(timer);
+  }, [images.length, prefersReducedMotion]);
 
   const handleImageLoad = (index: number) => {
     setIsLoaded((prev) => {
@@ -85,18 +109,20 @@ export function ImageSlider({
             index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className={`object-cover transition-transform duration-700 ${
-              index === currentIndex ? 'scale-100' : 'scale-105'
-            }`}
-            sizes={sizes}
-            priority={priority && index === 0}
-            quality={75}
-            onLoad={() => handleImageLoad(index)}
-          />
+          {index === 0 || canLoadAllImages ? (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={`object-cover transition-transform duration-700 ${
+                index === currentIndex ? 'scale-100' : 'scale-105'
+              }`}
+              sizes={sizes}
+              priority={priority && index === 0}
+              quality={65}
+              onLoad={() => handleImageLoad(index)}
+            />
+          ) : null}
         </div>
       ))}
 
@@ -106,15 +132,22 @@ export function ImageSlider({
           {images.map((_, index) => (
             <button
               key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex
-                  ? 'bg-white w-6'
-                  : 'bg-white/50 hover:bg-white/75'
-              }`}
+              onClick={() => {
+                setCanLoadAllImages(true);
+                setCurrentIndex(index);
+              }}
+              className="flex h-11 w-11 items-center justify-center"
               aria-label={`Go to slide ${index + 1}`}
               aria-current={index === currentIndex ? 'true' : 'false'}
-            />
+            >
+              <span
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-6 bg-white'
+                    : 'w-2 bg-white/60 hover:bg-white/80'
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}

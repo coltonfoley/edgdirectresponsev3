@@ -68,7 +68,6 @@ export default function Home() {
         <div className="absolute inset-0 z-0 bg-black">
           <HeroBackgroundMedia
             poster={images.brand.hero.pergola}
-            videoSrc={images.pages.home.heroVideo}
             alt="Motorized pergola installation"
           />
         </div>
@@ -140,8 +139,8 @@ export default function Home() {
                 alt="Motorized pergola installation"
                 fill
                 className="object-cover opacity-60 grayscale transition-all duration-700 group-hover:opacity-40 group-hover:grayscale-0"
-                sizes="50vw"
-                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={60}
               />
             </div>
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -168,8 +167,8 @@ export default function Home() {
                 alt="Motorized retractable screens on patio"
                 fill
                 className="object-cover opacity-60 transition-opacity duration-700 group-hover:opacity-40"
-                sizes="50vw"
-                quality={75}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={60}
               />
             </div>
             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500"></div>
@@ -208,7 +207,7 @@ export default function Home() {
                 images={pergolaSliderImages}
                 interval={6}
                 className="relative aspect-[4/3] bg-gray-100"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 608px"
               />
               <div>
                 <div className="label-editorial-brand mb-4">Core Product</div>
@@ -252,7 +251,7 @@ export default function Home() {
                 images={screenSliderImages}
                 interval={6}
                 className="md:order-2 relative aspect-[4/3] bg-gray-100"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 608px"
               />
               <div className="md:order-1">
                 <div className="label-editorial-brand mb-4">Core Product</div>
@@ -279,10 +278,10 @@ export default function Home() {
               <h2 className="text-4xl font-bold tracking-tighter mb-8 max-w-sm">
                 We are not a &quot;Jack of all trades.&quot;
               </h2>
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed">
+              <p className="text-lg text-zinc-700 mb-8 leading-relaxed">
                 Most exterior companies do decks, pavers, pools, and &quot;oh yeah, we can do a pergola.&quot;
               </p>
-              <p className="text-lg text-text-secondary border-l-2 border-edg-brand pl-6 italic">
+              <p className="text-lg text-zinc-700 border-l-2 border-edg-brand pl-6 italic">
                 &quot;EDG is different. We specialize exclusively in motorized architectural systems. It&apos;s all we do.&quot;
               </p>
             </div>
