@@ -189,6 +189,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/progressive-screens/:path*',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      {
         source: '/sunshadescreen',
         destination: '/systems/shades',
         permanent: true,
@@ -237,8 +242,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/appliances',
+        destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
+        source: '/outdoor-appliances',
+        destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
         source: '/copy-of-yoder-smokers',
         destination: '/systems/appliances',
+        permanent: true,
+      },
+      {
+        source: '/copy-of-products',
+        destination: '/systems',
         permanent: true,
       },
       {
@@ -515,6 +535,11 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/project-gallery',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/portfolio',
         destination: '/projects',
         permanent: true,
       },

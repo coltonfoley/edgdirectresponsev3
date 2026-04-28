@@ -7,6 +7,8 @@ const GONE_PATHS = new Set([
   '/custom-aluminum-pergola-south-bend-indiana',
   '/top-rated-custom-aluminum-pergola-minneapolis-minnesota',
   '/custom-aluminum-pergola-minneapolis-minnesota',
+  '/owlee',
+  '/prismhardscapes',
 ]);
 
 export function middleware(request: NextRequest) {
