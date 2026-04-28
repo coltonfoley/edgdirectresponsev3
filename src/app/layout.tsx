@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from 'next';
-import { GoogleTagManager } from '@next/third-parties/google';
 import { Barlow } from 'next/font/google';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@vercel/analytics/react';
+import { DeferredGoogleTagManager } from '@/components/analytics/DeferredGoogleTagManager';
 
 const barlow = Barlow({
   variable: '--font-barlow',
@@ -160,7 +160,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <GoogleTagManager gtmId="GTM-MJWNZD3F" />
+        <DeferredGoogleTagManager gtmId="GTM-MJWNZD3F" />
         <SpeedInsights />
         <Analytics />
       </body>

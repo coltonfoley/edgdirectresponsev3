@@ -40,9 +40,9 @@ export function HeroFormClient() {
         <div className="bg-edg-brand mx-auto mb-6 flex h-16 w-16 items-center justify-center text-black">
           <Check className="h-8 w-8" />
         </div>
-        <h3 className="mb-2 text-2xl font-bold text-white">
+        <h2 className="mb-2 text-2xl font-bold text-white">
           Message Received
-        </h3>
+        </h2>
         <p className="text-gray-300">
           We&apos;ll be in touch shortly to discuss your project.
         </p>
@@ -53,7 +53,7 @@ export function HeroFormClient() {
   return (
     <div className="w-full max-w-md bg-black/80 p-8 border border-white/10 shadow-2xl backdrop-blur-sm">
       <div className="mb-6 text-white">
-        <h3 className="text-xl font-bold uppercase tracking-wide">Request Information</h3>
+        <h2 className="text-xl font-bold uppercase tracking-wide">Request Information</h2>
         <p className="text-sm text-zinc-300">Get pricing or verify feasibility for your project.</p>
       </div>
       <form
@@ -62,18 +62,24 @@ export function HeroFormClient() {
       >
         <div className="grid grid-cols-2 gap-4">
           <input
+            id="hero-first-name"
             type="text"
             name="firstName"
             placeholder="First Name"
+            aria-label="First name"
+            autoComplete="given-name"
             required
             disabled={loading}
             onChange={handleChange}
             className="input-editorial-dark"
           />
           <input
+            id="hero-last-name"
             type="text"
             name="lastName"
             placeholder="Last Name"
+            aria-label="Last name"
+            autoComplete="family-name"
             required
             disabled={loading}
             onChange={handleChange}
@@ -81,25 +87,34 @@ export function HeroFormClient() {
           />
         </div>
         <input
+          id="hero-email"
           type="email"
           name="email"
           placeholder="Email Address"
+          aria-label="Email address"
+          autoComplete="email"
           required
           disabled={loading}
           onChange={handleChange}
           className="input-editorial-dark"
         />
         <input
+          id="hero-location"
           type="text"
           name="location"
           placeholder="Zip Code"
+          aria-label="Project zip code"
+          autoComplete="postal-code"
+          inputMode="numeric"
           required
           disabled={loading}
           onChange={handleChange}
           className="input-editorial-dark"
         />
         <select
+          id="hero-project-type"
           name="projectType"
+          aria-label="Project type"
           required
           disabled={loading}
           onChange={handleChange}

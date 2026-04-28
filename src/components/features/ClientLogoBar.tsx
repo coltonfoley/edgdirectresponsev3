@@ -31,7 +31,7 @@ export function ClientLogoBar() {
       `}</style>
 
       <Container>
-        <p className="mb-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+        <p className="mb-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-zinc-600">
           Trusted by leading brands
         </p>
       </Container>
@@ -49,7 +49,8 @@ export function ClientLogoBar() {
                 alt={logo.alt}
                 fill
                 className="object-contain grayscale opacity-50 transition-opacity duration-200 hover:opacity-80"
-                sizes="176px"
+                sizes="144px"
+                quality={60}
               />
             </div>
           ))}
