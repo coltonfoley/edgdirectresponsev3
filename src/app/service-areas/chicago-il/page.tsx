@@ -93,7 +93,7 @@ const solutions = [
     title: 'Glass Enclosures',
     description:
       'For four-season spaces where you want to keep views and daylight while protecting a city terrace or outdoor room from the elements.',
-    href: '/systems/enclosures',
+    href: '/service-areas/chicago-il/glass-enclosures',
   },
 ];
 
@@ -469,8 +469,8 @@ export default function ChicagoServiceAreaPage() {
                   </li>
                   <li className="flex items-center gap-3">
                     <Building2 className="h-4 w-4 text-edg-brand" />
-                    <Link href="/commercial/chicago-hospitality-outdoor-living">
-                      Chicago commercial projects
+                    <Link href="/service-areas/chicago-il/glass-enclosures">
+                      Glass Patio Enclosures in Chicago
                     </Link>
                   </li>
                 </ul>

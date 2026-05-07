@@ -628,6 +628,7 @@ export default function EnclosuresPage() {
           <div className="text-center">
             <p className="text-text-secondary mb-4">Looking for glass enclosure installation in your area?</p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <Link href="/service-areas/chicago-il/glass-enclosures" className="text-edg-brand-text hover:underline">Chicago glass enclosures</Link>
               <Link href="/service-areas/lake-county-il" className="text-edg-brand-text hover:underline">Lake Forest</Link>
               <Link href="/service-areas/wilmette-il" className="text-edg-brand-text hover:underline">Wilmette</Link>
               <Link href="/service-areas/lake-county-il" className="text-edg-brand-text hover:underline">Highland Park</Link>

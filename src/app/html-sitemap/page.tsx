@@ -70,6 +70,15 @@ const sitemapLinks = [
         href: '/service-areas/chicago-il/retractable-screens',
         label: 'Chicago Retractable Screens',
       },
+      {
+        href: '/service-areas/chicago-il/glass-enclosures',
+        label: 'Chicago Glass Patio Enclosures',
+      },
+      { href: '/service-areas/deerfield-il', label: 'Deerfield, IL' },
+      {
+        href: '/service-areas/deerfield-il/retractable-screens',
+        label: 'Deerfield Retractable Screens',
+      },
       { href: '/service-areas/wilmette-il', label: 'Wilmette, IL' },
       { href: '/service-areas/winnetka-il', label: 'Winnetka, IL' },
       { href: '/service-areas/northbrook-il', label: 'Northbrook, IL' },
@@ -86,6 +95,11 @@ const sitemapLinks = [
     links: [
       { href: '/guides', label: 'Knowledge Base' },
       { href: '/guides/planning-guide', label: 'Planning Guide' },
+      { href: '/guides/pergola-cost', label: 'Pergola Cost Guide' },
+      {
+        href: '/guides/magnatrack-screens-cost',
+        label: 'MagnaTrack Screens Cost Guide',
+      },
       { href: '/privacy', label: 'Privacy Policy' },
       { href: '/terms', label: 'Terms of Service' },
     ],

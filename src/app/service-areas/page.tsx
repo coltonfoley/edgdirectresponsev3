@@ -52,6 +52,13 @@ const serviceAreas = [
     region: 'North Shore',
   },
   {
+    name: 'Deerfield, IL',
+    slug: 'deerfield-il',
+    description:
+      'Motorized patio screens and outdoor living systems for North Shore homes that need privacy, bug control, and wind protection.',
+    region: 'North Shore',
+  },
+  {
     name: 'Barrington, IL',
     slug: 'barrington-il',
     description:

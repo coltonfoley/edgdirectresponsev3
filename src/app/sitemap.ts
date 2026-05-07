@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/service-areas/hinsdale-il', priority: 0.8 },
     { url: '/service-areas/sanibel-outdoor-living', priority: 0.8 },
     { url: '/service-areas/northbrook-il', priority: 0.8 },
+    { url: '/service-areas/deerfield-il', priority: 0.8 },
     { url: '/service-areas/wilmette-il', priority: 0.8 },
     { url: '/service-areas/winnetka-il', priority: 0.8 },
     // Deep Links
@@ -62,6 +63,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/service-areas/barrington-il/motorized-pergolas', priority: 0.8 },
     { url: '/service-areas/chicago-il/motorized-pergolas', priority: 0.9 },
     { url: '/service-areas/chicago-il/retractable-screens', priority: 0.9 },
+    { url: '/service-areas/chicago-il/glass-enclosures', priority: 0.9 },
+    { url: '/service-areas/deerfield-il/retractable-screens', priority: 0.9 },
     { url: '/service-areas/northbrook-il/motorized-pergolas', priority: 0.8 },
     { url: '/service-areas/naperville-il/motorized-pergolas', priority: 0.8 },
     // New Guides
@@ -70,6 +73,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/guides/pergola-vs-patio-cover', priority: 0.8 },
     { url: '/guides/louvered-pergola-brands-compared', priority: 0.8 },
     { url: '/guides/pergola-cost', priority: 0.9 },
+    { url: '/guides/magnatrack-screens-cost', priority: 0.9 },
 
     // New Commercial Pages
     { url: '/commercial/hotel-pergolas', priority: 0.9 },

@@ -222,6 +222,15 @@ export default function NorthShoreHubPage() {
                 </Card>
               ))}
             </div>
+            <div className="mt-8 text-center">
+              <Link
+                href="/service-areas/deerfield-il/retractable-screens"
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text transition-colors hover:text-edg-brand"
+              >
+                Deerfield homeowners: see motorized retractable patio screens
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </FadeIn>
         </Container>
       </Section>

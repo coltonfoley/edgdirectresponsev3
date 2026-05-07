@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Link } from '@/components/ui/Link';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { BookOpen, Scale, ArrowRight, Library, Layers, FileText, DollarSign } from 'lucide-react';
+import { BookOpen, Scale, ArrowRight, Library, Layers, FileText, DollarSign, Wind } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Knowledge Base | Guides & Resources',
@@ -29,6 +29,13 @@ const guides = [
     href: '/guides/pergola-cost',
     icon: DollarSign,
     readTime: '12 min read',
+  },
+  {
+    title: 'MagnaTrack Screens Cost Guide 2026',
+    desc: 'Budget ranges and planning factors for motorized patio screens, outdoor shades, and screen retrofits.',
+    href: '/guides/magnatrack-screens-cost',
+    icon: Wind,
+    readTime: '9 min read',
   },
   {
     title: 'The Complete Guide to Louvered Pergolas',

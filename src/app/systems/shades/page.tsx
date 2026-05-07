@@ -11,6 +11,7 @@ import { IconWrapper } from '@/components/ui/IconWrapper';
 import * as images from '@/lib/images';
 import {
   ArrowRight,
+  DollarSign,
   Wind,
   Sun,
   Eye,
@@ -22,12 +23,12 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Motorized Retractable Screens | Exterior Shades | EDG',
-  description: 'MagnaTrack motorized screens with self-correcting track technology. Block wind, bugs, and UV while keeping your view. Design & supply nationwide, installation Chicago-Milwaukee.',
+  title: 'MagnaTrack Motorized Screens & Cost Guide | Exterior Shades | EDG',
+  description: 'MagnaTrack motorized screens and exterior shades with cost guidance, self-correcting track technology, wind control, bug protection, and UV shade.',
   keywords: ['motorized screens', 'retractable screens', 'patio screens', 'exterior shades', 'magnaTrack screens', 'outdoor screens'],
   openGraph: {
-    title: 'Motorized Retractable Screens | Exterior Shades | EDG',
-    description: 'MagnaTrack motorized screens with self-correcting track technology. Block wind, bugs, and UV while keeping your view.',
+    title: 'MagnaTrack Motorized Screens & Exterior Shades | EDG',
+    description: 'MagnaTrack motorized screens with cost guidance and self-correcting track technology. Block wind, bugs, and UV while keeping your view.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -180,9 +181,9 @@ const relatedProducts = [
     href: '/systems/enclosures',
   },
   {
-    name: 'Outdoor Heating',
-    description: 'Infrared heaters and fire features to extend your season.',
-    href: '/systems/appliances',
+    name: 'Screen Cost Guide',
+    description: 'Budget ranges for MagnaTrack motorized screens and patio screen retrofits.',
+    href: '/guides/magnatrack-screens-cost',
   },
 ];
 
@@ -333,6 +334,12 @@ export default function ShadesPage() {
                   >
                     Comparing city installers? See our Chicago retractable screen page.
                   </Link>
+                  <Link
+                    href="/guides/magnatrack-screens-cost"
+                    className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                  >
+                    Need budget ranges? Read the MagnaTrack screens cost guide.
+                  </Link>
                 </div>
 
                 {/* Quick Specs */}
@@ -456,6 +463,50 @@ export default function ShadesPage() {
                     ))}
                   </tbody>
                 </table>
+              </Card>
+            </div>
+          </Container>
+        </Section>
+
+        {/* ========== COST PLANNING ========== */}
+        <Section className="section-md border-t border-black/5">
+          <Container>
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">Cost Planning</div>
+                <h2 className="section-title mb-6">
+                  What do MagnaTrack motorized screens cost?
+                </h2>
+                <div className="space-y-4 text-text-secondary leading-relaxed">
+                  <p>
+                    Screen pricing depends on opening width, height, fabric, housing
+                    details, controls, wiring, and how cleanly the tracks can mount to
+                    the structure. A single opening often starts around $3,500 to
+                    $8,000+, while a full patio or pergola screen package commonly
+                    moves into a larger custom budget.
+                  </p>
+                  <p>
+                    We built a dedicated cost guide because online kit pricing rarely
+                    tells the whole story. A wind-exposed patio, roof deck, restaurant
+                    opening, or recessed housing detail needs a different level of
+                    planning than a basic drop screen.
+                  </p>
+                </div>
+              </div>
+              <Card variant="muted" padding="lg">
+                <DollarSign className="mb-4 h-6 w-6 text-edg-brand-text" />
+                <h3 className="mb-3 text-xl font-bold">Compare the real cost drivers</h3>
+                <p className="mb-6 leading-relaxed text-text-secondary">
+                  See planning ranges, what changes the quote, and when a
+                  MagnaTrack-style system is worth the premium.
+                </p>
+                <Link
+                  href="/guides/magnatrack-screens-cost"
+                  className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-text-primary transition-colors hover:text-edg-brand-text"
+                >
+                  Read Screen Cost Guide
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </Card>
             </div>
           </Container>

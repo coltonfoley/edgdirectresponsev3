@@ -21,9 +21,9 @@ import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Retractable Screens in Chicago, IL | Motorized Patio Screens | EDG',
+  title: 'Outdoor Shades & Retractable Screens in Chicago, IL | EDG',
   description:
-    'Motorized retractable screens for Chicago patios, pergolas, and outdoor rooms. Reduce wind, glare, bugs, and privacy issues on dense city lots.',
+    'Outdoor shades and motorized retractable screens for Chicago patios, pergolas, and roof decks. Reduce wind, glare, bugs, and privacy issues.',
   alternates: {
     canonical: '/service-areas/chicago-il/retractable-screens',
   },
@@ -165,10 +165,10 @@ export default function ChicagoScreensPage() {
             </Link>
             <div className="max-w-4xl">
               <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-                Retractable Screens in Chicago
+                Outdoor Shades and Retractable Screens in Chicago
               </h1>
               <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
-                Motorized screens for city patios, pergolas, and outdoor rooms that
+                Motorized patio screens and outdoor shades for city patios, pergolas, and outdoor rooms that
                 need better comfort, privacy, and glare control without losing the view.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -397,6 +397,10 @@ export default function ChicagoScreensPage() {
                   <Link href="/systems/shades" className="flex items-center gap-3">
                     <ShieldCheck className="h-4 w-4 text-edg-brand" />
                     Full screen specs and fabric options
+                  </Link>
+                  <Link href="/guides/magnatrack-screens-cost" className="flex items-center gap-3">
+                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                    MagnaTrack screens cost guide
                   </Link>
                   <Link href="/service-areas/chicago-il/motorized-pergolas" className="flex items-center gap-3">
                     <ArrowRight className="h-4 w-4 text-edg-brand" />

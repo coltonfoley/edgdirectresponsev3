@@ -20,9 +20,9 @@ import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Motorized Pergolas in Chicago, IL | Louvered Roof Systems | EDG',
+  title: 'Chicago Pergola Installer | Motorized Louvered Roofs | EDG',
   description:
-    'Custom motorized pergolas for Chicago patios and roof decks. Built for wind, rain, and snow with layouts that fit tight city lots.',
+    'Chicago pergola installer for custom motorized louvered roofs. Built for patios, roof decks, wind, rain, snow, and tight city lots.',
   alternates: {
     canonical: '/service-areas/chicago-il/motorized-pergolas',
   },
@@ -164,15 +164,15 @@ export default function ChicagoPergolasPage() {
             </Link>
             <div className="max-w-4xl">
               <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-                Motorized Pergolas in Chicago
+                Chicago Pergola Installer for Motorized Louvered Roofs
               </h1>
               <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
-                Louvered roof systems for city patios, roof decks, and backyard
+                Louvered roof pergola systems for city patios, roof decks, and backyard
                 spaces that need shade, rain control, and a more finished outdoor room.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/contact?source=chicago_pergolas">
-                  <Button size="lg">Get a Pergola Design Proposal</Button>
+                    <Button size="lg">Get a Pergola Installation Review</Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
                   <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
