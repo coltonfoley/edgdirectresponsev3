@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Main pages from project structure
   const routes = [
-    { url: '', priority: 1.0 },
+    { url: '/', priority: 1.0 },
     { url: '/systems/pergolas', priority: 0.9 },
     { url: '/systems/pergolas/configure', priority: 0.85 },
     { url: '/systems/shades', priority: 0.9 },
@@ -88,7 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const staticPages = routes.map((route) => ({
-    url: `${baseUrl}${route.url}`,
+    url: route.url === '/' ? `${baseUrl}/` : `${baseUrl}${route.url}`,
     lastModified: undefined, // Remove dynamic date to prevent churn
     changeFrequency: 'weekly' as const,
     priority: route.priority,
