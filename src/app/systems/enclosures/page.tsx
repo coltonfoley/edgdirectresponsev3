@@ -273,6 +273,12 @@ export default function EnclosuresPage() {
                     Speak to a designer
                   </div>
                 </TrackedPhoneLink>
+                <Link
+                  href="/service-areas/chicago-il/glass-enclosures"
+                  className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                >
+                  Planning in the city? See our Chicago glass enclosure page.
+                </Link>
               </div>
 
               {/* Quick Specs */}

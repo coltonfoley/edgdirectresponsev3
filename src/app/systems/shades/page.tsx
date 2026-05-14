@@ -185,6 +185,11 @@ const relatedProducts = [
     description: 'Budget ranges for MagnaTrack motorized screens and patio screen retrofits.',
     href: '/guides/magnatrack-screens-cost',
   },
+  {
+    name: 'Deerfield Screens',
+    description: 'Local screen planning for North Shore patios, porches, and outdoor rooms.',
+    href: '/service-areas/deerfield-il/retractable-screens',
+  },
 ];
 
 const faqs = [
@@ -593,7 +598,7 @@ export default function ShadesPage() {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {relatedProducts.map((product) => (
                 <Link key={product.name} href={product.href} data-conversion-name="book_call_click">
                   <Card variant="default" padding="lg" className="h-full group cursor-pointer hover:border-edg-brand/30 transition-colors">

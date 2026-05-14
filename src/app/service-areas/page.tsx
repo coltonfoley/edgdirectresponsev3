@@ -102,6 +102,29 @@ const serviceAreas = [
   },
 ];
 
+const priorityLocalPages = [
+  {
+    title: 'Chicago Motorized Pergolas',
+    href: '/service-areas/chicago-il/motorized-pergolas',
+    description: 'Installer-focused guidance for louvered roof systems in Chicago.',
+  },
+  {
+    title: 'Chicago Retractable Screens',
+    href: '/service-areas/chicago-il/retractable-screens',
+    description: 'Outdoor screen planning for city patios, roof decks, and covered spaces.',
+  },
+  {
+    title: 'Chicago Glass Enclosures',
+    href: '/service-areas/chicago-il/glass-enclosures',
+    description: 'Frameless glass walls for wind, rain, views, and year-round patio use.',
+  },
+  {
+    title: 'Deerfield Retractable Screens',
+    href: '/service-areas/deerfield-il/retractable-screens',
+    description: 'North Shore screen layouts for bugs, privacy, sun, and wind control.',
+  },
+];
+
 export default function ServiceAreasPage() {
   return (
     <main className="min-h-screen">
@@ -206,6 +229,45 @@ export default function ServiceAreasPage() {
                     <ArrowRight className="h-5 w-5 text-edg-brand-dark shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
                   <p className="text-text-secondary">{area.description}</p>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Priority Local Pages */}
+      <Section className="section-md bg-surface border-t border-border">
+        <Container>
+          <div className="mb-10 max-w-3xl">
+            <div className="label-editorial-brand mb-4">Most Requested Local Pages</div>
+            <h2 className="section-title mb-4">
+              Product-specific help for high-intent local searches
+            </h2>
+            <p className="text-text-secondary text-lg">
+              If you already know the system you are researching, these pages go deeper
+              than the city overview and answer the local planning questions first.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {priorityLocalPages.map((page) => (
+              <Link key={page.href} href={page.href} className="group">
+                <Card
+                  variant="muted"
+                  padding="lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
+                >
+                  <h3 className="mb-3 text-lg font-bold transition-colors group-hover:text-edg-brand-text">
+                    {page.title}
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-text-secondary">
+                    {page.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
+                    Open page
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </Card>
               </Link>
             ))}

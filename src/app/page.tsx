@@ -49,6 +49,39 @@ const screenSliderImages = [
   },
 ];
 
+const priorityPlanningLinks = [
+  {
+    title: 'Chicago Pergola Installation',
+    description:
+      'Planning a louvered roof in the city? Review wind, drainage, permit, and installer details for Chicago projects.',
+    href: '/service-areas/chicago-il/motorized-pergolas',
+  },
+  {
+    title: 'Chicago Retractable Screens',
+    description:
+      'See how motorized patio screens solve glare, bugs, privacy, and wind on Chicago patios and roof decks.',
+    href: '/service-areas/chicago-il/retractable-screens',
+  },
+  {
+    title: 'Chicago Glass Enclosures',
+    description:
+      'Compare frameless glass enclosure options for patios, pergolas, roof decks, and hospitality spaces.',
+    href: '/service-areas/chicago-il/glass-enclosures',
+  },
+  {
+    title: 'Deerfield Motorized Screens',
+    description:
+      'North Shore homeowners can review screen layouts for covered patios, porches, and outdoor rooms.',
+    href: '/service-areas/deerfield-il/retractable-screens',
+  },
+  {
+    title: 'MagnaTrack Screen Cost Guide',
+    description:
+      'Understand price ranges, quote drivers, and when a self-correcting screen system is worth it.',
+    href: '/guides/magnatrack-screens-cost',
+  },
+];
+
 export const metadata: Metadata = {
   title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
   description:
@@ -266,6 +299,43 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ========== PRIORITY PLANNING LINKS ========== */}
+      <Section className="bg-white py-20 border-t border-black/5">
+        <Container>
+          <div className="mb-10 max-w-3xl">
+            <div className="label-editorial-brand mb-4">Popular Planning Pages</div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black mb-4">
+              Start with the project page that matches your search.
+            </h2>
+            <p className="text-text-secondary text-lg leading-relaxed">
+              These pages answer the local questions customers ask before they call:
+              what works in Chicago, what screens cost, and which system fits the space.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {priorityPlanningLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group flex h-full flex-col border border-border bg-surface p-5 transition-colors hover:border-edg-brand/50 hover:bg-surface-muted"
+              >
+                <h3 className="mb-3 text-base font-bold text-text-primary transition-colors group-hover:text-edg-brand-text">
+                  {item.title}
+                </h3>
+                <p className="mb-5 flex-1 text-sm leading-relaxed text-text-secondary">
+                  {item.description}
+                </p>
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-text-primary">
+                  View Page
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
           </div>
         </Container>
       </Section>
