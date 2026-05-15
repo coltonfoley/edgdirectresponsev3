@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { fetchRainmakerLeads, getRainmakerLeadIntakeUrl, toLegacyLead } from '@/lib/rainmaker-api';
+import {
+  fetchRainmakerLeads,
+  getRainmakerLeadIntakeUrl,
+  toLegacyLead,
+} from '@/lib/rainmaker-api';
 
 // Simple in-memory rate limiter
 // For production with high traffic, use Redis instead
@@ -11,22 +15,22 @@ const DEFAULT_NOTIFICATION_EMAIL = 'cfoley@edgpatioshade.com';
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const record = rateLimitMap.get(ip);
-  
+
   if (!record) {
     rateLimitMap.set(ip, { count: 1, timestamp: now });
     return true;
   }
-  
+
   if (now - record.timestamp > RATE_LIMIT_WINDOW) {
     // Reset window
     rateLimitMap.set(ip, { count: 1, timestamp: now });
     return true;
   }
-  
+
   if (record.count >= RATE_LIMIT_MAX) {
     return false;
   }
-  
+
   record.count++;
   return true;
 }
@@ -63,6 +67,65 @@ function validateEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
+function normalizeLeadText(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+function looksLikeRandomText(value: unknown): boolean {
+  const text = normalizeLeadText(value);
+  if (text.length < 10) return false;
+
+  const compact = text.replace(/[^a-zA-Z0-9]/g, '');
+  if (compact.length < 10) return false;
+
+  const letters = compact.replace(/[^a-zA-Z]/g, '');
+  const vowels = letters.match(/[aeiou]/gi)?.length || 0;
+  const vowelRatio = letters.length > 0 ? vowels / letters.length : 0;
+  const hasMixedCase = /[a-z]/.test(letters) && /[A-Z]/.test(letters);
+  const hasUppercaseAndDigits = /[A-Z]/.test(compact) && /\d/.test(compact);
+  const hasLongUnbrokenToken = text
+    .split(/\s+/)
+    .some((token) => token.replace(/[^a-zA-Z0-9]/g, '').length >= 14);
+  const hasMostlyUniqueCharacters =
+    new Set(compact.toLowerCase()).size / compact.length > 0.6;
+
+  return (
+    hasLongUnbrokenToken &&
+    hasMostlyUniqueCharacters &&
+    (hasMixedCase || hasUppercaseAndDigits) &&
+    vowelRatio < 0.35
+  );
+}
+
+function hasSpamContentSignals(lead: LeadSubmission): boolean {
+  const signals = [
+    looksLikeRandomText(lead.firstName),
+    looksLikeRandomText(lead.lastName),
+    looksLikeRandomText(lead.location),
+    looksLikeRandomText(lead.message),
+  ].filter(Boolean).length;
+
+  const message = normalizeLeadText(lead.message);
+  const shortRandomMessage =
+    message.length > 0 && message.length <= 40 && looksLikeRandomText(message);
+
+  return signals >= 2 || (signals >= 1 && shortRandomMessage);
+}
+
+async function fakeAcceptedSpamResponse(reason: string, email?: string) {
+  console.log(`Spam detected (${reason}): ${email || 'unknown email'}`);
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  return NextResponse.json(
+    {
+      success: true,
+      message: 'Thank you! We have received your information.',
+      leadId: 'spam-blocked',
+    },
+    { status: 201 }
+  );
+}
+
 function getNotificationRecipients(): string[] {
   const configuredRecipients = (process.env.NOTIFICATION_EMAIL || '')
     .split(',')
@@ -70,19 +133,23 @@ function getNotificationRecipients(): string[] {
     .filter(Boolean);
   const seen = new Set<string>();
 
-  return [...configuredRecipients, DEFAULT_NOTIFICATION_EMAIL].filter((email) => {
-    const key = email.toLowerCase();
+  return [...configuredRecipients, DEFAULT_NOTIFICATION_EMAIL].filter(
+    (email) => {
+      const key = email.toLowerCase();
 
-    if (seen.has(key)) {
-      return false;
+      if (seen.has(key)) {
+        return false;
+      }
+
+      seen.add(key);
+      return true;
     }
-
-    seen.add(key);
-    return true;
-  });
+  );
 }
 
-async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
+async function createRainmakerLead(
+  lead: Omit<LeadSubmission, 'fax'>
+): Promise<LeadRecord> {
   const intakeUrl = getRainmakerLeadIntakeUrl();
   const apiKey = process.env.RAINMAKER_API_KEY;
 
@@ -118,7 +185,9 @@ async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<L
   const result = await response.json().catch(() => null);
 
   if (!response.ok || !result?.success) {
-    throw new Error(result?.message || `Rainmaker lead intake failed with ${response.status}`);
+    throw new Error(
+      result?.message || `Rainmaker lead intake failed with ${response.status}`
+    );
   }
 
   const rainmakerId = result.leadId || result.accountId || result.quoteId;
@@ -133,7 +202,9 @@ async function createRainmakerLead(lead: Omit<LeadSubmission, 'fax'>): Promise<L
   };
 }
 
-async function createLeadRecord(lead: Omit<LeadSubmission, 'fax'>): Promise<LeadRecord> {
+async function createLeadRecord(
+  lead: Omit<LeadSubmission, 'fax'>
+): Promise<LeadRecord> {
   if (hasRainmakerConfig()) {
     return createRainmakerLead(lead);
   }
@@ -224,7 +295,10 @@ async function scheduleFollowUpEmail(
     }
 
     const data = await response.json();
-    console.log(`Follow-up email scheduled for ${lead.email} on ${scheduledAt}:`, data.id);
+    console.log(
+      `Follow-up email scheduled for ${lead.email} on ${scheduledAt}:`,
+      data.id
+    );
   } catch (error) {
     console.error('Failed to schedule follow-up email:', error);
   }
@@ -233,7 +307,10 @@ async function scheduleFollowUpEmail(
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting check
-    const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+    const ip =
+      request.headers.get('x-forwarded-for') ||
+      request.headers.get('x-real-ip') ||
+      'unknown';
     if (!checkRateLimit(ip.split(',')[0].trim())) {
       return NextResponse.json(
         {
@@ -243,7 +320,7 @@ export async function POST(request: NextRequest) {
         { status: 429 }
       );
     }
-    
+
     const body = await request.json();
     const {
       email,
@@ -261,18 +338,8 @@ export async function POST(request: NextRequest) {
     // SPAM PROTECTION: Honeypot Check
     // If the hidden 'fax' field is filled, it's likely a bot.
     // Return a fake success to fool the bot, but do NOT save or send anything.
-    if (fax && fax.length > 0) {
-      console.log(`Spam detected (honeypot): ${email}`);
-      // Simulate network delay to seem more real
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      return NextResponse.json(
-        {
-          success: true,
-          message: 'Thank you! We have received your information.',
-          leadId: 'spam-blocked',
-        },
-        { status: 201 }
-      );
+    if (normalizeLeadText(fax).length > 0) {
+      return fakeAcceptedSpamResponse('honeypot', email);
     }
 
     // Validation
@@ -294,6 +361,10 @@ export async function POST(request: NextRequest) {
 
     if (errors.length > 0) {
       return NextResponse.json({ success: false, errors }, { status: 400 });
+    }
+
+    if (hasSpamContentSignals(body as LeadSubmission)) {
+      return fakeAcceptedSpamResponse('content-signals', email);
     }
 
     const leadRecord = await createLeadRecord({
@@ -325,15 +396,17 @@ export async function POST(request: NextRequest) {
         const adminSubject = isContactForm
           ? `New Contact Inquiry: ${firstName} ${lastName || ''} (${customerType || 'General'})`
           : isConfigurator
-          ? `New Pergola Configurator Lead: ${firstName} ${lastName || ''}`
-          : `New Lead: ${firstName} (${source})`;
+            ? `New Pergola Configurator Lead: ${firstName} ${lastName || ''}`
+            : `New Lead: ${firstName} (${source})`;
 
         let adminHtmlContent = '';
         if (isContactForm || isConfigurator) {
           const emailTitle = isConfigurator
             ? 'New Pergola Configurator Lead'
             : 'New Contact Inquiry';
-          const messageLabel = isConfigurator ? 'Configuration Details' : 'Message';
+          const messageLabel = isConfigurator
+            ? 'Configuration Details'
+            : 'Message';
 
           adminHtmlContent = `
             <h1>${emailTitle}</h1>
@@ -351,9 +424,10 @@ export async function POST(request: NextRequest) {
             <p><small>Source: ${source} | Time: ${timestamp}</small></p>
           `;
         } else {
-          const sourceLabel = source === 'pergola-configurator'
-            ? 'Pergola Configurator'
-            : source || 'Website';
+          const sourceLabel =
+            source === 'pergola-configurator'
+              ? 'Pergola Configurator'
+              : source || 'Website';
 
           adminHtmlContent = `
             <h1>New Lead: ${sourceLabel}</h1>
@@ -412,7 +486,10 @@ export async function POST(request: NextRequest) {
           projectType: projectType,
           source: source,
         }).catch((err) => {
-          console.error('Follow-up email scheduling error (non-blocking):', err);
+          console.error(
+            'Follow-up email scheduling error (non-blocking):',
+            err
+          );
         });
       } else {
         emailLogs.followUp = { skipped: true, reason: 'disabled' };
@@ -434,7 +511,9 @@ export async function POST(request: NextRequest) {
         success: false,
         errors: ['Something went wrong. Please try again.'],
         // Only include error details in development
-        ...(process.env.NODE_ENV === 'development' && { details: error.message }),
+        ...(process.env.NODE_ENV === 'development' && {
+          details: error.message,
+        }),
       },
       { status: 500 }
     );
@@ -465,7 +544,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const leads = (await fetchRainmakerLeads({ status: 'all', limit: 100 })).map(toLegacyLead);
+    const leads = (
+      await fetchRainmakerLeads({ status: 'all', limit: 100 })
+    ).map(toLegacyLead);
 
     return NextResponse.json({
       total: leads.length,
