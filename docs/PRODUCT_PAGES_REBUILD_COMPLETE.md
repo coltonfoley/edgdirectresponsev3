@@ -226,7 +226,7 @@ grep -rL "alternates:" src/app/systems/*/page.tsx
    ```bash
    git add .
    git commit -m "feat: rebuild all 7 product pages with 2026 SEO best practices"
-   git push origin main
+   git push origin edg-positioning
    ```
 
 2. **Post-Deploy Verification**
