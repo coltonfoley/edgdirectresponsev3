@@ -62,6 +62,7 @@ const sitemapLinks = [
     links: [
       { href: '/service-areas', label: 'All Service Areas' },
       { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
+      { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
       {
         href: '/service-areas/chicago-il/motorized-pergolas',
         label: 'Chicago Motorized Pergolas',
@@ -113,11 +114,7 @@ export default function SitemapPage() {
         <Container>
           {/* Breadcrumb */}
           <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Sitemap' },
-              ]}
-            />
+            <Breadcrumb items={[{ label: 'Sitemap' }]} />
           </div>
           <div className="mx-auto max-w-4xl">
             <h1 className="mb-8 text-4xl font-bold md:text-5xl">Sitemap</h1>
@@ -133,7 +130,9 @@ export default function SitemapPage() {
                   </h2>
                   <ul className="space-y-3">
                     {section.links.map((link) => (
-                      <li key={`${section.category}-${link.href}-${link.label}`}>
+                      <li
+                        key={`${section.category}-${link.href}-${link.label}`}
+                      >
                         <Link
                           href={link.href}
                           className="text-muted-foreground hover:text-foreground transition-colors hover:underline"

@@ -19,6 +19,7 @@ const routes = [
   '/privacy',
   '/terms',
   '/service-areas',
+  '/service-areas/spring-grove-il',
   '/service-areas/naperville-il',
   '/service-areas/barrington-il',
   '/service-areas/chicago-il',

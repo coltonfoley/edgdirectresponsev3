@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Service Areas
     { url: '/service-areas', priority: 0.8 },
     { url: '/service-areas/chicago-il', priority: 0.9 },
+    { url: '/service-areas/spring-grove-il', priority: 0.9 },
     { url: '/service-areas/lake-county-il', priority: 0.8 },
     { url: '/service-areas/mchenry-county-il', priority: 0.8 },
     { url: '/service-areas/north-shore-chicago', priority: 0.8 },

@@ -45,6 +45,11 @@ const locationsDropdown = [
     desc: 'City rooftops, patios, and tight lots',
   },
   {
+    href: '/service-areas/spring-grove-il',
+    label: 'Spring Grove, IL',
+    desc: 'Showroom and local home base',
+  },
+  {
     href: '/service-areas/wilmette-il',
     label: 'Wilmette, IL',
     desc: 'North Shore historic districts',
@@ -178,7 +183,7 @@ export function Navbar() {
                   setWorkOpen(false);
                 }}
                 className={cn(
-                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                  'hover:text-edg-brand flex items-center gap-1 text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
                   textColor
                 )}
                 aria-label="View products"
@@ -200,27 +205,27 @@ export function Navbar() {
                     onClick={() => setProductsOpen(false)}
                     className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
-                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
                       All Products
                     </div>
-                    <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
                       View complete product line
                     </div>
                   </Link>
                   <Link
                     href="/systems/pergolas/configure"
                     onClick={() => setProductsOpen(false)}
-                    className="group flex items-center justify-between border-b border-edg-brand/20 bg-edg-brand/5 px-5 py-3 transition-colors hover:bg-edg-brand/15"
+                    className="group border-edg-brand/20 bg-edg-brand/5 hover:bg-edg-brand/15 flex items-center justify-between border-b px-5 py-3 transition-colors"
                   >
                     <div>
-                      <div className="text-sm font-bold uppercase tracking-wide text-edg-brand-dark transition-colors">
+                      <div className="text-edg-brand-dark text-sm font-bold tracking-wide uppercase transition-colors">
                         3D Pergola Configurator
                       </div>
-                      <div className="mt-0.5 text-xs text-edg-brand-dark/70">
+                      <div className="text-edg-brand-dark/70 mt-0.5 text-xs">
                         Design your R-Blade in real-time 3D
                       </div>
                     </div>
-                    <ArrowRight className="h-4 w-4 text-edg-brand-dark/50" />
+                    <ArrowRight className="text-edg-brand-dark/50 h-4 w-4" />
                   </Link>
                   {productsDropdown.map((item) => (
                     <Link
@@ -229,10 +234,10 @@ export function Navbar() {
                       onClick={() => setProductsOpen(false)}
                       className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                     >
-                      <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                      <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
                         {item.label}
                       </div>
-                      <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                      <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
                         {item.desc}
                       </div>
                     </Link>
@@ -250,7 +255,7 @@ export function Navbar() {
                   setWorkOpen(false);
                 }}
                 className={cn(
-                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                  'hover:text-edg-brand flex items-center gap-1 text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
                   textColor
                 )}
                 aria-label="View locations"
@@ -272,7 +277,7 @@ export function Navbar() {
                     onClick={() => setLocationsOpen(false)}
                     className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
-                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
                       All Locations
                     </div>
                   </Link>
@@ -284,10 +289,10 @@ export function Navbar() {
                         onClick={() => setLocationsOpen(false)}
                         className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                       >
-                        <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                        <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
                           {item.label}
                         </div>
-                        <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-0.5">
+                        <div className="mt-0.5 text-xs text-gray-500 group-hover:text-gray-300">
                           {item.desc}
                         </div>
                       </Link>
@@ -306,7 +311,7 @@ export function Navbar() {
                   setLocationsOpen(false);
                 }}
                 className={cn(
-                  'flex items-center gap-1 text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                  'hover:text-edg-brand flex items-center gap-1 text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
                   textColor
                 )}
                 aria-label="View our work"
@@ -328,10 +333,10 @@ export function Navbar() {
                     onClick={() => setWorkOpen(false)}
                     className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
-                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
                       Projects
                     </div>
-                    <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
                       Case studies & installations
                     </div>
                   </Link>
@@ -340,10 +345,10 @@ export function Navbar() {
                     onClick={() => setWorkOpen(false)}
                     className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
                   >
-                    <div className="group-hover:text-edg-brand text-sm font-bold uppercase tracking-wide text-black transition-colors">
+                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
                       Gallery
                     </div>
-                    <div className="text-xs text-gray-500 group-hover:text-gray-300 mt-1">
+                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
                       Browse our portfolio
                     </div>
                   </Link>
@@ -355,7 +360,7 @@ export function Navbar() {
             <Link
               href="/guides"
               className={cn(
-                'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                'hover:text-edg-brand text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
                 textColor
               )}
             >
@@ -370,7 +375,7 @@ export function Navbar() {
               <Link
                 href="/trade-partners"
                 className={cn(
-                  'text-sm font-bold uppercase tracking-wide whitespace-nowrap transition-colors hover:text-edg-brand',
+                  'hover:text-edg-brand text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
                   textColor
                 )}
               >
@@ -390,7 +395,8 @@ export function Navbar() {
                   variant={scrolled ? 'primary' : 'outline'}
                   size="sm"
                   className={cn(
-                    !scrolled && "border-white text-white hover:bg-white hover:text-black"
+                    !scrolled &&
+                      'border-white text-white hover:bg-white hover:text-black'
                   )}
                 >
                   Start Project
@@ -409,13 +415,13 @@ export function Navbar() {
                     value: 0,
                   })
                 }
-                className={cn("p-2 transition-colors", textColor)}
+                className={cn('p-2 transition-colors', textColor)}
                 aria-label="Call us"
               >
                 <Phone className="h-5 w-5" />
               </a>
               <button
-                className={cn("p-2", textColor)}
+                className={cn('p-2', textColor)}
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
               >
@@ -442,7 +448,7 @@ export function Navbar() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
+                    className="hover:text-edg-brand block text-2xl font-bold text-white transition-colors"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -450,7 +456,7 @@ export function Navbar() {
                 ))}
                 <Link
                   href="/systems/pergolas/configure"
-                  className="flex items-center gap-2 text-lg font-bold text-edg-brand transition-colors hover:text-edg-brand/80"
+                  className="text-edg-brand hover:text-edg-brand/80 flex items-center gap-2 text-lg font-bold transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   3D Pergola Configurator <ArrowRight className="h-4 w-4" />
@@ -499,7 +505,7 @@ export function Navbar() {
                 </div>
                 <Link
                   href="/projects"
-                  className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
+                  className="hover:text-edg-brand block text-2xl font-bold text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Projects
@@ -519,21 +525,21 @@ export function Navbar() {
               <div className="space-y-4">
                 <Link
                   href="/guides"
-                  className="block text-2xl font-bold text-white transition-colors hover:text-edg-brand"
+                  className="hover:text-edg-brand block text-2xl font-bold text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Guides
                 </Link>
                 <Link
                   href="/trade-partners"
-                  className="block text-lg font-bold text-white transition-colors hover:text-edg-brand"
+                  className="hover:text-edg-brand block text-lg font-bold text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   For Trade Partners
                 </Link>
                 <Link
                   href="/service-areas"
-                  className="block text-lg font-bold text-white transition-colors hover:text-edg-brand"
+                  className="hover:text-edg-brand block text-lg font-bold text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   Service Areas
@@ -552,7 +558,7 @@ export function Navbar() {
                     });
                   }}
                 >
-                  <Button className="bg-edg-brand text-edg-dark hover:bg-white w-full py-6 text-lg font-bold uppercase">
+                  <Button className="bg-edg-brand text-edg-dark w-full py-6 text-lg font-bold uppercase hover:bg-white">
                     Start Your Project
                   </Button>
                 </Link>

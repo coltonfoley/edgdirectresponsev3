@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 export function Footer() {
   const pathname = usePathname();
   const [year, setYear] = useState(2026);
-  
+
   useEffect(() => {
     setYear(new Date().getFullYear());
   }, []);
@@ -43,14 +43,15 @@ export function Footer() {
                     Plan with confidence.
                   </h3>
                   <p className="max-w-md text-lg leading-relaxed text-zinc-300">
-                    Get clear budget ranges, system comparisons, and avoid the 7 most expensive mistakes.
+                    Get clear budget ranges, system comparisons, and avoid the 7
+                    most expensive mistakes.
                   </p>
                 </div>
                 <Link href="/guides/planning-guide" className="inline-block">
                   <Button
                     size="lg"
                     variant="outline"
-                    className="bg-white text-black border-white hover:bg-edg-brand hover:text-black hover:border-edg-brand rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider"
+                    className="hover:bg-edg-brand hover:border-edg-brand rounded-none border-white bg-white px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:text-black"
                   >
                     Get the Guide <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -64,7 +65,8 @@ export function Footer() {
                     Start your project.
                   </h3>
                   <p className="max-w-md text-lg leading-relaxed text-zinc-300">
-                    Talk to our design team. No pressure, just expert guidance on your space.
+                    Talk to our design team. No pressure, just expert guidance
+                    on your space.
                   </p>
                 </div>
 
@@ -81,7 +83,7 @@ export function Footer() {
                   >
                     <Button
                       size="lg"
-                      className="bg-edg-brand text-black hover:bg-white rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider"
+                      className="bg-edg-brand rounded-none px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:bg-white"
                     >
                       Book Consultation
                     </Button>
@@ -95,7 +97,7 @@ export function Footer() {
                         value: 0,
                       })
                     }
-                    className="inline-flex h-14 items-center gap-3 px-6 font-bold uppercase tracking-wider text-white transition-colors hover:text-edg-brand"
+                    className="hover:text-edg-brand inline-flex h-14 items-center gap-3 px-6 font-bold tracking-wider text-white uppercase transition-colors"
                   >
                     <Phone className="h-5 w-5" />
                     (815) 581-0138
@@ -112,22 +114,23 @@ export function Footer() {
         <Container>
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
             {/* Brand & Location */}
-            <div className="md:col-span-2 lg:col-span-2 space-y-8">
+            <div className="space-y-8 md:col-span-2 lg:col-span-2">
               <Link
                 href="/"
                 className="block text-4xl font-bold tracking-tighter text-white"
               >
                 EDG
               </Link>
-              <p className="max-w-sm text-zinc-300 leading-relaxed">
-                The design and supply partner for motorized pergolas, retractable
-                screens, and glass enclosures. Nationwide design & supply. Local installation in Chicago & Milwaukee.
+              <p className="max-w-sm leading-relaxed text-zinc-300">
+                The design and supply partner for motorized pergolas,
+                retractable screens, and glass enclosures. Nationwide design &
+                supply. Local installation in Chicago & Milwaukee.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
                   <div className="text-gray-300">
-                    <div className="font-bold text-white uppercase tracking-wide text-xs mb-1">
+                    <div className="mb-1 text-xs font-bold tracking-wide text-white uppercase">
                       Spring Grove Showroom
                     </div>
                     <div>1802 Holian Drive</div>
@@ -139,57 +142,264 @@ export function Footer() {
 
             {/* Navigation */}
             <div>
-              <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Explore</h4>
+              <h4 className="mb-6 text-xs font-bold tracking-widest text-white uppercase">
+                Explore
+              </h4>
               <ul className="space-y-3">
-                <li><Link href="/systems" className="text-zinc-300 hover:text-edg-brand transition-colors">All Systems</Link></li>
-                <li><Link href="/systems/pergolas" className="text-zinc-300 hover:text-edg-brand transition-colors">Motorized Pergolas</Link></li>
-                <li><Link href="/systems/pergolas/configure" className="text-zinc-300 hover:text-edg-brand transition-colors">Pergola Configurator</Link></li>
-                <li><Link href="/systems/shades" className="text-zinc-300 hover:text-edg-brand transition-colors">Retractable Screens</Link></li>
-                <li><Link href="/systems/enclosures" className="text-zinc-300 hover:text-edg-brand transition-colors">Glass Enclosures</Link></li>
-                <li><Link href="/guides" className="text-zinc-300 hover:text-edg-brand transition-colors">Guides & Resources</Link></li>
-                <li><Link href="/projects" className="text-zinc-300 hover:text-edg-brand transition-colors">Projects</Link></li>
-                <li><Link href="/gallery" className="text-zinc-300 hover:text-edg-brand transition-colors">Gallery</Link></li>
-                <li><Link href="/showroom" className="text-zinc-300 hover:text-edg-brand transition-colors">Showroom</Link></li>
-                <li><Link href="/contact" className="text-zinc-300 hover:text-edg-brand transition-colors">Contact</Link></li>
-
+                <li>
+                  <Link
+                    href="/systems"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    All Systems
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/systems/pergolas"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Motorized Pergolas
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/systems/pergolas/configure"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Pergola Configurator
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/systems/shades"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Retractable Screens
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/systems/enclosures"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Glass Enclosures
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/guides"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Guides & Resources
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/projects"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Projects
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/gallery"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/showroom"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Showroom
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* Service Areas & Commercial */}
             <div>
-              <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Service Areas</h4>
+              <h4 className="mb-6 text-xs font-bold tracking-widest text-white uppercase">
+                Service Areas
+              </h4>
               <ul className="space-y-3">
-                <li><Link href="/service-areas" className="text-zinc-300 hover:text-edg-brand transition-colors">All Service Areas</Link></li>
-                <li><Link href="/service-areas/chicago-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Chicago, IL</Link></li>
-                <li><Link href="/service-areas/wilmette-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Wilmette, IL</Link></li>
-                <li><Link href="/service-areas/winnetka-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Winnetka, IL</Link></li>
-                <li><Link href="/service-areas/northbrook-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Northbrook, IL</Link></li>
-                <li><Link href="/service-areas/barrington-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Barrington, IL</Link></li>
-                <li><Link href="/service-areas/naperville-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Naperville, IL</Link></li>
-                <li><Link href="/service-areas/hinsdale-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Hinsdale, IL</Link></li>
-                <li><Link href="/service-areas/oak-brook-il" className="text-zinc-300 hover:text-edg-brand transition-colors">Oak Brook, IL</Link></li>
-                <li><Link href="/service-areas/sanibel-outdoor-living" className="text-zinc-300 hover:text-edg-brand transition-colors">Sanibel, FL</Link></li>
-                <li><Link href="/service-areas/lake-geneva-wi" className="text-zinc-300 hover:text-edg-brand transition-colors">Lake Geneva, WI</Link></li>
+                <li>
+                  <Link
+                    href="/service-areas"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    All Service Areas
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/chicago-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Chicago, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/spring-grove-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Spring Grove, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/wilmette-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Wilmette, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/winnetka-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Winnetka, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/northbrook-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Northbrook, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/barrington-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Barrington, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/naperville-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Naperville, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/hinsdale-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Hinsdale, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/oak-brook-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Oak Brook, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/sanibel-outdoor-living"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Sanibel, FL
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/lake-geneva-wi"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Lake Geneva, WI
+                  </Link>
+                </li>
               </ul>
-              <h4 className="mt-8 mb-6 font-bold uppercase tracking-widest text-white text-xs">Commercial</h4>
+              <h4 className="mt-8 mb-6 text-xs font-bold tracking-widest text-white uppercase">
+                Commercial
+              </h4>
               <ul className="space-y-3">
-                <li><Link href="/commercial" className="text-zinc-300 hover:text-edg-brand transition-colors">Commercial Solutions</Link></li>
-                <li><Link href="/trade-partners" className="text-zinc-300 hover:text-edg-brand transition-colors">Trade Partners</Link></li>
+                <li>
+                  <Link
+                    href="/commercial"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Commercial Solutions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/trade-partners"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Trade Partners
+                  </Link>
+                </li>
               </ul>
             </div>
 
             {/* Legal / Social */}
             <div>
-              <h4 className="mb-6 font-bold uppercase tracking-widest text-white text-xs">Connect</h4>
+              <h4 className="mb-6 text-xs font-bold tracking-widest text-white uppercase">
+                Connect
+              </h4>
               <ul className="space-y-3">
-                <li><a href="mailto:sales@edgpatioshade.com" className="text-zinc-300 hover:text-edg-brand transition-colors">sales@edgpatioshade.com</a></li>
-                <li><a href="tel:+18155810138" className="text-zinc-300 hover:text-edg-brand transition-colors">(815) 581-0138</a></li>
+                <li>
+                  <a
+                    href="mailto:sales@edgpatioshade.com"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    sales@edgpatioshade.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+18155810138"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    (815) 581-0138
+                  </a>
+                </li>
               </ul>
-              <div className="mt-8 pt-8 border-t border-white/10 space-y-2">
-                <Link href="/html-sitemap" className="block text-xs text-zinc-400 hover:text-white">Site Map</Link>
-                <Link href="/privacy" className="block text-xs text-zinc-400 hover:text-white">Privacy Policy</Link>
-                <Link href="/terms" className="block text-xs text-zinc-400 hover:text-white">Terms of Service</Link>
-                <div className="text-xs text-zinc-500 mt-4">© {year} EDG Patio & Shade</div>
+              <div className="mt-8 space-y-2 border-t border-white/10 pt-8">
+                <Link
+                  href="/html-sitemap"
+                  className="block text-xs text-zinc-400 hover:text-white"
+                >
+                  Site Map
+                </Link>
+                <Link
+                  href="/privacy"
+                  className="block text-xs text-zinc-400 hover:text-white"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/terms"
+                  className="block text-xs text-zinc-400 hover:text-white"
+                >
+                  Terms of Service
+                </Link>
+                <div className="mt-4 text-xs text-zinc-500">
+                  © {year} EDG Patio & Shade
+                </div>
               </div>
             </div>
           </div>

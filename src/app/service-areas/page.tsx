@@ -31,6 +31,13 @@ const serviceAreas = [
     region: 'Chicago',
   },
   {
+    name: 'Spring Grove, IL',
+    slug: 'spring-grove-il',
+    description:
+      'Our home base and showroom. See motorized pergolas, patio screens, and outdoor living systems before you build.',
+    region: 'Showroom',
+  },
+  {
     name: 'Wilmette, IL',
     slug: 'wilmette-il',
     description:
@@ -106,22 +113,26 @@ const priorityLocalPages = [
   {
     title: 'Chicago Motorized Pergolas',
     href: '/service-areas/chicago-il/motorized-pergolas',
-    description: 'Installer-focused guidance for louvered roof systems in Chicago.',
+    description:
+      'Installer-focused guidance for louvered roof systems in Chicago.',
   },
   {
     title: 'Chicago Retractable Screens',
     href: '/service-areas/chicago-il/retractable-screens',
-    description: 'Outdoor screen planning for city patios, roof decks, and covered spaces.',
+    description:
+      'Outdoor screen planning for city patios, roof decks, and covered spaces.',
   },
   {
     title: 'Chicago Glass Enclosures',
     href: '/service-areas/chicago-il/glass-enclosures',
-    description: 'Frameless glass walls for wind, rain, views, and year-round patio use.',
+    description:
+      'Frameless glass walls for wind, rain, views, and year-round patio use.',
   },
   {
     title: 'Deerfield Retractable Screens',
     href: '/service-areas/deerfield-il/retractable-screens',
-    description: 'North Shore screen layouts for bugs, privacy, sun, and wind control.',
+    description:
+      'North Shore screen layouts for bugs, privacy, sun, and wind control.',
   },
 ];
 
@@ -133,24 +144,20 @@ export default function ServiceAreasPage() {
         <Container>
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Breadcrumb
-              items={[
-                { label: 'Service Areas' },
-              ]}
-            />
+            <Breadcrumb items={[{ label: 'Service Areas' }]} />
           </div>
           <div className="max-w-4xl">
-            <div className="border border-edg-brand/30 bg-edg-brand/10 px-4 py-2 text-edg-brand-dark inline-flex items-center gap-2 mb-6">
+            <div className="border-edg-brand/30 bg-edg-brand/10 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2">
               <MapPin className="h-4 w-4" />
               <span className="text-xs font-bold tracking-widest uppercase">
                 Local Service
               </span>
             </div>
-            <h1 className="hero-title text-white mb-6">
-              Serving the <span className="text-edg-brand-dark">Chicago</span> to{' '}
-              <span className="text-edg-brand-dark">Milwaukee</span> Corridor
+            <h1 className="hero-title mb-6 text-white">
+              Serving the <span className="text-edg-brand-dark">Chicago</span>{' '}
+              to <span className="text-edg-brand-dark">Milwaukee</span> Corridor
             </h1>
-            <p className="max-w-2xl text-xl leading-relaxed text-text-inverse-muted">
+            <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
               We design and install premium outdoor living systems within 60
               miles of Spring Grove, IL. Local expertise means we understand
               your climate, your municipalities, and your neighborhoods.
@@ -195,13 +202,16 @@ export default function ServiceAreasPage() {
       {/* Service Areas Grid */}
       <Section className="section-md bg-surface">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="label-editorial-brand mb-4">Communities We Serve</div>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Communities We Serve
+            </div>
             <h2 className="section-title">Find Your Area</h2>
             <p className="text-text-secondary mt-4 text-lg">
-              Click your community to learn about local projects, considerations, and
-              how we can help. If you are inside city limits, start with Chicago and
-              then drill into the product pages that match your project.
+              Click your community to learn about local projects,
+              considerations, and how we can help. If you are inside city
+              limits, start with Chicago and then drill into the product pages
+              that match your project.
             </p>
           </div>
 
@@ -215,18 +225,18 @@ export default function ServiceAreasPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="mb-4 flex items-start justify-between">
                     <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-edg-brand-text mb-2 block">
+                      <span className="text-edg-brand-text mb-2 block text-xs font-bold tracking-wider uppercase">
                         {area.region}
                       </span>
-                      <h3 className="text-xl font-bold group-hover:text-edg-brand-text transition-colors">
+                      <h3 className="group-hover:text-edg-brand-text text-xl font-bold transition-colors">
                         {area.name}
                       </h3>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-edg-brand-dark shrink-0 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="text-edg-brand-dark h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
                   <p className="text-text-secondary">{area.description}</p>
                 </Card>
@@ -237,16 +247,19 @@ export default function ServiceAreasPage() {
       </Section>
 
       {/* Priority Local Pages */}
-      <Section className="section-md bg-surface border-t border-border">
+      <Section className="section-md bg-surface border-border border-t">
         <Container>
           <div className="mb-10 max-w-3xl">
-            <div className="label-editorial-brand mb-4">Most Requested Local Pages</div>
+            <div className="label-editorial-brand mb-4">
+              Most Requested Local Pages
+            </div>
             <h2 className="section-title mb-4">
               Product-specific help for high-intent local searches
             </h2>
             <p className="text-text-secondary text-lg">
-              If you already know the system you are researching, these pages go deeper
-              than the city overview and answer the local planning questions first.
+              If you already know the system you are researching, these pages go
+              deeper than the city overview and answer the local planning
+              questions first.
             </p>
           </div>
 
@@ -256,15 +269,15 @@ export default function ServiceAreasPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <h3 className="mb-3 text-lg font-bold transition-colors group-hover:text-edg-brand-text">
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-lg font-bold transition-colors">
                     {page.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary mb-5 text-sm leading-relaxed">
                     {page.description}
                   </p>
-                  <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                     Open page
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -280,9 +293,7 @@ export default function ServiceAreasPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="section-title mb-6">
-                Based in Spring Grove, IL
-              </h2>
+              <h2 className="section-title mb-6">Based in Spring Grove, IL</h2>
               <p className="text-text-secondary mb-6 text-lg">
                 Our central location in Spring Grove puts us within easy reach
                 of Lake County, McHenry County, the North Shore, and Southeast
@@ -295,6 +306,7 @@ export default function ServiceAreasPage() {
                   'Same-day consultations often available',
                   'Responsive service and support',
                   'Local crews—not traveling subcontractors',
+                  'Showroom at 1802 Holian Drive',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <IconWrapper
@@ -321,11 +333,16 @@ export default function ServiceAreasPage() {
                 </a>
               </div>
             </div>
-            <div className="bg-edg-dark flex aspect-square items-center justify-center border border-border-inverse">
+            <div className="bg-edg-dark border-border-inverse flex aspect-square items-center justify-center border">
               <div className="p-8 text-center text-white">
                 <MapPin className="text-edg-brand mx-auto mb-4 h-16 w-16" />
                 <p className="mb-2 text-xl font-bold">Spring Grove, IL</p>
-                <p className="text-text-inverse-muted">Serving a 60-mile radius</p>
+                <p className="text-text-inverse-muted mb-2">
+                  1802 Holian Drive
+                </p>
+                <p className="text-text-inverse-muted">
+                  Serving a 60-mile radius
+                </p>
               </div>
             </div>
           </div>
@@ -336,7 +353,7 @@ export default function ServiceAreasPage() {
       <Section className="section-md bg-edg-brand">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-bold text-edg-dark mb-4 md:text-3xl">
+            <h2 className="text-edg-dark mb-4 text-2xl font-bold md:text-3xl">
               Outside our service area?
             </h2>
             <p className="text-edg-dark/80 mb-6 text-lg">
