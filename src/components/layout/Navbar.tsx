@@ -90,6 +90,11 @@ const locationsDropdown = [
     desc: 'Wisconsin lakefront estates',
   },
   {
+    href: '/service-areas/southwest-florida',
+    label: 'Southwest Florida',
+    desc: 'Hurricane-rated Gulf Coast systems',
+  },
+  {
     href: '/service-areas/sanibel-outdoor-living',
     label: 'Sanibel, FL',
     desc: 'Gulf Coast outdoor living',

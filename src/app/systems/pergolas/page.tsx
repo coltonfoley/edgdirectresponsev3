@@ -274,6 +274,12 @@ export default function PergolasPage() {
                 >
                   Looking for a city-specific option? View our Chicago pergola page.
                 </Link>
+                <Link
+                  href="/service-areas/southwest-florida"
+                  className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                >
+                  Planning on the Gulf Coast? Review hurricane-rated Southwest Florida pergolas.
+                </Link>
               </div>
 
               {/* Quick Specs */}

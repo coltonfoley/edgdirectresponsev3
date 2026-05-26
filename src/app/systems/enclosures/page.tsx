@@ -279,6 +279,12 @@ export default function EnclosuresPage() {
                 >
                   Planning in the city? See our Chicago glass enclosure page.
                 </Link>
+                <Link
+                  href="/service-areas/southwest-florida"
+                  className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                >
+                  Planning for coastal wind? See Southwest Florida outdoor living systems.
+                </Link>
               </div>
 
               {/* Quick Specs */}

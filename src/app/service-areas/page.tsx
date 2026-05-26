@@ -101,6 +101,13 @@ const serviceAreas = [
     region: 'Wisconsin',
   },
   {
+    name: 'Southwest Florida',
+    slug: 'southwest-florida',
+    description:
+      'Hurricane-rated pergolas, motorized screens, and coastal outdoor living planning for Sanibel, Captiva, Naples, Marco Island, and the Gulf Coast.',
+    region: 'Florida',
+  },
+  {
     name: 'Sanibel & Captiva, FL',
     slug: 'sanibel-outdoor-living',
     description:
@@ -110,6 +117,24 @@ const serviceAreas = [
 ];
 
 const priorityLocalPages = [
+  {
+    title: 'Southwest Florida Pergolas',
+    href: '/service-areas/southwest-florida',
+    description:
+      'Regional planning for hurricane-rated louvered roofs and coastal outdoor rooms.',
+  },
+  {
+    title: 'Sanibel Louvered Pergolas',
+    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
+    description:
+      'Miami-Dade rated pergola guidance for Sanibel and Captiva homes.',
+  },
+  {
+    title: 'Sanibel Lanai Replacement',
+    href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
+    description:
+      'Rebuild damaged lanais with modern systems designed for coastal code pressure.',
+  },
   {
     title: 'Chicago Motorized Pergolas',
     href: '/service-areas/chicago-il/motorized-pergolas',

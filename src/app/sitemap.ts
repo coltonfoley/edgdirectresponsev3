@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/service-areas/oak-brook-il', priority: 0.8 },
     { url: '/service-areas/lake-geneva-wi', priority: 0.8 },
     { url: '/service-areas/hinsdale-il', priority: 0.8 },
+    { url: '/service-areas/southwest-florida', priority: 0.9 },
     { url: '/service-areas/sanibel-outdoor-living', priority: 0.8 },
     { url: '/service-areas/northbrook-il', priority: 0.8 },
     { url: '/service-areas/deerfield-il', priority: 0.8 },

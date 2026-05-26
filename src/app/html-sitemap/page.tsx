@@ -88,7 +88,23 @@ const sitemapLinks = [
       { href: '/service-areas/hinsdale-il', label: 'Hinsdale, IL' },
       { href: '/service-areas/oak-brook-il', label: 'Oak Brook, IL' },
       { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
+      {
+        href: '/service-areas/southwest-florida',
+        label: 'Southwest Florida',
+      },
       { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
+      {
+        href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
+        label: 'Sanibel Hurricane-Rated Pergolas',
+      },
+      {
+        href: '/service-areas/sanibel-outdoor-living/modern-lanai',
+        label: 'Modern Lanai Sanibel',
+      },
+      {
+        href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
+        label: 'Sanibel Lanai Replacement',
+      },
     ],
   },
   {

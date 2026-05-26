@@ -51,6 +51,18 @@ const screenSliderImages = [
 
 const priorityPlanningLinks = [
   {
+    title: 'Southwest Florida Pergolas',
+    description:
+      'Review hurricane-rated louvered roof planning for Sanibel, Captiva, Naples, Marco Island, and nearby Gulf Coast homes.',
+    href: '/service-areas/southwest-florida',
+  },
+  {
+    title: 'Sanibel Hurricane-Rated Pergolas',
+    description:
+      'See Miami-Dade rated louvered roof systems, coastal coatings, and permit considerations for Sanibel Island.',
+    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
+  },
+  {
     title: 'Chicago Pergola Installation',
     description:
       'Planning a louvered roof in the city? Review wind, drainage, permit, and installer details for Chicago projects.',
@@ -73,12 +85,6 @@ const priorityPlanningLinks = [
     description:
       'North Shore homeowners can review screen layouts for covered patios, porches, and outdoor rooms.',
     href: '/service-areas/deerfield-il/retractable-screens',
-  },
-  {
-    title: 'MagnaTrack Screen Cost Guide',
-    description:
-      'Understand price ranges, quote drivers, and when a self-correcting screen system is worth it.',
-    href: '/guides/magnatrack-screens-cost',
   },
 ];
 

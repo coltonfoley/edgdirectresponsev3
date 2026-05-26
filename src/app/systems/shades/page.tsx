@@ -345,6 +345,12 @@ export default function ShadesPage() {
                   >
                     Need budget ranges? Read the MagnaTrack screens cost guide.
                   </Link>
+                  <Link
+                    href="/service-areas/southwest-florida"
+                    className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                  >
+                    Need coastal wind and lanai guidance? See Southwest Florida planning.
+                  </Link>
                 </div>
 
                 {/* Quick Specs */}
