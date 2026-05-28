@@ -70,39 +70,6 @@ export const localBusinessSchema = {
     'https://facebook.com/edgpatioshade',
     'https://instagram.com/edgpatioshade',
   ],
-  hasOfferCatalog: {
-    '@type': 'OfferCatalog',
-    name: 'Outdoor Living Systems',
-    itemListElement: [
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Louvered Pergola Installation',
-          description:
-            'Motorized aluminum pergolas with rotating louvers for sun and rain control',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Motorized Exterior Shades',
-          description:
-            'Wind-rated exterior screens for heat and glare reduction',
-        },
-      },
-      {
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Glass Enclosure Systems',
-          description:
-            'Frameless retractable glass walls for weatherproof outdoor spaces',
-        },
-      },
-    ],
-  },
 };
 
 export function generateServiceSchema(params: {
@@ -149,7 +116,6 @@ export function generateProductSchema(params: {
   brand?: string;
   category?: string;
   sku?: string;
-  priceRange?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -163,12 +129,6 @@ export function generateProductSchema(params: {
     ...(params.category && { category: params.category }),
     ...(params.image && { image: params.image }),
     ...(params.sku && { sku: params.sku }),
-    offers: {
-      '@type': 'AggregateOffer',
-      availability: 'https://schema.org/InStock',
-      url: 'https://www.edgpatioshade.com/contact',
-      ...(params.priceRange && { priceCurrency: 'USD', priceRange: params.priceRange }),
-    },
   };
 }
 

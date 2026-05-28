@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -110,30 +110,19 @@ const gallery = [
 ];
 
 export default function DeerfieldRetractableScreensPage() {
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const serviceSchema = generateServiceSchema({
     name: 'Motorized Retractable Patio Screens in Deerfield, IL',
     description:
       'Custom motorized retractable patio screens for Deerfield porches, patios, pergolas, and outdoor rooms.',
-    brand: {
-      '@type': 'Brand',
-      name: 'EDG Patio & Shade',
-    },
-    image: gallery.map((item) => `https://www.edgpatioshade.com${item.src}`),
-    category: 'Motorized Exterior Screens',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      url: 'https://www.edgpatioshade.com/service-areas/deerfield-il/retractable-screens',
-    },
-  };
+    url: 'https://www.edgpatioshade.com/service-areas/deerfield-il/retractable-screens',
+    image: `https://www.edgpatioshade.com${images.systems.shades.hero}`,
+  });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"

@@ -209,8 +209,19 @@ export default function ChicagoPergolasPage() {
                   tuned to the site. We can keep spans efficient on a compact patio,
                   protect a garage roof deck without overwhelming it, and pair the
                   pergola with screens or lighting when privacy and nighttime use are
-                  part of the brief. The goal is a structure that makes your Chicago
-                  home more livable, not just more expensive.
+                  part of the brief. If wind and rain are the bigger issue, glass is
+                  often the better side-wall solution than screens — see{' '}
+                  <Link
+                    href="/service-areas/chicago-il/glass-enclosures"
+                    className="font-medium text-edg-brand-text hover:underline"
+                  >
+                    Chicago glass enclosures
+                  </Link>
+                  .
+                </p>
+                <p className="text-lg leading-relaxed text-text-secondary">
+                  The goal is a structure that makes your Chicago home more livable,
+                  not just more expensive.
                 </p>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden">

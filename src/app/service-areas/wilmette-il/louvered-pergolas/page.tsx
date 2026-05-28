@@ -79,7 +79,6 @@ const productSchema = generateProductSchema({
   description:
     'Estate-grade motorized louvered roof systems for Wilmette historic homes. ARB-compliant designs, 115 MPH wind ratings, and architectural matching for North Shore estates.',
   category: 'Outdoor Living Systems',
-  priceRange: '$$$',
 });
 
 const faqSchema = generateFAQSchema(faqs);

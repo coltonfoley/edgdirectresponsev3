@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -110,30 +110,19 @@ const gallery = [
 ];
 
 export default function ChicagoGlassEnclosuresPage() {
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  const serviceSchema = generateServiceSchema({
     name: 'Glass Patio Enclosures in Chicago, IL',
     description:
       'Frameless retractable glass patio enclosures for Chicago terraces, pergolas, and outdoor rooms.',
-    brand: {
-      '@type': 'Brand',
-      name: 'EDG Patio & Shade',
-    },
-    image: gallery.map((item) => `https://www.edgpatioshade.com${item.src}`),
-    category: 'Glass Patio Enclosures',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      url: 'https://www.edgpatioshade.com/service-areas/chicago-il/glass-enclosures',
-    },
-  };
+    url: 'https://www.edgpatioshade.com/service-areas/chicago-il/glass-enclosures',
+    image: `https://www.edgpatioshade.com${images.systems.enclosures.framelessGlass}`,
+  });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"
