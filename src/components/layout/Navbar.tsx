@@ -50,6 +50,11 @@ const locationsDropdown = [
     desc: 'Showroom and local home base',
   },
   {
+    href: '/service-areas/algonquin-il',
+    label: 'Algonquin, IL',
+    desc: 'Fox River Valley pergolas',
+  },
+  {
     href: '/service-areas/wilmette-il',
     label: 'Wilmette, IL',
     desc: 'North Shore historic districts',

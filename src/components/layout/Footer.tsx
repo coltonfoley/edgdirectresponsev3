@@ -261,6 +261,14 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/service-areas/algonquin-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Algonquin, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/service-areas/wilmette-il"
                     className="hover:text-edg-brand text-zinc-300 transition-colors"
                   >
