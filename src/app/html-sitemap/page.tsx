@@ -63,6 +63,15 @@ const sitemapLinks = [
       { href: '/service-areas', label: 'All Service Areas' },
       { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
       { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
+      { href: '/service-areas/algonquin-il', label: 'Algonquin, IL' },
+      {
+        href: '/service-areas/algonquin-il/motorized-pergolas',
+        label: 'Algonquin Motorized Pergolas',
+      },
+      {
+        href: '/service-areas/algonquin-il/zoning-guide',
+        label: 'Algonquin Pergola Permit Guide',
+      },
       {
         href: '/service-areas/chicago-il/motorized-pergolas',
         label: 'Chicago Motorized Pergolas',
