@@ -38,6 +38,13 @@ const serviceAreas = [
     region: 'Showroom',
   },
   {
+    name: 'Algonquin, IL',
+    slug: 'algonquin-il',
+    description:
+      'Fox River Valley pergola planning for Old Town, Randall Road neighborhoods, permits, screens, and year-round patio comfort.',
+    region: 'McHenry County',
+  },
+  {
     name: 'Wilmette, IL',
     slug: 'wilmette-il',
     description:
@@ -140,6 +147,12 @@ const priorityLocalPages = [
     href: '/service-areas/chicago-il/motorized-pergolas',
     description:
       'Installer-focused guidance for louvered roof systems in Chicago.',
+  },
+  {
+    title: 'Algonquin Motorized Pergolas',
+    href: '/service-areas/algonquin-il/motorized-pergolas',
+    description:
+      'Fox River Valley pergola planning for shade, rain, bugs, privacy, and permits.',
   },
   {
     title: 'Chicago Retractable Screens',

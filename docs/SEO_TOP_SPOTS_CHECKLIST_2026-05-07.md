@@ -26,6 +26,7 @@ These numbers came from the Google Search Console domain property for `edgpatios
 | P1 | `outdoor shades chicago`, `retractable screens chicago`, `motorized outdoor screens chicago` | Chicago screen searches are broad but valuable, especially for roof decks, patios, and hospitality. | `/service-areas/chicago-il/retractable-screens` |
 | P2 | `north shore patio screens`, `north shore outdoor living`, `deerfield patio screen installer` | Supports the Deerfield cluster with nearby topical authority. | `/service-areas/north-shore-chicago` and `/service-areas/deerfield-il` |
 | P2 | `pergola lake county il`, `pergola installer lake county il` | We already rank well here. Protect and strengthen with internal links and fresh content. | `/service-areas/lake-county-il` |
+| P2 | `pergola algonquin il`, `pergola installer algonquin il`, `motorized pergola algonquin il`, `louvered pergola algonquin il` | Near-showroom money term with visible competitor weakness: general deck, repair, and landscape pages dominate current organic results. | `/service-areas/algonquin-il/motorized-pergolas` and `/service-areas/algonquin-il` |
 | P3 | `automated retractable pergolas hewlett harbor` | Large impressions, but likely outside the service fit and not worth the first sprint. | Monitor only |
 
 ## Pages Built or Improved
@@ -41,6 +42,9 @@ These numbers came from the Google Search Console domain property for `edgpatios
 | `/systems/shades` | Added cost-guide language and links | Helps the main system page rank for cost and MagnaTrack queries |
 | `/systems/enclosures` | Added link to Chicago glass enclosure page | Sends authority to the new Chicago glass page |
 | `/service-areas/north-shore-chicago` | Added Deerfield screen internal link | Supports local relevance around Deerfield/North Shore screens |
+| `/service-areas/algonquin-il` | Added new Algonquin local hub page | Targets city-specific pergola and outdoor living searches near the Spring Grove showroom |
+| `/service-areas/algonquin-il/motorized-pergolas` | Added new product-location page | Targets exact Algonquin pergola installer, motorized pergola, and louvered pergola intent |
+| `/service-areas/algonquin-il/zoning-guide` | Added new permit guide | Builds local authority using the official Village of Algonquin pergola checklist |
 
 ## Google Business Profile Drafts
 

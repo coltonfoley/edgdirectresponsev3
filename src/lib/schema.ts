@@ -32,6 +32,7 @@ export const localBusinessSchema = {
         { '@type': 'AdministrativeArea', name: 'McHenry County' },
         { '@type': 'AdministrativeArea', name: 'Cook County' },
         { '@type': 'City', name: 'Chicago' },
+        { '@type': 'City', name: 'Algonquin' },
         { '@type': 'City', name: 'Naperville' },
         { '@type': 'City', name: 'Barrington' },
         { '@type': 'City', name: 'Oak Brook' },

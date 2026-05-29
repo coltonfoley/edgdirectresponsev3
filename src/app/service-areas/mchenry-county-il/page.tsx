@@ -222,6 +222,26 @@ export default function McHenryCountyHubPage() {
                 </Card>
               ))}
             </div>
+            <div className="mt-8 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h3 className="mb-2 text-xl font-bold">
+                    Planning a pergola in Algonquin?
+                  </h3>
+                  <p className="text-text-secondary">
+                    Use the city-specific Algonquin guide for Fox River Valley
+                    permit notes, louvered roof planning, screens, and privacy
+                    considerations.
+                  </p>
+                </div>
+                <Link href="/service-areas/algonquin-il/motorized-pergolas">
+                  <Button variant="secondary" className="shrink-0">
+                    Algonquin pergolas
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </FadeIn>
         </Container>
       </Section>
