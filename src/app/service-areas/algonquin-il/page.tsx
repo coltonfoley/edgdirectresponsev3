@@ -150,7 +150,9 @@ export default function AlgonquinServiceAreaPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       <section className="bg-edg-dark relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-24 pb-16">
@@ -242,8 +244,8 @@ export default function AlgonquinServiceAreaPage() {
                 A better answer than a basic wood pergola
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Algonquin homeowners usually do not just need shade. They need
-                a space that handles summer bugs, sudden rain, privacy from
+                Algonquin homeowners usually do not just need shade. They need a
+                space that handles summer bugs, sudden rain, privacy from
                 neighboring lots, evening use, and Northern Illinois winter
                 conditions. That is why our first recommendation is usually a
                 motorized louvered roof system planned with screens, heaters,
@@ -266,6 +268,21 @@ export default function AlgonquinServiceAreaPage() {
                   </p>
                 </Card>
               ))}
+            </div>
+
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <Link href="/service-areas/algonquin-il/retractable-screens">
+                <Button variant="secondary">
+                  Explore Algonquin screens
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/service-areas/algonquin-il/motorized-pergolas">
+                <Button variant="secondary">
+                  Compare pergola options
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </FadeIn>
         </Container>
@@ -316,7 +333,7 @@ export default function AlgonquinServiceAreaPage() {
                 <h2 className="section-title mb-6">
                   Specialist-level pergola design near your home
                 </h2>
-                <div className="space-y-5 text-text-secondary text-lg leading-relaxed">
+                <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                   <p>
                     EDG Patio & Shade is based in Spring Grove, so Algonquin is
                     close enough for practical site visits, showroom planning,

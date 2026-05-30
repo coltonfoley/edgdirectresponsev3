@@ -155,6 +155,12 @@ const priorityLocalPages = [
       'Fox River Valley pergola planning for shade, rain, bugs, privacy, and permits.',
   },
   {
+    title: 'Algonquin Motorized Screens',
+    href: '/service-areas/algonquin-il/retractable-screens',
+    description:
+      'Retractable patio screen layouts for bugs, glare, privacy, wind, and pergola openings.',
+  },
+  {
     title: 'Chicago Retractable Screens',
     href: '/service-areas/chicago-il/retractable-screens',
     description:

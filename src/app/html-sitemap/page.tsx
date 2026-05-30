@@ -69,6 +69,10 @@ const sitemapLinks = [
         label: 'Algonquin Motorized Pergolas',
       },
       {
+        href: '/service-areas/algonquin-il/retractable-screens',
+        label: 'Algonquin Motorized Screens',
+      },
+      {
         href: '/service-areas/algonquin-il/zoning-guide',
         label: 'Algonquin Pergola Permit Guide',
       },

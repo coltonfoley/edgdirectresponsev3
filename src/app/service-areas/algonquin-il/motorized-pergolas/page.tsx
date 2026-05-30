@@ -123,7 +123,9 @@ export default function AlgonquinMotorizedPergolasPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       <Section className="bg-edg-dark relative overflow-hidden pt-24 pb-16 text-white md:pt-32">
@@ -204,9 +206,10 @@ export default function AlgonquinMotorizedPergolasPage() {
               Algonquin outdoor spaces are not one-problem patios. A west-facing
               Randall Road backyard may need late-day shade. A Fox River area
               lot may need bug control and wind protection. A newer subdivision
-              patio may need privacy and a finish package that passes HOA review.
-              A motorized pergola works because the roof, screens, heaters,
-              lights, drainage, and controls can be planned as one system.
+              patio may need privacy and a finish package that passes HOA
+              review. A motorized pergola works because the roof, screens,
+              heaters, lights, drainage, and controls can be planned as one
+              system.
             </p>
           </div>
 
@@ -243,12 +246,12 @@ export default function AlgonquinMotorizedPergolasPage() {
               <h2 className="section-title mb-6">
                 A full outdoor room, not a single product
               </h2>
-              <div className="space-y-5 text-text-secondary text-lg leading-relaxed">
+              <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                 <p>
-                  The strongest Algonquin pergola projects start by defining
-                  the job the patio needs to do. A simple shade frame may look
-                  good in a photo, but it will not solve bugs, sideways rain,
-                  low evening sun, chilly fall nights, or privacy from a second
+                  The strongest Algonquin pergola projects start by defining the
+                  job the patio needs to do. A simple shade frame may look good
+                  in a photo, but it will not solve bugs, sideways rain, low
+                  evening sun, chilly fall nights, or privacy from a second
                   story next door.
                 </p>
                 <p>
@@ -274,9 +277,7 @@ export default function AlgonquinMotorizedPergolasPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1fr]">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Planning process
-              </div>
+              <div className="label-editorial-brand mb-4">Planning process</div>
               <h2 className="section-title mb-6">
                 How we scope an Algonquin pergola
               </h2>
@@ -314,9 +315,7 @@ export default function AlgonquinMotorizedPergolasPage() {
       <Section className="section-md bg-surface-muted">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Specs and options
-            </div>
+            <div className="label-editorial-brand mb-4">Specs and options</div>
             <h2 className="section-title">What can be included</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -333,6 +332,15 @@ export default function AlgonquinMotorizedPergolasPage() {
                 <p className="text-text-secondary text-lg">{item}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/service-areas/algonquin-il/retractable-screens"
+              className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-medium transition-colors"
+            >
+              Need side protection first? Review Algonquin motorized screens.
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </Container>
       </Section>

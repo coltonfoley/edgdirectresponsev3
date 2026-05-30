@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     'Custom motorized pergolas, exterior shades, and glass enclosures for McHenry County, IL homes. Expert design and installation in Crystal Lake, Spring Grove, and surrounding areas.',
   openGraph: {
     title: 'McHenry County Outdoor Living | EDG Patio & Shade',
-    description: 'Luxury outdoor living systems for McHenry County. Motorized pergolas and screens designed for Illinois weather.',
+    description:
+      'Luxury outdoor living systems for McHenry County. Motorized pergolas and screens designed for Illinois weather.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -35,7 +36,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/mchenry-county-il',
   },
-  keywords: ['mchenry county pergolas', 'mchenry county outdoor living', 'crystal lake patio', 'pergola installation mchenry', 'spring grove pergolas'],
+  keywords: [
+    'mchenry county pergolas',
+    'mchenry county outdoor living',
+    'crystal lake patio',
+    'pergola installation mchenry',
+    'spring grove pergolas',
+  ],
 };
 
 const localBenefits = [
@@ -49,7 +56,7 @@ const neighborhoods = [
   {
     name: 'Crystal Lake',
     description:
-      'We design systems that maximize views of the water or expansive backyards, offering large-span louvered pergolas that don\'t obstruct natural sightlines.',
+      "We design systems that maximize views of the water or expansive backyards, offering large-span louvered pergolas that don't obstruct natural sightlines.",
   },
   {
     name: 'Algonquin & Lake in the Hills',
@@ -139,7 +146,9 @@ export default function McHenryCountyHubPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -172,12 +181,12 @@ export default function McHenryCountyHubPage() {
               </span>
               <h1 className="hero-title mb-6 text-white">
                 Premium Outdoor Living Systems in
-                <span className="text-edg-brand block">
-                  McHenry County
-                </span>
+                <span className="text-edg-brand block">McHenry County</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                We design and install engineered, motorized shade systems right in our backyard. From Crystal Lake to Spring Grove, experience four-season outdoor comfort.
+                We design and install engineered, motorized shade systems right
+                in our backyard. From Crystal Lake to Spring Grove, experience
+                four-season outdoor comfort.
               </p>
               <Link href="/contact">
                 <Button size="lg" className="px-8 text-lg">
@@ -196,8 +205,12 @@ export default function McHenryCountyHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -217,8 +230,12 @@ export default function McHenryCountyHubPage() {
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -240,6 +257,12 @@ export default function McHenryCountyHubPage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
+                <Link href="/service-areas/algonquin-il/retractable-screens">
+                  <Button variant="secondary" className="shrink-0">
+                    Algonquin screens
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </FadeIn>
@@ -258,7 +281,12 @@ export default function McHenryCountyHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {weatherConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -339,14 +367,11 @@ export default function McHenryCountyHubPage() {
                 Ready to Upgrade Your McHenry County Home?
               </h2>
               <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and customized quote from our local team.
+                Get a free consultation and customized quote from our local
+                team.
               </p>
               <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="dark"
-                  className="px-8 text-lg"
-                >
+                <Button size="lg" variant="dark" className="px-8 text-lg">
                   Schedule Free Consultation{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>

@@ -24,11 +24,20 @@ import {
 
 export const metadata: Metadata = {
   title: 'MagnaTrack Motorized Screens & Cost Guide | Exterior Shades | EDG',
-  description: 'MagnaTrack motorized screens and exterior shades with cost guidance, self-correcting track technology, wind control, bug protection, and UV shade.',
-  keywords: ['motorized screens', 'retractable screens', 'patio screens', 'exterior shades', 'magnaTrack screens', 'outdoor screens'],
+  description:
+    'MagnaTrack motorized screens and exterior shades with cost guidance, self-correcting track technology, wind control, bug protection, and UV shade.',
+  keywords: [
+    'motorized screens',
+    'retractable screens',
+    'patio screens',
+    'exterior shades',
+    'magnaTrack screens',
+    'outdoor screens',
+  ],
   openGraph: {
     title: 'MagnaTrack Motorized Screens & Exterior Shades | EDG',
-    description: 'MagnaTrack motorized screens with cost guidance and self-correcting track technology. Block wind, bugs, and UV while keeping your view.',
+    description:
+      'MagnaTrack motorized screens with cost guidance and self-correcting track technology. Block wind, bugs, and UV while keeping your view.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -122,27 +131,33 @@ const applications = [
 const options = [
   {
     name: 'Fabric Selection',
-    description: 'Multiple colors and openness factors (1%, 5%, 10%, 20%) to balance view, airflow, and sun protection.',
+    description:
+      'Multiple colors and openness factors (1%, 5%, 10%, 20%) to balance view, airflow, and sun protection.',
   },
   {
     name: 'Motor Options',
-    description: 'Standard motors or ultra-quiet whisper motors for noise-sensitive installations.',
+    description:
+      'Standard motors or ultra-quiet whisper motors for noise-sensitive installations.',
   },
   {
     name: 'Sensor Integration',
-    description: 'Wind sensors auto-retract in high winds. Sun sensors deploy when UV hits threshold.',
+    description:
+      'Wind sensors auto-retract in high winds. Sun sensors deploy when UV hits threshold.',
   },
   {
     name: 'Recessed Housing',
-    description: 'Hide the screen housing in walls, soffits, or columns for a clean architectural look.',
+    description:
+      'Hide the screen housing in walls, soffits, or columns for a clean architectural look.',
   },
   {
     name: 'Manual Override',
-    description: 'Battery backup and manual crank options ensure operation during power outages.',
+    description:
+      'Battery backup and manual crank options ensure operation during power outages.',
   },
   {
     name: 'Clear Vinyl',
-    description: 'Crystal-clear vinyl options for weather protection without obstructing views.',
+    description:
+      'Crystal-clear vinyl options for weather protection without obstructing views.',
   },
 ];
 
@@ -150,22 +165,26 @@ const processSteps = [
   {
     number: '01',
     title: 'Consultation',
-    description: 'Site visit to assess your space, discuss goals, and review fabric samples. We measure openings and evaluate mounting conditions.',
+    description:
+      'Site visit to assess your space, discuss goals, and review fabric samples. We measure openings and evaluate mounting conditions.',
   },
   {
     number: '02',
     title: 'Measurement',
-    description: 'Precision laser measurements ensure perfect fit. We account for structural considerations and integration with existing elements.',
+    description:
+      'Precision laser measurements ensure perfect fit. We account for structural considerations and integration with existing elements.',
   },
   {
     number: '03',
     title: 'Fabrication',
-    description: 'Screens are custom-fabricated to your specifications. Lead time typically 4-6 weeks depending on options selected.',
+    description:
+      'Screens are custom-fabricated to your specifications. Lead time typically 4-6 weeks depending on options selected.',
   },
   {
     number: '04',
     title: 'Installation',
-    description: 'Our certified installers handle electrical connections, programming, and system testing. Full walkthrough and training included.',
+    description:
+      'Our certified installers handle electrical connections, programming, and system testing. Full walkthrough and training included.',
   },
 ];
 
@@ -182,12 +201,14 @@ const relatedProducts = [
   },
   {
     name: 'Screen Cost Guide',
-    description: 'Budget ranges for MagnaTrack motorized screens and patio screen retrofits.',
+    description:
+      'Budget ranges for MagnaTrack motorized screens and patio screen retrofits.',
     href: '/guides/magnatrack-screens-cost',
   },
   {
     name: 'Deerfield Screens',
-    description: 'Local screen planning for North Shore patios, porches, and outdoor rooms.',
+    description:
+      'Local screen planning for North Shore patios, porches, and outdoor rooms.',
     href: '/service-areas/deerfield-il/retractable-screens',
   },
 ];
@@ -195,34 +216,41 @@ const relatedProducts = [
 const faqs = [
   {
     question: 'How much do motorized screens cost?',
-    answer: 'Motorized screen pricing depends on size, fabric selection, and control options. Entry-level systems start around $3,500 for a standard patio opening, with typical residential installations ranging from $5,000-$15,000. Commercial projects with multiple screens or extra-wide spans (20+ feet) range from $15,000-$50,000+. We provide detailed quotes after a site visit to measure and assess your specific requirements.',
+    answer:
+      'Motorized screen pricing depends on size, fabric selection, and control options. Entry-level systems start around $3,500 for a standard patio opening, with typical residential installations ranging from $5,000-$15,000. Commercial projects with multiple screens or extra-wide spans (20+ feet) range from $15,000-$50,000+. We provide detailed quotes after a site visit to measure and assess your specific requirements.',
   },
   {
     question: 'Can the screens handle wind?',
-    answer: 'Yes—MagnaTrack systems are specifically engineered for wind resistance. The magnetic self-correcting track allows screens to withstand sustained winds up to 35 mph, far exceeding conventional zip screens. Wind sensors can be added to automatically retract screens when gusts exceed safe thresholds. For extreme wind conditions, we also offer manual override systems and heavy-duty commercial tracks rated even higher.',
+    answer:
+      'Yes—MagnaTrack systems are specifically engineered for wind resistance. The magnetic self-correcting track allows screens to withstand sustained winds up to 35 mph, far exceeding conventional zip screens. Wind sensors can be added to automatically retract screens when gusts exceed safe thresholds. For extreme wind conditions, we also offer manual override systems and heavy-duty commercial tracks rated even higher.',
   },
   {
     question: "What's the difference between MagnaTrack and regular screens?",
-    answer: 'Traditional zip screens use fixed tracks with constant tension that fight against wind, eventually blowing out or causing fabric damage. MagnaTrack uses neodymium magnets embedded in the track to create adaptive tension—when wind hits, the magnets allow controlled flex and then snap the fabric back into perfect alignment. This self-correcting action eliminates the #1 service issue with motorized screens while providing superior wind resistance.',
+    answer:
+      'Traditional zip screens use fixed tracks with constant tension that fight against wind, eventually blowing out or causing fabric damage. MagnaTrack uses neodymium magnets embedded in the track to create adaptive tension—when wind hits, the magnets allow controlled flex and then snap the fabric back into perfect alignment. This self-correcting action eliminates the #1 service issue with motorized screens while providing superior wind resistance.',
   },
   {
     question: 'Do you offer clear vinyl options?',
-    answer: 'Yes, we offer crystal-clear vinyl screens that provide weather protection without obstructing views. These are popular for seasonal enclosures, blocking wind and rain while maintaining visibility. Clear vinyl is available in various gauges (thicknesses) depending on your climate and usage requirements. Note that clear vinyl does not offer the same MagnaTrack self-correcting benefits as mesh fabrics.',
+    answer:
+      'Yes, we offer crystal-clear vinyl screens that provide weather protection without obstructing views. These are popular for seasonal enclosures, blocking wind and rain while maintaining visibility. Clear vinyl is available in various gauges (thicknesses) depending on your climate and usage requirements. Note that clear vinyl does not offer the same MagnaTrack self-correcting benefits as mesh fabrics.',
   },
   {
     question: "What's the warranty on motorized screens?",
-    answer: 'Standard warranty includes 5 years on the motor and frame, 5 years on the fabric (against manufacturing defects), and 2 years on electronics and sensors. Extended warranties are available for commercial applications. As a design and supply partner, we also provide ongoing support and can source replacement parts from multiple manufacturers to ensure long-term serviceability.',
+    answer:
+      'Standard warranty includes 5 years on the motor and frame, 5 years on the fabric (against manufacturing defects), and 2 years on electronics and sensors. Extended warranties are available for commercial applications. As a design and supply partner, we also provide ongoing support and can source replacement parts from multiple manufacturers to ensure long-term serviceability.',
   },
   {
     question: 'Can screens be integrated with my smart home system?',
-    answer: 'Absolutely. Our specified systems integrate with all major home automation platforms including Control4, Crestron, Lutron, Savant, and others. We also offer native app control, voice control via Alexa and Google Home, and hardwired switch options. Advanced programming allows scenes that coordinate screens with lighting, pergola louvers, and climate control systems.',
+    answer:
+      'Absolutely. Our specified systems integrate with all major home automation platforms including Control4, Crestron, Lutron, Savant, and others. We also offer native app control, voice control via Alexa and Google Home, and hardwired switch options. Advanced programming allows scenes that coordinate screens with lighting, pergola louvers, and climate control systems.',
   },
 ];
 
 export default function ShadesPage() {
   const serviceSchema = generateServiceSchema({
     name: 'Motorized Retractable Screen Installation',
-    description: 'Professional installation of MagnaTrack motorized screens with self-correcting track technology. Wind-rated exterior shades for UV protection, bug control, and privacy.',
+    description:
+      'Professional installation of MagnaTrack motorized screens with self-correcting track technology. Wind-rated exterior shades for UV protection, bug control, and privacy.',
     url: 'https://www.edgpatioshade.com/systems/shades',
   });
 
@@ -230,7 +258,8 @@ export default function ShadesPage() {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: 'MagnaTrack Motorized Retractable Screens',
-    description: 'Motorized exterior screens featuring MagnaTrack self-correcting technology with neodymium magnets. Blocks up to 97% of UV rays while withstanding 35 mph winds.',
+    description:
+      'Motorized exterior screens featuring MagnaTrack self-correcting technology with neodymium magnets. Blocks up to 97% of UV rays while withstanding 35 mph winds.',
     brand: {
       '@type': 'Brand',
       name: 'EDG Patio & Shade',
@@ -291,7 +320,7 @@ export default function ShadesPage() {
 
       <main className="bg-surface min-h-screen">
         {/* ========== HERO: SPLIT SCREEN PRODUCT ========== */}
-        <section className="pt-32 pb-12 lg:min-h-screen flex flex-col justify-center">
+        <section className="flex flex-col justify-center pt-32 pb-12 lg:min-h-screen">
           <Container>
             {/* Breadcrumb */}
             <div className="mb-8">
@@ -302,21 +331,22 @@ export default function ShadesPage() {
                 ]}
               />
             </div>
-            <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
-              <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
+            <div className="grid gap-12 lg:grid-cols-12 lg:gap-24">
+              <div className="order-2 flex flex-col justify-center lg:order-1 lg:col-span-5">
                 <div className="label-editorial-brand mb-6 flex items-center gap-3">
-                  <div className="h-px w-8 bg-edg-brand-dark"></div>
+                  <div className="bg-edg-brand-dark h-px w-8"></div>
                   Sun & Wind Protection
                 </div>
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-text-primary leading-[0.9]">
+                <h1 className="text-text-primary mb-8 text-5xl leading-[0.9] font-bold tracking-tighter md:text-7xl">
                   Motorized <br /> Screens.
                 </h1>
-                <p className="text-xl text-text-secondary mb-10 leading-relaxed max-w-md">
-                  Block 97% of UV rays and 35 mph winds without losing your view. 
-                  MagnaTrack self-correcting technology keeps screens secure in any weather.
+                <p className="text-text-secondary mb-10 max-w-md text-xl leading-relaxed">
+                  Block 97% of UV rays and 35 mph winds without losing your
+                  view. MagnaTrack self-correcting technology keeps screens
+                  secure in any weather.
                 </p>
 
-                <div className="flex flex-col gap-4 mb-12">
+                <div className="mb-12 flex flex-col gap-4">
                   <Link
                     href="/contact?type=price&product=shades"
                     data-conversion-name="book_call_click"
@@ -328,28 +358,37 @@ export default function ShadesPage() {
                   <Link
                     href="tel:+18155810138"
                     data-conversion-name="phone_click"
-                    className="flex items-center gap-3 font-bold uppercase tracking-wider text-sm cursor-pointer hover:text-edg-brand-text transition-colors"
+                    className="hover:text-edg-brand-text flex cursor-pointer items-center gap-3 text-sm font-bold tracking-wider uppercase transition-colors"
                   >
                     <span className="h-px w-8 bg-black/20"></span>
                     Speak to a designer
                   </Link>
                   <Link
                     href="/service-areas/chicago-il/retractable-screens"
-                    className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
-                    Comparing city installers? See our Chicago retractable screen page.
+                    Comparing city installers? See our Chicago retractable
+                    screen page.
+                  </Link>
+                  <Link
+                    href="/service-areas/algonquin-il/retractable-screens"
+                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
+                  >
+                    Near the Fox River Valley? Review Algonquin motorized
+                    screens.
                   </Link>
                   <Link
                     href="/guides/magnatrack-screens-cost"
-                    className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
                     Need budget ranges? Read the MagnaTrack screens cost guide.
                   </Link>
                   <Link
                     href="/service-areas/southwest-florida"
-                    className="text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
-                    Need coastal wind and lanai guidance? See Southwest Florida planning.
+                    Need coastal wind and lanai guidance? See Southwest Florida
+                    planning.
                   </Link>
                 </div>
 
@@ -358,16 +397,20 @@ export default function ShadesPage() {
                   <div className="grid grid-cols-2 gap-y-4 text-sm">
                     {specs.slice(0, 4).map((s) => (
                       <div key={s.label}>
-                        <span className="text-text-muted block text-xs uppercase tracking-wider mb-1">{s.label}</span>
-                        <span className="font-bold text-text-primary">{s.value}</span>
+                        <span className="text-text-muted mb-1 block text-xs tracking-wider uppercase">
+                          {s.label}
+                        </span>
+                        <span className="text-text-primary font-bold">
+                          {s.value}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-7 order-1 lg:order-2">
-                <div className="relative aspect-[4/5] bg-surface-muted overflow-hidden rounded-none">
+              <div className="order-1 lg:order-2 lg:col-span-7">
+                <div className="bg-surface-muted relative aspect-[4/5] overflow-hidden rounded-none">
                   <ShadesGalleryClient items={galleryImages} />
                 </div>
               </div>
@@ -376,31 +419,39 @@ export default function ShadesPage() {
         </section>
 
         {/* ========== PRODUCT OVERVIEW ========== */}
-        <Section className="section-md border-t border-black/5 bg-surface-muted">
+        <Section className="section-md bg-surface-muted border-t border-black/5">
           <Container>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="mx-auto mb-16 max-w-3xl text-center">
               <div className="label-editorial-brand mb-4">Product Overview</div>
               <h2 className="section-title mb-6">
                 The Modern Alternative to Fixed Screens
               </h2>
-              <div className="space-y-4 text-text-secondary leading-relaxed">
+              <div className="text-text-secondary space-y-4 leading-relaxed">
                 <p>
-                  Motorized retractable screens transform open outdoor spaces into protected, comfortable environments 
-                  at the touch of a button. Unlike fixed screening that permanently blocks views and airflow, 
-                  these screens deploy when you need protection and disappear completely when you don&apos;t—preserving 
-                  the architectural openness of your patio, porch, or gazebo.
+                  Motorized retractable screens transform open outdoor spaces
+                  into protected, comfortable environments at the touch of a
+                  button. Unlike fixed screening that permanently blocks views
+                  and airflow, these screens deploy when you need protection and
+                  disappear completely when you don&apos;t—preserving the
+                  architectural openness of your patio, porch, or gazebo.
                 </p>
                 <p>
-                  At the heart of our specification is <strong>MagnaTrack technology</strong>—a revolutionary track 
-                  system using powerful neodymium magnets to maintain constant fabric tension. Traditional screens 
-                  rely on fixed tracks that fight against wind, eventually blowing out or jamming. MagnaTrack works 
-                  with nature, allowing the screen to flex in gusts and then snap back into perfect alignment automatically.
+                  At the heart of our specification is{' '}
+                  <strong>MagnaTrack technology</strong>—a revolutionary track
+                  system using powerful neodymium magnets to maintain constant
+                  fabric tension. Traditional screens rely on fixed tracks that
+                  fight against wind, eventually blowing out or jamming.
+                  MagnaTrack works with nature, allowing the screen to flex in
+                  gusts and then snap back into perfect alignment automatically.
                 </p>
                 <p>
-                  As a design and supply partner, we&apos;re system-agnostic—we specify MagnaTrack technology from 
-                  leading manufacturers based on your project requirements, not because we&apos;re locked into a single 
-                  brand. For homeowners in the Chicago-Milwaukee corridor, we provide complete turnkey installation. 
-                  For professionals nationwide, we handle design, engineering, and supply with shipping to your job site.
+                  As a design and supply partner, we&apos;re system-agnostic—we
+                  specify MagnaTrack technology from leading manufacturers based
+                  on your project requirements, not because we&apos;re locked
+                  into a single brand. For homeowners in the Chicago-Milwaukee
+                  corridor, we provide complete turnkey installation. For
+                  professionals nationwide, we handle design, engineering, and
+                  supply with shipping to your job site.
                 </p>
               </div>
             </div>
@@ -410,19 +461,31 @@ export default function ShadesPage() {
         {/* ========== KEY FEATURES ========== */}
         <Section className="section-lg border-t border-black/5">
           <Container>
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
               <div className="label-editorial-brand mb-4">Features</div>
               <h2 className="section-title">
                 Why MagnaTrack Changes Everything
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {features.map((feature) => (
-                <Card key={feature.title} variant="muted" padding="lg" className="group">
-                  <IconWrapper icon={feature.icon} variant="brand" size="lg" className="mb-6" />
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-text-secondary leading-relaxed">{feature.description}</p>
+                <Card
+                  key={feature.title}
+                  variant="muted"
+                  padding="lg"
+                  className="group"
+                >
+                  <IconWrapper
+                    icon={feature.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-6"
+                  />
+                  <h3 className="mb-3 text-xl font-bold">{feature.title}</h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {feature.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -432,42 +495,60 @@ export default function ShadesPage() {
         {/* ========== SPECIFICATIONS TABLE ========== */}
         <Section className="section-md bg-surface-muted">
           <Container>
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid items-start gap-12 lg:grid-cols-2">
               <div>
-                <div className="label-editorial-brand mb-4">Technical Specifications</div>
+                <div className="label-editorial-brand mb-4">
+                  Technical Specifications
+                </div>
                 <h2 className="section-title mb-6">
                   Built for Real-World Conditions
                 </h2>
-                <p className="text-text-secondary leading-relaxed mb-8">
-                  Every specification is tested and verified. These are not theoretical limits—
-                  they represent the actual performance you can expect from a properly specified 
-                  and installed MagnaTrack system.
+                <p className="text-text-secondary mb-8 leading-relaxed">
+                  Every specification is tested and verified. These are not
+                  theoretical limits— they represent the actual performance you
+                  can expect from a properly specified and installed MagnaTrack
+                  system.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand-dark shrink-0 mt-0.5" />
-                    <p className="text-text-secondary">Engineering stamps available for permit applications</p>
+                    <Check className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-secondary">
+                      Engineering stamps available for permit applications
+                    </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand-dark shrink-0 mt-0.5" />
-                    <p className="text-text-secondary">Miami-Dade County wind load certifications available</p>
+                    <Check className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-secondary">
+                      Miami-Dade County wind load certifications available
+                    </p>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand-dark shrink-0 mt-0.5" />
-                    <p className="text-text-secondary">5-year motor and frame warranty standard</p>
+                    <Check className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-secondary">
+                      5-year motor and frame warranty standard
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <Card variant="default" padding="none" className="overflow-hidden">
+              <Card
+                variant="default"
+                padding="none"
+                className="overflow-hidden"
+              >
                 <table className="w-full">
                   <tbody>
                     {specs.map((spec, index) => (
-                      <tr key={spec.label} className={index % 2 === 0 ? 'bg-surface' : 'bg-surface-muted'}>
-                        <td className="px-6 py-4 text-text-secondary font-medium border-b border-border">
+                      <tr
+                        key={spec.label}
+                        className={
+                          index % 2 === 0 ? 'bg-surface' : 'bg-surface-muted'
+                        }
+                      >
+                        <td className="text-text-secondary border-border border-b px-6 py-4 font-medium">
                           {spec.label}
                         </td>
-                        <td className="px-6 py-4 text-text-primary font-bold border-b border-border">
+                        <td className="text-text-primary border-border border-b px-6 py-4 font-bold">
                           {spec.value}
                         </td>
                       </tr>
@@ -488,32 +569,35 @@ export default function ShadesPage() {
                 <h2 className="section-title mb-6">
                   What do MagnaTrack motorized screens cost?
                 </h2>
-                <div className="space-y-4 text-text-secondary leading-relaxed">
+                <div className="text-text-secondary space-y-4 leading-relaxed">
                   <p>
-                    Screen pricing depends on opening width, height, fabric, housing
-                    details, controls, wiring, and how cleanly the tracks can mount to
-                    the structure. A single opening often starts around $3,500 to
-                    $8,000+, while a full patio or pergola screen package commonly
-                    moves into a larger custom budget.
+                    Screen pricing depends on opening width, height, fabric,
+                    housing details, controls, wiring, and how cleanly the
+                    tracks can mount to the structure. A single opening often
+                    starts around $3,500 to $8,000+, while a full patio or
+                    pergola screen package commonly moves into a larger custom
+                    budget.
                   </p>
                   <p>
-                    We built a dedicated cost guide because online kit pricing rarely
-                    tells the whole story. A wind-exposed patio, roof deck, restaurant
-                    opening, or recessed housing detail needs a different level of
-                    planning than a basic drop screen.
+                    We built a dedicated cost guide because online kit pricing
+                    rarely tells the whole story. A wind-exposed patio, roof
+                    deck, restaurant opening, or recessed housing detail needs a
+                    different level of planning than a basic drop screen.
                   </p>
                 </div>
               </div>
               <Card variant="muted" padding="lg">
-                <DollarSign className="mb-4 h-6 w-6 text-edg-brand-text" />
-                <h3 className="mb-3 text-xl font-bold">Compare the real cost drivers</h3>
-                <p className="mb-6 leading-relaxed text-text-secondary">
+                <DollarSign className="text-edg-brand-text mb-4 h-6 w-6" />
+                <h3 className="mb-3 text-xl font-bold">
+                  Compare the real cost drivers
+                </h3>
+                <p className="text-text-secondary mb-6 leading-relaxed">
                   See planning ranges, what changes the quote, and when a
                   MagnaTrack-style system is worth the premium.
                 </p>
                 <Link
                   href="/guides/magnatrack-screens-cost"
-                  className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-text-primary transition-colors hover:text-edg-brand-text"
+                  className="text-text-primary hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
                 >
                   Read Screen Cost Guide
                   <ArrowRight className="h-4 w-4" />
@@ -526,21 +610,22 @@ export default function ShadesPage() {
         {/* ========== APPLICATIONS ========== */}
         <Section className="section-lg border-t border-black/5">
           <Container>
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
               <div className="label-editorial-brand mb-4">Applications</div>
-              <h2 className="section-title">
-                Where Screens Work Best
-              </h2>
+              <h2 className="section-title">Where Screens Work Best</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid gap-8 md:grid-cols-2">
               {applications.map((app) => (
                 <Card key={app.category} variant="outline" padding="lg">
-                  <h3 className="text-2xl font-bold mb-6">{app.category}</h3>
+                  <h3 className="mb-6 text-2xl font-bold">{app.category}</h3>
                   <ul className="space-y-3">
                     {app.items.map((item) => (
-                      <li key={item} className="flex items-center gap-3 text-text-secondary">
-                        <Plus className="h-4 w-4 text-edg-brand-dark shrink-0" />
+                      <li
+                        key={item}
+                        className="text-text-secondary flex items-center gap-3"
+                      >
+                        <Plus className="text-edg-brand-dark h-4 w-4 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -554,18 +639,20 @@ export default function ShadesPage() {
         {/* ========== OPTIONS & UPGRADES ========== */}
         <Section className="section-md bg-surface-muted">
           <Container>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <div className="label-editorial-brand mb-4">Options & Upgrades</div>
-              <h2 className="section-title">
-                Customize for Your Project
-              </h2>
+            <div className="mx-auto mb-16 max-w-2xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Options & Upgrades
+              </div>
+              <h2 className="section-title">Customize for Your Project</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {options.map((option) => (
                 <Card key={option.name} variant="default" padding="lg">
-                  <h3 className="text-lg font-bold mb-2">{option.name}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">{option.description}</p>
+                  <h3 className="mb-2 text-lg font-bold">{option.name}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    {option.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -575,19 +662,21 @@ export default function ShadesPage() {
         {/* ========== PROCESS OVERVIEW ========== */}
         <Section className="section-lg border-t border-black/5">
           <Container>
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="mx-auto mb-16 max-w-2xl text-center">
               <div className="label-editorial-brand mb-4">Our Process</div>
-              <h2 className="section-title">
-                From Consultation to Completion
-              </h2>
+              <h2 className="section-title">From Consultation to Completion</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {processSteps.map((step) => (
                 <div key={step.number} className="relative">
-                  <div className="text-5xl font-bold text-edg-brand/30 mb-4">{step.number}</div>
-                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">{step.description}</p>
+                  <div className="text-edg-brand/30 mb-4 text-5xl font-bold">
+                    {step.number}
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold">{step.title}</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -597,24 +686,34 @@ export default function ShadesPage() {
         {/* ========== RELATED PRODUCTS ========== */}
         <Section className="section-md bg-surface-muted border-t border-black/5">
           <Container>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <div className="label-editorial-brand mb-4">Complete Your Space</div>
-              <h2 className="section-title">
-                Related Products
-              </h2>
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Complete Your Space
+              </div>
+              <h2 className="section-title">Related Products</h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {relatedProducts.map((product) => (
-                <Link key={product.name} href={product.href} data-conversion-name="book_call_click">
-                  <Card variant="default" padding="lg" className="h-full group cursor-pointer hover:border-edg-brand/30 transition-colors">
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-edg-brand-dark transition-colors">
+                <Link
+                  key={product.name}
+                  href={product.href}
+                  data-conversion-name="book_call_click"
+                >
+                  <Card
+                    variant="default"
+                    padding="lg"
+                    className="group hover:border-edg-brand/30 h-full cursor-pointer transition-colors"
+                  >
+                    <h3 className="group-hover:text-edg-brand-dark mb-2 text-lg font-bold transition-colors">
                       {product.name}
                     </h3>
-                    <p className="text-text-secondary text-sm mb-4">{product.description}</p>
-                    <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
+                    <p className="text-text-secondary mb-4 text-sm">
+                      {product.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                       <span>Learn More</span>
-                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>
                   </Card>
                 </Link>
@@ -624,9 +723,17 @@ export default function ShadesPage() {
             <div className="mt-8 text-center">
               <Link
                 href="/service-areas/chicago-il/retractable-screens"
-                className="inline-flex items-center gap-2 text-sm font-medium text-edg-brand-text transition-colors hover:text-edg-brand"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-medium transition-colors"
               >
-                Need a city-specific screen page? Explore Chicago retractable screens.
+                Need a city-specific screen page? Explore Chicago retractable
+                screens.
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/service-areas/algonquin-il/retractable-screens"
+                className="text-edg-brand-text hover:text-edg-brand mt-4 ml-0 inline-flex items-center gap-2 text-sm font-medium transition-colors md:mt-0 md:ml-6"
+              >
+                Planning in Algonquin? See the local motorized screen guide.
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -636,33 +743,43 @@ export default function ShadesPage() {
         {/* ========== FINAL CTA ========== */}
         <section className="bg-surface-dark text-text-inverse py-32">
           <Container>
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid items-center gap-16 md:grid-cols-2">
               <div>
-                <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+                <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
                   Reclaim your outdoor space.
                 </h2>
-                <p className="text-xl text-text-inverse-muted mb-8 max-w-md">
-                  Stop retreating indoors when the bugs come out or the sun gets low. 
-                  Our Spring Grove showroom has working MagnaTrack displays—come see 
-                  the difference self-correcting technology makes.
+                <p className="text-text-inverse-muted mb-8 max-w-md text-xl">
+                  Stop retreating indoors when the bugs come out or the sun gets
+                  low. Our Spring Grove showroom has working MagnaTrack
+                  displays—come see the difference self-correcting technology
+                  makes.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/contact?type=price&product=shades" data-conversion-name="book_call_click">
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <Link
+                    href="/contact?type=price&product=shades"
+                    data-conversion-name="book_call_click"
+                  >
                     <Button variant="primary" size="lg">
                       Start Your Quote
                     </Button>
                   </Link>
                   <Link href="/showroom" data-conversion-name="book_call_click">
-                    <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="border-white/20 text-white hover:bg-white/10"
+                    >
                       Visit Showroom
                     </Button>
                   </Link>
                 </div>
               </div>
-              <div className="border-l border-white/20 pl-16 hidden md:block">
+              <div className="hidden border-l border-white/20 pl-16 md:block">
                 <div className="space-y-6">
-                  <h4 className="text-lg font-bold uppercase tracking-wide">Perfect For</h4>
-                  <ul className="space-y-4 text-text-inverse-muted">
+                  <h4 className="text-lg font-bold tracking-wide uppercase">
+                    Perfect For
+                  </h4>
+                  <ul className="text-text-inverse-muted space-y-4">
                     {[
                       'Existing Porches',
                       'New Pergolas',
@@ -671,7 +788,7 @@ export default function ShadesPage() {
                       'Lakeside Properties',
                     ].map((item) => (
                       <li key={item} className="flex items-center gap-3">
-                        <Plus className="h-4 w-4 text-edg-brand shrink-0" />
+                        <Plus className="text-edg-brand h-4 w-4 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -684,10 +801,10 @@ export default function ShadesPage() {
 
         {/* FAQ Section for SEO */}
         <section className="section-lg bg-surface-muted border-t border-black/5">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl">
               <div className="label-editorial-brand mb-4 text-center">FAQ</div>
-              <h2 className="section-title text-center mb-12">
+              <h2 className="section-title mb-12 text-center">
                 Common Questions About Motorized Screens
               </h2>
 
@@ -695,11 +812,11 @@ export default function ShadesPage() {
                 {faqs.map((faq) => (
                   <details
                     key={faq.question}
-                    className="group bg-surface border border-border rounded-none"
+                    className="group bg-surface border-border rounded-none border"
                   >
-                    <summary className="flex cursor-pointer items-center justify-between p-6 font-bold text-text-primary hover:bg-surface-muted transition-colors">
+                    <summary className="text-text-primary hover:bg-surface-muted flex cursor-pointer items-center justify-between p-6 font-bold transition-colors">
                       {faq.question}
-                      <span className="ml-4 text-edg-brand-dark group-open:rotate-180 transition-transform">
+                      <span className="text-edg-brand-dark ml-4 transition-transform group-open:rotate-180">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
@@ -715,7 +832,7 @@ export default function ShadesPage() {
                         </svg>
                       </span>
                     </summary>
-                    <div className="px-6 pb-6 text-text-secondary leading-relaxed">
+                    <div className="text-text-secondary px-6 pb-6 leading-relaxed">
                       {faq.answer}
                     </div>
                   </details>
