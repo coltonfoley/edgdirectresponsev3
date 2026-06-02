@@ -143,6 +143,12 @@ const priorityLocalPages = [
       'Rebuild damaged lanais with modern systems designed for coastal code pressure.',
   },
   {
+    title: 'Sanibel Permit Guide',
+    href: '/service-areas/sanibel-outdoor-living/zoning-guide',
+    description:
+      'Permit, floodplain, product approval, and 50% rule guidance for Sanibel outdoor living projects.',
+  },
+  {
     title: 'Chicago Motorized Pergolas',
     href: '/service-areas/chicago-il/motorized-pergolas',
     description:

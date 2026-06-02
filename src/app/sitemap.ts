@@ -63,6 +63,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: '/service-areas/sanibel-outdoor-living/lanai-replacement',
       priority: 0.8,
     },
+    {
+      url: '/service-areas/sanibel-outdoor-living/zoning-guide',
+      priority: 0.8,
+    },
     { url: '/service-areas/barrington-il/motorized-pergolas', priority: 0.8 },
     { url: '/service-areas/algonquin-il/motorized-pergolas', priority: 0.9 },
     { url: '/service-areas/algonquin-il/retractable-screens', priority: 0.9 },

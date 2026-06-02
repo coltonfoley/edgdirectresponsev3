@@ -25,12 +25,13 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Sanibel Outdoor Living | Hurricane-Rated Pergolas | EDG',
+  title: 'Sanibel Outdoor Living | Modern Lanai Alternatives | EDG',
   description:
-    'Premium louvered roof systems and motorized screens designed for Sanibel Island\'s strict sanctuary codes and coastal climate. Miami-Dade rated for hurricane protection.',
+    'Modern lanai alternatives, louvered pergolas, and coastal outdoor living planning for Sanibel homes, with careful permit and floodplain review.',
   openGraph: {
-    title: 'Sanibel Outdoor Living | Hurricane-Rated Pergolas | EDG',
-    description: 'Hurricane-rated outdoor living systems for Sanibel Island. Pergolas, screens, and enclosures engineered for Florida weather.',
+    title: 'Sanibel Outdoor Living | Modern Lanai Alternatives | EDG',
+    description:
+      'Modern lanai, pergola, screen, and enclosure planning for Sanibel Island homes.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -38,14 +39,22 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/sanibel-outdoor-living',
   },
-  keywords: ['sanibel outdoor living', 'sanibel pergolas', 'florida outdoor living', 'hurricane rated pergolas', 'sanibel lanai'],
+  keywords: [
+    'sanibel outdoor living',
+    'sanibel pergolas',
+    'florida outdoor living',
+    'modern lanai sanibel',
+    'lanai replacement sanibel',
+    'pool cage alternative sanibel',
+    'screen enclosure alternative sanibel',
+  ],
 };
 
 const localBenefits = [
-  'Miami-Dade Hurricane Rated systems',
-  'Sanibel sanctuary code expertise',
+  'Coastal-rated system planning',
+  'Sanibel permit review support',
   'Salt-air corrosion resistant materials',
-  'Stilt home & elevated deck specialists',
+  'Lanai and pool cage alternatives',
 ];
 
 const areas = [
@@ -57,7 +66,7 @@ const areas = [
   {
     name: 'Captiva Island',
     description:
-      'Captiva\'s narrow geography creates unique microclimates with higher wind exposure. Our hurricane-rated pergolas are engineered to withstand Gulf storms while providing shade during intense subtropical sun. Perfect for the island\'s resort-style homes.',
+      'Captiva\'s narrow geography creates unique microclimates with higher wind exposure. We plan louvered pergolas around coastal wind documentation, salt air, and intense subtropical sun for the island\'s resort-style homes.',
   },
   {
     name: 'Wulfert & The Dunes',
@@ -73,9 +82,9 @@ const areas = [
 
 const localConsiderations = [
   {
-    title: 'Hurricane Code Compliance',
+    title: 'Wind Documentation',
     description:
-      'All systems carry Miami-Dade County hurricane ratings—critical for Sanibel\'s high-velocity hurricane zone. Our louvered roofs withstand sustained winds up to 175 mph and are Florida Product Approved.',
+      'Sanibel projects need wind-load documentation, product approvals where applicable, and site-specific engineering review. EDG helps package those questions before a homeowner commits to a system.',
     icon: Wind,
   },
   {
@@ -93,7 +102,7 @@ const localConsiderations = [
   {
     title: 'Sanctuary Zoning Navigation',
     description:
-      'Sanibel\'s strict impermeable coverage limits (40% maximum) and vegetation protection codes require expertise. We design accessory structures that maximize your allowance while preserving native landscaping.',
+      'Sanibel\'s developable-area, vegetation, wildlife, floodplain, and drainage reviews can affect outdoor structures. We design around the local review path instead of treating it as an afterthought.',
     icon: FileText,
   },
 ];
@@ -102,19 +111,19 @@ const zoningConsiderations = [
   {
     title: 'Impermeable Coverage Limits',
     description:
-      'Sanibel strictly caps your property\'s "Developed Area" based on ecological zone—typically 40% maximum. This includes your house, pool, lanai, and even standard pavers.',
+      'Sanibel limits developed area based on property conditions and ecological review. Existing house, pool, lanai, paving, and new outdoor structures should be evaluated together.',
     icon: ShieldCheck,
   },
   {
-    title: 'Post-Hurricane Ian Regulations',
+    title: 'Post-Ian Rebuild Review',
     description:
       'Updated building codes now require stricter wind force requirements and flood elevation adjustments. If repair costs exceed 50% of your home\'s value, the entire structure must be brought to current flood codes.',
     icon: AlertTriangle,
   },
   {
-    title: 'Hurricane-Rated Engineering',
+    title: 'Product Approval Review',
     description:
-      'Our louvered roof systems meet or exceed Miami-Dade standards—the strictest in the nation. New ordinances allow for taller structures to meet required flood elevations without looking "stacked."',
+      'Selected systems can be specified with Florida Product Approval or Miami-Dade NOA documentation where applicable, but Sanibel reviews the actual project and installation details.',
     icon: Wind,
   },
   {
@@ -129,22 +138,22 @@ const faqs = [
   {
     question: 'Do your pergolas meet Florida\'s hurricane building codes?',
     answer:
-      'Yes. All our louvered roof systems carry Miami-Dade County NOAs (Notices of Acceptance) and are Florida Product Approved for High Velocity Hurricane Zones (HVHZ). This is essential for Sanibel, which requires systems rated for 175+ mph winds. We provide all documentation needed for permits.',
+      'EDG can specify louvered roof systems with wind-load engineering, Florida Product Approval, or Miami-Dade NOA documentation where applicable. Final acceptance depends on the selected system, the property, the installation details, and Sanibel building review.',
   },
   {
     question: 'How do you handle Sanibel\'s impermeable surface limits?',
     answer:
-      'Sanibel limits impermeable surfaces to 40% of lot coverage. Because our louvered pergolas are considered permeable when open (rainwater passes through), they typically don\'t count toward your impermeable limit—unlike solid roof structures. This allows you to add significant covered outdoor space while staying compliant.',
+      'We start by reviewing the survey, existing developed area, drainage, flood-zone context, and the exact system being considered. Louvered systems may be reviewed differently than solid roofs in some situations, but Sanibel is the final authority on how coverage is counted.',
   },
   {
     question: 'Will salt air damage the aluminum structure?',
     answer:
-      'Our systems use marine-grade 6061-T6 aluminum with premium fluoropolymer paint finishes specifically formulated for coastal environments. Unlike steel or wood pergolas that require constant maintenance in salt air, our aluminum systems carry 15-20 year finish warranties and resist corrosion indefinitely.',
+      'Coastal aluminum, protective finishes, stainless hardware, drainage, and routine cleaning all matter in Sanibel salt air. We help match the system and finish package to the exposure instead of treating island conditions like an inland patio.',
   },
   {
     question: 'What\'s the typical timeline for a Sanibel project?',
     answer:
-      'Most Sanibel projects take 10-14 weeks from contract to completion. The City of Sanibel permitting process typically takes 4-6 weeks, including potential review by the Vegetation Committee. We handle all permit submissions and coordinate with local officials to ensure compliance.',
+      'Timelines depend on scope, engineering, product lead times, HOA review, Sanibel permit review, and whether floodplain, vegetation, wildlife, electrical, or screen-enclosure details are involved. A site review is the right first step.',
   },
 ];
 
@@ -184,7 +193,7 @@ export default function SanibelHubPage() {
         <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros02}
-            alt="Gray and white louvered roof system - hurricane-rated outdoor living for Sanibel Island"
+            alt="Gray and white louvered roof system for Sanibel Island outdoor living"
             fill
             priority
             className="object-cover"
@@ -211,13 +220,14 @@ export default function SanibelHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Sanibel & Captiva
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Hurricane-Rated Outdoor Living
+                Modern Outdoor Living
                 <span className="text-edg-brand block">for Sanibel Island</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Miami-Dade certified pergolas and motorized screens designed for
-                the Gulf Coast. Engineered to withstand 175+ mph winds while
-                respecting Sanibel&apos;s sanctuary conservation codes.
+                Modern lanai alternatives, louvered pergolas, motorized
+                screens, and coastal outdoor living plans for Sanibel homes.
+                Built around salt air, floodplain review, product
+                documentation, and local permit questions.
               </p>
               <Link href="/contact">
                 <Button size="lg" className="px-8 text-lg">
@@ -401,11 +411,12 @@ export default function SanibelHubPage() {
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
-                    Hurricane-Rated Pergolas
+                    Louvered Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
-                    Explore our Miami-Dade rated louvered roof systems engineered
-                    specifically for Sanibel&apos;s High Velocity Hurricane Zone.
+                    Explore louvered roof systems for Sanibel homes, including
+                    wind documentation, salt-air material planning, and modern
+                    lanai alternatives.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
@@ -460,7 +471,7 @@ export default function SanibelHubPage() {
               </Link>
 
               <Link
-                href="/contact?area=sanibel&source=hub-resources"
+                href="/service-areas/sanibel-outdoor-living/zoning-guide"
                 className="group block"
               >
                 <Card 
@@ -470,14 +481,15 @@ export default function SanibelHubPage() {
                 >
                   <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
-                    Zoning Analysis
+                    Permit Guide
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
-                    Don&apos;t start your permit application until you&apos;ve consulted
-                    with a specialist who understands Sanibel&apos;s sanctuary codes.
+                    Review the permit, floodplain, 50% rule, and product
+                    documentation questions before choosing a lanai replacement
+                    or pool cage alternative.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
-                    Free Assessment <ArrowRight className="h-4 w-4" />
+                    Read Guide <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>

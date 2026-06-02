@@ -31,12 +31,13 @@ import * as images from '@/lib/images';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Hurricane Rated Pergolas Sanibel Island | Louvered Roof Systems | EDG',
+  title: 'Louvered Pergolas Sanibel | Coastal Outdoor Living | EDG',
   description:
-    'Premium motorized louvered roof systems for Sanibel & Captiva. Miami-Dade hurricane rated, coastal-grade aluminum, and sanctuary-compliant designs. The modern alternative to traditional lanais.',
+    'Premium motorized louvered pergolas for Sanibel and Captiva homes, planned around coastal wind documentation, salt-air materials, modern lanai alternatives, and permits.',
   openGraph: {
-    title: 'Hurricane Rated Pergolas Sanibel Island | Louvered Roof Systems | EDG',
-    description: 'Premium motorized louvered roof systems for Sanibel. Miami-Dade rated, coastal-grade aluminum, sanctuary-compliant.',
+    title: 'Louvered Pergolas Sanibel | Coastal Outdoor Living | EDG',
+    description:
+      'Motorized louvered roof systems for Sanibel with coastal materials, rain control, and permit planning.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 };
 
 const keyBenefits = [
-  'Miami-Dade HVHZ certified (175+ mph)',
+  'Coastal wind documentation',
   'Marine-grade coastal aluminum',
   'Integrated rain management',
   'Smart weather sensing',
@@ -65,15 +66,15 @@ const keyBenefits = [
 
 const engineeringFeatures = [
   {
-    title: '175+ MPH Wind Rating',
+    title: 'Wind Documentation',
     description:
-      'Miami-Dade County NOA (Notice of Acceptance) certified for High Velocity Hurricane Zones. Engineered with heavy-gauge 6061-T6 extruded aluminum that flexes under extreme loads without failing.',
+      'Selected systems can be specified with wind-load engineering, Florida Product Approval, or Miami-Dade NOA documentation where applicable. Final acceptance depends on Sanibel review and the actual installation.',
     icon: Wind,
   },
   {
     title: 'Salt-Air Corrosion Defense',
     description:
-      'Marine-grade aluminum with premium fluoropolymer coating resists the aggressive salt-air environment. Unlike steel or wood, our systems require zero maintenance and never rust, rot, or corrode.',
+      'Coastal aluminum, protective finishes, stainless hardware, drainage, and routine cleaning help the system handle Sanibel salt air better than standard inland patio materials.',
     icon: ShieldCheck,
   },
   {
@@ -85,7 +86,7 @@ const engineeringFeatures = [
   {
     title: 'Precision Climate Control',
     description:
-      'Louvers rotate 0°-150° to track the sun or seal against rain. Open for starlight and seabreezes, angled for afternoon shade, or fully closed for hurricane protection—all at the touch of a button.',
+      'Louvers rotate 0°-150° to track the sun or seal against rain. Open for starlight and seabreezes, angled for afternoon shade, or closed as part of the storm-preparation plan for the selected system.',
     icon: Sun,
   },
 ];
@@ -98,9 +99,9 @@ const vsTraditional = [
     advantage: 'louvered',
   },
   {
-    aspect: 'Hurricane Rating',
-    traditional: 'Standard construction—often fails in Category 3+',
-    louvered: 'Miami-Dade certified for 175+ mph winds',
+    aspect: 'Wind Documentation',
+    traditional: 'Older screen enclosures may have limited documentation',
+    louvered: 'Can be specified with stronger wind and anchoring documentation',
     advantage: 'louvered',
   },
   {
@@ -111,14 +112,14 @@ const vsTraditional = [
   },
   {
     aspect: 'Impermeable Surface',
-    traditional: 'Always counts toward 40% limit',
-    louvered: 'Often classified permeable when open',
+    traditional: 'Must be reviewed as part of developed area',
+    louvered: 'Also requires Sanibel developed-area review',
     advantage: 'louvered',
   },
   {
     aspect: 'Maintenance (20 years)',
     traditional: '$3,000-6,000 (rescreening, painting, repairs)',
-    louvered: '$0-500 (occasional cleaning only)',
+    louvered: 'Reduced fixed-screen maintenance, plus routine cleaning',
     advantage: 'louvered',
   },
   {
@@ -175,7 +176,7 @@ const sanibelApplications = [
   {
     location: 'Post-Hurricane Rebuilds',
     description:
-      'If Ian damaged your lanai or pool cage, the 50% rule may require full reconstruction. Upgrade to a modern system that will not need replacement after the next storm.',
+      'If Ian damaged your lanai or pool cage, the 50% rule may affect the rebuild path. Use that review point to compare a modern louvered system instead of automatically rebuilding the same screen enclosure.',
   },
 ];
 
@@ -183,12 +184,12 @@ const faqs = [
   {
     question: 'How do louvered pergolas compare to traditional lanais for Sanibel homes?',
     answer:
-      'Traditional lanais are static structures with fixed roofs and screens. Louvered pergolas offer intelligent adaptability—you control shade, airflow, and rain protection with motorized louvers that rotate 150°. They are hurricane-rated to 175+ mph (exceeding most lanai construction), require zero maintenance (no rescreening), and often do not count toward Sanibel\'s 40% impermeable surface limit when open.',
+      'Traditional lanais are static structures with fixed roofs and screens. Louvered pergolas offer adaptable shade, airflow, and rain protection with motorized louvers. For Sanibel, the real comparison should include wind documentation, anchoring, floodplain review, screens, drainage, and developed-area treatment.',
   },
   {
-    question: 'Will a louvered pergola survive a hurricane better than my old lanai?',
+    question: 'Is a louvered pergola a stronger option than my old lanai?',
     answer:
-      'Yes. Our systems carry Miami-Dade County NOAs (Notices of Acceptance) certified for High Velocity Hurricane Zones—rated for 175+ mph sustained winds. The engineering includes heavy-gauge extruded aluminum, reinforced beam connections, and louvers that lock closed during storms. Many traditional lanais failed during Hurricane Ian; these systems are built specifically to withstand such events.',
+      'It can be a stronger and better-documented option, depending on the selected system and installation. EDG compares engineering, product approvals, anchoring, exposure, and Sanibel permit requirements before making that recommendation.',
   },
   {
     question: 'How does the integrated rain management work?',
@@ -203,12 +204,12 @@ const faqs = [
   {
     question: 'What is the cost compared to rebuilding a traditional lanai?',
     answer:
-      'Premium motorized louvered systems typically range from $120-200 per square foot installed, depending on features, size, and site complexity. Traditional lanai replacement runs $50-175/sf but requires ongoing maintenance. Over 20 years, the louvered system often costs less due to zero maintenance (no rescreening, painting, or storm repairs) while delivering superior functionality and higher resale value.',
+      'Premium motorized louvered systems are usually a higher-spec option than basic screen enclosure work. The useful comparison is full scope: demolition, slab or footing work, engineering, screens, drainage, electrical, permits, and long-term maintenance.',
   },
   {
     question: 'How long does installation take in Sanibel?',
     answer:
-      'Most projects take 10-14 weeks from contract to completion. This includes 4-6 weeks for City of Sanibel permitting (including potential Vegetation Committee review) and 2-3 weeks for installation. This timeline is comparable to traditional lanai construction but results in a superior, longer-lasting structure.',
+      'Timeline depends on measurements, engineering, product lead time, Sanibel permit review, HOA review, electrical work, screens, and site prep. A site review is required before EDG can give a realistic schedule.',
   },
 ];
 
@@ -221,9 +222,9 @@ export default function SanibelPergolaPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             generateServiceSchema({
-              name: 'Hurricane-Rated Louvered Pergolas - Sanibel',
+              name: 'Louvered Pergolas - Sanibel',
               description:
-                'Miami-Dade certified motorized louvered roof systems engineered for Sanibel Island\'s coastal climate and hurricane requirements.',
+                'Motorized louvered roof systems planned around Sanibel Island coastal climate, wind documentation, and permit review.',
               url: 'https://www.edgpatioshade.com/service-areas/sanibel-outdoor-living/louvered-pergolas',
               image: `https://www.edgpatioshade.com${images.pages.serviceAreas.sanibelShopros02}`,
             })
@@ -241,7 +242,7 @@ export default function SanibelPergolaPage() {
         <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros02}
-            alt="Hurricane-rated gray and white louvered pergola system for Sanibel Island coastal home"
+            alt="Gray and white louvered pergola system for Sanibel Island coastal home"
             fill
             priority
             className="object-cover"
@@ -264,16 +265,16 @@ export default function SanibelPergolaPage() {
 
           <div className="mx-auto max-w-4xl text-center">
             <div className="bg-edg-brand/10 border-edg-brand/20 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
-              <MapPin className="h-3 w-3" /> Miami-Dade Hurricane Certified
+              <MapPin className="h-3 w-3" /> Sanibel coastal planning
             </div>
             <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
-              Hurricane-Rated Louvered Pergolas
+              Louvered Pergolas
               <span className="text-edg-brand block">for Sanibel Island</span>
             </h1>
             <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-gray-300 md:text-xl">
               The evolution of outdoor living in Southwest Florida. Motorized louvered roof 
-              systems engineered to withstand 175+ mph winds while delivering adjustable shade, 
-              ventilation, and rain protection at the touch of a button.
+              systems planned around coastal wind documentation, adjustable
+              shade, ventilation, rain protection, and Sanibel permit review.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -418,7 +419,7 @@ export default function SanibelPergolaPage() {
             <div className="relative h-[500px] overflow-hidden shadow-lg">
               <Image
                 src={images.pages.serviceAreas.sanibelShade}
-                alt="Motorized screens deployed on louvered pergola for hurricane protection"
+                alt="Motorized screens deployed on louvered pergola for Sanibel coastal patio"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -499,7 +500,7 @@ export default function SanibelPergolaPage() {
                 <div className="mb-8 text-center">
                   <h2 className="section-title mb-4">Investment & Value</h2>
                   <p className="text-text-secondary">
-                    Understand the true cost of ownership for hurricane-rated outdoor living.
+                    Understand the full scope behind coastal outdoor living.
                   </p>
                 </div>
 
@@ -519,8 +520,8 @@ export default function SanibelPergolaPage() {
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="text-edg-brand-dark mb-2 text-4xl font-bold">70-80%</div>
-                    <div className="text-sm font-semibold">ROI at Resale</div>
+                    <div className="text-edg-brand-dark mb-2 text-4xl font-bold">Resale</div>
+                    <div className="text-sm font-semibold">Premium Resale Feature</div>
                     <p className="text-text-secondary mt-2 text-sm">
                       Premium feature buyers value in Florida
                     </p>
@@ -533,7 +534,8 @@ export default function SanibelPergolaPage() {
                     <p className="text-sm text-amber-800 dark:text-amber-200">
                       <strong>Post-Ian Opportunity:</strong> If your lanai or pool cage was damaged, 
                       the 50% rule may require full reconstruction. This is your chance to upgrade 
-                      to a system that will not need replacement after the next storm.
+                      to a better-documented modern system instead of
+                      automatically rebuilding the same screen enclosure.
                     </p>
                   </div>
                 </div>
@@ -552,7 +554,7 @@ export default function SanibelPergolaPage() {
                 Common Questions About Louvered Systems
               </h2>
               <p className="text-text-secondary">
-                Everything you need to know about hurricane-rated pergolas for Sanibel Island.
+                Everything you need to know about louvered pergolas for Sanibel Island.
               </p>
             </div>
             <div className="mx-auto max-w-3xl space-y-4">
@@ -576,7 +578,7 @@ export default function SanibelPergolaPage() {
                 Explore More Sanibel Resources
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
               <Link
                 href="/service-areas/sanibel-outdoor-living/modern-lanai"
                 className="group block"
@@ -622,6 +624,29 @@ export default function SanibelPergolaPage() {
                   </span>
                 </Card>
               </Link>
+
+              <Link
+                href="/service-areas/sanibel-outdoor-living/zoning-guide"
+                className="group block"
+              >
+                <Card
+                  variant="muted"
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Info} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Sanibel Permit Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Review Sanibel floodplain, 50% rule, product approval, and
+                    screen enclosure questions before choosing a structure.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read Permit Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
             </div>
           </FadeIn>
         </Container>
@@ -633,7 +658,7 @@ export default function SanibelPergolaPage() {
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready for Hurricane-Rated Outdoor Living?
+                Ready for Coastal Outdoor Living?
               </h2>
               <p className="text-edg-dark/80 mb-8 text-xl">
                 Get a free consultation and see how a louvered system transforms your Sanibel home.

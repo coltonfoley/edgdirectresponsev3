@@ -21,14 +21,14 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Hurricane-Rated Pergolas in Southwest Florida | EDG',
+  title: 'Modern Lanai & Pergolas Southwest Florida | EDG',
   description:
-    'Hurricane-rated louvered pergolas, motorized screens, and modern lanai planning for Southwest Florida homes in Sanibel, Captiva, Naples, Marco Island, and Fort Myers.',
+    'Modern lanai, louvered pergola, motorized screen, and coastal outdoor living planning for Southwest Florida homes in Sanibel, Captiva, Naples, Marco Island, and Fort Myers.',
   alternates: {
     canonical: '/service-areas/southwest-florida',
   },
   openGraph: {
-    title: 'Hurricane-Rated Pergolas in Southwest Florida | EDG',
+    title: 'Modern Lanai & Pergolas Southwest Florida | EDG',
     description:
       'Coastal-grade louvered roof systems, motorized screens, and modern lanai alternatives for Southwest Florida homes.',
     type: 'website',
@@ -50,7 +50,7 @@ const markets = [
   {
     name: 'Sanibel & Captiva',
     description:
-      'The primary Florida focus for EDG: hurricane-rated louvered roofs, modern lanai alternatives, salt-air materials, and planning around sanctuary code constraints.',
+      'The primary Florida focus for EDG: louvered roofs, modern lanai alternatives, salt-air materials, and planning around Sanibel permit constraints.',
     href: '/service-areas/sanibel-outdoor-living',
   },
   {
@@ -75,7 +75,7 @@ const markets = [
 
 const buyingSignals = [
   {
-    title: 'Hurricane-Rated Structure',
+    title: 'Coastal Wind Documentation',
     description:
       'Florida buyers search for systems that can handle real wind exposure. The strongest fit is a Miami-Dade rated louvered roof system with permit-ready engineering.',
     icon: ShieldCheck,
@@ -108,7 +108,7 @@ const floridaPages = [
     href: '/service-areas/sanibel-outdoor-living',
   },
   {
-    title: 'Sanibel Hurricane-Rated Pergolas',
+    title: 'Sanibel Louvered Pergolas',
     description:
       'Louvered roof systems built around Sanibel wind, salt air, and code requirements.',
     href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
@@ -122,8 +122,14 @@ const floridaPages = [
   {
     title: 'Lanai Replacement Sanibel',
     description:
-      'Guidance for replacing damaged or outdated screen enclosures with hurricane-rated outdoor living systems.',
+      'Guidance for replacing damaged or outdated screen enclosures with modern outdoor living systems.',
     href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
+  },
+  {
+    title: 'Sanibel Permit Guide',
+    description:
+      'A cautious permit, floodplain, 50% rule, and product approval guide for Sanibel outdoor living projects.',
+    href: '/service-areas/sanibel-outdoor-living/zoning-guide',
   },
 ];
 
@@ -154,7 +160,7 @@ export default function SouthwestFloridaPage() {
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Hurricane-Rated Pergolas and Outdoor Living Systems - Southwest Florida',
+    name: 'Modern Lanai and Outdoor Living Systems - Southwest Florida',
     description:
       'Coastal-grade louvered pergolas, motorized screens, and modern lanai planning for Southwest Florida homes.',
     provider: {
@@ -184,7 +190,7 @@ export default function SouthwestFloridaPage() {
         <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros02}
-            alt="Hurricane-rated louvered pergola for Southwest Florida coastal patio"
+            alt="Louvered pergola for Southwest Florida coastal patio"
             fill
             priority
             className="object-cover"
@@ -208,7 +214,7 @@ export default function SouthwestFloridaPage() {
               Sanibel, Captiva, Naples, Marco Island, Fort Myers
             </div>
             <h1 className="hero-title mb-6 text-white">
-              Hurricane-Rated Pergolas for Southwest Florida
+              Modern Lanai & Pergolas for Southwest Florida
             </h1>
             <p className="mb-8 max-w-2xl text-lg leading-relaxed text-text-inverse-muted md:text-xl">
               Coastal outdoor living is not a generic patio project. EDG helps
@@ -263,7 +269,7 @@ export default function SouthwestFloridaPage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               Southwest Florida has several different buyer intents hiding under
-              the same words. Some people need a hurricane-rated pergola. Some
+              the same words. Some people need a coastal pergola. Some
               need lanai replacement after storm damage. Some are trying to keep
               a pool patio usable through heat, rain, glare, and insects. This
               page routes those searches into the right EDG planning path.
@@ -307,8 +313,8 @@ export default function SouthwestFloridaPage() {
                   A Chicago buyer may search for a pergola installer, roof deck
                   shade, or retractable screens. A Florida buyer is more likely
                   to think in terms of hurricane ratings, lanai replacement,
-                  salt air, storm damage, and whether a system can survive
-                  coastal wind exposure.
+                  salt air, storm damage, and whether a system has the right
+                  documentation for coastal wind exposure.
                 </p>
                 <p>
                   That is why this page deliberately links the regional Florida
@@ -360,11 +366,11 @@ export default function SouthwestFloridaPage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               These pages answer the more specific searches that should turn
-              into Florida leads: hurricane-rated pergolas, modern lanai
+              into Florida leads: louvered pergolas, modern lanai
               alternatives, and rebuild decisions after storm damage.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
             {floridaPages.map((page) => (
               <Link key={page.href} href={page.href} className="group">
                 <Card

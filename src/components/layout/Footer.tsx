@@ -341,6 +341,14 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/service-areas/sanibel-outdoor-living/zoning-guide"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Sanibel Permit Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/service-areas/lake-geneva-wi"
                     className="hover:text-edg-brand text-zinc-300 transition-colors"
                   >

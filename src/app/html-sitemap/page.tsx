@@ -118,6 +118,10 @@ const sitemapLinks = [
         href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
         label: 'Sanibel Lanai Replacement',
       },
+      {
+        href: '/service-areas/sanibel-outdoor-living/zoning-guide',
+        label: 'Sanibel Permit Guide',
+      },
     ],
   },
   {

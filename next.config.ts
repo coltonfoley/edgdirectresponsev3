@@ -401,11 +401,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/service-areas/sanibel-outdoor-living/zoning-guide',
-        destination: '/service-areas/sanibel-outdoor-living',
-        permanent: true,
-      },
-      {
         source: '/service-areas/wilmette-il/zoning-guide',
         destination: '/service-areas/wilmette-il',
         permanent: true,

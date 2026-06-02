@@ -28,12 +28,13 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Modern Lanai Sanibel Island | Louvered Roof Alternative | EDG',
+  title: 'Modern Lanai Sanibel | Pool Cage Alternative | EDG',
   description:
-    'The evolution of outdoor living: motorized louvered roof systems as a modern alternative to traditional screened lanais. Hurricane-rated, sanctuary-compliant designs for Sanibel & Captiva.',
+    'Modern lanai and pool cage alternative planning for Sanibel and Captiva homes: louvered roofs, motorized screens, coastal materials, and permit review.',
   openGraph: {
-    title: 'Modern Lanai Sanibel Island | Louvered Roof Alternative | EDG',
-    description: 'Next-generation outdoor living systems for Sanibel. The modern alternative to traditional screened lanais with adjustable shade and rain protection.',
+    title: 'Modern Lanai Sanibel | Pool Cage Alternative | EDG',
+    description:
+      'Modern lanai and screen enclosure alternatives for Sanibel homes with adjustable shade, rain control, and coastal permit planning.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -54,8 +55,8 @@ export const metadata: Metadata = {
 
 const modernBenefits = [
   'Adjustable shade & rain protection',
-  'Hurricane-rated engineering',
-  'No rescreening maintenance',
+  'Coastal engineering documentation',
+  'Less fixed-screen maintenance',
   'Better airflow & temperature control',
 ];
 
@@ -81,13 +82,13 @@ const comparisonFeatures = [
   {
     feature: 'Maintenance',
     traditional: 'Screen tears, rescreening every 5-10 years',
-    modern: 'No screens, 10yr warranty, 20+ yr expected lifespan',
+    modern: 'Optional retractable screens and fewer fixed-screen surfaces',
     winner: 'modern',
   },
   {
     feature: 'Impermeable Surface',
-    traditional: 'Counts toward 40% limit',
-    modern: 'Often classified permeable when open',
+    traditional: 'Counts in developed-area review',
+    modern: 'Must be reviewed against Sanibel coverage rules',
     winner: 'modern',
   },
   {
@@ -112,9 +113,9 @@ const modernFeatures = [
     icon: Thermometer,
   },
   {
-    title: 'Hurricane Engineering',
+    title: 'Coastal Engineering Package',
     description:
-      'Miami-Dade County NOA certified for 175+ mph winds—exceeding most traditional lanai construction. Built with marine-grade 6061-T6 aluminum for salt-air resistance.',
+      'Selected louvered systems can be specified with wind documentation, Florida Product Approval, or Miami-Dade NOA information where applicable. Sanibel still reviews the specific project.',
     icon: Wind,
   },
   {
@@ -160,9 +161,9 @@ const faqs = [
       'Yes. Many Sanibel homeowners are replacing traditional lanais—especially after Hurricane Ian damage. If your lanai was damaged, the 50% rule may require full reconstruction anyway, making this the perfect time to upgrade. We can often reuse existing concrete pads and structural connections while replacing the roof system.',
   },
   {
-    question: 'Does a modern lanai count toward Sanibel\'s 40% impermeable surface limit?',
+    question: 'Does a modern lanai count toward Sanibel developed-area limits?',
     answer:
-      'Often it does not—or counts less than a traditional lanai. When louvers are open, rainwater passes through to the ground below, which means the structure is often classified as permeable. Traditional lanais with solid roofs are always impermeable. This can be a significant advantage on Sanibel where every square foot of coverage allowance matters.',
+      'Do not assume that from product type alone. A louvered system, screen enclosure, slab, deck, drainage condition, and existing developed area all need to be reviewed against Sanibel rules. EDG can help prepare the questions, but the City determines how a specific project is counted.',
   },
   {
     question: 'Will a modern lanai protect against bugs like a screened lanai?',
@@ -172,12 +173,12 @@ const faqs = [
   {
     question: 'Is a louvered roof as hurricane-resistant as a traditional lanai?',
     answer:
-      'More resistant. Our louvered systems carry Miami-Dade County NOAs (Notices of Acceptance) rated for 175+ mph winds—exceeding the typical construction of traditional screen enclosures. The marine-grade aluminum and engineered beam connections are specifically designed for coastal high-velocity hurricane zones like Sanibel.',
+      'It depends on the selected system, engineering, anchoring, exposure, and installation. The advantage of a premium louvered system is that it can be specified with stronger documentation than many older screen enclosures, but Sanibel review and project-specific engineering still matter.',
   },
   {
     question: 'What does a modern lanai cost compared to rebuilding a traditional lanai?',
     answer:
-      'Traditional lanai replacement typically runs $50-175 per square foot. Premium motorized louvered systems range from $120-200 per square foot installed, depending on features and site complexity. While the initial investment is higher, the modern system costs significantly less over 20 years due to zero maintenance (no rescreening, no painting, no wood rot) while delivering superior functionality and higher resale value.',
+      'Traditional lanai and screen enclosure replacement can vary widely by size, engineering, floodplain conditions, screens, concrete, and storm damage. Premium motorized louvered systems are usually a higher-spec option, so EDG compares the full scope: structure, screens, drainage, electrical, permitting, and long-term maintenance.',
   },
 ];
 
@@ -241,8 +242,9 @@ export default function ModernLanaiPage() {
                 <span className="text-edg-brand block">Next-Generation Outdoor Living</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Skip the static screen box. Discover the intelligent alternative to traditional lanais—
-                adjustable shade, hurricane-rated engineering, and seamless Gulf views.
+                Skip the static screen box. Compare a modern lanai or pool
+                cage alternative with adjustable shade, retractable screens,
+                coastal documentation, and cleaner Gulf views.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href="/contact?area=sanibel&product=modern-lanai&source=leads-sanibel-modern-lanai">
@@ -397,21 +399,25 @@ export default function ModernLanaiPage() {
                   The Impermeable Surface Advantage
                 </h2>
                 <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                  Sanibel strictly limits developed area to 40% of your property. Traditional lanais 
-                  with solid roofs always count toward this limit—but modern louvered systems often do not.
+                  Sanibel developed-area and floodplain questions can shape
+                  the project before the product is chosen. Traditional lanais,
+                  pool cages, slabs, decks, pavers, and louvered systems all
+                  need to be reviewed in context.
                 </p>
                 <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                  When louvers are open, rainwater passes through to the ground below. This permeability 
-                  means the structure may not count as "impermeable coverage," freeing up valuable square 
-                  footage for other outdoor improvements.
+                  When louvers are open, rain can pass through the roof plane,
+                  but that does not automatically settle the permit question.
+                  The safest planning move is to review the survey, drainage,
+                  existing developed area, and Sanibel guidance before quoting
+                  the final layout.
                 </p>
                 <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
                   <div className="flex items-start gap-3">
                     <Info className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
                     <p className="text-sm text-amber-800 dark:text-amber-200">
-                      <strong>Zoning Note:</strong> Every property is different. We work with Sanibel's 
-                      Planning Department to ensure your modern lanai design maximizes your allowable 
-                      coverage while respecting sanctuary codes.
+                      <strong>Zoning Note:</strong> Every property is different.
+                      Use the Sanibel permit guide before choosing a footprint,
+                      attachment method, screens, or electrical package.
                     </p>
                   </div>
                 </div>
@@ -463,7 +469,7 @@ export default function ModernLanaiPage() {
                 Explore Sanibel Outdoor Living Options
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
               <Link
                 href="/service-areas/sanibel-outdoor-living/louvered-pergolas"
                 className="group block"
@@ -475,11 +481,12 @@ export default function ModernLanaiPage() {
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Hurricane-Rated Pergolas
+                    Louvered Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
                     Explore our full range of louvered roof systems engineered specifically 
-                    for Sanibel's High Velocity Hurricane Zone.
+                    for Sanibel&apos;s coastal review, salt-air exposure, and
+                    permit documentation needs.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
@@ -506,6 +513,29 @@ export default function ModernLanaiPage() {
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     View Replacement Guide <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+
+              <Link
+                href="/service-areas/sanibel-outdoor-living/zoning-guide"
+                className="group block"
+              >
+                <Card
+                  variant="muted"
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={Info} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Sanibel Permit Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Review floodplain, 50% rule, product approval, and screen
+                    enclosure questions before choosing a modern lanai layout.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read Permit Guide <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>

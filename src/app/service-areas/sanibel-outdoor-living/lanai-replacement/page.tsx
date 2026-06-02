@@ -27,12 +27,13 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Lanai Replacement Sanibel Island | Rebuild After Hurricane Ian | EDG',
+  title: 'Lanai Replacement Sanibel | Screen Enclosure Alternative | EDG',
   description:
-    'Professional lanai replacement services in Sanibel. Replace damaged screen enclosures with hurricane-rated louvered roof systems. Navigate the 50% rule and rebuild smarter.',
+    'Lanai replacement and screen enclosure alternative planning in Sanibel. Compare modern louvered systems, coastal materials, permits, and the FEMA 50% rule.',
   openGraph: {
-    title: 'Lanai Replacement Sanibel Island | Rebuild After Hurricane Ian | EDG',
-    description: 'Expert lanai replacement for Sanibel homes. Upgrade to modern louvered systems while rebuilding after storm damage. Free consultations available.',
+    title: 'Lanai Replacement Sanibel | Screen Enclosure Alternative | EDG',
+    description:
+      'Compare lanai replacement, pool cage alternatives, and modern louvered systems for Sanibel homes.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -53,23 +54,23 @@ export const metadata: Metadata = {
 };
 
 const replacementBenefits = [
-  'Hurricane-rated replacement options',
-  'Navigate 50% rule compliance',
-  'Permit assistance included',
+  'Coastal replacement options',
+  '50% rule planning',
+  'Permit documentation support',
   'Upgrade while you rebuild',
 ];
 
 const whyUpgrade = [
   {
-    title: 'Better Hurricane Protection',
+    title: 'Better Documentation Path',
     description:
-      'Traditional lanais failed under Ian\'s winds. Our Miami-Dade rated louvered systems withstand 175+ mph winds—significantly exceeding conventional screen enclosure construction.',
+      'Older lanais and pool cages may not have the documentation a modern coastal project needs. A louvered system can be evaluated with current engineering, product approval, anchoring, and Sanibel permit questions in mind.',
     icon: Wind,
   },
   {
     title: 'Lower Lifetime Costs',
     description:
-      'Rebuilding a traditional lanai means accepting ongoing maintenance: rescreening every 5-10 years, painting, and repairs. A modern system eliminates screens entirely and requires zero maintenance for 20+ years.',
+      'Rebuilding a traditional lanai can mean rescreening, repainting, hardware replacement, and storm-related repairs over time. A modern system can reduce fixed-screen maintenance, especially when retractable screens are used only when needed.',
     icon: DollarSign,
   },
   {
@@ -79,9 +80,9 @@ const whyUpgrade = [
     icon: Clock,
   },
   {
-    title: 'Higher Resale Value',
+    title: 'Stronger Buyer Story',
     description:
-      'Buyers recognize innovation. A modern louvered system differentiates your home in Sanibel\'s competitive market and typically returns 70-80% of investment at sale.',
+      'A clean, documented, modern outdoor living system can differentiate a Sanibel home better than simply rebuilding the same screen enclosure. The real value depends on design, condition, permit history, and the market.',
     icon: Home,
   },
 ];
@@ -97,7 +98,7 @@ const processSteps = [
     step: '02',
     title: 'Design & Permitting',
     description:
-      'Our team designs a replacement system that maximizes your coverage allowance while ensuring full compliance with post-Ian building codes and sanctuary regulations.',
+      'Our team designs a replacement option around survey, floodplain, product documentation, anchoring, drainage, screen, electrical, and Sanibel review questions.',
   },
   {
     step: '03',
@@ -109,7 +110,7 @@ const processSteps = [
     step: '04',
     title: 'Installation',
     description:
-      'Professional installation of your new louvered system by manufacturer-certified crews. Typical timeline: 2-3 weeks for replacement projects.',
+      'Professional installation follows approved plans, manufacturer requirements, and site conditions. Timeline depends on the approved scope, product lead time, and inspection path.',
   },
 ];
 
@@ -140,9 +141,9 @@ const costComparison = [
   },
   {
     factor: 'Home Value Impact',
-    traditional: 'Standard ROI (70%)',
-    modern: 'Premium feature (75-80%)',
-    note: 'Modern adds more value',
+    traditional: 'Familiar buyer expectation',
+    modern: 'Cleaner premium story',
+    note: 'Value depends on condition and market',
   },
 ];
 
@@ -155,27 +156,27 @@ const faqs = [
   {
     question: 'What is the 50% rule and how does it affect my lanai replacement?',
     answer:
-      'Sanibel\'s 50% rule states that if repair costs exceed 50% of your home\'s improved value, the entire structure must be brought to current flood codes. For many homeowners with lanai damage from Hurricane Ian, this triggered a full rebuild requirement—creating the perfect opportunity to upgrade to a modern system rather than rebuilding the same outdated design.',
+      'Sanibel explains that repairs, alterations, improvements, demolition, and similar work can be reviewed for substantial damage or substantial improvement at permit time. If the cost exceeds 50% of the market value of a noncompliant building, current floodplain standards may apply. That review can be the right time to compare a modern system rather than automatically rebuilding the same enclosure.',
   },
   {
     question: 'How long does lanai replacement take in Sanibel?',
     answer:
-      'Most replacement projects take 8-12 weeks from contract to completion. Permitting through the City of Sanibel typically takes 4-6 weeks (expedited for storm recovery), and installation requires 2-3 weeks. This is comparable to traditional lanai rebuild timelines.',
+      'Timeline depends on demolition, engineering, product lead time, floodplain review, HOA review, Sanibel permit comments, inspections, and whether screens, electrical, drainage, or slab/footing work are included.',
   },
   {
     question: 'Will my insurance cover upgrading to a louvered system?',
     answer:
-      'Insurance typically covers the cost to replace what you had (like-for-like). However, many homeowners use insurance funds for the base replacement and invest additional money to upgrade to a louvered system. The difference is often $2,000-8,000 for an average-sized lanai—an investment that pays for itself through reduced maintenance and increased home value.',
+      'Insurance questions should be handled with your carrier, adjuster, and policy documents. EDG can help separate like-for-like replacement scope from optional upgrades so the project discussion is clearer.',
   },
   {
     question: 'Can I keep my existing concrete slab when replacing my lanai?',
     answer:
-      'Usually yes. If your concrete pad is structurally sound and properly elevated, it can often be reused as the foundation for a new louvered system. This saves time and money compared to complete demolition and rebuilding. We assess footing depth, elevation, and condition during our initial consultation.',
+      'Possibly, but it must be evaluated. Elevation, condition, drainage, anchoring, footings, flood-zone requirements, and the selected system all affect whether an existing slab can remain part of the project.',
   },
   {
     question: 'Is a louvered system harder to permit than a traditional lanai?',
     answer:
-      'Not significantly. Both require building permits from the City of Sanibel. Our systems carry Miami-Dade County NOAs (Notices of Acceptance) that satisfy Florida Product Approval requirements, often streamlining the engineering review process. We handle all permit submissions and coordination with the Planning Department.',
+      'It depends on the scope. A louvered system may need different documentation than a traditional screen enclosure, including engineering, anchoring, product approvals where applicable, electrical, drainage, and attachment details. Sanibel remains the final authority.',
   },
 ];
 
@@ -239,8 +240,10 @@ export default function LanaiReplacementPage() {
                 <span className="text-edg-brand block">Rebuild Smarter, Not the Same</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Your lanai was damaged. The 50% rule may require full reconstruction. 
-                This is your opportunity to upgrade to a hurricane-rated louvered system.
+                Your lanai, pool cage, or screen enclosure was damaged or
+                outdated. Use the rebuild moment to compare a modern louvered
+                system with the permit, floodplain, and coastal documentation
+                questions on the table.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
@@ -288,16 +291,16 @@ export default function LanaiReplacementPage() {
                     Understanding the 50% Rule
                   </h2>
                   <p className="mb-4 text-amber-700 dark:text-amber-300">
-                    Sanibel's building code requires that if repair costs exceed 50% of your home's 
-                    improved value, the entire structure must be brought to current flood and wind codes. 
-                    For many homeowners with lanai damage from Hurricane Ian, this triggered full 
-                    reconstruction requirements.
+                    Sanibel reviews repairs and improvements for substantial
+                    damage or substantial improvement at permit time. If the
+                    cost exceeds 50% of the market value of a noncompliant
+                    building, current floodplain standards may apply.
                   </p>
                   <p className="text-amber-700 dark:text-amber-300">
-                    <strong>The Opportunity:</strong> Since you are rebuilding anyway, you can install 
-                    a completely different type of structure. Instead of replacing a failed screen 
-                    enclosure with the same thing, upgrade to a hurricane-rated louvered system that 
-                    will not need replacement after the next storm.
+                    <strong>The Opportunity:</strong> If the project already
+                    requires serious review, compare the old screen enclosure
+                    against a modern lanai alternative before rebuilding the
+                    same layout.
                   </p>
                 </div>
               </div>
@@ -395,9 +398,10 @@ export default function LanaiReplacementPage() {
               <div className="flex items-start gap-3">
                 <Info className="mt-1 h-5 w-5 shrink-0 text-blue-600" />
                 <p className="text-sm text-blue-800 dark:text-blue-200">
-                  <strong>Bottom Line:</strong> Over 20 years, a modern louvered system typically costs 
-                  less than rebuilding a traditional lanai twice (which screen enclosures often require 
-                  due to storm damage and wear), while delivering superior functionality and home value.
+                  <strong>Bottom Line:</strong> The right comparison is not just
+                  frame price. Include demolition, permit review, engineering,
+                  screens, drainage, electrical, maintenance, and how often the
+                  space will actually be used.
                 </p>
               </div>
             </div>
@@ -439,8 +443,8 @@ export default function LanaiReplacementPage() {
                     <div>
                       <h4 className="font-bold">Permit Handling</h4>
                       <p className="text-text-secondary text-sm">
-                        We manage all City of Sanibel permits, including coordination with the 
-                        Vegetation Committee if needed.
+                        We help prepare permit documentation and coordinate the
+                        design questions that Sanibel may need answered.
                       </p>
                     </div>
                   </div>
@@ -459,8 +463,8 @@ export default function LanaiReplacementPage() {
                     <div>
                       <h4 className="font-bold">Final Inspection Support</h4>
                       <p className="text-text-secondary text-sm">
-                        We coordinate all inspections and ensure your new structure meets every 
-                        code requirement for certificate of occupancy.
+                        We support the inspection path tied to the approved
+                        permit package and the selected system.
                       </p>
                     </div>
                   </div>
@@ -504,7 +508,7 @@ export default function LanaiReplacementPage() {
                 Explore More Sanibel Resources
               </h2>
             </div>
-            <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
               <Link
                 href="/service-areas/sanibel-outdoor-living/modern-lanai"
                 className="group block"
@@ -539,14 +543,37 @@ export default function LanaiReplacementPage() {
                 >
                   <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    Hurricane-Rated Pergolas
+                    Louvered Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
                     Explore our full range of louvered roof systems engineered for Sanibel's 
-                    High Velocity Hurricane Zone.
+                    coastal permit and product documentation needs.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     View Pergola Systems <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+
+              <Link
+                href="/service-areas/sanibel-outdoor-living/zoning-guide"
+                className="group block"
+              >
+                <Card
+                  variant="muted"
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper icon={FileText} variant="default" size="lg" className="mb-4" />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
+                    Sanibel Permit Guide
+                  </h3>
+                  <p className="text-text-secondary mb-6">
+                    Review floodplain, 50% rule, screen enclosure, product
+                    approval, and local permit questions before rebuilding.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
+                    Read Permit Guide <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>
@@ -564,7 +591,7 @@ export default function LanaiReplacementPage() {
                 Ready to Replace Your Damaged Lanai?
               </h2>
               <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free assessment and quote for upgrading to a hurricane-rated modern system.
+                Get a free assessment and quote for upgrading to a modern coastal system.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
