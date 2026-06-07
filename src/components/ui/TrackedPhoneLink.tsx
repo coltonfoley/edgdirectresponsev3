@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
+import { trackConversion } from '@/lib/analytics';
 
 interface TrackedPhoneLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
@@ -14,13 +15,12 @@ export function TrackedPhoneLink({
   ...props
 }: TrackedPhoneLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (typeof window !== 'undefined' && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: 'conversion_event',
-        conversion_name: conversionName,
-        value: 0,
-      });
-    }
+    const target = e.currentTarget;
+    trackConversion({
+      conversionName,
+      linkUrl: target.href,
+      linkText: target.textContent?.trim(),
+    });
     if (onClick) onClick(e);
   };
 

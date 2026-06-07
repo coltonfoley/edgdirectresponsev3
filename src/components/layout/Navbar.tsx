@@ -7,6 +7,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { trackConversion } from '@/lib/analytics';
 
 // Products dropdown - all systems combined
 const productsDropdown = [
@@ -393,11 +394,11 @@ export function Navbar() {
               </Link>
               <Link
                 href="/contact"
-                onClick={() =>
-                  (window as any).dataLayer?.push({
-                    event: 'conversion_event',
-                    conversion_name: 'book_call_click',
-                    value: 0,
+                onClick={(event) =>
+                  trackConversion({
+                    conversionName: 'book_call_click',
+                    linkUrl: event.currentTarget.href,
+                    linkText: event.currentTarget.textContent?.trim(),
                   })
                 }
               >
@@ -418,11 +419,11 @@ export function Navbar() {
             <div className="flex items-center gap-2 xl:hidden">
               <a
                 href="tel:+18155810138"
-                onClick={() =>
-                  (window as any).dataLayer?.push({
-                    event: 'conversion_event',
-                    conversion_name: 'phone_click',
-                    value: 0,
+                onClick={(event) =>
+                  trackConversion({
+                    conversionName: 'phone_click',
+                    linkUrl: event.currentTarget.href,
+                    linkText: event.currentTarget.textContent?.trim(),
                   })
                 }
                 className={cn('p-2 transition-colors', textColor)}
@@ -559,12 +560,12 @@ export function Navbar() {
               <div className="mt-8">
                 <Link
                   href="/contact"
-                  onClick={() => {
+                  onClick={(event) => {
                     setIsOpen(false);
-                    (window as any).dataLayer?.push({
-                      event: 'conversion_event',
-                      conversion_name: 'book_call_click',
-                      value: 0,
+                    trackConversion({
+                      conversionName: 'book_call_click',
+                      linkUrl: event.currentTarget.href,
+                      linkText: event.currentTarget.textContent?.trim(),
                     });
                   }}
                 >

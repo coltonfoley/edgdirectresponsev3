@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { MapPin, Phone, Mail, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { trackConversion } from '@/lib/analytics';
 
 export function Footer() {
   const pathname = usePathname();
@@ -73,11 +74,11 @@ export function Footer() {
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/contact"
-                    onClick={() =>
-                      (window as any).dataLayer?.push({
-                        event: 'conversion_event',
-                        conversion_name: 'book_call_click',
-                        value: 0,
+                    onClick={(event) =>
+                      trackConversion({
+                        conversionName: 'book_call_click',
+                        linkUrl: event.currentTarget.href,
+                        linkText: event.currentTarget.textContent?.trim(),
                       })
                     }
                   >
@@ -90,11 +91,11 @@ export function Footer() {
                   </Link>
                   <a
                     href="tel:+18155810138"
-                    onClick={() =>
-                      (window as any).dataLayer?.push({
-                        event: 'conversion_event',
-                        conversion_name: 'phone_click',
-                        value: 0,
+                    onClick={(event) =>
+                      trackConversion({
+                        conversionName: 'phone_click',
+                        linkUrl: event.currentTarget.href,
+                        linkText: event.currentTarget.textContent?.trim(),
                       })
                     }
                     className="hover:text-edg-brand inline-flex h-14 items-center gap-3 px-6 font-bold tracking-wider text-white uppercase transition-colors"

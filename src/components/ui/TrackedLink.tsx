@@ -2,6 +2,7 @@
 
 import Link, { LinkProps } from 'next/link';
 import { ReactNode } from 'react';
+import { trackConversion } from '@/lib/analytics';
 
 interface TrackedLinkProps extends LinkProps {
   children: ReactNode;
@@ -19,13 +20,13 @@ export function TrackedLink({
   ...props
 }: TrackedLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (typeof window !== 'undefined' && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: 'conversion_event',
-        conversion_name: conversionName,
-        value: eventValue,
-      });
-    }
+    const target = e.currentTarget;
+    trackConversion({
+      conversionName,
+      value: eventValue,
+      linkUrl: target.href,
+      linkText: target.textContent?.trim(),
+    });
     if (onClick) onClick(e);
   };
 

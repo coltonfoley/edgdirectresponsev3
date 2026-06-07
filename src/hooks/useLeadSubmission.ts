@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { pushAnalyticsEvent } from '@/lib/analytics';
 
 export interface LeadData {
   firstName?: string;
@@ -51,15 +52,14 @@ export function useLeadSubmission({
       setSuccess(true);
 
       // Track conversion
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
-          event: 'generate_lead',
-          source: data.source,
-          customer_type: data.customerType,
-          currency: 'USD',
-          value: 0,
-        });
-      }
+      pushAnalyticsEvent({
+        event: 'generate_lead',
+        source: data.source,
+        customer_type: data.customerType,
+        project_type: data.projectType,
+        currency: 'USD',
+        value: 0,
+      });
 
       if (onSuccess) {
         onSuccess();

@@ -8,6 +8,8 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import * as images from '@/lib/images';
 import {
   ArrowRight,
@@ -347,22 +349,18 @@ export default function ShadesPage() {
                 </p>
 
                 <div className="mb-12 flex flex-col gap-4">
-                  <Link
-                    href="/contact?type=price&product=shades"
-                    data-conversion-name="book_call_click"
-                  >
+                  <TrackedLink href="/contact?type=price&product=shades&source=shades_hero">
                     <Button size="lg" className="w-full sm:w-auto">
                       Configure System
                     </Button>
-                  </Link>
-                  <Link
+                  </TrackedLink>
+                  <TrackedPhoneLink
                     href="tel:+18155810138"
-                    data-conversion-name="phone_click"
                     className="hover:text-edg-brand-text flex cursor-pointer items-center gap-3 text-sm font-bold tracking-wider uppercase transition-colors"
                   >
                     <span className="h-px w-8 bg-black/20"></span>
                     Speak to a designer
-                  </Link>
+                  </TrackedPhoneLink>
                   <Link
                     href="/service-areas/chicago-il/retractable-screens"
                     className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
@@ -695,11 +693,7 @@ export default function ShadesPage() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {relatedProducts.map((product) => (
-                <Link
-                  key={product.name}
-                  href={product.href}
-                  data-conversion-name="book_call_click"
-                >
+                <Link key={product.name} href={product.href}>
                   <Card
                     variant="default"
                     padding="lg"
@@ -755,15 +749,12 @@ export default function ShadesPage() {
                   makes.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link
-                    href="/contact?type=price&product=shades"
-                    data-conversion-name="book_call_click"
-                  >
+                  <TrackedLink href="/contact?type=price&product=shades&source=shades_bottom">
                     <Button variant="primary" size="lg">
                       Start Your Quote
                     </Button>
-                  </Link>
-                  <Link href="/showroom" data-conversion-name="book_call_click">
+                  </TrackedLink>
+                  <Link href="/showroom">
                     <Button
                       variant="outline"
                       size="lg"
