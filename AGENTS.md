@@ -58,6 +58,9 @@ not as active instruction.
   Rainmaker intake, verify the whole lead path before calling it safe.
 - Do not hand-maintain page counts in prose. Count pages from source when
   needed.
+- Default website work is not finished while it is local-only. Unless Colton
+  explicitly asks for local-only or preview-only work, finish with commit, push
+  to `origin/edg-positioning`, production deployment, and live verification.
 - Do not publish production changes without a clear report separating local
   checks, pushed commit, deployment state, live URL response, browser proof, and
   Search Console/indexing follow-up.
