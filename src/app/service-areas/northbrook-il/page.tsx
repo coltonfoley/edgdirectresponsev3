@@ -241,23 +241,27 @@ export default function NorthbrookHubPage() {
           <FadeIn>
             <h2 className="section-title mb-4">Zoning & Permits in Northbrook</h2>
             <p className="text-text-secondary max-w-3xl">
-              The Village of Northbrook has strict requirements for accessory structures. Here are the key regulations you need to know.
+              Northbrook outdoor-room approvals depend on the address, zoning
+              district, existing hardscape, drainage, attachment method, and
+              any HOA or architectural review requirements.
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 mt-8">
               <Card>
                 <h3 className="font-bold mb-2 flex items-center gap-2">
                   <AlertTriangle className="h-4 w-4 text-amber-500" />
-                  30% Coverage Limit
+                  Coverage Review
                 </h3>
                 <p className="text-sm text-text-secondary">
-                  Maximum 30% lot coverage for the rear yard. Pergolas with hard flooring (pavers/concrete) count toward this limit.
+                  We review the survey, patio surface, roof footprint, existing
+                  hardscape, and drainage path before assuming how a structure
+                  will affect lot coverage.
                 </p>
               </Card>
               <Card>
                 <h3 className="font-bold mb-2 flex items-center gap-2">
                   <Ruler className="h-4 w-4 text-edg-brand-dark" />
-                  15-Foot Height Cap
+                  Height Review
                 </h3>
                 <p className="text-sm text-text-secondary">
                   Height and placement should be checked against the actual
@@ -276,7 +280,9 @@ export default function NorthbrookHubPage() {
               <Card>
                 <h3 className="font-bold mb-2">Rear Setback</h3>
                 <p className="text-sm text-text-secondary">
-                  Typically 10 feet from the rear lot line (varies by zoning district R-2 to R-5).
+                  Rear-yard placement varies by zoning district, structure
+                  type, easements, and existing improvements. We verify the
+                  setback path before drawings are finalized.
                 </p>
               </Card>
             </div>
@@ -284,7 +290,9 @@ export default function NorthbrookHubPage() {
             <div className="mt-8 p-6 bg-white border-l-4 border-edg-brand-dark">
               <h4 className="font-bold mb-2">Village Hall Permitting</h4>
               <p className="text-text-secondary">
-                We handle all paperwork submissions to the Village Hall at 1225 Cedar Lane, including plat of survey, engineering specs, and HOA approvals for areas like Techny.
+                We help assemble the survey markup, product information,
+                engineering details, and HOA or architectural-review materials
+                needed for the appropriate Northbrook review path.
               </p>
             </div>
           </FadeIn>
