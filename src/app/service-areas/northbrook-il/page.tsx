@@ -129,7 +129,7 @@ export default function NorthbrookHubPage() {
             '@type': 'Service',
             name: 'Outdoor Living Design & Installation - Northbrook',
             description:
-              'Hurricane-rated louvered pergolas and retractable screens custom designed for Northbrook homes.',
+              'Motorized louvered pergolas and retractable screens planned around Northbrook architecture, weather exposure, and local review requirements.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -268,7 +268,9 @@ export default function NorthbrookHubPage() {
               <Card>
                 <h3 className="font-bold mb-2">Side Setback</h3>
                 <p className="text-sm text-text-secondary">
-                  Must maintain a 5-foot setback from side lot lines.
+                  Side-yard placement should be checked against the survey,
+                  zoning district, easements, and any association requirements
+                  before the structure is priced.
                 </p>
               </Card>
               <Card>
@@ -362,7 +364,9 @@ export default function NorthbrookHubPage() {
                     Motorized Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Hurricane-rated systems engineered for Northbrook&apos;s weather conditions.
+                    Pergola planning for Northbrook homes with wind, snow,
+                    drainage, and review requirements checked before final
+                    design.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
