@@ -41,9 +41,9 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Familiar with Village of Wilmette zoning codes',
-  'Historic district experience',
-  'North Shore-appropriate designs',
+  'Planning support for village, HOA, and historic-area review packages',
+  'Historic and lake-adjacent outdoor room planning',
+  'North Shore-appropriate pergola, screen, glass, heat, and lighting designs',
   'Licensed & insured for Cook County',
 ];
 
@@ -56,7 +56,7 @@ const neighborhoods = [
   {
     name: 'East Wilmette (Lakefront)',
     description:
-      'Properties near Lake Michigan experience unique weather conditions including strong winds and sudden temperature changes. Our hurricane-rated louvered pergolas are engineered to withstand these conditions while providing shelter from lake-effect weather.',
+      'Properties near Lake Michigan can experience quick weather shifts, wind, glare, and privacy needs. We plan louvered pergolas, screens, and glass so the outdoor room protects comfort without feeling closed off from the lakefront setting.',
   },
   {
     name: 'Indian Hill Estates',
@@ -74,13 +74,13 @@ const weatherConsiderations = [
   {
     title: 'Lake Effect Weather',
     description:
-      'Wilmette\'s proximity to Lake Michigan creates sudden weather changes. Our motorized systems adapt instantly—close louvers when wind shifts off the lake, open them to capture cooling breezes.',
+      'Wilmette\'s proximity to Lake Michigan creates quick changes in wind, temperature, and glare. We plan louver direction, side protection, and controls around the way the patio actually feels.',
     icon: Wind,
   },
   {
     title: 'Winter Snow Loads',
     description:
-      'North Shore winters bring heavy snow. Our louvers open automatically under snow load, preventing accumulation and protecting your investment. Rated for 30psf snow loads.',
+      'North Shore winters make drainage, louver operation, mounting, electrical routing, and seasonal maintenance part of the design conversation before a permanent structure is selected.',
     icon: CloudSun,
   },
   {
@@ -91,26 +91,47 @@ const weatherConsiderations = [
   },
 ];
 
+const planningNotes = [
+  {
+    title: 'Historic context changes the submission',
+    description:
+      'A Wilmette project may need more than a catalog page. Renderings, finish samples, structure placement, and sightline notes help show how the outdoor room relates to the home and neighborhood.',
+    icon: FileText,
+  },
+  {
+    title: 'Impervious surface questions are address-specific',
+    description:
+      'Lot coverage, drainage, and whether a louvered roof is evaluated differently from a solid roof should be confirmed for the actual property. We treat those as review questions, not generic promises.',
+    icon: AlertTriangle,
+  },
+  {
+    title: 'Screens can matter as much as the roof',
+    description:
+      'Near the lake, side protection can solve wind, bugs, glare, and privacy. The strongest Wilmette outdoor rooms plan screens, heat, lighting, and controls with the pergola from the beginning.',
+    icon: ShieldCheck,
+  },
+];
+
 const faqs = [
   {
     question: 'Do I need a permit for a pergola in Wilmette?',
     answer:
-      'Yes, most outdoor structures require permits in Wilmette. The Village has strict guidelines regarding impermeable surface ratios (typically 30-40% max) and setbacks. Our team handles the entire permit process, including navigating the impermeable surface calculations that often challenge North Shore properties.',
+      'Permanent outdoor structures commonly require local review, but the exact path depends on the address, structure size, attachment method, lot coverage, setbacks, and whether the property has historic, HOA, or lake-adjacent considerations. We help verify the correct path before design is finalized.',
   },
   {
     question: 'How do louvered pergolas help with Wilmette\'s impermeable surface limits?',
     answer:
-      'Wilmette\'s zoning codes limit how much of your lot can be covered by impermeable surfaces. Because our louvered pergolas are considered "permeable" when open, they often don\'t count toward your maximum coverage—unlike solid roof structures. We\'ve successfully helped many Wilmette homeowners add covered outdoor space without exceeding their limits.',
+      'Coverage and drainage questions should be reviewed for the specific address. A louvered pergola may be evaluated differently than a solid roof in some situations, but that is a local review question, not something to assume before the site and design are known.',
   },
   {
     question: 'Can you work with historic district requirements?',
     answer:
-      'Absolutely. We have extensive experience with Wilmette\'s Historic Preservation Commission. Our systems can be powder-coated to match historic color palettes, and we design with sightlines and architectural character in mind. We\'ve completed projects in the Cage historic district that received HPC approval.',
+      'Yes, when the project is planned carefully. Historic or architecturally sensitive homes usually need better documentation: renderings, finish samples, placement notes, and product information that show how the outdoor room relates to the existing structure.',
   },
   {
     question: 'What\'s the typical timeline for a Wilmette project?',
     answer:
-      'From consultation to completion, most Wilmette projects take 8-12 weeks. Permit approval typically takes 4-6 weeks. We handle all village interactions, including any Historic Preservation Commission reviews if required.',
+      'A custom Wilmette project can take several weeks for design, review, fabrication, and installation. Historic-area review, HOA input, electrical coordination, custom finishes, and weather can change the schedule, so we set expectations after the site and approval path are clear.',
   },
 ];
 
@@ -212,7 +233,7 @@ export default function WilmetteHubPage() {
       </section>
 
       {/* ========== NEIGHBORHOODS ========== */}
-      <Section className="section-md bg-surface">
+      <Section id="zoning" className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
@@ -220,7 +241,9 @@ export default function WilmetteHubPage() {
                 Serving Every Wilmette Neighborhood
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the unique character and requirements of Wilmette&apos;s distinct areas.
+                Wilmette outdoor rooms need more than shade. Historic homes,
+                lake-adjacent lots, larger estate properties, and close
+                neighborhood sightlines each create different planning decisions.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -228,6 +251,37 @@ export default function WilmetteHubPage() {
                 <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
                   <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== WILMETTE PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Wilmette planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                The design needs to satisfy the home, the weather, and the review path.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                A Wilmette pergola or screen project can involve architecture,
+                lake comfort, drainage, lot coverage, and neighborhood visibility
+                at the same time. We sort those constraints before recommending
+                a system.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
                 </Card>
               ))}
             </div>
@@ -269,7 +323,9 @@ export default function WilmetteHubPage() {
                 Wilmette Zoning & Building Guide
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Wilmette has some of the strictest zoning codes on the North Shore. Here&apos;s what you need to know before you build.
+                Wilmette review questions can be address-specific. Use this as
+                planning context before a site review, not as a final permit
+                determination.
               </p>
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
@@ -280,7 +336,11 @@ export default function WilmetteHubPage() {
                   The &quot;Impermeable Surface&quot; Challenge
                 </h3>
                 <p className="text-text-secondary mb-6">
-                  Most lots in Wilmette have a maximum allowable impermeable surface ratio (often 30-40%). If your lot is already maxed out with a driveway, patio, and garage, adding a solid roof structure might be prohibited.
+                  Many North Shore properties need careful review of lot
+                  coverage, drainage, hardscape, and whether an outdoor structure
+                  changes stormwater assumptions. A driveway, patio, garage, and
+                  new roof structure should be reviewed together instead of
+                  guessed from a generic rule.
                 </p>
                 <div className="bg-edg-brand/5 border-edg-brand/20 rounded-2xl border p-6">
                   <div className="flex items-start gap-4">
@@ -292,12 +352,11 @@ export default function WilmetteHubPage() {
                         The Louvered Advantage
                       </h4>
                       <p className="text-text-secondary">
-                        In some interpretations, a{' '}
-                        <strong>louvered pergola</strong> can be argued as a
-                        &quot;permeable&quot; structure when open, potentially helping
-                        with zoning variances. EDG has experience navigating
-                        these specific conversations with the Village of
-                        Wilmette.
+                        A <strong>louvered pergola</strong> may be reviewed
+                        differently than a solid roof in some situations, but the
+                        correct answer depends on the address, design, drainage,
+                        and reviewer. We help homeowners prepare the right
+                        documentation before assuming the outcome.
                       </p>
                     </div>
                   </div>
@@ -317,13 +376,15 @@ export default function WilmetteHubPage() {
                   <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
                     <span>
-                      At least <strong>3 feet</strong> from side property lines.
+                      Reviewed against the property survey, zoning district, and
+                      whether the structure is attached or freestanding.
                     </span>
                   </li>
                   <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
                     <span>
-                      At least <strong>5 feet</strong> from rear property lines.
+                      Checked for easements, drainage paths, utilities, and any
+                      HOA or historic-area requirements.
                     </span>
                   </li>
                   <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
@@ -337,12 +398,13 @@ export default function WilmetteHubPage() {
               <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <Clock className="text-edg-brand-dark h-6 w-6" />
-                  Permit Process Timeline
+                  Review Package
                 </h3>
                 <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
                   <Clock className="h-5 w-5 shrink-0 text-amber-600" />
                   <p className="font-medium text-amber-800 dark:text-amber-200">
-                    Expect a 4-6 week review cycle in Wilmette.
+                    The cleaner the submission, the easier it is for everyone to
+                    understand the proposed outdoor room.
                   </p>
                 </div>
                 <p className="text-text-secondary mb-4">We handle:</p>
@@ -351,7 +413,7 @@ export default function WilmetteHubPage() {
                     'Plat of survey markup',
                     'Structural engineering stamps',
                     'HOA approval packets (if applicable)',
-                    'Village permit application and meetings',
+                    'Village or HOA review support documents',
                   ].map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm">
                       <FileText className="h-4 w-4 text-zinc-400" />
@@ -363,8 +425,8 @@ export default function WilmetteHubPage() {
 
               <p className="text-center text-sm text-zinc-400 italic">
                 Disclaimer: Zoning codes change. This guide is for
-                informational purposes. EDG verifies all current codes during
-                our site assessment.
+                informational purposes. EDG verifies the current review path
+                during site assessment and design.
               </p>
             </div>
           </FadeIn>
@@ -442,8 +504,8 @@ export default function WilmetteHubPage() {
                     Get Permit Assistance
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    We&apos;ve handled dozens of Wilmette permits. Let us manage the
-                    Village&apos;s strict zoning process for you.
+                    Get help preparing drawings, product information, finish
+                    notes, and site context for the correct review path.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Contact Us <ArrowRight className="h-4 w-4" />

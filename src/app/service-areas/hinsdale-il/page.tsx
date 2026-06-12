@@ -38,8 +38,8 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Familiar with Village of Hinsdale zoning codes',
-  'Historic district & estate experience',
+  'Planning support for village, estate, and historic-area review packages',
+  'Older-home and estate outdoor room experience',
   'Western Suburbs-appropriate designs',
   'Licensed & insured for Cook & DuPage Counties',
 ];
@@ -71,7 +71,7 @@ const localConsiderations = [
   {
     title: 'Historic Preservation',
     description:
-      'Hinsdale has strict historic preservation guidelines, especially in The Lane district. Our systems are designed to meet these requirements with reversible installations and historically-appropriate aesthetics.',
+      'Historic or architecturally sensitive homes need more than a product brochure. We help prepare drawings, finish information, and placement details so the outdoor room can be reviewed in context.',
     icon: Building,
   },
   {
@@ -83,7 +83,7 @@ const localConsiderations = [
   {
     title: 'Weather Adaptability',
     description:
-      'From summer storms to winter snow loads, our systems automatically adapt. Louvers close under snow load and open to capture breezes—engineered for Illinois\' variable climate.',
+      'From summer storms to winter exposure, the final system should account for drainage, louver direction, wind, shade, controls, and how the family will use the patio in spring and fall.',
     icon: CloudSun,
   },
   {
@@ -94,26 +94,47 @@ const localConsiderations = [
   },
 ];
 
+const planningNotes = [
+  {
+    title: 'Respect the home before adding technology',
+    description:
+      'Hinsdale homeowners often want modern comfort without making the house feel remodeled in the wrong era. Column placement, finish color, louver direction, lighting, and attachment details should be chosen around the architecture first.',
+    icon: Building,
+  },
+  {
+    title: 'The outdoor room may be visible from every angle',
+    description:
+      'On estate lots and prominent village streets, the pergola can be seen from the driveway, lawn, kitchen, and neighboring properties. We plan sightlines and scale so the structure feels calm, not bulky.',
+    icon: Home,
+  },
+  {
+    title: 'Plan privacy and comfort together',
+    description:
+      'Hinsdale patios can need shade, wind control, neighbor screening, heaters, and lighting all at once. A complete plan avoids a beautiful pergola that still leaves the family fighting bugs, glare, or low evening temperatures.',
+    icon: Shield,
+  },
+];
+
 const faqs = [
   {
     question: 'Do I need a permit for a pergola in Hinsdale?',
     answer:
-      'Yes, most outdoor structures require permits in Hinsdale. The Village has specific guidelines regarding setbacks, height restrictions (typically 12-15 feet max), and impermeable surface ratios. Our team handles the entire permit process, including navigating any Historic Preservation Commission requirements for properties in historic districts.',
+      'Permanent outdoor structures commonly require local review, but the exact path depends on the address, scope, attachment method, setbacks, hardscape coverage, and whether the property has historic-area or HOA considerations. We help verify the right path before design is finalized.',
   },
   {
     question: 'How do you handle snow loads in Hinsdale winters?',
     answer:
-      'Our louvered pergolas are engineered for Illinois snow loads (30psf rating). The smart control system monitors snow accumulation and automatically opens louvers to shed snow when needed. Unlike fabric awnings or traditional wood structures, our aluminum systems require no winterization or seasonal removal.',
+      'We specify aluminum pergolas and controls around Illinois winter exposure, then review drainage, louver operation, mounting conditions, electrical routing, and maintenance for the specific site. The goal is a structure that fits the home and performs beyond the main summer season.',
   },
   {
     question: 'Can you work within Hinsdale\'s historic district requirements?',
     answer:
-      'Absolutely. We have experience working with the Hinsdale Historic Preservation Commission. Our systems can be designed with reversible installations and powder-coated in colors that complement historic palettes. We\'ve completed projects in The Lane and other historic areas that received HPC approval.',
+      'Yes, when the project is planned carefully. Historic or architecturally sensitive homes usually need better documentation: renderings, finish samples, placement notes, and product information that show how the outdoor room relates to the existing structure.',
   },
   {
     question: 'What\'s the typical timeline for a Hinsdale project?',
     answer:
-      'From consultation to completion, most Hinsdale projects take 8-12 weeks. Permit approval typically takes 4-6 weeks depending on whether Historic Preservation Commission review is required. We handle all village interactions and keep you informed throughout the process.',
+      'A custom Hinsdale project can take several weeks for design, review, fabrication, and installation. Historic-area review, HOA input, electrical coordination, and weather can change the schedule, so we set expectations after the site and approval path are clear.',
   },
 ];
 
@@ -222,7 +243,9 @@ export default function HinsdaleHubPage() {
                 Serving Every Hinsdale Neighborhood
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the unique character and requirements of Hinsdale&apos;s distinct areas.
+                Hinsdale projects need careful design judgment: historic streets,
+                estate lots, wooded settings, and downtown-adjacent homes each
+                create different comfort and review needs.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -230,6 +253,38 @@ export default function HinsdaleHubPage() {
                 <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
                   <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== HINSDALE PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Hinsdale planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                The right outdoor room should look like it belongs.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                A Hinsdale pergola or screen project is rarely just a shade
+                purchase. It is an architectural decision that has to fit the
+                home, the lot, the review path, and the way the family wants to
+                use the patio after dinner, during shoulder seasons, and when
+                guests are over.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
                 </Card>
               ))}
             </div>

@@ -39,9 +39,9 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Experts in North Shore Historic Preservation Commission approvals',
-  'Deep knowledge of Village zoning codes (impermeable surface limits)',
-  'Designs optimized for lakefront properties and tight setbacks',
+  'Planning support for village, HOA, and architectural review packages',
+  'Design guidance for lakefront, ravine, historic, and tight-lot properties',
+  'Pergola, screen, glass, heat, lighting, and controls coordinated together',
   'Powder-coated aluminum finishes to match any classic architecture',
 ];
 
@@ -72,13 +72,13 @@ const weatherConsiderations = [
   {
     title: 'Lake Michigan Winds',
     description:
-      'North Shore properties experience severe off-lake gusts. Our motorized screens feature MagnaTrack technology, locking them into their tracks to prevent blowouts.',
+      'North Shore properties can feel wind differently depending on distance from the lake, ravine exposure, and nearby structures. We review site exposure before recommending screen widths, louver orientation, and side protection.',
     icon: Wind,
   },
   {
     title: 'Heavy Winter Snow Loads',
     description:
-      'Chicago winters hit the North Shore hard. Our louvers support up to 30psf of snow load and open automatically under heavy accumulation.',
+      'Winter planning affects drainage, controls, mounting, and maintenance. A permanent louvered roof should be selected around the site rather than treated as a seasonal shade product.',
     icon: CloudSun,
   },
   {
@@ -89,26 +89,47 @@ const weatherConsiderations = [
   },
 ];
 
+const planningNotes = [
+  {
+    title: 'Architecture before accessories',
+    description:
+      'A North Shore project can fail visually even when the shade works. We start with the home style, sightlines, masonry, trim, window rhythm, and where the structure will be visible from the street or neighboring properties.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Review path by village and address',
+    description:
+      'Winnetka, Wilmette, Glencoe, Highland Park, Lake Forest, and Evanston do not all behave the same. Some projects are straightforward, while others need more drawings, survey detail, or architectural documentation before review.',
+    icon: FileText,
+  },
+  {
+    title: 'Lake comfort is often side protection',
+    description:
+      'North Shore homeowners often think overhead shade first, but wind, bugs, privacy, and low-angle lake glare can be the real issues. Screens, heaters, and glass should be considered alongside the pergola.',
+    icon: Wind,
+  },
+];
+
 const faqs = [
   {
     question: 'How do you handle strict North Shore permeable surface limits?',
     answer:
-      'Many North Shore villages restrict the total "impermeable" square footage on a lot. Because our louvered pergolas can open and close, they are often classified differently than a solid roof during the permit phase. We navigate these complex ratios for you.',
+      'Many North Shore villages care about lot coverage, drainage, setbacks, and how exterior improvements affect the property. A louvered system may be reviewed differently than a solid roof in some situations, but the correct answer depends on the address and project details. We help verify the path before design is finalized.',
   },
   {
     question: 'Can you work with historic districts?',
     answer:
-      'Absolutely. We have successfully secured approvals from Historic Preservation Commissions across the North Shore. Our aluminum systems can be powder-coated to precisely match your home\'s trim or brickwork.',
+      'Yes, when the project is planned carefully. Historic or architecturally sensitive homes usually need more than a product brochure. We help prepare renderings, finish information, structure placement, and product documentation so reviewers can see how the outdoor room fits the home.',
   },
   {
     question: 'Do I need a permit for an automated pergola?',
     answer:
-      '100% yes. Every municipality on the North Shore requires a structural permit, and usually zoning approval, for a structure of this caliber. We handle the entire engineering, drafting, and permit expediting process.',
+      'Permanent outdoor structures commonly require local review, but the exact path depends on the village, attachment method, structure size, setbacks, and whether the property has historic, HOA, or lake-adjacent considerations. We help assemble the right documentation for that review.',
   },
   {
     question: 'How long does a project take?',
     answer:
-      'Expect 8 to 12 weeks for custom manufacturing. Village permit approval times vary wildly on the North Shore (often taking 4-6 weeks), but we submit your paperwork immediately after design approval to keep things moving.',
+      'A custom North Shore project can take several weeks for design, review, fabrication, and installation. Village review, HOA review, architectural documentation, electrical planning, and weather can change the schedule, so we set expectations after the address and scope are known.',
   },
 ];
 
@@ -213,6 +234,11 @@ export default function NorthShoreHubPage() {
               <h2 className="section-title mb-4">
                 Serving the Entire North Shore Strip
               </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                North Shore outdoor rooms need to respect architecture first:
+                lake exposure, mature neighborhoods, historic homes, ravine lots,
+                and village review all shape the right system.
+              </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
@@ -230,6 +256,37 @@ export default function NorthShoreHubPage() {
                 Deerfield homeowners: see motorized retractable patio screens
                 <ArrowRight className="h-4 w-4" />
               </Link>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== NORTH SHORE PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                North Shore planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                A North Shore outdoor room has to pass the eye test.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                These homes do not need a generic patio cover. They need systems
+                that make sense next to brick, stone, slate, stucco, mature
+                landscaping, lake views, ravines, and the review expectations
+                that come with high-value neighborhoods.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
+                </Card>
+              ))}
             </div>
           </FadeIn>
         </Container>

@@ -28,14 +28,14 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { generateProductSchema, generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema } from '@/lib/schema';
 
 const reasons = [
   {
     icon: CloudSun,
     title: 'Lake Michigan Weather',
     description:
-      "Wilmette sits right on the lake. That means sudden temperature drops and strong winds. A static wooden pergola doesn't help you when the wind shifts off the water. A louvered roof lets you seal the space instantly.",
+      "Wilmette sits close enough to the lake that patio comfort can change quickly. A static wood pergola may look right, but it does not help much when wind, drizzle, glare, or bugs are the reason the family heads inside.",
   },
   {
     icon: Palette,
@@ -47,7 +47,25 @@ const reasons = [
     icon: TrendingUp,
     title: 'Property Value',
     description:
-      'In high-value markets like Wilmette, "usable square footage" is king. By creating a true four-season outdoor room, you are effectively adding living space that appraises higher than a standard deck.',
+      'In high-value markets like Wilmette, the strongest outdoor improvements feel useful and permanent. A louvered pergola with screens, heat, and lighting can make the patio operate more like a finished outdoor room than a seasonal deck upgrade.',
+  },
+];
+
+const planningFit = [
+  {
+    title: 'Historic or architectural review',
+    description:
+      'Some Wilmette homes need more documentation than a simple product spec. Renderings, color samples, structure placement, and finish coordination help reviewers and neighbors understand the proposed outdoor room.',
+  },
+  {
+    title: 'Lake-side exposure and privacy',
+    description:
+      'Properties east of Green Bay Road often need side protection as much as overhead control. Screens can reduce lake breeze, bugs, glare, and close-neighbor visibility without turning the patio into a fully enclosed room.',
+  },
+  {
+    title: 'A pergola that fits the house',
+    description:
+      'Wilmette has brick colonials, Tudors, prairie-influenced homes, mid-century houses, and newer builds. The column rhythm, finish, louver direction, and lighting package should be selected around the home, not copied from another suburb.',
   },
 ];
 
@@ -55,17 +73,17 @@ const faqs = [
   {
     question: 'Do I need Architectural Review Board approval?',
     answer:
-      'Often yes, depending on your neighborhood and proximity to historic districts. Wilmette\'s ARB reviews exterior modifications to ensure architectural compatibility. We provide detailed renderings, material samples, and engineering documentation to support your application. For specific setback and permit requirements, see our Wilmette zoning guide.',
+      'Some Wilmette projects may need architectural, HOA, or village review depending on the address, scope, and visibility from neighboring properties or the street. We provide renderings, material samples, and product documentation to support the review path. For planning context, see our Wilmette zoning guide.',
   },
   {
     question: 'How do louvered roofs handle lakefront winds?',
     answer:
-      'Our systems are engineered for 115 MPH wind ratings—essential for lakefront properties exposed to Lake Michigan\'s gusts. The heavy-gauge aluminum construction and locking louver mechanisms form a solid, structured roof when closed. Unlike fabric awnings or lightweight pergola kits, these systems are designed to withstand the North Shore\'s most challenging weather conditions.',
+      'Lakefront and near-lake properties need site-specific planning. We review exposure, mounting conditions, side screens, drainage, controls, and maintenance needs before recommending a final louvered roof system. The goal is not just a stronger roof; it is a more usable outdoor room in changing North Shore weather.',
   },
   {
     question: 'What\'s the typical investment range?',
     answer:
-      'For Wilmette estates, louvered pergola systems typically range from $55,000 to $95,000 depending on size, configuration, and integrated features. Factors include beam span requirements (larger estates often need 20+ foot spans), powder coating to match existing architecture, motorized screens, LED lighting, and heating systems. We provide detailed proposals after an on-site consultation.',
+      'The investment depends on size, attachment method, finish, screens, lighting, heat, controls, structural requirements, and review documentation. Wilmette projects can vary widely because a small patio, a lake-facing terrace, and an estate-scale outdoor room are very different scopes. We provide detailed proposals after a site review.',
   },
   {
     question: 'Can I add this to an existing patio?',
@@ -74,12 +92,22 @@ const faqs = [
   },
 ];
 
-const productSchema = generateProductSchema({
-  name: 'Louvered Pergola Systems - Wilmette, IL',
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Louvered Pergolas in Wilmette, IL',
   description:
-    'Estate-grade motorized louvered roof systems for Wilmette historic homes. ARB-compliant designs, 115 MPH wind ratings, and architectural matching for North Shore estates.',
-  category: 'Outdoor Living Systems',
-});
+    'Motorized louvered pergola planning and installation for Wilmette homes, patios, and outdoor living spaces.',
+  provider: {
+    '@id': 'https://www.edgpatioshade.com/#organization',
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Wilmette',
+    addressRegion: 'IL',
+  },
+  url: 'https://www.edgpatioshade.com/service-areas/wilmette-il/louvered-pergolas',
+};
 
 const faqSchema = generateFAQSchema(faqs);
 
@@ -90,7 +118,7 @@ export default function WilmetteProductPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchema),
+          __html: JSON.stringify(serviceSchema),
         }}
       />
       <script
@@ -238,6 +266,38 @@ export default function WilmetteProductPage() {
         </Container>
       </Section>
 
+      {/* ========== LOCAL PLANNING FIT ========== */}
+      <Section className="bg-white py-16 dark:bg-zinc-950">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
+                Where Louvered Pergolas Fit Best in Wilmette
+              </h2>
+              <p className="text-muted-foreground text-lg leading-relaxed">
+                A Wilmette pergola should not feel like the same page copied
+                from another North Shore suburb. The decision usually comes down
+                to review expectations, lake exposure, and how carefully the
+                structure can be matched to the home.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningFit.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900"
+                >
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
       {/* ========== SPECIFICATIONS ========== */}
       <Section className="bg-white py-16 dark:bg-zinc-950">
         <Container>
@@ -248,7 +308,7 @@ export default function WilmetteProductPage() {
                   <Settings className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
                 </div>
                 <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                  Technical Specifications
+                  Specification Decisions
                 </h2>
               </div>
               <div className="rounded-2xl border border-zinc-100 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
@@ -256,9 +316,11 @@ export default function WilmetteProductPage() {
                   <li className="flex items-start gap-3">
                     <Wind className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <div>
-                      <span className="font-semibold">Wind Rating:</span>
+                      <span className="font-semibold">Wind Planning:</span>
                       <p className="text-muted-foreground text-sm">
-                        Engineered for 115 MPH sustained winds
+                        Product selection is reviewed against lake exposure,
+                        mounting conditions, screen needs, and the selected
+                        pergola system.
                       </p>
                     </div>
                   </li>
@@ -267,16 +329,19 @@ export default function WilmetteProductPage() {
                     <div>
                       <span className="font-semibold">Beam Span:</span>
                       <p className="text-muted-foreground text-sm">
-                        Up to 24 feet between support columns
+                        Post locations and spans are chosen around patio use,
+                        architecture, structure size, and the approved product
+                        configuration.
                       </p>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <Settings className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <div>
-                      <span className="font-semibold">Motor Type:</span>
+                      <span className="font-semibold">Motor and Controls:</span>
                       <p className="text-muted-foreground text-sm">
-                        Somfy® tubular motors with 5-year warranty
+                        Control options are selected around daily use, smart-home
+                        expectations, weather sensors, and serviceability.
                       </p>
                     </div>
                   </li>
@@ -285,8 +350,8 @@ export default function WilmetteProductPage() {
                     <div>
                       <span className="font-semibold">Smart Home:</span>
                       <p className="text-muted-foreground text-sm">
-                        Compatible with Lutron, Crestron, Control4, and
-                        smartphone apps
+                        Compatibility depends on the final controls package, so
+                        integration goals should be discussed before ordering.
                       </p>
                     </div>
                   </li>
@@ -322,10 +387,10 @@ export default function WilmetteProductPage() {
                         <>
                           {faq.answer.split('zoning guide')[0]}
                           <Link
-                            href="/service-areas/wilmette-il/zoning-guide"
+                            href="/service-areas/wilmette-il#zoning"
                             className="text-edg-brand-text dark:text-edg-brand hover:underline"
                           >
-                            Wilmette zoning guide
+                            Wilmette planning notes
                           </Link>
                           .
                         </>

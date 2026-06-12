@@ -17,11 +17,12 @@ import {
 } from 'lucide-react';
 import { Metadata } from 'next';
 import * as images from '@/lib/images';
+import { generateFAQSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Motorized Pergolas Naperville IL | Luxury Louvered Roofs | EDG',
   description:
-    'Upgrade your Naperville patio with a custom motorized pergola. Remote-controlled louvered roofs, integrated lighting, and weather sensors. 100% turnkey installation.',
+    'Motorized louvered pergolas for Naperville homes. Local planning for Ashbury, Cress Creek, Tall Grass, downtown patios, HOA review, lighting, heaters, and smart outdoor rooms.',
   alternates: {
     canonical: '/service-areas/naperville-il/motorized-pergolas',
   },
@@ -86,11 +87,7 @@ const faqs = [
   {
     question: 'Do I need a permit for a motorized pergola in Naperville?',
     answer:
-      'Yes, permits are typically required for motorized pergola installations in Naperville. The specific requirements depend on your property location, setback distances, and the structure size. Our team handles the entire permit process for you. For detailed information about Naperville\'s zoning regulations, setbacks, and permit requirements, visit our comprehensive ',
-    link: {
-      text: 'Naperville Zoning Guide',
-      href: '/service-areas/naperville-il/zoning-guide',
-    },
+      'Permanent outdoor structures commonly require local review, but the exact requirements depend on the address, attachment method, structure size, easements, HOA rules, and whether the property is in DuPage or Will County. We verify the review path during site planning.',
   },
   {
     question: 'How much does a motorized pergola cost in Naperville?',
@@ -104,30 +101,44 @@ const faqs = [
   },
 ];
 
+const planningChecklist = [
+  'Confirm whether the pergola is solving overhead sun, rain control, privacy, bugs, or a full outdoor room need.',
+  'Review HOA expectations, subdivision standards, drainage, electrical routing, and existing patio conditions before finalizing the layout.',
+  'Plan screens, heaters, lighting, fans, and smart controls before fabrication so the structure can support the way the family actually uses the patio.',
+  'Choose louver direction, post placement, and finish color around the home style, sightlines, and late-day sun instead of only the square footage.',
+];
+
 export default function NapervilleMotorizedPergolas() {
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Motorized Pergolas in Naperville, IL',
+    description:
+      'Motorized louvered pergola design and installation for Naperville homes, patios, and outdoor living spaces.',
+    provider: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Naperville',
+      addressRegion: 'IL',
+    },
+    url: 'https://www.edgpatioshade.com/service-areas/naperville-il/motorized-pergolas',
+    image: `https://www.edgpatioshade.com${images.pages.price.whitePergolaPool}`,
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Product',
-            name: 'Luxury Motorized Pergola System - Naperville',
-            image: `https://www.edgpatioshade.com${images.pages.price.whitePergolaPool}`,
-            description:
-              'Premium motorized louvered roof systems for Naperville estates, featuring integrated lighting and heating.',
-            brand: {
-              '@type': 'Brand',
-              name: 'EDG Patio & Shade',
-            },
-            offers: {
-              '@type': 'Offer',
-              url: 'https://www.edgpatioshade.com/service-areas/naperville-il/motorized-pergolas',
-              priceCurrency: 'USD',
-              availability: 'https://schema.org/InStock',
-            },
-          }),
+          __html: JSON.stringify(serviceSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
         }}
       />
       <main className="min-h-screen bg-white dark:bg-black">
@@ -207,12 +218,19 @@ export default function NapervilleMotorizedPergolas() {
                   pergolas; we design and install systems that increase the
                   value and utility of your Naperville home.
                 </p>
+                <p className="text-muted-foreground mb-8 text-lg text-pretty">
+                  Naperville projects often start with a nice patio that still
+                  fails at the edges: west sun over dinner, bugs after sunset,
+                  subdivision privacy, or rain that sends everyone indoors. A
+                  motorized pergola is strongest when it is planned with those
+                  everyday problems in mind instead of priced as a standalone roof.
+                </p>
                 <ul className="mb-8 space-y-4">
                   {[
-                    'Miami-Dade Hurricane Rated engineering',
-                    'Powder-coated aircraft-grade aluminum',
-                    'Seamless integration with existing architecture',
-                    'Licensed and insured Naperville installation crews',
+                    'Permit and HOA documentation support when review is required',
+                    'Powder-coated aluminum finishes selected around the home',
+                    'Screens, heaters, lighting, and controls planned together',
+                    'Site-specific layout for patios, pools, decks, and outdoor kitchens',
                   ].map((item) => (
                     <li
                       key={item}
@@ -288,6 +306,45 @@ export default function NapervilleMotorizedPergolas() {
           </Container>
         </Section>
 
+        {/* Planning Section */}
+        <Section className="bg-zinc-100 py-24 dark:bg-zinc-900">
+          <Container>
+            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+              <div>
+                <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+                  Before We Price a Naperville Pergola
+                </h2>
+                <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
+                  The same footprint can produce very different projects in
+                  Naperville. A Cress Creek golf course patio, a downtown
+                  historic home, and a Tall Grass backyard may all need a
+                  louvered roof, but the approval path, privacy needs, wind
+                  exposure, and finish selection are different.
+                </p>
+                <p className="text-muted-foreground text-lg leading-relaxed">
+                  Our design review looks beyond size. We want to know how the
+                  space is used, what makes it uncomfortable today, and which
+                  features should be built into the system now so the outdoor
+                  room does not need a second round of retrofits.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-black/5 bg-white p-8 dark:border-white/5 dark:bg-zinc-950">
+                <h3 className="mb-6 text-2xl font-bold">
+                  Naperville site review checklist
+                </h3>
+                <ul className="space-y-4">
+                  {planningChecklist.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <Shield className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Container>
+        </Section>
+
         {/* FAQ Section */}
         <Section className="bg-zinc-100 py-24 dark:bg-zinc-900">
           <Container>
@@ -310,17 +367,6 @@ export default function NapervilleMotorizedPergolas() {
                     <h3 className="mb-4 text-lg font-bold">{faq.question}</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       {faq.answer}
-                      {faq.link && (
-                        <>
-                          <Link
-                            href={faq.link.href}
-                            className="text-edg-brand-dark hover:underline"
-                          >
-                            {faq.link.text}
-                          </Link>
-                          .
-                        </>
-                      )}
                     </p>
                   </div>
                 ))}

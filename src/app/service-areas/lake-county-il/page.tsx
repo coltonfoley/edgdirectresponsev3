@@ -26,7 +26,7 @@ import {
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Lake County, IL | Pergolas & Shades | EDG',
   description:
-    'Custom motorized pergolas, exterior shades, and glass enclosures for Lake County, IL homes. Expert design and installation in Barrington, Lake Forest, and Libertyville.',
+    'Custom motorized pergolas, exterior shades, and glass enclosures for Lake County, IL homes. Local planning for Barrington estates, North Shore homes, Libertyville patios, and Chain O Lakes waterfronts.',
   openGraph: {
     title: 'Lake County Outdoor Living | EDG Patio & Shade',
     description: 'Luxury outdoor living systems for Lake County homes. Motorized pergolas and screens designed for Illinois weather.',
@@ -41,53 +41,74 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Deep knowledge of Lake County municipal zoning codes',
-  'HOA approval package assistance',
-  'Designs optimized for wide-open lots and lakefront properties',
-  'Fully licensed & insured for Lake County, IL',
+  'Spring Grove showroom within reach of Lake County homeowners',
+  'Planning support for village, HOA, and architectural review packages',
+  'Pergola, screen, glass, heat, lighting, and control systems under one plan',
+  'Designs tuned for estate lots, suburban patios, and waterfront exposure',
 ];
 
 const neighborhoods = [
   {
-    name: 'Barrington Area',
+    name: 'Barrington, Deer Park, and Kildeer',
     description:
-      'We excel at adapting to the expansive lots of Barrington, offering large-span louvered pergolas that maximize usable shade without obstructing the natural sightlines of your landscape.',
+      'Western Lake County projects often involve large patios, pool areas, wooded views, and HOA review. We plan louvered pergolas around long sightlines, mature trees, outdoor kitchens, and the need for a system that looks estate-grade rather than kit-built.',
   },
   {
-    name: 'Lake Forest & The North Shore',
+    name: 'Lake Forest, Lake Bluff, and Highland Park',
     description:
-      'Our team is experienced in designing systems that blend seamlessly with the historic and varied architecture of Lake Forest, ensuring modern comfort meets classic design.',
+      'North Shore-adjacent Lake County homes usually need a lighter touch. Historic architecture, ravine lots, lake exposure, and tighter design review make finish selection, column placement, drainage, and sightlines just as important as shade coverage.',
   },
   {
-    name: 'Libertyville',
+    name: 'Libertyville, Vernon Hills, and Mundelein',
     description:
-      'Libertyville\'s vibrant residential pockets are perfect for custom outdoor kitchens and motorized shades, turning standard patios into true year-round entertaining spaces.',
+      'These neighborhoods are strong fits for practical outdoor rooms: patios connected to family rooms, side-yard privacy needs, bug control, and evening dining. Screens, lighting, and heaters often matter as much as the overhead pergola.',
   },
   {
-    name: 'Chain O\'Lakes Waterfronts',
+    name: 'Chain O Lakes and northern lake homes',
     description:
-      'Lakefront properties require robust engineering. Our hurricane-rated pergolas and heavy-duty exterior shades are built to withstand strong winds coming off the water.',
+      'Waterfront homes around Fox Lake, Pistakee Lake, Antioch, and the Chain O Lakes need extra attention to wind, mosquitoes, drainage, deck conditions, and view preservation. We design shade and screen systems that protect comfort without closing off the water.',
   },
 ];
 
 const weatherConsiderations = [
   {
-    title: 'High Winds off the Water',
+    title: 'Waterfront and Open-Lot Wind',
     description:
-      'Lake County\'s many bodies of water create microclimates with strong winds. Our motorized screens feature MagnaTrack technology to stay in their tracks during severe gusts.',
+      'Lake County has very different wind conditions from one property to the next. A patio near the Chain O Lakes, a ravine lot near Lake Michigan, and a wide-open yard near Kildeer all need different screen, post, and louver planning.',
     icon: Wind,
   },
   {
-    title: 'Heavy Winter Snow Loads',
+    title: 'Northern Illinois Freeze-Thaw',
     description:
-      'Illinois winters hit Lake County hard. Our louvers can support up to 30psf of snow load and open automatically under heavy accumulation to protect your investment.',
+      'Snow, ice, freeze-thaw cycles, and spring storms are part of the design load. We look at drainage, footing conditions, roof attachment, and winter maintenance before recommending a permanent structure.',
     icon: CloudSun,
   },
   {
-    title: 'Mosquitoes & Summer Heat',
+    title: 'Mosquitoes, Glare, and Late-Day Sun',
     description:
-      'Waterfronts mean bugs. Our tight-weave motorized screens block out mosquitoes and UV rays, so you can enjoy balmy July evenings unbothered by pests.',
+      'For many Lake County clients, screens solve the real pain point. They can cut bugs, glare, wind, and neighbor sightlines while still letting the patio feel open when conditions are good.',
     icon: CloudSun,
+  },
+];
+
+const planningNotes = [
+  {
+    title: 'Do not assume one Lake County rulebook',
+    description:
+      'Lake County contains many villages, unincorporated properties, HOA communities, and lake-adjacent sites. Permit paths, setbacks, easements, impervious surface rules, and review expectations can change by address. We start with the survey and municipality before calling a design final.',
+    icon: AlertTriangle,
+  },
+  {
+    title: 'Match the system to how the patio fails today',
+    description:
+      'Some homes need overhead rain and sun control. Others mostly need bug screens, privacy, or wind protection. A useful Lake County plan separates those problems before recommending a louvered pergola, retractable screen package, glass enclosure, or phased approach.',
+    icon: Home,
+  },
+  {
+    title: 'Build the approval package early',
+    description:
+      'For higher-value homes, the review package often matters as much as the product. Renderings, finish samples, structural information, electrical notes, and a clean site plan help homeowners, HOAs, and municipal reviewers understand the project.',
+    icon: FileText,
   },
 ];
 
@@ -95,22 +116,22 @@ const faqs = [
   {
     question: 'Do I need a permit for a pergola in Lake County?',
     answer:
-      'Yes, almost all municipalities in Lake County require a building permit for a permanent structure like a motorized pergola or glass enclosure. Depending on your exact city (like Barrington vs. Libertyville), the setback rules and impermeable surface limits will differ. We manage the entire permit application for you.',
+      'Permanent outdoor structures commonly require local review, but Lake County is not one single permit path. A Barrington-area estate, a Libertyville patio, and a Chain O Lakes waterfront property can involve different municipalities, easements, HOA rules, and site-plan requirements. We help verify the right path before design is finalized.',
   },
   {
     question: 'Will my Homeowners Association approve a louvered roof?',
     answer:
-      'Because our extruded aluminum systems look like high-end architecture (and can be powder-coated to match your house trim), HOA approval rates are extremely high. We provide you with 3D renderings and engineering stamps to submit a flawless HOA architectural review packet.',
+      'Many HOAs are more comfortable when the submission is specific: color, placement, structure size, sightlines, drainage, electrical routing, and renderings. We help homeowners prepare that package so the pergola or screen system is reviewed as an architectural improvement, not a generic patio cover.',
   },
   {
     question: 'How do these systems hold up to Lake County winters?',
     answer:
-      'Exceptionally well. Traditional wood pergolas rot, warp, and require staining. Our systems are built from extruded aluminum with a premium powder coat. They will not rust and are engineered specifically for Northern Illinois snow loads.',
+      'We specify aluminum pergolas, screens, and enclosure systems for Northern Illinois exposure. That means looking at wind, snow, drainage, freeze-thaw conditions, and how the structure will be maintained during winter, instead of treating the project like a lightweight seasonal shade product.',
   },
   {
     question: 'What is the typical timeframe from design to installation?',
     answer:
-      'Our custom systems are manufactured specifically for your home. From final design approval to the time we finish the installation in your backyard, you can expect an 8 to 12-week timeline. Permitting usually runs concurrently with manufacturing.',
+      'A straightforward custom system often takes several weeks for design, review, fabrication, and installation. HOA and municipal review can change the timeline, especially on waterfront, estate, or historic-adjacent properties. We set expectations after we understand the address and scope.',
   },
 ];
 
@@ -216,7 +237,9 @@ export default function LakeCountyHubPage() {
                 Serving Communities Across Lake County
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the distinct architectural styles inside Lake County&apos;s best neighborhoods.
+                Lake County is not one outdoor living market. Western estates,
+                North Shore homes, suburban patios, and lakefront properties all
+                need different planning decisions.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -224,6 +247,37 @@ export default function LakeCountyHubPage() {
                 <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
                   <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Lake County planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                A useful county page should help you make the first decision.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                The first question is not always "what size pergola?" It is
+                whether your Lake County site needs overhead control, side
+                protection, enclosure, approval documentation, or a phased
+                outdoor room plan.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
                 </Card>
               ))}
             </div>

@@ -53,7 +53,7 @@ const neighborhoods = [
   {
     name: 'East Winnetka (Lakefront Estates)',
     description:
-      'The lakefront properties of East Winnetka command panoramic Lake Michigan views. Our large-span engineering minimizes columns that would obstruct these sightlines, while our hurricane-rated systems withstand lakefront winds that can exceed 70 mph during storms.',
+      'The lakefront properties of East Winnetka command panoramic Lake Michigan views. Our planning emphasizes wider spans, fewer view interruptions, secure mounting, and site-specific engineering for exposed wind conditions near the water.',
   },
   {
     name: 'Hubbard Woods',
@@ -94,7 +94,7 @@ const estateFeatures = [
   {
     title: 'Lakefront Wind Ratings',
     description:
-      'Wind off Lake Michigan can be fierce. Lightweight awnings rip. Our systems are Miami-Dade hurricane rated. When the storm comes, the louvers lock together to form a solid, structured roof that withstands the gale.',
+      'Wind off Lake Michigan can be fierce, especially on open lakefront lots and elevated patios. We review exposure, attachment points, drainage, and engineering requirements before recommending a roof or screen configuration.',
     icon: Wind,
   },
 ];
@@ -219,7 +219,7 @@ export default function WinnetkaHubPage() {
       </section>
 
       {/* ========== NEIGHBORHOODS ========== */}
-      <Section className="section-md bg-surface">
+      <Section id="zoning" className="section-md bg-surface">
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">

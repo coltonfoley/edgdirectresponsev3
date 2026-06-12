@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Familiar with Village of Oak Brook zoning codes',
+  'Planning support for village, HOA, and estate review packages',
   'Estate property experience',
   'Tudor & Georgian architecture expertise',
   'Licensed & insured for DuPage County',
@@ -78,7 +78,7 @@ const localConsiderations = [
   {
     title: 'Zoning Expertise',
     description:
-      'We work directly with the Village of Oak Brook Development Services Department to navigate setbacks and impervious surface requirements for your project.',
+      'Oak Brook projects deserve early review of surveys, setbacks, hardscape coverage, easements, and any estate or HOA expectations before the outdoor room is priced as final.',
     icon: FileText,
   },
   {
@@ -90,8 +90,29 @@ const localConsiderations = [
   {
     title: 'Western Suburbs Weather',
     description:
-      'DuPage County experiences intense summer storms and heavy winter snow. Our louvered pergolas automatically open under snow load and withstand high winds.',
+      'DuPage County storms, late-day sun, and winter exposure shape the system. We review drainage, wind, controls, and seasonal use before recommending the final pergola, screen, or glass configuration.',
     icon: Wind,
+  },
+];
+
+const planningNotes = [
+  {
+    title: 'Estate scale changes the design',
+    description:
+      'Oak Brook patios often sit near pools, outdoor kitchens, golf-course views, or broad lawns. A small residential pergola layout can look undersized on an estate property, so we plan scale, column rhythm, lighting, and sightlines together.',
+    icon: Building,
+  },
+  {
+    title: 'Architectural review needs clear visuals',
+    description:
+      'High-value properties are easier to review when the homeowner can show finish colors, elevations, structure placement, and how the pergola relates to the house. We help create that package before the project is submitted.',
+    icon: FileText,
+  },
+  {
+    title: 'Comfort may require side protection',
+    description:
+      'Oak Brook clients often want a polished outdoor room, not just shade. Screens, heaters, and glass can solve wind, privacy, bugs, and shoulder-season use when they are designed with the pergola from the beginning.',
+    icon: Trees,
   },
 ];
 
@@ -99,12 +120,12 @@ const faqs = [
   {
     question: 'Do I need a permit for a pergola in Oak Brook?',
     answer:
-      'Yes, most outdoor structures require permits in Oak Brook. The Village has specific guidelines regarding setbacks, impervious surface ratios, and height restrictions. Our team handles the entire permit process, including working with the Development Services Department to ensure your project meets all local requirements.',
+      'Permanent outdoor structures commonly require local review, but the exact path depends on the address, structure size, attachment method, hardscape coverage, easements, and any HOA or estate review requirements. We help verify the correct path before design is finalized.',
   },
   {
     question: 'How do your systems handle Oak Brook\'s impervious surface limits?',
     answer:
-      'Oak Brook\'s zoning codes limit impervious surface coverage on residential lots. Because our louvered pergolas are considered permeable when open, they often don\'t count toward your maximum coverage—unlike solid roof structures. We\'ve helped many Oak Brook and Hinsdale homeowners add covered outdoor space without exceeding their limits.',
+      'Coverage and drainage questions should be reviewed by address. A louvered pergola may be evaluated differently than a solid roof in some situations, but the right answer depends on the municipality, design, and site conditions. We review those constraints early so the plan does not surprise anyone later.',
   },
   {
     question: 'Can you match my home\'s existing architecture?',
@@ -114,7 +135,7 @@ const faqs = [
   {
     question: 'What\'s the typical timeline for an Oak Brook project?',
     answer:
-      'From consultation to completion, most Oak Brook area projects take 10-14 weeks. Permit approval in DuPage County typically takes 4-6 weeks. We handle all village interactions and inspections throughout the process.',
+      'A custom Oak Brook area project can take several weeks for design, review, fabrication, and installation. Timeline depends on project scope, review requirements, electrical coordination, and weather, so we set expectations once the site and approval path are clear.',
   },
 ];
 
@@ -226,7 +247,9 @@ export default function OakBrookHubPage() {
                 Serving Oak Brook & Western Suburbs
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the unique character and requirements of DuPage County&apos;s finest communities.
+                Estate properties, golf-course views, older architecture, and
+                newer luxury construction all need different outdoor-room
+                planning. The right system should look scaled to the property.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -234,6 +257,37 @@ export default function OakBrookHubPage() {
                 <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
                   <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== ESTATE PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Oak Brook planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                Estate outdoor rooms need more than a square-foot price.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                Oak Brook projects are often judged by whether they feel
+                original to the home. That means scale, finish, sightlines,
+                review documentation, and year-round comfort matter as much as
+                the louvered roof itself.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
                 </Card>
               ))}
             </div>

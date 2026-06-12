@@ -100,17 +100,17 @@ const faqs = [
   {
     question: 'Do I need a permit for a pergola in Barrington or Barrington Hills?',
     answer:
-      'Yes, most outdoor structures require permits in Barrington area villages. Barrington Hills has specific requirements for accessory structures including setbacks from property lines (typically 5 feet for accessory buildings) and impermeable surface coverage limits (50% maximum). The Village of Barrington has similar requirements. Our team handles the entire permit process, including surveys and zoning compliance verification.',
+      'Most covered outdoor structures in the Barrington area need some level of village, county, or association review. We start by checking the exact address, survey, lot coverage, setbacks, and subdivision requirements so the design is shaped around the approval path before pricing is finalized.',
   },
   {
     question: 'How do louvered pergolas affect impermeable surface calculations?',
     answer:
-      "Barrington Hills and surrounding villages limit impermeable surfaces to 50% of your lot coverage. Because our louvered pergolas are considered 'permeable' when open, they often don't count toward your maximum coverage—unlike solid roof structures. This is crucial for estate properties where you want to maximize covered outdoor space while preserving landscaping and drainage areas.",
+      'Coverage rules depend on the municipality, drainage pattern, foundation design, and how the structure is interpreted by the reviewer. We do not assume a louvered roof is exempt. We review the survey and help compare open-louver, drainage, footing, and patio-surface options before the plan is submitted.',
   },
   {
     question: 'What is the typical timeline for a Barrington estate project?',
     answer:
-      'From consultation to completion, most Barrington area projects take 10-14 weeks. Estate properties may require additional time for survey verification and architectural review committee approvals (common in Wynstone and gated communities). Permit approval typically takes 4-6 weeks in Barrington Hills and the Village of Barrington.',
+      'The timeline depends on survey readiness, association review, permit scope, engineering needs, product lead time, and site access. Estate properties can require additional coordination for architectural review committees, gated-community rules, utility planning, and landscape preservation.',
   },
   {
     question: 'Can you work with HOA requirements in Wynstone and gated communities?',
@@ -240,25 +240,25 @@ export default function BarringtonHubPage() {
       </Section>
 
       {/* ========== ZONING & PERMITS ========== */}
-      <Section className="section-md bg-surface-muted">
+      <Section id="zoning" className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <h2 className="section-title mb-4">Zoning & Permits in Barrington</h2>
             <p className="text-text-secondary max-w-3xl">
-              The Village of Barrington has a strict 50% &quot;Impermeable Coverage&quot; limit that often surprises homeowners planning large patios or pool decks.
+              Barrington-area approvals can change quickly from one address to the next, especially where village limits, township rules, estate lots, HOA standards, and drainage requirements overlap.
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 mt-8">
               <Card>
-                <h3 className="font-bold mb-2">50% Coverage Limit</h3>
+                <h3 className="font-bold mb-2">Coverage Review</h3>
                 <p className="text-sm text-text-secondary">
-                  Total impervious surface cannot exceed 50% of lot area. This includes house, driveway, patios, and accessory structures.
+                  We review the survey, existing hardscape, proposed roof footprint, drainage path, and any prior patio or pool improvements before assuming how coverage will be treated.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2">Accessory Structure Setbacks</h3>
+                <h3 className="font-bold mb-2">Setback Coordination</h3>
                 <p className="text-sm text-text-secondary">
-                  Must be 5 feet from principal building, 5 feet from rear lot line, and 3 feet from side lot line.
+                  Setbacks, easements, septic or well locations, utility routes, and association rules are checked address by address so the pergola layout is buildable.
                 </p>
               </Card>
             </div>

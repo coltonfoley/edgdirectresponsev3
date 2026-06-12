@@ -41,10 +41,10 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Familiar with Naperville zoning & permitting',
-  'HOA compliance experience',
-  'DuPage County building code expertise',
-  'Licensed & insured for Will County',
+  'Planning support for city, HOA, and subdivision review packages',
+  'Outdoor room design for patios, pools, decks, and newer subdivisions',
+  'Pergola, screen, glass, heat, lighting, and control systems under one plan',
+  'Site-specific planning for DuPage and Will County Naperville addresses',
 ];
 
 const neighborhoods = [
@@ -74,7 +74,7 @@ const localConsiderations = [
   {
     title: 'DuPage County Snow Loads',
     description:
-      'Naperville winters bring significant snow accumulation. Our louvered pergolas open automatically under snow load, preventing buildup and protecting the structure. Rated for 30psf snow loads exceeding local requirements.',
+      'Naperville winters make drainage, louver operation, electrical routing, and seasonal maintenance part of the design conversation. We review the site before recommending a permanent structure.',
     icon: CloudSun,
   },
   {
@@ -97,16 +97,37 @@ const localConsiderations = [
   },
 ];
 
+const planningNotes = [
+  {
+    title: 'HOA expectations are often the first gate',
+    description:
+      'Many Naperville neighborhoods care about color, height, visibility, attachments, and architectural consistency. Renderings, finish notes, and a clear site plan can make review much smoother.',
+    icon: Building,
+  },
+  {
+    title: 'The problem may be privacy, not shade',
+    description:
+      'Naperville patios often sit close to neighboring yards. Screens, side panels, planting coordination, and louver direction can matter more than simply making the roof larger.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Permitting depends on address and scope',
+    description:
+      'A downtown patio, a newer subdivision, and a South Naperville estate can involve different review details. We verify the municipality, county, survey, easements, and project type before finalizing the plan.',
+    icon: FileText,
+  },
+];
+
 const faqs = [
   {
     question: 'Do I need a permit for a pergola in Naperville?',
     answer:
-      'Yes, most outdoor structures require permits in Naperville. The City has specific setback requirements (typically 5-10 feet from property lines) and height restrictions (usually under 12-15 feet). Our team handles the entire permit process, including all documentation and inspections required by the City of Naperville Building Department.',
+      'Permanent outdoor structures commonly require local review, but the exact path depends on the address, county, attachment method, structure size, easements, and whether the property has HOA or subdivision requirements. We help verify the correct path before design is finalized.',
   },
   {
     question: 'How do HOA restrictions affect outdoor living projects in Naperville?',
     answer:
-      'Many Naperville neighborhoods are governed by HOAs with specific architectural guidelines. We\'ve worked with numerous local HOAs and understand common requirements regarding color matching, height restrictions, and setback compliance. We provide comprehensive documentation packages to help you secure HOA approval quickly.',
+      'Many Naperville neighborhoods are governed by HOAs with architectural guidelines. Color, placement, roofline visibility, lighting, and structure size can all matter. We help assemble documentation so the HOA can review the actual design instead of guessing from a product brochure.',
   },
   {
     question: 'Are there historic district considerations in Naperville?',
@@ -116,7 +137,7 @@ const faqs = [
   {
     question: 'What\'s the typical timeline for a Naperville project?',
     answer:
-      'From consultation to completion, most Naperville projects take 8-12 weeks. Permit approval through the City of Naperville typically takes 2-4 weeks. HOA approval (if required) may add 2-3 weeks depending on meeting schedules. We coordinate all timelines to minimize delays.',
+      'A custom Naperville project can take several weeks for design, review, fabrication, and installation. HOA review, municipal review, electrical coordination, custom finishes, and weather can change the schedule, so we set expectations after the site and scope are clear.',
   },
 ];
 
@@ -228,7 +249,9 @@ export default function NapervilleHubPage() {
                 Serving Every Naperville Neighborhood
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the unique character and requirements of Naperville&apos;s distinct areas.
+                Naperville projects range from compact historic-district patios
+                to newer subdivision outdoor rooms. HOA review, privacy, sun,
+                and how the family uses the backyard all shape the answer.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -243,13 +266,45 @@ export default function NapervilleHubPage() {
         </Container>
       </Section>
 
+      {/* ========== NAPERVILLE PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Naperville planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                Most Naperville patios need comfort, privacy, and approval planning together.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                A useful Naperville outdoor-room plan starts with how the patio
+                fails today: afternoon sun, bugs, neighbor views, rain, or a
+                subdivision review process that needs clear documentation.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
       {/* ========== ZONING & PERMITS ========== */}
-      <Section className="section-md bg-surface-muted">
+      <Section id="zoning" className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <h2 className="section-title mb-4">Zoning & Permits in Naperville</h2>
             <p className="text-text-secondary max-w-3xl">
-              Naperville&apos;s building codes and subdivision requirements can be complex. Here is what you need to know before building.
+              Naperville&apos;s city, county, subdivision, and HOA requirements
+              can vary by address. Treat this as planning context, not a final
+              permit determination.
             </p>
             
             <div className="grid md:grid-cols-2 gap-6 mt-8">
@@ -265,13 +320,17 @@ export default function NapervilleHubPage() {
               <Card>
                 <h3 className="font-bold mb-2">Standard Setbacks</h3>
                 <p className="text-sm text-text-secondary">
-                  Detached accessory structures must maintain a minimum 5-10 foot setback from side and rear property lines.
+                  Setbacks depend on the property, zoning district, structure
+                  type, easements, and whether the pergola is attached or
+                  freestanding.
                 </p>
               </Card>
               <Card>
                 <h3 className="font-bold mb-2">Impervious Surface Limits</h3>
                 <p className="text-sm text-text-secondary">
-                  Pergolas over new patios contribute to your lot&apos;s impervious surface ratio, monitored closely for stormwater management.
+                  New hardscape, drainage, and coverage questions should be
+                  reviewed before a pergola, screen, or enclosure layout is
+                  treated as final.
                 </p>
               </Card>
               <Card>
@@ -280,7 +339,9 @@ export default function NapervilleHubPage() {
                   TED Permitting
                 </h3>
                 <p className="text-sm text-text-secondary">
-                  We handle the entire Transportation, Engineering, & Development (TED) permitting process at 400 S. Eagle Street.
+                  We help prepare the drawings, product information, survey
+                  notes, and support documents needed for the correct local
+                  review path.
                 </p>
               </Card>
             </div>
@@ -297,7 +358,8 @@ export default function NapervilleHubPage() {
                 Built for Naperville&apos;s Suburban Climate
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for DuPage County weather and suburban living.
+                Our systems are selected around suburban privacy, late-day sun,
+                winter exposure, and how the patio should function day to day.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

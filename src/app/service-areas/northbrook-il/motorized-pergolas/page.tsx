@@ -7,43 +7,65 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Check, Wind, ShieldCheck } from 'lucide-react';
 import { Metadata } from 'next';
 import * as images from '@/lib/images';
+import { generateFAQSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Motorized Louvered Pergolas Northbrook, IL | Hurricane Rated',
+  title: 'Motorized Louvered Pergolas in Northbrook, IL | EDG',
   description:
-    "The only pergola engineered for Northbrook's 30psf snow loads and 115mph winds. Explore our luxury louvered roof systems for 60062.",
+    "Motorized louvered pergolas for Northbrook homes. Local planning for Techny, Shermer Road, Northbrook Heights, HOA review, winter weather, screens, lighting, and outdoor rooms.",
   alternates: {
     canonical: '/service-areas/northbrook-il/motorized-pergolas',
   },
 };
 
+const faqs = [
+  {
+    question: 'Will this work with my Homeowners Association?',
+    answer:
+      'Often, yes. Northbrook HOA and architectural review requests are easier when the homeowner can submit drawings, finish information, product specifications, and a clear site plan. EDG helps assemble that documentation so the pergola is reviewed as a planned architectural addition.',
+  },
+  {
+    question: "Can you match my home's existing trim color?",
+    answer:
+      'Yes. Finish selection is part of the design process, especially for Northbrook homes with brick, stone, traditional trim, or newer modern exterior palettes. We can review trim, window, roof, and hardscape colors before recommending a powder-coated finish.',
+  },
+  {
+    question: 'What happens during a power outage?',
+    answer:
+      'Motorized systems can be specified with manual override or backup options depending on the selected product and controls package. We review control expectations during design so the homeowner understands how the pergola behaves during storms, power interruptions, and seasonal shutdowns.',
+  },
+];
+
 export default function NorthbrookPergolaPage() {
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Motorized Louvered Pergolas in Northbrook, IL',
+    description:
+      'Motorized louvered pergola design and installation for Northbrook homes and outdoor living spaces.',
+    provider: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Northbrook',
+      addressRegion: 'IL',
+    },
+    url: 'https://www.edgpatioshade.com/service-areas/northbrook-il/motorized-pergolas',
+    image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Product',
-            name: 'Northbrook-Engineered Motorized Pergola',
-            image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
-            description:
-              "The only pergola engineered for Northbrook's 30psf snow loads and 115mph winds. Custom designed for 60062 zoning codes.",
-            brand: {
-              '@type': 'Brand',
-              name: 'EDG Patio & Shade',
-            },
-            offers: {
-              '@type': 'Offer',
-              url: 'https://www.edgpatioshade.com/service-areas/northbrook-il/motorized-pergolas',
-              priceCurrency: 'USD',
-              price: '15000',
-              itemCondition: 'https://schema.org/NewCondition',
-              availability: 'https://schema.org/InStock',
-            },
-          }),
+          __html: JSON.stringify(serviceSchema),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
       />
       <main className="min-h-screen bg-white dark:bg-black">
         {/* Hero */}
@@ -73,11 +95,12 @@ export default function NorthbrookPergolaPage() {
               <ArrowLeft className="mr-2 h-4 w-4" /> Back to Northbrook
             </Link>
             <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-              The Only "Northbrook-Ready" Pergola
+              Motorized Pergolas for Northbrook Homes
             </h1>
             <p className="mx-auto mb-8 max-w-2xl text-xl text-white md:text-2xl">
-              Engineered to withstand 115mph winds and heavy Chicagoland snow
-              loads without sacrificing elegance.
+              Louvered roof systems planned around Northbrook architecture,
+              winter weather, HOA review, shade, privacy, and everyday outdoor
+              room comfort.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/contact?source=northbrook_product">
@@ -107,12 +130,14 @@ export default function NorthbrookPergolaPage() {
             <div className="grid items-center gap-16 md:grid-cols-2">
               <div className="space-y-8">
                 <h2 className="text-3xl font-bold md:text-4xl">
-                  Why Standard Pergolas Fail in 60062
+                  Why Northbrook Pergolas Need Site-Specific Planning
                 </h2>
                 <p className="text-muted-foreground text-lg">
-                  Northbrook isn't Florida. We get ice storms, heavy wet snow,
-                  and severe thunderstorm gusts. Most "Click-and-Ship" pergolas
-                  will buckle under a Northbrook winter.
+                  Northbrook homeowners are usually balancing comfort, architecture,
+                  neighborhood review, and weather exposure. A light catalog
+                  pergola may create shade, but it rarely solves wind, drainage,
+                  privacy, winter exposure, lighting, and finish integration in
+                  one plan.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex gap-4">
@@ -120,10 +145,11 @@ export default function NorthbrookPergolaPage() {
                       <Wind className="h-4 w-4 text-red-600 dark:text-red-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold">The 115mph Wind Problem</h3>
+                      <h3 className="font-bold">Wind and Exposure</h3>
                       <p className="text-muted-foreground text-sm">
-                        Standard aluminum kits are rated for 60-80mph. Our
-                        system is extruded aluminum rated for 115mph+ gusts.
+                        Open yards, corner lots, and elevated patios need a
+                        system selected around exposure, not just around the
+                        opening size.
                       </p>
                     </div>
                   </li>
@@ -132,11 +158,11 @@ export default function NorthbrookPergolaPage() {
                       <ShieldCheck className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold">The 30psf Snow Load</h3>
+                      <h3 className="font-bold">Snow, Drainage, and Controls</h3>
                       <p className="text-muted-foreground text-sm">
-                        Our louvers have integrated sensors. When it snows, they
-                        open automatically to let snow pass through, preventing
-                        collapse.
+                        We review louver operation, drainage, electrical routing,
+                        and seasonal maintenance before recommending the final
+                        configuration.
                       </p>
                     </div>
                   </li>
@@ -203,10 +229,10 @@ export default function NorthbrookPergolaPage() {
                   |
                 </span>
                 <Link
-                  href="/service-areas/northbrook-il/zoning-guide"
+                  href="/service-areas/northbrook-il#zoning"
                   className="text-edg-brand-dark inline-flex items-center font-medium hover:underline"
                 >
-                  View Zoning Requirements →
+                  View Northbrook Planning Notes →
                 </Link>
               </div>
             </div>
@@ -226,8 +252,8 @@ export default function NorthbrookPergolaPage() {
                 </div>
                 <h3 className="mb-2 font-bold">Wind Rating</h3>
                 <p className="text-muted-foreground text-sm">
-                  Certified for 115mph winds—exceeds all Northbrook and
-                  Cook County building requirements for outdoor structures.
+                  Product-specific wind performance is reviewed against your
+                  site exposure, mounting conditions, and selected system.
                 </p>
               </div>
               <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
@@ -236,8 +262,8 @@ export default function NorthbrookPergolaPage() {
                 </div>
                 <h3 className="mb-2 font-bold">Snow Load</h3>
                 <p className="text-muted-foreground text-sm">
-                  Engineered for 30psf snow loads with auto-shedding louvers
-                  that open automatically during heavy snowfall.
+                  Louver operation, drainage, and winter maintenance are planned
+                  before the structure is finalized.
                 </p>
               </div>
               <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
@@ -299,45 +325,15 @@ export default function NorthbrookPergolaPage() {
               Northbrook Pergola FAQ
             </h2>
             <div className="mx-auto max-w-3xl space-y-6">
-              <div className="rounded-xl border border-black/5 bg-white p-6 dark:border-white/5 dark:bg-zinc-900">
-                <h3 className="mb-3 text-lg font-bold">
-                  Will this work with my Homeowners Association?
-                </h3>
-                <p className="text-muted-foreground">
-                  Yes. We provide complete engineering documentation, CAD
-                  drawings, and specifications that satisfy most HOA
-                  requirements in Northbrook subdivisions. We&apos;ve worked
-                  with numerous local HOAs and understand their concerns about
-                  aesthetics and property values. Our team can present directly
-                  to your HOA board if needed.
-                </p>
-              </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 dark:border-white/5 dark:bg-zinc-900">
-                <h3 className="mb-3 text-lg font-bold">
-                  Can you match my home&apos;s existing trim color?
-                </h3>
-                <p className="text-muted-foreground">
-                  Absolutely. Our custom powder coating process can match any
-                  RAL color code or existing trim sample you provide. We also
-                  offer premium wood-grain textures that mimic cedar, mahogany,
-                  or oak for homes where a natural wood appearance is preferred.
-                  Our color matching ensures your pergola looks like it was
-                  designed as part of your home from day one.
-                </p>
-              </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 dark:border-white/5 dark:bg-zinc-900">
-                <h3 className="mb-3 text-lg font-bold">
-                  What happens during a power outage?
-                </h3>
-                <p className="text-muted-foreground">
-                  Every motorized pergola includes a manual override system that
-                  allows you to open or close the louvers by hand if power is
-                  lost. Additionally, we offer optional battery backup systems
-                  that provide weeks of normal operation during outages—perfect
-                  for those summer storms that can knock out power in
-                  Northbrook.
-                </p>
-              </div>
+              {faqs.map((faq) => (
+                <div
+                  key={faq.question}
+                  className="rounded-xl border border-black/5 bg-white p-6 dark:border-white/5 dark:bg-zinc-900"
+                >
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-muted-foreground">{faq.answer}</p>
+                </div>
+              ))}
             </div>
           </Container>
         </Section>

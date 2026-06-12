@@ -24,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Southeast Wisconsin | Pergolas | EDG',
   description:
-    'Custom motorized pergolas, exterior shades, and glass enclosures for Southeast Wisconsin homes. Expert design and installation in Lake Geneva, Kenosha, and Pleasant Prairie.',
+    'Custom motorized pergolas, exterior shades, and glass enclosures for Southeast Wisconsin homes. Local planning for Lake Geneva, Kenosha, Pleasant Prairie, Walworth County, and border-area lake properties.',
   openGraph: {
     title: 'Wisconsin Outdoor Living | EDG Patio & Shade',
     description: 'Luxury outdoor living systems for Wisconsin homes. Motorized pergolas and screens designed for harsh winter weather.',
@@ -39,53 +39,74 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Engineered to withstand harsh Wisconsin winter snow loads',
-  'Deep knowledge of Wisconsin county building codes',
-  'Custom designs for lakeside properties and wide-open acreages',
-  'Based right on the border in Spring Grove, IL for fast service',
+  'Spring Grove showroom close to the Wisconsin border',
+  'Outdoor room planning for Lake Geneva, Kenosha, Pleasant Prairie, and Walworth County',
+  'Pergola, screen, glass, heat, lighting, and control systems coordinated together',
+  'Site-specific planning for lake homes, newer subdivisions, and rural acreage',
 ];
 
 const neighborhoods = [
   {
-    name: 'Lake Geneva Area',
+    name: 'Lake Geneva and Geneva Lake homes',
     description:
-      'We excel at adapting to the expansive waterfront lots of Lake Geneva, offering large-span louvered pergolas that maximize usable shade without obstructing the lake views.',
+      'Lake Geneva projects often involve second homes, lake views, pool decks, and entertaining spaces that need to feel polished for guests. We plan louvered pergolas and screens so shade, rain control, and bug protection do not block the view that made the property valuable.',
   },
   {
     name: 'Kenosha & Pleasant Prairie',
     description:
-      'From new construction to established neighborhoods, our motorized screen systems turn ordinary suburban patios into three-season rooms, free from mosquitoes.',
+      'Newer subdivisions and established neighborhoods near Kenosha and Pleasant Prairie usually need practical comfort: afternoon sun, privacy from neighboring yards, bugs, and wind. Motorized screens or a compact louvered roof can turn a standard patio into a usable daily space.',
   },
   {
-    name: 'Twin Lakes & Salem',
+    name: 'Twin Lakes, Salem Lakes, and Paddock Lake',
     description:
-      'Lakeside properties require robust engineering. Our hurricane-rated pergolas and heavy-duty exterior shades are built to withstand strong straight-line winds off the water.',
+      'Smaller lake communities need careful planning around decks, slopes, shore-facing exposure, and seasonal use. These homes often benefit from screens, heaters, and lighting as much as the overhead pergola itself.',
   },
   {
-    name: 'Burlington & Rural Acreage',
+    name: 'Burlington, Union Grove, and rural acreage',
     description:
-      'For wide-open properties, we design sprawling outdoor living environments featuring heavy-duty aluminum extrusions that won\'t crack or rot like traditional wood structures.',
+      'Wide-open properties can make a patio feel exposed even when the home has plenty of land. We design outdoor rooms that create a defined gathering zone while accounting for wind, snow, electrical access, and the relationship between the house, outbuildings, and landscape.',
   },
 ];
 
 const weatherConsiderations = [
   {
-    title: 'Heavy Wisconsin Snow Loads',
+    title: 'Lake and Open-Field Exposure',
     description:
-      'Wisconsin winters are punishing. Our louvers are engineered to support massive snow loads and open automatically under heavy accumulation to prevent structural damage.',
+      'Southeast Wisconsin outdoor rooms can face open-field wind, lakefront gusts, and sudden storms. We look at exposure first, then decide whether the right answer is a louvered roof, side screens, glass, or a phased system.',
     icon: CloudSun,
   },
   {
-    title: 'High Winds off the Lakes',
+    title: 'Winter Planning',
     description:
-      'Whether on Lake Geneva or an open plain, wind is an issue. Our motorized screens feature MagnaTrack technology to stay in their tracks during severe gusts.',
+      'A permanent pergola in Wisconsin needs more than summer shade. Drainage, snow, freeze-thaw movement, electrical routing, and maintenance access all affect whether the outdoor room performs year after year.',
     icon: Wind,
   },
   {
-    title: 'Lakeside Mosquitoes',
+    title: 'Bugs, Glare, and Guest Comfort',
     description:
-      'Wisconsin bugs can ruin an outdoor dinner. Our tight-weave motorized screens block out pests and 95% of UV rays, so you can enjoy balmy July evenings entirely unbothered.',
+      'For lake homes and suburban patios alike, screens are often the feature people notice most. They reduce mosquitoes, glare, wind, and privacy issues while letting the space stay open when the weather is cooperating.',
     icon: CloudSun,
+  },
+];
+
+const planningNotes = [
+  {
+    title: 'Border-area service without a generic template',
+    description:
+      'Southeast Wisconsin clients are close enough to our Spring Grove showroom to plan in person, but their projects are not the same as Illinois projects. We treat Wisconsin lake homes, subdivisions, and rural sites as their own design lane.',
+    icon: MapPin,
+  },
+  {
+    title: 'Municipal and county review can vary by address',
+    description:
+      'A Lake Geneva home, a Pleasant Prairie subdivision, and a rural Walworth County property can involve different permit, HOA, shoreland, or site-plan requirements. We help identify the review path before drawings and pricing are treated as final.',
+    icon: FileText,
+  },
+  {
+    title: 'Comfort features should be planned together',
+    description:
+      'The strongest Wisconsin outdoor rooms combine overhead control, side protection, heat, lighting, and simple controls. Planning those pieces together avoids a pergola that looks good but leaves the patio too windy, buggy, or dark to use often.',
+    icon: ShieldCheck,
   },
 ];
 
@@ -93,17 +114,17 @@ const faqs = [
   {
     question: 'Do you install in Wisconsin even though you are based in Illinois?',
     answer:
-      'Yes! We are headquartered in Spring Grove, IL, right on the Wisconsin border. We actively service all of Southeast Wisconsin, including Lake Geneva, Kenosha, and Walworth County, and are fully licensed to pull permits there.',
+      'Yes. EDG is headquartered in Spring Grove, IL, close to the Wisconsin border, and we serve Southeast Wisconsin projects where our systems, planning process, and installation support are a fit. We verify the right local review path for the specific address before treating a project as ready to build.',
   },
   {
     question: 'How do your pergolas handle Wisconsin winters?',
     answer:
-      'Exceptionally well. Traditional wood pergolas rot, warp, and require staining. Our systems are built from 6061-T6 extruded aluminum with a premium powder coat. They will not rust and are engineered specifically for Northern snow loads.',
+      'We specify aluminum louvered roof systems for northern exposure and review the site conditions that matter in Wisconsin: snow, wind, drainage, freeze-thaw movement, footing conditions, and how the system will be maintained during the off-season.',
   },
   {
     question: 'Do I need a building permit in Wisconsin?',
     answer:
-      'Yes, whether you live in an incorporated city or unincorporated county limits, you generally need a building permit for a permanent structure like a motorized pergola or glass enclosure. We manage the entire permit application for you.',
+      'Permanent structures often require review, but the exact path depends on the municipality, county, attachment method, property type, and sometimes lake or HOA requirements. We help gather the survey, drawings, product information, and engineering details needed for the correct review path.',
   },
   {
     question: 'Can you install screens on my existing porch?',
@@ -213,12 +234,48 @@ export default function SoutheastWisconsinHubPage() {
               <h2 className="section-title mb-4">
                 Serving All of Southeast Wisconsin
               </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Wisconsin projects need their own planning logic: lake use,
+                weekend entertaining, newer subdivisions, rural exposure, and
+                winter durability all shape the design.
+              </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
                   <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== WISCONSIN PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Wisconsin planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                A lake-home patio and a Pleasant Prairie backyard are different jobs.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                Southeast Wisconsin is a real service area because the homes,
+                lots, and outdoor use cases are different from the Chicago
+                suburbs. The page should help you decide what kind of system
+                belongs on your property before we get into dimensions.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
                 </Card>
               ))}
             </div>

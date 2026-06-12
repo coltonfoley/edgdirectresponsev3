@@ -47,31 +47,32 @@ export const metadata: Metadata = {
 
 const localBenefits = [
   'Headquartered right here in Spring Grove, IL',
-  'Deep knowledge of McHenry County building departments',
-  'Custom designs for sprawling acreages and tight suburban lots',
-  'Local showroom available for hands-on planning',
+  'Showroom access for clients who want to see pergolas, screens, and finishes in person',
+  'Planning support for village, county, and HOA review paths',
+  'Custom designs for rural acreage, lake homes, and suburban patios',
+  'Pergola, screen, glass, heat, lighting, and control systems under one plan',
 ];
 
 const neighborhoods = [
   {
     name: 'Crystal Lake',
     description:
-      "We design systems that maximize views of the water or expansive backyards, offering large-span louvered pergolas that don't obstruct natural sightlines.",
+      "Crystal Lake homes range from lake-adjacent properties to established suburban backyards. We plan pergolas and screens around view preservation, bugs, west sun, drainage, and how the patio connects to everyday family use.",
   },
   {
     name: 'Algonquin & Lake in the Hills',
     description:
-      'Turn your suburban patio into a three-season room. Our motorized screens and enclosed systems are perfect for keeping the bugs out on summer nights.',
+      'Fox River Valley and Randall Road neighborhoods often need privacy and bug control as much as shade. A louvered roof, screens, lighting, and heaters should be considered together instead of added one piece at a time.',
   },
   {
     name: 'Spring Grove & Richmond',
     description:
-      'Our hometown! We have transformed countless rural and suburban properties here with heavy-duty aluminum systems that withstand open-field winds.',
+      'This is EDG home territory. Spring Grove, Richmond, and nearby rural properties often deal with open-field wind, larger lots, detached entertaining areas, and clients who want to visit the showroom before choosing a system.',
   },
   {
     name: 'Woodstock & McHenry',
     description:
-      'Whether a historic home near the Square or a new build near the Fox River, we engineer shade systems that integrate seamlessly with your architecture.',
+      'Historic homes near Woodstock Square, Fox River properties, and newer McHenry subdivisions each call for different design decisions. We match the structure to the home, the approval path, and the way the family wants to use the yard.',
   },
 ];
 
@@ -79,13 +80,13 @@ const weatherConsiderations = [
   {
     title: 'Open Field Winds',
     description:
-      'Many properties in McHenry County are exposed to strong straight-line winds. Our motorized screens feature MagnaTrack technology to stay locked in their tracks.',
+      'Many McHenry County properties are more exposed than dense suburban lots. We review the site before recommending screen widths, post placement, louver orientation, and wind-management options.',
     icon: Wind,
   },
   {
     title: 'Heavy Winter Snow Loads',
     description:
-      'Illinois winters hit McHenry County hard. Our louvers support up to 30psf of snow load and open automatically under heavy accumulation.',
+      'Northern Illinois winters affect structure choice, drainage, footings, electrical routing, and how the system is maintained. Winter planning belongs in the design conversation, not after installation.',
     icon: CloudSun,
   },
   {
@@ -96,11 +97,32 @@ const weatherConsiderations = [
   },
 ];
 
+const planningNotes = [
+  {
+    title: 'Use the showroom before guessing',
+    description:
+      'Because EDG is based in Spring Grove, McHenry County homeowners can see materials, colors, screen fabrics, louver operation, lighting, and controls before committing to a direction. That helps avoid a thin quote based only on photos and square footage.',
+    icon: MapPin,
+  },
+  {
+    title: 'Separate village and county questions early',
+    description:
+      'A Crystal Lake address, an unincorporated property, and a Spring Grove project can follow different review paths. We start with the survey, municipality, easements, attachment method, and any HOA requirements before treating the plan as final.',
+    icon: FileText,
+  },
+  {
+    title: 'Design for how the yard is actually used',
+    description:
+      'Some McHenry County projects need a poolside shade structure. Others need bug protection for a covered porch, privacy on a subdivision patio, or heat and lighting for late-season entertaining. The first decision is the use case, not the product name.',
+    icon: ShieldCheck,
+  },
+];
+
 const faqs = [
   {
     question: 'Do I need a permit for a pergola in McHenry County?',
     answer:
-      'Yes, whether you live in an incorporated city like Crystal Lake or unincorporated McHenry County, you generally need a building permit for a permanent structure. We handle the entire zoning and permit application process for you.',
+      'Permanent structures commonly require review, but the exact path depends on the municipality, whether the property is incorporated or unincorporated, the attachment method, easements, and project scope. We help verify the correct path before design is finalized.',
   },
   {
     question: 'Can I see the products in person?',
@@ -110,12 +132,12 @@ const faqs = [
   {
     question: 'How do these systems survive the heavy snowfall here?',
     answer:
-      'Traditional wood and vinyl pergolas can warp or crack under heavy snow. Our systems are built from extruded aluminum and engineered specifically for Northern Illinois snow loads. Built-in sensors can also open the louvers automatically to prevent dangerous ice accumulation.',
+      'We specify aluminum systems and controls around Northern Illinois exposure, then review drainage, louver operation, mounting, and seasonal maintenance for the specific site. That is more useful than assuming every McHenry County backyard needs the same configuration.',
   },
   {
     question: 'What is the typical timeframe from design to installation?',
     answer:
-      'Because our systems are custom-manufactured in the USA for your exact dimensions, expect an 8 to 12-week timeline. Permitting usually runs concurrently with the manufacturing process to save time.',
+      'A straightforward custom project often takes several weeks for design, review, fabrication, and installation. Permitting, HOA review, electrical coordination, and weather can change the timeline, so we set expectations once the address and scope are clear.',
   },
 ];
 
@@ -226,6 +248,11 @@ export default function McHenryCountyHubPage() {
               <h2 className="section-title mb-4">
                 Serving Communities Across McHenry County
               </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                McHenry County is EDG&apos;s home base, which gives homeowners a
+                practical advantage: you can plan locally, see systems in person,
+                and get advice that reflects rural, lake, and suburban site conditions.
+              </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
@@ -264,6 +291,37 @@ export default function McHenryCountyHubPage() {
                   </Button>
                 </Link>
               </div>
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LOCAL PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                McHenry County planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                The strongest local advantage is being able to plan in person.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                A McHenry County page should not be a placeholder between
+                Chicago and Wisconsin. It should help homeowners understand when
+                a showroom visit, site review, or phased outdoor-room plan will
+                save time before drawings and pricing begin.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
+                </Card>
+              ))}
             </div>
           </FadeIn>
         </Container>

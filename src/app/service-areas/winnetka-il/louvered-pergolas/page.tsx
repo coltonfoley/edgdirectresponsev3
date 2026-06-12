@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Estate-Grade Louvered Pergolas Winnetka, IL | EDG',
   description:
-    'Commercial-grade louvered roof systems for Winnetka estates. 20-24 foot beam spans, hurricane wind ratings, and classical architectural details for lakefront properties.',
+    'Motorized louvered pergolas for Winnetka estates and lakefront homes. Planned around architecture, views, wind exposure, review requirements, screens, lighting, and outdoor room comfort.',
   alternates: {
     canonical: '/service-areas/winnetka-il/louvered-pergolas',
   },
@@ -29,14 +29,14 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { generateProductSchema, generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema } from '@/lib/schema';
 
 const reasons = [
   {
     icon: Eye,
     title: 'Unobstructed Views',
     description:
-      'Standard pergola kits require posts every 10-12 feet. On a large Winnetka patio, that creates a "forest of columns." Our commercial-grade engineered beams can span 20-24 feet, keeping your sightlines to the garden or lake completely open.',
+      'Winnetka patios often look toward formal gardens, ravines, or Lake Michigan. We plan post placement, beam layout, and screen locations around sightlines before recommending the final structure.',
   },
   {
     icon: Palette,
@@ -48,7 +48,7 @@ const reasons = [
     icon: Wind,
     title: 'Lakefront Wind Ratings',
     description:
-      'Wind off Lake Michigan can be fierce. Lightweight awnings rip. Our systems are Miami-Dade hurricane rated. When the storm comes, the louvers lock together to form a solid, structured roof that withstands the gale.',
+      'Wind off Lake Michigan can change comfort quickly. We review exposure, mounting, controls, and side protection for the actual property instead of treating every lakefront patio as the same specification.',
   },
 ];
 
@@ -56,12 +56,12 @@ const specifications = [
   {
     icon: Ruler,
     label: 'Beam Spans',
-    value: '20-24 feet between posts',
+    value: 'Chosen around structure, view, and selected system',
   },
   {
     icon: Shield,
     label: 'Wind Rating',
-    value: '140+ mph (Miami-Dade rated)',
+    value: 'Reviewed by product and site exposure',
   },
   {
     icon: Lightbulb,
@@ -76,7 +76,7 @@ const specifications = [
   {
     icon: Droplets,
     label: 'Rain Sensors',
-    value: 'Automatic louver closure',
+    value: 'Weather controls selected by system',
   },
 ];
 
@@ -84,33 +84,42 @@ const faqs = [
   {
     question: 'Will this block my lake views?',
     answer:
-      'No. Our estate-grade systems feature slim aluminum profiles and wide beam spans up to 24 feet, minimizing vertical posts that would obstruct sightlines. When louvers are open, they sit nearly flat, preserving panoramic views of Lake Michigan and your landscaped grounds.',
+      'It should not if the design is handled correctly. View preservation is one of the first planning questions on Winnetka estate and lakefront projects. We review post placement, beam layout, louver direction, and side-screen locations around the sightlines you care about most.',
   },
   {
     question: 'How does this affect property taxes?',
     answer:
-      'Louvered pergolas typically add value without triggering significant property tax increases. Unlike enclosed structures, they remain classified as outdoor amenities in most Cook County assessments. We recommend consulting your tax advisor for specific guidance.',
+      'Tax treatment depends on the property, project scope, and local assessment practices. We do not make tax promises on a pergola page. For tax-specific guidance, homeowners should ask their tax advisor or the relevant assessment office.',
   },
   {
     question: 'Can the system be integrated with my home automation?',
     answer:
-      'Yes. Our systems integrate seamlessly with Control4, Savant, Lutron, and other premium home automation platforms. Control louvers, lighting, and heating from your existing touch panels or mobile apps alongside your other estate systems.',
+      'Often, yes, depending on the selected controls package and existing home automation setup. We discuss lighting, heat, louvers, screens, and smart-home goals before ordering so the system is specified correctly.',
   },
   {
     question: "What's the maintenance requirement?",
     answer:
-      'Minimal. The powder-coated aluminum frame requires only occasional rinsing. We recommend an annual inspection of motors and seals—service we provide—to ensure optimal performance. No staining, sealing, or winterization needed.',
+      'Powder-coated aluminum systems avoid the staining and sealing cycle of wood, but they still benefit from periodic cleaning and service checks. We review maintenance expectations based on the selected system, lake exposure, and controls package.',
   },
 ];
 
 export default function WinnetkaProductPage() {
-  const productSchema = generateProductSchema({
-    name: 'Estate-Grade Louvered Pergola System',
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Louvered Pergolas in Winnetka, IL',
     description:
-      'Commercial-grade motorized louvered roof systems for Winnetka estates. Engineered for 20-24 foot beam spans, 140+ mph wind ratings, and seamless integration with historic and contemporary architecture along the North Shore.',
-    category: 'Outdoor Living',
-    brand: 'EDG Patio & Shade',
-  });
+      'Motorized louvered pergola planning and installation for Winnetka estates and lakefront homes.',
+    provider: {
+      '@id': 'https://www.edgpatioshade.com/#organization',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Winnetka',
+      addressRegion: 'IL',
+    },
+    url: 'https://www.edgpatioshade.com/service-areas/winnetka-il/louvered-pergolas',
+  };
 
   const faqSchema = generateFAQSchema(faqs);
 
@@ -119,7 +128,7 @@ export default function WinnetkaProductPage() {
       {/* ========== SCHEMA ========== */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"
@@ -246,10 +255,10 @@ export default function WinnetkaProductPage() {
               </div>
               <div className="mt-8">
                 <Link
-                  href="/service-areas/winnetka-il/zoning-guide"
+                  href="/service-areas/winnetka-il#zoning"
                   className="text-edg-brand-dark inline-flex items-center gap-2 font-medium hover:underline"
                 >
-                  View Winnetka Zoning Requirements{' '}
+                  View Winnetka Planning Notes{' '}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>

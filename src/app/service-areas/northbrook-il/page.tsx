@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const localBenefits = [
   'Familiar with Village of Northbrook zoning codes',
   'Georgian & Colonial architecture experience',
-  '30psf snow load engineering standard',
+  'Winter-aware pergola and screen planning',
   'Licensed & insured for Cook County',
 ];
 
@@ -63,7 +63,7 @@ const neighborhoods = [
   {
     name: 'Northbrook Heights',
     description:
-      'Elevated properties in Northbrook Heights experience significant wind exposure. Our Miami-Dade hurricane-rated systems provide peace of mind during storms while delivering year-round outdoor comfort.',
+      'Elevated properties in Northbrook Heights can feel more exposed to wind and late-day sun. We plan shade, screens, drainage, and controls around the actual patio conditions instead of assuming a standard kit will perform the same on every lot.',
   },
   {
     name: 'Downtown Northbrook',
@@ -76,13 +76,13 @@ const weatherConsiderations = [
   {
     title: 'Heavy Snow Loads',
     description:
-      'Northbrook winters bring significant snowfall. Our louvers open automatically under snow load, preventing accumulation and protecting your structure. Rated for 30psf snow loads per village code requirements.',
+      'Northbrook winters bring snow, ice, and freeze-thaw cycles. We review louver operation, drainage, footing conditions, and winter maintenance before recommending a permanent outdoor structure.',
     icon: Snowflake,
   },
   {
     title: 'High Wind Exposure',
     description:
-      'Elevated areas in Northbrook experience strong winds. Our hurricane-rated systems withstand sustained winds, with louvers that adjust automatically to minimize exposure during storm conditions.',
+      'Elevated patios, corner lots, and open backyards can all feel wind differently. The right system depends on exposure, attachment method, side protection, and how the homeowner wants the space to function.',
     icon: Wind,
   },
   {
@@ -97,12 +97,12 @@ const faqs = [
   {
     question: 'Do I need a permit for a pergola in Northbrook?',
     answer:
-      'Yes, the Village of Northbrook requires permits for most outdoor structures. Our team handles the entire permit application process, including plat of survey markups, structural engineering stamps, and village meetings. We ensure 15ft height compliance and proper setbacks.',
+      'Permanent outdoor structures commonly require local review, but the exact path depends on the address, structure size, attachment method, easements, and whether the project has HOA or architectural review requirements. We help prepare the survey notes, product information, and drawings needed for the correct review path.',
   },
   {
     question: 'How long does permit approval take in Northbrook?',
     answer:
-      'Northbrook permit approval typically takes 4-6 weeks. We submit complete packages to minimize delays and attend any required village meetings on your behalf. Our experience with the Village building department helps streamline the process.',
+      'Review timing depends on the project scope, completeness of the submission, season, and whether HOA or additional review is involved. We set expectations after we understand the address, proposed structure, and documentation required.',
   },
   {
     question: 'Can you match my home\'s Georgian architecture?',
@@ -236,7 +236,7 @@ export default function NorthbrookHubPage() {
       </Section>
 
       {/* ========== ZONING & PERMITS ========== */}
-      <Section className="section-md bg-surface-muted">
+      <Section id="zoning" className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <h2 className="section-title mb-4">Zoning & Permits in Northbrook</h2>
@@ -260,7 +260,9 @@ export default function NorthbrookHubPage() {
                   15-Foot Height Cap
                 </h3>
                 <p className="text-sm text-text-secondary">
-                  Accessory structures cannot exceed 15 feet in height. Critical for 2-story installations or elevated decks.
+                  Height and placement should be checked against the actual
+                  address, zoning district, attachment method, and whether the
+                  project involves an elevated deck or second-story condition.
                 </p>
               </Card>
               <Card>

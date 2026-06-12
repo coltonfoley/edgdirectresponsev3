@@ -38,10 +38,10 @@ export const metadata: Metadata = {
 };
 
 const localBenefits = [
-  'Licensed for Wisconsin projects',
-  'Lakefront wind-load expertise',
-  'Walworth County building code knowledge',
-  'Seasonal installation experience',
+  'Spring Grove showroom close to the Wisconsin border',
+  'Lake-home planning for Geneva Lake, Fontana, Williams Bay, and nearby communities',
+  'Pergola, screen, glass, heat, lighting, and control systems coordinated together',
+  'Site-specific planning for lake exposure, guest use, and seasonal schedules',
 ];
 
 const neighborhoods = [
@@ -53,7 +53,7 @@ const neighborhoods = [
   {
     name: 'Fontana-on-Geneva-Lake',
     description:
-      "Fontana&apos;s prestigious shoreline properties demand systems that complement upscale lake homes. We design custom pergolas and glass enclosures that integrate seamlessly with Fontana's mix of historic cottages and modern estates, preserving sightlines to the water.",
+      "Fontana's shoreline properties need systems that complement upscale lake homes without blocking the reason people gather there: the view. We plan pergolas, screens, and glass around guest flow, dining, boats, and the transition from house to water.",
   },
   {
     name: 'Williams Bay',
@@ -63,7 +63,7 @@ const neighborhoods = [
   {
     name: 'Surrounding Lake Communities',
     description:
-      "From Delavan to Como, Elkhorn to the smaller lake areas, we serve homeowners throughout Walworth County. Whether you&apos;re on a smaller lake or inland property, our designs account for Wisconsin's seasonal extremes and local building requirements.",
+      "From Delavan to Como, Elkhorn to smaller lake areas, we help homeowners think through wind, bugs, privacy, snow, and seasonal use. A smaller inland lake and a Geneva Lake estate are not the same design problem.",
   },
 ];
 
@@ -71,13 +71,13 @@ const localConsiderations = [
   {
     title: 'Lake Effect Winds',
     description:
-      "Properties on Geneva Lake and surrounding waters experience sustained winds off the water. Our hurricane-rated louvered systems withstand 130+ mph winds, with automatic sensors that close louvers when wind speeds increase.",
+      "Properties on Geneva Lake and surrounding waters can feel sudden wind shifts, open-water gusts, and weather that differs from inland neighborhoods. We review exposure before recommending roof spans, screens, mounting, and controls.",
     icon: Wind,
   },
   {
     title: 'Four-Season Use',
     description:
-      "Wisconsin winters are harsh, but our systems are built for year-round use. Louvers automatically open under snow load to prevent accumulation, while integrated heaters and screens extend your outdoor season well into fall.",
+      "Wisconsin outdoor rooms need winter planning even when the main goal is summer entertaining. Drainage, snow, freeze-thaw movement, electrical routing, and off-season access all affect the final system.",
     icon: Thermometer,
   },
   {
@@ -89,8 +89,29 @@ const localConsiderations = [
   {
     title: 'Waterfront Regulations',
     description:
-      "Lake Geneva area properties often have setback requirements and HOA guidelines. We navigate these restrictions to maximize your usable outdoor space while staying compliant with local codes.",
+      "Lake Geneva area properties can involve municipal, county, HOA, or lake-adjacent review questions. We help identify the right review path before treating the design as final.",
     icon: Waves,
+  },
+];
+
+const planningNotes = [
+  {
+    title: 'Design around guest use',
+    description:
+      'Lake Geneva homes often host family weekends, dinners, pool days, and summer guests. The pergola should support how people actually move between the house, patio, grill, pool, dock, and lawn.',
+    icon: Thermometer,
+  },
+  {
+    title: 'Protect the view first',
+    description:
+      'A covered outdoor room can ruin a lake property if posts, beams, screens, or glass interrupt the sightline. We plan structure placement and side protection around the view before selecting accessories.',
+    icon: Waves,
+  },
+  {
+    title: 'Verify the local path by address',
+    description:
+      'Fontana, Lake Geneva, Williams Bay, unincorporated Walworth County, and HOA communities can all require different review steps. We start with the address, survey, and project scope.',
+    icon: MapPin,
   },
 ];
 
@@ -98,22 +119,22 @@ const faqs = [
   {
     question: 'Do I need a permit for a pergola in the Lake Geneva area?',
     answer:
-      "Yes, most outdoor structures require permits in Walworth County and local municipalities. Fontana, Lake Geneva, and Williams Bay each have specific setback requirements from the water and property lines. Our team handles the entire permit process, including any approvals needed for waterfront structures.",
+      "Permanent outdoor structures commonly require local review, but the exact path depends on the municipality, county, property type, attachment method, lake proximity, and any HOA or association requirements. We help verify the correct path before design is finalized.",
   },
   {
     question: 'How do your systems handle lakefront wind conditions?',
     answer:
-      "Geneva Lake can generate sustained winds and sudden gusts. Our louvered pergolas are engineered to withstand 130+ mph winds when closed. The systems include wind sensors that automatically close louvers when wind speeds exceed thresholds, and our mounting systems are designed for the unique challenges of lakefront installations.",
+      "Geneva Lake can create very different comfort conditions than an inland subdivision. We review wind exposure, mounting conditions, louver direction, side screens, glass options, and controls before recommending a final system.",
   },
   {
     question: 'Can you work with HOA requirements in Fontana or Lake Geneva?',
     answer:
-      "Absolutely. Many lakefront communities have strict aesthetic guidelines and architectural review boards. We have experience working with Fontana Association, Lake Geneva estates, and various HOAs throughout Walworth County. Our systems can be powder-coated to match approved color palettes, and we provide detailed plans for board approval.",
+      "Yes, when the project is planned with the review package in mind. Lake-area communities may care about finish color, visibility, structure placement, drainage, and how the outdoor room affects neighboring views. We help prepare drawings, product information, and finish notes for review.",
   },
   {
     question: "What's the typical timeline for a Lake Geneva area project?",
     answer:
-      "From consultation to completion, most Lake Geneva area projects take 8-12 weeks. Wisconsin permit approval typically takes 3-4 weeks. We handle all interactions with local building departments and coordinate installation around seasonal considerations for lakefront work.",
+      "A custom Lake Geneva area project can take several weeks for design, review, fabrication, and installation. Seasonal schedules, guest calendars, review requirements, electrical coordination, and weather can change the timeline, so we set expectations after the address and scope are clear.",
   },
 ];
 
@@ -221,7 +242,9 @@ export default function LakeGenevaHubPage() {
                 Serving Every Lake Geneva Area Community
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the unique character and requirements of Walworth County&apos;s lake communities.
+                Lake homes, weekend houses, smaller inland properties, and
+                year-round residences need different outdoor-room plans. The
+                view, guest use, and seasonal schedule matter from the start.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -229,6 +252,37 @@ export default function LakeGenevaHubPage() {
                 <Card key={i} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
                   <p className="text-text-secondary">{neighborhood.description}</p>
+                </Card>
+              ))}
+            </div>
+          </FadeIn>
+        </Container>
+      </Section>
+
+      {/* ========== LAKE HOME PLANNING NOTES ========== */}
+      <Section className="section-md bg-surface">
+        <Container>
+          <FadeIn>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Lake Geneva planning notes
+              </div>
+              <h2 className="section-title mb-4">
+                The best lake-home outdoor rooms protect the reason you are there.
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                A Lake Geneva pergola or screen project should improve comfort
+                without making the patio feel closed off from the water. That
+                means views, wind, bugs, guest flow, privacy, and seasonal timing
+                all belong in the first design conversation.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {planningNotes.map((note) => (
+                <Card key={note.title} variant="muted" padding="lg">
+                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
+                  <p className="text-text-secondary">{note.description}</p>
                 </Card>
               ))}
             </div>
