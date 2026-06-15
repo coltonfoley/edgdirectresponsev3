@@ -274,38 +274,41 @@ export default function LouveredPergolaGuide() {
 
               <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm md:p-10">
                 <p className="mb-8 text-center text-gray-300">
-                  We believe in transparency. Here are typical ranges for a
-                  fully installed system in the Chicago metro area (materials,
-                  labor, electrical rough-in).
+                  We believe in transparency, but premium motorized louvered
+                  roofs are best discussed in planning bands until the site is
+                  reviewed. Size, attachment, electrical, drainage, screens,
+                  heaters, finish, and permit path can all move the final
+                  scope.
                 </p>
 
                 <div className="mb-8 grid gap-6 md:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
                     <p className="mb-2 text-sm text-zinc-300">
-                      Small (10' x 10')
+                      Compact patio
                     </p>
-                    <p className="text-3xl font-bold">$18k - $24k</p>
+                    <p className="text-3xl font-bold">$25k+</p>
                   </div>
                   <div className="bg-edg-brand/10 border-edg-brand/20 rounded-2xl border p-6 text-center">
                     <p className="text-edg-brand mb-2 text-sm">
-                      Medium (12' x 16')
+                      Common residential
                     </p>
-                    <p className="text-3xl font-bold">$28k - $38k</p>
+                    <p className="text-3xl font-bold">$45k+</p>
                     <span className="text-edg-brand mt-1 block text-xs">
-                      Most Popular
+                      Often includes more coordination
                     </span>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
                     <p className="mb-2 text-sm text-zinc-300">
-                      Large / Multi-zone
+                      Outdoor room / multi-zone
                     </p>
-                    <p className="text-3xl font-bold">$50k+</p>
+                    <p className="text-3xl font-bold">$75k+</p>
                   </div>
                 </div>
 
                 <p className="mb-6 text-center text-sm text-gray-500">
-                  *Prices vary based on accessories like motorized screens,
-                  heaters, and custom colors.
+                  *Planning bands are not quotes. EDG reviews photos,
+                  dimensions, structure, access, and desired features before
+                  recommending a system direction.
                 </p>
 
                 <div className="text-center">
