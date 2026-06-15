@@ -129,11 +129,13 @@ export default function ChicagoPergolasPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
-      <main className="min-h-screen bg-surface">
-        <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <main className="bg-surface min-h-screen">
+        <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
               src={images.projects.carmines.hero}
@@ -167,20 +169,29 @@ export default function ChicagoPergolasPage() {
                 Chicago Pergola Installer for Motorized Louvered Roofs
               </h1>
               <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
-                Louvered roof pergola systems for city patios, roof decks, and backyard
-                spaces that need shade, rain control, and a more finished outdoor room.
+                Louvered roof pergola systems for city patios, roof decks, and
+                backyard spaces that need shade, rain control, and a more
+                finished outdoor room.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?source=chicago_pergolas">
-                    <Button size="lg">Get a Pergola Installation Review</Button>
+                <Link href="/guides/pergola-system-fit-review?area=chicago&source=chicago_pergolas">
+                  <Button size="lg">Get a System Fit Review</Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
-                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
                     Design in 3D
                   </Button>
                 </Link>
                 <Link href="/systems/pergolas">
-                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
                     View Full Pergola System Page
                   </Button>
                 </Link>
@@ -193,35 +204,41 @@ export default function ChicagoPergolasPage() {
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
-                <div className="label-editorial-brand mb-4">Why This Product Fits Chicago</div>
-                <h2 className="section-title mb-6">The right answer when you want real control, not just cover</h2>
-                <p className="mb-6 text-lg leading-relaxed text-text-secondary">
-                  Chicago clients usually come to us when a basic patio umbrella or
-                  fixed structure has already proven too limited. They want shade on
-                  hot afternoons, protection when weather shifts quickly, and a space
-                  that still looks architecturally clean from inside the house and
-                  from the alley. Motorized pergolas solve that problem because the
-                  roof adapts to the conditions instead of forcing you to choose one
-                  compromise and live with it all season.
+                <div className="label-editorial-brand mb-4">
+                  Why This Product Fits Chicago
+                </div>
+                <h2 className="section-title mb-6">
+                  The right answer when you want real control, not just cover
+                </h2>
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                  Chicago clients usually come to us when a basic patio umbrella
+                  or fixed structure has already proven too limited. They want
+                  shade on hot afternoons, protection when weather shifts
+                  quickly, and a space that still looks architecturally clean
+                  from inside the house and from the alley. Motorized pergolas
+                  solve that problem because the roof adapts to the conditions
+                  instead of forcing you to choose one compromise and live with
+                  it all season.
                 </p>
-                <p className="text-lg leading-relaxed text-text-secondary">
-                  They also work exceptionally well in the city because they can be
-                  tuned to the site. We can keep spans efficient on a compact patio,
-                  protect a garage roof deck without overwhelming it, and pair the
-                  pergola with screens or lighting when privacy and nighttime use are
-                  part of the brief. If wind and rain are the bigger issue, glass is
-                  often the better side-wall solution than screens — see{' '}
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  They also work exceptionally well in the city because they can
+                  be tuned to the site. We can keep spans efficient on a compact
+                  patio, protect a garage roof deck without overwhelming it, and
+                  pair the pergola with screens or lighting when privacy and
+                  nighttime use are part of the brief. If wind and rain are the
+                  bigger issue, glass is often the better side-wall solution
+                  than screens — see{' '}
                   <Link
                     href="/service-areas/chicago-il/glass-enclosures"
-                    className="font-medium text-edg-brand-text hover:underline"
+                    className="text-edg-brand-text font-medium hover:underline"
                   >
                     Chicago glass enclosures
                   </Link>
                   .
                 </p>
-                <p className="text-lg leading-relaxed text-text-secondary">
-                  The goal is a structure that makes your Chicago home more livable,
-                  not just more expensive.
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  The goal is a structure that makes your Chicago home more
+                  livable, not just more expensive.
                 </p>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -241,16 +258,18 @@ export default function ChicagoPergolasPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Local Benefits</div>
-              <h2 className="section-title mb-4">What a pergola solves on a Chicago project</h2>
+              <h2 className="section-title mb-4">
+                What a pergola solves on a Chicago project
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {benefits.map((benefit) => (
                 <Card key={benefit.title} variant="default" padding="lg">
                   <div className="mb-4 flex items-center gap-3">
-                    <benefit.icon className="h-5 w-5 text-edg-brand-text" />
+                    <benefit.icon className="text-edg-brand-text h-5 w-5" />
                     <h3 className="text-xl font-bold">{benefit.title}</h3>
                   </div>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {benefit.description}
                   </p>
                 </Card>
@@ -262,8 +281,12 @@ export default function ChicagoPergolasPage() {
         <Section className="section-md">
           <Container>
             <div className="mb-12 text-center">
-              <div className="label-editorial-brand mb-4">Features and Planning Notes</div>
-              <h2 className="section-title mb-4">Selected to match the way city spaces behave</h2>
+              <div className="label-editorial-brand mb-4">
+                Features and Planning Notes
+              </div>
+              <h2 className="section-title mb-4">
+                Selected to match the way city spaces behave
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {[
@@ -274,47 +297,51 @@ export default function ChicagoPergolasPage() {
               ].map((item) => (
                 <Card key={item} variant="muted" padding="lg">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-text" />
-                    <p className="font-medium text-text-primary">{item}</p>
+                    <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-primary font-medium">{item}</p>
                   </div>
                 </Card>
               ))}
             </div>
             <div className="mt-12 grid gap-10 lg:grid-cols-2">
               <div>
-                <h3 className="mb-4 text-2xl font-bold">Neighborhood examples</h3>
-                <p className="mb-4 leading-relaxed text-text-secondary">
+                <h3 className="mb-4 text-2xl font-bold">
+                  Neighborhood examples
+                </h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
                   In Lincoln Park and Lakeview, pergolas often need to make a
-                  modest patio feel more useful without crowding it. Around Roscoe
-                  Village and North Center, families usually want something that
-                  supports everyday dinners and late summer entertaining while still
-                  letting light into the rear of the home. In Bucktown and Wicker
-                  Park, the design conversation is often about roof decks, modern
-                  additions, and keeping the structure visually clean from multiple
-                  vantage points.
+                  modest patio feel more useful without crowding it. Around
+                  Roscoe Village and North Center, families usually want
+                  something that supports everyday dinners and late summer
+                  entertaining while still letting light into the rear of the
+                  home. In Bucktown and Wicker Park, the design conversation is
+                  often about roof decks, modern additions, and keeping the
+                  structure visually clean from multiple vantage points.
                 </p>
-                <p className="leading-relaxed text-text-secondary">
-                  Those are different use cases, but the planning logic is the same:
-                  make the system fit the block, the home, and the way you expect to
-                  use the space. That is why we push hard on layout and orientation
-                  before we get lost in options.
+                <p className="text-text-secondary leading-relaxed">
+                  Those are different use cases, but the planning logic is the
+                  same: make the system fit the block, the home, and the way you
+                  expect to use the space. That is why we push hard on layout
+                  and orientation before we get lost in options.
                 </p>
               </div>
               <div>
-                <h3 className="mb-4 text-2xl font-bold">How this connects to the rest of the project</h3>
-                <p className="mb-4 leading-relaxed text-text-secondary">
-                  A pergola is often the anchor, but it does not have to do every
-                  job by itself. Chicago homeowners frequently pair pergolas with
-                  retractable screens for privacy and comfort, especially on blocks
-                  where neighboring windows overlook the patio. If four-season use is
-                  the real goal, glass enclosure strategies may also be part of the
-                  conversation.
+                <h3 className="mb-4 text-2xl font-bold">
+                  How this connects to the rest of the project
+                </h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  A pergola is often the anchor, but it does not have to do
+                  every job by itself. Chicago homeowners frequently pair
+                  pergolas with retractable screens for privacy and comfort,
+                  especially on blocks where neighboring windows overlook the
+                  patio. If four-season use is the real goal, glass enclosure
+                  strategies may also be part of the conversation.
                 </p>
-                <p className="leading-relaxed text-text-secondary">
+                <p className="text-text-secondary leading-relaxed">
                   That is one advantage of working with a team that looks at the
-                  whole outdoor room instead of selling one product in isolation. You
-                  get a cleaner plan, fewer retrofits, and a space that feels
-                  complete sooner.
+                  whole outdoor room instead of selling one product in
+                  isolation. You get a cleaner plan, fewer retrofits, and a
+                  space that feels complete sooner.
                 </p>
               </div>
             </div>
@@ -325,11 +352,16 @@ export default function ChicagoPergolasPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Visual Direction</div>
-              <h2 className="section-title mb-4">Examples of the look and performance level</h2>
+              <h2 className="section-title mb-4">
+                Examples of the look and performance level
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {gallery.map((item) => (
-                <div key={item.alt} className="relative aspect-[4/3] overflow-hidden">
+                <div
+                  key={item.alt}
+                  className="relative aspect-[4/3] overflow-hidden"
+                >
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -354,7 +386,9 @@ export default function ChicagoPergolasPage() {
                 {faqs.map((faq) => (
                   <Card key={faq.question} variant="default" padding="lg">
                     <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                    <p className="leading-relaxed text-text-secondary">{faq.answer}</p>
+                    <p className="text-text-secondary leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </Card>
                 ))}
               </div>
@@ -369,14 +403,15 @@ export default function ChicagoPergolasPage() {
                 <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to price a Chicago pergola project?
                 </h2>
-                <p className="mb-8 max-w-xl text-xl text-text-inverse-muted">
-                  Send us a few photos, rough dimensions, and whether the project is
-                  on grade or on a roof deck. We will help you narrow the right
-                  structure before you get too far down the wrong path.
+                <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
+                  Send us a few photos, rough dimensions, and whether the
+                  project is on grade or on a roof deck. We will help you narrow
+                  the right structure before you get too far down the wrong
+                  path.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link href="/contact?type=price&product=pergola&source=chicago_city_page">
-                    <Button size="lg">Start Your Quote</Button>
+                  <Link href="/guides/pergola-system-fit-review?area=chicago&source=chicago_city_page">
+                    <Button size="lg">Start a System Fit Review</Button>
                   </Link>
                   <Link href="/service-areas/chicago-il/retractable-screens">
                     <Button variant="outline" size="lg">
@@ -385,21 +420,30 @@ export default function ChicagoPergolasPage() {
                   </Link>
                 </div>
               </div>
-              <div className="hidden border-l border-border-inverse pl-16 md:block">
-                <div className="space-y-4 text-text-inverse-muted">
-                  <h4 className="text-lg font-bold uppercase tracking-wide">
+              <div className="border-border-inverse hidden border-l pl-16 md:block">
+                <div className="text-text-inverse-muted space-y-4">
+                  <h4 className="text-lg font-bold tracking-wide uppercase">
                     Keep exploring
                   </h4>
-                  <Link href="/service-areas/chicago-il" className="flex items-center gap-3">
-                    <Home className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/service-areas/chicago-il"
+                    className="flex items-center gap-3"
+                  >
+                    <Home className="text-edg-brand h-4 w-4" />
                     Back to Chicago service area hub
                   </Link>
-                  <Link href="/systems/pergolas" className="flex items-center gap-3">
-                    <ShieldCheck className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/systems/pergolas"
+                    className="flex items-center gap-3"
+                  >
+                    <ShieldCheck className="text-edg-brand h-4 w-4" />
                     Full pergola specs and accessories
                   </Link>
-                  <Link href="/service-areas/chicago-il/retractable-screens" className="flex items-center gap-3">
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/service-areas/chicago-il/retractable-screens"
+                    className="flex items-center gap-3"
+                  >
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     Chicago retractable screens
                   </Link>
                 </div>

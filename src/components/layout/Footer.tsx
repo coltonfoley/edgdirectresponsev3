@@ -173,6 +173,22 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/guides/motorized-pergola-planning"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Pergola Planning Guide
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/guides/pergola-system-fit-review"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    System Fit Review
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/systems/shades"
                     className="hover:text-edg-brand text-zinc-300 transition-colors"
                   >

@@ -180,9 +180,9 @@ export default function BarringtonPergolaPage() {
               architecture, weather, and approval requirements all matter.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact?area=barrington&product=pergola&source=barrington_pergola">
+              <Link href="/guides/pergola-system-fit-review?area=barrington&source=barrington_pergola">
                 <Button size="lg" className="px-8">
-                  Request a Pergola Site Review
+                  Request a System Fit Review
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -398,9 +398,9 @@ export default function BarringtonPergolaPage() {
               work. We will help decide whether a louvered roof, screens,
               heaters, lighting, or a phased outdoor room plan makes the most sense.
             </p>
-            <Link href="/contact?area=barrington&product=pergola&source=barrington_pergola_cta">
+            <Link href="/guides/pergola-system-fit-review?area=barrington&source=barrington_pergola_cta">
               <Button size="lg" variant="dark" className="px-8 text-lg">
-                Request a Barrington Pergola Review
+                Request a System Fit Review
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

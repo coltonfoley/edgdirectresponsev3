@@ -4,7 +4,15 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
-import { Check, ChevronLeft, Loader2, X, RotateCcw, Sun, Moon } from 'lucide-react';
+import {
+  Check,
+  ChevronLeft,
+  Loader2,
+  X,
+  RotateCcw,
+  Sun,
+  Moon,
+} from 'lucide-react';
 
 // ─── Dynamic import (no SSR — Three.js is browser-only) ──────────────────────
 const PergolaCanvas = dynamic(
@@ -14,8 +22,8 @@ const PergolaCanvas = dynamic(
     loading: () => (
       <div className="flex h-full w-full items-center justify-center bg-[#0F1014]">
         <div className="text-center">
-          <Loader2 className="mx-auto mb-3 h-8 w-8 animate-spin text-edg-brand" />
-          <p className="text-xs font-bold uppercase tracking-widest text-white/55">
+          <Loader2 className="text-edg-brand mx-auto mb-3 h-8 w-8 animate-spin" />
+          <p className="text-xs font-bold tracking-widest text-white/55 uppercase">
             Loading 3D Model
           </p>
         </div>
@@ -38,21 +46,21 @@ interface Config {
   smartControl: boolean;
 }
 
-// ─── R-Blade color options ────────────────────────────────────────────────────
+// ─── Representative louvered-system color options ────────────────────────────
 const COLORS = [
   { name: 'Traffic White', hex: '#E8E6E2', ral: 'RAL 9016' },
-  { name: 'Jet Black',     hex: '#1A1A1A', ral: 'RAL 9005' },
-  { name: 'Anthracite',    hex: '#3C4043', ral: 'RAL 7016' },
-  { name: 'Sparkle Grey',  hex: '#7E848C', ral: 'RAL 9007' },
+  { name: 'Jet Black', hex: '#1A1A1A', ral: 'RAL 9005' },
+  { name: 'Anthracite', hex: '#3C4043', ral: 'RAL 7016' },
+  { name: 'Sparkle Grey', hex: '#7E848C', ral: 'RAL 9007' },
 ] as const;
 
 // ─── Add-on options ───────────────────────────────────────────────────────────
 const ADDONS = [
-  { key: 'showLED',        label: 'Integrated LED Lighting' },
-  { key: 'showScreens',    label: 'Motorized Zip Screens' },
-  { key: 'showHeater',     label: 'Infrared Heater' },
+  { key: 'showLED', label: 'Integrated LED Lighting' },
+  { key: 'showScreens', label: 'Motorized Zip Screens' },
+  { key: 'showHeater', label: 'Infrared Heater' },
   { key: 'showWindSensor', label: 'Wind & Rain Sensors' },
-  { key: 'smartControl',   label: 'Smart Home Integration' },
+  { key: 'smartControl', label: 'Smart Home Integration' },
 ] as const;
 
 type AddonKey = (typeof ADDONS)[number]['key'];
@@ -85,7 +93,7 @@ function louverLabel(deg: number): string {
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="mb-3 flex items-center gap-3">
-      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
+      <span className="text-[10px] font-bold tracking-[0.2em] text-white/60 uppercase">
         {children}
       </span>
       <div className="h-px flex-1 bg-white/8" />
@@ -114,7 +122,7 @@ function SliderField({
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between">
-        <span className="text-xs font-bold uppercase tracking-wider text-white/65">
+        <span className="text-xs font-bold tracking-wider text-white/65 uppercase">
           {label}
         </span>
         <span className="text-lg font-bold text-white">
@@ -163,7 +171,7 @@ export function ConfiguratorApp() {
       (a) => config[a.key as keyof Config] === true
     ).map((a) => a.label);
     return [
-      '── Azenco R-Blade Configuration ──',
+      '-- Pergola Visualizer Configuration --',
       `Size:        ${config.width}′ × ${config.depth}′  (${sqFt} sq ft)`,
       `Mount:       ${config.mountType === 'freestanding' ? 'Freestanding (4-post)' : 'Wall-Mounted (2-post)'}`,
       `Color:       ${selectedColor.name}  ${selectedColor.ral}`,
@@ -182,9 +190,9 @@ export function ConfiguratorApp() {
             <button
               key={tab}
               onClick={() => setMobileTab(tab)}
-              className={`flex-1 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors ${
+              className={`flex-1 py-3.5 text-xs font-bold tracking-widest uppercase transition-colors ${
                 mobileTab === tab
-                  ? 'border-b-2 border-edg-brand text-edg-brand'
+                  ? 'border-edg-brand text-edg-brand border-b-2'
                   : 'text-white/60'
               }`}
             >
@@ -201,16 +209,16 @@ export function ConfiguratorApp() {
             }`}
           >
             {/* ── Header shared across desktop and mobile to keep a single page H1 ── */}
-            <div className="flex-shrink-0 border-b border-white/18 px-5 pb-4 pt-6 lg:px-6 lg:pt-24">
+            <div className="flex-shrink-0 border-b border-white/18 px-5 pt-6 pb-4 lg:px-6 lg:pt-24">
               <Link
                 href="/systems/pergolas"
-                className="mb-4 flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/60 transition-colors hover:text-white/85"
+                className="mb-4 flex items-center gap-1.5 text-[10px] font-bold tracking-widest text-white/60 uppercase transition-colors hover:text-white/85"
               >
                 <ChevronLeft className="h-3 w-3" />
                 Back to Pergolas
               </Link>
-              <div className="mb-0.5 text-[10px] font-bold uppercase tracking-[0.25em] text-edg-brand">
-                Azenco R-Blade
+              <div className="text-edg-brand mb-0.5 text-[10px] font-bold tracking-[0.25em] uppercase">
+                System Fit Visualizer
               </div>
               <h1 className="text-xl font-bold tracking-tight text-white lg:text-2xl">
                 Design Your Pergola
@@ -218,7 +226,7 @@ export function ConfiguratorApp() {
             </div>
 
             {/* Scrollable options */}
-            <div className="flex-1 overflow-y-auto px-5 pb-6 pt-5 lg:px-6 lg:pt-6">
+            <div className="flex-1 overflow-y-auto px-5 pt-5 pb-6 lg:px-6 lg:pt-6">
               <div className="space-y-8">
                 {/* Dimensions */}
                 <section>
@@ -244,7 +252,8 @@ export function ConfiguratorApp() {
                     />
                   </div>
                   <p className="mt-3 text-[10px] text-white/50">
-                    Max single-zone: 16&apos; wide × 23&apos; deep. Multi-zone available for larger spaces.
+                    Max single-zone: 16&apos; wide × 23&apos; deep. Multi-zone
+                    available for larger spaces.
                   </p>
                 </section>
 
@@ -262,11 +271,13 @@ export function ConfiguratorApp() {
                             : 'border-white/22 text-white/65 hover:border-white/30 hover:text-white/90'
                         }`}
                       >
-                        <div className="text-xs font-bold uppercase tracking-wider">
+                        <div className="text-xs font-bold tracking-wider uppercase">
                           {type === 'freestanding' ? '4-Post' : '2-Post'}
                         </div>
-                        <div className="mt-0.5 text-[10px] normal-case tracking-normal text-white/55">
-                          {type === 'freestanding' ? 'Standalone' : 'Wall-attached'}
+                        <div className="mt-0.5 text-[10px] tracking-normal text-white/55 normal-case">
+                          {type === 'freestanding'
+                            ? 'Standalone'
+                            : 'Wall-attached'}
                         </div>
                       </button>
                     ))}
@@ -293,11 +304,11 @@ export function ConfiguratorApp() {
                           style={{ backgroundColor: color.hex }}
                         />
                         {config.frameColor === color.hex && (
-                          <div className="absolute right-1 top-1 bg-edg-brand p-0.5">
+                          <div className="bg-edg-brand absolute top-1 right-1 p-0.5">
                             <Check className="h-2.5 w-2.5 text-black" />
                           </div>
                         )}
-                        <div className="text-center text-[11px] font-bold uppercase tracking-wide text-white/65">
+                        <div className="text-center text-[11px] font-bold tracking-wide text-white/65 uppercase">
                           {color.name.split(' ')[0]}
                         </div>
                       </button>
@@ -325,10 +336,12 @@ export function ConfiguratorApp() {
                       max={90}
                       step={5}
                       value={config.louverAngleDeg}
-                      onChange={(e) => set('louverAngleDeg', Number(e.target.value))}
+                      onChange={(e) =>
+                        set('louverAngleDeg', Number(e.target.value))
+                      }
                       className="config-slider w-full"
                     />
-                    <p className="text-center text-[10px] font-bold uppercase tracking-wider text-edg-brand">
+                    <p className="text-edg-brand text-center text-[10px] font-bold tracking-wider uppercase">
                       {louverLabel(config.louverAngleDeg)}
                     </p>
                   </div>
@@ -344,7 +357,10 @@ export function ConfiguratorApp() {
                         <button
                           key={addon.key}
                           onClick={() =>
-                            set(addon.key as keyof Config, !isOn as Config[keyof Config])
+                            set(
+                              addon.key as keyof Config,
+                              !isOn as Config[keyof Config]
+                            )
                           }
                           className={`flex min-h-[48px] w-full items-center border p-3 text-left transition-all ${
                             isOn
@@ -355,12 +371,16 @@ export function ConfiguratorApp() {
                           <div className="flex items-center gap-3">
                             <div
                               className={`h-3.5 w-3.5 flex-shrink-0 border transition-colors ${
-                                isOn ? 'border-edg-brand bg-edg-brand' : 'border-white/25'
+                                isOn
+                                  ? 'border-edg-brand bg-edg-brand'
+                                  : 'border-white/25'
                               }`}
                             >
-                              {isOn && <Check className="h-3.5 w-3.5 text-black" />}
+                              {isOn && (
+                                <Check className="h-3.5 w-3.5 text-black" />
+                              )}
                             </div>
-                            <span className="text-[11px] font-bold uppercase tracking-wide">
+                            <span className="text-[11px] font-bold tracking-wide uppercase">
                               {addon.label}
                             </span>
                           </div>
@@ -377,7 +397,12 @@ export function ConfiguratorApp() {
                     {[
                       ['Size', `${config.width}′ × ${config.depth}′`],
                       ['Coverage', `${sqFt} sq ft`],
-                      ['Mount', config.mountType === 'freestanding' ? 'Freestanding' : 'Wall-Mounted'],
+                      [
+                        'Mount',
+                        config.mountType === 'freestanding'
+                          ? 'Freestanding'
+                          : 'Wall-Mounted',
+                      ],
                       ['Color', selectedColor.name],
                     ].map(([label, value]) => (
                       <div key={label} className="flex justify-between text-xs">
@@ -392,11 +417,16 @@ export function ConfiguratorApp() {
 
             {/* Sticky CTA */}
             <div className="flex-shrink-0 border-t border-white/10 bg-[#13151A] px-6 py-5">
-              <Button className="w-full" size="lg" onClick={() => setShowModal(true)}>
+              <Button
+                className="w-full"
+                size="lg"
+                onClick={() => setShowModal(true)}
+              >
                 Get My Custom Quote →
               </Button>
               <p className="mt-2.5 text-center text-[10px] text-white/50">
-                Free · No commitment · We&apos;ll be in touch within 1 business day
+                Free · No commitment · We&apos;ll be in touch within 1 business
+                day
               </p>
             </div>
           </aside>
@@ -424,7 +454,7 @@ export function ConfiguratorApp() {
             <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2">
               <div className="flex items-center gap-2 border border-white/10 bg-black/55 px-4 py-2 backdrop-blur-sm">
                 <RotateCcw className="h-3 w-3 text-white/60" />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-white/60">
+                <span className="text-[10px] font-bold tracking-widest text-white/60 uppercase">
                   Drag to rotate · Scroll to zoom
                 </span>
               </div>
@@ -434,7 +464,7 @@ export function ConfiguratorApp() {
             <button
               onClick={() => setNightMode((n) => !n)}
               title={nightMode ? 'Switch to day mode' : 'Switch to night mode'}
-              className={`absolute bottom-5 right-5 flex items-center gap-2 border px-3 py-2 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm transition-all ${
+              className={`absolute right-5 bottom-5 flex items-center gap-2 border px-3 py-2 text-[10px] font-bold tracking-widest uppercase backdrop-blur-sm transition-all ${
                 nightMode
                   ? 'border-edg-brand/60 bg-edg-brand/15 text-edg-brand'
                   : 'border-white/22 bg-black/55 text-white/65 hover:text-white/90'
@@ -455,7 +485,7 @@ export function ConfiguratorApp() {
 
             {/* Mobile: switch to config */}
             <button
-              className="absolute right-4 top-4 flex items-center gap-1.5 border border-white/22 bg-black/60 px-3 py-2 text-[10px] font-bold uppercase tracking-widest text-white/65 backdrop-blur-sm transition-colors hover:text-white/90 lg:hidden"
+              className="absolute top-4 right-4 flex items-center gap-1.5 border border-white/22 bg-black/60 px-3 py-2 text-[10px] font-bold tracking-widest text-white/65 uppercase backdrop-blur-sm transition-colors hover:text-white/90 lg:hidden"
               onClick={() => setMobileTab('configure')}
             >
               <ChevronLeft className="h-3 w-3" />
@@ -467,7 +497,10 @@ export function ConfiguratorApp() {
 
       {/* ── Quote modal ── */}
       {showModal && (
-        <QuoteModal summary={buildSummary()} onClose={() => setShowModal(false)} />
+        <QuoteModal
+          summary={buildSummary()}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </>
   );
@@ -475,9 +508,22 @@ export function ConfiguratorApp() {
 
 // ─── Quote capture modal ──────────────────────────────────────────────────────
 const TESTIMONIALS = [
-  { quote: 'Worth every penny. We use it rain or shine, all season long.', name: 'M. Kowalski', location: 'Barrington, IL' },
-  { quote: 'The LED lighting at night completely transformed our backyard.', name: 'T. Reyes', location: 'Lake Forest, IL' },
-  { quote: 'EDG handled permits, delivery, and install. Seamless start to finish.', name: 'S. Patel', location: 'Naperville, IL' },
+  {
+    quote: 'Worth every penny. We use it rain or shine, all season long.',
+    name: 'M. Kowalski',
+    location: 'Barrington, IL',
+  },
+  {
+    quote: 'The LED lighting at night completely transformed our backyard.',
+    name: 'T. Reyes',
+    location: 'Lake Forest, IL',
+  },
+  {
+    quote:
+      'EDG handled permits, delivery, and install. Seamless start to finish.',
+    name: 'S. Patel',
+    location: 'Naperville, IL',
+  },
 ];
 
 function QuoteModal({
@@ -490,7 +536,9 @@ function QuoteModal({
   type Status = 'idle' | 'loading' | 'success' | 'error';
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
-  const [testimonialIdx] = useState(() => Math.floor(Math.random() * TESTIMONIALS.length));
+  const [testimonialIdx] = useState(() =>
+    Math.floor(Math.random() * TESTIMONIALS.length)
+  );
   const [form, setForm] = useState({
     firstName: '',
     lastName: '',
@@ -511,7 +559,9 @@ function QuoteModal({
       summary,
       form.timeline ? `Timeline: ${form.timeline}` : '',
       form.budget ? `Budget: ${form.budget}` : '',
-    ].filter(Boolean).join('\n');
+    ]
+      .filter(Boolean)
+      .join('\n');
     try {
       const res = await fetch('/api/leads', {
         method: 'POST',
@@ -522,7 +572,7 @@ function QuoteModal({
           lastName: form.lastName,
           phone: form.phone,
           location: form.zip,
-          projectType: 'Motorized Pergola (Azenco R-Blade)',
+          projectType: 'Motorized Pergola System Fit',
           message: fullMessage,
           source: 'pergola-configurator',
           fax: form.fax,
@@ -532,7 +582,9 @@ function QuoteModal({
       if (data.success) {
         setStatus('success');
       } else {
-        setErrorMsg(data.errors?.join(', ') ?? 'Submission failed. Please try again.');
+        setErrorMsg(
+          data.errors?.join(', ') ?? 'Submission failed. Please try again.'
+        );
         setStatus('error');
       }
     } catch {
@@ -546,7 +598,7 @@ function QuoteModal({
       <div className="relative max-h-[92dvh] w-full overflow-y-auto border-t border-white/10 bg-[#13151A] sm:max-h-[85dvh] sm:max-w-lg sm:border">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 text-white/55 transition-colors hover:text-white"
+          className="absolute top-4 right-4 z-10 text-white/55 transition-colors hover:text-white"
         >
           <X className="h-5 w-5" />
         </button>
@@ -554,17 +606,23 @@ function QuoteModal({
         {status === 'success' ? (
           /* ── Success ── */
           <div className="px-8 py-12 text-center">
-            <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center bg-edg-brand">
+            <div className="bg-edg-brand mx-auto mb-5 flex h-12 w-12 items-center justify-center">
               <Check className="h-6 w-6 text-black" />
             </div>
-            <h2 className="mb-2 text-2xl font-bold text-white">You&apos;re on Our List</h2>
+            <h2 className="mb-2 text-2xl font-bold text-white">
+              You&apos;re on Our List
+            </h2>
             <p className="mb-3 text-sm leading-relaxed text-white/70">
-              A designer will review your R-Blade configuration and reach out within
-              <strong className="text-white"> 1 business day</strong> to discuss next steps.
+              A designer will review your pergola configuration and reach out
+              within
+              <strong className="text-white"> 1 business day</strong> to discuss
+              next steps.
             </p>
             <p className="mb-8 text-xs text-white/55">
               In the meantime, visit our{' '}
-              <a href="/projects" className="text-edg-brand underline">project portfolio</a>{' '}
+              <a href="/projects" className="text-edg-brand underline">
+                project portfolio
+              </a>{' '}
               to see completed installations near you.
             </p>
             <Button onClick={onClose}>Back to Configurator</Button>
@@ -572,25 +630,30 @@ function QuoteModal({
         ) : (
           /* ── Form ── */
           <div className="p-6 sm:p-8">
-            <div className="mb-1 text-[10px] font-bold uppercase tracking-[0.25em] text-edg-brand">
+            <div className="text-edg-brand mb-1 text-[10px] font-bold tracking-[0.25em] uppercase">
               Free Custom Quote
             </div>
-            <h2 className="mb-1 text-2xl font-bold text-white">Your Design Is Ready</h2>
+            <h2 className="mb-1 text-2xl font-bold text-white">
+              Your Design Is Ready
+            </h2>
             <p className="mb-5 text-xs text-white/60">
-              Send it to our team — we&apos;ll be in touch within 1 business day.
+              Send it to our team — we&apos;ll be in touch within 1 business
+              day.
             </p>
 
             {/* Testimonial */}
-            <div className="mb-5 border-l-2 border-edg-brand pl-4">
-              <p className="text-xs italic leading-relaxed text-white/75">&ldquo;{testimonial.quote}&rdquo;</p>
-              <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-white/55">
+            <div className="border-edg-brand mb-5 border-l-2 pl-4">
+              <p className="text-xs leading-relaxed text-white/75 italic">
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+              <p className="mt-1 text-[10px] font-bold tracking-wider text-white/55 uppercase">
                 — {testimonial.name}, {testimonial.location}
               </p>
             </div>
 
             {/* Config summary */}
             <div className="mb-5 border border-white/18 bg-black/30 p-4">
-              <pre className="whitespace-pre-wrap font-mono text-[11px] leading-relaxed text-white/65">
+              <pre className="font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-white/65">
                 {summary}
               </pre>
             </div>
@@ -614,7 +677,9 @@ function QuoteModal({
                     required
                     placeholder="Jane"
                     value={form.firstName}
-                    onChange={(e) => setForm({ ...form, firstName: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, firstName: e.target.value })
+                    }
                     className="modal-input"
                   />
                 </ModalField>
@@ -623,7 +688,9 @@ function QuoteModal({
                     type="text"
                     placeholder="Smith"
                     value={form.lastName}
-                    onChange={(e) => setForm({ ...form, lastName: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, lastName: e.target.value })
+                    }
                     className="modal-input"
                   />
                 </ModalField>
@@ -646,7 +713,9 @@ function QuoteModal({
                     type="tel"
                     placeholder="(815) 555-0100"
                     value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, phone: e.target.value })
+                    }
                     className="modal-input"
                   />
                 </ModalField>
@@ -665,7 +734,9 @@ function QuoteModal({
                 <ModalField label="Timeline">
                   <select
                     value={form.timeline}
-                    onChange={(e) => setForm({ ...form, timeline: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, timeline: e.target.value })
+                    }
                     className="modal-input"
                   >
                     <option value="">Select...</option>
@@ -679,7 +750,9 @@ function QuoteModal({
                 <ModalField label="Budget Range">
                   <select
                     value={form.budget}
-                    onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, budget: e.target.value })
+                    }
                     className="modal-input"
                   >
                     <option value="">Select...</option>
@@ -728,7 +801,7 @@ function ModalField({
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wider text-white/60">
+      <label className="mb-1.5 block text-[10px] font-bold tracking-wider text-white/60 uppercase">
         {label}
       </label>
       {children}

@@ -2,12 +2,12 @@ import type { MetadataRoute } from 'next';
 
 /**
  * Robots.txt configuration for EDG Patio & Shade
- * 
+ *
  * SEO Impact:
  * - Controls crawler access to site sections
  * - Points to sitemap for efficient indexing
  * - Blocks private/admin routes from indexing
- * 
+ *
  * Second-order effects:
  * - Prevents duplicate content issues from /admin, /api routes
  * - Ensures search engines focus crawl budget on valuable pages
@@ -21,11 +21,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: [
-          '/api/',
-          '/admin/',
-          '/private/',
-        ],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         // Googlebot specific - allow image indexing
@@ -36,6 +32,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         // Bingbot specific
         userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+      {
+        // OpenAI search crawler - helps public resources surface in ChatGPT search.
+        userAgent: 'OAI-SearchBot',
         allow: '/',
         disallow: ['/api/', '/admin/'],
       },

@@ -10,17 +10,14 @@ import {
   ArrowRight,
   Sun,
   CloudRain,
-  Snowflake,
   Star,
   Clock,
   User,
-  ArrowLeft,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
-
 
 export const metadata: Metadata = {
   title: 'The Complete Guide to Louvered Pergolas | 2026 Edition',
@@ -37,13 +34,13 @@ const guideData = {
   publishedDate: '2026-02-03',
   author: 'Colton Foley',
   intro:
-    'Everything Chicago homeowners need to know about louvered roof systems: costs, permits, brands, and ROI.',
+    'Everything Chicago homeowners need to know about louvered roof systems: costs, permits, system fit, and ROI.',
 };
 
 const comparisonData = [
   {
     feature: 'Rain Protection',
-    louvered: '100% Waterproof',
+    louvered: 'Rain management when closed',
     traditional: 'None / Minimal',
   },
   {
@@ -53,7 +50,7 @@ const comparisonData = [
   },
   {
     feature: 'Snow Load',
-    louvered: 'Engineered (60+ lbs/sqft)',
+    louvered: 'Engineered by selected system',
     traditional: 'Varies',
   },
   {
@@ -72,7 +69,7 @@ const faqs = [
   {
     question: 'How much does a louvered pergola cost in Chicago?',
     answer:
-      'For a high-quality system derived from US aluminum (StruXure, Azenco), expect $120-$180 per sq. ft. fully installed. A typical 12x16 project ranges from $25,000 to $40,000 depending on screens, lights, and heaters.',
+      'For a high-quality motorized aluminum louvered system, expect broad planning ranges around $120-$200 per sq. ft. fully installed, depending on the system, site conditions, electrical, drainage, screens, lights, heaters, and review path. EDG uses proven manufacturers such as Brustor, Azenco, and Sundance as a toolkit after the project fit is clear.',
   },
   {
     question: 'Do I need a permit for a louvered pergola?',
@@ -82,7 +79,7 @@ const faqs = [
   {
     question: 'Can it handle Chicago winters?',
     answer:
-      "Absolutely. Our systems are engineered for heavy snow loads. The louvers seal tight and are designed to support wet heavy snow. We recommend leaving them slightly cracked or fully closed depending on the specific model's winter protocol.",
+      "Often, yes, when the selected system and installation are specified for the site. EDG reviews exposure, snow, drainage, attachment, controls, and the manufacturer's winter protocol before recommending a final direction.",
   },
   {
     question: 'Does it add value to my home?',
@@ -312,9 +309,10 @@ export default function LouveredPergolaGuide() {
                 </p>
 
                 <div className="text-center">
-                  <Link href="/contact">
+                  <Link href="/guides/pergola-system-fit-review">
                     <Button size="lg" className="rounded-full">
-                      Get an Exact Quote <ArrowRight className="ml-2 h-5 w-5" />
+                      Get a System Fit Review{' '}
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                 </div>
@@ -365,24 +363,25 @@ export default function LouveredPergolaGuide() {
                 Ready to Design Yours?
               </h2>
               <p className="text-edg-dark/80 mb-8 text-xl">
-                Stop guessing and start planning. Schedule a free site
-                assessment with our design team.
+                Stop guessing and start with the site details that determine
+                which system actually fits the job.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact">
+                <Link href="/guides/pergola-system-fit-review">
                   <Button
                     size="lg"
                     variant="secondary"
                     className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
                   >
-                    Request Consultation <ArrowRight className="ml-2 h-5 w-5" />
+                    Request System Fit Review{' '}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
                   <Button
                     size="lg"
                     variant="ghost"
-                    className="text-edg-dark hover:bg-edg-dark/10 rounded-full border border-edg-dark/20 px-8 text-lg"
+                    className="text-edg-dark hover:bg-edg-dark/10 border-edg-dark/20 rounded-full border px-8 text-lg"
                   >
                     Design in 3D <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>

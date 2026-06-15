@@ -172,9 +172,9 @@ export default function AlgonquinMotorizedPergolasPage() {
               cleaner architectural fit than a basic wood pergola.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact?area=algonquin&product=motorized-pergola&source=algonquin_pergola_page">
+              <Link href="/guides/pergola-system-fit-review?area=algonquin&source=algonquin_pergola_page">
                 <Button size="lg" className="px-8">
-                  Request a Pergola Plan
+                  Request a System Fit Review
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -379,9 +379,9 @@ export default function AlgonquinMotorizedPergolasPage() {
               We will help you decide whether the first move is a budget range,
               site visit, permit review, or full design proposal.
             </p>
-            <Link href="/contact?area=algonquin&product=motorized-pergola&source=algonquin_pergola_bottom">
+            <Link href="/guides/pergola-system-fit-review?area=algonquin&source=algonquin_pergola_bottom">
               <Button size="lg">
-                Start the Pergola Plan
+                Start the System Fit Review
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

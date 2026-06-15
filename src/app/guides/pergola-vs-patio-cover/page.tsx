@@ -11,13 +11,11 @@ import {
   DollarSign,
   Star,
   Lightbulb,
-  ArrowLeft,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
-
 
 export const metadata: Metadata = {
   title: 'Pergola vs. Patio Cover: How We Match Systems to Your Needs',
@@ -320,22 +318,23 @@ export default function PergolaVsPatioCover() {
                 guide.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/guides/louvered-pergolas">
+                <Link href="/guides/motorized-pergola-planning">
                   <Button
                     size="lg"
                     variant="secondary"
                     className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
                   >
-                    Read the Full Guide <ArrowRight className="ml-2 h-5 w-5" />
+                    Read the Planning Guide{' '}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/guides/pergola-system-fit-review">
                   <Button
                     size="lg"
                     variant="ghost"
                     className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg"
                   >
-                    Get a Quote
+                    Get a Fit Review
                   </Button>
                 </Link>
               </div>

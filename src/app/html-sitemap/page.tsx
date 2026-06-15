@@ -129,7 +129,35 @@ const sitemapLinks = [
     links: [
       { href: '/guides', label: 'Knowledge Base' },
       { href: '/guides/planning-guide', label: 'Planning Guide' },
+      {
+        href: '/guides/motorized-pergola-planning',
+        label: 'Motorized Pergola Planning Guide',
+      },
+      {
+        href: '/guides/pergola-system-fit-review',
+        label: 'Pergola System Fit Review',
+      },
+      {
+        href: '/guides/motorized-pergola-budget-examples',
+        label: 'Motorized Pergola Budget Examples',
+      },
+      {
+        href: '/guides/motorized-pergola-deck-roof-deck',
+        label: 'Pergolas on Decks and Roof Decks',
+      },
+      {
+        href: '/guides/motorized-pergola-permits-hoa-engineering',
+        label: 'Pergola Permits, HOA, and Engineering',
+      },
       { href: '/guides/pergola-cost', label: 'Pergola Cost Guide' },
+      {
+        href: '/guides/louvered-pergola-brands-compared',
+        label: 'How EDG Chooses a Pergola System',
+      },
+      {
+        href: '/guides/pergola-vs-patio-cover',
+        label: 'Pergola vs Patio Cover',
+      },
       {
         href: '/guides/magnatrack-screens-cost',
         label: 'MagnaTrack Screens Cost Guide',

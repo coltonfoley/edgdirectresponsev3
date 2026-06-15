@@ -103,12 +103,12 @@ export default function NorthbrookPergolaPage() {
               room comfort.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact?source=northbrook_product">
+              <Link href="/guides/pergola-system-fit-review?area=northbrook&source=northbrook_product">
                 <Button
                   size="lg"
                   className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90"
                 >
-                  Get a Design Proposal
+                  Get a System Fit Review
                 </Button>
               </Link>
               <Link href="/systems/pergolas/configure">
@@ -355,12 +355,12 @@ export default function NorthbrookPergolaPage() {
                 Get a complimentary design consultation and see how a motorized
                 pergola can transform your patio into a year-round outdoor room.
               </p>
-              <Link href="/contact?source=northbrook_product">
+              <Link href="/guides/pergola-system-fit-review?area=northbrook&source=northbrook_bottom">
                 <Button
                   size="lg"
                   className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90"
                 >
-                  Schedule Your Design Consultation
+                  Start Your System Fit Review
                 </Button>
               </Link>
             </div>

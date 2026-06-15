@@ -4,7 +4,20 @@ import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Link } from '@/components/ui/Link';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { BookOpen, Scale, ArrowRight, Library, Layers, FileText, DollarSign, Wind } from 'lucide-react';
+import {
+  BookOpen,
+  Scale,
+  ArrowRight,
+  Library,
+  Layers,
+  FileText,
+  DollarSign,
+  Wind,
+  ClipboardCheck,
+  SlidersHorizontal,
+  Building2,
+  ShieldCheck,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Outdoor Living Knowledge Base | Guides & Resources',
@@ -16,6 +29,41 @@ export const metadata: Metadata = {
 };
 
 const guides = [
+  {
+    title: 'Motorized Pergola Planning Guide',
+    desc: 'The central planning hub for premium pergola buyers: cost, system fit, drainage, controls, accessories, and local constraints.',
+    href: '/guides/motorized-pergola-planning',
+    icon: SlidersHorizontal,
+    readTime: '14 min read',
+  },
+  {
+    title: 'Pergola System Fit Review',
+    desc: 'Send photos, dimensions, location, budget, and project goals so EDG can identify the likely system direction.',
+    href: '/guides/pergola-system-fit-review',
+    icon: ClipboardCheck,
+    readTime: '3 min intake',
+  },
+  {
+    title: 'Motorized Pergola Budget Examples',
+    desc: 'Compare realistic planning bands for compact patios, outdoor rooms, roof decks, estate patios, and commercial systems.',
+    href: '/guides/motorized-pergola-budget-examples',
+    icon: DollarSign,
+    readTime: '8 min read',
+  },
+  {
+    title: 'Pergolas on Decks and Roof Decks',
+    desc: 'Structure, wind, access, waterproofing, drainage, and electrical checks before pricing an elevated pergola.',
+    href: '/guides/motorized-pergola-deck-roof-deck',
+    icon: Building2,
+    readTime: '9 min read',
+  },
+  {
+    title: 'Permits, HOA, and Engineering',
+    desc: 'How surveys, drawings, review paths, setbacks, electrical, and structural assumptions shape pergola planning.',
+    href: '/guides/motorized-pergola-permits-hoa-engineering',
+    icon: ShieldCheck,
+    readTime: '9 min read',
+  },
   {
     title: 'Free Outdoor Living Planning Guide',
     desc: 'The complete workbook for planning your project. Budget ranges, system comparisons, and the 7 mistakes to avoid.',
@@ -45,15 +93,15 @@ const guides = [
     readTime: '12 min read',
   },
   {
-    title: 'Louvered Pergola Brands Compared',
-    desc: 'Brustor vs Azenco vs Sundance: An objective comparison from a dealer who installs all three.',
+    title: 'How EDG Chooses a Pergola System',
+    desc: "How Brustor, Azenco, and Sundance fit into EDG's toolkit once the site, budget, drainage, and feature needs are clear.",
     href: '/guides/louvered-pergola-brands-compared',
     icon: Layers,
     readTime: '10 min read',
   },
   {
     title: 'Pergola vs. Patio Cover vs. Awning',
-    desc: "Understanding the differences between shade systems and how we match the right solution to your home.",
+    desc: 'Understanding the differences between shade systems and how we match the right solution to your home.',
     href: '/guides/pergola-vs-patio-cover',
     icon: Scale,
     readTime: '8 min read',
@@ -68,11 +116,7 @@ export default function GuidesIndexPage() {
         <Container>
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Breadcrumb
-              items={[
-                { label: 'Guides' },
-              ]}
-            />
+            <Breadcrumb items={[{ label: 'Guides' }]} />
           </div>
           <FadeIn>
             <div className="max-w-4xl">

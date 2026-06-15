@@ -13,7 +13,6 @@ import {
   Hammer,
   Zap,
   Ruler,
-  FileText,
   TrendingUp,
   HelpCircle,
   Check,
@@ -25,11 +24,16 @@ import {
   Home,
   Building2,
 } from 'lucide-react';
-import { generateFAQSchema, generateArticleSchema, generateHowToSchema } from '@/lib/schema';
+import {
+  generateFAQSchema,
+  generateArticleSchema,
+  generateHowToSchema,
+} from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Pergola Cost Guide 2026: What Drives Pricing for Premium Systems | EDG',
+  title:
+    'Pergola Cost Guide 2026: What Drives Pricing for Premium Systems | EDG',
   description:
     'Comprehensive guide to motorized pergola costs in 2026. Understand what drives pricing from $25K to $100K+, why premium systems cost more than big-box alternatives, and how to budget for your project.',
   keywords: [
@@ -58,14 +62,16 @@ const costRanges = [
     size: 'Compact',
     dimensions: "10' × 12' to 12' × 14'",
     range: '$25,000 – $40,000',
-    description: 'Single-zone systems ideal for intimate patios and small decks.',
+    description:
+      'Single-zone systems ideal for intimate patios and small decks.',
     bestFor: ['Townhomes', 'Small patios', 'Budget-conscious projects'],
   },
   {
     size: 'Standard',
     dimensions: "14' × 16' to 16' × 20'",
     range: '$40,000 – $65,000',
-    description: 'Most common residential size. Single or dual-zone configurations.',
+    description:
+      'Most common residential size. Single or dual-zone configurations.',
     bestFor: ['Single-family homes', 'Medium patios', 'Full outdoor kitchens'],
     popular: true,
   },
@@ -73,14 +79,20 @@ const costRanges = [
     size: 'Large',
     dimensions: "18' × 20' to 20' × 24'",
     range: '$65,000 – $90,000',
-    description: 'Multi-zone systems with integrated features and premium finishes.',
-    bestFor: ['Estate properties', 'Poolside installations', 'Entertainment spaces'],
+    description:
+      'Multi-zone systems with integrated features and premium finishes.',
+    bestFor: [
+      'Estate properties',
+      'Poolside installations',
+      'Entertainment spaces',
+    ],
   },
   {
     size: 'Custom / Commercial',
-    dimensions: '20\'+ or unique configurations',
+    dimensions: "20'+ or unique configurations",
     range: '$90,000 – $150,000+',
-    description: 'Complex engineering, multiple zones, full integration with architecture.',
+    description:
+      'Complex engineering, multiple zones, full integration with architecture.',
     bestFor: ['Estate homes', 'Restaurants', 'Rooftop venues', 'Country clubs'],
   },
 ];
@@ -146,28 +158,77 @@ const hiddenCosts = [
   {
     category: 'Site Preparation',
     items: [
-      { name: 'Foundation/Footings', description: 'Concrete piers or slab reinforcement for structural loads', cost: '$2,000 – $8,000' },
-      { name: 'Electrical Rough-In', description: '220V dedicated circuit from main panel', cost: '$1,500 – $4,000' },
-      { name: 'Deck Reinforcement', description: 'Additional support for deck-mounted systems', cost: '$1,000 – $5,000' },
-      { name: 'Existing Structure Removal', description: 'Old pergola, awning, or patio cover removal', cost: '$500 – $3,000' },
+      {
+        name: 'Foundation/Footings',
+        description:
+          'Concrete piers or slab reinforcement for structural loads',
+        cost: '$2,000 – $8,000',
+      },
+      {
+        name: 'Electrical Rough-In',
+        description: '220V dedicated circuit from main panel',
+        cost: '$1,500 – $4,000',
+      },
+      {
+        name: 'Deck Reinforcement',
+        description: 'Additional support for deck-mounted systems',
+        cost: '$1,000 – $5,000',
+      },
+      {
+        name: 'Existing Structure Removal',
+        description: 'Old pergola, awning, or patio cover removal',
+        cost: '$500 – $3,000',
+      },
     ],
   },
   {
     category: 'Permits & Compliance',
     items: [
-      { name: 'Building Permits', description: 'Required in most municipalities for permanent structures', cost: '$500 – $2,500' },
-      { name: 'Zoning Review', description: 'Setback and lot coverage compliance verification', cost: 'Included in permit' },
-      { name: 'HOA Approval', description: 'Architectural review committee submissions', cost: 'Time/effort only' },
-      { name: 'Engineering Stamps', description: 'PE stamp for structural drawings', cost: '$800 – $2,000' },
+      {
+        name: 'Building Permits',
+        description: 'Required in most municipalities for permanent structures',
+        cost: '$500 – $2,500',
+      },
+      {
+        name: 'Zoning Review',
+        description: 'Setback and lot coverage compliance verification',
+        cost: 'Included in permit',
+      },
+      {
+        name: 'HOA Approval',
+        description: 'Architectural review committee submissions',
+        cost: 'Time/effort only',
+      },
+      {
+        name: 'Engineering Stamps',
+        description: 'PE stamp for structural drawings',
+        cost: '$800 – $2,000',
+      },
     ],
   },
   {
     category: 'Integrated Features',
     items: [
-      { name: 'LED Lighting', description: 'Perimeter and downlighting integrated into frame', cost: '$2,000 – $5,000' },
-      { name: 'Infrared Heaters', description: 'Ceiling-mounted radiant heat systems', cost: '$1,500 – $4,000 each' },
-      { name: 'Retractable Screens', description: 'Motorized side screens for wind/bug protection', cost: '$3,500 – $8,000 each' },
-      { name: 'Smart Home Integration', description: 'Programming and system integration', cost: '$500 – $2,000' },
+      {
+        name: 'LED Lighting',
+        description: 'Perimeter and downlighting integrated into frame',
+        cost: '$2,000 – $5,000',
+      },
+      {
+        name: 'Infrared Heaters',
+        description: 'Ceiling-mounted radiant heat systems',
+        cost: '$1,500 – $4,000 each',
+      },
+      {
+        name: 'Retractable Screens',
+        description: 'Motorized side screens for wind/bug protection',
+        cost: '$3,500 – $8,000 each',
+      },
+      {
+        name: 'Smart Home Integration',
+        description: 'Programming and system integration',
+        cost: '$500 – $2,000',
+      },
     ],
   },
 ];
@@ -178,7 +239,8 @@ const comparisonData = [
     feature: 'Frame Material',
     premium: '6061-T6/6063-T5 aluminum alloy, 2mm+ wall thickness',
     bigBox: 'Stamped aluminum or steel, <1mm wall thickness',
-    difference: 'Premium systems last 25+ years; big-box often shows wear in 5-7 years',
+    difference:
+      'Premium systems last 25+ years; big-box often shows wear in 5-7 years',
   },
   {
     feature: 'Wind Rating',
@@ -223,25 +285,29 @@ const roiPoints = [
   {
     icon: Home,
     title: 'Appraised Value',
-    description: 'Unlike temporary structures, permanent aluminum pergolas are appraised as improvements, similar to a high-end deck or sunroom.',
+    description:
+      'Unlike temporary structures, permanent aluminum pergolas are appraised as improvements, similar to a high-end deck or sunroom.',
     value: '60-80% cost recovery',
   },
   {
     icon: Ruler,
     title: 'Added Square Footage',
-    description: 'Creates usable outdoor living space that functions as an extension of your home. Cost per square foot is significantly less than an addition.',
+    description:
+      'Creates usable outdoor living space that functions as an extension of your home. Cost per square foot is significantly less than an addition.',
     value: '$150-250/sq ft vs. $300-500+ for room addition',
   },
   {
     icon: Building2,
     title: 'Commercial ROI',
-    description: 'For restaurants and hospitality, each outdoor seat generates revenue. Systems often pay for themselves in 1-2 seasons.',
+    description:
+      'For restaurants and hospitality, each outdoor seat generates revenue. Systems often pay for themselves in 1-2 seasons.',
     value: '$150K+ annual revenue increase typical',
   },
   {
     icon: TrendingUp,
     title: 'Depreciation vs. Appreciation',
-    description: 'Cheap alternatives depreciate immediately and require replacement. Premium systems maintain value and performance.',
+    description:
+      'Cheap alternatives depreciate immediately and require replacement. Premium systems maintain value and performance.',
     value: '25+ year lifespan vs. 5-7 years',
   },
 ];
@@ -249,36 +315,46 @@ const roiPoints = [
 // FAQs
 const faqs = [
   {
-    question: 'Why do motorized pergolas cost so much more than basic pergolas from home improvement stores?',
-    answer: 'The difference is engineering, materials, and longevity. A $3,000 big-box pergola uses thin stamped aluminum with no wind or snow rating, generic motors, and no integrated drainage. It may last 5-7 years before showing significant wear. A premium motorized system uses aircraft-grade aluminum (6061-T6), is engineered for 100+ mph winds and heavy snow loads, includes internal gutter systems, and uses commercial-grade Somfy motors. These systems last 25+ years with minimal maintenance. You are not just buying shade—you are buying a permanent architectural improvement to your home.',
+    question:
+      'Why do motorized pergolas cost so much more than basic pergolas from home improvement stores?',
+    answer:
+      'The difference is engineering, materials, and longevity. A $3,000 big-box pergola uses thin stamped aluminum with no wind or snow rating, generic motors, and no integrated drainage. It may last 5-7 years before showing significant wear. A premium motorized system uses aircraft-grade aluminum (6061-T6), is engineered for 100+ mph winds and heavy snow loads, includes internal gutter systems, and uses commercial-grade Somfy motors. These systems last 25+ years with minimal maintenance. You are not just buying shade—you are buying a permanent architectural improvement to your home.',
   },
   {
-    question: 'What is the cost per square foot for a motorized louvered pergola?',
-    answer: 'Premium motorized pergolas typically range from $120 to $200 per square foot installed, depending on features and site complexity. This compares to $15-30/sq ft for basic non-motorized aluminum pergolas and $40-80/sq ft for high-end wood structures. The per-square-foot cost decreases slightly as size increases due to economies of scale on engineering and installation mobilization.',
+    question:
+      'What is the cost per square foot for a motorized louvered pergola?',
+    answer:
+      'Premium motorized pergolas typically range from $120 to $200 per square foot installed, depending on features and site complexity. This compares to $15-30/sq ft for basic non-motorized aluminum pergolas and $40-80/sq ft for high-end wood structures. The per-square-foot cost decreases slightly as size increases due to economies of scale on engineering and installation mobilization.',
   },
   {
     question: 'Are there financing options available?',
-    answer: 'Yes, many homeowners finance pergola projects through home improvement loans, HELOCs, or specialized outdoor living financing. Some manufacturers offer promotional financing. For commercial projects, equipment financing and lease-to-own options are available. The key is treating this as a home improvement investment rather than a discretionary purchase.',
+    answer:
+      'Yes, many homeowners finance pergola projects through home improvement loans, HELOCs, or specialized outdoor living financing. Some manufacturers offer promotional financing. For commercial projects, equipment financing and lease-to-own options are available. The key is treating this as a home improvement investment rather than a discretionary purchase.',
   },
   {
     question: 'How much should I budget for unexpected costs?',
-    answer: 'We recommend budgeting an additional 10-15% contingency for site preparation, electrical work, and permitting. If your property has challenging access, requires crane rental for installation, or needs significant deck reinforcement, costs can increase. During our site assessment, we identify these factors upfront so there are no surprises.',
+    answer:
+      'We recommend budgeting an additional 10-15% contingency for site preparation, electrical work, and permitting. If your property has challenging access, requires crane rental for installation, or needs significant deck reinforcement, costs can increase. During our site assessment, we identify these factors upfront so there are no surprises.',
   },
   {
     question: 'Do premium pergolas really add home value?',
-    answer: 'Yes—when properly permitted and installed, permanent aluminum pergolas add appraised value similar to a high-end deck or sunroom. Unlike temporary structures or awnings that depreciate immediately, these are permanent improvements. Real estate agents in our markets (Chicago-Milwaukee corridor) report that homes with premium outdoor living spaces sell faster and for more money, particularly in the luxury segment.',
+    answer:
+      'Yes—when properly permitted and installed, permanent aluminum pergolas add appraised value similar to a high-end deck or sunroom. Unlike temporary structures or awnings that depreciate immediately, these are permanent improvements. Real estate agents in our markets (Chicago-Milwaukee corridor) report that homes with premium outdoor living spaces sell faster and for more money, particularly in the luxury segment.',
   },
   {
     question: 'What ongoing costs should I expect after installation?',
-    answer: 'Premium motorized pergolas are designed to be low-maintenance. Annual costs typically include: professional inspection and cleaning ($200-400/year, optional but recommended), occasional touch-up of powder coat if scratched, and eventual motor replacement after 10-15 years ($800-1,500 per motor). Compare this to wood pergolas requiring staining every 2-3 years ($1,000+) or cheap aluminum systems requiring full replacement after 5-7 years.',
+    answer:
+      'Premium motorized pergolas are designed to be low-maintenance. Annual costs typically include: professional inspection and cleaning ($200-400/year, optional but recommended), occasional touch-up of powder coat if scratched, and eventual motor replacement after 10-15 years ($800-1,500 per motor). Compare this to wood pergolas requiring staining every 2-3 years ($1,000+) or cheap aluminum systems requiring full replacement after 5-7 years.',
   },
   {
     question: 'Why is installation such a significant portion of the cost?',
-    answer: 'Proper installation requires specialized skills: precision leveling of structural posts, integration with home electrical systems, programming of smart controls, and calibration of safety sensors. We use certified installation crews—not general laborers—who understand the engineering requirements. Improper installation can void warranties, compromise structural integrity, and cause operational issues. This is not a DIY project or suitable for a general handyman.',
+    answer:
+      'Proper installation requires specialized skills: precision leveling of structural posts, integration with home electrical systems, programming of smart controls, and calibration of safety sensors. We use certified installation crews—not general laborers—who understand the engineering requirements. Improper installation can void warranties, compromise structural integrity, and cause operational issues. This is not a DIY project or suitable for a general handyman.',
   },
   {
     question: 'How do I get an accurate quote for my specific project?',
-    answer: 'Accurate quoting requires a site assessment. We need to evaluate: exact measurements and layout, soil conditions for footings, electrical access and capacity, wind exposure and snow loads for your area, and integration with existing structures. We provide fixed-price quotes after this assessment—not estimates that balloon later. Online calculators or per-square-foot pricing without site evaluation are unreliable for custom installations.',
+    answer:
+      'Accurate quoting requires a site assessment. We need to evaluate: exact measurements and layout, soil conditions for footings, electrical access and capacity, wind exposure and snow loads for your area, and integration with existing structures. We provide fixed-price quotes after this assessment—not estimates that balloon later. Online calculators or per-square-foot pricing without site evaluation are unreliable for custom installations.',
   },
 ];
 
@@ -287,27 +363,32 @@ const budgetSteps = [
   {
     number: '01',
     title: 'Define Your Space',
-    description: 'Measure your patio and determine how you will use the space. Do you need room for a dining table, lounge area, and outdoor kitchen? The size and configuration drive the base cost.',
+    description:
+      'Measure your patio and determine how you will use the space. Do you need room for a dining table, lounge area, and outdoor kitchen? The size and configuration drive the base cost.',
   },
   {
     number: '02',
     title: 'Assess Site Conditions',
-    description: 'Check electrical panel capacity (220V required), foundation needs, and access for installation. These factors significantly impact total cost.',
+    description:
+      'Check electrical panel capacity (220V required), foundation needs, and access for installation. These factors significantly impact total cost.',
   },
   {
     number: '03',
     title: 'Prioritize Features',
-    description: 'Decide which upgrades are essential vs. nice-to-have. LED lighting and heaters extend usability but add cost. Start with the core structure and plan for future additions if budget is tight.',
+    description:
+      'Decide which upgrades are essential vs. nice-to-have. LED lighting and heaters extend usability but add cost. Start with the core structure and plan for future additions if budget is tight.',
   },
   {
     number: '04',
     title: 'Get Professional Assessment',
-    description: 'Schedule a consultation for a fixed-price quote. Online estimates are unreliable for custom installations. A site visit reveals factors that affect pricing.',
+    description:
+      'Schedule a consultation for a fixed-price quote. Online estimates are unreliable for custom installations. A site visit reveals factors that affect pricing.',
   },
   {
     number: '05',
     title: 'Plan Financing & Timeline',
-    description: 'Allow 8-12 weeks from contract to completion (permits + manufacturing + installation). Arrange financing if needed and plan for the installation window.',
+    description:
+      'Allow 8-12 weeks from contract to completion (permits + manufacturing + installation). Arrange financing if needed and plan for the installation window.',
   },
 ];
 
@@ -324,7 +405,8 @@ export default function PergolaCostGuide() {
 
   const howToSchema = generateHowToSchema({
     name: 'How to Budget for a Motorized Pergola Installation',
-    description: 'Step-by-step guide to planning and budgeting for a premium motorized pergola project.',
+    description:
+      'Step-by-step guide to planning and budgeting for a premium motorized pergola project.',
     step: budgetSteps.map((step) => ({
       name: step.title,
       text: step.description,
@@ -334,12 +416,21 @@ export default function PergolaCostGuide() {
   return (
     <article className="min-h-screen">
       {/* JSON-LD Schemas */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
 
       {/* ========== HERO SECTION ========== */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-24 bg-surface-dark text-text-inverse">
+      <section className="bg-surface-dark text-text-inverse pt-32 pb-16 lg:pt-40 lg:pb-24">
         <Container>
           <div className="mb-8">
             <Breadcrumb
@@ -351,29 +442,33 @@ export default function PergolaCostGuide() {
           </div>
 
           <div className="max-w-4xl">
-            <div className="label-editorial-brand mb-6 text-edg-brand flex items-center gap-3">
-              <div className="h-px w-8 bg-edg-brand" />
+            <div className="label-editorial-brand text-edg-brand mb-6 flex items-center gap-3">
+              <div className="bg-edg-brand h-px w-8" />
               2026 Pricing Guide
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 leading-tight">
+            <h1 className="mb-8 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
               What Does a Premium
               <br />
               <span className="text-edg-brand">Pergola Cost?</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-text-inverse-muted leading-relaxed max-w-3xl mb-8">
-              A comprehensive breakdown of motorized pergola pricing. Understand why premium systems 
-              range from $25,000 to $150,000+, what drives the cost, and how to budget for a 
-              system that lasts 25+ years.
+            <p className="text-text-inverse-muted mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
+              A comprehensive breakdown of motorized pergola pricing. Understand
+              why premium systems range from $25,000 to $150,000+, what drives
+              the cost, and how to budget for a system that lasts 25+ years.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <TrackedLink href="/contact?type=consultation&product=pergola">
-                <Button size="lg">Get a Fixed-Price Quote</Button>
+              <TrackedLink href="/guides/pergola-system-fit-review">
+                <Button size="lg">Get a System Fit Review</Button>
               </TrackedLink>
               <Link href="#cost-ranges">
-                <Button variant="outline" size="lg" className="border-text-inverse/20 text-text-inverse">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-text-inverse/20 text-text-inverse"
+                >
                   See Cost Ranges
                 </Button>
               </Link>
@@ -385,42 +480,52 @@ export default function PergolaCostGuide() {
       {/* ========== WHY COSTS VARY INTRO ========== */}
       <Section className="section-lg">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <div className="label-editorial-brand mb-4">The Reality</div>
-              <h2 className="section-title mb-6">Why Pergola Costs Vary So Widely</h2>
-              <div className="space-y-4 text-text-secondary leading-relaxed">
+              <h2 className="section-title mb-6">
+                Why Pergola Costs Vary So Widely
+              </h2>
+              <div className="text-text-secondary space-y-4 leading-relaxed">
                 <p>
-                  Search "pergola cost" and you will see figures ranging from $500 for a DIY kit to 
-                  $150,000+ for custom installations. This range creates confusion for homeowners 
-                  trying to budget.
+                  Search "pergola cost" and you will see figures ranging from
+                  $500 for a DIY kit to $150,000+ for custom installations. This
+                  range creates confusion for homeowners trying to budget.
                 </p>
                 <p>
-                  The gap exists because "pergola" describes vastly different products. A $3,000 
-                  big-box aluminum structure and a $60,000 motorized louvered system share a category 
-                  name but little else in terms of engineering, materials, longevity, or performance.
+                  The gap exists because "pergola" describes vastly different
+                  products. A $3,000 big-box aluminum structure and a $60,000
+                  motorized louvered system share a category name but little
+                  else in terms of engineering, materials, longevity, or
+                  performance.
                 </p>
                 <p>
-                  <strong>This guide explains what drives pricing for premium motorized systems</strong>—the 
-                  architectural-grade pergolas we specify and install that transform outdoor spaces 
-                  into year-round living areas.
+                  <strong>
+                    This guide explains what drives pricing for premium
+                    motorized systems
+                  </strong>
+                  —the architectural-grade pergolas we specify and install that
+                  transform outdoor spaces into year-round living areas.
                 </p>
               </div>
 
-              <div className="mt-8 p-6 bg-surface-muted border-l-4 border-edg-brand">
+              <div className="bg-surface-muted border-edg-brand mt-8 border-l-4 p-6">
                 <div className="flex items-start gap-3">
-                  <AlertTriangle className="h-5 w-5 text-edg-brand-text shrink-0 mt-0.5" />
+                  <AlertTriangle className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
                   <div>
-                    <p className="font-bold text-text-primary mb-1">What This Guide Covers</p>
+                    <p className="text-text-primary mb-1 font-bold">
+                      What This Guide Covers
+                    </p>
                     <p className="text-text-secondary text-sm">
-                      Premium motorized louvered pergolas with integrated drainage, smart controls, 
-                      and engineered ratings for wind and snow. Not basic shade structures or DIY kits.
+                      Premium motorized louvered pergolas with integrated
+                      drainage, smart controls, and engineered ratings for wind
+                      and snow. Not basic shade structures or DIY kits.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
               <Image
                 src={images.brand.hero.pergola}
                 alt="Premium motorized louvered pergola installation"
@@ -436,16 +541,19 @@ export default function PergolaCostGuide() {
       {/* ========== COST RANGES SECTION ========== */}
       <Section className="section-lg bg-surface-muted" id="cost-ranges">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Ballpark Figures</div>
-            <h2 className="section-title">Premium Motorized Pergola Cost Ranges</h2>
+            <h2 className="section-title">
+              Premium Motorized Pergola Cost Ranges
+            </h2>
             <p className="text-text-secondary mt-4">
-              Installed pricing for systems we specify, including materials, engineering, permits, 
-              and professional installation. Every project is unique—these are starting points.
+              Installed pricing for systems we specify, including materials,
+              engineering, permits, and professional installation. Every project
+              is unique—these are starting points.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {costRanges.map((range) => (
               <Card
                 key={range.size}
@@ -454,19 +562,30 @@ export default function PergolaCostGuide() {
                 className={range.popular ? 'border-edg-brand relative' : ''}
               >
                 {range.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-edg-brand text-edg-dark px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                  <div className="bg-edg-brand text-edg-dark absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-xs font-bold tracking-wider uppercase">
                     Most Popular
                   </div>
                 )}
-                <h3 className="text-xl font-bold mb-2">{range.size}</h3>
-                <p className="text-text-muted text-sm mb-4">{range.dimensions}</p>
-                <div className="text-2xl font-bold text-edg-brand-text mb-4">{range.range}</div>
-                <p className="text-text-secondary text-sm mb-6">{range.description}</p>
+                <h3 className="mb-2 text-xl font-bold">{range.size}</h3>
+                <p className="text-text-muted mb-4 text-sm">
+                  {range.dimensions}
+                </p>
+                <div className="text-edg-brand-text mb-4 text-2xl font-bold">
+                  {range.range}
+                </div>
+                <p className="text-text-secondary mb-6 text-sm">
+                  {range.description}
+                </p>
                 <div className="space-y-2">
-                  <p className="text-xs font-bold uppercase tracking-wider text-text-muted">Best For</p>
+                  <p className="text-text-muted text-xs font-bold tracking-wider uppercase">
+                    Best For
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {range.bestFor.map((item) => (
-                      <span key={item} className="text-xs bg-white border border-border px-2 py-1">
+                      <span
+                        key={item}
+                        className="border-border border bg-white px-2 py-1 text-xs"
+                      >
                         {item}
                       </span>
                     ))}
@@ -477,10 +596,12 @@ export default function PergolaCostGuide() {
           </div>
 
           <div className="mt-12 text-center">
-            <p className="text-text-muted text-sm max-w-2xl mx-auto">
-              <strong>Note:</strong> These ranges are for base systems with minimal integrated features. 
-              LED lighting, heaters, retractable screens, and complex site conditions add to total investment. 
-              Schedule a consultation for a fixed-price quote specific to your project.
+            <p className="text-text-muted mx-auto max-w-2xl text-sm">
+              <strong>Note:</strong> These ranges are for base systems with
+              minimal integrated features. LED lighting, heaters, retractable
+              screens, and complex site conditions add to total investment.
+              Schedule a consultation for a fixed-price quote specific to your
+              project.
             </p>
           </div>
         </Container>
@@ -489,32 +610,36 @@ export default function PergolaCostGuide() {
       {/* ========== COST FACTORS ========== */}
       <Section className="section-lg">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">The Breakdown</div>
             <h2 className="section-title">What Drives the Cost</h2>
             <p className="text-text-secondary mt-4">
-              Understanding the four major cost categories helps you evaluate quotes and 
-              make informed decisions about where to invest.
+              Understanding the four major cost categories helps you evaluate
+              quotes and make informed decisions about where to invest.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-8 md:grid-cols-2">
             {costFactors.map((factor) => (
               <Card key={factor.title} variant="default" padding="lg">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-edg-brand/10 rounded-lg flex items-center justify-center shrink-0">
-                    <factor.icon className="h-6 w-6 text-edg-brand-text" />
+                <div className="mb-4 flex items-start gap-4">
+                  <div className="bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg">
+                    <factor.icon className="text-edg-brand-text h-6 w-6" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">{factor.title}</h3>
-                    <p className="text-edg-brand-text text-sm font-medium">{factor.impact}</p>
+                    <p className="text-edg-brand-text text-sm font-medium">
+                      {factor.impact}
+                    </p>
                   </div>
                 </div>
-                <p className="text-text-secondary mb-6 leading-relaxed">{factor.description}</p>
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  {factor.description}
+                </p>
                 <ul className="space-y-2">
                   {factor.details.map((detail) => (
                     <li key={detail} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-edg-brand-text shrink-0 mt-0.5" />
+                      <Check className="text-edg-brand-text mt-0.5 h-4 w-4 shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
@@ -528,66 +653,88 @@ export default function PergolaCostGuide() {
       {/* ========== PREMIUM VS BIG BOX COMPARISON ========== */}
       <Section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="label-editorial-brand mb-4 text-edg-brand">The Difference</div>
-            <h2 className="section-title text-text-inverse">Premium Systems vs. Big-Box Alternatives</h2>
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <div className="label-editorial-brand text-edg-brand mb-4">
+              The Difference
+            </div>
+            <h2 className="section-title text-text-inverse">
+              Premium Systems vs. Big-Box Alternatives
+            </h2>
             <p className="text-text-inverse-muted mt-4">
-              We source systems from specialized manufacturers worldwide—Belgium, Europe, and the US—to 
-              provide the highest quality options for each project. Here is how these systems compare 
-              to mass-market alternatives.
+              We source systems from specialized manufacturers
+              worldwide—Belgium, Europe, and the US—to provide the highest
+              quality options for each project. Here is how these systems
+              compare to mass-market alternatives.
             </p>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border-inverse">
-                  <th className="text-left py-4 px-4 font-bold">Feature</th>
-                  <th className="text-left py-4 px-4 font-bold text-edg-brand">Premium Systems</th>
-                  <th className="text-left py-4 px-4 font-bold text-text-inverse-muted">Big-Box / Online Kits</th>
-                  <th className="text-left py-4 px-4 font-bold">Why It Matters</th>
+                <tr className="border-border-inverse border-b">
+                  <th className="px-4 py-4 text-left font-bold">Feature</th>
+                  <th className="text-edg-brand px-4 py-4 text-left font-bold">
+                    Premium Systems
+                  </th>
+                  <th className="text-text-inverse-muted px-4 py-4 text-left font-bold">
+                    Big-Box / Online Kits
+                  </th>
+                  <th className="px-4 py-4 text-left font-bold">
+                    Why It Matters
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonData.map((row, index) => (
-                  <tr key={row.feature} className={index % 2 === 0 ? 'bg-white/5' : ''}>
-                    <td className="py-4 px-4 font-medium">{row.feature}</td>
-                    <td className="py-4 px-4 text-edg-brand">
+                  <tr
+                    key={row.feature}
+                    className={index % 2 === 0 ? 'bg-white/5' : ''}
+                  >
+                    <td className="px-4 py-4 font-medium">{row.feature}</td>
+                    <td className="text-edg-brand px-4 py-4">
                       <div className="flex items-start gap-2">
-                        <Check className="h-4 w-4 shrink-0 mt-0.5" />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0" />
                         <span>{row.premium}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 text-text-inverse-muted">
+                    <td className="text-text-inverse-muted px-4 py-4">
                       <div className="flex items-start gap-2">
-                        <X className="h-4 w-4 shrink-0 mt-0.5" />
+                        <X className="mt-0.5 h-4 w-4 shrink-0" />
                         <span>{row.bigBox}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 text-text-inverse-muted text-sm">{row.difference}</td>
+                    <td className="text-text-inverse-muted px-4 py-4 text-sm">
+                      {row.difference}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
 
-          <div className="mt-12 grid md:grid-cols-2 gap-8">
-            <div className="bg-edg-brand/10 border border-edg-brand/20 p-6">
-              <h3 className="font-bold text-lg mb-3 text-edg-brand">The Premium Advantage</h3>
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            <div className="bg-edg-brand/10 border-edg-brand/20 border p-6">
+              <h3 className="text-edg-brand mb-3 text-lg font-bold">
+                The Premium Advantage
+              </h3>
               <p className="text-text-inverse-muted text-sm leading-relaxed">
-                Our global sourcing gives clients access to the best engineering from around the world. 
-                Belgian systems with superior wind ratings. American manufacturing for faster lead times. 
-                European water management technology. We match the right system to your specific needs 
-                and location—not whatever we have in inventory.
+                Our global sourcing gives clients access to the best engineering
+                from around the world. Belgian systems with superior wind
+                ratings. American manufacturing for faster lead times. European
+                water management technology. We match the right system to your
+                specific needs and location—not whatever we have in inventory.
               </p>
             </div>
             <div className="border border-white/10 p-6">
-              <h3 className="font-bold text-lg mb-3 text-text-inverse">The True Cost of Cheap</h3>
+              <h3 className="text-text-inverse mb-3 text-lg font-bold">
+                The True Cost of Cheap
+              </h3>
               <p className="text-text-inverse-muted text-sm leading-relaxed">
-                A $5,000 kit that lasts 5 years costs $1,000/year. A $50,000 premium system lasting 
-                25 years costs $2,000/year—but adds home value, provides superior performance, and 
-                never needs replacement. When you factor in replacement costs and lost home value, 
-                the "cheap" option often costs more.
+                A $5,000 kit that lasts 5 years costs $1,000/year. A $50,000
+                premium system lasting 25 years costs $2,000/year—but adds home
+                value, provides superior performance, and never needs
+                replacement. When you factor in replacement costs and lost home
+                value, the "cheap" option often costs more.
               </p>
             </div>
           </div>
@@ -597,28 +744,34 @@ export default function PergolaCostGuide() {
       {/* ========== HIDDEN COSTS ========== */}
       <Section className="section-lg">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Budget Planning</div>
             <h2 className="section-title">Hidden Costs to Consider</h2>
             <p className="text-text-secondary mt-4">
-              The pergola itself is just one component. Here are additional costs that impact 
-              your total project investment.
+              The pergola itself is just one component. Here are additional
+              costs that impact your total project investment.
             </p>
           </div>
 
           <div className="space-y-12">
             {hiddenCosts.map((category) => (
               <div key={category.category}>
-                <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <DollarSign className="h-5 w-5 text-edg-brand-text" />
+                <h3 className="mb-6 flex items-center gap-3 text-xl font-bold">
+                  <DollarSign className="text-edg-brand-text h-5 w-5" />
                   {category.category}
                 </h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                   {category.items.map((item) => (
                     <Card key={item.name} variant="muted" padding="md">
-                      <p className="font-bold text-text-primary mb-1">{item.name}</p>
-                      <p className="text-edg-brand-text font-medium mb-2">{item.cost}</p>
-                      <p className="text-text-secondary text-sm">{item.description}</p>
+                      <p className="text-text-primary mb-1 font-bold">
+                        {item.name}
+                      </p>
+                      <p className="text-edg-brand-text mb-2 font-medium">
+                        {item.cost}
+                      </p>
+                      <p className="text-text-secondary text-sm">
+                        {item.description}
+                      </p>
                     </Card>
                   ))}
                 </div>
@@ -626,15 +779,18 @@ export default function PergolaCostGuide() {
             ))}
           </div>
 
-          <div className="mt-12 p-6 bg-amber-50 border border-amber-200">
+          <div className="mt-12 border border-amber-200 bg-amber-50 p-6">
             <div className="flex items-start gap-4">
-              <AlertTriangle className="h-6 w-6 text-amber-600 shrink-0 mt-0.5" />
+              <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-amber-600" />
               <div>
-                <h4 className="font-bold text-amber-900 mb-2">Budget Recommendation</h4>
-                <p className="text-amber-800 text-sm leading-relaxed">
-                  Plan for a 10-15% contingency on top of your base pergola cost. Site conditions, 
-                  electrical requirements, and permit complexities vary significantly. During our 
-                  site assessment, we identify these factors and provide a fixed-price quote with 
+                <h4 className="mb-2 font-bold text-amber-900">
+                  Budget Recommendation
+                </h4>
+                <p className="text-sm leading-relaxed text-amber-800">
+                  Plan for a 10-15% contingency on top of your base pergola
+                  cost. Site conditions, electrical requirements, and permit
+                  complexities vary significantly. During our site assessment,
+                  we identify these factors and provide a fixed-price quote with
                   no surprises.
                 </p>
               </div>
@@ -646,26 +802,32 @@ export default function PergolaCostGuide() {
       {/* ========== ROI SECTION ========== */}
       <Section className="section-lg bg-surface-muted">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="label-editorial-brand mb-4">Investment Perspective</div>
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Investment Perspective
+            </div>
             <h2 className="section-title">Value, ROI & Long-Term Costs</h2>
             <p className="text-text-secondary mt-4">
-              A premium pergola is not an expense—it is an investment in usable living space 
-              and property value.
+              A premium pergola is not an expense—it is an investment in usable
+              living space and property value.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="mb-12 grid gap-8 md:grid-cols-2">
             {roiPoints.map((point) => (
               <Card key={point.title} variant="default" padding="lg">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-edg-brand/10 rounded-lg flex items-center justify-center shrink-0">
-                    <point.icon className="h-6 w-6 text-edg-brand-text" />
+                  <div className="bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg">
+                    <point.icon className="text-edg-brand-text h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold mb-2">{point.title}</h3>
-                    <p className="text-text-secondary text-sm mb-3 leading-relaxed">{point.description}</p>
-                    <p className="text-edg-brand-text font-bold">{point.value}</p>
+                    <h3 className="mb-2 text-lg font-bold">{point.title}</h3>
+                    <p className="text-text-secondary mb-3 text-sm leading-relaxed">
+                      {point.description}
+                    </p>
+                    <p className="text-edg-brand-text font-bold">
+                      {point.value}
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -674,30 +836,44 @@ export default function PergolaCostGuide() {
 
           {/* Cost comparison over time */}
           <Card variant="dark" padding="lg">
-            <h3 className="text-xl font-bold mb-6 text-text-inverse">25-Year Cost Comparison</h3>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h3 className="text-text-inverse mb-6 text-xl font-bold">
+              25-Year Cost Comparison
+            </h3>
+            <div className="grid gap-8 md:grid-cols-3">
               <div className="text-center">
-                <p className="text-text-inverse-muted text-sm mb-2">Big-Box Kit</p>
-                <p className="text-3xl font-bold text-text-inverse mb-2">$15K–25K</p>
+                <p className="text-text-inverse-muted mb-2 text-sm">
+                  Big-Box Kit
+                </p>
+                <p className="text-text-inverse mb-2 text-3xl font-bold">
+                  $15K–25K
+                </p>
                 <p className="text-text-inverse-muted text-xs">
-                  Replace 3-4 times over 25 years. No value added to home. 
+                  Replace 3-4 times over 25 years. No value added to home.
                   Depreciates immediately.
                 </p>
               </div>
-              <div className="text-center border-x border-border-inverse">
-                <p className="text-text-inverse-muted text-sm mb-2">Mid-Range System</p>
-                <p className="text-3xl font-bold text-text-inverse mb-2">$40K–60K</p>
+              <div className="border-border-inverse border-x text-center">
+                <p className="text-text-inverse-muted mb-2 text-sm">
+                  Mid-Range System
+                </p>
+                <p className="text-text-inverse mb-2 text-3xl font-bold">
+                  $40K–60K
+                </p>
                 <p className="text-text-inverse-muted text-xs">
-                  Replace once after 12-15 years. Moderate home value increase. 
+                  Replace once after 12-15 years. Moderate home value increase.
                   Better performance.
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-edg-brand text-sm mb-2 font-bold">Premium System</p>
-                <p className="text-3xl font-bold text-edg-brand mb-2">$50K–75K</p>
+                <p className="text-edg-brand mb-2 text-sm font-bold">
+                  Premium System
+                </p>
+                <p className="text-edg-brand mb-2 text-3xl font-bold">
+                  $50K–75K
+                </p>
                 <p className="text-text-inverse-muted text-xs">
-                  Lasts 25+ years. Adds $30K–50K in home value. 
-                  Superior performance entire lifespan.
+                  Lasts 25+ years. Adds $30K–50K in home value. Superior
+                  performance entire lifespan.
                 </p>
               </div>
             </div>
@@ -708,9 +884,11 @@ export default function PergolaCostGuide() {
       {/* ========== HOW TO BUDGET ========== */}
       <Section className="section-lg">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Planning Guide</div>
-            <h2 className="section-title">How to Budget for Your Pergola Project</h2>
+            <h2 className="section-title">
+              How to Budget for Your Pergola Project
+            </h2>
             <p className="text-text-secondary mt-4">
               Follow these steps to plan a realistic budget and avoid surprises.
             </p>
@@ -720,16 +898,18 @@ export default function PergolaCostGuide() {
             {budgetSteps.map((step, index) => (
               <div key={step.number} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-edg-brand text-edg-dark rounded-full flex items-center justify-center font-bold text-lg">
+                  <div className="bg-edg-brand text-edg-dark flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold">
                     {step.number}
                   </div>
                   {index < budgetSteps.length - 1 && (
-                    <div className="w-px h-full bg-border mt-4" />
+                    <div className="bg-border mt-4 h-full w-px" />
                   )}
                 </div>
                 <div className="pb-8">
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-text-secondary leading-relaxed">{step.description}</p>
+                  <h3 className="mb-2 text-xl font-bold">{step.title}</h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -740,8 +920,8 @@ export default function PergolaCostGuide() {
       {/* ========== FAQ SECTION ========== */}
       <Section className="section-lg bg-surface-muted">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Common Questions</div>
               <h2 className="section-title">Pergola Cost FAQs</h2>
             </div>
@@ -749,11 +929,13 @@ export default function PergolaCostGuide() {
             <div className="space-y-6">
               {faqs.map((faq, index) => (
                 <Card key={index} variant="default" padding="lg">
-                  <h3 className="text-lg font-bold mb-3 flex items-start gap-3">
-                    <HelpCircle className="h-5 w-5 text-edg-brand-text shrink-0 mt-0.5" />
+                  <h3 className="mb-3 flex items-start gap-3 text-lg font-bold">
+                    <HelpCircle className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
                     {faq.question}
                   </h3>
-                  <p className="text-text-secondary leading-relaxed">{faq.answer}</p>
+                  <p className="text-text-secondary leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -764,49 +946,67 @@ export default function PergolaCostGuide() {
       {/* ========== RELATED GUIDES ========== */}
       <Section className="section-md">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
             <div className="label-editorial-brand mb-4">Continue Learning</div>
             <h2 className="section-title">Related Guides</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/guides/louvered-pergolas" className="group">
-              <Card variant="muted" padding="lg" className="h-full group-hover:border-edg-brand/30 transition-colors">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Complete Guide to Louvered Pergolas
+          <div className="grid gap-6 md:grid-cols-3">
+            <Link href="/guides/motorized-pergola-planning" className="group">
+              <Card
+                variant="muted"
+                padding="lg"
+                className="group-hover:border-edg-brand/30 h-full transition-colors"
+              >
+                <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
+                  Motorized Pergola Planning Guide
                 </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Everything about features, benefits, and how these systems work.
+                <p className="text-text-secondary mb-4 text-sm">
+                  Cost, fit, drainage, controls, accessories, and project
+                  constraints.
                 </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                   Read Guide <ArrowRight className="h-4 w-4" />
                 </div>
               </Card>
             </Link>
 
-            <Link href="/guides/louvered-pergola-brands-compared" className="group">
-              <Card variant="muted" padding="lg" className="h-full group-hover:border-edg-brand/30 transition-colors">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Pergola Brands Compared
+            <Link
+              href="/guides/louvered-pergola-brands-compared"
+              className="group"
+            >
+              <Card
+                variant="muted"
+                padding="lg"
+                className="group-hover:border-edg-brand/30 h-full transition-colors"
+              >
+                <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
+                  How EDG Chooses a Pergola System
                 </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Brustor vs. Azenco vs. Sundance—how we match systems to projects.
+                <p className="text-text-secondary mb-4 text-sm">
+                  Brustor vs. Azenco vs. Sundance—how we match systems to
+                  projects.
                 </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                   Read Guide <ArrowRight className="h-4 w-4" />
                 </div>
               </Card>
             </Link>
 
             <Link href="/guides/pergola-vs-patio-cover" className="group">
-              <Card variant="muted" padding="lg" className="h-full group-hover:border-edg-brand/30 transition-colors">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
+              <Card
+                variant="muted"
+                padding="lg"
+                className="group-hover:border-edg-brand/30 h-full transition-colors"
+              >
+                <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
                   Pergola vs. Patio Cover
                 </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Understanding the differences and which is right for your home.
+                <p className="text-text-secondary mb-4 text-sm">
+                  Understanding the differences and which is right for your
+                  home.
                 </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
+                <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                   Read Guide <ArrowRight className="h-4 w-4" />
                 </div>
               </Card>
@@ -818,15 +1018,18 @@ export default function PergolaCostGuide() {
       {/* ========== CTA SECTION ========== */}
       <Section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get a Fixed-Price Quote?</h2>
-            <p className="text-text-inverse-muted text-lg mb-8">
-              Every project is unique. Contact us for a site assessment and detailed quote 
-              specific to your space, needs, and budget.
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+              Need a Project-Specific Budget Range?
+            </h2>
+            <p className="text-text-inverse-muted mb-8 text-lg">
+              Send photos, rough dimensions, location, budget, and what the
+              space needs to do. EDG will help identify the likely system
+              direction and budget band before a detailed proposal.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <TrackedLink href="/contact?type=consultation&product=pergola">
-                <Button size="lg">Schedule Free Consultation</Button>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <TrackedLink href="/guides/pergola-system-fit-review">
+                <Button size="lg">Get a System Fit Review</Button>
               </TrackedLink>
               <TrackedLink href="/systems/pergolas/configure">
                 <Button
@@ -834,7 +1037,8 @@ export default function PergolaCostGuide() {
                   size="lg"
                   className="border-text-inverse/20 text-text-inverse hover:bg-text-inverse/10"
                 >
-                  Configure & Price in 3D <ArrowRight className="ml-2 h-4 w-4" />
+                  Configure & Price in 3D{' '}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
               <TrackedLink href="/systems/pergolas">
@@ -843,13 +1047,17 @@ export default function PergolaCostGuide() {
                   size="lg"
                   className="border-text-inverse/20 text-text-inverse hover:bg-text-inverse/10"
                 >
-                  Explore Pergola Systems <ArrowRight className="ml-2 h-4 w-4" />
+                  Explore Pergola Systems{' '}
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
             </div>
-            <p className="text-text-inverse-muted text-sm mt-6">
+            <p className="text-text-inverse-muted mt-6 text-sm">
               Or call us at{' '}
-              <a href="tel:8155810138" className="text-edg-brand hover:underline">
+              <a
+                href="tel:8155810138"
+                className="text-edg-brand hover:underline"
+              >
                 (815) 581-0138
               </a>{' '}
               to discuss your project.

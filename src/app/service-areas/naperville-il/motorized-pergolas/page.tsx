@@ -169,9 +169,10 @@ export default function NapervilleMotorizedPergolas() {
                 Naperville.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?area=naperville&product=motorized_pergola">
+                <Link href="/guides/pergola-system-fit-review?area=naperville&source=naperville_pergola_page">
                   <Button size="lg" className="rounded-full">
-                    Get Pricing & Proposal <ArrowRight className="ml-2 h-5 w-5" />
+                    Get a System Fit Review{' '}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
@@ -395,9 +396,10 @@ export default function NapervilleMotorizedPergolas() {
                 proposal tailored to your Naperville property.
               </p>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                <Link href="/contact?area=naperville&product=motorized_pergola">
+                <Link href="/guides/pergola-system-fit-review?area=naperville&source=naperville_pergola_bottom">
                   <Button size="lg" className="rounded-full">
-                    Get Your Free Proposal <ArrowRight className="ml-2 h-5 w-5" />
+                    Start Your Fit Review{' '}
+                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/contact">
