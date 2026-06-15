@@ -67,6 +67,10 @@ function toggleValue(list: string[], value: string) {
     : [...list, value];
 }
 
+function optionId(group: string, value: string) {
+  return `${group}-${value.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+}
+
 function buildMessage(data: ReviewFormData, inboundContext?: string) {
   return [
     'Pergola System Fit Review request',
@@ -149,10 +153,14 @@ export function SystemFitReviewForm() {
     <form onSubmit={handleSubmit} className="space-y-8">
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-first-name"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             First name
           </label>
           <input
+            id="system-fit-first-name"
             name="firstName"
             value={formData.firstName}
             onChange={handleFieldChange}
@@ -163,10 +171,14 @@ export function SystemFitReviewForm() {
           />
         </div>
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-last-name"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Last name
           </label>
           <input
+            id="system-fit-last-name"
             name="lastName"
             value={formData.lastName}
             onChange={handleFieldChange}
@@ -180,10 +192,14 @@ export function SystemFitReviewForm() {
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-email"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Email
           </label>
           <input
+            id="system-fit-email"
             name="email"
             type="email"
             value={formData.email}
@@ -195,10 +211,14 @@ export function SystemFitReviewForm() {
           />
         </div>
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-phone"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Phone
           </label>
           <input
+            id="system-fit-phone"
             name="phone"
             type="tel"
             value={formData.phone}
@@ -212,10 +232,14 @@ export function SystemFitReviewForm() {
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-location"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Project city or ZIP
           </label>
           <input
+            id="system-fit-location"
             name="location"
             value={formData.location}
             onChange={handleFieldChange}
@@ -227,10 +251,14 @@ export function SystemFitReviewForm() {
           />
         </div>
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-customer-type"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Project type
           </label>
           <select
+            id="system-fit-customer-type"
             name="customerType"
             value={formData.customerType}
             onChange={handleFieldChange}
@@ -246,10 +274,14 @@ export function SystemFitReviewForm() {
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-project-surface"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Where will it go?
           </label>
           <select
+            id="system-fit-project-surface"
             name="projectSurface"
             value={formData.projectSurface}
             onChange={handleFieldChange}
@@ -270,10 +302,14 @@ export function SystemFitReviewForm() {
           </select>
         </div>
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-rough-size"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Rough size
           </label>
           <input
+            id="system-fit-rough-size"
             name="roughSize"
             value={formData.roughSize}
             onChange={handleFieldChange}
@@ -286,10 +322,14 @@ export function SystemFitReviewForm() {
 
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-budget-range"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Budget range
           </label>
           <select
+            id="system-fit-budget-range"
             name="budgetRange"
             value={formData.budgetRange}
             onChange={handleFieldChange}
@@ -306,10 +346,14 @@ export function SystemFitReviewForm() {
           </select>
         </div>
         <div>
-          <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+          <label
+            htmlFor="system-fit-timeline"
+            className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+          >
             Timing
           </label>
           <select
+            id="system-fit-timeline"
             name="timeline"
             value={formData.timeline}
             onChange={handleFieldChange}
@@ -329,58 +373,74 @@ export function SystemFitReviewForm() {
         </div>
       </div>
 
-      <div>
-        <div className="mb-3 text-xs font-bold tracking-widest text-gray-500 uppercase">
+      <fieldset className="border-0 p-0">
+        <legend className="mb-3 text-xs font-bold tracking-widest text-gray-500 uppercase">
           Desired features
-        </div>
+        </legend>
         <div className="grid gap-3 sm:grid-cols-2">
-          {featureOptions.map((feature) => (
-            <label
-              key={feature}
-              className="flex cursor-pointer items-center gap-3 border border-black/10 p-3 text-sm font-medium text-black transition-colors hover:border-black"
-            >
-              <input
-                type="checkbox"
-                checked={formData.features.includes(feature)}
-                onChange={() => handleToggle('features', feature)}
-                disabled={loading}
-                className="h-4 w-4 accent-black"
-              />
-              {feature}
-            </label>
-          ))}
-        </div>
-      </div>
+          {featureOptions.map((feature) => {
+            const id = optionId('system-fit-feature', feature);
 
-      <div>
-        <div className="mb-3 text-xs font-bold tracking-widest text-gray-500 uppercase">
+            return (
+              <label
+                key={feature}
+                htmlFor={id}
+                className="flex cursor-pointer items-center gap-3 border border-black/10 p-3 text-sm font-medium text-black transition-colors hover:border-black"
+              >
+                <input
+                  id={id}
+                  type="checkbox"
+                  checked={formData.features.includes(feature)}
+                  onChange={() => handleToggle('features', feature)}
+                  disabled={loading}
+                  className="h-4 w-4 accent-black"
+                />
+                {feature}
+              </label>
+            );
+          })}
+        </div>
+      </fieldset>
+
+      <fieldset className="border-0 p-0">
+        <legend className="mb-3 text-xs font-bold tracking-widest text-gray-500 uppercase">
           Known concerns
-        </div>
+        </legend>
         <div className="grid gap-3 sm:grid-cols-2">
-          {concernOptions.map((concern) => (
-            <label
-              key={concern}
-              className="flex cursor-pointer items-center gap-3 border border-black/10 p-3 text-sm font-medium text-black transition-colors hover:border-black"
-            >
-              <input
-                type="checkbox"
-                checked={formData.concerns.includes(concern)}
-                onChange={() => handleToggle('concerns', concern)}
-                disabled={loading}
-                className="h-4 w-4 accent-black"
-              />
-              {concern}
-            </label>
-          ))}
+          {concernOptions.map((concern) => {
+            const id = optionId('system-fit-concern', concern);
+
+            return (
+              <label
+                key={concern}
+                htmlFor={id}
+                className="flex cursor-pointer items-center gap-3 border border-black/10 p-3 text-sm font-medium text-black transition-colors hover:border-black"
+              >
+                <input
+                  id={id}
+                  type="checkbox"
+                  checked={formData.concerns.includes(concern)}
+                  onChange={() => handleToggle('concerns', concern)}
+                  disabled={loading}
+                  className="h-4 w-4 accent-black"
+                />
+                {concern}
+              </label>
+            );
+          })}
         </div>
-      </div>
+      </fieldset>
 
       <div>
-        <label className="mb-2 flex items-center gap-2 text-xs font-bold tracking-widest text-gray-500 uppercase">
+        <label
+          htmlFor="system-fit-photo-links"
+          className="mb-2 flex items-center gap-2 text-xs font-bold tracking-widest text-gray-500 uppercase"
+        >
           <Upload className="h-4 w-4" />
           Photo links or plan notes
         </label>
         <textarea
+          id="system-fit-photo-links"
           name="photoLinks"
           value={formData.photoLinks}
           onChange={handleFieldChange}
@@ -392,10 +452,14 @@ export function SystemFitReviewForm() {
       </div>
 
       <div>
-        <label className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase">
+        <label
+          htmlFor="system-fit-project-goal"
+          className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+        >
           What does the space need to do?
         </label>
         <textarea
+          id="system-fit-project-goal"
           name="projectGoal"
           value={formData.projectGoal}
           onChange={handleFieldChange}
