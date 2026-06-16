@@ -136,7 +136,7 @@ function getAttachmentSummaryHtml(attachments: LeadAttachment[]): string {
   return `
     <hr />
     <h3>Uploaded Photos:</h3>
-    <p>${attachments.length} photo${attachments.length === 1 ? '' : 's'} attached to this notification email.</p>
+    <p>${attachments.length} photo${attachments.length === 1 ? '' : 's'} stored on the Rainmaker lead and attached to this notification email.</p>
     <ul>${items}</ul>
   `;
 }
@@ -355,6 +355,85 @@ async function createRainmakerLead(
   };
 }
 
+function getRainmakerLeadId(leadRecord: LeadRecord): string | null {
+  return leadRecord.id.startsWith('rainmaker:')
+    ? leadRecord.id.slice('rainmaker:'.length)
+    : null;
+}
+
+function getRainmakerAttachmentUploadUrl(leadId: string): string | null {
+  if (process.env.RAINMAKER_BASE_URL) {
+    return `${process.env.RAINMAKER_BASE_URL.replace(/\/$/, '')}/api/leads/${leadId}/attachments`;
+  }
+
+  const intakeUrl = getRainmakerLeadIntakeUrl();
+  if (!intakeUrl?.endsWith('/api/leads/intake')) {
+    return null;
+  }
+
+  return `${intakeUrl.slice(0, -'/api/leads/intake'.length)}/api/leads/${leadId}/attachments`;
+}
+
+async function uploadRainmakerLeadAttachments({
+  leadRecord,
+  attachments,
+  source,
+}: {
+  leadRecord: LeadRecord;
+  attachments: LeadAttachment[];
+  source?: string;
+}) {
+  if (attachments.length === 0) return null;
+
+  const leadId = getRainmakerLeadId(leadRecord);
+  const apiKey = process.env.RAINMAKER_API_KEY;
+
+  if (!leadId || !apiKey) {
+    throw new Error('Rainmaker lead attachment upload is not configured');
+  }
+
+  const uploadUrl = getRainmakerAttachmentUploadUrl(leadId);
+  if (!uploadUrl) {
+    throw new Error('Rainmaker lead attachment endpoint could not be resolved');
+  }
+
+  const formData = new FormData();
+  formData.append('source', source || 'website');
+  formData.append('submissionId', `${leadId}-${Date.now()}`);
+
+  attachments.forEach((attachment) => {
+    const buffer = Buffer.from(attachment.content, 'base64');
+    const blob = new Blob([new Uint8Array(buffer)], {
+      type: attachment.contentType,
+    });
+    formData.append('attachments', blob, attachment.filename);
+  });
+
+  const headers: Record<string, string> = {
+    Authorization: `Bearer ${apiKey}`,
+  };
+
+  if (process.env.RAINMAKER_VERCEL_BYPASS) {
+    headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
+  }
+
+  const response = await fetch(uploadUrl, {
+    method: 'POST',
+    headers,
+    body: formData,
+  });
+
+  const result = await response.json().catch(() => null);
+
+  if (!response.ok || !result?.success) {
+    throw new Error(
+      result?.message || `Rainmaker lead attachment upload failed with ${response.status}`
+    );
+  }
+
+  return result;
+}
+
 async function createLeadRecord(
   lead: Omit<LeadSubmission, 'fax'>
 ): Promise<LeadRecord> {
@@ -540,18 +619,6 @@ export async function POST(request: NextRequest) {
 
     const resendApiKey = process.env.RESEND_API_KEY;
 
-    if (leadAttachments.length > 0 && !resendApiKey) {
-      return NextResponse.json(
-        {
-          success: false,
-          errors: [
-            'Photo uploads are temporarily unavailable. Please paste a photo link or submit without photos.',
-          ],
-        },
-        { status: 503 }
-      );
-    }
-
     const leadRecord = await createLeadRecord({
       email,
       firstName,
@@ -566,6 +633,14 @@ export async function POST(request: NextRequest) {
 
     const leadId = leadRecord.id;
     const timestamp = leadRecord.created_at;
+
+    if (leadAttachments.length > 0) {
+      await uploadRainmakerLeadAttachments({
+        leadRecord,
+        attachments: leadAttachments,
+        source,
+      });
+    }
 
     // Email notification via Resend
     const notificationRecipients = getNotificationRecipients();

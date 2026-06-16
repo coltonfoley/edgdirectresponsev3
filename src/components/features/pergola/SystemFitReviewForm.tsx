@@ -192,7 +192,7 @@ function buildMessage(
     `Desired features: ${data.features.length ? data.features.join(', ') : 'Not provided'}`,
     `Site concerns: ${data.concerns.length ? data.concerns.join(', ') : 'Not provided'}`,
     photos.length
-      ? `Uploaded photos: ${photos.length} attached to the internal lead notification (${photos
+      ? `Uploaded photos: ${photos.length} included with the Rainmaker lead (${photos
           .map((photo) => `${photo.name}, ${formatBytes(photo.size)}`)
           .join('; ')})`
       : 'Uploaded photos: None',

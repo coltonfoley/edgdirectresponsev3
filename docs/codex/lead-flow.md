@@ -8,8 +8,11 @@ Verified against the repo on 2026-06-07.
 2. `useLeadSubmission` posts to `/api/leads`.
 3. `/api/leads` validates and rate-limits the submission.
 4. Accepted leads are forwarded to Rainmaker.
-5. The website returns the Rainmaker-backed lead id to the client.
-6. Resend may send admin notifications and optional follow-up emails when
+5. If the submission includes compressed lead photos, `/api/leads` uploads those
+   photos to the Rainmaker lead attachment endpoint after Rainmaker returns the
+   lead id.
+6. The website returns the Rainmaker-backed lead id to the client.
+7. Resend may send admin notifications and optional follow-up emails when
    configured.
 
 ## Source Files
@@ -52,6 +55,8 @@ preview intake.
 - Confirm the form posts to `/api/leads`.
 - Confirm `/api/leads` still requires Rainmaker config.
 - Confirm accepted leads still use `storage: 'rainmaker'`.
+- For photo uploads, confirm the Rainmaker lead receives attachment metadata and
+  the images are not only present on the admin notification email.
 - Confirm failure states are clear and do not silently drop real leads.
 - Confirm analytics/event tracking still fires only after a real successful
   submission.

@@ -1,3 +1,16 @@
+export interface RainmakerLeadAttachment {
+  id: number;
+  accountId: number;
+  filename: string;
+  originalName: string;
+  storageUrl: string;
+  fileSize?: number | null;
+  mimeType: string;
+  source?: string | null;
+  displayOrder?: number | null;
+  uploadedAt?: string | null;
+}
+
 export interface RainmakerLead {
   id: number;
   name?: string | null;
@@ -17,6 +30,8 @@ export interface RainmakerLead {
   leadMessage?: string | null;
   leadReceivedAt?: string | null;
   createdAt?: string | null;
+  attachments?: RainmakerLeadAttachment[];
+  leadAttachments?: RainmakerLeadAttachment[];
 }
 
 export interface LegacyLead {
@@ -31,6 +46,7 @@ export interface LegacyLead {
   source?: string;
   customer_type?: string;
   created_at: string;
+  attachments?: RainmakerLeadAttachment[];
 }
 
 export function getRainmakerLeadIntakeUrl(): string | null {
@@ -146,5 +162,8 @@ export function toLegacyLead(lead: RainmakerLead): LegacyLead {
     source: lead.leadSource || 'website',
     customer_type: lead.accountType || undefined,
     created_at: getLeadDate(lead),
+    attachments: lead.leadAttachments?.length
+      ? lead.leadAttachments
+      : lead.attachments || [],
   };
 }
