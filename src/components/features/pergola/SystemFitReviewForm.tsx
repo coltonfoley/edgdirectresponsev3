@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, Check, Upload } from 'lucide-react';
+import { ArrowRight, Check, Upload, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 
@@ -26,6 +26,14 @@ const concernOptions = [
   'Electrical routing',
   'Budget fit',
 ];
+
+const allowedPhotoTypes = ['image/jpeg', 'image/png', 'image/webp'];
+const maxPhotoCount = 4;
+const maxSourcePhotoBytes = 12 * 1024 * 1024;
+const maxPreparedPhotoBytes = 900 * 1024;
+const maxTotalPhotoBytes = 3.4 * 1024 * 1024;
+const photoTargetWidth = 1600;
+const compressionQualities = [0.78, 0.68, 0.58];
 
 type ReviewFormData = {
   firstName: string;
@@ -71,7 +79,108 @@ function optionId(group: string, value: string) {
   return `${group}-${value.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 }
 
-function buildMessage(data: ReviewFormData, inboundContext?: string) {
+function formatBytes(bytes: number) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function getPhotoFilename(file: File) {
+  const safeName = file.name
+    .replace(/\.[^.]+$/, '')
+    .replace(/[^a-z0-9_-]+/gi, '-');
+  return `${safeName || 'edg-site-photo'}.jpg`;
+}
+
+function loadImage(file: File) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
+    const image = new Image();
+    const url = URL.createObjectURL(file);
+
+    image.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(image);
+    };
+
+    image.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error('Photo could not be read.'));
+    };
+
+    image.src = url;
+  });
+}
+
+function canvasToBlob(canvas: HTMLCanvasElement, quality: number) {
+  return new Promise<Blob>((resolve, reject) => {
+    canvas.toBlob(
+      (blob) => {
+        if (blob) {
+          resolve(blob);
+          return;
+        }
+
+        reject(new Error('Photo could not be prepared.'));
+      },
+      'image/jpeg',
+      quality
+    );
+  });
+}
+
+async function preparePhoto(file: File) {
+  if (!allowedPhotoTypes.includes(file.type)) {
+    throw new Error(`${file.name} must be a JPG, PNG, or WebP image.`);
+  }
+
+  if (file.size > maxSourcePhotoBytes) {
+    throw new Error(
+      `${file.name} is larger than ${formatBytes(maxSourcePhotoBytes)}.`
+    );
+  }
+
+  const image = await loadImage(file);
+  const scale = Math.min(1, photoTargetWidth / image.naturalWidth);
+  const width = Math.max(1, Math.round(image.naturalWidth * scale));
+  const height = Math.max(1, Math.round(image.naturalHeight * scale));
+  const canvas = document.createElement('canvas');
+
+  canvas.width = width;
+  canvas.height = height;
+  const context = canvas.getContext('2d');
+
+  if (!context) {
+    throw new Error('Photo could not be prepared.');
+  }
+
+  context.drawImage(image, 0, 0, width, height);
+
+  let bestBlob: Blob | null = null;
+
+  for (const quality of compressionQualities) {
+    const blob = await canvasToBlob(canvas, quality);
+    bestBlob = blob;
+
+    if (blob.size <= maxPreparedPhotoBytes) break;
+  }
+
+  if (!bestBlob || bestBlob.size > maxPreparedPhotoBytes) {
+    throw new Error(
+      `${file.name} is still too large after compression. Paste a Drive link for that photo instead.`
+    );
+  }
+
+  return new File([bestBlob], getPhotoFilename(file), {
+    type: 'image/jpeg',
+    lastModified: Date.now(),
+  });
+}
+
+function buildMessage(
+  data: ReviewFormData,
+  inboundContext: string | undefined,
+  photos: File[]
+) {
   return [
     'Pergola System Fit Review request',
     '',
@@ -82,6 +191,11 @@ function buildMessage(data: ReviewFormData, inboundContext?: string) {
     `Timeline: ${data.timeline || 'Not provided'}`,
     `Desired features: ${data.features.length ? data.features.join(', ') : 'Not provided'}`,
     `Site concerns: ${data.concerns.length ? data.concerns.join(', ') : 'Not provided'}`,
+    photos.length
+      ? `Uploaded photos: ${photos.length} attached to the internal lead notification (${photos
+          .map((photo) => `${photo.name}, ${formatBytes(photo.size)}`)
+          .join('; ')})`
+      : 'Uploaded photos: None',
     `Photo links or notes: ${data.photoLinks || 'Not provided'}`,
     '',
     'What the space needs to do:',
@@ -93,7 +207,12 @@ function buildMessage(data: ReviewFormData, inboundContext?: string) {
 
 export function SystemFitReviewForm() {
   const [formData, setFormData] = useState<ReviewFormData>(initialFormData);
+  const [photos, setPhotos] = useState<File[]>([]);
+  const [photoError, setPhotoError] = useState('');
+  const [photoStatus, setPhotoStatus] = useState('');
   const { submitLead, loading, error, success } = useLeadSubmission();
+  const photoUploadDisabled =
+    loading || photos.length >= maxPhotoCount || photoStatus.length > 0;
 
   const handleFieldChange = (
     event:
@@ -112,6 +231,52 @@ export function SystemFitReviewForm() {
     }));
   };
 
+  const handlePhotoChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const selectedFiles = Array.from(event.target.files || []);
+    event.target.value = '';
+
+    if (!selectedFiles.length) return;
+
+    setPhotoError('');
+    setPhotoStatus('Preparing photos...');
+
+    try {
+      const nextPhotos = [...photos];
+
+      if (nextPhotos.length + selectedFiles.length > maxPhotoCount) {
+        throw new Error(`Upload up to ${maxPhotoCount} photos.`);
+      }
+
+      for (const file of selectedFiles) {
+        const preparedPhoto = await preparePhoto(file);
+        const nextTotalBytes =
+          nextPhotos.reduce((total, photo) => total + photo.size, 0) +
+          preparedPhoto.size;
+
+        if (nextTotalBytes > maxTotalPhotoBytes) {
+          throw new Error(
+            `The selected photos are too large together. Keep uploads under ${formatBytes(maxTotalPhotoBytes)} total or paste a Drive link.`
+          );
+        }
+
+        nextPhotos.push(preparedPhoto);
+      }
+
+      setPhotos(nextPhotos);
+    } catch (err: any) {
+      setPhotoError(err.message || 'Photo upload failed. Please try again.');
+    } finally {
+      setPhotoStatus('');
+    }
+  };
+
+  const removePhoto = (index: number) => {
+    setPhotos((prev) => prev.filter((_, photoIndex) => photoIndex !== index));
+    setPhotoError('');
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const inboundContext =
@@ -128,7 +293,8 @@ export function SystemFitReviewForm() {
       projectType: 'pergola',
       customerType: formData.customerType,
       source: 'pergola_system_fit_review',
-      message: buildMessage(formData, inboundContext),
+      message: buildMessage(formData, inboundContext, photos),
+      attachments: photos,
     });
   };
 
@@ -433,10 +599,80 @@ export function SystemFitReviewForm() {
 
       <div>
         <label
-          htmlFor="system-fit-photo-links"
+          htmlFor="system-fit-photo-upload"
           className="mb-2 flex items-center gap-2 text-xs font-bold tracking-widest text-gray-500 uppercase"
         >
           <Upload className="h-4 w-4" />
+          Upload site photos
+        </label>
+        <div className="border border-dashed border-black/20 bg-white p-4">
+          <input
+            id="system-fit-photo-upload"
+            type="file"
+            accept={allowedPhotoTypes.join(',')}
+            multiple
+            onChange={handlePhotoChange}
+            disabled={photoUploadDisabled}
+            className="sr-only"
+          />
+          <label
+            htmlFor="system-fit-photo-upload"
+            aria-disabled={photoUploadDisabled}
+            className={`inline-flex items-center gap-2 border border-black px-4 py-3 text-sm font-bold text-black transition-colors ${
+              photoUploadDisabled
+                ? 'cursor-not-allowed opacity-50'
+                : 'cursor-pointer hover:bg-black hover:text-white'
+            }`}
+          >
+            <Upload className="h-4 w-4" />
+            Choose photos
+          </label>
+          <p className="mt-3 text-sm text-gray-600">
+            Add up to {maxPhotoCount} JPG, PNG, or WebP photos. Larger plan sets
+            can still be shared with a link below.
+          </p>
+        </div>
+
+        {photos.length > 0 && (
+          <ul className="mt-3 space-y-2">
+            {photos.map((photo, index) => (
+              <li
+                key={`${photo.name}-${photo.lastModified}-${index}`}
+                className="flex items-center justify-between gap-3 border border-black/10 bg-white px-3 py-2 text-sm text-black"
+              >
+                <span className="min-w-0 truncate">
+                  {photo.name} ({formatBytes(photo.size)})
+                </span>
+                <button
+                  type="button"
+                  onClick={() => removePhoto(index)}
+                  disabled={loading}
+                  className="flex h-8 w-8 shrink-0 items-center justify-center border border-black/10 text-black transition-colors hover:border-black"
+                  aria-label={`Remove ${photo.name}`}
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {photoStatus && (
+          <p className="mt-3 text-sm font-medium text-gray-600">
+            {photoStatus}
+          </p>
+        )}
+
+        {photoError && (
+          <p className="mt-3 text-sm font-medium text-red-700">{photoError}</p>
+        )}
+      </div>
+
+      <div>
+        <label
+          htmlFor="system-fit-photo-links"
+          className="mb-2 block text-xs font-bold tracking-widest text-gray-500 uppercase"
+        >
           Photo links or plan notes
         </label>
         <textarea

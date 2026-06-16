@@ -11,6 +11,15 @@ const rateLimitMap = new Map<string, { count: number; timestamp: number }>();
 const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
 const RATE_LIMIT_MAX = 5; // 5 requests per minute per IP
 const DEFAULT_NOTIFICATION_EMAIL = 'cfoley@edgpatioshade.com';
+const MAX_LEAD_REQUEST_BYTES = 4.25 * 1024 * 1024;
+const MAX_ATTACHMENT_COUNT = 4;
+const MAX_ATTACHMENT_BYTES = 1 * 1024 * 1024;
+const MAX_TOTAL_ATTACHMENT_BYTES = 3.5 * 1024 * 1024;
+const ALLOWED_ATTACHMENT_TYPES = new Set([
+  'image/jpeg',
+  'image/png',
+  'image/webp',
+]);
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -56,6 +65,18 @@ interface LeadSubmission {
   fax?: string; // Honeypot
 }
 
+interface LeadAttachment {
+  filename: string;
+  content: string;
+  contentType: string;
+  size: number;
+}
+
+interface ParsedLeadRequest {
+  lead: LeadSubmission;
+  attachments: LeadAttachment[];
+}
+
 interface LeadRecord {
   id: string;
   created_at: string;
@@ -69,6 +90,138 @@ function validateEmail(email: string): boolean {
 
 function normalizeLeadText(value: unknown): string {
   return typeof value === 'string' ? value.trim() : '';
+}
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function escapeHtml(value: unknown): string {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function getFormString(formData: FormData, key: string): string | undefined {
+  const value = formData.get(key);
+  return typeof value === 'string' ? value : undefined;
+}
+
+function sanitizeAttachmentFilename(filename: string): string {
+  const cleaned = filename
+    .trim()
+    .replace(/[/\\?%*:|"<>]/g, '-')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .slice(0, 120);
+
+  return cleaned || 'edg-site-photo.jpg';
+}
+
+function getAttachmentSummaryHtml(attachments: LeadAttachment[]): string {
+  if (!attachments.length) return '';
+
+  const items = attachments
+    .map(
+      (attachment) =>
+        `<li>${escapeHtml(attachment.filename)} (${formatBytes(attachment.size)})</li>`
+    )
+    .join('');
+
+  return `
+    <hr />
+    <h3>Uploaded Photos:</h3>
+    <p>${attachments.length} photo${attachments.length === 1 ? '' : 's'} attached to this notification email.</p>
+    <ul>${items}</ul>
+  `;
+}
+
+async function fileToLeadAttachment(file: File): Promise<LeadAttachment> {
+  if (!ALLOWED_ATTACHMENT_TYPES.has(file.type)) {
+    throw new Error(`${file.name} must be a JPG, PNG, or WebP image.`);
+  }
+
+  if (file.size > MAX_ATTACHMENT_BYTES) {
+    throw new Error(
+      `${file.name} is larger than ${formatBytes(MAX_ATTACHMENT_BYTES)} after compression.`
+    );
+  }
+
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  return {
+    filename: sanitizeAttachmentFilename(file.name),
+    content: buffer.toString('base64'),
+    contentType: file.type,
+    size: file.size,
+  };
+}
+
+async function parseLeadRequest(
+  request: NextRequest
+): Promise<ParsedLeadRequest> {
+  const contentLength = Number(request.headers.get('content-length') || 0);
+
+  if (
+    Number.isFinite(contentLength) &&
+    contentLength > MAX_LEAD_REQUEST_BYTES
+  ) {
+    throw new Error(
+      `Photo uploads are limited to ${formatBytes(MAX_TOTAL_ATTACHMENT_BYTES)} total.`
+    );
+  }
+
+  const contentType = request.headers.get('content-type') || '';
+
+  if (!contentType.includes('multipart/form-data')) {
+    const body = (await request.json()) as LeadSubmission;
+    return { lead: body, attachments: [] };
+  }
+
+  const formData = await request.formData();
+  const uploadedFiles = formData
+    .getAll('attachments')
+    .filter((value): value is File => value instanceof File && value.size > 0);
+
+  if (uploadedFiles.length > MAX_ATTACHMENT_COUNT) {
+    throw new Error(`Upload up to ${MAX_ATTACHMENT_COUNT} photos.`);
+  }
+
+  const totalBytes = uploadedFiles.reduce(
+    (total, file) => total + file.size,
+    0
+  );
+
+  if (totalBytes > MAX_TOTAL_ATTACHMENT_BYTES) {
+    throw new Error(
+      `Photo uploads are limited to ${formatBytes(MAX_TOTAL_ATTACHMENT_BYTES)} total.`
+    );
+  }
+
+  const attachments = await Promise.all(
+    uploadedFiles.map(fileToLeadAttachment)
+  );
+
+  return {
+    lead: {
+      email: getFormString(formData, 'email') || '',
+      firstName: getFormString(formData, 'firstName') || '',
+      lastName: getFormString(formData, 'lastName'),
+      phone: getFormString(formData, 'phone'),
+      location: getFormString(formData, 'location'),
+      projectType: getFormString(formData, 'projectType'),
+      message: getFormString(formData, 'message'),
+      source: getFormString(formData, 'source'),
+      customerType: getFormString(formData, 'customerType'),
+      fax: getFormString(formData, 'fax'),
+    },
+    attachments,
+  };
 }
 
 function looksLikeRandomText(value: unknown): boolean {
@@ -321,7 +474,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const body = await request.json();
+    let parsedRequest: ParsedLeadRequest;
+
+    try {
+      parsedRequest = await parseLeadRequest(request);
+    } catch (parseError: any) {
+      const message =
+        parseError.message || 'We could not read that lead submission.';
+      const status = message.includes('limited') ? 413 : 400;
+
+      return NextResponse.json(
+        {
+          success: false,
+          errors: [message],
+        },
+        { status }
+      );
+    }
+
+    const { lead: body, attachments: leadAttachments } = parsedRequest;
     const {
       email,
       firstName,
@@ -367,6 +538,20 @@ export async function POST(request: NextRequest) {
       return fakeAcceptedSpamResponse('content-signals', email);
     }
 
+    const resendApiKey = process.env.RESEND_API_KEY;
+
+    if (leadAttachments.length > 0 && !resendApiKey) {
+      return NextResponse.json(
+        {
+          success: false,
+          errors: [
+            'Photo uploads are temporarily unavailable. Please paste a photo link or submit without photos.',
+          ],
+        },
+        { status: 503 }
+      );
+    }
+
     const leadRecord = await createLeadRecord({
       email,
       firstName,
@@ -383,10 +568,10 @@ export async function POST(request: NextRequest) {
     const timestamp = leadRecord.created_at;
 
     // Email notification via Resend
-    const resendApiKey = process.env.RESEND_API_KEY;
     const notificationRecipients = getNotificationRecipients();
 
     const emailLogs: any = {};
+    const attachmentSummaryHtml = getAttachmentSummaryHtml(leadAttachments);
 
     if (resendApiKey) {
       // 1. Admin Notification (immediate)
@@ -420,6 +605,7 @@ export async function POST(request: NextRequest) {
             <hr />
             <h3>${messageLabel}:</h3>
             <pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message || 'No details provided.'}</pre>
+            ${attachmentSummaryHtml}
             <hr />
             <p><small>Source: ${source} | Time: ${timestamp}</small></p>
           `;
@@ -440,6 +626,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Stored In:</strong> ${leadRecord.storage}</p>
             <p><strong>Time:</strong> ${timestamp}</p>
             ${message ? `<hr /><h3>Details / Configuration:</h3><pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message}</pre>` : ''}
+            ${attachmentSummaryHtml}
           `;
         }
 
@@ -447,18 +634,27 @@ export async function POST(request: NextRequest) {
           process.env.FROM_EMAIL ||
           'EDG Leads <notifications@email.edgpatioshade.com>';
 
+        const adminEmailPayload: Record<string, unknown> = {
+          from: adminFromEmail,
+          to: notificationRecipients,
+          subject: adminSubject,
+          html: adminHtmlContent,
+        };
+
+        if (leadAttachments.length > 0) {
+          adminEmailPayload.attachments = leadAttachments.map((attachment) => ({
+            filename: attachment.filename,
+            content: attachment.content,
+          }));
+        }
+
         const adminRes = await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${resendApiKey}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            from: adminFromEmail,
-            to: notificationRecipients,
-            subject: adminSubject,
-            html: adminHtmlContent,
-          }),
+          body: JSON.stringify(adminEmailPayload),
         });
 
         const adminData = await adminRes.json();

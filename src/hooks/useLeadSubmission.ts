@@ -14,6 +14,7 @@ export interface LeadData {
   source: string;
   customerType?: string;
   fax?: string; // Honeypot
+  attachments?: File[];
 }
 
 interface UseLeadSubmissionReturn {
@@ -37,10 +38,28 @@ export function useLeadSubmission({
     setSuccess(false);
 
     try {
+      const { attachments, ...leadFields } = data;
+      const hasAttachments = !!attachments?.length;
+      const body = hasAttachments ? new FormData() : JSON.stringify(leadFields);
+
+      if (hasAttachments && body instanceof FormData) {
+        Object.entries(leadFields).forEach(([key, value]) => {
+          if (value !== undefined && value !== null) {
+            body.append(key, String(value));
+          }
+        });
+
+        attachments.forEach((attachment) => {
+          body.append('attachments', attachment, attachment.name);
+        });
+      }
+
       const response = await fetch('/api/leads', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        ...(hasAttachments
+          ? {}
+          : { headers: { 'Content-Type': 'application/json' } }),
+        body,
       });
 
       const result = await response.json();
