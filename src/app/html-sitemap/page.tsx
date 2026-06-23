@@ -96,6 +96,15 @@ const sitemapLinks = [
       { href: '/service-areas/wilmette-il', label: 'Wilmette, IL' },
       { href: '/service-areas/winnetka-il', label: 'Winnetka, IL' },
       { href: '/service-areas/northbrook-il', label: 'Northbrook, IL' },
+      { href: '/service-areas/lake-forest-il', label: 'Lake Forest, IL' },
+      {
+        href: '/service-areas/lake-forest-il/motorized-pergolas',
+        label: 'Lake Forest Motorized Pergolas',
+      },
+      {
+        href: '/service-areas/lake-forest-il/zoning-guide',
+        label: 'Lake Forest Pergola Permit Guide',
+      },
       { href: '/service-areas/barrington-il', label: 'Barrington, IL' },
       { href: '/service-areas/naperville-il', label: 'Naperville, IL' },
       { href: '/service-areas/hinsdale-il', label: 'Hinsdale, IL' },

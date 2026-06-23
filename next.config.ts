@@ -342,6 +342,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/become-a-partner',
+        destination: '/trade-partners',
+        permanent: true,
+      },
+      {
         source: '/dealer-login',
         destination: 'https://app.edgpatioshade.com/',
         permanent: true,
@@ -653,7 +658,7 @@ const nextConfig: NextConfig = {
       // ══════════════════════════════════════════════════════════
       {
         source: '/locations/lake-forest',
-        destination: '/service-areas',
+        destination: '/service-areas/lake-forest-il',
         permanent: true,
       },
       {
@@ -664,6 +669,25 @@ const nextConfig: NextConfig = {
       {
         source: '/locations/lake-geneva',
         destination: '/service-areas/lake-geneva-wi',
+        permanent: true,
+      },
+
+      // ══════════════════════════════════════════════════════════
+      // STALE PROJECT / IMAGE SLUGS FOUND IN SEARCH CONSOLE
+      // ══════════════════════════════════════════════════════════
+      {
+        source: '/projects/wilmette-country-club',
+        destination: '/projects/hyatt-wicker-park',
+        permanent: true,
+      },
+      {
+        source: '/projects/libertyville-shade-system',
+        destination: '/systems/shades',
+        permanent: true,
+      },
+      {
+        source: '/projects/lake-forest-pergola',
+        destination: '/service-areas/lake-forest-il/motorized-pergolas',
         permanent: true,
       },
 

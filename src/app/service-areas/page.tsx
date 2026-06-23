@@ -73,6 +73,13 @@ const serviceAreas = [
     region: 'North Shore',
   },
   {
+    name: 'Lake Forest, IL',
+    slug: 'lake-forest-il',
+    description:
+      'Permit-aware motorized pergola and outdoor room planning for lakefront homes, wooded lots, and west-side estates.',
+    region: 'North Shore',
+  },
+  {
     name: 'Barrington, IL',
     slug: 'barrington-il',
     description:
@@ -183,6 +190,18 @@ const priorityLocalPages = [
     href: '/service-areas/deerfield-il/retractable-screens',
     description:
       'North Shore screen layouts for bugs, privacy, sun, and wind control.',
+  },
+  {
+    title: 'Lake Forest Motorized Pergolas',
+    href: '/service-areas/lake-forest-il/motorized-pergolas',
+    description:
+      'Permit-aware pergola planning for lakefront homes, wooded yards, and estate patios.',
+  },
+  {
+    title: 'Lake Forest Permit Guide',
+    href: '/service-areas/lake-forest-il/zoning-guide',
+    description:
+      'Building permit, accessory-structure, and plan-review notes for Lake Forest outdoor living projects.',
   },
 ];
 

@@ -310,6 +310,14 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
+                    href="/service-areas/lake-forest-il"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    Lake Forest, IL
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/service-areas/barrington-il"
                     className="hover:text-edg-brand text-zinc-300 transition-colors"
                   >

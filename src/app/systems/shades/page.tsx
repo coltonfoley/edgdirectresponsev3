@@ -730,6 +730,13 @@ export default function ShadesPage() {
                 Planning in Algonquin? See the local motorized screen guide.
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <Link
+                href="/service-areas/lake-forest-il"
+                className="text-edg-brand-text hover:text-edg-brand mt-4 ml-0 inline-flex items-center gap-2 text-sm font-medium transition-colors md:mt-0 md:ml-6"
+              >
+                Planning a North Shore outdoor room? See Lake Forest guidance.
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </Container>
         </Section>

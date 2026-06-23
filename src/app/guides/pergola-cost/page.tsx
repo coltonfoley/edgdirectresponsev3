@@ -951,7 +951,7 @@ export default function PergolaCostGuide() {
             <h2 className="section-title">Related Guides</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             <Link href="/guides/motorized-pergola-planning" className="group">
               <Card
                 variant="muted"
@@ -1008,6 +1008,28 @@ export default function PergolaCostGuide() {
                 </p>
                 <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                   Read Guide <ArrowRight className="h-4 w-4" />
+                </div>
+              </Card>
+            </Link>
+
+            <Link
+              href="/service-areas/lake-forest-il/motorized-pergolas"
+              className="group"
+            >
+              <Card
+                variant="muted"
+                padding="lg"
+                className="group-hover:border-edg-brand/30 h-full transition-colors"
+              >
+                <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
+                  Lake Forest Pergola Planning
+                </h3>
+                <p className="text-text-secondary mb-4 text-sm">
+                  Local permit-aware planning for premium North Shore patios and
+                  outdoor rooms.
+                </p>
+                <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
+                  Read Local Guide <ArrowRight className="h-4 w-4" />
                 </div>
               </Card>
             </Link>

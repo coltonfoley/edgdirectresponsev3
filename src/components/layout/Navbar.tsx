@@ -71,6 +71,11 @@ const locationsDropdown = [
     desc: 'Techny & Shermer Road corridor',
   },
   {
+    href: '/service-areas/lake-forest-il',
+    label: 'Lake Forest, IL',
+    desc: 'Permit-aware North Shore pergolas',
+  },
+  {
     href: '/service-areas/barrington-il',
     label: 'Barrington, IL',
     desc: 'Estate communities & horse country',

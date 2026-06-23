@@ -207,6 +207,12 @@ const relatedProducts = [
       'Extend your outdoor season with infrared heaters and fire features integrated into your pergola design.',
     href: '/systems/appliances',
   },
+  {
+    title: 'Lake Forest Pergola Planning',
+    description:
+      'Permit-aware North Shore guidance for premium patios, terraces, and outdoor kitchens.',
+    href: '/service-areas/lake-forest-il/motorized-pergolas',
+  },
 ];
 
 export default function PergolasPage() {
@@ -737,7 +743,7 @@ export default function PergolasPage() {
             <h2 className="section-title">Related Products</h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {relatedProducts.map((product) => (
               <Card
                 key={product.title}
@@ -778,6 +784,12 @@ export default function PergolasPage() {
               <Link href="/service-areas/chicago-il/motorized-pergolas">
                 <Button variant="outline" size="sm">
                   Chicago Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/service-areas/lake-forest-il/motorized-pergolas">
+                <Button variant="outline" size="sm">
+                  Lake Forest Pergolas
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>

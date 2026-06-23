@@ -13,6 +13,10 @@ const GONE_PATHS = new Set([
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
+  const normalizedPathname =
+    request.nextUrl.pathname === '/'
+      ? '/'
+      : request.nextUrl.pathname.replace(/\/$/, '');
 
   // Check if we're on the production domain but without www
   // We use a strict check for 'edgpatioshade.com' to avoid breaking localhost or preview URLs
@@ -25,7 +29,10 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  if (hostname === 'www.edgpatioshade.com' && GONE_PATHS.has(request.nextUrl.pathname)) {
+  if (
+    hostname === 'www.edgpatioshade.com' &&
+    GONE_PATHS.has(normalizedPathname)
+  ) {
     return new NextResponse('Gone', {
       status: 410,
       headers: {
