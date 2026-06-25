@@ -72,7 +72,7 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
   const serviceAreaSlug = csvProject.city?.toLowerCase().replace(/\s+/g, '-') + '-' + state.toLowerCase();
   
   // Parse results from challenge text if results is empty
-  let results: string[] = csvProject.results || [];
+  const results: string[] = csvProject.results || [];
   if (results.length === 0 && csvProject.challenge) {
     const challengeWords = csvProject.challenge.toLowerCase();
     if (challengeWords.includes('entertain')) {

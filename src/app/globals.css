@@ -13,7 +13,7 @@
   /* Primary Brand Colors */
   --color-edg-brand: #42ffc1;
   --color-edg-brand-text: #000000;
-  --color-edg-brand-dark: #008a5c;  /* Accessible on white (4.6:1 contrast) */
+  --color-edg-brand-dark: #007a52;  /* Accessible on white for small text */
   --color-edg-dark: #000000;
   --color-edg-light: #ffffff;
 

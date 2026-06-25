@@ -1,6 +1,6 @@
 # EDG Website Source Of Truth
 
-Verified against the repo on 2026-06-07.
+Verified against the repo on 2026-06-25.
 
 ## Repo Identity
 
@@ -16,13 +16,13 @@ Verify these at the start of each work session. The current branch can change.
 Read `package.json` before making dependency or build assumptions.
 
 - Runtime engine: Node `22.x`
-- Framework: Next.js `16.1.6`
+- Framework: Next.js `16.2.9`
 - React: `19.2.1`
 - Styling: Tailwind CSS `4`
 - Build command: `npm run build`
 - Build includes image validation and gallery data generation.
 - Common checks: `npm run lint`, `npm run build`, `npm run validate-images`,
-  `npm run env:check`, `npm run test:e2e`
+  `npm run env:check`, `npm run test:e2e`, `npm run test:contrast`
 
 ## Current Integrations
 

@@ -97,7 +97,6 @@ warnMissing("NOTIFICATION_EMAIL", "Lead notifications will only send to cfoley@e
 if (env.ENABLE_LEAD_FOLLOW_UP_EMAILS === "true") {
   warnings.push("ENABLE_LEAD_FOLLOW_UP_EMAILS is true. Leads will receive an automatic 7-day follow-up email.");
 }
-warnMissing("ADMIN_API_KEY", "Legacy analytics/admin endpoints need this outside local development.");
 warnMissing("GOOGLE_PLACES_API_KEY", "Google review fetch scripts will not run without it.");
 
 console.log(`${projectName} environment check`);

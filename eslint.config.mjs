@@ -1,5 +1,18 @@
-// Simple ESLint config - Next.js defaults
-export default [
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
+
+const config = [
+  ...nextVitals,
+  ...nextTypescript,
+  {
+    files: ['**/*.{js,jsx,mjs,ts,tsx,mts,cts}'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'warn',
+      'react-hooks/refs': 'warn',
+      'react-hooks/set-state-in-effect': 'warn',
+      'react/no-unescaped-entities': 'off',
+    },
+  },
   {
     ignores: [
       '.next/**',
@@ -15,3 +28,5 @@ export default [
     ],
   },
 ];
+
+export default config;

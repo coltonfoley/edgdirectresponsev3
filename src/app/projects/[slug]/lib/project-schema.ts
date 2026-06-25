@@ -60,7 +60,7 @@ export function generateProjectSchema(project: EnrichedProject) {
             '@type': 'ListItem',
             position: 2,
             name: 'Projects',
-            item: 'https://www.edgpatioshade.com/gallery',
+            item: 'https://www.edgpatioshade.com/projects',
           },
           {
             '@type': 'ListItem',

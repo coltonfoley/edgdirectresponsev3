@@ -161,16 +161,17 @@ export function Navbar() {
   // Hide navbar on admin pages
   if (pathname?.startsWith('/admin')) return null;
 
-  // Determine logo/text color based on scroll state
-  const isDarkBg = !scrolled;
-  const textColor = scrolled ? 'text-edg-dark' : 'text-white';
-  const logoColor = scrolled ? 'text-edg-dark' : 'text-white';
+  // Contact starts with a split light/dark first viewport, so the transparent
+  // white nav can disappear over the form side.
+  const solidNav = scrolled || pathname === '/contact';
+  const textColor = solidNav ? 'text-edg-dark' : 'text-white';
+  const logoColor = solidNav ? 'text-edg-dark' : 'text-white';
 
   return (
     <header
       className={cn(
         'fixed top-0 right-0 left-0 z-50 transition-all duration-300',
-        scrolled
+        solidNav
           ? 'bg-edg-light/95 border-b border-black/5 py-4 backdrop-blur-md'
           : 'bg-transparent py-6'
       )}
@@ -408,10 +409,10 @@ export function Navbar() {
                 }
               >
                 <Button
-                  variant={scrolled ? 'primary' : 'outline'}
+                  variant={solidNav ? 'primary' : 'outline'}
                   size="sm"
                   className={cn(
-                    !scrolled &&
+                    !solidNav &&
                       'border-white text-white hover:bg-white hover:text-black'
                   )}
                 >

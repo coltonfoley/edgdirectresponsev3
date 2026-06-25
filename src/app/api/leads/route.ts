@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import {
-  fetchRainmakerLeads,
-  getRainmakerLeadIntakeUrl,
-  toLegacyLead,
-} from '@/lib/rainmaker-api';
+import { getRainmakerLeadIntakeUrl } from '@/lib/rainmaker-api';
 
 // Simple in-memory rate limiter
 // For production with high traffic, use Redis instead
@@ -15,6 +11,9 @@ const MAX_LEAD_REQUEST_BYTES = 4.25 * 1024 * 1024;
 const MAX_ATTACHMENT_COUNT = 4;
 const MAX_ATTACHMENT_BYTES = 1 * 1024 * 1024;
 const MAX_TOTAL_ATTACHMENT_BYTES = 3.5 * 1024 * 1024;
+const RAINMAKER_FETCH_TIMEOUT_MS = 10_000;
+const RAINMAKER_ATTACHMENT_TIMEOUT_MS = 20_000;
+const RESEND_FETCH_TIMEOUT_MS = 10_000;
 const ALLOWED_ATTACHMENT_TYPES = new Set([
   'image/jpeg',
   'image/png',
@@ -83,6 +82,13 @@ interface LeadRecord {
   storage: 'rainmaker';
 }
 
+type AttachmentUploadStatus = 'none' | 'uploaded' | 'failed';
+
+interface AttachmentUploadState {
+  status: AttachmentUploadStatus;
+  error?: string;
+}
+
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -107,6 +113,22 @@ function escapeHtml(value: unknown): string {
     .replace(/'/g, '&#39;');
 }
 
+function cleanEmailHeader(value: unknown, fallback = ''): string {
+  const cleaned = normalizeLeadText(value).replace(/[\r\n]+/g, ' ').slice(0, 160);
+  return cleaned || fallback;
+}
+
+async function fetchWithTimeout(
+  input: string | URL | Request,
+  init: RequestInit,
+  timeoutMs: number
+): Promise<Response> {
+  return fetch(input, {
+    ...init,
+    signal: AbortSignal.timeout(timeoutMs),
+  });
+}
+
 function getFormString(formData: FormData, key: string): string | undefined {
   const value = formData.get(key);
   return typeof value === 'string' ? value : undefined;
@@ -123,7 +145,10 @@ function sanitizeAttachmentFilename(filename: string): string {
   return cleaned || 'edg-site-photo.jpg';
 }
 
-function getAttachmentSummaryHtml(attachments: LeadAttachment[]): string {
+function getAttachmentSummaryHtml(
+  attachments: LeadAttachment[],
+  uploadState: AttachmentUploadState
+): string {
   if (!attachments.length) return '';
 
   const items = attachments
@@ -136,9 +161,26 @@ function getAttachmentSummaryHtml(attachments: LeadAttachment[]): string {
   return `
     <hr />
     <h3>Uploaded Photos:</h3>
-    <p>${attachments.length} photo${attachments.length === 1 ? '' : 's'} stored on the Rainmaker lead and attached to this notification email.</p>
+    <p>${getAttachmentStatusMessage(attachments.length, uploadState)}</p>
     <ul>${items}</ul>
   `;
+}
+
+function getAttachmentStatusMessage(
+  count: number,
+  uploadState: AttachmentUploadState
+): string {
+  const photoLabel = `${count} photo${count === 1 ? '' : 's'}`;
+
+  if (uploadState.status === 'uploaded') {
+    return `${photoLabel} stored on the Rainmaker lead and attached to this notification email.`;
+  }
+
+  if (uploadState.status === 'failed') {
+    return `${photoLabel} attached to this notification email. Rainmaker photo storage failed after the lead was captured; check logs before asking the customer to resubmit.`;
+  }
+
+  return `${photoLabel} attached to this notification email.`;
 }
 
 async function fileToLeadAttachment(file: File): Promise<LeadAttachment> {
@@ -319,7 +361,7 @@ async function createRainmakerLead(
     headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
   }
 
-  const response = await fetch(intakeUrl, {
+  const response = await fetchWithTimeout(intakeUrl, {
     method: 'POST',
     headers,
     body: JSON.stringify({
@@ -333,7 +375,7 @@ async function createRainmakerLead(
       source: lead.source || 'website',
       customerType: lead.customerType,
     }),
-  });
+  }, RAINMAKER_FETCH_TIMEOUT_MS);
 
   const result = await response.json().catch(() => null);
 
@@ -417,11 +459,11 @@ async function uploadRainmakerLeadAttachments({
     headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
   }
 
-  const response = await fetch(uploadUrl, {
+  const response = await fetchWithTimeout(uploadUrl, {
     method: 'POST',
     headers,
     body: formData,
-  });
+  }, RAINMAKER_ATTACHMENT_TIMEOUT_MS);
 
   const result = await response.json().catch(() => null);
 
@@ -469,16 +511,21 @@ async function scheduleFollowUpEmail(
       'EDG Patio & Shade <notifications@email.edgpatioshade.com>';
 
     // Personalize the email
-    const firstName = lead.firstName || 'there';
-    const projectType = lead.projectType || 'outdoor living project';
+    const firstName = cleanEmailHeader(lead.firstName, 'there');
+    const projectType = cleanEmailHeader(
+      lead.projectType,
+      'outdoor living project'
+    );
 
     const subject = `Following up on your ${projectType} inquiry`;
+    const htmlFirstName = escapeHtml(firstName);
+    const htmlProjectType = escapeHtml(projectType.toLowerCase());
 
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #008a5c;">Hi ${firstName},</h2>
+        <h2 style="color: #008a5c;">Hi ${htmlFirstName},</h2>
         
-        <p>It's been a week since you reached out about your ${projectType.toLowerCase()}. 
+        <p>It's been a week since you reached out about your ${htmlProjectType}.
         I wanted to follow up and see if you have any questions or if you're ready to take the next step.</p>
         
         <p>At <strong>EDG Patio & Shade</strong>, we've helped hundreds of homeowners transform their outdoor spaces 
@@ -505,7 +552,7 @@ async function scheduleFollowUpEmail(
       </div>
     `;
 
-    const response = await fetch('https://api.resend.com/emails', {
+    const response = await fetchWithTimeout('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${apiKey}`,
@@ -518,7 +565,7 @@ async function scheduleFollowUpEmail(
         html: html,
         scheduled_at: scheduledAt,
       }),
-    });
+    }, RESEND_FETCH_TIMEOUT_MS);
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -634,30 +681,66 @@ export async function POST(request: NextRequest) {
     const leadId = leadRecord.id;
     const timestamp = leadRecord.created_at;
 
+    let attachmentUploadState: AttachmentUploadState = {
+      status: leadAttachments.length > 0 ? 'failed' : 'none',
+    };
+
     if (leadAttachments.length > 0) {
-      await uploadRainmakerLeadAttachments({
-        leadRecord,
-        attachments: leadAttachments,
-        source,
-      });
+      try {
+        await uploadRainmakerLeadAttachments({
+          leadRecord,
+          attachments: leadAttachments,
+          source,
+        });
+        attachmentUploadState = { status: 'uploaded' };
+      } catch (attachmentError: any) {
+        const attachmentErrorMessage =
+          attachmentError?.message || 'Rainmaker attachment upload failed';
+        console.error(
+          'Lead captured, but Rainmaker attachment upload failed:',
+          attachmentErrorMessage
+        );
+        attachmentUploadState = {
+          status: 'failed',
+          error: attachmentErrorMessage,
+        };
+      }
     }
 
     // Email notification via Resend
     const notificationRecipients = getNotificationRecipients();
 
     const emailLogs: any = {};
-    const attachmentSummaryHtml = getAttachmentSummaryHtml(leadAttachments);
+    const attachmentSummaryHtml = getAttachmentSummaryHtml(
+      leadAttachments,
+      attachmentUploadState
+    );
 
     if (resendApiKey) {
       // 1. Admin Notification (immediate)
       try {
         const isContactForm = source === 'contact_page';
         const isConfigurator = source === 'pergola-configurator';
+        const safeFirstName = escapeHtml(firstName);
+        const safeLastName = escapeHtml(lastName || '');
+        const safeEmail = escapeHtml(email);
+        const safePhone = escapeHtml(phone || 'Not provided');
+        const safeLocation = escapeHtml(location || 'Not provided');
+        const safeProjectType = escapeHtml(projectType || 'Not specified');
+        const safeCustomerType = escapeHtml(customerType || 'Homeowner');
+        const safeSource = escapeHtml(source || 'Website');
+        const safeTimestamp = escapeHtml(timestamp);
+        const safeStorage = escapeHtml(leadRecord.storage);
+        const safeMessage = escapeHtml(message || 'No details provided.');
+        const subjectFirstName = cleanEmailHeader(firstName, 'Website lead');
+        const subjectLastName = cleanEmailHeader(lastName);
+        const subjectCustomerType = cleanEmailHeader(customerType, 'General');
+        const subjectSource = cleanEmailHeader(source, 'Website');
         const adminSubject = isContactForm
-          ? `New Contact Inquiry: ${firstName} ${lastName || ''} (${customerType || 'General'})`
+          ? `New Contact Inquiry: ${subjectFirstName} ${subjectLastName} (${subjectCustomerType})`
           : isConfigurator
-            ? `New Pergola Configurator Lead: ${firstName} ${lastName || ''}`
-            : `New Lead: ${firstName} (${source})`;
+            ? `New Pergola Configurator Lead: ${subjectFirstName} ${subjectLastName}`
+            : `New Lead: ${subjectFirstName} (${subjectSource})`;
 
         let adminHtmlContent = '';
         if (isContactForm || isConfigurator) {
@@ -669,20 +752,20 @@ export async function POST(request: NextRequest) {
             : 'Message';
 
           adminHtmlContent = `
-            <h1>${emailTitle}</h1>
-            <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-            <p><strong>ZIP / Location:</strong> ${location || 'Not provided'}</p>
-            <p><strong>Project Type:</strong> ${projectType || 'Not specified'}</p>
-            <p><strong>Stored In:</strong> ${leadRecord.storage}</p>
-            ${!isConfigurator ? `<p><strong>Customer Type:</strong> ${customerType || 'Homeowner'}</p>` : ''}
+            <h1>${escapeHtml(emailTitle)}</h1>
+            <p><strong>Name:</strong> ${safeFirstName} ${safeLastName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            <p><strong>Phone:</strong> ${safePhone}</p>
+            <p><strong>ZIP / Location:</strong> ${safeLocation}</p>
+            <p><strong>Project Type:</strong> ${safeProjectType}</p>
+            <p><strong>Stored In:</strong> ${safeStorage}</p>
+            ${!isConfigurator ? `<p><strong>Customer Type:</strong> ${safeCustomerType}</p>` : ''}
             <hr />
-            <h3>${messageLabel}:</h3>
-            <pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message || 'No details provided.'}</pre>
+            <h3>${escapeHtml(messageLabel)}:</h3>
+            <pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${safeMessage}</pre>
             ${attachmentSummaryHtml}
             <hr />
-            <p><small>Source: ${source} | Time: ${timestamp}</small></p>
+            <p><small>Source: ${safeSource} | Time: ${safeTimestamp}</small></p>
           `;
         } else {
           const sourceLabel =
@@ -691,16 +774,16 @@ export async function POST(request: NextRequest) {
               : source || 'Website';
 
           adminHtmlContent = `
-            <h1>New Lead: ${sourceLabel}</h1>
-            <p><strong>Name:</strong> ${firstName} ${lastName || ''}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-            <p><strong>ZIP / Location:</strong> ${location || 'Not provided'}</p>
-            <p><strong>Project Type:</strong> ${projectType || 'Not specified'}</p>
-            <p><strong>Source:</strong> ${source}</p>
-            <p><strong>Stored In:</strong> ${leadRecord.storage}</p>
-            <p><strong>Time:</strong> ${timestamp}</p>
-            ${message ? `<hr /><h3>Details / Configuration:</h3><pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${message}</pre>` : ''}
+            <h1>New Lead: ${escapeHtml(sourceLabel)}</h1>
+            <p><strong>Name:</strong> ${safeFirstName} ${safeLastName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            <p><strong>Phone:</strong> ${safePhone}</p>
+            <p><strong>ZIP / Location:</strong> ${safeLocation}</p>
+            <p><strong>Project Type:</strong> ${safeProjectType}</p>
+            <p><strong>Source:</strong> ${safeSource}</p>
+            <p><strong>Stored In:</strong> ${safeStorage}</p>
+            <p><strong>Time:</strong> ${safeTimestamp}</p>
+            ${message ? `<hr /><h3>Details / Configuration:</h3><pre style="background:#f5f5f5;padding:12px;font-size:13px;line-height:1.6;white-space:pre-wrap;">${safeMessage}</pre>` : ''}
             ${attachmentSummaryHtml}
           `;
         }
@@ -723,14 +806,14 @@ export async function POST(request: NextRequest) {
           }));
         }
 
-        const adminRes = await fetch('https://api.resend.com/emails', {
+        const adminRes = await fetchWithTimeout('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${resendApiKey}`,
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(adminEmailPayload),
-        });
+        }, RESEND_FETCH_TIMEOUT_MS);
 
         const adminData = await adminRes.json();
         if (!adminRes.ok) {
@@ -786,47 +869,6 @@ export async function POST(request: NextRequest) {
           details: error.message,
         }),
       },
-      { status: 500 }
-    );
-  }
-}
-
-// GET endpoint (Secured)
-export async function GET(request: NextRequest) {
-  // Admin Key Auth - no fallback in production for security
-  const authHeader = request.headers.get('x-admin-key');
-  const adminKey = process.env.ADMIN_API_KEY;
-
-  // In development, allow a fallback key for testing
-  const effectiveKey =
-    process.env.NODE_ENV === 'development'
-      ? adminKey || 'dev-secret-key'
-      : adminKey;
-
-  if (!effectiveKey) {
-    return NextResponse.json(
-      { error: 'Endpoint not configured' },
-      { status: 501 }
-    );
-  }
-
-  if (authHeader !== effectiveKey) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
-  try {
-    const leads = (
-      await fetchRainmakerLeads({ status: 'all', limit: 100 })
-    ).map(toLegacyLead);
-
-    return NextResponse.json({
-      total: leads.length,
-      leads,
-    });
-  } catch (error: any) {
-    console.error('Lead admin read error:', error);
-    return NextResponse.json(
-      { error: error.message || 'Failed to fetch leads from Rainmaker' },
       { status: 500 }
     );
   }

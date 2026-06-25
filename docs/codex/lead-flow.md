@@ -1,6 +1,6 @@
 # EDG Website Lead Flow
 
-Verified against the repo on 2026-06-07.
+Verified against the repo on 2026-06-25.
 
 ## Current Flow
 
@@ -20,7 +20,6 @@ Verified against the repo on 2026-06-07.
 - Client hook: `src/hooks/useLeadSubmission.ts`
 - API route: `src/app/api/leads/route.ts`
 - Rainmaker helper: `src/lib/rainmaker-api.ts`
-- Analytics lead read route: `src/app/api/analytics/route.ts`
 - Environment example: `.env.example`
 
 ## Environment Variables
@@ -34,7 +33,6 @@ Current lead-related variables in `.env.example`:
 - `FROM_EMAIL`
 - `NOTIFICATION_EMAIL`
 - `ENABLE_LEAD_FOLLOW_UP_EMAILS`
-- `ADMIN_API_KEY`
 - `GOOGLE_PLACES_API_KEY`
 
 `RAINMAKER_VERCEL_BYPASS` is also read by source code for protected Rainmaker
@@ -46,8 +44,8 @@ preview intake.
 - Do not add a fallback local database without explicit approval.
 - Do not send test leads that look like customer leads unless Colton approves
   or the lead is clearly labeled internal/test.
-- If a change touches forms, CTA query params, `/api/leads`, Rainmaker,
-  Resend, or analytics, verify the entire path.
+- If a change touches forms, CTA query params, `/api/leads`, Rainmaker, or
+  Resend, verify the entire path.
 - Report lead-flow verification separately from page render verification.
 
 ## Minimum Verification For Lead Changes

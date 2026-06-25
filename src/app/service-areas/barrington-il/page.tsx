@@ -174,7 +174,7 @@ export default function BarringtonHubPage() {
           </div>
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
+              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
                 <MapPin className="h-4 w-4" /> Service Area: Barrington, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
@@ -200,13 +200,13 @@ export default function BarringtonHubPage() {
       </section>
 
       {/* ========== LOCAL EXPERTISE ========== */}
-      <section className="bg-edg-dark border-t border-white/5 py-8">
+      <section className="bg-edg-dark text-text-inverse-muted border-t border-white/5 py-8">
         <Container>
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
                 <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                  <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
                 </span>
               ))}
             </div>

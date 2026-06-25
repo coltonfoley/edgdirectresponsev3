@@ -15,15 +15,35 @@ interface ContactClientProps {
 }
 
 function normalizeFormType(value: string | null): ContactFormType {
-  if (value === 'commercial' || value === 'pro') {
-    return value;
+  const normalized = value?.trim().toLowerCase();
+
+  if (normalized === 'commercial') {
+    return 'commercial';
+  }
+
+  if (
+    normalized === 'pro' ||
+    normalized === 'trade' ||
+    normalized === 'builder' ||
+    normalized === 'contractor'
+  ) {
+    return 'pro';
   }
 
   return 'homeowner';
 }
 
-function normalizeSource(value: string | null): string {
-  return value?.trim() || 'contact_page';
+function normalizeSource(value: string | null, intent: string | null): string {
+  const source = value?.trim();
+  if (source) return source;
+
+  const normalizedIntent = intent
+    ?.trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '');
+
+  return normalizedIntent ? `contact_${normalizedIntent}` : 'contact_page';
 }
 
 function normalizeProjectType(value: string | null): string {
@@ -33,25 +53,68 @@ function normalizeProjectType(value: string | null): string {
     return '';
   }
 
-  if (normalized === 'screens' || normalized === 'screen') {
+  if (
+    normalized === 'screens' ||
+    normalized === 'screen' ||
+    normalized === 'retractable-screens' ||
+    normalized === 'magnatrack-screens'
+  ) {
     return 'shades';
   }
 
-  if (normalized === 'enclosures') {
+  if (
+    normalized === 'enclosure' ||
+    normalized === 'enclosures' ||
+    normalized === 'glass-enclosures'
+  ) {
     return 'enclosure';
-  }
-
-  if (normalized === 'motorized-pergola' || normalized === 'pergolas') {
-    return 'pergola';
   }
 
   if (
     normalized === 'pergola' ||
-    normalized === 'shades' ||
-    normalized === 'enclosure' ||
-    normalized === 'commercial' ||
-    normalized === 'multiple'
+    normalized === 'pergolas' ||
+    normalized === 'motorized-pergola' ||
+    normalized === 'louvered-pergolas'
   ) {
+    return 'pergola';
+  }
+
+  if (
+    normalized === 'sauna' ||
+    normalized === 'saunas' ||
+    normalized === 'outdoor-sauna'
+  ) {
+    return 'sauna';
+  }
+
+  if (
+    normalized === 'appliance' ||
+    normalized === 'appliances' ||
+    normalized === 'outdoor-kitchen' ||
+    normalized === 'outdoor-kitchens'
+  ) {
+    return 'appliances';
+  }
+
+  if (
+    normalized === 'lanai' ||
+    normalized === 'modern-lanai' ||
+    normalized === 'lanai-replacement' ||
+    normalized === 'pool-cage'
+  ) {
+    return 'lanai';
+  }
+
+  if (
+    normalized === 'permit' ||
+    normalized === 'permit-guide' ||
+    normalized === 'zoning-guide' ||
+    normalized === 'planning'
+  ) {
+    return 'planning';
+  }
+
+  if (normalized === 'commercial' || normalized === 'multiple') {
     return normalized;
   }
 
@@ -85,15 +148,25 @@ function ContactForm({
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    const projectType = normalizeProjectType(searchParams.get('product'));
+    const intent = searchParams.get('type');
+    const projectType = normalizeProjectType(
+      searchParams.get('product') || searchParams.get('project')
+    );
+    const location =
+      searchParams.get('location') ||
+      searchParams.get('area') ||
+      searchParams.get('market') ||
+      '';
 
-    setFormType(normalizeFormType(searchParams.get('type')));
-    setLeadSource(normalizeSource(searchParams.get('source')));
+    setFormType(normalizeFormType(intent));
+    setLeadSource(normalizeSource(searchParams.get('source'), intent));
 
-    if (projectType) {
-      setFormData((prev) =>
-        prev.projectType ? prev : { ...prev, projectType }
-      );
+    if (projectType || location) {
+      setFormData((prev) => ({
+        ...prev,
+        projectType: prev.projectType || projectType,
+        location: prev.location || location,
+      }));
     }
   }, []);
 
@@ -323,6 +396,10 @@ function ContactForm({
               <option value="pergola">Louvered Pergola</option>
               <option value="shades">Motorized Shades</option>
               <option value="enclosure">Glass Enclosure</option>
+              <option value="sauna">Outdoor Sauna</option>
+              <option value="appliances">Outdoor Kitchen / Appliances</option>
+              <option value="lanai">Lanai / Outdoor Room</option>
+              <option value="planning">Permit / Planning Help</option>
               <option value="commercial">Commercial Project</option>
               <option value="multiple">Multiple Systems</option>
             </select>

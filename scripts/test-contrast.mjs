@@ -1,23 +1,21 @@
 #!/usr/bin/env node
 /**
- * Color Contrast Test Script
- * 
- * Tests critical pages for accessibility contrast issues using pa11y.
- * Run this after making color changes to verify compliance.
- * 
- * Usage:
- *   npm run test:contrast
- *   
- * Or directly:
- *   node scripts/test-contrast.mjs
+ * Color contrast smoke test for critical EDG website pages.
+ *
+ * This uses Playwright from the repo dependency tree, so the check works in a
+ * local path with spaces and does not depend on a globally installed pa11y.
  */
 
-import { execSync } from 'child_process';
-import { existsSync } from 'fs';
+import { chromium } from 'playwright';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
-const BASE_URL = process.env.TEST_URL || 'http://localhost:3000';
-
-// Critical pages to test
+const BASE_URL = process.env.TEST_URL || 'http://127.0.0.1:3000';
+const VIEWPORTS = [
+  { label: 'desktop-top', width: 1440, height: 900, scrollY: 0 },
+  { label: 'desktop-scrolled', width: 1440, height: 900, scrollY: 900 },
+  { label: 'mobile-top', width: 390, height: 844, scrollY: 0 },
+];
 const PAGES = [
   '/',
   '/contact',
@@ -31,107 +29,415 @@ const PAGES = [
   '/design',
 ];
 
-console.log('🎨 EDG Patio & Shade - Color Contrast Tests');
-console.log(`Testing against: ${BASE_URL}\n`);
+function pageUrl(route) {
+  return new URL(route, BASE_URL).toString();
+}
 
-// Check if pa11y is installed
-function checkPa11y() {
+async function testPage(browser, route, viewport) {
+  const page = await browser.newPage({
+    viewport: { width: viewport.width, height: viewport.height },
+  });
+  const url = pageUrl(route);
+  const label = `${route} [${viewport.label}]`;
+
   try {
-    execSync('which pa11y', { stdio: 'ignore' });
-    return true;
-  } catch {
-    return false;
+    const response = await page.goto(url, {
+      waitUntil: 'networkidle',
+      timeout: 30_000,
+    });
+
+    if (!response || response.status() >= 400) {
+      return {
+        route: label,
+        passed: false,
+        issues: [
+          {
+            text: `Page returned ${response?.status() || 'no response'}`,
+            ratio: 0,
+            required: 4.5,
+            selector: 'document',
+          },
+        ],
+      };
+    }
+
+    await page.evaluate((scrollY) => {
+      const targetY = Math.min(scrollY, document.body.scrollHeight - window.innerHeight);
+      window.scrollTo(0, Math.max(0, targetY));
+    }, viewport.scrollY);
+    await page.waitForTimeout(350);
+
+    const issues = await page.evaluate(() => {
+      const MIN_NORMAL_TEXT = 4.5;
+      const MIN_LARGE_TEXT = 3;
+      const DEFAULT_PAGE_BACKGROUND = { r: 255, g: 255, b: 255, a: 1 };
+      const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'SVG', 'NOSCRIPT']);
+
+      function parseColor(value) {
+        const rgbMatch = value.match(
+          /^rgba?\((\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?)(?:,\s*(\d?(?:\.\d+)?))?\)$/
+        );
+
+        if (rgbMatch) {
+          return {
+            r: Number(rgbMatch[1]),
+            g: Number(rgbMatch[2]),
+            b: Number(rgbMatch[3]),
+            a: rgbMatch[4] === undefined ? 1 : Number(rgbMatch[4]),
+          };
+        }
+
+        const oklabMatch = value.match(
+          /^oklab\(\s*([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+)\s+([+-]?\d*\.?\d+)(?:\s*\/\s*([+-]?\d*\.?\d+%?))?\s*\)$/
+        );
+
+        if (oklabMatch) {
+          return oklabToRgb(
+            parseCssNumber(oklabMatch[1]),
+            Number(oklabMatch[2]),
+            Number(oklabMatch[3]),
+            parseAlpha(oklabMatch[4])
+          );
+        }
+
+        const oklchMatch = value.match(
+          /^oklch\(\s*([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+)(?:deg)?(?:\s*\/\s*([+-]?\d*\.?\d+%?))?\s*\)$/
+        );
+
+        if (oklchMatch) {
+          const lightness = parseCssNumber(oklchMatch[1]);
+          const chroma = parseCssNumber(oklchMatch[2]);
+          const hue = (Number(oklchMatch[3]) * Math.PI) / 180;
+
+          return oklabToRgb(
+            lightness,
+            chroma * Math.cos(hue),
+            chroma * Math.sin(hue),
+            parseAlpha(oklchMatch[4])
+          );
+        }
+
+        return null;
+      }
+
+      function parseCssNumber(value) {
+        return value.endsWith('%') ? Number(value.slice(0, -1)) / 100 : Number(value);
+      }
+
+      function parseAlpha(value) {
+        if (!value) return 1;
+        return value.endsWith('%') ? Number(value.slice(0, -1)) / 100 : Number(value);
+      }
+
+      function toSrgbChannel(value) {
+        const clamped = Math.min(1, Math.max(0, value));
+        return clamped <= 0.0031308
+          ? 12.92 * clamped * 255
+          : (1.055 * Math.pow(clamped, 1 / 2.4) - 0.055) * 255;
+      }
+
+      function oklabToRgb(lightness, a, b, alpha) {
+        const lPrime = lightness + 0.3963377774 * a + 0.2158037573 * b;
+        const mPrime = lightness - 0.1055613458 * a - 0.0638541728 * b;
+        const sPrime = lightness - 0.0894841775 * a - 1.291485548 * b;
+        const l = lPrime ** 3;
+        const m = mPrime ** 3;
+        const s = sPrime ** 3;
+
+        return {
+          r: toSrgbChannel(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
+          g: toSrgbChannel(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
+          b: toSrgbChannel(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
+          a: alpha,
+        };
+      }
+
+      function isTransparentColorValue(value) {
+        if (value === 'transparent') return true;
+
+        const color = parseColor(value);
+        if (color) return color.a <= 0.05;
+
+        return /\/\s*0(?:\D|$)/.test(value);
+      }
+
+      function composite(foreground, background) {
+        const alpha = foreground.a + background.a * (1 - foreground.a);
+
+        if (alpha === 0) {
+          return { r: 0, g: 0, b: 0, a: 0 };
+        }
+
+        return {
+          r:
+            (foreground.r * foreground.a +
+              background.r * background.a * (1 - foreground.a)) /
+            alpha,
+          g:
+            (foreground.g * foreground.a +
+              background.g * background.a * (1 - foreground.a)) /
+            alpha,
+          b:
+            (foreground.b * foreground.a +
+              background.b * background.a * (1 - foreground.a)) /
+            alpha,
+          a: alpha,
+        };
+      }
+
+      function luminance({ r, g, b }) {
+        const values = [r, g, b].map((channel) => {
+          const value = channel / 255;
+          return value <= 0.03928
+            ? value / 12.92
+            : Math.pow((value + 0.055) / 1.055, 2.4);
+        });
+
+        return 0.2126 * values[0] + 0.7152 * values[1] + 0.0722 * values[2];
+      }
+
+      function contrastRatio(foreground, background) {
+        const light = Math.max(luminance(foreground), luminance(background));
+        const dark = Math.min(luminance(foreground), luminance(background));
+        return (light + 0.05) / (dark + 0.05);
+      }
+
+      function elementPath(element) {
+        const parts = [];
+        let current = element;
+
+        while (current && current.nodeType === Node.ELEMENT_NODE && parts.length < 4) {
+          let part = current.tagName.toLowerCase();
+
+          if (current.id) {
+            part += `#${current.id}`;
+            parts.unshift(part);
+            break;
+          }
+
+          if (current.classList.length) {
+            part += `.${[...current.classList].slice(0, 2).join('.')}`;
+          }
+
+          parts.unshift(part);
+          current = current.parentElement;
+        }
+
+        return parts.join(' > ');
+      }
+
+      function isVisible(element) {
+        const style = window.getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+
+        return (
+          style.display !== 'none' &&
+          style.visibility !== 'hidden' &&
+          Number(style.opacity || 1) > 0.05 &&
+          rect.width > 0 &&
+          rect.height > 0
+        );
+      }
+
+      function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+
+        return (
+          rect.bottom >= 0 &&
+          rect.right >= 0 &&
+          rect.top <= window.innerHeight &&
+          rect.left <= window.innerWidth
+        );
+      }
+
+      function hasVisibleTextChild(element) {
+        return [...element.children].some((child) => {
+          if (!isVisible(child)) return false;
+          return (child.innerText || '').trim().length > 0;
+        });
+      }
+
+      function hasUnmeasurableBackground(element) {
+        let current = element;
+
+        while (current && current.nodeType === Node.ELEMENT_NODE) {
+          const style = window.getComputedStyle(current);
+          if (style.backgroundImage && style.backgroundImage !== 'none') {
+            return true;
+          }
+          current = current.parentElement;
+        }
+
+        return false;
+      }
+
+      function hasMediaBackdrop(element) {
+        const section = element.closest('section');
+        if (!section) return false;
+
+        const sectionRect = section.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+
+        return [...section.querySelectorAll('img, picture, video')].some(
+          (media) => {
+            const style = window.getComputedStyle(media);
+            const rect = media.getBoundingClientRect();
+            const isPositionedBackdrop =
+              style.position === 'absolute' || style.position === 'fixed';
+            const substantiallyCoversSection =
+              rect.width >= sectionRect.width * 0.5 &&
+              rect.height >= sectionRect.height * 0.5;
+            const overlapsElement =
+              rect.bottom >= elementRect.top &&
+              rect.top <= elementRect.bottom &&
+              rect.right >= elementRect.left &&
+              rect.left <= elementRect.right;
+
+            return (
+              isPositionedBackdrop &&
+              substantiallyCoversSection &&
+              overlapsElement
+            );
+          }
+        );
+      }
+
+      function isMediaCardText(element) {
+        const link = element.closest('a');
+        return Boolean(link?.querySelector('img, picture, video'));
+      }
+
+      function isTransparentFixedHeaderText(element) {
+        const header = element.closest('header');
+
+        return Boolean(
+          header &&
+            window.getComputedStyle(header).position === 'fixed' &&
+            isTransparentColorValue(window.getComputedStyle(header).backgroundColor)
+        );
+      }
+
+      function effectiveBackground(element) {
+        const lineage = [];
+        let current = element;
+
+        while (current && current.nodeType === Node.ELEMENT_NODE) {
+          lineage.unshift(current);
+          current = current.parentElement;
+        }
+
+        return lineage.reduce((background, item) => {
+          const colorValue = window.getComputedStyle(item).backgroundColor;
+          const color = parseColor(colorValue);
+          if (!color || color.a <= 0) return background;
+
+          return color.a < 1 ? composite(color, background) : color;
+        }, DEFAULT_PAGE_BACKGROUND);
+      }
+
+      function isLargeText(style) {
+        const fontSize = Number.parseFloat(style.fontSize || '16');
+        const rawWeight = style.fontWeight;
+        const fontWeight =
+          rawWeight === 'bold' ? 700 : Number.parseInt(rawWeight, 10) || 400;
+
+        return fontSize >= 24 || (fontSize >= 18.66 && fontWeight >= 700);
+      }
+
+      return [...document.querySelectorAll('body *')]
+        .flatMap((element) => {
+          if (SKIP_TAGS.has(element.tagName)) return [];
+          if (!isVisible(element) || !isInViewport(element) || hasVisibleTextChild(element)) return [];
+          if (isTransparentFixedHeaderText(element)) return [];
+          if (hasUnmeasurableBackground(element)) return [];
+          if (hasMediaBackdrop(element)) return [];
+          if (isMediaCardText(element)) return [];
+
+          const text = (element.innerText || '').replace(/\s+/g, ' ').trim();
+          if (!text) return [];
+
+          const style = window.getComputedStyle(element);
+          const foreground = parseColor(style.color);
+          const background = effectiveBackground(element);
+
+          if (!foreground) return [];
+
+          const foregroundOnBackground =
+            foreground.a < 1 ? composite(foreground, background) : foreground;
+          const ratio = contrastRatio(foregroundOnBackground, background);
+          const required = isLargeText(style) ? MIN_LARGE_TEXT : MIN_NORMAL_TEXT;
+
+          if (ratio >= required) return [];
+
+          return [
+            {
+              text: text.slice(0, 90),
+              ratio: Number(ratio.toFixed(2)),
+              required,
+              selector: elementPath(element),
+            },
+          ];
+        })
+        .slice(0, 20);
+    });
+
+    return { route: label, passed: issues.length === 0, issues };
+  } finally {
+    await page.close();
   }
 }
 
-// Test a single page
-async function testPage(path) {
-  const url = `${BASE_URL}${path}`;
-  console.log(`\n📄 Testing: ${path}`);
-  
-  try {
-    const output = execSync(
-      `pa11y --standard WCAG2AA --reporter json "${url}" 2>/dev/null`,
-      { encoding: 'utf-8', timeout: 30000 }
-    );
-    
-    const results = JSON.parse(output);
-    const contrastIssues = results.filter(issue => 
-      issue.code.includes('contrast') || 
-      issue.context.toLowerCase().includes('color')
-    );
-    
-    if (contrastIssues.length === 0) {
-      console.log('  ✅ No contrast issues found');
-      return { path, passed: true, issues: 0 };
-    } else {
-      console.log(`  ❌ ${contrastIssues.length} contrast issue(s):`);
-      contrastIssues.forEach(issue => {
-        console.log(`     - ${issue.message}`);
-      });
-      return { path, passed: false, issues: contrastIssues.length };
-    }
-  } catch (error) {
-    if (error.status === 2) {
-      // pa11y returns exit code 2 when issues are found
-      console.log('  ⚠️  Accessibility issues found (check output above)');
-      return { path, passed: false, issues: 'unknown' };
-    }
-    console.log(`  ⚠️  Could not test: ${error.message}`);
-    return { path, passed: false, issues: 'error' };
-  }
-}
-
-// Main test runner
 async function runTests() {
-  if (!checkPa11y()) {
-    console.log('❌ pa11y is not installed. Install it with:');
-    console.log('   npm install -g pa11y');
-    console.log('\nOr run the development server and use browser DevTools:');
-    console.log('   npm run dev');
-    console.log('Then open Chrome DevTools → Lighthouse → Accessibility');
-    process.exit(1);
-  }
+  console.log('EDG Patio & Shade - Color Contrast Tests');
+  console.log(`Testing against: ${BASE_URL}`);
+  console.log(
+    `Viewports: ${VIEWPORTS.map((viewport) => viewport.label).join(', ')}\n`
+  );
 
-  console.log('✅ pa11y found\n');
-  console.log('Testing pages for WCAG 2.2 AA contrast compliance...\n');
-
+  const browser = await chromium.launch();
   const results = [];
-  
-  for (const page of PAGES) {
-    const result = await testPage(page);
-    results.push(result);
+
+  try {
+    for (const route of PAGES) {
+      for (const viewport of VIEWPORTS) {
+        process.stdout.write(`Testing ${route} [${viewport.label}] ... `);
+        const result = await testPage(browser, route, viewport);
+        results.push(result);
+
+        if (result.passed) {
+          console.log('pass');
+        } else {
+          console.log(`fail (${result.issues.length} issue(s))`);
+          result.issues.slice(0, 5).forEach((issue) => {
+            console.log(
+              `  - ${issue.selector}: "${issue.text}" ratio ${issue.ratio}:1, needs ${issue.required}:1`
+            );
+          });
+        }
+      }
+    }
+  } finally {
+    await browser.close();
   }
 
-  // Summary
-  console.log('\n' + '='.repeat(50));
-  console.log('📊 SUMMARY');
-  console.log('='.repeat(50));
-  
-  const passed = results.filter(r => r.passed).length;
-  const failed = results.filter(r => !r.passed).length;
-  
-  console.log(`\nPages tested: ${results.length}`);
-  console.log(`✅ Passed: ${passed}`);
-  console.log(`❌ Failed: ${failed}`);
-  
-  if (failed > 0) {
-    console.log('\n⚠️  Some pages have contrast issues. Review the output above.');
-    console.log('\nTo fix:');
-    console.log('1. Check the specific elements mentioned');
-    console.log('2. Update color classes per COLOR_CONTRAST_QUICK_REFERENCE.md');
-    console.log('3. Re-run this test');
+  const failed = results.filter((result) => !result.passed);
+
+  console.log('\nSummary');
+  console.log(`Pages tested: ${results.length}`);
+  console.log(`Passed: ${results.length - failed.length}`);
+  console.log(`Failed: ${failed.length}`);
+
+  if (failed.length) {
     process.exit(1);
-  } else {
-    console.log('\n🎉 All pages pass contrast requirements!');
-    process.exit(0);
   }
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  runTests().catch(err => {
-    console.error('Error running tests:', err);
+const currentFile = fileURLToPath(import.meta.url);
+const invokedFile = process.argv[1] ? path.resolve(process.argv[1]) : '';
+
+if (currentFile === invokedFile) {
+  runTests().catch((error) => {
+    console.error('Error running contrast tests:', error.message);
     process.exit(1);
   });
 }

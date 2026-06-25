@@ -620,9 +620,9 @@ function QuoteModal({
             </p>
             <p className="mb-8 text-xs text-white/55">
               In the meantime, visit our{' '}
-              <a href="/projects" className="text-edg-brand underline">
+              <Link href="/projects" className="text-edg-brand underline">
                 project portfolio
-              </a>{' '}
+              </Link>{' '}
               to see completed installations near you.
             </p>
             <Button onClick={onClose}>Back to Configurator</Button>

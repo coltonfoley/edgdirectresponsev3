@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 
 export default function Error({
@@ -38,12 +39,12 @@ export default function Error({
           <Button onClick={reset} className="rounded-lg">
             Try again
           </Button>
-          <a
+          <Link
             href="/"
             className="rounded-lg border border-white/20 px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
           >
             Go home
-          </a>
+          </Link>
         </div>
         {process.env.NODE_ENV === 'development' && error.message && (
           <details className="mt-8 text-left">

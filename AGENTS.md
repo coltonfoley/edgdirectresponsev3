@@ -15,9 +15,9 @@ before making changes. Do not assume this file is fresher than the source code.
 
 ## Verified Current Facts
 
-These facts were checked against the repo on 2026-06-07:
+These facts were checked against the repo on 2026-06-25:
 
-- Next.js is `16.1.6`; React is `19.2.1`; Node engine is `22.x`.
+- Next.js is `16.2.9`; React is `19.2.1`; Node engine is `22.x`.
 - Website forms submit to `/api/leads`.
 - `/api/leads` forwards accepted leads to Rainmaker through `RAINMAKER_*`
   environment variables.

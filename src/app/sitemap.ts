@@ -20,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/projects', priority: 0.8 },
     { url: '/gallery', priority: 0.8 },
     { url: '/guides/planning-guide', priority: 0.8 },
-    { url: '/guides/planning-guide/read', priority: 0.7 },
     { url: '/guides/motorized-pergola-planning', priority: 0.9 },
     { url: '/guides/pergola-system-fit-review', priority: 0.9 },
     { url: '/guides/motorized-pergola-budget-examples', priority: 0.85 },

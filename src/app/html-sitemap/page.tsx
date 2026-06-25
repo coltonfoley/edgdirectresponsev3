@@ -22,6 +22,9 @@ const sitemapLinks = [
       { href: '/contact', label: 'Pricing Consultation' },
       { href: '/trade-partners', label: 'For Pros' },
       { href: '/gallery', label: 'Gallery' },
+      { href: '/projects', label: 'Project Portfolio' },
+      { href: '/showroom', label: 'Showroom' },
+      { href: '/design-your-pergola', label: 'Design Your Pergola' },
     ],
   },
   {
@@ -32,6 +35,7 @@ const sitemapLinks = [
       { href: '/systems/shades', label: 'Motorized Shades' },
       { href: '/systems/enclosures', label: 'Glass Enclosures' },
       { href: '/systems/appliances', label: 'Outdoor Appliances' },
+      { href: '/systems/saunas', label: 'Outdoor Saunas' },
     ],
   },
   {
@@ -50,6 +54,11 @@ const sitemapLinks = [
         href: '/commercial/hotel-roof-deck-systems',
         label: 'Hotel Roof Deck Systems',
       },
+      { href: '/commercial/hotel-pergolas', label: 'Hotel Pergolas' },
+      {
+        href: '/commercial/restaurant-patio-solutions',
+        label: 'Restaurant Patio Solutions',
+      },
       {
         href: '/commercial/country-club-outdoor-spaces',
         label: 'Country Club Context',
@@ -64,6 +73,16 @@ const sitemapLinks = [
       { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
       { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
       { href: '/service-areas/algonquin-il', label: 'Algonquin, IL' },
+      { href: '/service-areas/lake-county-il', label: 'Lake County, IL' },
+      { href: '/service-areas/mchenry-county-il', label: 'McHenry County, IL' },
+      {
+        href: '/service-areas/north-shore-chicago',
+        label: 'North Shore Chicago',
+      },
+      {
+        href: '/service-areas/southeast-wisconsin',
+        label: 'Southeast Wisconsin',
+      },
       {
         href: '/service-areas/algonquin-il/motorized-pergolas',
         label: 'Algonquin Motorized Pergolas',
@@ -94,7 +113,15 @@ const sitemapLinks = [
         label: 'Deerfield Retractable Screens',
       },
       { href: '/service-areas/wilmette-il', label: 'Wilmette, IL' },
+      {
+        href: '/service-areas/wilmette-il/louvered-pergolas',
+        label: 'Wilmette Louvered Pergolas',
+      },
       { href: '/service-areas/winnetka-il', label: 'Winnetka, IL' },
+      {
+        href: '/service-areas/winnetka-il/louvered-pergolas',
+        label: 'Winnetka Louvered Pergolas',
+      },
       { href: '/service-areas/northbrook-il', label: 'Northbrook, IL' },
       { href: '/service-areas/lake-forest-il', label: 'Lake Forest, IL' },
       {
