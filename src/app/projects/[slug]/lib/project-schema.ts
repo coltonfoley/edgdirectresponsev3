@@ -17,7 +17,9 @@ export function generateProjectSchema(project: EnrichedProject) {
         name: project.title,
         description: project.description,
         url: `https://www.edgpatioshade.com/projects/${project.slug}`,
-        image: project.heroImage,
+        ...(project.hasRealPhotography && project.heroImage
+          ? { image: project.heroImage }
+          : {}),
         ...(project.galleryImages?.length && {
           associatedMedia: project.galleryImages.map((img) => ({
             '@type': 'ImageObject',

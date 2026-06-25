@@ -79,7 +79,9 @@ export async function generateMetadata({
       description: project.description,
       type: 'article',
       url: `/projects/${slug}`,
-      images: project.heroImage ? [{ url: project.heroImage }] : undefined,
+      images: project.hasRealPhotography && project.heroImage
+        ? [{ url: project.heroImage }]
+        : undefined,
     },
   };
 }
