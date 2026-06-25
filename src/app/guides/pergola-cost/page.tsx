@@ -9,7 +9,6 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import {
   DollarSign,
-  Wind,
   Hammer,
   Zap,
   Ruler,

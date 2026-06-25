@@ -431,7 +431,13 @@ function PergolaVisualizerPrototypeClientInner() {
   const formRef = useRef<HTMLDivElement | null>(null);
   const { submitLead, loading, error, success } = useLeadSubmission();
 
-  useEffect(() => { setWebglReady(canUseWebGL()); }, []);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      setWebglReady(canUseWebGL());
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   const summaryRows = useMemo(() => [
     { label: 'Type', value: config.installationType === 'attached' ? 'Attached' : 'Freestanding' },

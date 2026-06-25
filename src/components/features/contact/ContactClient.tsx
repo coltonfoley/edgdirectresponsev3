@@ -142,11 +142,6 @@ function ContactForm({
   const { submitLead, loading, error, success } = useLeadSubmission();
 
   useEffect(() => {
-    setFormType(initialFormType);
-    setLeadSource(initialSource);
-  }, [initialFormType, initialSource]);
-
-  useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const intent = searchParams.get('type');
     const projectType = normalizeProjectType(
@@ -158,16 +153,20 @@ function ContactForm({
       searchParams.get('market') ||
       '';
 
-    setFormType(normalizeFormType(intent));
-    setLeadSource(normalizeSource(searchParams.get('source'), intent));
+    const frame = requestAnimationFrame(() => {
+      setFormType(normalizeFormType(intent));
+      setLeadSource(normalizeSource(searchParams.get('source'), intent));
 
-    if (projectType || location) {
-      setFormData((prev) => ({
-        ...prev,
-        projectType: prev.projectType || projectType,
-        location: prev.location || location,
-      }));
-    }
+      if (projectType || location) {
+        setFormData((prev) => ({
+          ...prev,
+          projectType: prev.projectType || projectType,
+          location: prev.location || location,
+        }));
+      }
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   const handleChange = (
@@ -259,7 +258,7 @@ function ContactForm({
 
         {/* Contact Details Footer */}
         <div className="relative z-10 mt-12 border-t border-white/10 pt-12">
-          <div className="grid grid-cols-2 gap-8">
+          <div className="grid gap-8 sm:grid-cols-2">
             <div>
               <div className="mb-2 text-xs font-bold tracking-widest text-zinc-400 uppercase">
                 Call Us

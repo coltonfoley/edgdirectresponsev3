@@ -52,6 +52,7 @@ export function projectImages(slug: string, imageCount?: number): ProjectImageSe
  * @deprecated All projects now use the unified path structure
  */
 export function isLegacyProject(_slug: string): boolean {
+  void _slug;
   return false;
 }
 

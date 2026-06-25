@@ -19,7 +19,6 @@ import {
   Construction,
   Snowflake,
   ChevronDown,
-  ArrowLeft,
 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 
@@ -34,9 +33,14 @@ export default function GuideReadPage() {
 
     if (!hasAccess) {
       router.push('/guides/planning-guide');
-    } else {
-      setIsAuthorized(true);
+      return;
     }
+
+    const frame = requestAnimationFrame(() => {
+      setIsAuthorized(true);
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, [router]);
 
   if (!isAuthorized) {

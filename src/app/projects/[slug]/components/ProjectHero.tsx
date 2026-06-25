@@ -1,16 +1,13 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { EnrichedProject, parseLocation } from '../lib/project-utils';
+import { EnrichedProject } from '../lib/project-utils';
 
 interface ProjectHeroProps {
   project: EnrichedProject;
 }
 
 export function ProjectHero({ project }: ProjectHeroProps) {
-  const location = parseLocation(project.location);
-
   return (
     <section className="relative h-[60vh] min-h-[500px]">
       {/* Background Image */}

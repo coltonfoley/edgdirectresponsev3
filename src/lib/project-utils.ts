@@ -10,11 +10,7 @@
 
 import {
   Project,
-  ProjectCSVRow,
-  ProjectLocation,
   SYSTEM_DETECTION_KEYWORDS,
-  SUPPORTED_SYSTEMS,
-  PROJECT_DEFAULTS,
 } from '../types/project';
 
 // ============================================================================
@@ -453,5 +449,4 @@ function hasValue(value: unknown): boolean {
   if (typeof value === 'object') return Object.keys(value).length > 0;
   return true;
 }
-
 

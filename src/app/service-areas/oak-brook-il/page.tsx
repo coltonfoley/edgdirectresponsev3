@@ -13,7 +13,6 @@ import Link from 'next/link';
 import {
   MapPin,
   ArrowRight,
-  Home,
   CheckCircle2,
   Wind,
   Building,

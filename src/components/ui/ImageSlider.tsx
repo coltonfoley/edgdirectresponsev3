@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 interface ImageSliderProps {
   images: {
@@ -26,22 +27,9 @@ export function ImageSlider({
   priority = false,
 }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
   const [canLoadAllImages, setCanLoadAllImages] = useState(false);
   const [isLoaded, setIsLoaded] = useState<boolean[]>(new Array(images.length).fill(false));
-
-  useEffect(() => {
-    // Check for reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
 
   useEffect(() => {
     if (prefersReducedMotion || !canLoadAllImages || images.length <= 1) return;
@@ -179,7 +167,7 @@ export function ImageGrid({ images, className = '', sizes = '(max-width: 768px) 
 
   return (
     <div className={`grid grid-cols-2 gap-1 ${className}`}>
-      {displayImages.map((image, index) => (
+      {displayImages.map((image) => (
         <div key={image.src} className="relative aspect-square overflow-hidden">
           <Image
             src={image.src}

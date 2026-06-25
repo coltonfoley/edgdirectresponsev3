@@ -36,8 +36,8 @@ export function BeforeAfter({
 
   const handleMouseDown = useCallback(() => setIsDragging(true), []);
   const handleMouseUp = useCallback(() => setIsDragging(false), []);
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent | MouseEvent) => {
+  const handleWindowMouseMove = useCallback(
+    (e: MouseEvent) => {
       if (!isDragging) return;
       handleMove(e.clientX);
     },
@@ -45,8 +45,11 @@ export function BeforeAfter({
   );
 
   const handleTouchMove = useCallback(
-    (e: React.TouchEvent | TouchEvent) => {
-      handleMove(e.touches[0].clientX);
+    (e: TouchEvent) => {
+      const touch = e.touches[0];
+      if (touch) {
+        handleMove(touch.clientX);
+      }
     },
     [handleMove]
   );
@@ -54,18 +57,18 @@ export function BeforeAfter({
   useEffect(() => {
     if (isDragging) {
       window.addEventListener('mouseup', handleMouseUp);
-      window.addEventListener('mousemove', handleMouseMove as any);
+      window.addEventListener('mousemove', handleWindowMouseMove);
       window.addEventListener('touchend', handleMouseUp);
-      window.addEventListener('touchmove', handleTouchMove as any);
+      window.addEventListener('touchmove', handleTouchMove);
     }
 
     return () => {
       window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('mousemove', handleMouseMove as any);
+      window.removeEventListener('mousemove', handleWindowMouseMove);
       window.removeEventListener('touchend', handleMouseUp);
-      window.removeEventListener('touchmove', handleTouchMove as any);
+      window.removeEventListener('touchmove', handleTouchMove);
     };
-  }, [isDragging, handleMouseUp, handleMouseMove, handleTouchMove]);
+  }, [isDragging, handleMouseUp, handleWindowMouseMove, handleTouchMove]);
 
   return (
     <div
@@ -93,28 +96,17 @@ export function BeforeAfter({
 
         {/* Before Image (Foreground - Clipped) */}
         <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ width: `${sliderPosition}%` }}
+          className="absolute inset-0"
+          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
         >
-          {/* We wrap the inner image in a div that matches the full container width 
-              so the image doesn't scale with the clipping mask */}
-          <div
-            className="relative h-full"
-            style={{
-              width: containerRef.current
-                ? `${containerRef.current.offsetWidth}px`
-                : '100%',
-            }}
-          >
-            <Image
-              src={beforeImage}
-              alt={beforeLabel}
-              fill
-              className="object-cover"
-              draggable={false}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <Image
+            src={beforeImage}
+            alt={beforeLabel}
+            fill
+            className="object-cover"
+            draggable={false}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
           <div className="absolute bottom-4 left-4 z-10 rounded bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
             {beforeLabel}
           </div>

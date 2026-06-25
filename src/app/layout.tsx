@@ -115,16 +115,6 @@ export default function RootLayout({
         {/* Preconnect to image CDN if using external images */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        
-        {/* Preload critical font files for faster text rendering */}
-        <link 
-          rel="preload" 
-          href="https://fonts.gstatic.com/s/barlow/v12/7cHqv4kjgoGqM7E3t-4s6FospT4.woff2" 
-          as="font" 
-          type="font/woff2" 
-          crossOrigin="anonymous" 
-        />
-        
         {/* ============================================
             JSON-LD STRUCTURED DATA
             ============================================ */}

@@ -1,10 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const IMAGES_DIR = path.join(PUBLIC_DIR, 'images');

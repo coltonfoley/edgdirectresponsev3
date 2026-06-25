@@ -11,7 +11,7 @@ const GONE_PATHS = new Set([
   '/prismhardscapes',
 ]);
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
   const normalizedPathname =
     request.nextUrl.pathname === '/'

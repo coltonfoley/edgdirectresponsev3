@@ -9,7 +9,6 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  ArrowLeft,
   Check,
   ArrowRight,
   DollarSign,
@@ -17,8 +16,6 @@ import {
   BarChart3,
   ShieldCheck,
   Zap,
-  Phone,
-  Shield,
   TrendingUp,
   Building2,
   Utensils,

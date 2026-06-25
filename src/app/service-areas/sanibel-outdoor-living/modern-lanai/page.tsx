@@ -18,12 +18,9 @@ import {
   ShieldCheck,
   CheckCircle2,
   Wind,
-  Droplets,
   Sun,
   Thermometer,
-  Zap,
   Eye,
-  AlertTriangle,
   Info,
 } from 'lucide-react';
 

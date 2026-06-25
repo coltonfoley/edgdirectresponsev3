@@ -265,8 +265,12 @@ export function SystemFitReviewForm() {
       }
 
       setPhotos(nextPhotos);
-    } catch (err: any) {
-      setPhotoError(err.message || 'Photo upload failed. Please try again.');
+    } catch (err: unknown) {
+      setPhotoError(
+        err instanceof Error
+          ? err.message
+          : 'Photo upload failed. Please try again.'
+      );
     } finally {
       setPhotoStatus('');
     }

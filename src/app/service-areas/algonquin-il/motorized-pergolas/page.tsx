@@ -9,7 +9,6 @@ import {
   Lightbulb,
   MapPin,
   Phone,
-  ShieldCheck,
   Snowflake,
   Sun,
   Wind,

@@ -14,11 +14,8 @@ import {
   Ruler,
   FileCheck,
   BookOpen,
-  ArrowRight,
   Star,
-  ArrowLeft,
 } from 'lucide-react';
-import Link from 'next/link';
 import * as images from '@/lib/images';
 
 

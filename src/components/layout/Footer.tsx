@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 
-import { MapPin, Phone, Mail, ArrowRight, BookOpen } from 'lucide-react';
+import { MapPin, Phone, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { trackConversion } from '@/lib/analytics';
 
 export function Footer() {
@@ -14,7 +14,11 @@ export function Footer() {
   const [year, setYear] = useState(2026);
 
   useEffect(() => {
-    setYear(new Date().getFullYear());
+    const frame = requestAnimationFrame(() => {
+      setYear(new Date().getFullYear());
+    });
+
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   // Completely hide footer on the interactive guide reading page or admin pages

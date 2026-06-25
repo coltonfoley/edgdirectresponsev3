@@ -18,9 +18,6 @@ import {
   CheckCircle2,
   CloudSun,
   Wind,
-  Building,
-  Trees,
-  Ruler,
   Snowflake,
 } from 'lucide-react';
 

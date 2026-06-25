@@ -16,7 +16,6 @@ import {
   Wine,
   Users,
   Umbrella,
-  MapPin,
   CheckCircle2,
 } from 'lucide-react';
 

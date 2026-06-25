@@ -5,7 +5,6 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
-import { BeforeAfter } from '@/components/features/gallery/BeforeAfter';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -19,15 +18,39 @@ import {
   Phone,
   ChevronRight,
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema } from '@/lib/schema';
 
-interface SaunasPageProps {
-  product?: any;
+interface SaunaFeature {
+  _key?: string;
+  icon: string;
+  title: string;
+  description: string;
 }
 
-const iconMap: Record<string, any> = {
+interface SaunaSpec {
+  _key?: string;
+  label: string;
+  value: string;
+}
+
+interface SaunaProduct {
+  name?: string;
+  shortDescription?: string;
+  tagline?: string;
+  quoteUrl?: string;
+  features?: SaunaFeature[];
+  specifications?: SaunaSpec[];
+  quickFeatures?: string[];
+}
+
+interface SaunasPageProps {
+  product?: SaunaProduct;
+}
+
+const iconMap: Record<string, LucideIcon> = {
   Thermometer,
   Wind,
   Droplets,
@@ -36,7 +59,7 @@ const iconMap: Record<string, any> = {
   Wrench,
 };
 
-const defaultFeatures = [
+const defaultFeatures: SaunaFeature[] = [
   { icon: 'Shield', title: 'ThermoWood® Construction', description: 'Sustainably sourced Scandinavian timber that\'s been heat-treated to eliminate moisture, warping, and decay — no chemicals, no compromises.' },
   { icon: 'Droplets', title: 'Tempered Glass Throughout', description: 'Floor-to-ceiling tempered glass doors and windows flood the cabin with natural light and give it a distinctly modern, high-end aesthetic.' },
   { icon: 'Wind', title: 'Integrated Ventilation', description: 'A built-in ventilation system circulates fresh air properly, keeping sessions comfortable and the interior dry between uses.' },
@@ -45,7 +68,7 @@ const defaultFeatures = [
   { icon: 'Wrench', title: 'Full-Service Installation', description: 'We handle the site prep, electrical connection, ventilation finishing, and final inspection — turnkey from delivery to first session.' },
 ];
 
-const defaultSpecs = [
+const defaultSpecs: SaunaSpec[] = [
   { label: 'Available Models', value: '2–3, 4, and 5–6 person cabins' },
   { label: 'Construction Material', value: 'ThermoWood® (heat-treated Scandinavian timber)' },
   { label: 'Roof', value: 'Bituminous tile — weather & snow rated' },
@@ -184,7 +207,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
             </p>
           </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature: any) => {
+            {features.map((feature) => {
               const IconComponent = iconMap[feature.icon] || Shield;
               return (
                 <div key={feature._key || feature.title} className="flex gap-4">
@@ -210,7 +233,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
               <h2 className="mb-4 text-3xl font-bold md:text-4xl">Specification Highlights</h2>
             </div>
             <div className="overflow-hidden rounded-2xl border border-zinc-100 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
-              {specs.map((spec: any, index: number) => (
+              {specs.map((spec, index) => (
                 <div
                   key={spec._key || spec.label}
                   className={`flex items-center justify-between p-6 ${index !== specs.length - 1 ? 'border-b border-black/5 dark:border-white/5' : ''}`}

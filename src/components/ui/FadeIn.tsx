@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode, useEffect, useRef, useState } from 'react';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 interface FadeInProps {
   children: ReactNode;
@@ -28,28 +29,16 @@ export function FadeIn({
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(immediate);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    // Check for reduced motion preference
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-
     if (immediate) {
-      mediaQuery.removeEventListener('change', handleChange);
       return;
     }
 
     // Set up Intersection Observer for scroll-triggered animations
     const element = ref.current;
     if (!element || prefersReducedMotion) {
-      mediaQuery.removeEventListener('change', handleChange);
       return;
     }
 
@@ -71,7 +60,6 @@ export function FadeIn({
     observer.observe(element);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleChange);
       observer.disconnect();
     };
   }, [immediate, prefersReducedMotion]);

@@ -8,7 +8,6 @@ import { FadeIn } from '@/components/ui/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  ArrowLeft,
   ArrowRight,
   Wind,
   ShieldCheck,
@@ -20,8 +19,6 @@ import {
   Home,
   CheckCircle2,
   AlertTriangle,
-  DollarSign,
-  Clock,
   MapPin,
   Phone,
   Info,

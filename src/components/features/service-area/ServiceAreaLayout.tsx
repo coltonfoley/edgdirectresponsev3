@@ -4,7 +4,8 @@ import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
-import { ArrowRight, Check, MapPin, Shield, Wind, Snowflake, Home, FileCheck } from 'lucide-react';
+import { ArrowRight, MapPin, Shield, Wind, Snowflake, Home, FileCheck } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 
@@ -26,7 +27,7 @@ interface ServiceAreaLayoutProps {
   }[];
 }
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   'snowflake': Snowflake,
   'wind': Wind,
   'shield': Shield,
@@ -38,7 +39,6 @@ export function ServiceAreaLayout({
   location,
   state,
   zipCodes,
-  tagline,
   description,
   heroImage,
   challenges,

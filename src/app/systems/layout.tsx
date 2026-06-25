@@ -1,8 +1,3 @@
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
-
 export default function SystemsLayout({
   children,
 }: {

@@ -89,6 +89,18 @@ interface AttachmentUploadState {
   error?: string;
 }
 
+interface EmailLogs {
+  admin?: {
+    success: boolean;
+    id?: unknown;
+    error?: unknown;
+  };
+  followUp?: {
+    skipped: true;
+    reason: string;
+  };
+}
+
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -116,6 +128,23 @@ function escapeHtml(value: unknown): string {
 function cleanEmailHeader(value: unknown, fallback = ''): string {
   const cleaned = normalizeLeadText(value).replace(/[\r\n]+/g, ' ').slice(0, 160);
   return cleaned || fallback;
+}
+
+function getErrorMessage(error: unknown, fallback: string): string {
+  if (error instanceof Error && error.message) {
+    return error.message;
+  }
+
+  if (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof error.message === 'string'
+  ) {
+    return error.message;
+  }
+
+  return fallback;
 }
 
 async function fetchWithTimeout(
@@ -604,9 +633,11 @@ export async function POST(request: NextRequest) {
 
     try {
       parsedRequest = await parseLeadRequest(request);
-    } catch (parseError: any) {
-      const message =
-        parseError.message || 'We could not read that lead submission.';
+    } catch (parseError) {
+      const message = getErrorMessage(
+        parseError,
+        'We could not read that lead submission.'
+      );
       const status = message.includes('limited') ? 413 : 400;
 
       return NextResponse.json(
@@ -693,9 +724,11 @@ export async function POST(request: NextRequest) {
           source,
         });
         attachmentUploadState = { status: 'uploaded' };
-      } catch (attachmentError: any) {
-        const attachmentErrorMessage =
-          attachmentError?.message || 'Rainmaker attachment upload failed';
+      } catch (attachmentError) {
+        const attachmentErrorMessage = getErrorMessage(
+          attachmentError,
+          'Rainmaker attachment upload failed'
+        );
         console.error(
           'Lead captured, but Rainmaker attachment upload failed:',
           attachmentErrorMessage
@@ -710,7 +743,7 @@ export async function POST(request: NextRequest) {
     // Email notification via Resend
     const notificationRecipients = getNotificationRecipients();
 
-    const emailLogs: any = {};
+    const emailLogs: EmailLogs = {};
     const attachmentSummaryHtml = getAttachmentSummaryHtml(
       leadAttachments,
       attachmentUploadState
@@ -826,9 +859,12 @@ export async function POST(request: NextRequest) {
           console.log('Admin notification sent successfully.');
           emailLogs.admin = { success: true, id: adminData.id };
         }
-      } catch (adminErr: any) {
+      } catch (adminErr) {
         console.error('Failed to send admin notification:', adminErr);
-        emailLogs.admin = { success: false, error: adminErr.message };
+        emailLogs.admin = {
+          success: false,
+          error: getErrorMessage(adminErr, 'Admin notification failed'),
+        };
       }
 
       if (allowsLeadFollowUpEmails()) {
@@ -858,7 +894,7 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error('Lead capture error:', error);
     return NextResponse.json(
       {
@@ -866,7 +902,7 @@ export async function POST(request: NextRequest) {
         errors: ['Something went wrong. Please try again.'],
         // Only include error details in development
         ...(process.env.NODE_ENV === 'development' && {
-          details: error.message,
+          details: getErrorMessage(error, 'Unknown lead capture error'),
         }),
       },
       { status: 500 }

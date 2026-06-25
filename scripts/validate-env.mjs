@@ -52,16 +52,6 @@ function requireOneOf(names, reason) {
   }
 }
 
-function allowValue(name, allowed, fallback) {
-  const current = value(name, fallback);
-
-  if (!allowed.includes(current)) {
-    errors.push(`${name} must be one of: ${allowed.join(", ")}.`);
-  }
-
-  return current;
-}
-
 function warnMissing(name, reason) {
   if (!has(name)) {
     warnings.push(`${name} is not set. ${reason}`);
