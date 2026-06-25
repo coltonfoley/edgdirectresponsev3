@@ -7,6 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { ProjectPhotoPlaceholder } from '@/components/projects/ProjectPhotoPlaceholder';
 import { projects as csvProjects } from '../../lib/projects-data';
 import { getProjectSlug } from '@/lib/project-slug-mapping';
 import { getProjectHero, getProjectGallery } from '@/lib/images';
@@ -192,40 +193,53 @@ export function ProjectsContent() {
                 >
                   {/* Image */}
                   <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      onError={(e) => {
-                        // Fallback to 1.jpg if hero.jpg doesn't exist
-                        const img = e.target as HTMLImageElement;
-                        img.src = project.fallbackImage;
-                      }}
-                    />
-                    {/* Type Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className={`
-                        px-3 py-1 text-xs font-bold uppercase tracking-wide
-                        ${project.type === 'Commercial' 
-                          ? 'bg-edg-brand text-edg-dark' 
-                          : 'bg-white text-edg-dark'}
-                      `}>
-                        {project.type}
-                      </span>
-                    </div>
-                    {!project.hasRealPhotography && (
-                      <div className="absolute right-4 top-4">
-                        <span className="bg-black/75 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
-                          Details in progress
-                        </span>
-                      </div>
+                    {project.hasRealPhotography ? (
+                      <>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            // Fallback to 1.jpg if hero.jpg doesn't exist
+                            const img = e.target as HTMLImageElement;
+                            img.src = project.fallbackImage;
+                          }}
+                        />
+                        <div className="absolute top-4 left-4">
+                          <span className={`
+                            px-3 py-1 text-xs font-bold uppercase
+                            ${project.type === 'Commercial'
+                              ? 'bg-edg-brand text-edg-dark'
+                              : 'bg-white text-edg-dark'}
+                          `}>
+                            {project.type}
+                          </span>
+                        </div>
+                      </>
+                    ) : (
+                      <ProjectPhotoPlaceholder />
                     )}
                   </div>
 
                   {/* Content */}
                   <div className="p-6">
+                    {!project.hasRealPhotography && (
+                      <div className="mb-4 flex flex-wrap gap-2">
+                        <span className={`
+                          px-3 py-1 text-xs font-bold uppercase
+                          ${project.type === 'Commercial'
+                            ? 'bg-edg-brand text-edg-dark'
+                            : 'bg-zinc-100 text-edg-dark dark:bg-zinc-800 dark:text-white'}
+                        `}>
+                          {project.type}
+                        </span>
+                        <span className="border border-zinc-300 px-3 py-1 text-xs font-bold uppercase text-zinc-600 dark:border-zinc-700 dark:text-zinc-300">
+                          Details in progress
+                        </span>
+                      </div>
+                    )}
                     <div className="mb-3 flex items-center gap-1 text-sm text-gray-500">
                       <MapPin className="h-4 w-4" />
                       {project.location}
@@ -236,7 +250,7 @@ export function ProjectsContent() {
                     <p className="mb-4 line-clamp-2 text-sm text-gray-600 dark:text-zinc-300">
                       {project.description}
                     </p>
-                    <div className="flex items-center gap-2 text-sm font-medium text-edg-brand">
+                    <div className="flex items-center gap-2 text-sm font-medium text-edg-dark transition-colors group-hover:text-black dark:text-edg-brand dark:group-hover:text-white">
                       View Project
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>

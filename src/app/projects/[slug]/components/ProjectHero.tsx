@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { ProjectPhotoPlaceholder } from '@/components/projects/ProjectPhotoPlaceholder';
 import { EnrichedProject } from '../lib/project-utils';
 
 interface ProjectHeroProps {
@@ -12,14 +13,18 @@ export function ProjectHero({ project }: ProjectHeroProps) {
     <section className="relative h-[60vh] min-h-[500px]">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image
-          src={project.heroImage}
-          alt={project.title}
-          fill
-          priority
-          sizes="100vw"
-          className={project.hasRealPhotography ? 'object-cover' : 'bg-black object-contain'}
-        />
+        {project.hasRealPhotography ? (
+          <Image
+            src={project.heroImage}
+            alt={project.title}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        ) : (
+          <ProjectPhotoPlaceholder />
+        )}
       </div>
 
       {/* Gradient Overlay */}

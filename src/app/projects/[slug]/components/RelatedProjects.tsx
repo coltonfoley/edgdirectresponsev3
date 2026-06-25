@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
+import { ProjectPhotoPlaceholder } from '@/components/projects/ProjectPhotoPlaceholder';
 import { parseLocation } from '../lib/project-utils';
 import { Project } from '@/lib/projects';
 
@@ -45,13 +46,17 @@ function RelatedProjectCard({ project }: { project: Project }) {
     >
       {/* Thumbnail */}
       <div className="relative aspect-[16/10] overflow-hidden bg-zinc-200">
-        <Image
-          src={project.cardImage || project.heroImage}
-          alt={project.title}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        {project.hasRealPhotography ? (
+          <Image
+            src={project.cardImage || project.heroImage}
+            alt={project.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <ProjectPhotoPlaceholder />
+        )}
         <meta itemProp="image" content={project.heroImage || ''} />
       </div>
 
