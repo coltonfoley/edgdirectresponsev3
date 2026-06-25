@@ -13,15 +13,10 @@
     "postinstall": "node scripts/patch-next-metadata.mjs",
     "lint": "eslint",
     "format": "prettier --write .",
-    "test:e2e": "playwright test",
+    "test:e2e": "npm run build && playwright test",
     "test:contrast": "node scripts/test-contrast.mjs",
     "generate": "plop",
-    "validate-images": "node scripts/validate-images.mjs",
-    "migrate-images": "node scripts/migrate-images.mjs",
-    "placeholders": "bash scripts/placeholders/manage.sh",
-    "placeholders:generate": "npx tsx scripts/placeholders/generate.ts",
-    "placeholders:list": "npx tsx scripts/placeholders/generate.ts --list",
-    "placeholders:clean": "rm -rf public/projects"
+    "validate-images": "node scripts/validate-images.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.1.6",
