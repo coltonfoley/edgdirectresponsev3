@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, MapPin } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { ProjectPhotoPlaceholder } from '@/components/projects/ProjectPhotoPlaceholder';
 import { EnrichedProject } from '../lib/project-utils';
@@ -9,32 +10,38 @@ interface ProjectHeroProps {
 }
 
 export function ProjectHero({ project }: ProjectHeroProps) {
+  const primarySystem = project.systems[0] || 'Outdoor Living System';
+  const statusLabel =
+    project.completionStatus === 'complete'
+      ? 'Finished photo set'
+      : project.hasRealPhotography
+        ? 'Project notes in progress'
+        : 'Project profile in progress';
+
   return (
-    <section className="relative h-[60vh] min-h-[500px]">
-      {/* Background Image */}
+    <section className="relative min-h-[72svh] overflow-hidden bg-edg-dark pt-28 text-white">
       <div className="absolute inset-0">
         {project.hasRealPhotography ? (
           <Image
             src={project.heroImage}
-            alt={project.title}
+            alt={`${project.title} ${primarySystem} project in ${project.location}`}
             fill
             priority
             sizes="100vw"
             className="object-cover"
           />
         ) : (
-          <ProjectPhotoPlaceholder />
+          <ProjectPhotoPlaceholder className="opacity-35" />
         )}
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/15" />
 
-      {/* Content */}
-      <div className="container relative z-10 mx-auto flex h-full flex-col justify-end px-4 pb-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb Navigation */}
+      <div className="container relative z-10 mx-auto flex min-h-[72svh] flex-col px-4 pb-12 sm:px-6 lg:px-8">
         <div className="mb-6">
           <Breadcrumb
+            className="text-zinc-300 [&_[aria-current='page']]:text-white [&_a]:text-zinc-300 [&_a:hover]:text-edg-brand"
             items={[
               { label: 'Projects', href: '/projects' },
               { label: project.title },
@@ -42,41 +49,92 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           />
         </div>
 
-        {/* Project Type Badge */}
-        <span className="bg-edg-brand text-edg-dark mb-4 w-fit rounded-full px-3 py-1 text-sm font-semibold">
-          {project.type}
-        </span>
-
-        {/* Title */}
-        <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-          {project.title}
-        </h1>
-
-        {/* Location - Prominent for Local SEO */}
-        <div
-          className="flex items-center text-zinc-200"
-          itemProp="location"
-          itemScope
-          itemType="https://schema.org/Place"
-        >
-          <MapPin className="mr-2 h-5 w-5" />
-          <span itemProp="name">{project.location}</span>
-          <meta itemProp="address" content={project.location} />
-        </div>
-
-        {/* Systems Tags (Hero level for quick scanning) */}
-        {project.systems.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.systems.map((system) => (
-              <span
-                key={system}
-                className="bg-white text-zinc-900 px-4 py-2 text-sm font-semibold rounded-full shadow-lg"
-              >
-                {system}
+        <div className="mt-auto grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
+          <div className="max-w-4xl">
+            <div className="mb-5 flex flex-wrap gap-3">
+              <span className="border border-edg-brand/45 bg-edg-brand/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                {project.type} Project
               </span>
-            ))}
+              <span className="border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-white uppercase">
+                {statusLabel}
+              </span>
+            </div>
+
+            <h1 className="mb-5 max-w-4xl text-4xl leading-none font-bold text-white md:text-6xl lg:text-7xl">
+              {project.title}
+            </h1>
+
+            <div
+              className="mb-5 flex items-center text-base font-semibold text-zinc-200"
+              itemProp="location"
+              itemScope
+              itemType="https://schema.org/Place"
+            >
+              <MapPin className="mr-2 h-5 w-5 text-edg-brand" />
+              <span itemProp="name">{project.location}</span>
+              <meta itemProp="address" content={project.location} />
+            </div>
+
+            <p className="max-w-2xl text-lg leading-relaxed text-zinc-200 md:text-xl">
+              {project.description}
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href={`/contact?project=${project.slug}&location=${encodeURIComponent(project.location)}`}
+                className="inline-flex items-center justify-center bg-edg-brand px-6 py-3 text-sm font-bold tracking-wider text-black uppercase transition-colors hover:bg-white"
+              >
+                Plan a similar project
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center border border-white/30 bg-white/10 px-6 py-3 text-sm font-bold tracking-wider text-white uppercase transition-colors hover:bg-white hover:text-black"
+              >
+                View all projects
+              </Link>
+            </div>
           </div>
-        )}
+
+          <div className="border border-white/15 bg-black/45 p-6 backdrop-blur-sm">
+            <h2 className="mb-5 text-sm font-bold tracking-[0.2em] text-edg-brand uppercase">
+              Project Snapshot
+            </h2>
+            <dl className="space-y-5">
+              <div>
+                <dt className="text-xs font-bold tracking-wider text-zinc-400 uppercase">
+                  Location
+                </dt>
+                <dd className="mt-1 text-base font-semibold text-white">
+                  {project.location}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-bold tracking-wider text-zinc-400 uppercase">
+                  Project Type
+                </dt>
+                <dd className="mt-1 text-base font-semibold text-white">
+                  {project.type}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-bold tracking-wider text-zinc-400 uppercase">
+                  Systems
+                </dt>
+                <dd className="mt-2 flex flex-wrap gap-2">
+                  {project.systems.map((system) => (
+                    <span
+                      key={system}
+                      className="border border-edg-brand/25 bg-edg-brand/10 px-3 py-1 text-sm font-semibold text-edg-brand"
+                    >
+                      {system}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
       </div>
     </section>
   );

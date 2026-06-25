@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { CheckCircle2, Camera } from 'lucide-react';
+import { ArrowRight, Camera, CheckCircle2 } from 'lucide-react';
 import { EnrichedProject, normalizeSystems } from '../lib/project-utils';
 import { ProjectSection } from './ProjectSection';
 
@@ -8,145 +8,208 @@ interface ProjectContentProps {
   project: EnrichedProject;
 }
 
+const systemLinks: Record<string, string> = {
+  'Louvered Pergola': '/systems/pergolas',
+  'Motorized Screens': '/systems/shades',
+  'Glass Enclosure': '/systems/enclosures',
+  'Integrated Heating': '/systems/appliances',
+};
+
 export function ProjectContent({ project }: ProjectContentProps) {
   const normalizedSystems = normalizeSystems(project.systems);
+  const primarySystem = normalizedSystems[0] || 'Outdoor Living System';
+  const relatedSystemLinks = normalizedSystems
+    .map((system) => ({ system, href: systemLinks[system] }))
+    .filter((link): link is { system: string; href: string } =>
+      Boolean(link.href)
+    );
 
   return (
-    <div className="space-y-12">
-      {/* ===== PLACEHOLDER NOTICE CARD ===== */}
-      {/* Only show when no gallery images are available */}
+    <div className="space-y-14">
       {!project.hasGallery && (
-        <div className="relative overflow-hidden rounded-xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900/50">
-          {/* Mint accent line */}
-          <div className="absolute left-0 top-0 h-full w-1 bg-edg-brand" />
-          
+        <div className="relative overflow-hidden border border-black/10 bg-surface-muted p-6">
+          <div className="absolute top-0 left-0 h-full w-1 bg-edg-brand" />
           <div className="flex items-start gap-4">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-edg-brand/10">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-edg-brand/30 bg-edg-brand/10">
               <Camera className="h-5 w-5 text-edg-brand" />
             </div>
             <div className="flex-1">
-              <h3 className="mb-1 text-base font-semibold text-zinc-900 dark:text-white">
-                Project Photo Set Coming Soon
-              </h3>
-              <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                We're still collecting the finished photo set for this project.{' '}
-                <Link
-                  href="/contact"
-                  className="font-medium text-edg-brand hover:text-edg-brand-dark hover:underline"
-                >
-                  Contact us
-                </Link>{' '}
-                to see more examples of our work in {project.location}.
+              <h2 className="mb-1 text-base font-bold text-zinc-900">
+                Finished Project Photos Are Still Being Confirmed
+              </h2>
+              <p className="text-sm leading-relaxed text-zinc-600">
+                This project page is being kept intentionally conservative
+                until EDG has a finished photo set and complete project notes
+                ready for publication. The scope notes below reflect what is in
+                the current project record.
               </p>
+              <Link
+                href="/projects"
+                className="mt-3 inline-flex items-center text-sm font-bold tracking-wider text-edg-brand-dark uppercase hover:underline"
+              >
+                Browse photographed projects
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
       )}
 
-      {/* ===== OVERVIEW ===== */}
-      {/* Always show - this is required content */}
       <ProjectSection condition={true} id="overview">
-        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">
-          Project Overview
-        </h2>
-        <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {project.description}
-        </p>
+        <div className="border-b border-black/10 pb-10">
+          <p className="mb-3 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+            Project Overview
+          </p>
+          <h2 className="mb-5 text-3xl leading-tight font-bold text-zinc-950 md:text-4xl">
+            {project.title}: {primarySystem.toLowerCase()} project in{' '}
+            {project.location}
+          </h2>
+          <p className="max-w-3xl text-lg leading-relaxed text-zinc-700">
+            {project.description}
+          </p>
+        </div>
       </ProjectSection>
 
-      {/* ===== CHALLENGE ===== */}
+      <div className="grid gap-4 md:grid-cols-2">
+        <div className="border border-black/10 bg-white p-6">
+          <h2 className="mb-3 text-base font-bold tracking-wider text-zinc-950 uppercase">
+            Project Context
+          </h2>
+          <p className="text-sm leading-relaxed text-zinc-600">
+            EDG lists this as a {project.type.toLowerCase()} outdoor living
+            project in {project.location}. The page focuses on the site
+            constraints, systems used, and project planning details that can be
+            stated from the current record.
+          </p>
+        </div>
+
+        <div className="border border-black/10 bg-white p-6">
+          <h2 className="mb-3 text-base font-bold tracking-wider text-zinc-950 uppercase">
+            System Focus
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {normalizedSystems.map((system) => (
+              <span
+                key={system}
+                className="border border-edg-brand/25 bg-edg-brand/10 px-3 py-2 text-sm font-semibold text-zinc-950"
+              >
+                {system}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <ProjectSection condition={project.hasChallenge} id="challenge">
-        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">
-          The Challenge
-        </h2>
-        <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {project.challenge}
-        </p>
+        <div className="border-l-2 border-edg-brand pl-6">
+          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+            Site Challenge
+          </p>
+          <h2 className="mb-4 text-2xl font-bold text-zinc-950">
+            What made this project specific
+          </h2>
+          <p className="leading-relaxed text-zinc-700">{project.challenge}</p>
+        </div>
       </ProjectSection>
 
-      {/* ===== SOLUTION ===== */}
       <ProjectSection condition={project.hasSolution} id="solution">
-        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">
-          Our Solution
-        </h2>
-        <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {project.solution}
-        </p>
+        <div className="border border-black/10 bg-surface-muted p-8">
+          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+            EDG Approach
+          </p>
+          <h2 className="mb-4 text-2xl font-bold text-zinc-950">
+            How the system was planned
+          </h2>
+          <p className="leading-relaxed text-zinc-700">{project.solution}</p>
+        </div>
       </ProjectSection>
 
-      {/* ===== RESULTS ===== */}
       <ProjectSection condition={project.hasResults} id="results">
-        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">
-          Results & Impact
-        </h2>
-        <ul className="space-y-3">
-          {project.results?.map((result, index) => (
-            <li
-              key={index}
-              className="flex items-start gap-3"
-              itemProp="review"
-              itemScope
-              itemType="https://schema.org/Review"
-            >
-              <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
-              <span itemProp="reviewBody">{result}</span>
-            </li>
-          ))}
-        </ul>
-      </ProjectSection>
-
-      {/* ===== SYSTEMS USED (Inline - for projects without sidebar) ===== */}
-      <ProjectSection
-        condition={normalizedSystems.length > 0 && !project.hasSpecs}
-        id="systems"
-      >
-        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">
-          Systems Used
-        </h2>
-        <div className="flex flex-wrap gap-2">
-          {normalizedSystems.map((system) => (
-            <span
-              key={system}
-              className="bg-edg-brand/10 text-edg-brand rounded-full px-4 py-2 text-sm font-medium"
-            >
-              {system}
-            </span>
-          ))}
+        <div>
+          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+            Built Outcome
+          </p>
+          <h2 className="mb-5 text-2xl font-bold text-zinc-950">
+            Confirmed project takeaways
+          </h2>
+          <ul className="grid gap-3">
+            {project.results?.map((result) => (
+              <li
+                key={result}
+                className="flex items-start gap-3 border border-black/10 bg-white p-4"
+              >
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-dark" />
+                <span className="leading-relaxed text-zinc-700">{result}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </ProjectSection>
 
-      {/* ===== VIDEO ===== */}
-      {/* ===== GALLERY ===== */}
-      <ProjectSection condition={project.hasGallery} id="gallery">
-        <h2 className="mb-4 text-2xl font-bold text-zinc-900 dark:text-white">
-          Project Gallery
-        </h2>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-          {project.galleryImages?.map((image, index) => (
-            <div
-              key={index}
-              className="group relative aspect-square overflow-hidden rounded-xl bg-zinc-100"
-            >
-              <Image
-                src={image}
-                alt={`${project.title} - Image ${index + 1}`}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+      {relatedSystemLinks.length > 0 && (
+        <ProjectSection condition={true} id="related-systems">
+          <div className="border-t border-black/10 pt-8">
+            <h2 className="mb-4 text-xl font-bold text-zinc-950">
+              Related EDG system pages
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {relatedSystemLinks.map(({ system, href }) => (
+                <Link
+                  key={system}
+                  href={href}
+                  className="inline-flex items-center border border-black/10 px-4 py-3 text-sm font-bold tracking-wider text-zinc-950 uppercase transition-colors hover:border-edg-brand hover:bg-edg-brand/10"
+                >
+                  {system}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              ))}
             </div>
-          ))}
+          </div>
+        </ProjectSection>
+      )}
+
+      <ProjectSection condition={project.hasGallery} id="gallery">
+        <div>
+          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+            Project Photos
+          </p>
+          <h2 className="mb-5 text-2xl font-bold text-zinc-950">
+            Finished photo set
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {project.galleryImages?.map((image, index) => (
+              <div
+                key={image}
+                className={
+                  index === 0
+                    ? 'group relative aspect-[4/3] overflow-hidden bg-zinc-100 sm:col-span-2'
+                    : 'group relative aspect-[4/3] overflow-hidden bg-zinc-100'
+                }
+              >
+                <Image
+                  src={image}
+                  alt={`${project.title} ${primarySystem.toLowerCase()} project photo ${index + 1} in ${project.location}`}
+                  fill
+                  sizes={
+                    index === 0
+                      ? '(min-width: 1024px) 66vw, 100vw'
+                      : '(min-width: 1024px) 33vw, 50vw'
+                  }
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </ProjectSection>
 
-      {/* ===== PROJECT STATUS INDICATOR ===== */}
-      {/* Show for partial/incomplete projects */}
       {project.completionStatus !== 'complete' && (
-        <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-900 dark:bg-yellow-900/20">
-          <p className="text-sm text-yellow-800 dark:text-yellow-200">
-            <strong>Note:</strong> This project showcase is being updated with
-            additional details. Contact us for complete information about
-            similar projects in {project.location}.
+        <div className="border border-yellow-300 bg-yellow-50 p-5">
+          <p className="text-sm leading-relaxed text-yellow-900">
+            <strong>Publication note:</strong> This page is intentionally
+            limited to the details currently available in EDG&apos;s project
+            record. Contact EDG for complete information about similar projects
+            in {project.location}.
           </p>
         </div>
       )}

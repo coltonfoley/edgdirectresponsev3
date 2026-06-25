@@ -1,8 +1,16 @@
 import { EnrichedProject, parseLocation } from './project-utils';
 
+function toAbsoluteUrl(path: string) {
+  if (path.startsWith('http')) {
+    return path;
+  }
+
+  return `https://www.edgpatioshade.com${path}`;
+}
+
 /**
  * Generates comprehensive JSON-LD schema for project pages
- * Combines CreativeWork, LocalBusiness, and Review schemas
+ * Combines CreativeWork, breadcrumb, and verified testimonial schema.
  */
 export function generateProjectSchema(project: EnrichedProject) {
   const location = parseLocation(project.location);
@@ -17,13 +25,14 @@ export function generateProjectSchema(project: EnrichedProject) {
         name: project.title,
         description: project.description,
         url: `https://www.edgpatioshade.com/projects/${project.slug}`,
+        mainEntityOfPage: `https://www.edgpatioshade.com/projects/${project.slug}`,
         ...(project.hasRealPhotography && project.heroImage
-          ? { image: project.heroImage }
+          ? { image: toAbsoluteUrl(project.heroImage) }
           : {}),
         ...(project.galleryImages?.length && {
           associatedMedia: project.galleryImages.map((img) => ({
             '@type': 'ImageObject',
-            url: img,
+            url: toAbsoluteUrl(img),
           })),
         }),
         locationCreated: {
@@ -81,11 +90,6 @@ export function generateProjectSchema(project: EnrichedProject) {
               itemReviewed: {
                 '@type': 'CreativeWork',
                 name: project.title,
-              },
-              reviewRating: {
-                '@type': 'Rating',
-                ratingValue: '5',
-                bestRating: '5',
               },
               author: {
                 '@type': 'Person',

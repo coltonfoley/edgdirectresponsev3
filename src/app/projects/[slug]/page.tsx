@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import { getProject, getAllProjects } from '@/lib/projects';
+import { getProject, getAllProjects, Project } from '@/lib/projects';
 import {
   enrichProject,
   findRelatedProjects,
@@ -22,21 +22,23 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-function buildProjectMetaDescription(
-  title: string,
-  location: string,
-  description: string
-) {
-  const fullDescription = `${title} in ${location}. ${description}`.replace(
-    /\s+/g,
-    ' '
-  );
+function truncateMetaDescription(value: string) {
+  const normalized = value.replace(/\s+/g, ' ').trim();
 
-  if (fullDescription.length <= 160) {
-    return fullDescription;
+  if (normalized.length <= 160) {
+    return normalized;
   }
 
-  return `${fullDescription.slice(0, 157).trimEnd()}...`;
+  return `${normalized.slice(0, 157).trimEnd()}...`;
+}
+
+function buildProjectMetaDescription(project: Project) {
+  const primarySystem = project.systems[0] || 'outdoor living system';
+  const projectType = project.type.toLowerCase();
+
+  return truncateMetaDescription(
+    `${project.title} ${primarySystem.toLowerCase()} project in ${project.location}. See the ${projectType} site context, systems used, project photos when available, and EDG planning notes.`
+  );
 }
 
 /**
@@ -53,14 +55,14 @@ export async function generateMetadata({
   }
 
   const location = parseLocation(project.location);
-  const metaDescription = buildProjectMetaDescription(
-    project.title,
-    project.location,
-    project.description
-  );
+  const primarySystem = project.systems[0] || 'Outdoor Living System';
+  const metaDescription = buildProjectMetaDescription(project);
+  const titleLocation = location.state
+    ? `${location.city}, ${location.state}`
+    : location.city;
 
   return {
-    title: `${project.title} | ${location.city} ${project.type} | EDG Projects`,
+    title: `${project.title} ${primarySystem} Project in ${titleLocation} | EDG`,
     description: metaDescription,
     keywords: [
       project.type,
@@ -70,13 +72,14 @@ export async function generateMetadata({
       'pergola',
       'patio shade',
       `${location.city} pergola`,
+      `${location.city} outdoor living`,
     ],
     alternates: {
       canonical: `/projects/${slug}`,
     },
     openGraph: {
-      title: `${project.title} | EDG Patio & Shade`,
-      description: project.description,
+      title: `${project.title} ${primarySystem} Project | EDG Patio & Shade`,
+      description: metaDescription,
       type: 'article',
       url: `/projects/${slug}`,
       images: project.hasRealPhotography && project.heroImage
