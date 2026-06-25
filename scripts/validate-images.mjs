@@ -34,16 +34,29 @@ let stats = {
   missing: 0,
   inArchive: 0,
 };
+const checkedPaths = new Set();
+
+function normalizePublicPath(relativePath) {
+  const cleanPath = relativePath.startsWith('/')
+    ? relativePath.slice(1)
+    : relativePath;
+
+  return `/${cleanPath.replace(/\\/g, '/')}`;
+}
 
 function checkFile(relativePath, category) {
-  stats.totalChecked++;
-  
   // Remove leading slash if present
-  const cleanPath = relativePath.startsWith('/') 
-    ? relativePath.slice(1) 
-    : relativePath;
-  
+  const normalizedPath = normalizePublicPath(relativePath);
+  const cleanPath = normalizedPath.slice(1);
   const fullPath = path.join(PUBLIC_DIR, cleanPath);
+
+  if (checkedPaths.has(normalizedPath)) {
+    return fs.existsSync(fullPath);
+  }
+
+  checkedPaths.add(normalizedPath);
+  stats.totalChecked++;
+
   const exists = fs.existsSync(fullPath);
   
   // Check if it's in archive
@@ -69,6 +82,91 @@ function checkFile(relativePath, category) {
   }
   
   return exists;
+}
+
+function walkFiles(dir, files = []) {
+  if (!fs.existsSync(dir)) return files;
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walkFiles(fullPath, files);
+    } else {
+      files.push(fullPath);
+    }
+  }
+
+  return files;
+}
+
+function discoverSourceAssetPaths() {
+  const sourceRoots = ['src/app', 'src/components', 'src/lib'];
+  const sourceFiles = sourceRoots
+    .flatMap((root) => walkFiles(path.join(process.cwd(), root)))
+    .filter((file) => /\.(ts|tsx|js|jsx|mjs|json)$/i.test(file))
+    .filter((file) => !file.endsWith(path.join('src', 'data', 'gallery-images.json')));
+
+  const discovered = new Map();
+  const literalAssetPattern =
+    /['"`](\/(?:(?:images|projects)\/[^'"`]+?\.(?:jpg|jpeg|png|gif|webp|svg|mp4|webm|avif)|(?:logo\.png|og-image\.jpg)))['"`]/gi;
+  const projectImageSetPattern =
+    /getProjectImageSet\(\s*['"`]([^'"`]+)['"`]\s*(?:,\s*(\d+))?/g;
+
+  for (const file of sourceFiles) {
+    const source = fs
+      .readFileSync(file, 'utf8')
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '');
+    const relativeFile = path.relative(process.cwd(), file);
+
+    for (const match of source.matchAll(literalAssetPattern)) {
+      const assetPath = match[1];
+      if (assetPath.includes('${')) continue;
+      discovered.set(assetPath, `Source reference - ${relativeFile}`);
+    }
+
+    for (const match of source.matchAll(projectImageSetPattern)) {
+      const slug = match[1];
+      const galleryCount = Number(match[2] || 3);
+      discovered.set(`/projects/${slug}/hero.jpg`, `Generated project image set - ${relativeFile}`);
+      for (let index = 1; index <= galleryCount; index++) {
+        discovered.set(`/projects/${slug}/${index}.jpg`, `Generated project image set - ${relativeFile}`);
+      }
+    }
+  }
+
+  return discovered;
+}
+
+function discoverCurrentProjectHeroPaths() {
+  const mappingPath = path.join(process.cwd(), 'src/lib/project-slug-mapping.ts');
+  const projectsPath = path.join(process.cwd(), 'src/lib/projects-data.ts');
+  const mappingSource = fs.readFileSync(mappingPath, 'utf8');
+  const projectsSource = fs.readFileSync(projectsPath, 'utf8');
+
+  const slugMap = new Map();
+  for (const match of mappingSource.matchAll(/'([^']+)':\s*'([^']+)'/g)) {
+    slugMap.set(match[1], match[2]);
+  }
+
+  const customHeroByProjectId = {
+    carmines: '/projects/carmines/carmines-hero.jpg',
+    wade: '/projects/wade/wade-hero.jpg',
+    'jake-everly-residence': '/projects/jake/jake-hero.jpg',
+    greco: '/projects/greco/greco-hero.png',
+    karp: '/projects/karp/karp-hero.jpg',
+  };
+
+  const discovered = new Map();
+  for (const match of projectsSource.matchAll(/id:\s*"([^"]+)"/g)) {
+    const projectId = match[1];
+    const slug = slugMap.get(projectId) || projectId;
+    const heroPath = customHeroByProjectId[projectId] || `/projects/${slug}/hero.jpg`;
+    discovered.set(heroPath, 'Current project card/hero image');
+  }
+
+  return discovered;
 }
 
 // ============================================================================
@@ -178,6 +276,14 @@ Object.entries(expectedImages).forEach(([category, images]) => {
   images.forEach(img => checkFile(img, category));
 });
 
+for (const [imagePath, category] of discoverSourceAssetPaths()) {
+  checkFile(imagePath, category);
+}
+
+for (const [imagePath, category] of discoverCurrentProjectHeroPaths()) {
+  checkFile(imagePath, category);
+}
+
 // ============================================================================
 // Check for orphaned images (in public but not in registry)
 // ============================================================================
@@ -203,17 +309,40 @@ function scanDirectory(dir, basePath = '') {
 }
 
 const allPublicImages = scanDirectory(PUBLIC_DIR);
-const allExpectedFlat = Object.values(expectedImages).flat();
 
 const orphaned = allPublicImages.filter(img => {
   // Skip if it's in the expected list
-  if (allExpectedFlat.includes(img)) return false;
+  if (checkedPaths.has(img)) return false;
   // Skip default Next.js/Vercel assets
   if (['/file.svg', '/globe.svg', '/next.svg', '/vercel.svg', '/window.svg'].includes(img)) return false;
   // Skip archive (we expect those to be "orphaned" from registry perspective)
   if (img.includes('/_archive/')) return false;
   return true;
 });
+
+const orphanCategories = {
+  oldPrefix: orphaned.filter((img) => path.basename(img).startsWith('OLD-')),
+  projectPlaceholders: orphaned.filter((img) => img.startsWith('/projects/')),
+  likelyIntentional: orphaned.filter((img) =>
+    img.startsWith('/images/brochure/') ||
+    img.startsWith('/images/furniture/') ||
+    img.startsWith('/images/umbrellas/')
+  ),
+  needsReview: orphaned.filter((img) =>
+    !path.basename(img).startsWith('OLD-') &&
+    !img.startsWith('/projects/') &&
+    !img.startsWith('/images/brochure/') &&
+    !img.startsWith('/images/furniture/') &&
+    !img.startsWith('/images/umbrellas/')
+  ),
+};
+
+function printOrphanCategory(label, images) {
+  if (images.length === 0) return;
+  console.log(`  ${colors.bold}${label} (${images.length}):${colors.reset}`);
+  images.forEach(img => console.log(`    - ${img}`));
+  console.log();
+}
 
 // ============================================================================
 // Report
@@ -254,9 +383,12 @@ if (warnings.length > 0) {
 
 // Orphaned images
 if (orphaned.length > 0) {
-  console.log(`${colors.bold}${colors.blue}📝 ORPHANED IMAGES (${orphaned.length}):${colors.reset}`);
-  console.log('  These exist in public/ but are not in the image registry:');
-  orphaned.forEach(img => console.log(`    - ${img}`));
+  console.log(`${colors.bold}${colors.blue}📝 ORPHAN CANDIDATES (${orphaned.length}):${colors.reset}`);
+  console.log('  These exist in public/ but are not found in active source references or current project hero mappings:');
+  printOrphanCategory('OLD-prefixed assets', orphanCategories.oldPrefix);
+  printOrphanCategory('Project/photo assets not currently referenced', orphanCategories.projectPlaceholders);
+  printOrphanCategory('Likely intentional holding assets', orphanCategories.likelyIntentional);
+  printOrphanCategory('Needs human review', orphanCategories.needsReview);
   console.log();
 }
 

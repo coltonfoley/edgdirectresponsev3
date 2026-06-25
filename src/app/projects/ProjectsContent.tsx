@@ -10,6 +10,7 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { projects as csvProjects } from '../../lib/projects-data';
 import { getProjectSlug } from '@/lib/project-slug-mapping';
 import { getProjectHero, getProjectGallery } from '@/lib/images';
+import { hasRealProjectPhotography } from '@/lib/projects';
 import { useState, useMemo } from 'react';
 import { MapPin, ArrowRight, Filter, Camera } from 'lucide-react';
 
@@ -20,6 +21,7 @@ const types = Array.from(new Set(csvProjects.map(p => p.projectType))).sort();
 // Transform CSV data to display format
 const projects = csvProjects.map(p => {
   const imageSlug = getProjectSlug(p.id);
+  const hasRealPhotography = hasRealProjectPhotography(p.id);
   // Special handling for projects with custom named files
   const image = p.id === 'carmines' 
     ? `/projects/${imageSlug}/carmines-hero.jpg`
@@ -52,6 +54,7 @@ const projects = csvProjects.map(p => {
     description: p.description,
     image,
     fallbackImage,
+    hasRealPhotography,
   };
 });
 
@@ -86,7 +89,7 @@ export function ProjectsContent() {
                 Our Work
               </span>
               <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-                24 Outdoor Living Transformations
+                {projects.length} Outdoor Living Projects
               </h1>
               <p className="mx-auto max-w-2xl text-lg text-zinc-300">
                 See how we help homeowners and businesses across Chicagoland and beyond create 
@@ -108,10 +111,10 @@ export function ProjectsContent() {
                 </div>
                 <div>
                   <h3 className="mb-1 text-lg font-bold text-edg-dark dark:text-white">
-                    Professional Photography Coming Soon
+                    Portfolio Details Are Being Updated
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-zinc-300">
-                    Professional project photography coming soon. Interested in seeing examples of our work? Contact us and we&apos;d be happy to share project photos with you directly.
+                    Finished photo sets are live on select project pages. Several older project records still need final photos, solution notes, and results from EDG before they can be treated as full case studies.
                   </p>
                 </div>
               </div>
@@ -193,6 +196,7 @@ export function ProjectsContent() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         // Fallback to 1.jpg if hero.jpg doesn't exist
@@ -211,6 +215,13 @@ export function ProjectsContent() {
                         {project.type}
                       </span>
                     </div>
+                    {!project.hasRealPhotography && (
+                      <div className="absolute right-4 top-4">
+                        <span className="bg-black/75 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur-sm">
+                          Details in progress
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}

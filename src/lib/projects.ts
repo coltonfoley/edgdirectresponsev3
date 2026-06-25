@@ -13,6 +13,7 @@ export interface Project {
   cardImage: string;
   heroImage: string;
   galleryImages: string[];
+  hasRealPhotography: boolean;
   description: string;
   challenge: string;
   solution: string;
@@ -22,6 +23,18 @@ export interface Project {
   testimonial?: { quote: string; name: string; title: string };
   relatedProjects: string[];
   serviceAreaSlug?: string;
+}
+
+const projectsWithRealPhotography = new Set([
+  'karp',
+  'carmines',
+  'wade',
+  'jake-everly-residence',
+  'greco',
+]);
+
+export function hasRealProjectPhotography(projectId: string): boolean {
+  return projectsWithRealPhotography.has(projectId);
 }
 
 // Detect systems from description text
@@ -51,6 +64,7 @@ function detectSystems(description: string): string[] {
 // Transform CSV data to Project format
 const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
   const systems = detectSystems(csvProject.description + ' ' + csvProject.challenge);
+  const hasRealPhotography = hasRealProjectPhotography(csvProject.id);
   
   // Get the actual slug for images
   const imageSlug = getProjectSlug(csvProject.id);
@@ -71,25 +85,7 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
   // Generate service area slug
   const serviceAreaSlug = csvProject.city?.toLowerCase().replace(/\s+/g, '-') + '-' + state.toLowerCase();
   
-  // Parse results from challenge text if results is empty
   const results: string[] = csvProject.results || [];
-  if (results.length === 0 && csvProject.challenge) {
-    const challengeWords = csvProject.challenge.toLowerCase();
-    if (challengeWords.includes('entertain')) {
-      results.push('Created comfortable entertaining space');
-    }
-    if (challengeWords.includes('weather') || challengeWords.includes('rain') || challengeWords.includes('sun')) {
-      results.push('Protected from weather elements year-round');
-    }
-    if (challengeWords.includes('integrated') || challengeWords.includes('drainage') || challengeWords.includes('electrical')) {
-      results.push('Seamless integration with existing systems');
-    }
-  }
-  
-  // Ensure at least one result
-  if (results.length === 0) {
-    results.push('Successfully completed outdoor living transformation');
-  }
   
   return {
     slug: csvProject.id,
@@ -111,7 +107,9 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
                csvProject.id === 'greco' ? `/projects/${imageSlug}/greco-hero.png` : 
                csvProject.id === 'karp' ? `/projects/${imageSlug}/karp-hero.jpg` : 
                getProjectHero(imageSlug),
-    galleryImages: csvProject.id === 'carmines' 
+    galleryImages: !hasRealPhotography
+      ? []
+      : csvProject.id === 'carmines'
       ? [
           `/projects/${imageSlug}/carmines-patio-city-view.jpg`,
           `/projects/${imageSlug}/carmines-pergola-corner-structure.jpg`,
@@ -158,9 +156,10 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
           `/projects/${imageSlug}/karp-hero.jpg`,
         ]
       : getProjectGallery(imageSlug, 3),
+    hasRealPhotography,
     description: csvProject.description,
     challenge: csvProject.challenge,
-    solution: csvProject.solution || 'Custom outdoor living solution designed and installed by EDG Patio & Shade.',
+    solution: csvProject.solution,
     results,
     videoUrl: csvProject.videoUrl,
     specs: [

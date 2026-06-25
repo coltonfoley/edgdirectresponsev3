@@ -434,11 +434,11 @@ export const projects: Project[] = [
 
 // Statistics
 export const projectStats = {
-  total: 24,
-  complete: 0,
-  partial: 24,
+  total: 25,
+  complete: 5,
+  partial: 20,
   byType: {
-    Commercial: 12,
+    Commercial: 13,
     Residential: 12
   },
   byState: {
@@ -481,7 +481,7 @@ export const dataQualityIssues = [
   { project: "Reddy/Arora", issue: "Duplicate challenge text (copy-paste error)", field: "challenge" },
   { project: "Haiti", issue: "Missing address", field: "address" },
   { project: "Dicks Roofing Project 2", issue: "Missing state in address", field: "address" },
-  { project: "Multiple projects", issue: "23/24 projects missing Solution and Results fields", field: "solution, results" }
+  { project: "Multiple projects", issue: "20/25 projects missing Solution and 19/25 missing Results fields", field: "solution, results" }
 ];
 
 export default projects;

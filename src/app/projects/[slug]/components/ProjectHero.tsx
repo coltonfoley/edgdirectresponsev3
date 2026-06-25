@@ -18,7 +18,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className={project.hasRealPhotography ? 'object-cover' : 'bg-black object-contain'}
         />
       </div>
 

@@ -26,10 +26,10 @@ export function ProjectContent({ project }: ProjectContentProps) {
             </div>
             <div className="flex-1">
               <h3 className="mb-1 text-base font-semibold text-zinc-900 dark:text-white">
-                Project Photos Coming Soon
+                Project Photo Set Coming Soon
               </h3>
               <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                We're currently photographing this project.{' '}
+                We're still collecting the finished photo set for this project.{' '}
                 <Link
                   href="/contact"
                   className="font-medium text-edg-brand hover:text-edg-brand-dark hover:underline"
