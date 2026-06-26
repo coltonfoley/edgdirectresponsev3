@@ -290,7 +290,7 @@ function ContactForm({
               className={`-ml-[1px] border border-black/10 px-6 py-3 text-sm font-bold tracking-wider uppercase transition-colors first:ml-0 ${
                 formType === type.id
                   ? 'z-10 border-black bg-black text-white'
-                  : 'bg-white text-gray-400 hover:bg-gray-50 hover:text-black'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-black'
               }`}
             >
               {type.label}
@@ -434,7 +434,7 @@ function ContactForm({
               {loading ? 'Sending...' : 'Submit Request'}
               {!loading && <ArrowRight className="h-6 w-6" />}
             </Button>
-            <p className="mt-6 text-center text-xs text-gray-400">
+            <p className="mt-6 text-center text-xs text-gray-600">
               By submitting this form, you agree to our privacy policy. We
               respect your inbox.
             </p>

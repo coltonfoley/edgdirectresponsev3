@@ -148,7 +148,7 @@ export default function GuidesIndexPage() {
                       <div className="group-hover:bg-edg-brand/10 group-hover:border-edg-brand/20 rounded-2xl border border-zinc-100 bg-zinc-50 p-4 transition-colors dark:border-zinc-700 dark:bg-zinc-800">
                         <guide.icon className="text-edg-brand-text dark:text-edg-brand h-8 w-8" />
                       </div>
-                      <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-bold tracking-wider text-zinc-500 uppercase dark:bg-zinc-800">
+                      <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-bold tracking-wider text-zinc-600 uppercase dark:bg-zinc-800">
                         {guide.readTime}
                       </span>
                     </div>

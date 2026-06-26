@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const BASE_URL = process.env.TEST_URL || 'http://127.0.0.1:3000';
+const COLOR_SCHEME = process.env.COLOR_SCHEME === 'dark' ? 'dark' : 'light';
 const VIEWPORTS = [
   { label: 'desktop-top', width: 1440, height: 900, scrollY: 0 },
   { label: 'desktop-scrolled', width: 1440, height: 900, scrollY: 900 },
@@ -21,11 +22,20 @@ const PAGES = [
   '/contact',
   '/gallery',
   '/projects',
+  '/projects/karp',
   '/service-areas',
   '/service-areas/barrington-il',
   '/service-areas/northbrook-il',
+  '/service-areas/northbrook-il/motorized-pergolas',
+  '/service-areas/wilmette-il/louvered-pergolas',
   '/commercial',
   '/systems',
+  '/systems/appliances',
+  '/systems/saunas',
+  '/guides',
+  '/guides/louvered-pergolas',
+  '/privacy',
+  '/showroom',
   '/design',
 ];
 
@@ -36,6 +46,7 @@ function pageUrl(route) {
 async function testPage(browser, route, viewport) {
   const page = await browser.newPage({
     viewport: { width: viewport.width, height: viewport.height },
+    colorScheme: COLOR_SCHEME,
   });
   const url = pageUrl(route);
   const label = `${route} [${viewport.label}]`;
@@ -117,11 +128,53 @@ async function testPage(browser, route, viewport) {
           );
         }
 
+        const labMatch = value.match(
+          /^lab\(\s*([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+%?)(?:\s*\/\s*([+-]?\d*\.?\d+%?))?\s*\)$/
+        );
+
+        if (labMatch) {
+          return labToRgb(
+            parseLabLightness(labMatch[1]),
+            parseLabAxis(labMatch[2]),
+            parseLabAxis(labMatch[3]),
+            parseAlpha(labMatch[4])
+          );
+        }
+
+        const lchMatch = value.match(
+          /^lch\(\s*([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+%?)\s+([+-]?\d*\.?\d+)(?:deg)?(?:\s*\/\s*([+-]?\d*\.?\d+%?))?\s*\)$/
+        );
+
+        if (lchMatch) {
+          const lightness = parseLabLightness(lchMatch[1]);
+          const chroma = parseLabChroma(lchMatch[2]);
+          const hue = (Number(lchMatch[3]) * Math.PI) / 180;
+
+          return labToRgb(
+            lightness,
+            chroma * Math.cos(hue),
+            chroma * Math.sin(hue),
+            parseAlpha(lchMatch[4])
+          );
+        }
+
         return null;
       }
 
       function parseCssNumber(value) {
         return value.endsWith('%') ? Number(value.slice(0, -1)) / 100 : Number(value);
+      }
+
+      function parseLabLightness(value) {
+        return value.endsWith('%') ? Number(value.slice(0, -1)) : Number(value);
+      }
+
+      function parseLabAxis(value) {
+        return value.endsWith('%') ? Number(value.slice(0, -1)) * 1.25 : Number(value);
+      }
+
+      function parseLabChroma(value) {
+        return value.endsWith('%') ? Number(value.slice(0, -1)) * 1.5 : Number(value);
       }
 
       function parseAlpha(value) {
@@ -148,6 +201,28 @@ async function testPage(browser, route, viewport) {
           r: toSrgbChannel(4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s),
           g: toSrgbChannel(-1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s),
           b: toSrgbChannel(-0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s),
+          a: alpha,
+        };
+      }
+
+      function labToRgb(lightness, a, b, alpha) {
+        const epsilon = 6 / 29;
+        const fy = (lightness + 16) / 116;
+        const fx = fy + a / 500;
+        const fz = fy - b / 200;
+        const inverseLab = (value) =>
+          value > epsilon
+            ? value ** 3
+            : 3 * epsilon ** 2 * (value - 4 / 29);
+
+        const x = 0.96422 * inverseLab(fx);
+        const y = inverseLab(fy);
+        const z = 0.82521 * inverseLab(fz);
+
+        return {
+          r: toSrgbChannel(3.1341359569958707 * x - 1.6173863321612538 * y - 0.4906619460083532 * z),
+          g: toSrgbChannel(-0.978795502912089 * x + 1.916254567259524 * y + 0.03344273116131949 * z),
+          b: toSrgbChannel(0.07195537988411677 * x - 0.2289768264158322 * y + 1.405386058324125 * z),
           a: alpha,
         };
       }
@@ -239,6 +314,18 @@ async function testPage(browser, route, viewport) {
         );
       }
 
+      function isVisuallyHidden(element) {
+        const style = window.getComputedStyle(element);
+        return (
+          element.classList.contains('sr-only') ||
+          style.clip === 'rect(0px, 0px, 0px, 0px)' ||
+          style.clipPath === 'inset(50%)' ||
+          (style.position === 'absolute' &&
+            Number.parseFloat(style.width || '0') <= 1 &&
+            Number.parseFloat(style.height || '0') <= 1)
+        );
+      }
+
       function isInViewport(element) {
         const rect = element.getBoundingClientRect();
 
@@ -272,34 +359,42 @@ async function testPage(browser, route, viewport) {
       }
 
       function hasMediaBackdrop(element) {
-        const section = element.closest('section');
-        if (!section) return false;
-
-        const sectionRect = section.getBoundingClientRect();
         const elementRect = element.getBoundingClientRect();
+        let container = element.parentElement;
+        let depth = 0;
 
-        return [...section.querySelectorAll('img, picture, video')].some(
-          (media) => {
-            const style = window.getComputedStyle(media);
-            const rect = media.getBoundingClientRect();
-            const isPositionedBackdrop =
-              style.position === 'absolute' || style.position === 'fixed';
-            const substantiallyCoversSection =
-              rect.width >= sectionRect.width * 0.5 &&
-              rect.height >= sectionRect.height * 0.5;
-            const overlapsElement =
-              rect.bottom >= elementRect.top &&
-              rect.top <= elementRect.bottom &&
-              rect.right >= elementRect.left &&
-              rect.left <= elementRect.right;
+        while (container && depth < 6) {
+          const containerRect = container.getBoundingClientRect();
+          const backdropFound = [...container.querySelectorAll('img, picture, video')].some(
+            (media) => {
+              const style = window.getComputedStyle(media);
+              const rect = media.getBoundingClientRect();
+              const isPositionedBackdrop =
+                style.position === 'absolute' || style.position === 'fixed';
+              const substantiallyCoversContainer =
+                rect.width >= containerRect.width * 0.5 &&
+                rect.height >= containerRect.height * 0.5;
+              const overlapsElement =
+                rect.bottom >= elementRect.top &&
+                rect.top <= elementRect.bottom &&
+                rect.right >= elementRect.left &&
+                rect.left <= elementRect.right;
 
-            return (
-              isPositionedBackdrop &&
-              substantiallyCoversSection &&
-              overlapsElement
-            );
-          }
-        );
+              return (
+                isPositionedBackdrop &&
+                substantiallyCoversContainer &&
+                overlapsElement
+              );
+            }
+          );
+
+          if (backdropFound) return true;
+
+          container = container.parentElement;
+          depth += 1;
+        }
+
+        return false;
       }
 
       function isMediaCardText(element) {
@@ -347,6 +442,7 @@ async function testPage(browser, route, viewport) {
       return [...document.querySelectorAll('body *')]
         .flatMap((element) => {
           if (SKIP_TAGS.has(element.tagName)) return [];
+          if (isVisuallyHidden(element)) return [];
           if (!isVisible(element) || !isInViewport(element) || hasVisibleTextChild(element)) return [];
           if (isTransparentFixedHeaderText(element)) return [];
           if (hasUnmeasurableBackground(element)) return [];
@@ -390,6 +486,7 @@ async function testPage(browser, route, viewport) {
 async function runTests() {
   console.log('EDG Patio & Shade - Color Contrast Tests');
   console.log(`Testing against: ${BASE_URL}`);
+  console.log(`Browser color preference: ${COLOR_SCHEME}`);
   console.log(
     `Viewports: ${VIEWPORTS.map((viewport) => viewport.label).join(', ')}\n`
   );

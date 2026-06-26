@@ -139,11 +139,11 @@ export default function WilmetteProductPage() {
                   { label: 'Wilmette, IL', href: '/service-areas/wilmette-il' },
                   { label: 'Louvered Pergolas' },
                 ]}
-                className="mb-6"
+                className="mb-6 text-zinc-300"
               />
               <Link
                 href="/service-areas/wilmette-il"
-                className="text-edg-brand-dark mb-6 inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-zinc-200 hover:text-white hover:underline"
               >
                 <ArrowLeft className="h-4 w-4" /> Back to Wilmette
               </Link>

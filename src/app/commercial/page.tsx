@@ -164,11 +164,11 @@ export default function CommercialPage() {
               <div className="bg-zinc-50 border border-black/5 p-8 md:p-12">
                 <div className="grid grid-cols-2 gap-8 mb-12">
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Project Cost</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-2">Project Cost</div>
                     <div className="text-4xl font-bold text-black">$62,000</div>
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Payback Period</div>
+                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-2">Payback Period</div>
                     <div className="text-4xl font-bold text-edg-brand-text">4 Months</div>
                   </div>
                 </div>

@@ -82,7 +82,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
         </div>
 
         {/* Counter Badge */}
-        <div className="pointer-events-none absolute right-4 bottom-4 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+        <div className="pointer-events-none absolute right-4 bottom-4 z-10 rounded-full bg-black/75 px-3 py-1 text-xs font-medium text-white backdrop-blur">
           {activeIndex + 1} / {items.length}
         </div>
       </div>

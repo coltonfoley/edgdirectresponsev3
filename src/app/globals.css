@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Base Theme Variables */
   --color-background: var(--background);
@@ -22,6 +24,8 @@
   --color-text-primary: #0a0a0a;
   --color-text-secondary: #52525b;
   --color-text-muted: #6b6b75;
+  --color-muted-foreground: var(--color-text-secondary);
+  --color-edg-gray-text: var(--color-text-secondary);
   --color-text-inverse: #ffffff;
   --color-text-inverse-muted: #d4d4d8;
 
@@ -62,10 +66,11 @@
   --background: #fafafa;
   --foreground: #0a0a0a;
   --font-barlow: 'Barlow', sans-serif;
+  color-scheme: light;
 }
 
-/* NOTE: Dark mode disabled for brand consistency */
-/* The site remains in light mode regardless of system preferences */
+/* NOTE: System dark mode is disabled for brand consistency.
+   Intentional dark sections use explicit EDG dark surface classes. */
 
 body {
   background: var(--background);

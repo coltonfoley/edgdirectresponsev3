@@ -66,7 +66,7 @@ export function Breadcrumb({ items, className, includeSchema = true }: Breadcrum
       <nav
         aria-label="Breadcrumb"
         className={cn(
-          'flex items-center gap-2 text-sm text-gray-500 flex-wrap',
+          'flex flex-wrap items-center gap-2 text-sm text-inherit',
           className
         )}
         itemScope
@@ -77,7 +77,7 @@ export function Breadcrumb({ items, className, includeSchema = true }: Breadcrum
           <Link
             href="/"
             itemProp="item"
-            className="flex items-center gap-1 hover:text-edg-brand-text transition-colors"
+            className="flex items-center gap-1 transition-colors hover:text-edg-brand-text"
           >
             <Home className="h-4 w-4" />
             <span itemProp="name" className="sr-only">Home</span>
@@ -93,17 +93,17 @@ export function Breadcrumb({ items, className, includeSchema = true }: Breadcrum
             itemScope 
             itemType="https://schema.org/ListItem"
           >
-            <ChevronRight className="h-4 w-4 text-gray-400" />
+            <ChevronRight className="h-4 w-4 text-current opacity-60" />
             {item.href ? (
               <Link
                 href={item.href}
                 itemProp="item"
-                className="hover:text-edg-brand-text transition-colors"
+                className="transition-colors hover:text-edg-brand-text"
               >
                 <span itemProp="name">{item.label}</span>
               </Link>
             ) : (
-              <span itemProp="name" className="text-gray-900 font-medium" aria-current="page">
+              <span itemProp="name" className="font-medium text-current" aria-current="page">
                 {item.label}
               </span>
             )}

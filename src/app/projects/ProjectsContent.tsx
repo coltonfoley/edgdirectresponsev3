@@ -79,6 +79,7 @@ export function ProjectsContent() {
           {/* Breadcrumb */}
           <div className="mb-8">
             <Breadcrumb
+              className="text-zinc-300"
               items={[
                 { label: 'Projects' },
               ]}

@@ -63,7 +63,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
           <dl className="space-y-4">
             {project.specs?.map((spec) => (
               <div key={spec.label}>
-                <dt className="text-xs font-bold tracking-wider text-zinc-500 uppercase">
+                <dt className="text-xs font-bold tracking-wider text-zinc-600 uppercase">
                   {spec.label}
                 </dt>
                 <dd className="mt-1 font-semibold text-zinc-950">

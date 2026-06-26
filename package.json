@@ -15,6 +15,7 @@
     "format": "prettier --write .",
     "test:e2e": "npm run build && playwright test",
     "test:contrast": "node scripts/test-contrast.mjs",
+    "test:contrast:dark": "COLOR_SCHEME=dark node scripts/test-contrast.mjs",
     "generate": "plop",
     "validate-images": "node scripts/validate-images.mjs"
   },
