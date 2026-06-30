@@ -51,24 +51,9 @@ const locationsDropdown = [
     desc: 'Showroom and local home base',
   },
   {
-    href: '/service-areas/algonquin-il',
-    label: 'Algonquin, IL',
-    desc: 'Fox River Valley pergolas',
-  },
-  {
-    href: '/service-areas/wilmette-il',
-    label: 'Wilmette, IL',
-    desc: 'North Shore historic districts',
-  },
-  {
-    href: '/service-areas/winnetka-il',
-    label: 'Winnetka, IL',
-    desc: 'Estate properties & lakefront',
-  },
-  {
-    href: '/service-areas/northbrook-il',
-    label: 'Northbrook, IL',
-    desc: 'Techny & Shermer Road corridor',
+    href: '/service-areas/north-shore-chicago',
+    label: 'North Shore Chicago',
+    desc: 'Lakefront homes and estate properties',
   },
   {
     href: '/service-areas/lake-forest-il',
@@ -86,16 +71,6 @@ const locationsDropdown = [
     desc: 'Western suburban hub',
   },
   {
-    href: '/service-areas/hinsdale-il',
-    label: 'Hinsdale, IL',
-    desc: 'Premier estate properties',
-  },
-  {
-    href: '/service-areas/oak-brook-il',
-    label: 'Oak Brook, IL',
-    desc: 'Western suburbs',
-  },
-  {
     href: '/service-areas/lake-geneva-wi',
     label: 'Lake Geneva, WI',
     desc: 'Wisconsin lakefront estates',
@@ -104,11 +79,6 @@ const locationsDropdown = [
     href: '/service-areas/southwest-florida',
     label: 'Southwest Florida',
     desc: 'Gulf Coast screens and pergolas',
-  },
-  {
-    href: '/service-areas/southwest-florida/motorized-screens',
-    label: 'SWFL Screens',
-    desc: 'Motorized lanai and patio screens',
   },
   {
     href: '/service-areas/sanibel-outdoor-living',
@@ -510,7 +480,7 @@ export function Navbar() {
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
                   Locations
                 </div>
-                {locationsDropdown.slice(0, 5).map((item) => (
+                {locationsDropdown.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}

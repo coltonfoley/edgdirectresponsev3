@@ -9,6 +9,18 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { trackConversion } from '@/lib/analytics';
 
+const footerServiceAreas = [
+  { href: '/service-areas', label: 'All Service Areas' },
+  { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
+  { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
+  { href: '/service-areas/north-shore-chicago', label: 'North Shore Chicago' },
+  { href: '/service-areas/lake-county-il', label: 'Lake County, IL' },
+  { href: '/service-areas/mchenry-county-il', label: 'McHenry County, IL' },
+  { href: '/service-areas/southwest-florida', label: 'Southwest Florida' },
+  { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
+  { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
+];
+
 export function Footer() {
   const pathname = usePathname();
   const [year, setYear] = useState(2026);
@@ -268,142 +280,16 @@ export function Footer() {
                 Service Areas
               </h4>
               <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/service-areas"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    All Service Areas
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/chicago-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Chicago, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/spring-grove-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Spring Grove, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/algonquin-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Algonquin, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/wilmette-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Wilmette, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/winnetka-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Winnetka, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/northbrook-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Northbrook, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/lake-forest-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Lake Forest, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/barrington-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Barrington, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/naperville-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Naperville, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/hinsdale-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Hinsdale, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/oak-brook-il"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Oak Brook, IL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/southwest-florida"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Southwest Florida
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/southwest-florida/motorized-screens"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    SWFL Motorized Screens
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/sanibel-outdoor-living"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Sanibel, FL
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/sanibel-outdoor-living/zoning-guide"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Sanibel Permit Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/service-areas/lake-geneva-wi"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Lake Geneva, WI
-                  </Link>
-                </li>
+                {footerServiceAreas.map((area) => (
+                  <li key={area.href}>
+                    <Link
+                      href={area.href}
+                      className="hover:text-edg-brand text-zinc-300 transition-colors"
+                    >
+                      {area.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
               <h4 className="mt-8 mb-6 text-xs font-bold tracking-widest text-white uppercase">
                 Commercial
