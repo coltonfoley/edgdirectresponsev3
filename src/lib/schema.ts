@@ -55,6 +55,12 @@ export const localBusinessSchema = {
       containsPlace: [
         { '@type': 'City', name: 'Sanibel' },
         { '@type': 'City', name: 'Captiva' },
+        { '@type': 'City', name: 'Fort Myers' },
+        { '@type': 'City', name: 'Cape Coral' },
+        { '@type': 'City', name: 'Naples' },
+        { '@type': 'City', name: 'Bonita Springs' },
+        { '@type': 'City', name: 'Estero' },
+        { '@type': 'City', name: 'Marco Island' },
       ],
     },
   ],

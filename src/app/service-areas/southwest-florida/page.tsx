@@ -21,16 +21,16 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Modern Lanai & Pergolas Southwest Florida | EDG',
+  title: 'Motorized Screens & Pergolas Southwest Florida | EDG',
   description:
-    'Modern lanai, louvered pergola, motorized screen, and coastal outdoor living planning for Southwest Florida homes in Sanibel, Captiva, Naples, Marco Island, and Fort Myers.',
+    'Motorized lanai screens, patio screens, louvered pergolas, and coastal outdoor living planning for Southwest Florida homes in Sanibel, Captiva, Naples, Marco Island, and Fort Myers.',
   alternates: {
     canonical: '/service-areas/southwest-florida',
   },
   openGraph: {
-    title: 'Modern Lanai & Pergolas Southwest Florida | EDG',
+    title: 'Motorized Screens & Pergolas Southwest Florida | EDG',
     description:
-      'Coastal-grade louvered roof systems, motorized screens, and modern lanai alternatives for Southwest Florida homes.',
+      'Motorized screens, coastal-grade louvered roof systems, and covered-lanai comfort planning for Southwest Florida homes.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -38,6 +38,10 @@ export const metadata: Metadata = {
   keywords: [
     'hurricane rated pergola south florida',
     'southwest florida pergolas',
+    'motorized screens southwest florida',
+    'motorized lanai screens florida',
+    'motorized patio screens fort myers',
+    'motorized screens cape coral',
     'sanibel pergolas',
     'naples louvered pergola',
     'marco island pergola',
@@ -50,7 +54,7 @@ const markets = [
   {
     name: 'Sanibel & Captiva',
     description:
-      'The primary Florida focus for EDG: louvered roofs, modern lanai alternatives, salt-air materials, and planning around Sanibel permit constraints.',
+      'The primary Florida focus for EDG: motorized screens, louvered roofs, salt-air materials, and planning around Sanibel permit constraints.',
     href: '/service-areas/sanibel-outdoor-living',
   },
   {
@@ -63,7 +67,7 @@ const markets = [
     name: 'Fort Myers & Cape Coral',
     description:
       'Canal homes, pool patios, and outdoor kitchens benefit from motorized screens, louvered roof systems, and weather protection that still feels open.',
-    href: '/contact?area=southwest-florida&market=fort-myers-cape-coral&source=swfl-hub',
+    href: '/service-areas/southwest-florida/motorized-screens',
   },
   {
     name: 'South Florida Design Support',
@@ -81,9 +85,9 @@ const buyingSignals = [
     icon: ShieldCheck,
   },
   {
-    title: 'Modern Lanai Replacement',
+    title: 'Motorized Lanai Screens',
     description:
-      'Many Florida homeowners are not just buying shade. They are deciding whether to rebuild a damaged lanai, replace a fixed screen room, or upgrade to a flexible outdoor room.',
+      'Many Florida homeowners are not just buying shade. They want a covered lanai, patio, or outdoor kitchen to feel cooler, calmer, and more usable without losing the open-air feel.',
     icon: Sun,
   },
   {
@@ -104,8 +108,14 @@ const floridaPages = [
   {
     title: 'Sanibel Outdoor Living',
     description:
-      'The Florida hub page for Sanibel and Captiva outdoor living systems.',
+      'The Florida hub page for Sanibel and Captiva motorized screens, pergolas, and outdoor living systems.',
     href: '/service-areas/sanibel-outdoor-living',
+  },
+  {
+    title: 'Southwest Florida Motorized Screens',
+    description:
+      'Screen-first planning for covered lanais, pool patios, outdoor kitchens, and pergola openings.',
+    href: '/service-areas/southwest-florida/motorized-screens',
   },
   {
     title: 'Sanibel Louvered Pergolas',
@@ -116,13 +126,13 @@ const floridaPages = [
   {
     title: 'Modern Lanai Sanibel',
     description:
-      'A buyer-friendly explanation of louvered roof systems as a modern alternative to traditional lanais.',
+      'A buyer-friendly explanation of motorized pergolas and screens for covered lanai-style outdoor rooms.',
     href: '/service-areas/sanibel-outdoor-living/modern-lanai',
   },
   {
     title: 'Lanai Replacement Sanibel',
     description:
-      'Guidance for replacing damaged or outdated screen enclosures with modern outdoor living systems.',
+      'Guidance for upgrading damaged or outdated outdoor rooms with motorized screens and pergola systems.',
     href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
   },
   {
@@ -162,7 +172,7 @@ export default function SouthwestFloridaPage() {
     '@type': 'Service',
     name: 'Modern Lanai and Outdoor Living Systems - Southwest Florida',
     description:
-      'Coastal-grade louvered pergolas, motorized screens, and modern lanai planning for Southwest Florida homes.',
+      'Motorized screens, coastal-grade louvered pergolas, and covered-lanai comfort planning for Southwest Florida homes.',
     provider: {
       '@id': 'https://www.edgpatioshade.com/#organization',
     },
@@ -214,18 +224,18 @@ export default function SouthwestFloridaPage() {
               Sanibel, Captiva, Naples, Marco Island, Fort Myers
             </div>
             <h1 className="hero-title mb-6 text-white">
-              Modern Lanai & Pergolas for Southwest Florida
+              Motorized Screens & Pergolas for Southwest Florida
             </h1>
             <p className="mb-8 max-w-2xl text-lg leading-relaxed text-text-inverse-muted md:text-xl">
               Coastal outdoor living is not a generic patio project. EDG helps
-              Florida homeowners and project teams plan louvered roof systems,
-              motorized screens, and modern lanai replacements around wind,
-              salt air, rain, code, and daily comfort.
+              Florida homeowners and project teams plan motorized screens,
+              louvered roof systems, and covered-lanai comfort upgrades around
+              wind, salt air, rain, code, and daily use.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact?area=southwest-florida&source=swfl-hero">
+              <Link href="/service-areas/southwest-florida/motorized-screens">
                 <Button size="lg">
-                  Start a Florida Project
+                  Plan Motorized Screens
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -270,9 +280,10 @@ export default function SouthwestFloridaPage() {
             <p className="text-text-secondary text-lg leading-relaxed">
               Southwest Florida has several different buyer intents hiding under
               the same words. Some people need a coastal pergola. Some
-              need lanai replacement after storm damage. Some are trying to keep
-              a pool patio usable through heat, rain, glare, and insects. This
-              page routes those searches into the right EDG planning path.
+              need a motorized screen layout for a covered lanai. Some are
+              trying to keep a pool patio usable through heat, rain, glare, and
+              insects. This page routes those searches into the right EDG
+              planning path.
             </p>
           </div>
 
@@ -312,8 +323,8 @@ export default function SouthwestFloridaPage() {
                 <p>
                   A Chicago buyer may search for a pergola installer, roof deck
                   shade, or retractable screens. A Florida buyer is more likely
-                  to think in terms of hurricane ratings, lanai replacement,
-                  salt air, storm damage, and whether a system has the right
+                  to think in terms of motorized lanai screens, salt air, storm
+                  repairs, and whether a system has the right
                   documentation for coastal wind exposure.
                 </p>
                 <p>
@@ -370,7 +381,7 @@ export default function SouthwestFloridaPage() {
               alternatives, and rebuild decisions after storm damage.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {floridaPages.map((page) => (
               <Link key={page.href} href={page.href} className="group">
                 <Card
@@ -404,9 +415,8 @@ export default function SouthwestFloridaPage() {
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-text-inverse-muted">
               Send the address, photos, and the main problem you are trying to
-              solve. EDG will help determine whether a louvered pergola,
-              motorized screens, glass enclosure, or modern lanai replacement is
-              the right starting point.
+                  solve. EDG will help determine whether motorized screens, a
+              louvered pergola, or both should be the right starting point.
             </p>
             <Link href="/contact?area=southwest-florida&source=swfl-bottom">
               <Button size="lg">

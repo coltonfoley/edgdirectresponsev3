@@ -208,10 +208,10 @@ const relatedProducts = [
     href: '/guides/magnatrack-screens-cost',
   },
   {
-    name: 'Deerfield Screens',
+    name: 'Southwest Florida Screens',
     description:
-      'Local screen planning for North Shore patios, porches, and outdoor rooms.',
-    href: '/service-areas/deerfield-il/retractable-screens',
+      'Motorized lanai and patio screen planning for Gulf Coast covered outdoor spaces.',
+    href: '/service-areas/southwest-florida/motorized-screens',
   },
 ];
 
@@ -382,11 +382,11 @@ export default function ShadesPage() {
                     Need budget ranges? Read the MagnaTrack screens cost guide.
                   </Link>
                   <Link
-                    href="/service-areas/southwest-florida"
+                    href="/service-areas/southwest-florida/motorized-screens"
                     className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
-                    Need coastal wind and lanai guidance? See Southwest Florida
-                    planning.
+                    Need Florida lanai or patio screens? See Southwest Florida
+                    motorized screens.
                   </Link>
                 </div>
 

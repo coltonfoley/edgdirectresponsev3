@@ -29,6 +29,17 @@ export function Footer() {
     return null;
 
   const isGuidePage = pathname?.startsWith('/guides/planning-guide');
+  const isSouthwestFloridaPage = pathname?.startsWith(
+    '/service-areas/southwest-florida'
+  );
+  const isSanibelPage = pathname?.startsWith(
+    '/service-areas/sanibel-outdoor-living'
+  );
+  const consultationHref = isSouthwestFloridaPage
+    ? '/contact?type=price&product=shades&area=southwest-florida&source=footer_florida'
+    : isSanibelPage
+      ? '/contact?type=price&product=shades&area=sanibel&source=footer_sanibel'
+      : '/contact';
 
   return (
     <footer className="bg-black text-white">
@@ -77,7 +88,7 @@ export function Footer() {
 
                 <div className="flex flex-wrap gap-4">
                   <Link
-                    href="/contact"
+                    href={consultationHref}
                     onClick={(event) =>
                       trackConversion({
                         conversionName: 'book_call_click',
@@ -129,7 +140,8 @@ export function Footer() {
               <p className="max-w-sm leading-relaxed text-zinc-300">
                 The design and supply partner for motorized pergolas,
                 retractable screens, and glass enclosures. Nationwide design &
-                supply. Local installation in Chicago & Milwaukee.
+                supply with local installation in the Midwest and select
+                Southwest Florida project review.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -358,6 +370,14 @@ export function Footer() {
                     className="hover:text-edg-brand text-zinc-300 transition-colors"
                   >
                     Southwest Florida
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/service-areas/southwest-florida/motorized-screens"
+                    className="hover:text-edg-brand text-zinc-300 transition-colors"
+                  >
+                    SWFL Motorized Screens
                   </Link>
                 </li>
                 <li>

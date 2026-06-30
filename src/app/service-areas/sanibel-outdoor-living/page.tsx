@@ -25,13 +25,13 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Sanibel Outdoor Living | Modern Lanai Alternatives | EDG',
+  title: 'Sanibel Motorized Screens & Pergolas | EDG',
   description:
-    'Modern lanai alternatives, louvered pergolas, and coastal outdoor living planning for Sanibel homes, with careful permit and floodplain review.',
+    'Motorized lanai screens, louvered pergolas, and coastal outdoor living planning for Sanibel homes, with careful permit and floodplain review.',
   openGraph: {
-    title: 'Sanibel Outdoor Living | Modern Lanai Alternatives | EDG',
+    title: 'Sanibel Motorized Screens & Pergolas | EDG',
     description:
-      'Modern lanai, pergola, screen, and enclosure planning for Sanibel Island homes.',
+      'Motorized screen, pergola, and covered outdoor living planning for Sanibel Island homes.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -42,19 +42,20 @@ export const metadata: Metadata = {
   keywords: [
     'sanibel outdoor living',
     'sanibel pergolas',
+    'motorized screens sanibel',
+    'motorized lanai screens sanibel',
+    'retractable screens sanibel',
     'florida outdoor living',
     'modern lanai sanibel',
     'lanai replacement sanibel',
-    'pool cage alternative sanibel',
-    'screen enclosure alternative sanibel',
   ],
 };
 
 const localBenefits = [
-  'Coastal-rated system planning',
+  'Motorized screen planning',
+  'Coastal-rated pergola systems',
   'Sanibel permit review support',
   'Salt-air corrosion resistant materials',
-  'Lanai and pool cage alternatives',
 ];
 
 const areas = [
@@ -224,14 +225,14 @@ export default function SanibelHubPage() {
                 <span className="text-edg-brand block">for Sanibel Island</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Modern lanai alternatives, louvered pergolas, motorized
-                screens, and coastal outdoor living plans for Sanibel homes.
-                Built around salt air, floodplain review, product
-                documentation, and local permit questions.
+                Motorized lanai screens, louvered pergolas, and coastal
+                outdoor living plans for Sanibel homes. Built around salt air,
+                floodplain review, product documentation, and local permit
+                questions.
               </p>
-              <Link href="/contact">
+              <Link href="/contact?area=sanibel&product=shades&source=sanibel_hub_hero">
                 <Button size="lg" className="px-8 text-lg">
-                  Request Sanibel Site Visit{' '}
+                  Request Sanibel Screen Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -415,11 +416,39 @@ export default function SanibelHubPage() {
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
                     Explore louvered roof systems for Sanibel homes, including
-                    wind documentation, salt-air material planning, and modern
-                    lanai alternatives.
+                    wind documentation, salt-air material planning, and
+                    screen-ready outdoor room layouts.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Card>
+              </Link>
+
+              <Link
+                href="/service-areas/southwest-florida/motorized-screens"
+                className="group block"
+              >
+                <Card
+                  variant="muted"
+                  padding="lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                >
+                  <IconWrapper
+                    icon={Wind}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
+                    Motorized Screens
+                  </h3>
+                  <p className="text-text-secondary mb-6 text-sm">
+                    Plan motorized screens for covered lanais, pool patios,
+                    outdoor kitchens, and pergola openings in Southwest Florida.
+                  </p>
+                  <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
+                    Plan Screens <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>
@@ -438,8 +467,8 @@ export default function SanibelHubPage() {
                     The Modern Lanai
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
-                    Discover the evolution of outdoor living: intelligent louvered 
-                    systems as an alternative to traditional screened lanais.
+                    Discover the evolution of outdoor living: motorized
+                    pergolas and screens for covered lanai-style spaces.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     Explore Modern Lanais <ArrowRight className="h-4 w-4" />
@@ -461,8 +490,8 @@ export default function SanibelHubPage() {
                     Lanai Replacement
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
-                    Replacing a damaged lanai after Hurricane Ian? Learn why 
-                    upgrading to a modern system makes sense.
+                    Reviewing a damaged or outdated lanai? Compare a modern
+                    screen and pergola plan before defaulting to the old layout.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     View Replacement Guide <ArrowRight className="h-4 w-4" />
@@ -486,7 +515,7 @@ export default function SanibelHubPage() {
                   <p className="text-text-secondary mb-6 text-sm">
                     Review the permit, floodplain, 50% rule, and product
                     documentation questions before choosing a lanai replacement
-                    or pool cage alternative.
+                    or new covered outdoor living system.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     Read Guide <ArrowRight className="h-4 w-4" />
@@ -509,13 +538,13 @@ export default function SanibelHubPage() {
               <p className="text-edg-dark/80 mb-8 text-xl">
                 Get a free consultation with our coastal design team.
               </p>
-              <Link href="/contact">
+              <Link href="/contact?area=sanibel&product=shades&source=sanibel_hub_bottom">
                 <Button
                   size="lg"
                   variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Sanibel Screen Planning{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

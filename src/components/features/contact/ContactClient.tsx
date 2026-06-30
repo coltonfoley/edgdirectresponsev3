@@ -56,7 +56,13 @@ function normalizeProjectType(value: string | null): string {
   if (
     normalized === 'screens' ||
     normalized === 'screen' ||
+    normalized === 'shades' ||
+    normalized === 'shade' ||
+    normalized === 'motorized-screens' ||
+    normalized === 'motorized-screen' ||
+    normalized === 'motorized-shades' ||
     normalized === 'retractable-screens' ||
+    normalized === 'retractable-shades' ||
     normalized === 'magnatrack-screens'
   ) {
     return 'shades';
@@ -102,7 +108,7 @@ function normalizeProjectType(value: string | null): string {
     normalized === 'lanai-replacement' ||
     normalized === 'pool-cage'
   ) {
-    return 'lanai';
+    return 'shades';
   }
 
   if (
@@ -121,12 +127,32 @@ function normalizeProjectType(value: string | null): string {
   return '';
 }
 
+function isFloridaLocation(value: string, source: string): boolean {
+  const combined = `${value} ${source}`.toLowerCase();
+  return [
+    'florida',
+    'sanibel',
+    'captiva',
+    'fort-myers',
+    'fort myers',
+    'cape-coral',
+    'cape coral',
+    'naples',
+    'bonita',
+    'estero',
+    'marco',
+    'southwest-florida',
+    'swfl',
+  ].some((token) => combined.includes(token));
+}
+
 function ContactForm({
   initialFormType = 'homeowner',
   initialSource = 'contact_page',
 }: ContactClientProps) {
   const [formType, setFormType] = useState<ContactFormType>(initialFormType);
   const [leadSource, setLeadSource] = useState(initialSource);
+  const [leadMarket, setLeadMarket] = useState('');
 
   // Form state
   const [formData, setFormData] = useState({
@@ -140,6 +166,10 @@ function ContactForm({
   });
 
   const { submitLead, loading, error, success } = useLeadSubmission();
+  const floridaLead = isFloridaLocation(
+    `${formData.location} ${leadMarket}`,
+    leadSource
+  );
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -147,15 +177,14 @@ function ContactForm({
     const projectType = normalizeProjectType(
       searchParams.get('product') || searchParams.get('project')
     );
-    const location =
-      searchParams.get('location') ||
-      searchParams.get('area') ||
-      searchParams.get('market') ||
-      '';
+    const location = searchParams.get('location') || '';
+    const market =
+      searchParams.get('area') || searchParams.get('market') || '';
 
     const frame = requestAnimationFrame(() => {
       setFormType(normalizeFormType(intent));
       setLeadSource(normalizeSource(searchParams.get('source'), intent));
+      setLeadMarket(market);
 
       if (projectType || location) {
         setFormData((prev) => ({
@@ -249,7 +278,9 @@ function ContactForm({
               <div>
                 <h4 className="mb-1 text-lg font-bold">Local Experts</h4>
                 <p className="text-sm text-zinc-400">
-                  Serving Chicago, Milwaukee & Lake Geneva.
+                  {floridaLead
+                    ? 'Supporting Sanibel, Captiva & Southwest Florida projects.'
+                    : 'Serving Chicago, Milwaukee & Lake Geneva.'}
                 </p>
               </div>
             </div>
@@ -375,7 +406,7 @@ function ContactForm({
                 required
                 disabled={loading}
                 className="focus:border-edg-brand w-full rounded-none border-b-2 border-black/10 bg-transparent py-2 text-xl font-bold text-black transition-colors placeholder:text-gray-500 focus:outline-none"
-                placeholder="60601"
+                placeholder={floridaLead ? '33957' : '60601'}
               />
             </div>
           </div>
@@ -393,14 +424,13 @@ function ContactForm({
             >
               <option value="">Select System...</option>
               <option value="pergola">Louvered Pergola</option>
-              <option value="shades">Motorized Shades</option>
+              <option value="shades">Motorized Screens / Shades</option>
               <option value="enclosure">Glass Enclosure</option>
               <option value="sauna">Outdoor Sauna</option>
               <option value="appliances">Outdoor Kitchen / Appliances</option>
-              <option value="lanai">Lanai / Outdoor Room</option>
               <option value="planning">Permit / Planning Help</option>
               <option value="commercial">Commercial Project</option>
-              <option value="multiple">Multiple Systems</option>
+              <option value="multiple">Multiple Systems / Outdoor Room</option>
             </select>
           </div>
 

@@ -4,7 +4,7 @@ import ContactClient from '@/components/features/contact/ContactClient';
 export const metadata: Metadata = {
   title: 'Contact EDG Patio & Shade | Get a Quote',
   description:
-    'Start your outdoor living project. Request a quote for motorized pergolas, retractable shades, or glass enclosures in Chicago & Milwaukee.',
+    'Start your outdoor living project. Request a quote for motorized pergolas, motorized screens, or glass enclosures in the Midwest and select Southwest Florida markets.',
   keywords: ['contact edg', 'outdoor living consultation', 'pergola quote', 'schedule consultation'],
   openGraph: {
     title: 'Contact EDG Patio & Shade | Free Consultation',

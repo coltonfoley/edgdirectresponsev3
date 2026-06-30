@@ -126,9 +126,9 @@ const faqs = [
       'Often, yes. The structure needs enough support for the housing and side tracks, the openings need to be measured carefully, and the wiring path should be planned before installation. Some retrofits are simple; others need trim, blocking, or design adjustments.',
   },
   {
-    question: 'Are motorized screens worth it for Chicago-area homes?',
+    question: 'Are motorized screens worth it for Chicago-area or Florida homes?',
     answer:
-      'They can be worth it when one system solves several problems at once. In the Chicago-Milwaukee corridor, homeowners usually want relief from bugs, wind, low-angle sun, and close-neighbor privacy. If those problems keep the patio from being used, screens often become one of the most-used upgrades.',
+      'They can be worth it when one system solves several problems at once. In the Chicago-Milwaukee corridor, homeowners usually want relief from bugs, wind, low-angle sun, and close-neighbor privacy. In Southwest Florida, buyers often care about covered-lanai comfort, glare, insects, privacy, and keeping the patio open when conditions are good.',
   },
 ];
 
@@ -428,6 +428,13 @@ export default function MagnaTrackScreensCostGuide() {
                 >
                   <ShieldCheck className="text-edg-brand h-4 w-4" />
                   Full screen system details
+                </Link>
+                <Link
+                  href="/service-areas/southwest-florida/motorized-screens"
+                  className="flex items-center gap-3"
+                >
+                  <ArrowRight className="text-edg-brand h-4 w-4" />
+                  Southwest Florida motorized screens
                 </Link>
                 <Link
                   href="/service-areas/deerfield-il/retractable-screens"

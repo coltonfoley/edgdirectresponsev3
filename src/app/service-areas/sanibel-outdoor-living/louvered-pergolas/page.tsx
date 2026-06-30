@@ -163,7 +163,7 @@ const sanibelApplications = [
   {
     location: 'Poolside Living',
     description:
-      'Traditional pool cages block airflow and trap humidity. Open louvers allow ventilation while providing shade, creating a more comfortable poolside experience.',
+      'Fixed screened pool areas can feel hot and static. Open louvers allow ventilation while providing shade, creating a more comfortable poolside experience.',
   },
   {
     location: 'Canal Homes',
@@ -173,7 +173,7 @@ const sanibelApplications = [
   {
     location: 'Post-Hurricane Rebuilds',
     description:
-      'If Ian damaged your lanai or pool cage, the 50% rule may affect the rebuild path. Use that review point to compare a modern louvered system instead of automatically rebuilding the same screen enclosure.',
+      'If storm damage changed the outdoor room, the 50% rule may affect the rebuild path. Use that review point to compare a modern louvered system before automatically rebuilding the same layout.',
   },
 ];
 
@@ -529,10 +529,11 @@ export default function SanibelPergolaPage() {
                   <div className="flex items-start gap-3">
                     <Info className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
                     <p className="text-sm text-amber-800 dark:text-amber-200">
-                      <strong>Post-Ian Opportunity:</strong> If your lanai or pool cage was damaged, 
-                      the 50% rule may require full reconstruction. This is your chance to upgrade 
-                      to a better-documented modern system instead of
-                      automatically rebuilding the same screen enclosure.
+                      <strong>Post-Ian Opportunity:</strong> If storm damage
+                      changed the outdoor room, the 50% rule may require full
+                      reconstruction. This is your chance to compare a
+                      better-documented modern system before automatically
+                      rebuilding the same layout.
                     </p>
                   </div>
                 </div>

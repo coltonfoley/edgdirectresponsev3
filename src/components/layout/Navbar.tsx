@@ -103,7 +103,12 @@ const locationsDropdown = [
   {
     href: '/service-areas/southwest-florida',
     label: 'Southwest Florida',
-    desc: 'Hurricane-rated Gulf Coast systems',
+    desc: 'Gulf Coast screens and pergolas',
+  },
+  {
+    href: '/service-areas/southwest-florida/motorized-screens',
+    label: 'SWFL Screens',
+    desc: 'Motorized lanai and patio screens',
   },
   {
     href: '/service-areas/sanibel-outdoor-living',
@@ -166,6 +171,17 @@ export function Navbar() {
   const solidNav = scrolled || pathname === '/contact';
   const textColor = solidNav ? 'text-edg-dark' : 'text-white';
   const logoColor = solidNav ? 'text-edg-dark' : 'text-white';
+  const isSouthwestFloridaPage = pathname?.startsWith(
+    '/service-areas/southwest-florida'
+  );
+  const isSanibelPage = pathname?.startsWith(
+    '/service-areas/sanibel-outdoor-living'
+  );
+  const startProjectHref = isSouthwestFloridaPage
+    ? '/contact?type=price&product=shades&area=southwest-florida&source=nav_florida'
+    : isSanibelPage
+      ? '/contact?type=price&product=shades&area=sanibel&source=nav_sanibel'
+      : '/contact';
 
   return (
     <header
@@ -399,7 +415,7 @@ export function Navbar() {
                 Trade
               </Link>
               <Link
-                href="/contact"
+                href={startProjectHref}
                 onClick={(event) =>
                   trackConversion({
                     conversionName: 'book_call_click',
@@ -565,7 +581,7 @@ export function Navbar() {
 
               <div className="mt-8">
                 <Link
-                  href="/contact"
+                  href={startProjectHref}
                   onClick={(event) => {
                     setIsOpen(false);
                     trackConversion({

@@ -25,13 +25,13 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Modern Lanai Sanibel | Pool Cage Alternative | EDG',
+  title: 'Modern Lanai Sanibel | Motorized Pergolas & Screens | EDG',
   description:
-    'Modern lanai and pool cage alternative planning for Sanibel and Captiva homes: louvered roofs, motorized screens, coastal materials, and permit review.',
+    'Modern lanai planning for Sanibel and Captiva homes: motorized pergolas, motorized screens, coastal materials, and permit review.',
   openGraph: {
-    title: 'Modern Lanai Sanibel | Pool Cage Alternative | EDG',
+    title: 'Modern Lanai Sanibel | Motorized Pergolas & Screens | EDG',
     description:
-      'Modern lanai and screen enclosure alternatives for Sanibel homes with adjustable shade, rain control, and coastal permit planning.',
+      'Motorized pergola and screen planning for Sanibel homes with adjustable shade, rain control, and coastal permit review.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -397,9 +397,9 @@ export default function ModernLanaiPage() {
                 </h2>
                 <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                   Sanibel developed-area and floodplain questions can shape
-                  the project before the product is chosen. Traditional lanais,
-                  pool cages, slabs, decks, pavers, and louvered systems all
-                  need to be reviewed in context.
+                  the project before the product is chosen. Existing covered
+                  outdoor areas, slabs, decks, pavers, screens, and louvered
+                  systems all need to be reviewed in context.
                 </p>
                 <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                   When louvers are open, rain can pass through the roof plane,

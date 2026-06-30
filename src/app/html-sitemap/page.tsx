@@ -141,6 +141,10 @@ const sitemapLinks = [
         href: '/service-areas/southwest-florida',
         label: 'Southwest Florida',
       },
+      {
+        href: '/service-areas/southwest-florida/motorized-screens',
+        label: 'Southwest Florida Motorized Screens',
+      },
       { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
       {
         href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',

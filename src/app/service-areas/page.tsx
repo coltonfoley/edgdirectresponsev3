@@ -9,9 +9,9 @@ import { ArrowRight, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Service Areas | Pergolas & Outdoor Living | Chicago to Milwaukee',
+  title: 'Service Areas | Pergolas & Screens | EDG Patio & Shade',
   description:
-    'EDG Patio & Shade serves communities across the Chicago to Milwaukee corridor. Motorized pergolas, shades, and glass enclosures installed by local experts.',
+    'EDG Patio & Shade serves Midwest communities and select Southwest Florida projects with motorized pergolas, motorized screens, and glass enclosures.',
   alternates: {
     canonical: '/service-areas',
   },
@@ -118,7 +118,7 @@ const serviceAreas = [
     name: 'Southwest Florida',
     slug: 'southwest-florida',
     description:
-      'Hurricane-rated pergolas, motorized screens, and coastal outdoor living planning for Sanibel, Captiva, Naples, Marco Island, and the Gulf Coast.',
+      'Motorized screens, louvered pergolas, and coastal outdoor living planning for Sanibel, Captiva, Naples, Marco Island, and the Gulf Coast.',
     region: 'Florida',
   },
   {
@@ -132,10 +132,16 @@ const serviceAreas = [
 
 const priorityLocalPages = [
   {
+    title: 'Southwest Florida Motorized Screens',
+    href: '/service-areas/southwest-florida/motorized-screens',
+    description:
+      'Motorized lanai and patio screen planning for Gulf Coast homes.',
+  },
+  {
     title: 'Southwest Florida Pergolas',
     href: '/service-areas/southwest-florida',
     description:
-      'Regional planning for hurricane-rated louvered roofs and coastal outdoor rooms.',
+      'Regional planning for louvered roofs, screen-ready patios, and coastal outdoor rooms.',
   },
   {
     title: 'Sanibel Louvered Pergolas',
@@ -223,13 +229,13 @@ export default function ServiceAreasPage() {
               </span>
             </div>
             <h1 className="hero-title mb-6 text-white">
-              Serving the <span className="text-edg-brand">Chicago</span> to{' '}
-              <span className="text-edg-brand">Milwaukee</span> Corridor
+              Serving the <span className="text-edg-brand">Midwest</span> and{' '}
+              <span className="text-edg-brand">Southwest Florida</span>
             </h1>
             <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
-              We design and install premium outdoor living systems within 60
-              miles of Spring Grove, IL. Local expertise means we understand
-              your climate, your municipalities, and your neighborhoods.
+              We design and install premium outdoor living systems across our
+              core Midwest market, with focused screen and pergola planning for
+              Sanibel, Captiva, and select Southwest Florida projects.
             </p>
           </div>
         </Container>

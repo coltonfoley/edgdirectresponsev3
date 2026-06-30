@@ -27,13 +27,13 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Lanai Replacement Sanibel | Screen Enclosure Alternative | EDG',
+  title: 'Lanai Replacement Sanibel | Motorized Screens & Pergolas | EDG',
   description:
-    'Lanai replacement and screen enclosure alternative planning in Sanibel. Compare modern louvered systems, coastal materials, permits, and the FEMA 50% rule.',
+    'Lanai replacement planning in Sanibel. Compare motorized screens, modern louvered pergolas, coastal materials, permits, and the FEMA 50% rule.',
   openGraph: {
-    title: 'Lanai Replacement Sanibel | Screen Enclosure Alternative | EDG',
+    title: 'Lanai Replacement Sanibel | Motorized Screens & Pergolas | EDG',
     description:
-      'Compare lanai replacement, pool cage alternatives, and modern louvered systems for Sanibel homes.',
+      'Compare motorized screens, covered outdoor living upgrades, and modern louvered systems for Sanibel homes.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -64,7 +64,7 @@ const whyUpgrade = [
   {
     title: 'Better Documentation Path',
     description:
-      'Older lanais and pool cages may not have the documentation a modern coastal project needs. A louvered system can be evaluated with current engineering, product approval, anchoring, and Sanibel permit questions in mind.',
+      'Older covered outdoor rooms may not have the documentation a modern coastal project needs. A louvered system can be evaluated with current engineering, product approval, anchoring, and Sanibel permit questions in mind.',
     icon: Wind,
   },
   {
@@ -240,10 +240,10 @@ export default function LanaiReplacementPage() {
                 <span className="text-edg-brand block">Rebuild Smarter, Not the Same</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Your lanai, pool cage, or screen enclosure was damaged or
-                outdated. Use the rebuild moment to compare a modern louvered
-                system with the permit, floodplain, and coastal documentation
-                questions on the table.
+                If your covered outdoor space was damaged or outdated, use the
+                rebuild moment to compare motorized screens and a modern
+                louvered system with the permit, floodplain, and coastal
+                documentation questions on the table.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
@@ -298,9 +298,9 @@ export default function LanaiReplacementPage() {
                   </p>
                   <p className="text-amber-700 dark:text-amber-300">
                     <strong>The Opportunity:</strong> If the project already
-                    requires serious review, compare the old screen enclosure
-                    against a modern lanai alternative before rebuilding the
-                    same layout.
+                    requires serious review, compare the old outdoor room
+                    against a modern screen and pergola plan before rebuilding
+                    the same layout.
                   </p>
                 </div>
               </div>

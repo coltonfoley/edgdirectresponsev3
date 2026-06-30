@@ -73,7 +73,7 @@ const requirements = [
 ];
 
 const gotchas = [
-  'A pool cage, screen enclosure, lanai, pergola, and awning may not use the same permit checklist or review path.',
+  'Screen enclosures, lanais, pergolas, awnings, and motorized screens may not use the same permit checklist or review path.',
   'A product approval number is not the same as a complete permit. Local installation conditions still matter.',
   'Flood elevation, AE Coastal or VE zones, and existing nonconforming conditions can change the rebuild path.',
   'A clean design can still get delayed if the site plan misses easements, setbacks, vegetation, or drainage context.',
@@ -91,9 +91,9 @@ const faqs = [
       'Sanibel explains that repairs, alterations, improvements, and demolition can be reviewed for substantial damage or substantial improvement at permit time. If the cost exceeds 50% of the market value of a noncompliant building, current floodplain standards may apply.',
   },
   {
-    question: 'Can a louvered pergola replace a pool cage or lanai?',
+    question: 'Can a louvered pergola change the lanai rebuild plan?',
     answer:
-      'Sometimes, but it is a design and permit question, not a universal yes. EDG can help compare a louvered roof, motorized screens, glass, or a screen enclosure alternative against the site, attachment conditions, wind documentation, and local review requirements.',
+      'Sometimes, but it is a design and permit question, not a universal yes. EDG can help compare a louvered roof, motorized screens, or glass against the site, attachment conditions, wind documentation, and local review requirements.',
   },
   {
     question: 'Does Miami-Dade approval guarantee Sanibel permit approval?',
@@ -161,8 +161,8 @@ export default function SanibelZoningGuidePage() {
             </h1>
             <p className="text-text-inverse-muted max-w-3xl text-xl leading-relaxed">
               What homeowners should verify before replacing a lanai, removing a
-              pool cage, adding a louvered pergola, or planning a modern screen
-              enclosure alternative on Sanibel Island.
+              covered outdoor structure, adding a louvered pergola, or
+              planning motorized screens on Sanibel Island.
             </p>
           </div>
         </Container>
@@ -410,9 +410,9 @@ export default function SanibelZoningGuidePage() {
             </h2>
             <p className="text-text-inverse-muted mb-8 text-lg leading-relaxed">
               Send your address, photos, rough dimensions, and whether you are
-              replacing a lanai, removing a pool cage, or planning a new
-              louvered roof. We will help identify the next practical permit
-              questions.
+              replacing or upgrading a covered outdoor area, adding motorized
+              screens, or planning a new louvered roof. We will help identify
+              the next practical permit questions.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href="/contact?area=sanibel&product=permit-guide&source=sanibel_zoning_guide">
