@@ -73,7 +73,7 @@ const locationsDropdown = [
   {
     href: '/service-areas/lake-geneva-wi',
     label: 'Lake Geneva, WI',
-    desc: 'Wisconsin lakefront estates',
+    desc: 'Lakefront pergolas and screens',
   },
   {
     href: '/service-areas/southwest-florida',

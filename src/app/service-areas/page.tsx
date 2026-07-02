@@ -111,7 +111,7 @@ const serviceAreas = [
     name: 'Lake Geneva, WI',
     slug: 'lake-geneva-wi',
     description:
-      'Lakeside estates and vacation properties. Wind-engineered systems for Geneva Lake.',
+      'Lakefront pergolas, motorized screens, permit planning, and outdoor-room design for Geneva Lake area homes.',
     region: 'Wisconsin',
   },
   {
@@ -208,6 +208,24 @@ const priorityLocalPages = [
     href: '/service-areas/lake-forest-il/zoning-guide',
     description:
       'Building permit, accessory-structure, and plan-review notes for Lake Forest outdoor living projects.',
+  },
+  {
+    title: 'Lake Geneva Motorized Pergolas',
+    href: '/service-areas/lake-geneva-wi/motorized-pergolas',
+    description:
+      'Louvered roof planning for lake wind, views, shade, rain control, screens, and outdoor entertaining.',
+  },
+  {
+    title: 'Lake Geneva Motorized Screens',
+    href: '/service-areas/lake-geneva-wi/retractable-screens',
+    description:
+      'Retractable screen layouts for bugs, glare, privacy, wind comfort, and flexible screen-room use.',
+  },
+  {
+    title: 'Lake Geneva Permit Guide',
+    href: '/service-areas/lake-geneva-wi/zoning-guide',
+    description:
+      'Permit and review planning notes for Lake Geneva, Fontana, Williams Bay, and Walworth County projects.',
   },
 ];
 

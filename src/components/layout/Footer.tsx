@@ -19,6 +19,14 @@ const footerServiceAreas = [
   { href: '/service-areas/southwest-florida', label: 'Southwest Florida' },
   { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
   { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
+  {
+    href: '/service-areas/lake-geneva-wi/motorized-pergolas',
+    label: 'Lake Geneva Pergolas',
+  },
+  {
+    href: '/service-areas/lake-geneva-wi/retractable-screens',
+    label: 'Lake Geneva Screens',
+  },
 ];
 
 export function Footer() {
@@ -47,11 +55,16 @@ export function Footer() {
   const isSanibelPage = pathname?.startsWith(
     '/service-areas/sanibel-outdoor-living'
   );
+  const isLakeGenevaPage = pathname?.startsWith(
+    '/service-areas/lake-geneva-wi'
+  );
   const consultationHref = isSouthwestFloridaPage
     ? '/contact?type=price&product=shades&area=southwest-florida&source=footer_florida'
     : isSanibelPage
       ? '/contact?type=price&product=shades&area=sanibel&source=footer_sanibel'
-      : '/contact';
+      : isLakeGenevaPage
+        ? '/contact?type=price&product=multiple&location=Lake%20Geneva%2C%20WI&source=footer_lake_geneva'
+        : '/contact';
 
   return (
     <footer className="bg-black text-white">

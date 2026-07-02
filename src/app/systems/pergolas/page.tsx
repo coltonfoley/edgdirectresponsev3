@@ -213,6 +213,12 @@ const relatedProducts = [
       'Permit-aware North Shore guidance for premium patios, terraces, and outdoor kitchens.',
     href: '/service-areas/lake-forest-il/motorized-pergolas',
   },
+  {
+    title: 'Lake Geneva Pergola Planning',
+    description:
+      'Lakefront louvered roof guidance for wind, views, outdoor dining, screens, and permit review.',
+    href: '/service-areas/lake-geneva-wi/motorized-pergolas',
+  },
 ];
 
 export default function PergolasPage() {
@@ -790,6 +796,12 @@ export default function PergolasPage() {
               <Link href="/service-areas/lake-forest-il/motorized-pergolas">
                 <Button variant="outline" size="sm">
                   Lake Forest Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/service-areas/lake-geneva-wi/motorized-pergolas">
+                <Button variant="outline" size="sm">
+                  Lake Geneva Pergolas
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>

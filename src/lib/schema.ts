@@ -46,7 +46,10 @@ export const localBusinessSchema = {
         { '@type': 'AdministrativeArea', name: 'Kenosha County' },
         { '@type': 'AdministrativeArea', name: 'Racine County' },
         { '@type': 'AdministrativeArea', name: 'Milwaukee County' },
+        { '@type': 'AdministrativeArea', name: 'Walworth County' },
         { '@type': 'City', name: 'Lake Geneva' },
+        { '@type': 'City', name: 'Fontana-on-Geneva Lake' },
+        { '@type': 'City', name: 'Williams Bay' },
       ],
     },
     {
@@ -141,7 +144,7 @@ export function generateProductSchema(params: {
 
 /**
  * Generate BreadcrumbList Schema
- * 
+ *
  * UX Impact: Enables breadcrumb display in Google search results
  * SEO Impact: Improves click-through rates, helps understand site structure
  * AI Impact: Helps AI understand page hierarchy and relationships
@@ -164,7 +167,7 @@ export function generateBreadcrumbSchema(
 
 /**
  * Generate HowTo Schema
- * 
+ *
  * UX Impact: Step-by-step instructions may appear in rich snippets
  * SEO Impact: Eligible for How-To rich results in Google
  * AI Impact: Structured steps help AI understand processes
@@ -215,7 +218,7 @@ export function generateHowToSchema(params: {
 
 /**
  * Generate Organization Schema
- * 
+ *
  * UX Impact: Brand knowledge panel in search results
  * SEO Impact: Entity understanding for E-A-T signals
  * AI Impact: Critical for AI visibility and knowledge graphs
@@ -269,14 +272,14 @@ export function generateOrganizationSchema() {
 
 /**
  * Generate Article Schema for Guides/Blog Posts
- * 
+ *
  * UX Impact: Article rich snippets with author, publish date
  * SEO Impact: Eligible for Top Stories (if news), article features
  * AI Impact: Clear content attribution and freshness signals
  */
 /**
  * Generate ServiceArea Schema for Local SEO
- * 
+ *
  * UX Impact: May appear in local pack results with area served
  * SEO Impact: Strengthens local relevance signals
  * AI Impact: Helps AI understand geographic service coverage
@@ -355,7 +358,9 @@ export function generateArticleSchema(params: {
     author: {
       '@type': params.author ? 'Person' : 'Organization',
       name: params.author || 'EDG Patio & Shade',
-      ...(params.author && { '@id': 'https://www.edgpatioshade.com/#organization' }),
+      ...(params.author && {
+        '@id': 'https://www.edgpatioshade.com/#organization',
+      }),
     },
     publisher: {
       '@id': 'https://www.edgpatioshade.com/#organization',

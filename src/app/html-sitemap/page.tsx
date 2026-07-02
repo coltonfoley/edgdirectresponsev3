@@ -138,6 +138,18 @@ const sitemapLinks = [
       { href: '/service-areas/oak-brook-il', label: 'Oak Brook, IL' },
       { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
       {
+        href: '/service-areas/lake-geneva-wi/motorized-pergolas',
+        label: 'Lake Geneva Motorized Pergolas',
+      },
+      {
+        href: '/service-areas/lake-geneva-wi/retractable-screens',
+        label: 'Lake Geneva Motorized Screens',
+      },
+      {
+        href: '/service-areas/lake-geneva-wi/zoning-guide',
+        label: 'Lake Geneva Pergola Permit Guide',
+      },
+      {
         href: '/service-areas/southwest-florida',
         label: 'Southwest Florida',
       },

@@ -213,6 +213,12 @@ const relatedProducts = [
       'Motorized lanai and patio screen planning for Gulf Coast covered outdoor spaces.',
     href: '/service-areas/southwest-florida/motorized-screens',
   },
+  {
+    name: 'Lake Geneva Screens',
+    description:
+      'Retractable screen planning for bugs, glare, privacy, lake wind, and flexible screen-room comfort.',
+    href: '/service-areas/lake-geneva-wi/retractable-screens',
+  },
 ];
 
 const faqs = [

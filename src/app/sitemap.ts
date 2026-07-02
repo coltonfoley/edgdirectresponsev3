@@ -93,6 +93,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     { url: '/service-areas/lake-forest-il/zoning-guide', priority: 0.8 },
+    {
+      url: '/service-areas/lake-geneva-wi/motorized-pergolas',
+      priority: 0.9,
+    },
+    {
+      url: '/service-areas/lake-geneva-wi/retractable-screens',
+      priority: 0.9,
+    },
+    { url: '/service-areas/lake-geneva-wi/zoning-guide', priority: 0.8 },
     { url: '/service-areas/northbrook-il/motorized-pergolas', priority: 0.8 },
     { url: '/service-areas/naperville-il/motorized-pergolas', priority: 0.8 },
     // New Guides
