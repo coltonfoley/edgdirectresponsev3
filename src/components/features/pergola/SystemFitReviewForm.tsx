@@ -210,7 +210,9 @@ export function SystemFitReviewForm() {
   const [photos, setPhotos] = useState<File[]>([]);
   const [photoError, setPhotoError] = useState('');
   const [photoStatus, setPhotoStatus] = useState('');
-  const { submitLead, loading, error, success } = useLeadSubmission();
+  const [formStarted, setFormStarted] = useState(false);
+  const { submitLead, trackFormStart, loading, error, success } =
+    useLeadSubmission();
   const photoUploadDisabled =
     loading || photos.length >= maxPhotoCount || photoStatus.length > 0;
 
@@ -298,7 +300,30 @@ export function SystemFitReviewForm() {
       customerType: formData.customerType,
       source: 'pergola_system_fit_review',
       message: buildMessage(formData, inboundContext, photos),
+      metadata: {
+        cta_label: 'Get a System Fit Review',
+        form_variant: 'pergola_system_fit_review',
+        inbound_context: inboundContext || undefined,
+        photo_count: photos.length,
+      },
       attachments: photos,
+    });
+  };
+
+  const handleFormStart = () => {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFormStart({
+      email: formData.email,
+      phone: formData.phone,
+      location: formData.location,
+      projectType: 'pergola',
+      customerType: formData.customerType,
+      source: 'pergola_system_fit_review',
+      metadata: {
+        cta_label: 'Get a System Fit Review',
+        form_variant: 'pergola_system_fit_review',
+      },
     });
   };
 
@@ -320,7 +345,11 @@ export function SystemFitReviewForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form
+      onSubmit={handleSubmit}
+      onFocusCapture={handleFormStart}
+      className="space-y-8"
+    >
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label

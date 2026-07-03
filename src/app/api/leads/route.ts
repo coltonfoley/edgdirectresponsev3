@@ -61,6 +61,7 @@ interface LeadSubmission {
   message?: string;
   source?: string;
   customerType?: string;
+  metadata?: Record<string, unknown> | null;
   fax?: string; // Honeypot
 }
 
@@ -161,6 +162,24 @@ async function fetchWithTimeout(
 function getFormString(formData: FormData, key: string): string | undefined {
   const value = formData.get(key);
   return typeof value === 'string' ? value : undefined;
+}
+
+function getFormMetadata(
+  formData: FormData
+): Record<string, unknown> | undefined {
+  const value = getFormString(formData, 'metadata');
+  if (!value) return undefined;
+
+  try {
+    const parsed = JSON.parse(value);
+    return typeof parsed === 'object' &&
+      parsed !== null &&
+      !Array.isArray(parsed)
+      ? (parsed as Record<string, unknown>)
+      : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 function sanitizeAttachmentFilename(filename: string): string {
@@ -289,6 +308,7 @@ async function parseLeadRequest(
       message: getFormString(formData, 'message'),
       source: getFormString(formData, 'source'),
       customerType: getFormString(formData, 'customerType'),
+      metadata: getFormMetadata(formData),
       fax: getFormString(formData, 'fax'),
     },
     attachments,
@@ -403,6 +423,7 @@ async function createRainmakerLead(
       message: lead.message?.trim(),
       source: lead.source || 'website',
       customerType: lead.customerType,
+      metadata: lead.metadata,
     }),
   }, RAINMAKER_FETCH_TIMEOUT_MS);
 
@@ -660,6 +681,7 @@ export async function POST(request: NextRequest) {
       message,
       source,
       customerType,
+      metadata,
       fax, // Honeypot
     } = body as LeadSubmission;
 
@@ -707,6 +729,7 @@ export async function POST(request: NextRequest) {
       message,
       source,
       customerType,
+      metadata,
     });
 
     const leadId = leadRecord.id;

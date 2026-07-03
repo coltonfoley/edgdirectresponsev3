@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { pushAnalyticsEvent } from '@/lib/analytics';
+import { getLeadJourneyMetadata, pushAnalyticsEvent } from '@/lib/analytics';
+
+type LeadMetadata = Record<string, unknown>;
 
 export interface LeadData {
   firstName?: string;
@@ -14,11 +16,13 @@ export interface LeadData {
   source: string;
   customerType?: string;
   fax?: string; // Honeypot
+  metadata?: LeadMetadata;
   attachments?: File[];
 }
 
 interface UseLeadSubmissionReturn {
   submitLead: (data: LeadData) => Promise<void>;
+  trackFormStart: (data: Partial<LeadData>) => void;
   loading: boolean;
   error: string;
   success: boolean;
@@ -32,20 +36,50 @@ export function useLeadSubmission({
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
+  const getAnalyticsPayload = (
+    data: Partial<LeadData>,
+    metadata?: LeadMetadata
+  ) => ({
+    source: data.source,
+    customer_type: data.customerType,
+    project_type: data.projectType,
+    lead_source: data.source,
+    form_variant: metadata?.form_variant,
+    cta_label: metadata?.cta_label,
+    cta_position: metadata?.cta_position,
+    page_path: metadata?.page_path,
+    landing_page: metadata?.landing_page,
+    has_phone: Boolean(data.phone),
+    has_project_type: Boolean(data.projectType),
+    has_message: Boolean(data.message),
+  });
+
+  const trackFormStart = (data: Partial<LeadData>) => {
+    const metadata = getLeadJourneyMetadata(data.metadata);
+    pushAnalyticsEvent({
+      event: 'form_start',
+      ...getAnalyticsPayload(data, metadata),
+    });
+  };
+
   const submitLead = async (data: LeadData) => {
     setLoading(true);
     setError('');
     setSuccess(false);
 
     try {
-      const { attachments, ...leadFields } = data;
+      const metadata = getLeadJourneyMetadata(data.metadata);
+      const { attachments, ...leadFields } = { ...data, metadata };
       const hasAttachments = !!attachments?.length;
       const body = hasAttachments ? new FormData() : JSON.stringify(leadFields);
 
       if (hasAttachments && body instanceof FormData) {
         Object.entries(leadFields).forEach(([key, value]) => {
           if (value !== undefined && value !== null) {
-            body.append(key, String(value));
+            body.append(
+              key,
+              typeof value === 'object' ? JSON.stringify(value) : String(value)
+            );
           }
         });
 
@@ -73,17 +107,28 @@ export function useLeadSubmission({
       // Track conversion
       pushAnalyticsEvent({
         event: 'generate_lead',
-        source: data.source,
-        customer_type: data.customerType,
-        project_type: data.projectType,
+        ...getAnalyticsPayload(data, metadata),
         currency: 'USD',
         value: 0,
+      });
+      pushAnalyticsEvent({
+        event: 'form_submit_success',
+        ...getAnalyticsPayload(data, metadata),
       });
 
       if (onSuccess) {
         onSuccess();
       }
     } catch (err: unknown) {
+      const metadata = getLeadJourneyMetadata(data.metadata);
+      pushAnalyticsEvent({
+        event: 'form_submit_blocked',
+        ...getAnalyticsPayload(data, metadata),
+        error_message:
+          err instanceof Error
+            ? err.message
+            : 'Something went wrong. Please try again.',
+      });
       setError(
         err instanceof Error
           ? err.message
@@ -103,6 +148,7 @@ export function useLeadSubmission({
 
   return {
     submitLead,
+    trackFormStart,
     loading,
     error,
     success,

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import {
   DollarSign,
   Hammer,
@@ -459,7 +460,7 @@ export default function PergolaCostGuide() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <TrackedLink href="/guides/pergola-system-fit-review">
+              <TrackedLink href="/guides/pergola-system-fit-review?source=pergola_cost_hero">
                 <Button size="lg">Get a System Fit Review</Button>
               </TrackedLink>
               <Link href="#cost-ranges">
@@ -1049,7 +1050,7 @@ export default function PergolaCostGuide() {
               direction and budget band before a detailed proposal.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <TrackedLink href="/guides/pergola-system-fit-review">
+              <TrackedLink href="/guides/pergola-system-fit-review?source=pergola_cost_bottom">
                 <Button size="lg">Get a System Fit Review</Button>
               </TrackedLink>
               <TrackedLink href="/systems/pergolas/configure">
@@ -1075,12 +1076,12 @@ export default function PergolaCostGuide() {
             </div>
             <p className="text-text-inverse-muted mt-6 text-sm">
               Or call us at{' '}
-              <a
-                href="tel:8155810138"
+              <TrackedPhoneLink
+                href="tel:+18155810138"
                 className="text-edg-brand hover:underline"
               >
                 (815) 581-0138
-              </a>{' '}
+              </TrackedPhoneLink>{' '}
               to discuss your project.
             </p>
           </div>

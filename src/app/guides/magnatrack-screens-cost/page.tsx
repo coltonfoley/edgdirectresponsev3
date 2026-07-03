@@ -184,7 +184,7 @@ export default function MagnaTrackScreensCostGuide() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink href="/contact?type=price&product=shades&source=magnatrack_cost_guide">
-                  <Button size="lg">Get Screen Pricing</Button>
+                  <Button size="lg">Get Screen Fit + Budget Range</Button>
                 </TrackedLink>
                 <Link href="#cost-ranges">
                   <Button
@@ -406,7 +406,7 @@ export default function MagnaTrackScreensCostGuide() {
           <div className="grid items-center gap-16 md:grid-cols-2">
             <div>
               <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
-                Need real screen pricing?
+                Need a screen fit and budget range?
               </h2>
               <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
                 Send photos, rough opening sizes, and the main issue you want
@@ -414,7 +414,7 @@ export default function MagnaTrackScreensCostGuide() {
                 right first move and what budget range fits the project.
               </p>
               <TrackedLink href="/contact?type=price&product=shades&source=magnatrack_cost_bottom">
-                <Button size="lg">Start a Screen Quote</Button>
+                <Button size="lg">Send Openings for Review</Button>
               </TrackedLink>
             </div>
             <div className="border-border-inverse hidden border-l pl-16 md:block">

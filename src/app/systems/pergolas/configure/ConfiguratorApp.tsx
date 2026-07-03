@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
+import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import {
   Check,
   ChevronLeft,
@@ -422,7 +423,7 @@ export function ConfiguratorApp() {
                 size="lg"
                 onClick={() => setShowModal(true)}
               >
-                Get My Custom Quote →
+                Send Configuration for Review →
               </Button>
               <p className="mt-2.5 text-center text-[10px] text-white/50">
                 Free · No commitment · We&apos;ll be in touch within 1 business
@@ -533,9 +534,7 @@ function QuoteModal({
   summary: string;
   onClose: () => void;
 }) {
-  type Status = 'idle' | 'loading' | 'success' | 'error';
-  const [status, setStatus] = useState<Status>('idle');
-  const [errorMsg, setErrorMsg] = useState('');
+  const [formStarted, setFormStarted] = useState(false);
   const [testimonialIdx] = useState(() =>
     Math.floor(Math.random() * TESTIMONIALS.length)
   );
@@ -550,11 +549,12 @@ function QuoteModal({
     fax: '', // honeypot
   });
 
+  const { submitLead, trackFormStart, loading, error, success } =
+    useLeadSubmission();
   const testimonial = TESTIMONIALS[testimonialIdx];
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus('loading');
     const fullMessage = [
       summary,
       form.timeline ? `Timeline: ${form.timeline}` : '',
@@ -562,35 +562,39 @@ function QuoteModal({
     ]
       .filter(Boolean)
       .join('\n');
-    try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: form.email,
-          firstName: form.firstName,
-          lastName: form.lastName,
-          phone: form.phone,
-          location: form.zip,
-          projectType: 'Motorized Pergola System Fit',
-          message: fullMessage,
-          source: 'pergola-configurator',
-          fax: form.fax,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        setStatus('success');
-      } else {
-        setErrorMsg(
-          data.errors?.join(', ') ?? 'Submission failed. Please try again.'
-        );
-        setStatus('error');
-      }
-    } catch {
-      setErrorMsg('Network error. Please try again.');
-      setStatus('error');
-    }
+
+    await submitLead({
+      email: form.email,
+      firstName: form.firstName,
+      lastName: form.lastName,
+      phone: form.phone,
+      location: form.zip,
+      projectType: 'Motorized Pergola System Fit',
+      message: fullMessage,
+      source: 'pergola-configurator',
+      fax: form.fax,
+      metadata: {
+        cta_label: 'Send Configuration for Review',
+        form_variant: 'pergola_configurator',
+        configurator_summary: summary,
+        timeline: form.timeline || undefined,
+        budget: form.budget || undefined,
+      },
+    });
+  }
+
+  function handleFormStart() {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFormStart({
+      source: 'pergola-configurator',
+      projectType: 'Motorized Pergola System Fit',
+      metadata: {
+        cta_label: 'Send Configuration for Review',
+        form_variant: 'pergola_configurator',
+        configurator_summary: summary,
+      },
+    });
   }
 
   return (
@@ -603,14 +607,14 @@ function QuoteModal({
           <X className="h-5 w-5" />
         </button>
 
-        {status === 'success' ? (
+        {success ? (
           /* ── Success ── */
           <div className="px-8 py-12 text-center">
             <div className="bg-edg-brand mx-auto mb-5 flex h-12 w-12 items-center justify-center">
               <Check className="h-6 w-6 text-black" />
             </div>
             <h2 className="mb-2 text-2xl font-bold text-white">
-              You&apos;re on Our List
+              Configuration Sent
             </h2>
             <p className="mb-3 text-sm leading-relaxed text-white/70">
               A designer will review your pergola configuration and reach out
@@ -631,14 +635,14 @@ function QuoteModal({
           /* ── Form ── */
           <div className="p-6 sm:p-8">
             <div className="text-edg-brand mb-1 text-[10px] font-bold tracking-[0.25em] uppercase">
-              Free Custom Quote
+              System Fit Review
             </div>
             <h2 className="mb-1 text-2xl font-bold text-white">
-              Your Design Is Ready
+              Send This Configuration for Review
             </h2>
             <p className="mb-5 text-xs text-white/60">
-              Send it to our team — we&apos;ll be in touch within 1 business
-              day.
+              We&apos;ll review size, mount type, screens, heaters, timeline,
+              and budget before recommending a next step.
             </p>
 
             {/* Testimonial */}
@@ -658,7 +662,11 @@ function QuoteModal({
               </pre>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form
+              onSubmit={handleSubmit}
+              onFocusCapture={handleFormStart}
+              className="space-y-4"
+            >
               {/* Honeypot */}
               <input
                 type="text"
@@ -765,23 +773,21 @@ function QuoteModal({
                 </ModalField>
               </div>
 
-              {status === 'error' && (
-                <p className="text-sm text-red-400">{errorMsg}</p>
-              )}
+              {error && <p className="text-sm text-red-400">{error}</p>}
 
               <Button
                 type="submit"
                 size="lg"
                 className="w-full"
-                disabled={status === 'loading'}
+                disabled={loading}
               >
-                {status === 'loading' ? (
+                {loading ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Sending…
                   </>
                 ) : (
-                  'Send My Configuration'
+                  'Send Configuration for Review'
                 )}
               </Button>
             </form>

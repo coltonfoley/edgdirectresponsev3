@@ -340,7 +340,7 @@ export default function ShadesPage() {
               />
             </div>
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-24">
-              <div className="order-2 flex flex-col justify-center lg:order-1 lg:col-span-5">
+              <div className="order-1 flex flex-col justify-center lg:col-span-5">
                 <div className="label-editorial-brand mb-6 flex items-center gap-3">
                   <div className="bg-edg-brand-dark h-px w-8"></div>
                   Sun & Wind Protection
@@ -357,7 +357,7 @@ export default function ShadesPage() {
                 <div className="mb-12 flex flex-col gap-4">
                   <TrackedLink href="/contact?type=price&product=shades&source=shades_hero">
                     <Button size="lg" className="w-full sm:w-auto">
-                      Configure System
+                      Check Screen Fit
                     </Button>
                   </TrackedLink>
                   <TrackedPhoneLink
@@ -413,7 +413,7 @@ export default function ShadesPage() {
                 </div>
               </div>
 
-              <div className="order-1 lg:order-2 lg:col-span-7">
+              <div className="order-2 lg:col-span-7">
                 <div className="bg-surface-muted relative aspect-[4/5] overflow-hidden rounded-none">
                   <ShadesGalleryClient items={galleryImages} />
                 </div>
@@ -764,7 +764,7 @@ export default function ShadesPage() {
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <TrackedLink href="/contact?type=price&product=shades&source=shades_bottom">
                     <Button variant="primary" size="lg">
-                      Start Your Quote
+                      Get Screen Fit + Budget Range
                     </Button>
                   </TrackedLink>
                   <Link href="/showroom">

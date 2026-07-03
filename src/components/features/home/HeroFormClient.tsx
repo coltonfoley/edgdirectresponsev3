@@ -15,8 +15,9 @@ export function HeroFormClient() {
     projectType: '',
     message: 'Requested from Homepage Hero',
   });
+  const [formStarted, setFormStarted] = useState(false);
 
-  const { submitLead, loading, error, success } = useLeadSubmission();
+  const { submitLead, trackFormStart, loading, error, success } = useLeadSubmission();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -31,6 +32,24 @@ export function HeroFormClient() {
       ...formData,
       customerType: 'homeowner',
       source: 'hero_form',
+      metadata: {
+        cta_label: 'Get Started',
+        form_variant: 'homepage_hero',
+      },
+    });
+  };
+
+  const handleFormStart = () => {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFormStart({
+      source: 'hero_form',
+      customerType: 'homeowner',
+      projectType: formData.projectType,
+      metadata: {
+        cta_label: 'Get Started',
+        form_variant: 'homepage_hero',
+      },
     });
   };
 
@@ -58,6 +77,7 @@ export function HeroFormClient() {
       </div>
       <form
         onSubmit={handleSubmit}
+        onFocusCapture={handleFormStart}
         className="space-y-4"
       >
         <div className="grid grid-cols-2 gap-4">

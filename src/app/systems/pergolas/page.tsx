@@ -265,7 +265,7 @@ export default function PergolasPage() {
           </div>
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-24">
             {/* Content */}
-            <div className="order-2 flex flex-col justify-center lg:order-1 lg:col-span-5">
+            <div className="order-1 flex flex-col justify-center lg:col-span-5">
               <div className="label-editorial-brand mb-6 flex items-center gap-3">
                 <div className="bg-edg-brand h-px w-8" />
                 Core System
@@ -280,7 +280,7 @@ export default function PergolasPage() {
               </p>
 
               <div className="mb-12 flex flex-col gap-4">
-                <TrackedLink href="/guides/pergola-system-fit-review">
+                <TrackedLink href="/guides/pergola-system-fit-review?source=pergolas_hero">
                   <Button size="lg" className="w-full sm:w-auto">
                     Get a System Fit Review
                   </Button>
@@ -332,7 +332,7 @@ export default function PergolasPage() {
             </div>
 
             {/* Gallery */}
-            <div className="order-1 lg:order-2 lg:col-span-7">
+            <div className="order-2 lg:col-span-7">
               <ProductGallery items={galleryImages} />
             </div>
           </div>
@@ -836,7 +836,7 @@ export default function PergolasPage() {
                 before you chase the wrong quote.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <TrackedLink href="/guides/pergola-system-fit-review">
+                <TrackedLink href="/guides/pergola-system-fit-review?source=pergolas_bottom">
                   <Button size="lg">Get a System Fit Review</Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">

@@ -6,6 +6,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@vercel/analytics/next';
 import { DeferredGoogleTagManager } from '@/components/analytics/DeferredGoogleTagManager';
+import { LandingPageTracker } from '@/components/analytics/LandingPageTracker';
 
 const barlow = Barlow({
   variable: '--font-barlow',
@@ -151,6 +152,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <LandingPageTracker />
         <DeferredGoogleTagManager gtmId="GTM-MJWNZD3F" />
         <SpeedInsights />
         <Analytics />

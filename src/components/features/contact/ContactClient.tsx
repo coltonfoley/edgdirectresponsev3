@@ -153,6 +153,7 @@ function ContactForm({
   const [formType, setFormType] = useState<ContactFormType>(initialFormType);
   const [leadSource, setLeadSource] = useState(initialSource);
   const [leadMarket, setLeadMarket] = useState('');
+  const [formStarted, setFormStarted] = useState(false);
 
   // Form state
   const [formData, setFormData] = useState({
@@ -165,7 +166,7 @@ function ContactForm({
     message: '',
   });
 
-  const { submitLead, loading, error, success } = useLeadSubmission();
+  const { submitLead, trackFormStart, loading, error, success } = useLeadSubmission();
   const floridaLead = isFloridaLocation(
     `${formData.location} ${leadMarket}`,
     leadSource
@@ -214,6 +215,26 @@ function ContactForm({
       ...formData,
       customerType: formType,
       source: leadSource,
+      metadata: {
+        cta_label: 'Submit project request',
+        form_variant: 'contact_page',
+        market: leadMarket || undefined,
+      },
+    });
+  };
+
+  const handleFormStart = () => {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFormStart({
+      ...formData,
+      customerType: formType,
+      source: leadSource,
+      metadata: {
+        cta_label: 'Submit project request',
+        form_variant: 'contact_page',
+        market: leadMarket || undefined,
+      },
     });
   };
 
@@ -329,7 +350,11 @@ function ContactForm({
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="max-w-lg space-y-8">
+        <form
+          onSubmit={handleSubmit}
+          onFocusCapture={handleFormStart}
+          className="max-w-lg space-y-8"
+        >
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">

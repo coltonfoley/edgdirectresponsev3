@@ -33,8 +33,9 @@ export function LeadCaptureForm({
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [fax, setFax] = useState(''); // Honeypot
+  const [formStarted, setFormStarted] = useState(false);
 
-  const { submitLead, loading, error, success } = useLeadSubmission({
+  const { submitLead, trackFormStart, loading, error, success } = useLeadSubmission({
     onSuccess: () => {
       // Set access cookie if redirecting to gated content
       if (redirectUrl) {
@@ -69,6 +70,22 @@ export function LeadCaptureForm({
       email: email.trim(),
       source,
       fax,
+      metadata: {
+        cta_label: ctaText,
+        form_variant: `lead_capture_${variant}`,
+      },
+    });
+  };
+
+  const handleFormStart = () => {
+    if (formStarted) return;
+    setFormStarted(true);
+    trackFormStart({
+      source,
+      metadata: {
+        cta_label: ctaText,
+        form_variant: `lead_capture_${variant}`,
+      },
     });
   };
 
@@ -112,6 +129,7 @@ export function LeadCaptureForm({
     return (
       <form
         onSubmit={handleSubmit}
+        onFocusCapture={handleFormStart}
         className={cn(
           'space-y-4',
           variant === 'default' &&
@@ -241,7 +259,11 @@ export function LeadCaptureForm({
 
   // Inline variant (horizontal form for light backgrounds)
   return (
-    <form onSubmit={handleSubmit} className={cn('space-y-4', className)}>
+    <form
+      onSubmit={handleSubmit}
+      onFocusCapture={handleFormStart}
+      className={cn('space-y-4', className)}
+    >
       {/* Honeypot Field - Hidden */}
       <div
         className="pointer-events-none absolute -z-50 opacity-0 select-none"
