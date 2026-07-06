@@ -84,6 +84,7 @@ project-history notes.
 
 Use the Codex in-app Browser for localhost, public pages, file previews,
 screenshots, visual QA, and testing that does not require a signed-in browser.
-For signed-in browser work such as Search Console, use Comet with the dedicated
-profile named `Codex in Comet`. Stop and tell Colton before switching to
-Chrome, Safari, or a personal/default browser profile.
+For signed-in browser work such as Search Console, open Comet first when it is
+available. Any signed-in Comet profile is acceptable. If Comet is not exposed to
+Codex, use the connected browser surface that is available for the task and
+clearly report which browser was used.
