@@ -37,9 +37,9 @@ Read `package.json` before making dependency or build assumptions.
 
 ## Do Not Trust Stale Inventories
 
-Older docs in `.agent-archive/2026-06-07-stale-guidance/agent` mention page
-counts, removed pages, and provider choices that no longer match the repo.
-Use source files and current commands instead.
+Older agent and audit archives have been removed from the active working tree.
+Use source files, current commands, and the docs in `docs/codex/` instead of
+old page-count or provider-choice notes.
 
 Useful source checks:
 

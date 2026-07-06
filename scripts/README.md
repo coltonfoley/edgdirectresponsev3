@@ -9,5 +9,3 @@ Active scripts in this folder are intended for current build, validation, and ma
 - `register-service-area.mjs` - helper for adding a new service-area route to sitemap, index, and navbar
 - `test-contrast.mjs` - targeted contrast check
 - `fetch-google-reviews.js` - optional review-fetch helper when the Google Places key is available
-
-Older one-off placeholder and image optimization tools live in `scripts/archive/legacy-image-tools/`. Keep them as historical references; do not treat them as current project commands.

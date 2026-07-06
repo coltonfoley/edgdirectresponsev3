@@ -1,6 +1,6 @@
 # EDG Project Media Inventory
 
-Verified against source on 2026-06-25.
+Verified against source on 2026-07-06.
 
 ## Portfolio Truth
 
@@ -46,11 +46,12 @@ Safe deletions completed:
 - Removed exact duplicate `OLD-` enclosure images that also exist under active brand/enclosure paths.
 - Removed unused `4.jpg` placeholder extras from generated project placeholder folders.
 - Removed the legacy `public/projects/northbrook-family-entertaining` placeholder folder, which was only referenced by archived placeholder tooling.
+- Removed tracked `OLD-` appliance/enclosure assets that were not active source references.
+- Removed brochure support images from the public gallery scan surface.
+- Removed stale furniture/umbrella public request notes because those are not active product pages.
 
 Remaining orphan candidates after cleanup:
 
-- `OLD-` assets needing human review: `/images/appliances/OLD-covered-patio-beverage-station.jpg`, `/images/appliances/OLD-griddle-grill-outdoor-kitchen.jpg`, `/images/enclosures/OLD-pergola-patio-outdoor-living.jpg`
-- Likely intentional holding assets: `/images/brochure/*`
 - Brand extras needing human review: `/images/brand/context-snow.jpg`, `/images/brand/hero-pergola-open-louvered-backyard.jpg`
 
 ## OG Runtime Finding

@@ -5,6 +5,7 @@ import sharp from 'sharp';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const IMAGES_DIR = path.join(PUBLIC_DIR, 'images');
 const OUTPUT_FILE = path.join(process.cwd(), 'src/data/gallery-images.json');
+const EXCLUDED_GALLERY_DIRS = new Set(['_archive', 'brochure']);
 
 async function getGalleryImages(dir) {
   const entries = await fs.promises.readdir(dir, { withFileTypes: true });
@@ -13,15 +14,18 @@ async function getGalleryImages(dir) {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
 
-    // Skip _archive folder - archived images not for production use
-    if (entry.isDirectory() && entry.name === '_archive') {
-      console.log('Skipping _archive folder...');
+    // Skip archives and non-gallery support art.
+    if (entry.isDirectory() && EXCLUDED_GALLERY_DIRS.has(entry.name)) {
+      console.log(`Skipping ${entry.name} folder...`);
       continue;
     }
 
     if (entry.isDirectory()) {
       images.push(...(await getGalleryImages(fullPath)));
-    } else if (/\.(jpg|jpeg|png|webp|avif)$/i.test(entry.name)) {
+    } else if (
+      !entry.name.startsWith('OLD-') &&
+      /\.(jpg|jpeg|png|webp|avif)$/i.test(entry.name)
+    ) {
       try {
         const metadata = await sharp(fullPath).metadata();
         const relativePath = path.relative(PUBLIC_DIR, fullPath);

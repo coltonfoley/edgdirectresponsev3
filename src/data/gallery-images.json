@@ -1,19 +1,5 @@
 [
   {
-    "src": "/images/appliances/OLD-covered-patio-beverage-station.jpg",
-    "width": 1024,
-    "height": 768,
-    "alt": "OLD covered patio beverage station",
-    "id": "/images/appliances/OLD-covered-patio-beverage-station.jpg"
-  },
-  {
-    "src": "/images/appliances/OLD-griddle-grill-outdoor-kitchen.jpg",
-    "width": 1024,
-    "height": 1536,
-    "alt": "OLD griddle grill outdoor kitchen",
-    "id": "/images/appliances/OLD-griddle-grill-outdoor-kitchen.jpg"
-  },
-  {
     "src": "/images/appliances/outdoor-kitchen-countertop.jpg",
     "width": 1024,
     "height": 1536,
@@ -159,69 +145,6 @@
     "height": 700,
     "alt": "hero screens new",
     "id": "/images/brand/hero-screens-new.jpg"
-  },
-  {
-    "src": "/images/brochure/cover-bg.jpg",
-    "width": 2000,
-    "height": 1333,
-    "alt": "cover bg",
-    "id": "/images/brochure/cover-bg.jpg"
-  },
-  {
-    "src": "/images/brochure/maintenance-footer.jpg",
-    "width": 2000,
-    "height": 1333,
-    "alt": "maintenance footer",
-    "id": "/images/brochure/maintenance-footer.jpg"
-  },
-  {
-    "src": "/images/brochure/page-2-problem.jpg",
-    "width": 2000,
-    "height": 1500,
-    "alt": "page 2 problem",
-    "id": "/images/brochure/page-2-problem.jpg"
-  },
-  {
-    "src": "/images/brochure/page-3-solution.jpg",
-    "width": 2000,
-    "height": 1289,
-    "alt": "page 3 solution",
-    "id": "/images/brochure/page-3-solution.jpg"
-  },
-  {
-    "src": "/images/brochure/page-5-proof.jpg",
-    "width": 2000,
-    "height": 1334,
-    "alt": "page 5 proof",
-    "id": "/images/brochure/page-5-proof.jpg"
-  },
-  {
-    "src": "/images/brochure/system-glass.jpg",
-    "width": 2000,
-    "height": 1333,
-    "alt": "system glass",
-    "id": "/images/brochure/system-glass.jpg"
-  },
-  {
-    "src": "/images/brochure/system-louver.jpg",
-    "width": 2000,
-    "height": 1640,
-    "alt": "system louver",
-    "id": "/images/brochure/system-louver.jpg"
-  },
-  {
-    "src": "/images/brochure/system-screens.jpg",
-    "width": 2000,
-    "height": 1449,
-    "alt": "system screens",
-    "id": "/images/brochure/system-screens.jpg"
-  },
-  {
-    "src": "/images/enclosures/OLD-pergola-patio-outdoor-living.jpg",
-    "width": 1600,
-    "height": 900,
-    "alt": "OLD pergola patio outdoor living",
-    "id": "/images/enclosures/OLD-pergola-patio-outdoor-living.jpg"
   },
   {
     "src": "/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg",
@@ -378,13 +301,6 @@
     "id": "/images/enclosures/residential-glass-enclosure-lifestyle.jpg"
   },
   {
-    "src": "/images/hero/hero-main.jpg",
-    "width": 2600,
-    "height": 1733,
-    "alt": "hero main",
-    "id": "/images/hero/hero-main.jpg"
-  },
-  {
     "src": "/images/logos/carmines.png",
     "width": 1024,
     "height": 256,
@@ -432,13 +348,6 @@
     "height": 288,
     "alt": "the elm",
     "id": "/images/logos/the-elm.webp"
-  },
-  {
-    "src": "/images/misc/frameless-sliding-glass-walls.jpg",
-    "width": 1707,
-    "height": 2560,
-    "alt": "frameless sliding glass walls",
-    "id": "/images/misc/frameless-sliding-glass-walls.jpg"
   },
   {
     "src": "/images/misc/guide-cover.png",

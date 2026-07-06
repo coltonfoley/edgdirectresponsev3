@@ -99,6 +99,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/docs/edg-outdoor-living-guide.html',
+        destination: '/guides/planning-guide/read',
+        permanent: true,
+      },
+      {
+        source: '/brochures/EDG-BROCHURE.pdf',
+        destination: '/guides/planning-guide',
+        permanent: true,
+      },
+      {
         source: '/guide/sanibel-zoning-outdoor-living',
         destination: '/service-areas/sanibel-outdoor-living',
         permanent: true,

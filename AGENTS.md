@@ -41,9 +41,9 @@ Use these files before touching the website:
   and local SEO verification.
 - `docs/codex/image-rules.md` - image registry and project-image rules.
 
-Historical guidance is archived in
-`.agent-archive/2026-06-07-stale-guidance/agent`. Treat it as background only,
-not as active instruction.
+Old agent and audit archives have been removed from the active working tree.
+Use the current source files and `docs/codex/` guidance instead of older
+project-history notes.
 
 ## Operating Rules
 

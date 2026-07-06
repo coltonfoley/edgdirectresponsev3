@@ -15,27 +15,6 @@
  */
 
 // ============================================================================
-// PENDING IMAGES - Add photos to these folders, then uncomment the paths below
-// ============================================================================
-// See public/images/{category}/README.txt for naming conventions and photo guidance.
-//
-// UMBRELLAS — /images/umbrellas/
-// export const umbrellaImages = {
-//   hero:       '/images/umbrellas/umbrella-hero.jpg',
-//   poolside:   '/images/umbrellas/umbrella-poolside.jpg',
-//   dining:     '/images/umbrellas/umbrella-dining.jpg',
-//   commercial: '/images/umbrellas/umbrella-commercial.jpg',
-// } as const;
-//
-// FURNITURE — /images/furniture/
-// export const furnitureImages = {
-//   hero:       '/images/furniture/furniture-hero.jpg',
-//   dining:     '/images/furniture/furniture-dining.jpg',
-//   poolside:   '/images/furniture/furniture-poolside.jpg',
-//   commercial: '/images/furniture/furniture-commercial.jpg',
-// } as const;
-//
-// ============================================================================
 // PRODUCT SYSTEMS - Complete product category images
 // ============================================================================
 
@@ -120,15 +99,7 @@ export const testimonials = {
 } as const;
 
 // ============================================================================
-// LEGACY HERO - For backward compatibility
-// ============================================================================
-
-export const legacyHero = {
-  main: '/images/hero/hero-main.jpg',
-} as const;
-
-// ============================================================================
-// BRAND IMAGES - Core website imagery (15 images)
+// BRAND IMAGES - Core website imagery
 // ============================================================================
 
 export const brand = {
@@ -441,7 +412,7 @@ export const pages = {
     heroVideoPoster: brand.hero.pergola,
   },
 
-  /** Pricing page */
+  /** Shared shade/pergola images */
   price: {
     shadesHero: '/images/shades/shades-hero.jpg',
     pergolaGray: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
@@ -455,14 +426,9 @@ export const pages = {
     pergolaVsPatioCover: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
   },
 
-  /** Design page */
+  /** Shared guide detail images */
   design: {
     framelessGlass: systems.enclosures.framelessGlass,
-  },
-
-  /** Pro page */
-  pro: {
-    blackBlade: '/images/pergolas/residential-black-r-blade-02.webp',
   },
 
   /** Systems index */
@@ -614,9 +580,6 @@ export const allImagePaths = [
   // Testimonials
   ...Object.values(testimonials),
 
-  // Legacy hero
-  ...Object.values(legacyHero),
-
   // Project images (from featuredProjects)
   ...Object.values(featuredProjects).flatMap(p => [p.hero, ...p.gallery]),
 
@@ -629,7 +592,6 @@ export const allImagePaths = [
   pages.guides.louveredPergolasHero,
   pages.guides.pergolaVsPatioCover,
   pages.design.framelessGlass,
-  pages.pro.blackBlade,
   pages.systems.blackBladePool,
   pages.systems.grayBladeWhite,
   pages.systems.whiteLedStrip,

@@ -1,42 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EDG Patio & Shade Website
 
-## Getting Started
+This repo is the production marketing and SEO website for EDG Patio & Shade.
+It captures website demand and sends accepted leads to Rainmaker.
 
-Use Node.js 22.x for local development. The repo includes `.nvmrc` and the
-matching `package.json` engine declaration so local installs match CI and
-Vercel.
+## Project Facts
 
-First, run the development server:
+- Framework: Next.js `16.2.9`
+- React: `19.2.1`
+- Node: `22.x`
+- Production: `https://www.edgpatioshade.com`
+- Active branch: `edg-positioning`
+- Lead intake route: `/api/leads`
+
+Current operating guidance lives in `AGENTS.md` and `docs/codex/`.
+
+## Local Development
+
+Use Node 22, then install and run:
 
 ```bash
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-## Environment
+For local lead-flow work, copy `.env.example` to `.env.local` and configure the
+Rainmaker and optional Resend values you need.
 
-Copy `.env.example` to `.env.local` for local development. Website lead submissions are routed to Rainmaker with `RAINMAKER_BASE_URL` and `RAINMAKER_API_KEY`.
+## Checks
 
-Website leads and lead analytics now use Rainmaker as the source of truth.
+Use the narrowest check that matches the work:
 
-Run `npm run env:check` before changing deployment variables.
+```bash
+npm run env:check
+npm run validate-images
+npm run lint
+npm run build
+```
 
-You can start editing the homepage by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+For route and lead-path changes, run the relevant browser or Playwright checks
+before publishing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Barlow.
+## Lead Flow
 
-## Learn More
+Website forms submit to `/api/leads`. Accepted leads are validated, rate-limited,
+and forwarded to Rainmaker. The website no longer stores leads in Supabase.
 
-To learn more about Next.js, take a look at the following resources:
+Do not change forms, CTA query params, `/api/leads`, Rainmaker forwarding,
+Resend behavior, or analytics events without verifying the full lead path.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Cleanup Rules
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Keep the working tree focused on current website truth:
 
-## Deploy on Vercel
+- active source in `src/`
+- active public media in `public/`
+- active docs in `docs/codex/`
+- current build and validation scripts in `scripts/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Generated local folders such as `.next/`, `test-results/`, and
+`.playwright-cli/` are ignored and can be recreated.

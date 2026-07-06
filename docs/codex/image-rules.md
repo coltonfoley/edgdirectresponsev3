@@ -5,7 +5,6 @@ Verified against the repo on 2026-06-07.
 ## Source Files
 
 - Main image registry: `src/lib/images.ts`
-- Project image helpers: `src/lib/project-images.ts`
 - Project data mapping: `src/lib/projects.ts`
 - Image validation script: `scripts/validate-images.mjs`
 - Gallery generator: `scripts/generate-gallery-data.mjs`
@@ -27,7 +26,6 @@ repo has:
 
 - a central registry in `src/lib/images.ts`
 - project image paths in `public/projects`
-- compatibility helpers in `src/lib/project-images.ts`
 - some metadata/static image paths such as Open Graph image entries
 
 Before changing image behavior, inspect the actual page and helper it uses.

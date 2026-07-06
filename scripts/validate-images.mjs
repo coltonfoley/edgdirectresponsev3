@@ -238,22 +238,12 @@ const expectedImages = {
   'Page - Home': [
     '/images/videos/commercial-pergola-video-clip-01.mp4',
   ],
-  'Page - Price': [
+  'Shared Page Images': [
     '/images/shades/shades-hero.jpg',
     '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
     '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
-  ],
-  'Page - Guides': [
     '/images/misc/guide-cover.png',
-    '/images/pergolas/pergola-hero.jpg',  // Also in pergolas/ now
-  ],
-  'Page - Design': [
-    '/images/misc/frameless-sliding-glass-walls.jpg',
-  ],
-  'Page - Pro': [
-    '/images/pergolas/residential-black-r-blade-02.webp',
-  ],
-  'Page - Systems': [
+    '/images/pergolas/pergola-hero.jpg',
     '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
     '/images/pergolas/residential-white-r-blade-led-strip.jpg',
   ],
@@ -313,8 +303,6 @@ const allPublicImages = scanDirectory(PUBLIC_DIR);
 const orphaned = allPublicImages.filter(img => {
   // Skip if it's in the expected list
   if (checkedPaths.has(img)) return false;
-  // Skip default Next.js/Vercel assets
-  if (['/file.svg', '/globe.svg', '/next.svg', '/vercel.svg', '/window.svg'].includes(img)) return false;
   // Skip archive (we expect those to be "orphaned" from registry perspective)
   if (img.includes('/_archive/')) return false;
   return true;
@@ -323,17 +311,9 @@ const orphaned = allPublicImages.filter(img => {
 const orphanCategories = {
   oldPrefix: orphaned.filter((img) => path.basename(img).startsWith('OLD-')),
   projectPlaceholders: orphaned.filter((img) => img.startsWith('/projects/')),
-  likelyIntentional: orphaned.filter((img) =>
-    img.startsWith('/images/brochure/') ||
-    img.startsWith('/images/furniture/') ||
-    img.startsWith('/images/umbrellas/')
-  ),
   needsReview: orphaned.filter((img) =>
     !path.basename(img).startsWith('OLD-') &&
-    !img.startsWith('/projects/') &&
-    !img.startsWith('/images/brochure/') &&
-    !img.startsWith('/images/furniture/') &&
-    !img.startsWith('/images/umbrellas/')
+    !img.startsWith('/projects/')
   ),
 };
 
@@ -387,7 +367,6 @@ if (orphaned.length > 0) {
   console.log('  These exist in public/ but are not found in active source references or current project hero mappings:');
   printOrphanCategory('OLD-prefixed assets', orphanCategories.oldPrefix);
   printOrphanCategory('Project/photo assets not currently referenced', orphanCategories.projectPlaceholders);
-  printOrphanCategory('Likely intentional holding assets', orphanCategories.likelyIntentional);
   printOrphanCategory('Needs human review', orphanCategories.needsReview);
   console.log();
 }
