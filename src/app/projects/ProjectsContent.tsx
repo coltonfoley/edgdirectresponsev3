@@ -116,7 +116,7 @@ export function ProjectsContent() {
                     Portfolio Details Are Being Updated
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-zinc-300">
-                    Finished photo sets are live on select project pages. Several older project records still need final photos, solution notes, and results from EDG before they can be treated as full case studies.
+                    Finished photo sets are live on select project pages. Several older project profiles still need final photos, solution notes, and results from EDG before they can be treated as full case studies.
                   </p>
                 </div>
               </div>

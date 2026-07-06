@@ -15,7 +15,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
     project.completionStatus === 'complete'
       ? 'Finished photo set'
       : project.hasRealPhotography
-        ? 'Project notes in progress'
+        ? 'Project media in review'
         : 'Project profile in progress';
 
   return (

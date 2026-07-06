@@ -4,7 +4,7 @@ import { ProjectsContent } from './ProjectsContent';
 export const metadata: Metadata = {
   title: 'Projects | EDG Patio & Shade Portfolio',
   description:
-    'See 24+ outdoor living transformations across Chicagoland. Motorized pergolas, retractable screens, and glass enclosures for homes and businesses.',
+    'See outdoor living transformations across Chicagoland. Motorized pergolas, retractable screens, and glass enclosures for homes and businesses.',
   alternates: {
     canonical: '/projects',
   },

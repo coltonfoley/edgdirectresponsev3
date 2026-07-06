@@ -59,7 +59,7 @@ export function enrichProject(project: Project): EnrichedProject {
 
   // Determine completion status
   let completionStatus: EnrichedProject['completionStatus'] = 'minimal';
-  if (sectionCount >= 5) completionStatus = 'complete';
+  if (project.isComplete && sectionCount >= 5) completionStatus = 'complete';
   else if (sectionCount >= 2) completionStatus = 'partial';
 
   return {

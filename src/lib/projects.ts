@@ -19,6 +19,10 @@ export interface Project {
   solution: string;
   results: string[];
   videoUrl?: string;
+  videoPoster?: string;
+  videoCaption?: string;
+  isComplete: boolean;
+  missingFields: string[];
   specs: { label: string; value: string }[];
   testimonial?: { quote: string; name: string; title: string };
   relatedProjects: string[];
@@ -31,6 +35,8 @@ const projectsWithRealPhotography = new Set([
   'wade',
   'jake-everly-residence',
   'greco',
+  'ohare',
+  'hildebrant',
 ]);
 
 export function hasRealProjectPhotography(projectId: string): boolean {
@@ -162,6 +168,10 @@ const transformCSVProject = (csvProject: typeof csvProjects[0]): Project => {
     solution: csvProject.solution,
     results,
     videoUrl: csvProject.videoUrl,
+    videoPoster: csvProject.videoPoster,
+    videoCaption: csvProject.videoCaption,
+    isComplete: csvProject.isComplete,
+    missingFields: csvProject.missingFields,
     specs: [
       { label: 'Location', value: `${city}, ${state}` },
       { label: 'Type', value: csvProject.projectType },

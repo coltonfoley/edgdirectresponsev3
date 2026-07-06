@@ -23,6 +23,9 @@ export function ProjectContent({ project }: ProjectContentProps) {
     .filter((link): link is { system: string; href: string } =>
       Boolean(link.href)
     );
+  const localVideoUrl = project.videoUrl?.startsWith('/')
+    ? project.videoUrl
+    : undefined;
 
   return (
     <div className="space-y-14">
@@ -38,10 +41,10 @@ export function ProjectContent({ project }: ProjectContentProps) {
                 Finished Project Photos Are Still Being Confirmed
               </h2>
               <p className="text-sm leading-relaxed text-zinc-600">
-                This project page is being kept intentionally conservative
-                until EDG has a finished photo set and complete project notes
-                ready for publication. The scope notes below reflect what is in
-                the current project record.
+                This project page is being kept intentionally concise until EDG
+                has a finished photo set and complete case-study details ready
+                for publication. The notes below focus on confirmed planning
+                details that help customers compare similar projects.
               </p>
               <Link
                 href="/projects"
@@ -76,10 +79,10 @@ export function ProjectContent({ project }: ProjectContentProps) {
             Project Context
           </h2>
           <p className="text-sm leading-relaxed text-zinc-600">
-            EDG lists this as a {project.type.toLowerCase()} outdoor living
-            project in {project.location}. The page focuses on the site
-            constraints, systems used, and project planning details that can be
-            stated from the current record.
+            This is a {project.type.toLowerCase()} outdoor living project in{' '}
+            {project.location}. The page focuses on site goals, systems used,
+            and planning details that help customers understand similar EDG
+            work.
           </p>
         </div>
 
@@ -203,13 +206,41 @@ export function ProjectContent({ project }: ProjectContentProps) {
         </div>
       </ProjectSection>
 
+      <ProjectSection condition={Boolean(localVideoUrl)} id="project-video">
+        <div>
+          <p className="mb-2 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+            Project Motion
+          </p>
+          <h2 className="mb-5 text-2xl font-bold text-zinc-950">
+            Installation in motion
+          </h2>
+          <div className="overflow-hidden border border-black/10 bg-black">
+            <video
+              className="aspect-[4/3] w-full bg-black object-cover"
+              controls
+              muted
+              playsInline
+              preload="metadata"
+              poster={project.videoPoster || project.heroImage}
+              aria-label={`${project.title} ${primarySystem.toLowerCase()} project preview video`}
+            >
+              <source src={localVideoUrl} type="video/mp4" />
+            </video>
+          </div>
+          {project.videoCaption && (
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600">
+              {project.videoCaption}
+            </p>
+          )}
+        </div>
+      </ProjectSection>
+
       {project.completionStatus !== 'complete' && (
         <div className="border border-yellow-300 bg-yellow-50 p-5">
           <p className="text-sm leading-relaxed text-yellow-900">
             <strong>Publication note:</strong> This page is intentionally
-            limited to the details currently available in EDG&apos;s project
-            record. Contact EDG for complete information about similar projects
-            in {project.location}.
+            limited to details confirmed for publication. Contact EDG for
+            complete information about similar projects in {project.location}.
           </p>
         </div>
       )}

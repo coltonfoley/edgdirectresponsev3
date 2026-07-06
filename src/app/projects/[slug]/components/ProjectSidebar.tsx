@@ -133,7 +133,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
         <p className="text-sm leading-relaxed text-zinc-600">
           {isLocalMarket
             ? `EDG Patio & Shade designs and installs premium outdoor living systems across the Chicago-Milwaukee corridor, including projects in and around ${project.location}.`
-            : `This project record is listed in ${project.location}. Contact EDG to confirm current design, supply, or installation support for similar work.`}
+            : `This project is listed in ${project.location}. Contact EDG to confirm current design, supply, or installation support for similar work.`}
         </p>
         {serviceAreaHref && (
           <Link

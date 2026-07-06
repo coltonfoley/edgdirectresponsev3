@@ -14,6 +14,8 @@ export interface Project {
   solution: string;
   results: string[];
   videoUrl?: string;
+  videoPoster?: string;
+  videoCaption?: string;
   projectType: 'Commercial' | 'Residential';
   isComplete: boolean;
   missingFields: string[];
@@ -137,7 +139,7 @@ export const projects: Project[] = [
     zipCode: null,
     description: "Urban hospitality venue using motorized screens to help open or enclose an outdoor area as weather changes.",
     challenge: "Downtown Chicago site logistics made access, staging, and coordination important parts of the project.",
-    solution: "EDG planned motorized screen coverage for the venue's outdoor area so the space could stay open when conditions were comfortable and close down when more weather control was needed. The available project record is limited, so this page does not claim measured seating or revenue results.",
+    solution: "EDG planned motorized screen coverage for the venue's outdoor area so the space could stay open when conditions were comfortable and close down when more weather control was needed. The available case-study details are limited, so this page does not claim measured seating or revenue results.",
     results: [],
     projectType: "Commercial",
     isComplete: false,
@@ -426,20 +428,56 @@ export const projects: Project[] = [
     projectType: "Residential",
     isComplete: false,
     missingFields: ["solution", "results"]
+  },
+  {
+    id: "ohare",
+    name: "O'Hare",
+    address: "Bartlett, IL",
+    city: "Bartlett",
+    state: "IL",
+    zipCode: "60103",
+    description: "A Bartlett garage/outbuilding opening fitted with a wide motorized insect screen, shown with stills and a short motion clip as the screen closes and opens across the space.",
+    challenge: "The opening needed insect protection and daily-use comfort without turning the garage/outbuilding into a permanent enclosed room. The screen had to span a wide opening cleanly while preserving the open-air feel when raised.",
+    solution: "EDG specified a motorized Progressive Screens Gen 4 residential insect screen with an outside-mount white textured frame, black screen fabric, and motorized operation for the wide opening. The page shows the screen closed, partway through travel, and open so homeowners can understand how the system behaves in real use.",
+    results: [],
+    videoUrl: "/projects/ohare/screen-cycle-preview.mp4",
+    videoPoster: "/projects/ohare/hero.jpg",
+    videoCaption: "Short preview clip showing the motorized screen moving across the blue outbuilding opening.",
+    projectType: "Residential",
+    isComplete: false,
+    missingFields: ["final results", "publication approval"]
+  },
+  {
+    id: "hildebrant",
+    name: "Hildebrandt",
+    address: "Crystal Lake, IL",
+    city: "Crystal Lake",
+    state: "IL",
+    zipCode: "60014",
+    description: "A large Crystal Lake B200XL louvered pergola project, shown through installation stills and a short preview clip as the roof louvers are set into place.",
+    challenge: "The patio needed a substantial motorized roof system that could cover a wide outdoor living area while keeping the structure visually clean against the home. The design had to coordinate the frame, louvers, lighting, controls, drainage, and electrical routing before installation.",
+    solution: "EDG planned a coupled Brustor B200XL louvered pergola with left and right roof modules, RAL 7016 frame and louvers, Somfy RTS controls, and integrated louver lighting. The installation media shows the roof coming together from open frame to near-finished louver coverage.",
+    results: [],
+    videoUrl: "/projects/hildebrant/pergola-louver-install-preview.mp4",
+    videoPoster: "/projects/hildebrant/1.jpg",
+    videoCaption: "Short preview clip showing louver installation progress on the B200XL frame.",
+    projectType: "Residential",
+    isComplete: false,
+    missingFields: ["final results", "publication approval"]
   }
 ];
 
 // Statistics
 export const projectStats = {
-  total: 25,
+  total: 27,
   complete: 5,
-  partial: 20,
+  partial: 22,
   byType: {
     Commercial: 13,
-    Residential: 12
+    Residential: 14
   },
   byState: {
-    IL: 21,
+    IL: 23,
     CA: 1,
     WI: 2,
     Unknown: 1
@@ -449,7 +487,8 @@ export const projectStats = {
     Northbrook: 1,
     LaGrange: 1,
     Richmond: 1,
-    CrystalLake: 1,
+    CrystalLake: 2,
+    Bartlett: 1,
     StCharles: 1,
     BurrRidge: 2,
     Woodridge: 1,
@@ -471,7 +510,7 @@ export const dataQualityIssues = [
   { project: "Reddy/Arora", issue: "Duplicate challenge text (copy-paste error)", field: "challenge" },
   { project: "Haiti", issue: "Missing address", field: "address" },
   { project: "Dicks Roofing Project 2", issue: "Missing state in address", field: "address" },
-  { project: "Multiple projects", issue: "19/25 projects missing Solution and 19/25 missing Results fields", field: "solution, results" }
+  { project: "Multiple projects", issue: "Several imported project entries still need final solution notes, results, or publication approval before being treated as complete case studies", field: "solution, results, publication approval" }
 ];
 
 export default projects;
