@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Motorized Screens Southwest Florida | EDG Patio & Shade',
     description:
-      'Screen-first planning for coastal patios, covered lanais, outdoor kitchens, and pergola openings in Southwest Florida.',
+      'Motorized screen layouts for coastal patios, covered lanais, outdoor kitchens, and pergola openings in Southwest Florida.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -80,7 +80,7 @@ const marketFits = [
   {
     title: 'Sanibel & Captiva covered lanais',
     description:
-      'For homeowners comparing a damaged lanai rebuild against a cleaner screen-first approach, EDG can review whether motorized screens and a pergola system fit the existing structure and local review path.',
+      'For a covered lanai or post-storm rebuild, EDG can review whether motorized screens, a pergola system, or both make sense with the existing structure and local review path.',
   },
   {
     title: 'Fort Myers & Cape Coral pool patios',
@@ -112,7 +112,7 @@ const projectTypes = [
   {
     title: 'Motorized lanai screens',
     description:
-      'For Florida buyers using lanai language, the EDG fit is a cleaner screen plan for covered outdoor spaces: shade, airflow, privacy, and bug control when the patio needs it.',
+      'For covered outdoor spaces, motorized screens can add shade, airflow control, privacy, and bug protection only when the patio needs it.',
   },
   {
     title: 'Pool patio screens',
@@ -228,9 +228,10 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 Motorized Screens for Southwest Florida Patios
               </h1>
               <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
-                Screen-first planning for covered lanais, pool patios, outdoor
-                kitchens, and pergola openings that need sun, bug, privacy, and
-                daily wind comfort while keeping the outdoor room flexible.
+                Motorized screen layouts for covered lanais, pool patios,
+                outdoor kitchens, and pergola openings that need sun, bug,
+                privacy, and daily wind comfort while keeping the outdoor room
+                flexible.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/contact?type=price&product=shades&area=southwest-florida&source=swfl_screens_hero">
@@ -255,25 +256,24 @@ export default function SouthwestFloridaMotorizedScreensPage() {
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
                 <div className="label-editorial-brand mb-4">
-                  Screen-First Florida Fit
+                  Covered Patio Screen Fit
                 </div>
                 <h2 className="section-title mb-6">
-                  Motorized screens first, pergolas when the patio needs a roof
+                  Start with screens when the roof or opening already works
                 </h2>
                 <div className="space-y-5 text-lg leading-relaxed text-text-secondary">
                   <p>
-                    Southwest Florida buyers often search for lanais, screen
-                    enclosures, and patio screens when the real problem is
-                    comfort. The clearest planning path is screen-first:
-                    motorized screens for covered spaces and motorized pergolas
-                    when the patio also needs overhead control.
+                    Many Southwest Florida patios already have a roof, beam,
+                    soffit, or covered lanai opening. In those cases, the first
+                    question is whether motorized screens can solve the comfort
+                    problems: bugs, glare, privacy, late-day sun, and everyday
+                    breezes.
                   </p>
                   <p>
-                    If the homeowner wants a covered outdoor space to feel
-                    cooler, calmer, more private, and more usable during buggy
-                    hours, motorized screens may be the right first move. If
-                    they also need overhead shade or rain control, the screen
-                    layout should be planned with a motorized pergola.
+                    If the space also needs overhead shade, rain management,
+                    drainage, or a cleaner structural frame, the screen layout
+                    should be planned with a motorized pergola rather than added
+                    later.
                   </p>
                 </div>
               </div>
@@ -319,9 +319,9 @@ export default function SouthwestFloridaMotorizedScreensPage() {
         <Section className="section-md">
           <Container>
             <div className="mb-12 max-w-3xl">
-              <div className="label-editorial-brand mb-4">Market Fit</div>
+              <div className="label-editorial-brand mb-4">Screen Fit</div>
               <h2 className="section-title mb-4">
-                Match the way Florida homeowners describe the problem
+                Match the screen plan to how the patio is actually used
               </h2>
               <p className="text-lg leading-relaxed text-text-secondary">
                 A homeowner may describe the project as a lanai, patio, outdoor
@@ -387,7 +387,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Project Paths</div>
               <h2 className="section-title mb-4">
-                Three screen-first planning routes
+                Three ways screens fit Florida patios
               </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">

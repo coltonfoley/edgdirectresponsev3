@@ -141,7 +141,7 @@ const costComparison = [
   },
   {
     factor: 'Home Value Impact',
-    traditional: 'Familiar buyer expectation',
+    traditional: 'Familiar outdoor-room look',
     modern: 'Cleaner premium story',
     note: 'Value depends on condition and market',
   },

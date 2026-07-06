@@ -81,7 +81,7 @@ const buyingSignals = [
   {
     title: 'Coastal Wind Documentation',
     description:
-      'Florida buyers search for systems that can handle real wind exposure. The strongest fit is a Miami-Dade rated louvered roof system with permit-ready engineering.',
+      'Gulf Coast projects need systems selected around real wind exposure, product documentation, anchoring details, and permit-ready engineering.',
     icon: ShieldCheck,
   },
   {
@@ -108,13 +108,13 @@ const floridaPages = [
   {
     title: 'Sanibel Outdoor Living',
     description:
-      'The Florida hub page for Sanibel and Captiva motorized screens, pergolas, and outdoor living systems.',
+      'Start here for Sanibel and Captiva motorized screens, pergolas, and coastal outdoor living planning.',
     href: '/service-areas/sanibel-outdoor-living',
   },
   {
     title: 'Southwest Florida Motorized Screens',
     description:
-      'Screen-first planning for covered lanais, pool patios, outdoor kitchens, and pergola openings.',
+      'Motorized screen layouts for covered lanais, pool patios, outdoor kitchens, and pergola openings.',
     href: '/service-areas/southwest-florida/motorized-screens',
   },
   {
@@ -126,7 +126,7 @@ const floridaPages = [
   {
     title: 'Modern Lanai Sanibel',
     description:
-      'A buyer-friendly explanation of motorized pergolas and screens for covered lanai-style outdoor rooms.',
+      'A practical guide to motorized pergolas and screens for covered lanai-style outdoor rooms.',
     href: '/service-areas/sanibel-outdoor-living/modern-lanai',
   },
   {
@@ -275,15 +275,14 @@ export default function SouthwestFloridaPage() {
               Florida Project Fit
             </div>
             <h2 className="section-title mb-4">
-              Start with the market, then the system
+              Choose the right starting point for your Gulf Coast home
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Southwest Florida has several different buyer intents hiding under
-              the same words. Some people need a coastal pergola. Some
-              need a motorized screen layout for a covered lanai. Some are
-              trying to keep a pool patio usable through heat, rain, glare, and
-              insects. This page routes those searches into the right EDG
-              planning path.
+              A Sanibel lanai, a Fort Myers pool patio, and a Naples outdoor
+              kitchen can all need different answers. Some projects start with
+              motorized screens for bugs, glare, privacy, and daily comfort.
+              Others need a louvered roof first so shade, drainage, and future
+              screen openings are planned together.
             </p>
           </div>
 
@@ -314,25 +313,24 @@ export default function SouthwestFloridaPage() {
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
               <div className="label-editorial-brand mb-4">
-                Why Florida Leads Need Different Pages
+                Why Gulf Coast Planning Is Different
               </div>
               <h2 className="section-title mb-6">
-                Search intent is coastal, not Midwest
+                Salt air, wind, rain, and permitting shape the project early
               </h2>
               <div className="space-y-4 text-text-secondary text-lg leading-relaxed">
                 <p>
-                  A Chicago buyer may search for a pergola installer, roof deck
-                  shade, or retractable screens. A Florida buyer is more likely
-                  to think in terms of motorized lanai screens, salt air, storm
-                  repairs, and whether a system has the right
-                  documentation for coastal wind exposure.
+                  Southwest Florida outdoor rooms have to work harder than a
+                  typical inland patio. The system should be reviewed around
+                  coastal wind exposure, salt-air finishes, drainage, attachment
+                  surfaces, electrical paths, and the way the space is used day
+                  to day.
                 </p>
                 <p>
-                  That is why this page deliberately links the regional Florida
-                  search terms to the Sanibel product pages below. The goal is
-                  to help Google understand that EDG has a Florida cluster, not
-                  just one isolated Sanibel page buried under the service-area
-                  menu.
+                  The safest plan starts with the real site conditions. Send the
+                  address, photos, rough dimensions, and the main comfort issue,
+                  then EDG can help determine whether screens, a louvered roof,
+                  or a combined pergola-and-screen layout should come first.
                 </p>
               </div>
             </div>
@@ -370,15 +368,15 @@ export default function SouthwestFloridaPage() {
         <Container>
           <div className="mb-10 max-w-3xl">
             <div className="label-editorial-brand mb-4">
-              Florida Planning Pages
+              Florida Planning Guides
             </div>
             <h2 className="section-title mb-4">
-              Go deeper into the Sanibel cluster
+              Compare the Sanibel paths before you choose a system
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              These pages answer the more specific searches that should turn
-              into Florida leads: louvered pergolas, modern lanai
-              alternatives, and rebuild decisions after storm damage.
+              Use these guides to compare louvered pergolas, motorized screens,
+              modern lanai alternatives, storm-damage rebuild decisions, and the
+              permit questions that can affect a Sanibel outdoor room.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -396,7 +394,7 @@ export default function SouthwestFloridaPage() {
                     {page.description}
                   </p>
                   <div className="flex items-center gap-2 text-xs font-bold tracking-wider uppercase">
-                    View page
+                    Open guide
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </div>
                 </Card>

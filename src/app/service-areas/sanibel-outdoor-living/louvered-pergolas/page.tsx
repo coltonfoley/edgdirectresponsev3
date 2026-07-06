@@ -520,7 +520,7 @@ export default function SanibelPergolaPage() {
                     <div className="text-edg-brand-dark mb-2 text-4xl font-bold">Resale</div>
                     <div className="text-sm font-semibold">Premium Resale Feature</div>
                     <p className="text-text-secondary mt-2 text-sm">
-                      Premium feature buyers value in Florida
+                      Premium outdoor-living feature for Florida homes
                     </p>
                   </div>
                 </div>

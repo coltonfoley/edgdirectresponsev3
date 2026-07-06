@@ -347,12 +347,12 @@ export default function ServiceAreasPage() {
               Most Requested Local Pages
             </div>
             <h2 className="section-title mb-4">
-              Product-specific help for high-intent local searches
+              Product-specific help for local project planning
             </h2>
             <p className="text-text-secondary text-lg">
-              If you already know the system you are researching, these pages go
-              deeper than the city overview and answer the local planning
-              questions first.
+              If you already know the system you are considering, start with the
+              guide that matches the project and the local planning questions
+              around it.
             </p>
           </div>
 
