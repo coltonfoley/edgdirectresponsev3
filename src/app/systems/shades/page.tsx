@@ -67,13 +67,33 @@ const galleryImages = [
   },
   {
     type: 'image' as const,
+    src: images.systems.shades.progressiveHomeExterior,
+    alt: 'MagnaTrack motorized screens on a residential patio exterior',
+  },
+  {
+    type: 'image' as const,
+    src: images.systems.shades.progressiveArchedPatio,
+    alt: 'Motorized screens recessed within arched patio openings',
+  },
+  {
+    type: 'image' as const,
     src: images.systems.shades.hero,
     alt: 'Outdoor motorized screen system installed on a covered structure',
   },
   {
     type: 'image' as const,
+    src: images.systems.shades.progressiveWaterfrontLounge,
+    alt: 'Outdoor screen system shading a waterfront lounge',
+  },
+  {
+    type: 'image' as const,
     src: images.systems.shades.deployed,
     alt: 'Deployed patio screen creating shade and bug protection',
+  },
+  {
+    type: 'image' as const,
+    src: images.systems.shades.progressiveCommercialPatio,
+    alt: 'Commercial patio seating enclosed with motorized screens',
   },
   {
     type: 'image' as const,
@@ -440,10 +460,8 @@ export default function ShadesPage() {
                 </div>
               </div>
 
-              <div className="order-2 lg:col-span-7">
-                <div className="bg-surface-muted relative aspect-[4/5] overflow-hidden">
-                  <ShadesGalleryClient items={galleryImages} />
-                </div>
+              <div className="order-2 min-w-0 lg:col-span-7">
+                <ShadesGalleryClient items={galleryImages} />
               </div>
             </div>
           </Container>

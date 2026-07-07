@@ -43,6 +43,14 @@ export const systems = {
   shades: {
     hero: '/images/shades/shades-hero.jpg',
     deployed: '/images/shades/shade-deployed-screens-01.jpg',
+    progressiveHomeExterior:
+      '/images/shades/progressive-magnatrack-home-exterior.jpg',
+    progressiveArchedPatio:
+      '/images/shades/progressive-magnatrack-arched-patio.jpg',
+    progressiveWaterfrontLounge:
+      '/images/shades/progressive-magnatrack-waterfront-lounge.jpg',
+    progressiveCommercialPatio:
+      '/images/shades/progressive-magnatrack-commercial-patio.jpg',
     ohareHero: '/projects/ohare/hero.jpg',
     ohareClosed: '/projects/ohare/1.jpg',
     oharePartOpen: '/projects/ohare/2.jpg',
@@ -591,9 +599,13 @@ export const galleries = {
 
   /** Shades system page gallery */
   shades: [
-    pages.price.shadesHero,
-    '/images/shades/shade-deployed-screens-01.jpg',
-    brand.context.lake,
+    brand.hero.screens,
+    systems.shades.progressiveHomeExterior,
+    systems.shades.progressiveArchedPatio,
+    systems.shades.hero,
+    systems.shades.progressiveWaterfrontLounge,
+    systems.shades.deployed,
+    systems.shades.progressiveCommercialPatio,
     systems.shades.ohareHero,
   ],
 
