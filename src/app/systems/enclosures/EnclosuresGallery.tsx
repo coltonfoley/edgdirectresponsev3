@@ -42,7 +42,7 @@ export function EnclosuresGallery({ items, className }: EnclosuresGalleryProps) 
             className="cursor-zoom-in object-cover transition-transform duration-500 hover:scale-105"
             onClick={() => setLightboxOpen(true)}
             sizes="(max-width: 768px) 100vw, 50vw"
-            priority
+            loading="eager"
           />
         ) : (
           <div className="relative h-full w-full">

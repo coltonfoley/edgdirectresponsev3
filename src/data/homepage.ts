@@ -57,8 +57,8 @@ export const systems = [
     name: 'Glass Enclosures',
     tagline: null,
     description:
-      'Frameless glass wall systems that stack, fold, and disappear. Add weatherproof square footage without heavy construction.',
-    features: ['Weatherproof', 'Adds value', 'Year-round use'],
+      'Lumon and other frameless glass wall systems for patios, pergolas, and restaurants. Add wind and weather control without losing the open-air feel.',
+    features: ['Lumon options', 'Frameless views', '3-season comfort'],
     image: '/images/enclosures/frameless-sliding-glass-walls.jpg',
     quoteUrl: '/contact?type=design&product=enclosure',
   },

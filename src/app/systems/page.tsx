@@ -81,10 +81,10 @@ const systems = [
     title: 'Glass Enclosures',
     shortTitle: 'Enclosures',
     description:
-      'Frameless retractable glass walls that transform outdoor spaces into year-round rooms. Weatherproof square footage added to your home.',
+      'Lumon and other frameless retractable glass wall systems that turn patios, pergolas, and restaurant spaces into flexible 3-season rooms.',
     image: '/images/enclosures/frameless-sliding-glass-walls.jpg',
-    features: ['Frameless design', 'Retractable panels', 'Weather sealing', 'Year-round use'],
-    bestFor: ['Three-season rooms', 'Restaurant patios', 'Event venues', 'Home additions'],
+    features: ['Lumon LGR + LGS', 'Frameless design', 'Retractable panels', 'Wind and rain control'],
+    bestFor: ['Three-season rooms', 'Restaurant patios', 'Event venues', 'Patio conversions'],
     priceRange: 'From $15,000',
     icon: Home,
   },
@@ -119,13 +119,13 @@ const comparisonData = [
     feature: 'Weather Protection',
     pergolas: 'Rain, sun, light wind',
     shades: 'Sun, UV, insects, wind',
-    enclosures: 'All weather, year-round',
+    enclosures: 'Wind, rain, noise, glare',
   },
   {
     feature: 'Best For',
     pergolas: 'Open-air spaces',
     shades: 'Existing structures',
-    enclosures: 'Fully enclosed rooms',
+    enclosures: '3-season rooms',
   },
   {
     feature: 'Climate Control',
@@ -146,12 +146,12 @@ const faqs = [
   {
     question: 'Which outdoor living system is right for me?',
     answer:
-      'The right system depends on your space and goals. Motorized pergolas are ideal for open patios where you want adjustable shade and rain protection. Retractable screens work best for existing covered porches or as additions to pergolas. Glass enclosures transform spaces into year-round rooms. During our consultation, we assess your space, understand how you plan to use it, and recommend the best solution for your needs and budget.',
+      'The right system depends on your space and goals. Motorized pergolas are ideal for open patios where you want adjustable shade and rain protection. Retractable screens work best for existing covered porches or as additions to pergolas. Glass enclosures are strongest for flexible 3-season comfort, wind control, and clear views. During our consultation, we assess your space, understand how you plan to use it, and recommend the best solution for your needs and budget.',
   },
   {
     question: 'Can these systems handle Chicago winters?',
     answer:
-      'Absolutely. Our systems are specifically engineered for the demanding Chicago climate. Pergolas are rated for snow loads up to 40 psf and winds to 120 mph. Screens feature MagnaTrack technology that withstands gusts up to 35 mph. Glass enclosures provide true four-season protection. We also offer winterization services and can recommend the best configurations for lakefront and exposed locations.',
+      'Absolutely. Our systems are specifically engineered for the demanding Chicago climate. Pergolas are rated for snow loads up to 40 psf and winds to 120 mph. Screens feature MagnaTrack technology that withstands gusts up to 35 mph. Glass enclosures help control wind, rain, and shoulder-season comfort, but they are not the same as a fully insulated four-season addition. We also offer winterization services and can recommend the best configurations for lakefront and exposed locations.',
   },
   {
     question: 'Can I combine multiple systems?',

@@ -28,12 +28,20 @@ import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Frameless Glass Enclosures | Retractable Glass Walls | EDG',
-  description: 'Frameless retractable glass wall systems for year-round outdoor living. Slide & turn operation, 10mm tempered safety glass. Design & supply nationwide.',
-  keywords: ['glass enclosures', 'frameless glass walls', 'retractable glass', 'patio enclosures', 'glass patio walls'],
+  title: 'Lumon Glass Enclosures | Retractable Glass Walls | EDG',
+  description: 'Lumon glass enclosures and frameless retractable glass wall systems for patios, pergolas, balconies, roof decks, and restaurant spaces. Designed and installed by EDG.',
+  keywords: [
+    'Lumon glass enclosures',
+    'Lumon glass walls',
+    'Lumon patio enclosures',
+    'retractable glass walls',
+    'sliding glass walls',
+    'frameless glass enclosures',
+    'glass patio enclosures',
+  ],
   openGraph: {
-    title: 'Frameless Glass Enclosures | Retractable Glass Walls | EDG',
-    description: 'Frameless retractable glass wall systems for year-round outdoor living. Slide & turn operation, 10mm tempered safety glass.',
+    title: 'Lumon Glass Enclosures | Retractable Glass Walls | EDG',
+    description: 'Featured Lumon LGR and LGS glass enclosure systems for patios, pergolas, roof decks, and restaurant spaces.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -43,91 +51,95 @@ export const metadata: Metadata = {
 
 // Gallery images for the client component - ALL SHOW REAL GLASS
 const galleryImages = [
+  { type: 'image' as const, src: images.systems.enclosures.lumonPatio, alt: 'Lumon retractable glass patio enclosure with frameless panels' },
   { type: 'image' as const, src: images.systems.enclosures.framelessGlass, alt: 'Frameless sliding glass walls residential' },
+  { type: 'image' as const, src: images.systems.enclosures.lumonDetail, alt: 'Lumon sliding glass wall detail with frameless tempered glass panels' },
   { type: 'image' as const, src: images.systems.enclosures.partialOpen, alt: 'Sliding glass panels partially open' },
   { type: 'image' as const, src: images.systems.enclosures.closedExterior, alt: 'Glass enclosure with closed panels' },
-  { type: 'image' as const, src: images.systems.enclosures.commercialNightExterior, alt: 'Commercial glass enclosure at night' },
+  { type: 'image' as const, src: images.systems.enclosures.commercialDayExterior, alt: 'Commercial glass enclosure for restaurant patio seating' },
 ];
 
 // Quick specs for hero section
 const specs = [
-  { label: 'Maximum Height', value: '118 inches' },
-  { label: 'Glass Thickness', value: '10mm Tempered' },
-  { label: 'Operation', value: 'Slide & Turn' },
-  { label: 'Profile Style', value: 'Frameless' },
+  { label: 'Featured Brand', value: 'Lumon LGR + LGS' },
+  { label: 'Glass Type', value: 'Tempered Panels' },
+  { label: 'Best Fit', value: 'Patios + Pergolas' },
+  { label: 'Season Goal', value: '3-Season Comfort' },
 ];
 
 // Detailed specifications table
 const specifications = [
-  { label: 'Maximum Height', value: '118 inches (9.8 feet)' },
-  { label: 'Glass Thickness', value: '10mm tempered safety glass' },
-  { label: 'Operation Type', value: 'Slide & Turn / Frameless Sliding' },
-  { label: 'Profile Style', value: 'Frameless (no vertical mullions)' },
-  { label: 'Wind Rating', value: 'High wind load rated' },
-  { label: 'Track Options', value: 'Recessed Floor or Surface Mounted' },
-  { label: 'Opening Style', value: 'Individual panel rotation' },
+  { label: 'Featured Systems', value: 'Lumon LGR retractable + LGS sliding' },
+  { label: 'Glass Options', value: 'Tempered safety glass, project-specific thickness' },
+  { label: 'Profile Style', value: 'Frameless sightlines with aluminum tracks' },
+  { label: 'Opening Style', value: 'Fully open, partial ventilation, or closed windbreak' },
+  { label: 'Structure Fit', value: 'Existing roof, beam, deck, and drainage reviewed' },
+  { label: 'Applications', value: 'Patios, pergolas, balconies, roof decks, restaurants' },
+  { label: 'Comfort Add-Ons', value: 'Screens, heaters, blinds, locks, and tinted glass' },
 ];
 
 // Key features with detailed descriptions
 const features = [
   {
     icon: Maximize2,
-    title: 'True Frameless Design',
-    description: 'No vertical mullions interrupt your view. Our system uses individual glass panels that stack completely against the wall when open, giving you 100% of your opening. When closed, the seamless glass wall creates an unobstructed connection to the outdoors.',
+    title: 'Frameless Views',
+    description: 'Lumon glass wall systems use frameless tempered panels, so the enclosure protects the space without turning the view into a grid of bulky window frames.',
   },
   {
     icon: Sparkles,
-    title: 'Slide & Turn Operation',
-    description: 'Each panel slides independently along the top track and pivots open against the wall. This innovative mechanism allows for curved configurations and corner openings without fixed posts—perfect for architectural spaces that demand flexibility.',
+    title: 'Retractable or Sliding Operation',
+    description: 'EDG helps choose between Lumon LGR retractable panels that stack open at the side and Lumon LGS sliding panels that move together along a lower track.',
   },
   {
     icon: Shield,
-    title: '10mm Tempered Safety Glass',
-    description: 'Premium tempered safety glass provides impact resistance and thermal stability. Engineered to withstand high wind loads and temperature fluctuations, it meets or exceeds all building code requirements for structural glazing applications.',
+    title: 'Tempered Safety Glass',
+    description: 'Panel thickness, color, and hardware are selected around the opening, exposure, and structure. Clear and tinted glass options can tune the balance of view, glare, and privacy.',
   },
   {
     icon: Droplets,
-    title: 'Weather Protection',
-    description: 'Precision-engineered gaskets and weather strips seal out rain, wind, and drafts. The bottom track includes a water management system that channels moisture away from your interior space, keeping your enclosure dry in any weather.',
+    title: 'Wind and Rain Control',
+    description: 'A glass enclosure helps block wind-driven rain, drafts, outdoor noise, and shoulder-season chill while keeping the space ventilated and openable when the weather improves.',
   },
   {
     icon: Wind,
-    title: 'Impact Rated Options',
-    description: 'Available with impact-rated glass for coastal and high-wind zones. These systems meet Florida building code requirements and provide additional security without sacrificing the frameless aesthetic.',
+    title: 'Outdoor-Air Flexibility',
+    description: 'Open one panel for airflow, stack the system for a fully open patio, or close the wall to protect dining, lounge, and entertainment areas from changing weather.',
   },
   {
     icon: Plus,
-    title: 'Easy Cleaning Access',
-    description: 'The slide & turn mechanism allows each panel to pivot inward for cleaning both sides from inside your space. No need for ladders or exterior access—maintenance is simple and safe.',
+    title: 'EDG Fit Check',
+    description: 'We evaluate the roof/header, deck, drainage, layout, screens, heaters, and permit path before recommending Lumon or another glass enclosure system.',
   },
 ];
 
-// Configuration options
-const configurations = [
+// Featured Lumon systems
+const lumonSystems = [
   {
-    name: 'Slide & Turn',
-    description: 'Panels slide individually and pivot open against the wall. Best for corners, curves, and spaces where you want maximum opening flexibility.',
+    name: 'Lumon LGR Retractable Glazing',
+    bestFor: 'Best when the goal is a clear, fully open wall.',
+    description: 'Panels move independently, retract inward or outward at the end of the track, and stack together. LGR is strong for patios, pergolas, and restaurant spaces where full opening flexibility matters.',
   },
   {
-    name: 'Frameless Sliding',
-    description: 'Multi-track system where panels slide behind each other. Lower profile threshold option ideal for seamless indoor-outdoor transitions.',
+    name: 'Lumon LGS Sliding Glazing',
+    bestFor: 'Best when space is tight or a one-motion sliding wall is preferred.',
+    description: 'Panels slide along the lower track and follow one another to the stack point. LGS can be a better fit where furniture, traffic flow, or roof structure makes retractable stacking less practical.',
   },
 ];
 
 // Install options
 const installOptions = [
-  'Recessed Floor Track',
-  'Surface Mounted Track',
-  'Corner Opening (No Post)',
-  'Keyed Cylinder Lock',
+  'Existing roof and beam review',
+  'Deck, slab, and drainage check',
+  'LGR/LGS operation recommendation',
+  'Permit and engineering coordination',
 ];
 
 // Upgrade options
 const upgradeOptions = [
-  { name: 'Track Mounting', value: 'Recessed or Surface Mounted' },
-  { name: 'Glass Tint', value: 'Clear, Bronze, or Gray Options' },
-  { name: 'Screen Integration', value: 'Retractable Insect Screens' },
-  { name: 'Locking Mechanisms', value: 'Standard or Keyed Cylinder' },
+  { name: 'Operation', value: 'Lumon LGR retractable or LGS sliding' },
+  { name: 'Glass', value: 'Clear, tinted, and thickness options by project' },
+  { name: 'Comfort', value: 'Infrared heaters, screens, blinds, and ventilation planning' },
+  { name: 'Hardware', value: 'Locks, handles, colors, and pet-safe ventilation options' },
 ];
 
 // Related products
@@ -140,75 +152,83 @@ const relatedProducts = [
 // FAQ data for schema
 const faqs = [
   {
-    question: 'How much do glass enclosures cost?',
-    answer: 'Glass enclosure costs vary based on size, configuration, and installation complexity. A typical residential installation ranges from $800-$1,200 per linear foot, including frameless glass panels, track system, and professional installation. Commercial projects may have different pricing based on scale and engineering requirements. Contact us for a detailed quote based on your specific project.',
+    question: 'What is a Lumon glass enclosure?',
+    answer: 'A Lumon glass enclosure is a frameless tempered-glass wall system for patios, pergolas, balconies, roof decks, and restaurant spaces. Panels can slide, retract, or stack so the space can be open, partially ventilated, or protected from wind and rain.',
   },
   {
-    question: 'What is the difference between glass enclosures and sunrooms?',
-    answer: 'Glass enclosures use frameless, retractable glass panels that open completely, giving you 100% of your opening when desired. Sunrooms are typically fixed structures with windows and doors. Our glass enclosures provide the weather protection of a sunroom with the flexibility of an open patio—you control the environment based on the season and occasion.',
+    question: 'Should I choose Lumon LGR or Lumon LGS?',
+    answer: 'Lumon LGR is the retractable system, with panels that operate independently and stack open at the side. Lumon LGS is the sliding system, with panels that move together along a lower track. EDG recommends the system after reviewing your opening size, roof strength, furniture layout, and how much clear opening you want.',
   },
   {
-    question: 'Can glass enclosures be installed on existing patios?',
-    answer: 'Yes, glass enclosures can be retrofitted to most existing covered patios, decks, and pergolas. The structure must have adequate support and a level mounting surface. Our team conducts a thorough site survey to assess your existing space and determine the best mounting approach for your specific application.',
+    question: 'Is a Lumon glass enclosure the same as a four-season room?',
+    answer: 'No. Lumon glass enclosures are best understood as premium 3-season or season-extending systems. They help control wind, rain, noise, glare, and comfort, but they are not the same as a fully insulated, conditioned room addition unless the project is designed that way from the start.',
   },
   {
-    question: 'How do you clean frameless glass walls?',
-    answer: 'The slide & turn operation makes cleaning simple. Each panel pivots inward, allowing you to clean both sides from inside your space. Use standard glass cleaner and a microfiber cloth. The frameless design means no tracks or frames to collect debris—just smooth glass surfaces that are easy to maintain.',
+    question: 'Can Lumon glass be installed on an existing patio or pergola?',
+    answer: 'Often, yes. The opening needs a suitable roof or header, a sound deck or slab, and a plan for drainage and movement. EDG measures the site and checks structure before recommending Lumon LGR, Lumon LGS, or another enclosure approach.',
   },
   {
-    question: 'Are glass enclosures energy efficient?',
-    answer: 'Our 10mm tempered glass provides excellent thermal performance. Optional low-E coatings can further improve energy efficiency by reflecting heat while allowing light through. When combined with weather stripping and proper seals, glass enclosures create a thermally efficient barrier that extends your outdoor season without major heating or cooling costs.',
+    question: 'How much do Lumon glass enclosures cost?',
+    answer: 'Pricing is project-specific. The system choice, opening size, glass options, structural prep, freight, installation, screens, heaters, and permits all affect the final number. EDG prices the complete installed project after a site review rather than quoting material-only numbers out of context.',
+  },
+  {
+    question: 'Can a Lumon enclosure work with screens, heaters, or shades?',
+    answer: 'Yes, when the site allows it. Many glass enclosure projects pair with retractable insect screens, infrared heaters, blinds, motorized shades, or a pergola roof. EDG plans those pieces together so the finished space works as one outdoor living system.',
   },
 ];
 
 // Generate schemas
 const serviceSchema = generateServiceSchema({
-  name: 'Frameless Glass Enclosure Installation',
-  description: 'Professional installation of frameless retractable glass wall systems for year-round outdoor living. Design and supply services nationwide.',
+  name: 'Lumon Glass Enclosure Design and Installation',
+  description: 'Design and installation of Lumon LGR and LGS frameless glass enclosure systems for patios, pergolas, roof decks, balconies, and commercial outdoor spaces.',
   url: 'https://www.edgpatioshade.com/systems/enclosures',
-  image: `https://www.edgpatioshade.com${images.systems.enclosures.hero}`,
+  image: `https://www.edgpatioshade.com${images.systems.enclosures.lumonPatio}`,
 });
 
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: 'Frameless Glass Enclosure System',
-  description: 'Retractable frameless glass wall system with slide & turn operation. 10mm tempered safety glass, no vertical mullions, weather sealed.',
-  brand: { '@type': 'Brand', name: 'EDG Patio & Shade' },
+  name: 'Lumon Glass Enclosure System',
+  description: 'Lumon LGR retractable and LGS sliding frameless glass wall systems for patios, pergolas, balconies, roof decks, and restaurant spaces.',
+  brand: { '@type': 'Brand', name: 'Lumon' },
   category: 'Glass Enclosures',
-  material: '10mm Tempered Safety Glass',
+  material: 'Tempered safety glass and powder-coated aluminum profiles',
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
     url: 'https://www.edgpatioshade.com/systems/enclosures',
+    seller: {
+      '@type': 'LocalBusiness',
+      name: 'EDG Patio & Shade',
+    },
   },
 };
 
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How to Operate Slide & Turn Glass Enclosure Panels',
-  description: 'Learn how to operate frameless glass enclosure panels with the slide & turn mechanism.',
+  name: 'How EDG Plans a Lumon Glass Enclosure',
+  description: 'The planning steps EDG uses before recommending a Lumon LGR or LGS glass enclosure system.',
   step: [
     {
       '@type': 'HowToStep',
-      name: 'Unlock the Panel',
-      text: 'Release the locking mechanism at the handle location to free the panel for movement.',
+      name: 'Review the Structure',
+      text: 'Measure the opening and review the roof, header, slab, deck, drainage, and exposure.',
     },
     {
       '@type': 'HowToStep',
-      name: 'Slide the Panel',
-      text: 'Gently slide the panel along the top track to your desired position.',
+      name: 'Choose LGR or LGS',
+      text: 'Compare retractable and sliding operation based on opening size, furniture layout, and roof conditions.',
     },
     {
       '@type': 'HowToStep',
-      name: 'Pivot Open',
-      text: 'Rotate the panel inward or outward (depending on configuration) to pivot it open against the wall.',
+      name: 'Select Comfort Options',
+      text: 'Plan glass, color, screens, heaters, blinds, locks, and ventilation details around how the space will be used.',
     },
     {
       '@type': 'HowToStep',
-      name: 'Stack Panels',
-      text: 'Repeat for each panel, stacking them neatly against the wall to open your entire space.',
+      name: 'Install and Train',
+      text: 'Coordinate ordering, installation, final adjustment, and owner training for the finished glass enclosure.',
     },
   ],
 };
@@ -252,13 +272,13 @@ export default function EnclosuresPage() {
             <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
               <div className="label-editorial-brand mb-6 flex items-center gap-3">
                 <div className="h-px w-8 bg-black"></div>
-                Year-Round Living
+                Featured Lumon Glass Systems
               </div>
               <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-text-primary leading-[0.9]">
-                Glass <br /> Enclosures.
+                Lumon Glass <br /> Enclosures.
               </h1>
               <p className="text-xl text-text-secondary mb-10 leading-relaxed max-w-md">
-                Frameless retractable glass walls that stack completely open. Add protected square footage without the construction costs of a traditional addition.
+                Retractable and sliding frameless glass walls for patios, pergolas, balconies, roof decks, and restaurant spaces. EDG designs the right Lumon enclosure around your structure, weather exposure, and budget.
               </p>
 
               <div className="flex flex-col gap-4 mb-12">
@@ -314,52 +334,49 @@ export default function EnclosuresPage() {
         <Container>
           <div className="max-w-4xl mx-auto text-center mb-16">
             <div className="label-editorial-brand mb-4">System Overview</div>
-            <h2 className="section-title mb-6">Frameless Glass Enclosures for Year-Round Outdoor Living</h2>
+            <h2 className="section-title mb-6">Premium Frameless Glass Enclosures for Outdoor Living</h2>
             <p className="text-lg text-text-secondary leading-relaxed">
-              Frameless glass enclosures represent the pinnacle of outdoor living technology. Unlike traditional sunrooms or patio enclosures, 
-              these systems use individual tempered glass panels that slide and pivot independently, giving you complete control over your space. 
-              When closed, you have a weather-protected room with unobstructed views. When open, the panels stack neatly against the wall, 
-              restoring your full opening to the outdoors.
+              Lumon is one of EDG&apos;s featured premium glass enclosure systems. It gives homeowners, architects, builders, and commercial operators
+              a cleaner way to add wind, rain, noise, and shoulder-season comfort without making a patio feel like a boxed-in addition. EDG uses Lumon
+              where the system fits, and compares it against screens, fixed glass, sliding doors, and pergola integrations when another route would serve the project better.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <div>
-              <h3 className="text-xl font-bold mb-4">Slide & Turn vs Traditional Systems</h3>
+              <h3 className="text-xl font-bold mb-4">Lumon vs Traditional Patio Enclosures</h3>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                Traditional sliding glass doors always block at least 50% of your opening. Our slide & turn system eliminates this limitation. 
-                Each panel operates independently, sliding along a top track and pivoting open against the wall. This means you can open 
-                your entire space—or just a single panel for ventilation. The frameless design eliminates vertical mullions, creating 
-                a seamless glass wall that maximizes natural light and views.
+                Traditional patio enclosures usually behave like fixed rooms or standard sliding doors. Lumon glass walls are built around movement:
+                panels can be opened, partially ventilated, or closed as a windbreak. That makes the category a strong fit for covered patios,
+                pergolas, restaurant patios, and roof decks where the view and open-air feeling still matter.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                As a system-agnostic design and supply partner, we specify the right glass enclosure system for your project—not what we are 
-                contractually obligated to sell. Our Spring Grove showroom features operating systems so you can experience the 
-                slide & turn mechanism firsthand.
+                As a system-agnostic design and supply partner, EDG specifies the right glass enclosure system for your project rather than forcing
+                one product into every opening. Our Spring Grove showroom gives you a place to compare enclosure strategies before committing.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">Who Are Glass Enclosures For?</h3>
+              <h3 className="text-xl font-bold mb-4">Where Lumon Belongs</h3>
               <ul className="space-y-4">
                 <li className="flex gap-3 items-start">
                   <IconWrapper icon={Home} variant="brand" size="sm" />
                   <div>
                     <span className="font-bold text-text-primary">Homeowners</span>
-                    <p className="text-text-secondary text-sm">Extend your outdoor season with a 3-season room that opens completely when weather permits.</p>
+                    <p className="text-text-secondary text-sm">Turn a covered patio, balcony, or pergola bay into a cleaner 3-season space that can still open when the weather is good.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
                   <IconWrapper icon={Building2} variant="brand" size="sm" />
                   <div>
                     <span className="font-bold text-text-primary">Commercial Venues</span>
-                    <p className="text-text-secondary text-sm">Restaurants, hotels, and rooftop bars maximize revenue with year-round patio seating.</p>
+                    <p className="text-text-secondary text-sm">Help restaurants, hotels, clubs, and rooftops protect high-value outdoor seating without hiding the atmosphere guests came for.</p>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
                   <IconWrapper icon={Ruler} variant="brand" size="sm" />
                   <div>
                     <span className="font-bold text-text-primary">Architects & Builders</span>
-                    <p className="text-text-secondary text-sm">Specify frameless systems for modern residential and commercial projects nationwide.</p>
+                    <p className="text-text-secondary text-sm">Specify a premium frameless glazing system with EDG support for measurements, system fit, and installation coordination.</p>
                   </div>
                 </li>
               </ul>
@@ -368,14 +385,64 @@ export default function EnclosuresPage() {
         </Container>
       </Section>
 
-      {/* ========== KEY FEATURES ========== */}
+      {/* ========== FEATURED LUMON SYSTEMS ========== */}
       <Section className="section-lg border-t border-border">
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="label-editorial-brand mb-4">Lumon LGR + LGS</div>
+              <h2 className="section-title mb-6">Two Ways to Open a Frameless Glass Wall</h2>
+              <p className="text-text-secondary mb-8 leading-relaxed">
+                The core Lumon choice is not just glass or no glass. It is how the wall should move. EDG compares Lumon retractable glass walls
+                against Lumon sliding glass walls so the finished enclosure works with your furniture, roof structure, traffic flow, and view.
+              </p>
+
+              <div className="space-y-4">
+                {lumonSystems.map((system) => (
+                  <Card key={system.name} variant="muted" padding="lg">
+                    <div className="text-xs font-bold uppercase tracking-wider text-edg-brand-text mb-2">
+                      {system.bestFor}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-text-primary">{system.name}</h3>
+                    <p className="text-text-secondary leading-relaxed">{system.description}</p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-4">
+              <div className="relative aspect-[16/9] bg-surface-dark overflow-hidden">
+                <Image
+                  src={images.systems.enclosures.lumonPatio}
+                  alt="Lumon retractable glass enclosure around a covered patio"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <Card variant="default" padding="md">
+                  <div className="font-bold text-text-primary mb-1">LGR</div>
+                  <p className="text-text-secondary text-sm">Independent retractable panels for maximum open-wall flexibility.</p>
+                </Card>
+                <Card variant="default" padding="md">
+                  <div className="font-bold text-text-primary mb-1">LGS</div>
+                  <p className="text-text-secondary text-sm">Sliding panels that stack together when the space needs a compact motion path.</p>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ========== KEY FEATURES ========== */}
+      <Section className="section-lg border-t border-border bg-surface-muted">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="label-editorial-brand mb-4">Key Features</div>
-            <h2 className="section-title mb-4">Engineered for Performance</h2>
+            <h2 className="section-title mb-4">What Lumon Adds to the Category</h2>
             <p className="text-text-secondary">
-              Every component is designed for durability, ease of use, and seamless integration with your architecture.
+              The best glass enclosure is not just a wall of glass. It is a complete plan for views, weather control, ventilation, structure, and daily use.
             </p>
           </div>
 
@@ -392,23 +459,36 @@ export default function EnclosuresPage() {
       </Section>
 
       {/* ========== SPECIFICATIONS TABLE ========== */}
-      <Section className="section-md bg-surface-muted border-t border-border">
+      <Section className="section-md border-t border-border">
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <div className="label-editorial-brand mb-4">Technical Specifications</div>
-              <h2 className="section-title mb-6">Built to Perform</h2>
+              <div className="label-editorial-brand mb-4">Fit + Specification</div>
+              <h2 className="section-title mb-6">Designed Around the Opening</h2>
               <p className="text-text-secondary mb-8 leading-relaxed">
-                Our frameless glass enclosure systems are engineered to meet demanding commercial and residential requirements. 
-                From high wind loads to precision weather sealing, every specification is designed for long-term performance.
+                Lumon glass enclosures are custom-measured systems. Before EDG recommends LGR, LGS, or another enclosure strategy, we look at
+                the existing structure, roof strength, deck or slab condition, drainage, wind exposure, and how the space will be used.
               </p>
               
               <div className="space-y-4">
-                <h3 className="font-bold text-text-primary">Configuration Options</h3>
-                {configurations.map((config) => (
-                  <Card key={config.name} variant="default" padding="md" className="mb-4">
-                    <div className="font-bold text-text-primary mb-1">{config.name}</div>
-                    <p className="text-text-secondary text-sm">{config.description}</p>
+                <h3 className="font-bold text-text-primary">What EDG Checks First</h3>
+                {[
+                  {
+                    name: 'Opening and Structure',
+                    description: 'Roof/header strength, deck or slab condition, plumb openings, drainage, and weather exposure.',
+                  },
+                  {
+                    name: 'Use Case',
+                    description: 'Daily seating, restaurant service, hot tub area, outdoor kitchen, roof deck, balcony, or quiet lounge space.',
+                  },
+                  {
+                    name: 'Comfort Plan',
+                    description: 'Screens, heaters, ventilation gaps, tinted glass, blinds, locks, and how the enclosure pairs with a pergola roof.',
+                  },
+                ].map((item) => (
+                  <Card key={item.name} variant="default" padding="md" className="mb-4">
+                    <div className="font-bold text-text-primary mb-1">{item.name}</div>
+                    <p className="text-text-secondary text-sm">{item.description}</p>
                   </Card>
                 ))}
               </div>
@@ -450,7 +530,7 @@ export default function EnclosuresPage() {
             <div className="label-editorial-brand mb-4">Applications</div>
             <h2 className="section-title mb-4">Where Glass Enclosures Excel</h2>
             <p className="text-text-secondary">
-              From residential patios to commercial rooftops, frameless glass enclosures transform how spaces are used.
+              Lumon glass enclosures are strongest when the space needs protection, views, and the option to open back up.
             </p>
           </div>
 
@@ -467,11 +547,11 @@ export default function EnclosuresPage() {
                 </li>
                 <li className="flex gap-2">
                   <Check className="h-5 w-5 text-edg-brand shrink-0" />
-                  <span><strong>Sunrooms:</strong> Create a bright, open space that connects to your landscape year-round.</span>
+                  <span><strong>Pergola Enclosures:</strong> Pair glass walls with a pergola roof for a protected outdoor room that still opens.</span>
                 </li>
                 <li className="flex gap-2">
                   <Check className="h-5 w-5 text-edg-brand shrink-0" />
-                  <span><strong>Patio Enclosures:</strong> Protect existing outdoor living areas from wind and weather.</span>
+                  <span><strong>Patio Enclosures:</strong> Reduce wind, rain, and glare around outdoor lounges, hot tubs, and dining areas.</span>
                 </li>
               </ul>
             </Card>
@@ -484,11 +564,11 @@ export default function EnclosuresPage() {
               <ul className="space-y-3 text-text-secondary">
                 <li className="flex gap-2">
                   <Check className="h-5 w-5 text-edg-brand shrink-0" />
-                  <span><strong>Restaurant Patios:</strong> Extend outdoor dining season and maximize seating revenue.</span>
+                  <span><strong>Restaurant Patios:</strong> Protect premium outdoor seats from shoulder-season weather and sudden wind.</span>
                 </li>
                 <li className="flex gap-2">
                   <Check className="h-5 w-5 text-edg-brand shrink-0" />
-                  <span><strong>Hotel Terraces:</strong> Create premium guest amenities with stunning views.</span>
+                  <span><strong>Hotel Terraces:</strong> Create premium guest amenities with clean views and flexible opening control.</span>
                 </li>
                 <li className="flex gap-2">
                   <Check className="h-5 w-5 text-edg-brand shrink-0" />
@@ -506,17 +586,17 @@ export default function EnclosuresPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="label-editorial-brand mb-4">Customization</div>
-              <h2 className="section-title mb-6">Options & Upgrades</h2>
+              <h2 className="section-title mb-6">Glass, Hardware, and Comfort Options</h2>
               <p className="text-text-secondary mb-8 leading-relaxed">
-                Tailor your glass enclosure system to match your aesthetic and functional requirements. 
-                From track mounting to glass tint, every detail can be customized.
+                A good glass enclosure is not just panel sizing. EDG plans the Lumon system around how the room should feel on a cool evening,
+                a buggy summer night, a windy dinner service, or a bright afternoon with glare coming through the glass.
               </p>
               
               <div className="space-y-4">
                 {upgradeOptions.map((option) => (
-                  <div key={option.name} className="flex justify-between items-center py-3 border-b border-border">
+                  <div key={option.name} className="flex flex-col gap-1 py-3 border-b border-border sm:flex-row sm:items-center sm:justify-between">
                     <span className="font-bold text-text-primary">{option.name}</span>
-                    <span className="text-text-secondary text-sm">{option.value}</span>
+                    <span className="text-text-secondary text-sm sm:text-right">{option.value}</span>
                   </div>
                 ))}
               </div>
@@ -525,8 +605,8 @@ export default function EnclosuresPage() {
             <div className="grid grid-cols-2 gap-4">
               <div className="relative aspect-square bg-surface-dark overflow-hidden">
                 <Image
-                  src={images.systems.enclosures.partialOpen}
-                  alt="Sliding glass panels partially open"
+                  src={images.systems.enclosures.lumonDetail}
+                  alt="Close-up of Lumon frameless sliding glass panels"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 50vw, 25vw"
@@ -568,10 +648,10 @@ export default function EnclosuresPage() {
 
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { step: '01', title: 'Consultation', desc: 'Discuss your vision, requirements, and budget with our design team.' },
-              { step: '02', title: 'Site Survey', desc: 'Precise measurements and structural assessment of your space.' },
-              { step: '03', title: 'Engineering', desc: 'Custom system design with permit-ready documentation.' },
-              { step: '04', title: 'Installation', desc: 'Professional installation by our certified crews.' },
+              { step: '01', title: 'Consultation', desc: 'Compare Lumon glass, screens, pergolas, and other enclosure routes around your goals.' },
+              { step: '02', title: 'Site Survey', desc: 'Measure the opening and review roof strength, deck condition, drainage, and exposure.' },
+              { step: '03', title: 'System Design', desc: 'Select LGR, LGS, glass, hardware, comfort add-ons, and permit-ready details.' },
+              { step: '04', title: 'Installation', desc: 'Coordinate delivery, installation, final adjustment, and owner training.' },
             ].map((item) => (
               <Card key={item.step} variant="outline" padding="lg" className="text-center">
                 <div className="text-edg-brand font-bold text-3xl mb-4">{item.step}</div>
@@ -657,10 +737,10 @@ export default function EnclosuresPage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Extends your season.
+                Plan the glass before the weather decides.
               </h2>
               <p className="text-xl text-text-inverse-muted mb-8 max-w-md">
-                Turn your covered patio into a 3-season room instantly. Visit our Spring Grove showroom to see operating systems.
+                Explore Lumon glass enclosures with EDG and decide whether LGR, LGS, screens, heaters, or another enclosure strategy is the right fit for your space.
               </p>
               <TrackedLink href="/contact?type=price&product=enclosure">
                 <Button size="lg">
@@ -668,7 +748,7 @@ export default function EnclosuresPage() {
                 </Button>
               </TrackedLink>
               <p className="mt-6 text-sm text-text-inverse-muted">
-                Design & supply partner for architects, builders, and dealers nationwide. 
+                Featured Lumon glass enclosure planning for homeowners, architects, builders, and commercial patios.
                 Local installation available in the Chicago-Milwaukee corridor.
               </p>
             </div>

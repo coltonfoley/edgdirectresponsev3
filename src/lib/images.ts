@@ -43,6 +43,8 @@ export const systems = {
   /** Glass enclosure system images - ACTUAL GLASS WALLS */
   enclosures: {
     hero: '/images/enclosures/frameless-sliding-glass-walls.jpg',
+    lumonPatio: '/images/enclosures/lumon-retractable-glass-patio.jpg',
+    lumonDetail: '/images/enclosures/lumon-sliding-glass-detail.jpg',
     partialOpen: '/images/enclosures/glass-enclosure-partial-open.jpg',
     closedExterior: '/images/enclosures/glass-enclosure-closed-exterior.jpg',
     lifestyle: '/images/enclosures/residential-glass-enclosure-lifestyle.jpg',
