@@ -178,30 +178,16 @@ const faqs = [
 ];
 
 // Generate schemas
-const serviceSchema = generateServiceSchema({
-  name: 'Lumon Glass Enclosure Design and Installation',
-  description: 'Design and installation of Lumon LGR and LGS frameless glass enclosure systems for patios, pergolas, roof decks, balconies, and commercial outdoor spaces.',
-  url: 'https://www.edgpatioshade.com/systems/enclosures',
-  image: `https://www.edgpatioshade.com${images.systems.enclosures.lumonPatio}`,
-});
-
-const productSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: 'Lumon Glass Enclosure System',
-  description: 'Lumon LGR retractable and LGS sliding frameless glass wall systems for patios, pergolas, balconies, roof decks, and restaurant spaces.',
-  brand: { '@type': 'Brand', name: 'Lumon' },
-  category: 'Glass Enclosures',
-  material: 'Tempered safety glass and powder-coated aluminum profiles',
-  offers: {
-    '@type': 'Offer',
-    availability: 'https://schema.org/InStock',
+const serviceSchema = {
+  ...generateServiceSchema({
+    name: 'Lumon Glass Enclosure Design and Installation',
+    description: 'Design and installation of Lumon LGR and LGS frameless glass enclosure systems for patios, pergolas, roof decks, balconies, and commercial outdoor spaces.',
     url: 'https://www.edgpatioshade.com/systems/enclosures',
-    seller: {
-      '@type': 'LocalBusiness',
-      name: 'EDG Patio & Shade',
-    },
-  },
+    image: `https://www.edgpatioshade.com${images.systems.enclosures.lumonPatio}`,
+  }),
+  serviceType: 'Glass enclosure design and installation',
+  category: 'Frameless glass enclosures',
+  brand: { '@type': 'Brand', name: 'Lumon' },
 };
 
 const howToSchema = {
@@ -242,10 +228,6 @@ export default function EnclosuresPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <script
         type="application/ld+json"
