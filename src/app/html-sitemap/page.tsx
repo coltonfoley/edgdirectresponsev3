@@ -32,7 +32,7 @@ const sitemapLinks = [
     links: [
       { href: '/systems', label: 'All Systems' },
       { href: '/systems/pergolas', label: 'Louvered Pergolas' },
-      { href: '/systems/shades', label: 'Motorized Shades' },
+      { href: '/systems/shades', label: 'Motorized Screens' },
       { href: '/systems/enclosures', label: 'Glass Enclosures' },
       { href: '/systems/appliances', label: 'Outdoor Appliances' },
       { href: '/systems/saunas', label: 'Outdoor Saunas' },

@@ -1,45 +1,57 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ShadesGalleryClient } from './ShadesGalleryClient';
-import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
-import { Container } from '@/components/ui/Container';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { TrackedLink } from '@/components/ui/TrackedLink';
-import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
-import * as images from '@/lib/images';
 import {
   ArrowRight,
-  DollarSign,
-  Wind,
-  Sun,
-  Eye,
-  Shield,
-  Smartphone,
-  Lock,
-  Plus,
+  BadgeCheck,
+  Bug,
+  Building2,
   Check,
+  DollarSign,
+  ExternalLink,
+  Home,
+  Ruler,
+  ShieldCheck,
+  Smartphone,
+  Sun,
+  Wind,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import {
+  generateFAQSchema,
+  generateHowToSchema,
+  generateServiceSchema,
+} from '@/lib/schema';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'MagnaTrack Motorized Screens & Cost Guide | Exterior Shades | EDG',
+  title: 'Motorized Screens & MagnaTrack Screens | EDG Patio & Shade',
   description:
-    'MagnaTrack motorized screens and exterior shades with cost guidance, self-correcting track technology, wind control, bug protection, and UV shade.',
+    'Motorized patio screens, retractable screens, and outdoor screen enclosures with MagnaTrack by Progressive Screens as EDG featured premium screen partner.',
   keywords: [
     'motorized screens',
     'retractable screens',
-    'patio screens',
-    'exterior shades',
-    'magnaTrack screens',
+    'motorized patio screens',
+    'patio screen enclosures',
     'outdoor screens',
+    'insect screens',
+    'MagnaTrack screens',
+    'MagnaTrack by Progressive Screens',
+    'Progressive Screens',
+    'MagnaTrack motorized screens',
   ],
   openGraph: {
-    title: 'MagnaTrack Motorized Screens & Exterior Shades | EDG',
+    title: 'Motorized Screens & MagnaTrack Screens | EDG Patio & Shade',
     description:
-      'MagnaTrack motorized screens with cost guidance and self-correcting track technology. Block wind, bugs, and UV while keeping your view.',
+      'Premium motorized patio screens and outdoor screen systems for bugs, sun, privacy, and everyday wind comfort.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -47,311 +59,335 @@ export const metadata: Metadata = {
   alternates: { canonical: '/systems/shades' },
 };
 
-// ===== DATA =====
-const galleryImages = images.galleries.shades.map((src, index) => ({
-  type: 'image' as const,
-  src,
-  alt: [
-    'Motorized mesh screens deployed on white pergola providing UV protection',
-    'Close-up detail of motorized screen fabric and track system',
-    'Commercial pergola with retractable shade screens overlooking lake',
-    'Motorized screen deployed to provide sun shade on a residential patio',
-  ][index],
-}));
+const galleryImages = [
+  {
+    type: 'image' as const,
+    src: images.brand.hero.screens,
+    alt: 'Motorized retractable screens on a covered patio opening',
+  },
+  {
+    type: 'image' as const,
+    src: images.systems.shades.hero,
+    alt: 'Outdoor motorized screen system installed on a covered structure',
+  },
+  {
+    type: 'image' as const,
+    src: images.systems.shades.deployed,
+    alt: 'Deployed patio screen creating shade and bug protection',
+  },
+  {
+    type: 'image' as const,
+    src: images.systems.shades.ohareHero,
+    alt: 'EDG Progressive Screens motorized insect screen on a wide Bartlett opening',
+  },
+];
 
 const specs = [
-  { label: 'Maximum Width', value: "Up to 30'" },
-  { label: 'Mesh Options', value: '5%, 10%, 20% openness' },
-  { label: 'Wind Rating', value: 'Up to 35 mph' },
-  { label: 'UV Blockage', value: 'Up to 97%' },
-  { label: 'Temperature Reduction', value: 'Up to 20°F' },
-  { label: 'Control Options', value: 'Remote, smartphone, sensors' },
+  { label: 'Featured Partner', value: 'MagnaTrack by Progressive Screens' },
+  { label: 'Core Category', value: 'Motorized patio screens' },
+  { label: 'Track Strategy', value: 'Magnetic self-tensioning' },
+  { label: 'Best Fit', value: 'Patios, pergolas, lanais, garages' },
+];
+
+const progressiveFacts = [
+  {
+    title: 'Patented MagnaTrack system',
+    description:
+      'Progressive describes MagnaTrack as a patented, self-tensioning magnetic track system that uses neodymium magnets with a Keder interlock.',
+  },
+  {
+    title: 'Retrofit or recessed planning',
+    description:
+      'The system can be planned for new construction as a recessed screen or retrofitted into existing residential and commercial openings when the structure allows it.',
+  },
+  {
+    title: 'Residential and commercial use',
+    description:
+      'Progressive publishes applications for patios, lanais, gazebos, garages, windows, and commercial screen openings.',
+  },
+  {
+    title: 'Fabric and screen categories',
+    description:
+      'Published options include insect mesh, solar screen fabrics, vinyl screens, and Defender hurricane screens as a separate storm-protection category.',
+  },
+  {
+    title: 'Custom sizing with limits',
+    description:
+      'Progressive publishes custom screen sizing up to 30 feet wide, with height and application limits that must be verified per project.',
+  },
+  {
+    title: 'Component-level warranty',
+    description:
+      'Progressive publishes different warranty terms for aluminum, screen fabric, motors, remotes, and vinyl, so the exact coverage should be confirmed with the selected system.',
+  },
 ];
 
 const features = [
   {
-    icon: Shield,
-    title: 'MagnaTrack Self-Correcting System',
+    icon: BadgeCheck,
+    title: 'Featured premium screen partner',
     description:
-      'Traditional screens blow out of their tracks in high winds. Our MagnaTrack systems use powerful neodymium magnets embedded in the track to maintain constant tension on the fabric. When wind gusts hit, the magnets allow the screen to flex and then snap back into place—automatically self-correcting without manual intervention.',
-  },
-  {
-    icon: Sun,
-    title: '97% UV Blockage',
-    description:
-      'Solar mesh fabrics block up to 97% of harmful UV rays while preserving your view. This dramatically reduces solar heat gain, keeping patios up to 20°F cooler during peak summer hours. Your indoor spaces stay cooler too, reducing air conditioning costs and protecting furniture from sun damage.',
+      'EDG stays system-agnostic, but MagnaTrack by Progressive Screens is our featured premium option when the opening calls for a track-guided motorized screen with stronger day-to-day reliability.',
   },
   {
     icon: Wind,
-    title: 'Wind Resistance',
+    title: 'Controlled movement under pressure',
     description:
-      'Engineered and tested to withstand sustained winds up to 35 mph—conditions that would destroy conventional screens. The magnetic track system works with the wind rather than against it, allowing controlled flex while maintaining position. Perfect for exposed locations and lakeside properties.',
+      'The magnetic side-track approach lets the screen react to wind pressure and then re-tension, which helps avoid the jams and hang-ups associated with many fixed-track or zipper-style systems.',
   },
   {
-    icon: Eye,
-    title: 'Bug Protection',
+    icon: Bug,
+    title: 'Insect protection without a fixed room',
     description:
-      'Fine insect mesh options stop mosquitoes, gnats, and no-see-ums without compromising airflow. The precision-fit tracks eliminate gaps where bugs typically enter, creating a true barrier between you and pests. Enjoy evenings outdoors without chemical repellents or citronella candles.',
+      'Motorized insect screens are strongest when the patio already has a roof, pergola, porch, or garage-style opening and needs bug control without becoming a permanent screened room.',
+  },
+  {
+    icon: Sun,
+    title: 'Solar, glare, and privacy fabrics',
+    description:
+      'Fabric choice changes the experience. EDG helps balance openness, view, daylight, privacy, and solar comfort around the exact orientation of the patio.',
   },
   {
     icon: Smartphone,
-    title: 'Smart Home Integration',
+    title: 'Controls that match daily use',
     description:
-      'Full integration with home automation systems including Control4, Crestron, Lutron, and Savant. Set schedules to lower screens automatically when the sun hits your patio, or connect to weather sensors for wind-responsive operation. Voice control via Alexa and Google Home available.',
+      'Remote controls, wall switches, app control, smart-home integration, and sensors can be planned around how often the screens will be used and how exposed the opening is.',
   },
   {
-    icon: Lock,
-    title: 'Privacy Options',
+    icon: ShieldCheck,
+    title: 'Fit check before brand loyalty',
     description:
-      'Multiple opacity levels from sheer (5% openness) to complete privacy (0% openness with solid vinyl). During the day, darker fabrics create one-way visibility—you see out, but neighbors cannot see in. For total privacy, our Nano mesh and solid vinyl options provide complete screening.',
+      'A premium screen still has to fit the opening. EDG checks structure, mounting, power, fabric, wind exposure, drainage, and service access before recommending MagnaTrack or another path.',
   },
+];
+
+const screenOptions = [
+  {
+    name: 'Insect Screens',
+    description:
+      'Best when the priority is mosquitoes, flies, gnats, and everyday airflow through a porch, patio, or garage opening.',
+  },
+  {
+    name: 'Solar Screens',
+    description:
+      'Best when glare, low sun, privacy, and heat comfort are more important than maximum airflow or full transparency.',
+  },
+  {
+    name: 'Vinyl Screens',
+    description:
+      'Best for wind and seasonal comfort goals where visibility matters, but they should be planned around condensation, rolling behavior, and care.',
+  },
+  {
+    name: 'Defender Hurricane Screens',
+    description:
+      'A separate Progressive storm-protection category. EDG only treats it as hurricane protection when the specified system and approval path support that use.',
+  },
+];
+
+const fitChecks = [
+  'Opening width, height, squareness, and whether the sides can carry clean tracks',
+  'Headbox visibility, recessed versus outside mount, trim, and future service access',
+  'Fabric openness for bugs, sun, privacy, view, airflow, and daylight into the home',
+  'Power path, switch locations, remote or app control, smart-home needs, and sensors',
+  'Wind exposure, normal operating habits, and whether a storm-rated system is actually required',
+  'How screens should coordinate with a pergola, glass enclosure, heaters, lighting, or outdoor kitchen',
 ];
 
 const applications = [
   {
-    category: 'Residential',
+    icon: Home,
+    title: 'Homes',
     items: [
       'Covered patios and porches',
-      'Screened-in decks and balconies',
-      'Gazebos and pavilions',
-      'Garage door openings',
-      'Outdoor kitchens and dining areas',
+      'Pergola side openings',
+      'Lanais and pool patios',
+      'Garage and outbuilding openings',
     ],
   },
   {
-    category: 'Commercial',
+    icon: Building2,
+    title: 'Commercial Spaces',
     items: [
-      'Restaurant outdoor dining patios',
+      'Restaurant patio enclosures',
       'Hotel terraces and pool decks',
-      'Event venues and wedding spaces',
-      'Country club outdoor lounges',
-      'Retail storefront wind protection',
+      'Country club and event spaces',
+      'Storefront and hospitality openings',
     ],
-  },
-];
-
-const options = [
-  {
-    name: 'Fabric Selection',
-    description:
-      'Multiple colors and openness factors (1%, 5%, 10%, 20%) to balance view, airflow, and sun protection.',
-  },
-  {
-    name: 'Motor Options',
-    description:
-      'Standard motors or ultra-quiet whisper motors for noise-sensitive installations.',
-  },
-  {
-    name: 'Sensor Integration',
-    description:
-      'Wind sensors auto-retract in high winds. Sun sensors deploy when UV hits threshold.',
-  },
-  {
-    name: 'Recessed Housing',
-    description:
-      'Hide the screen housing in walls, soffits, or columns for a clean architectural look.',
-  },
-  {
-    name: 'Manual Override',
-    description:
-      'Battery backup and manual crank options ensure operation during power outages.',
-  },
-  {
-    name: 'Clear Vinyl',
-    description:
-      'Crystal-clear vinyl options for weather protection without obstructing views.',
   },
 ];
 
 const processSteps = [
   {
-    number: '01',
-    title: 'Consultation',
+    step: '01',
+    title: 'Screen fit review',
     description:
-      'Site visit to assess your space, discuss goals, and review fabric samples. We measure openings and evaluate mounting conditions.',
+      'Send photos, rough opening sizes, location, and the main issue: bugs, sun, privacy, wind, or flexible enclosure comfort.',
   },
   {
-    number: '02',
-    title: 'Measurement',
+    step: '02',
+    title: 'Measure and specify',
     description:
-      'Precision laser measurements ensure perfect fit. We account for structural considerations and integration with existing elements.',
+      'EDG checks the structure, track path, power route, fabric choice, controls, and whether MagnaTrack is the right premium fit.',
   },
   {
-    number: '03',
-    title: 'Fabrication',
+    step: '03',
+    title: 'Coordinate fabrication',
     description:
-      'Screens are custom-fabricated to your specifications. Lead time typically 4-6 weeks depending on options selected.',
+      'Screens are built around the opening, finish, fabric, motor, controls, and mounting details rather than pulled from a kit shelf.',
   },
   {
-    number: '04',
-    title: 'Installation',
+    step: '04',
+    title: 'Install and train',
     description:
-      'Our certified installers handle electrical connections, programming, and system testing. Full walkthrough and training included.',
+      'The final step is alignment, programming, sensor setup where used, owner training, and realistic care guidance for the selected screen type.',
   },
 ];
 
 const relatedProducts = [
   {
+    name: 'Screen Cost Guide',
+    description:
+      'Budget ranges and cost drivers for MagnaTrack-style motorized screen projects.',
+    href: '/guides/magnatrack-screens-cost',
+  },
+  {
     name: 'Louvered Pergolas',
-    description: 'Add a motorized roof for complete weather control.',
+    description:
+      'Pair side screens with a motorized roof when the patio also needs overhead shade and rain control.',
     href: '/systems/pergolas',
   },
   {
     name: 'Glass Enclosures',
-    description: 'Frameless glass walls for year-round outdoor rooms.',
+    description:
+      'Compare screens against Lumon glass when wind and rain protection matter more than airflow.',
     href: '/systems/enclosures',
   },
   {
-    name: 'Screen Cost Guide',
+    name: "O'Hare Screen Project",
     description:
-      'Budget ranges for MagnaTrack motorized screens and patio screen retrofits.',
-    href: '/guides/magnatrack-screens-cost',
-  },
-  {
-    name: 'Southwest Florida Screens',
-    description:
-      'Motorized lanai and patio screen planning for Gulf Coast covered outdoor spaces.',
-    href: '/service-areas/southwest-florida/motorized-screens',
-  },
-  {
-    name: 'Lake Geneva Screens',
-    description:
-      'Retractable screen planning for bugs, glare, privacy, lake wind, and flexible screen-room comfort.',
-    href: '/service-areas/lake-geneva-wi/retractable-screens',
+      'See EDG project media from a wide Progressive Screens motorized insect screen installation.',
+    href: '/projects/ohare',
   },
 ];
 
 const faqs = [
   {
-    question: 'How much do motorized screens cost?',
+    question: 'What is MagnaTrack by Progressive Screens?',
     answer:
-      'Motorized screen pricing depends on size, fabric selection, and control options. Entry-level systems start around $3,500 for a standard patio opening, with typical residential installations ranging from $5,000-$15,000. Commercial projects with multiple screens or extra-wide spans (20+ feet) range from $15,000-$50,000+. We provide detailed quotes after a site visit to measure and assess your specific requirements.',
+      'MagnaTrack is Progressive Screens patented magnetic track system for motorized exterior screens. It uses neodymium magnets and a Keder interlock to help the screen stay tensioned while allowing controlled movement under pressure.',
   },
   {
-    question: 'Can the screens handle wind?',
+    question: 'Is MagnaTrack the only screen system EDG recommends?',
     answer:
-      'Yes—MagnaTrack systems are specifically engineered for wind resistance. The magnetic self-correcting track allows screens to withstand sustained winds up to 35 mph, far exceeding conventional zip screens. Wind sensors can be added to automatically retract screens when gusts exceed safe thresholds. For extreme wind conditions, we also offer manual override systems and heavy-duty commercial tracks rated even higher.',
+      'No. EDG stays system-agnostic. MagnaTrack by Progressive Screens is the featured premium partner for many motorized screen projects, but EDG still checks the opening, structure, fabric need, budget, and exposure before recommending a system.',
   },
   {
-    question: "What's the difference between MagnaTrack and regular screens?",
+    question: 'Are motorized patio screens the same as hurricane protection?',
     answer:
-      'Traditional zip screens use fixed tracks with constant tension that fight against wind, eventually blowing out or causing fabric damage. MagnaTrack uses neodymium magnets embedded in the track to create adaptive tension—when wind hits, the magnets allow controlled flex and then snap the fabric back into perfect alignment. This self-correcting action eliminates the #1 service issue with motorized screens while providing superior wind resistance.',
+      'No. Standard motorized insect, solar, and vinyl screens are comfort systems for bugs, sun, privacy, and everyday wind conditions. Progressive Defender hurricane screens are a separate storm-protection category, and EDG only treats a screen as hurricane protection when the specified system, approvals, and project details support that use.',
   },
   {
-    question: 'Do you offer clear vinyl options?',
+    question:
+      'Can MagnaTrack screens be added to an existing patio or pergola?',
     answer:
-      'Yes, we offer crystal-clear vinyl screens that provide weather protection without obstructing views. These are popular for seasonal enclosures, blocking wind and rain while maintaining visibility. Clear vinyl is available in various gauges (thicknesses) depending on your climate and usage requirements. Note that clear vinyl does not offer the same MagnaTrack self-correcting benefits as mesh fabrics.',
+      'Often, yes. Progressive publishes retrofit and new-construction applications, but EDG still needs to verify the opening size, side-track path, headbox placement, attachment surfaces, power route, and service access before calling a retrofit clean.',
   },
   {
-    question: "What's the warranty on motorized screens?",
+    question: 'How much do motorized patio screens cost?',
     answer:
-      'Standard warranty includes 5 years on the motor and frame, 5 years on the fabric (against manufacturing defects), and 2 years on electronics and sensors. Extended warranties are available for commercial applications. As a design and supply partner, we also provide ongoing support and can source replacement parts from multiple manufacturers to ensure long-term serviceability.',
+      'Pricing depends on opening size, screen count, fabric, housing, controls, wiring, mounting complexity, and whether the screens are part of a larger outdoor room. EDG uses the screen cost guide for planning ranges, then prices the final project after measurements and fit review.',
   },
   {
-    question: 'Can screens be integrated with my smart home system?',
+    question: 'Which fabric should I choose for motorized screens?',
     answer:
-      'Absolutely. Our specified systems integrate with all major home automation platforms including Control4, Crestron, Lutron, Savant, and others. We also offer native app control, voice control via Alexa and Google Home, and hardwired switch options. Advanced programming allows scenes that coordinate screens with lighting, pergola louvers, and climate control systems.',
+      'Start with the problem you want solved first. Insect mesh prioritizes bugs and airflow. Solar fabrics prioritize glare, privacy, and shade. Vinyl can help with wind and seasonal comfort. The right fabric also depends on view, daylight, color, and how exposed the opening is.',
   },
 ];
 
-export default function ShadesPage() {
-  const serviceSchema = generateServiceSchema({
-    name: 'Motorized Retractable Screen Installation',
+const serviceSchema = {
+  ...generateServiceSchema({
+    name: 'Motorized Screen Design and Installation',
     description:
-      'Professional installation of MagnaTrack motorized screens with self-correcting track technology. Wind-rated exterior shades for UV protection, bug control, and privacy.',
+      'Design, specification, and installation of motorized patio screens, retractable screens, insect screens, solar screens, vinyl screens, and MagnaTrack by Progressive Screens projects.',
     url: 'https://www.edgpatioshade.com/systems/shades',
-  });
+    image: `https://www.edgpatioshade.com${images.brand.hero.screens}`,
+  }),
+  serviceType: 'Motorized patio screen design and installation',
+  category: 'Motorized screens and retractable patio screens',
+  brand: {
+    '@type': 'Brand',
+    name: 'MagnaTrack by Progressive Screens',
+  },
+};
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'MagnaTrack Motorized Retractable Screens',
-    description:
-      'Motorized exterior screens featuring MagnaTrack self-correcting technology with neodymium magnets. Blocks up to 97% of UV rays while withstanding 35 mph winds.',
-    brand: {
-      '@type': 'Brand',
-      name: 'EDG Patio & Shade',
+const howToSchema = generateHowToSchema({
+  name: 'How EDG Plans a Motorized Screen Project',
+  description:
+    'The planning steps EDG uses before recommending MagnaTrack by Progressive Screens or another motorized screen system.',
+  step: [
+    {
+      name: 'Review the opening',
+      text: 'Measure the width, height, side conditions, headbox location, and structure that will carry the screen system.',
     },
-    category: 'Motorized Exterior Shades',
-    material: 'Vinyl-coated polyester mesh, aluminum housing',
-    image: [
-      images.brand.hero.screens,
-      '/images/shades/shade-deployed-screens-01.jpg',
-      images.brand.context.lake,
-    ],
-    offers: {
-      '@type': 'AggregateOffer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'USD',
-      lowPrice: '3500',
-      highPrice: '50000',
-      offerCount: '6',
+    {
+      name: 'Choose the screen goal',
+      text: 'Decide whether the main need is insects, sun, privacy, everyday wind comfort, vinyl enclosure use, or storm-rated protection.',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '127',
+    {
+      name: 'Specify the system',
+      text: 'Select the track strategy, fabric, motor, controls, finish, power route, and accessories around the actual opening.',
     },
-    featureList: [
-      'MagnaTrack self-correcting magnetic track system',
-      '97% UV blockage',
-      'Up to 35 mph wind resistance',
-      'Smart home integration compatible',
-      'Insect mesh options available',
-      'Maximum width up to 30 feet',
-    ],
-  };
+    {
+      name: 'Install and train',
+      text: 'Install, align, program, test, and review operating and care expectations with the owner.',
+    },
+  ],
+});
 
-  const faqSchema = generateFAQSchema(faqs);
+const faqSchema = generateFAQSchema(faqs);
 
+export default function ShadesPage() {
   return (
     <>
-      {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(serviceSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(productSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main className="bg-surface min-h-screen">
-        {/* ========== HERO: SPLIT SCREEN PRODUCT ========== */}
         <section className="flex flex-col justify-center pt-32 pb-12 lg:min-h-screen">
           <Container>
-            {/* Breadcrumb */}
             <div className="mb-8">
               <Breadcrumb
                 items={[
                   { label: 'Systems', href: '/systems' },
-                  { label: 'Retractable Screens' },
+                  { label: 'Motorized Screens' },
                 ]}
               />
             </div>
+
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-24">
               <div className="order-1 flex flex-col justify-center lg:col-span-5">
                 <div className="label-editorial-brand mb-6 flex items-center gap-3">
-                  <div className="bg-edg-brand-dark h-px w-8"></div>
-                  Sun & Wind Protection
+                  <div className="bg-edg-brand-dark h-px w-8" />
+                  Featured MagnaTrack Partner
                 </div>
-                <h1 className="text-text-primary mb-8 text-5xl leading-[0.9] font-bold tracking-tighter md:text-7xl">
+                <h1 className="text-text-primary mb-8 text-5xl leading-[0.92] font-bold tracking-tighter md:text-7xl">
                   Motorized <br /> Screens.
                 </h1>
                 <p className="text-text-secondary mb-10 max-w-md text-xl leading-relaxed">
-                  Block 97% of UV rays and 35 mph winds without losing your
-                  view. MagnaTrack self-correcting technology keeps screens
-                  secure in any weather.
+                  Premium retractable patio screens for bugs, sun, privacy, and
+                  everyday wind comfort. EDG features MagnaTrack by Progressive
+                  Screens when the opening calls for a stronger track-guided
+                  solution.
                 </p>
 
                 <div className="mb-12 flex flex-col gap-4">
@@ -364,48 +400,39 @@ export default function ShadesPage() {
                     href="tel:+18155810138"
                     className="hover:text-edg-brand-text flex cursor-pointer items-center gap-3 text-sm font-bold tracking-wider uppercase transition-colors"
                   >
-                    <span className="h-px w-8 bg-black/20"></span>
+                    <span className="h-px w-8 bg-black/20" />
                     Speak to a designer
                   </TrackedPhoneLink>
-                  <Link
-                    href="/service-areas/chicago-il/retractable-screens"
-                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
-                  >
-                    Comparing city installers? See our Chicago retractable
-                    screen page.
-                  </Link>
-                  <Link
-                    href="/service-areas/algonquin-il/retractable-screens"
-                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
-                  >
-                    Near the Fox River Valley? Review Algonquin motorized
-                    screens.
-                  </Link>
                   <Link
                     href="/guides/magnatrack-screens-cost"
                     className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
-                    Need budget ranges? Read the MagnaTrack screens cost guide.
+                    Need budget ranges? Read the MagnaTrack screen cost guide.
+                  </Link>
+                  <Link
+                    href="/service-areas/chicago-il/retractable-screens"
+                    className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
+                  >
+                    Planning in Chicago? Review city patio screen options.
                   </Link>
                   <Link
                     href="/service-areas/southwest-florida/motorized-screens"
                     className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
-                    Need Florida lanai or patio screens? See Southwest Florida
-                    motorized screens.
+                    Planning a Florida lanai? See Southwest Florida motorized
+                    screens.
                   </Link>
                 </div>
 
-                {/* Quick Specs */}
                 <div className="border-t border-black/10 pt-8">
-                  <div className="grid grid-cols-2 gap-y-4 text-sm">
-                    {specs.slice(0, 4).map((s) => (
-                      <div key={s.label}>
+                  <div className="grid grid-cols-2 gap-x-8 gap-y-5 text-sm">
+                    {specs.map((spec) => (
+                      <div key={spec.label} className="min-w-0">
                         <span className="text-text-muted mb-1 block text-xs tracking-wider uppercase">
-                          {s.label}
+                          {spec.label}
                         </span>
-                        <span className="text-text-primary font-bold">
-                          {s.value}
+                        <span className="text-text-primary block leading-snug font-bold">
+                          {spec.value}
                         </span>
                       </div>
                     ))}
@@ -414,7 +441,7 @@ export default function ShadesPage() {
               </div>
 
               <div className="order-2 lg:col-span-7">
-                <div className="bg-surface-muted relative aspect-[4/5] overflow-hidden rounded-none">
+                <div className="bg-surface-muted relative aspect-[4/5] overflow-hidden">
                   <ShadesGalleryClient items={galleryImages} />
                 </div>
               </div>
@@ -422,54 +449,54 @@ export default function ShadesPage() {
           </Container>
         </section>
 
-        {/* ========== PRODUCT OVERVIEW ========== */}
         <Section className="section-md bg-surface-muted border-t border-black/5">
           <Container>
-            <div className="mx-auto mb-16 max-w-3xl text-center">
-              <div className="label-editorial-brand mb-4">Product Overview</div>
+            <div className="mx-auto mb-16 max-w-4xl text-center">
+              <div className="label-editorial-brand mb-4">System Overview</div>
               <h2 className="section-title mb-6">
-                The Modern Alternative to Fixed Screens
+                Track-Guided Screens for Outdoor Rooms That Still Need to Open
               </h2>
-              <div className="text-text-secondary space-y-4 leading-relaxed">
+              <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                 <p>
-                  Motorized retractable screens transform open outdoor spaces
-                  into protected, comfortable environments at the touch of a
-                  button. Unlike fixed screening that permanently blocks views
-                  and airflow, these screens deploy when you need protection and
-                  disappear completely when you don&apos;t—preserving the
-                  architectural openness of your patio, porch, or gazebo.
+                  Motorized screens are a flexible alternative to a fixed screen
+                  room. They drop when bugs, low sun, privacy, or side wind make
+                  the patio uncomfortable, then retract when the space should
+                  feel fully open.
                 </p>
                 <p>
-                  At the heart of our specification is{' '}
-                  <strong>MagnaTrack technology</strong>—a revolutionary track
-                  system using powerful neodymium magnets to maintain constant
-                  fabric tension. Traditional screens rely on fixed tracks that
-                  fight against wind, eventually blowing out or jamming.
-                  MagnaTrack works with nature, allowing the screen to flex in
-                  gusts and then snap back into perfect alignment automatically.
+                  EDG features{' '}
+                  <strong>MagnaTrack by Progressive Screens</strong> as a
+                  premium track-guided screen partner because the magnetic side
+                  track is built for smoother daily operation and fewer common
+                  service issues than many fixed-track or zipper-style systems.
                 </p>
                 <p>
-                  As a design and supply partner, we&apos;re system-agnostic—we
-                  specify MagnaTrack technology from leading manufacturers based
-                  on your project requirements, not because we&apos;re locked
-                  into a single brand. For homeowners in the Chicago-Milwaukee
-                  corridor, we provide complete turnkey installation. For
-                  professionals nationwide, we handle design, engineering, and
-                  supply with shipping to your job site.
+                  The brand is not the starting point, though. The opening is.
+                  EDG checks the structure, dimensions, fabric goal, power,
+                  controls, exposure, and whether the project should use an
+                  insect screen, solar screen, vinyl screen, Defender hurricane
+                  screen, or another approach.
                 </p>
               </div>
             </div>
           </Container>
         </Section>
 
-        {/* ========== KEY FEATURES ========== */}
         <Section className="section-lg border-t border-black/5">
           <Container>
-            <div className="mx-auto mb-16 max-w-2xl text-center">
-              <div className="label-editorial-brand mb-4">Features</div>
-              <h2 className="section-title">
-                Why MagnaTrack Changes Everything
+            <div className="mx-auto mb-16 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Why MagnaTrack Belongs Here
+              </div>
+              <h2 className="section-title mb-4">
+                A Premium Screen Partner, Not a One-Size-Fits-All Answer
               </h2>
+              <p className="text-text-secondary">
+                EDG recommends MagnaTrack when the system fit is right, and
+                keeps the broader category centered on motorized screens, patio
+                screen enclosures, outdoor screens, and insect and solar screen
+                comfort.
+              </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -496,97 +523,164 @@ export default function ShadesPage() {
           </Container>
         </Section>
 
-        {/* ========== SPECIFICATIONS TABLE ========== */}
-        <Section className="section-md bg-surface-muted">
+        <Section className="section-md bg-surface-muted border-t border-black/5">
           <Container>
-            <div className="grid items-start gap-12 lg:grid-cols-2">
+            <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
                 <div className="label-editorial-brand mb-4">
-                  Technical Specifications
+                  Source-Grounded Specs
                 </div>
                 <h2 className="section-title mb-6">
-                  Built for Real-World Conditions
+                  What Progressive Publishes About MagnaTrack
                 </h2>
-                <p className="text-text-secondary mb-8 leading-relaxed">
-                  Every specification is tested and verified. These are not
-                  theoretical limits— they represent the actual performance you
-                  can expect from a properly specified and installed MagnaTrack
-                  system.
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  These are the brand facts EDG is comfortable carrying forward
+                  from Progressive Screens. Final sizing, wind behavior,
+                  warranty, and code questions still need the selected system
+                  and project details.
                 </p>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Check className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
-                    <p className="text-text-secondary">
-                      Engineering stamps available for permit applications
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
-                    <p className="text-text-secondary">
-                      Miami-Dade County wind load certifications available
-                    </p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
-                    <p className="text-text-secondary">
-                      5-year motor and frame warranty standard
-                    </p>
-                  </div>
+                <div className="flex flex-col gap-3 text-sm">
+                  <a
+                    href="https://www.progressivescreens.com/products/magnatrack-system/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 font-bold"
+                  >
+                    Progressive MagnaTrack system
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                  <a
+                    href="https://www.progressivescreens.com/products/colors-and-fabrics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 font-bold"
+                  >
+                    Progressive colors and fabrics
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
                 </div>
               </div>
 
-              <Card
-                variant="default"
-                padding="none"
-                className="overflow-hidden"
-              >
-                <table className="w-full">
-                  <tbody>
-                    {specs.map((spec, index) => (
-                      <tr
-                        key={spec.label}
-                        className={
-                          index % 2 === 0 ? 'bg-surface' : 'bg-surface-muted'
-                        }
-                      >
-                        <td className="text-text-secondary border-border border-b px-6 py-4 font-medium">
-                          {spec.label}
-                        </td>
-                        <td className="text-text-primary border-border border-b px-6 py-4 font-bold">
-                          {spec.value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </Card>
+              <div className="grid gap-4 md:grid-cols-2">
+                {progressiveFacts.map((fact) => (
+                  <Card key={fact.title} variant="default" padding="lg">
+                    <h3 className="mb-3 text-lg font-bold">{fact.title}</h3>
+                    <p className="text-text-secondary text-sm leading-relaxed">
+                      {fact.description}
+                    </p>
+                  </Card>
+                ))}
+              </div>
             </div>
           </Container>
         </Section>
 
-        {/* ========== COST PLANNING ========== */}
+        <Section className="section-md border-t border-black/5">
+          <Container>
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">Screen Types</div>
+                <h2 className="section-title mb-6">
+                  Start With the Problem the Screen Needs to Solve
+                </h2>
+                <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                  The same opening can need very different screen materials. A
+                  family porch near mosquitoes, a west-facing patio with glare,
+                  a restaurant with seasonal wind, and a Florida
+                  storm-protection conversation should not all be specified the
+                  same way.
+                </p>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={images.systems.shades.ohareHero}
+                    alt="Progressive Screens motorized insect screen installed by EDG on a wide Bartlett opening"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                {screenOptions.map((option) => (
+                  <Card key={option.name} variant="muted" padding="lg">
+                    <h3 className="mb-2 text-xl font-bold">{option.name}</h3>
+                    <p className="text-text-secondary leading-relaxed">
+                      {option.description}
+                    </p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        <Section className="section-md bg-surface-muted border-t border-black/5">
+          <Container>
+            <div className="grid items-start gap-12 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  Fit Check First
+                </div>
+                <h2 className="section-title mb-6">
+                  A Better Screen Quote Starts With the Opening
+                </h2>
+                <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
+                  <p>
+                    Motorized screens are custom systems. The quote changes when
+                    the opening changes: width, height, side conditions, power,
+                    fabric, controls, exposure, housing visibility, and whether
+                    the screen is part of a pergola, glass enclosure, or outdoor
+                    kitchen plan.
+                  </p>
+                  <p>
+                    EDG uses MagnaTrack by Progressive Screens as a featured
+                    premium option, but the recommendation still comes after the
+                    site review. That keeps the project honest and avoids making
+                    storm, wind, or enclosure claims the selected screen is not
+                    designed to carry.
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid gap-4">
+                {fitChecks.map((item) => (
+                  <Card key={item} variant="default" padding="lg">
+                    <div className="flex items-start gap-3">
+                      <Check className="text-edg-brand-text mt-1 h-5 w-5 shrink-0" />
+                      <p className="text-text-primary leading-relaxed font-medium">
+                        {item}
+                      </p>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </Section>
+
         <Section className="section-md border-t border-black/5">
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
                 <div className="label-editorial-brand mb-4">Cost Planning</div>
                 <h2 className="section-title mb-6">
-                  What do MagnaTrack motorized screens cost?
+                  What do motorized patio screens cost?
                 </h2>
-                <div className="text-text-secondary space-y-4 leading-relaxed">
+                <div className="text-text-secondary space-y-5 leading-relaxed">
                   <p>
                     Screen pricing depends on opening width, height, fabric,
                     housing details, controls, wiring, and how cleanly the
                     tracks can mount to the structure. A single opening often
-                    starts around $3,500 to $8,000+, while a full patio or
-                    pergola screen package commonly moves into a larger custom
-                    budget.
+                    starts around $3,500 to $8,000+, while full patio, pergola,
+                    and commercial packages commonly move into larger custom
+                    budgets.
                   </p>
                   <p>
-                    We built a dedicated cost guide because online kit pricing
-                    rarely tells the whole story. A wind-exposed patio, roof
-                    deck, restaurant opening, or recessed housing detail needs a
-                    different level of planning than a basic drop screen.
+                    Online kit pricing rarely tells the whole story. A
+                    wind-exposed roof deck, recessed housing detail, restaurant
+                    patio, or Florida lanai needs a different level of planning
+                    than a simple sheltered opening.
                   </p>
                 </div>
               </div>
@@ -611,25 +705,37 @@ export default function ShadesPage() {
           </Container>
         </Section>
 
-        {/* ========== APPLICATIONS ========== */}
         <Section className="section-lg border-t border-black/5">
           <Container>
-            <div className="mx-auto mb-16 max-w-2xl text-center">
+            <div className="mx-auto mb-16 max-w-3xl text-center">
               <div className="label-editorial-brand mb-4">Applications</div>
-              <h2 className="section-title">Where Screens Work Best</h2>
+              <h2 className="section-title mb-4">
+                Where Motorized Screens Work Best
+              </h2>
+              <p className="text-text-secondary">
+                Screens are strongest when they complete an opening that already
+                wants to stay flexible.
+              </p>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2">
-              {applications.map((app) => (
-                <Card key={app.category} variant="outline" padding="lg">
-                  <h3 className="mb-6 text-2xl font-bold">{app.category}</h3>
+              {applications.map((application) => (
+                <Card key={application.title} variant="outline" padding="lg">
+                  <div className="mb-6 flex items-center gap-3">
+                    <IconWrapper
+                      icon={application.icon}
+                      variant="brand"
+                      size="md"
+                    />
+                    <h3 className="text-2xl font-bold">{application.title}</h3>
+                  </div>
                   <ul className="space-y-3">
-                    {app.items.map((item) => (
+                    {application.items.map((item) => (
                       <li
                         key={item}
                         className="text-text-secondary flex items-center gap-3"
                       >
-                        <Plus className="text-edg-brand-dark h-4 w-4 shrink-0" />
+                        <Check className="text-edg-brand-text h-4 w-4 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -640,22 +746,24 @@ export default function ShadesPage() {
           </Container>
         </Section>
 
-        {/* ========== OPTIONS & UPGRADES ========== */}
-        <Section className="section-md bg-surface-muted">
+        <Section className="section-lg bg-surface-muted border-t border-black/5">
           <Container>
-            <div className="mx-auto mb-16 max-w-2xl text-center">
-              <div className="label-editorial-brand mb-4">
-                Options & Upgrades
-              </div>
-              <h2 className="section-title">Customize for Your Project</h2>
+            <div className="mx-auto mb-16 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">Process</div>
+              <h2 className="section-title mb-4">
+                From Screen Fit Review to Daily Use
+              </h2>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {options.map((option) => (
-                <Card key={option.name} variant="default" padding="lg">
-                  <h3 className="mb-2 text-lg font-bold">{option.name}</h3>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {processSteps.map((item) => (
+                <Card key={item.step} variant="default" padding="lg">
+                  <div className="text-edg-brand/50 mb-4 text-4xl font-bold">
+                    {item.step}
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary text-sm leading-relaxed">
-                    {option.description}
+                    {item.description}
                   </p>
                 </Card>
               ))}
@@ -663,38 +771,50 @@ export default function ShadesPage() {
           </Container>
         </Section>
 
-        {/* ========== PROCESS OVERVIEW ========== */}
-        <Section className="section-lg border-t border-black/5">
+        <Section className="section-md border-t border-black/5">
           <Container>
-            <div className="mx-auto mb-16 max-w-2xl text-center">
-              <div className="label-editorial-brand mb-4">Our Process</div>
-              <h2 className="section-title">From Consultation to Completion</h2>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {processSteps.map((step) => (
-                <div key={step.number} className="relative">
-                  <div className="text-edg-brand/30 mb-4 text-5xl font-bold">
-                    {step.number}
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold">{step.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {step.description}
-                  </p>
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  EDG Project Proof
                 </div>
-              ))}
+                <h2 className="section-title mb-6">
+                  A Real Progressive Screens Install in Bartlett
+                </h2>
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                  The O&apos;Hare project shows a wide residential outbuilding
+                  opening fitted with a motorized Progressive Screens Gen 4
+                  insect screen. It is a practical example of how a screen can
+                  add bug protection and daily-use comfort without permanently
+                  closing the opening.
+                </p>
+                <Link href="/projects/ohare">
+                  <Button variant="secondary">
+                    View O&apos;Hare Project
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="relative aspect-[16/9] overflow-hidden bg-black">
+                <Image
+                  src={images.systems.shades.ohareClosed}
+                  alt="Closed Progressive Screens motorized insect screen on a Bartlett garage opening"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </div>
           </Container>
         </Section>
 
-        {/* ========== RELATED PRODUCTS ========== */}
         <Section className="section-md bg-surface-muted border-t border-black/5">
           <Container>
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <div className="label-editorial-brand mb-4">
                 Complete Your Space
               </div>
-              <h2 className="section-title">Related Products</h2>
+              <h2 className="section-title">Related Planning Pages</h2>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -708,7 +828,7 @@ export default function ShadesPage() {
                     <h3 className="group-hover:text-edg-brand-dark mb-2 text-lg font-bold transition-colors">
                       {product.name}
                     </h3>
-                    <p className="text-text-secondary mb-4 text-sm">
+                    <p className="text-text-secondary mb-4 text-sm leading-relaxed">
                       {product.description}
                     </p>
                     <div className="flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
@@ -720,46 +840,44 @@ export default function ShadesPage() {
               ))}
             </div>
 
-            <div className="mt-8 text-center">
+            <div className="mt-8 flex flex-wrap justify-center gap-5 text-sm font-medium">
               <Link
                 href="/service-areas/chicago-il/retractable-screens"
-                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-medium transition-colors"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
               >
-                Need a city-specific screen page? Explore Chicago retractable
-                screens.
+                Chicago retractable screens
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/service-areas/algonquin-il/retractable-screens"
-                className="text-edg-brand-text hover:text-edg-brand mt-4 ml-0 inline-flex items-center gap-2 text-sm font-medium transition-colors md:mt-0 md:ml-6"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
               >
-                Planning in Algonquin? See the local motorized screen guide.
+                Algonquin motorized screens
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/service-areas/lake-forest-il"
-                className="text-edg-brand-text hover:text-edg-brand mt-4 ml-0 inline-flex items-center gap-2 text-sm font-medium transition-colors md:mt-0 md:ml-6"
+                href="/service-areas/lake-geneva-wi/retractable-screens"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
               >
-                Planning a North Shore outdoor room? See Lake Forest guidance.
+                Lake Geneva outdoor screens
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </Container>
         </Section>
 
-        {/* ========== FINAL CTA ========== */}
         <section className="bg-surface-dark text-text-inverse py-32">
           <Container>
             <div className="grid items-center gap-16 md:grid-cols-2">
               <div>
                 <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
-                  Reclaim your outdoor space.
+                  Send the openings before choosing the screen.
                 </h2>
-                <p className="text-text-inverse-muted mb-8 max-w-md text-xl">
-                  Stop retreating indoors when the bugs come out or the sun gets
-                  low. Our Spring Grove showroom has working MagnaTrack
-                  displays—come see the difference self-correcting technology
-                  makes.
+                <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
+                  Share photos, rough dimensions, and what you want solved
+                  first. EDG will tell you whether MagnaTrack by Progressive
+                  Screens, another screen system, or a bigger outdoor-room plan
+                  is the right next move.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <TrackedLink href="/contact?type=price&product=shades&source=shades_bottom">
@@ -778,72 +896,49 @@ export default function ShadesPage() {
                   </Link>
                 </div>
               </div>
-              <div className="hidden border-l border-white/20 pl-16 md:block">
-                <div className="space-y-6">
+              <div className="border-border-inverse hidden border-l pl-16 md:block">
+                <div className="text-text-inverse-muted space-y-4">
                   <h4 className="text-lg font-bold tracking-wide uppercase">
-                    Perfect For
+                    Strong Fits
                   </h4>
-                  <ul className="text-text-inverse-muted space-y-4">
-                    {[
-                      'Existing Porches',
-                      'New Pergolas',
-                      'Garage Openings',
-                      'Restaurant Patios',
-                      'Lakeside Properties',
-                    ].map((item) => (
-                      <li key={item} className="flex items-center gap-3">
-                        <Plus className="text-edg-brand h-4 w-4 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  {[
+                    'Covered patios',
+                    'Pergola side openings',
+                    'Lanais and porches',
+                    'Garage openings',
+                    'Restaurant patios',
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <Ruler className="text-edg-brand h-4 w-4 shrink-0" />
+                      {item}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
           </Container>
         </section>
 
-        {/* FAQ Section for SEO */}
         <section className="section-lg bg-surface-muted border-t border-black/5">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl">
-              <div className="label-editorial-brand mb-4 text-center">FAQ</div>
-              <h2 className="section-title mb-12 text-center">
-                Common Questions About Motorized Screens
-              </h2>
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-12 text-center">
+                <div className="label-editorial-brand mb-4">FAQ</div>
+                <h2 className="section-title">Motorized screen questions</h2>
+              </div>
 
               <div className="space-y-6">
                 {faqs.map((faq) => (
-                  <details
-                    key={faq.question}
-                    className="group bg-surface border-border rounded-none border"
-                  >
-                    <summary className="text-text-primary hover:bg-surface-muted flex cursor-pointer items-center justify-between p-6 font-bold transition-colors">
-                      {faq.question}
-                      <span className="text-edg-brand-dark ml-4 transition-transform group-open:rotate-180">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="m6 9 6 6 6-6" />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="text-text-secondary px-6 pb-6 leading-relaxed">
+                  <Card key={faq.question} variant="default" padding="lg">
+                    <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                    <p className="text-text-secondary leading-relaxed">
                       {faq.answer}
-                    </div>
-                  </details>
+                    </p>
+                  </Card>
                 ))}
               </div>
             </div>
-          </div>
+          </Container>
         </section>
       </main>
     </>

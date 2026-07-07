@@ -22,7 +22,6 @@ import {
 import type { Metadata } from 'next';
 import * as images from '@/lib/images';
 
-
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems | Pergolas, Shades & Enclosures | EDG',
   description:
@@ -57,21 +56,41 @@ const systems = [
     description:
       'Architectural aluminum structures with rotating louvers for complete climate control. Sun when you want it, watertight seal when you do not.',
     image: images.pages.serviceAreas.barringtonPergola1,
-    features: ['135° adjustable louvers', 'Wind-rated to 120 mph', 'Smart home integration', 'LED lighting options'],
-    bestFor: ['Patios & terraces', 'Poolside lounges', 'Outdoor kitchens', 'Decks'],
+    features: [
+      '135° adjustable louvers',
+      'Wind-rated to 120 mph',
+      'Smart home integration',
+      'LED lighting options',
+    ],
+    bestFor: [
+      'Patios & terraces',
+      'Poolside lounges',
+      'Outdoor kitchens',
+      'Decks',
+    ],
     priceRange: 'From $25,000',
     icon: Sun,
   },
   {
     id: 'shades',
     href: '/systems/shades',
-    title: 'Retractable Screens',
+    title: 'Motorized Screens',
     shortTitle: 'Screens',
     description:
-      'Wind-rated exterior screens with MagnaTrack self-correcting technology. Block 97% of UV rays while keeping your view.',
+      'Motorized patio screens with MagnaTrack by Progressive Screens as a featured premium partner. Plan insects, sun, privacy, and everyday wind comfort around the opening.',
     image: images.pages.serviceAreas.sanibelShade,
-    features: ['MagnaTrack technology', '97% UV blockage', 'Up to 35 mph wind rated', 'Insect protection'],
-    bestFor: ['Existing porches', 'Pergola sides', 'Patio enclosures', 'Bug protection'],
+    features: [
+      'MagnaTrack partner',
+      'Insect and solar fabrics',
+      'Track-guided comfort',
+      'Retrofit or new openings',
+    ],
+    bestFor: [
+      'Existing porches',
+      'Pergola sides',
+      'Patio enclosures',
+      'Bug protection',
+    ],
     priceRange: 'From $3,500',
     icon: CloudRain,
   },
@@ -83,8 +102,18 @@ const systems = [
     description:
       'Lumon and other frameless retractable glass wall systems that turn patios, pergolas, and restaurant spaces into flexible 3-season rooms.',
     image: '/images/enclosures/frameless-sliding-glass-walls.jpg',
-    features: ['Lumon LGR + LGS', 'Frameless design', 'Retractable panels', 'Wind and rain control'],
-    bestFor: ['Three-season rooms', 'Restaurant patios', 'Event venues', 'Patio conversions'],
+    features: [
+      'Lumon LGR + LGS',
+      'Frameless design',
+      'Retractable panels',
+      'Wind and rain control',
+    ],
+    bestFor: [
+      'Three-season rooms',
+      'Restaurant patios',
+      'Event venues',
+      'Patio conversions',
+    ],
     priceRange: 'From $15,000',
     icon: Home,
   },
@@ -96,8 +125,18 @@ const systems = [
     description:
       'Premium built-in grills, appliances, and cabinetry designed for outdoor use. Create the ultimate outdoor cooking and entertaining space.',
     image: images.systems.appliances.kitchen,
-    features: ['Built-in grills', 'Refrigeration', 'Storage solutions', 'Weather-resistant'],
-    bestFor: ['Outdoor cooking', 'Entertaining', 'Complete kitchens', 'Grill islands'],
+    features: [
+      'Built-in grills',
+      'Refrigeration',
+      'Storage solutions',
+      'Weather-resistant',
+    ],
+    bestFor: [
+      'Outdoor cooking',
+      'Entertaining',
+      'Complete kitchens',
+      'Grill islands',
+    ],
     priceRange: 'From $8,000',
     icon: Thermometer,
   },
@@ -108,7 +147,8 @@ const secondarySystems = [
   {
     href: '/systems/saunas',
     title: 'Custom Saunas',
-    description: 'Premium outdoor wood-fired and electric saunas for year-round wellness.',
+    description:
+      'Premium outdoor wood-fired and electric saunas for year-round wellness.',
     icon: Thermometer,
   },
 ];
@@ -151,7 +191,7 @@ const faqs = [
   {
     question: 'Can these systems handle Chicago winters?',
     answer:
-      'Absolutely. Our systems are specifically engineered for the demanding Chicago climate. Pergolas are rated for snow loads up to 40 psf and winds to 120 mph. Screens feature MagnaTrack technology that withstands gusts up to 35 mph. Glass enclosures help control wind, rain, and shoulder-season comfort, but they are not the same as a fully insulated four-season addition. We also offer winterization services and can recommend the best configurations for lakefront and exposed locations.',
+      'Yes, when the selected system is matched to the site. Pergolas need the right wind and snow-load engineering. Screens need the right track strategy, fabric, sensors, and operating expectations for the opening. Glass enclosures help control wind, rain, and shoulder-season comfort, but they are not the same as a fully insulated four-season addition. We can recommend the best configurations for lakefront and exposed locations.',
   },
   {
     question: 'Can I combine multiple systems?',
@@ -173,27 +213,36 @@ export default function SystemsPage() {
         <Container>
           {/* Breadcrumb */}
           <div className="mb-8">
-            <Breadcrumb items={[{ label: 'Systems' }]} className="text-zinc-400" />
+            <Breadcrumb
+              items={[{ label: 'Systems' }]}
+              className="text-zinc-400"
+            />
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="inline-flex items-center gap-2 text-edg-brand text-xs font-bold tracking-[0.2em] uppercase mb-6">
-                <span className="h-px w-8 bg-edg-brand" />
+              <div className="text-edg-brand mb-6 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="bg-edg-brand h-px w-8" />
                 Outdoor Living Solutions
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
                 Complete Outdoor Living Systems
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed mb-8 max-w-xl">
-                Motorized pergolas, retractable screens, glass enclosures, and outdoor kitchens—engineered for the Midwest climate and designed for how you actually live.
+              <p className="mb-8 max-w-xl text-xl leading-relaxed text-gray-300">
+                Motorized pergolas, retractable screens, glass enclosures, and
+                outdoor kitchens—engineered for the Midwest climate and designed
+                for how you actually live.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="#systems">
                   <Button size="lg">Explore Systems</Button>
                 </Link>
                 <Link href="/contact">
-                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white hover:text-black">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white hover:text-black"
+                  >
                     Get Expert Advice
                   </Button>
                 </Link>
@@ -215,39 +264,65 @@ export default function SystemsPage() {
       {/* ========== WHAT ARE OUTDOOR SYSTEMS ========== */}
       <Section className="bg-white dark:bg-black">
         <Container>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-4">
-              <span className="h-px w-8 bg-edg-brand-text" />
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <div className="text-edg-brand-text mb-4 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
+              <span className="bg-edg-brand-text h-px w-8" />
               Overview
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
               What Are Outdoor Living Systems?
             </h2>
-            <p className="text-lg text-text-secondary leading-relaxed">
-              Outdoor living systems are integrated architectural solutions that extend your home&apos;s usable space into the outdoors. Unlike simple patio furniture or standalone awnings, these are engineered systems designed to work together—providing shade, weather protection, climate control, and functional outdoor kitchens that transform how you use your backyard.
+            <p className="text-text-secondary text-lg leading-relaxed">
+              Outdoor living systems are integrated architectural solutions that
+              extend your home&apos;s usable space into the outdoors. Unlike
+              simple patio furniture or standalone awnings, these are engineered
+              systems designed to work together—providing shade, weather
+              protection, climate control, and functional outdoor kitchens that
+              transform how you use your backyard.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-3">
             <Card variant="muted" padding="lg">
-              <IconWrapper icon={Sun} variant="brand" size="lg" className="mb-4" />
-              <h3 className="text-xl font-bold mb-2">Climate Control</h3>
+              <IconWrapper
+                icon={Sun}
+                variant="brand"
+                size="lg"
+                className="mb-4"
+              />
+              <h3 className="mb-2 text-xl font-bold">Climate Control</h3>
               <p className="text-text-secondary">
-                Adjust sun, shade, and airflow on demand. Motorized louvers, retractable screens, and integrated heating extend your outdoor season from early spring through late fall.
+                Adjust sun, shade, and airflow on demand. Motorized louvers,
+                retractable screens, and integrated heating extend your outdoor
+                season from early spring through late fall.
               </p>
             </Card>
             <Card variant="muted" padding="lg">
-              <IconWrapper icon={CloudRain} variant="brand" size="lg" className="mb-4" />
-              <h3 className="text-xl font-bold mb-2">Weather Protection</h3>
+              <IconWrapper
+                icon={CloudRain}
+                variant="brand"
+                size="lg"
+                className="mb-4"
+              />
+              <h3 className="mb-2 text-xl font-bold">Weather Protection</h3>
               <p className="text-text-secondary">
-                Engineered for Chicago&apos;s demanding climate—wind-rated structures, integrated rain management, and snow-load engineering that stands up to Midwest winters.
+                Engineered for Chicago&apos;s demanding climate—wind-rated
+                structures, integrated rain management, and snow-load
+                engineering that stands up to Midwest winters.
               </p>
             </Card>
             <Card variant="muted" padding="lg">
-              <IconWrapper icon={Building2} variant="brand" size="lg" className="mb-4" />
-              <h3 className="text-xl font-bold mb-2">Integrated Design</h3>
+              <IconWrapper
+                icon={Building2}
+                variant="brand"
+                size="lg"
+                className="mb-4"
+              />
+              <h3 className="mb-2 text-xl font-bold">Integrated Design</h3>
               <p className="text-text-secondary">
-                Systems designed to work together. Pergolas with integrated screens. Outdoor kitchens under protective covers. Everything connected, everything coordinated.
+                Systems designed to work together. Pergolas with integrated
+                screens. Outdoor kitchens under protective covers. Everything
+                connected, everything coordinated.
               </p>
             </Card>
           </div>
@@ -255,26 +330,27 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== MAIN SYSTEMS GRID ========== */}
-      <Section id="systems" className="bg-surface-muted border-t border-border">
+      <Section id="systems" className="bg-surface-muted border-border border-t">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-4">
-              <span className="h-px w-8 bg-edg-brand-text" />
+          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <div className="text-edg-brand-text mb-4 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
+              <span className="bg-edg-brand-text h-px w-8" />
               Core Systems
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
               Choose Your System
             </h2>
-            <p className="text-lg text-text-secondary">
-              Four primary systems, each engineered for specific use cases. Many homeowners combine multiple systems for complete outdoor living.
+            <p className="text-text-secondary text-lg">
+              Four primary systems, each engineered for specific use cases. Many
+              homeowners combine multiple systems for complete outdoor living.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid gap-8 lg:grid-cols-2">
             {systems.map((system) => (
               <div
                 key={system.id}
-                className="group bg-white dark:bg-surface overflow-hidden border border-border hover:border-edg-brand transition-colors"
+                className="group dark:bg-surface border-border hover:border-edg-brand overflow-hidden border bg-white transition-colors"
               >
                 <div className="relative aspect-[16/9]">
                   <Image
@@ -283,12 +359,12 @@ export default function SystemsPage() {
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-4 right-4 bg-edg-brand text-edg-dark text-xs font-bold uppercase tracking-wider px-3 py-1">
+                  <div className="bg-edg-brand text-edg-dark absolute top-4 right-4 px-3 py-1 text-xs font-bold tracking-wider uppercase">
                     {system.priceRange}
                   </div>
                 </div>
                 <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="mb-4 flex items-center gap-3">
                     <IconWrapper icon={system.icon} variant="brand" size="sm" />
                     <h3 className="text-2xl font-bold">{system.title}</h3>
                   </div>
@@ -296,28 +372,34 @@ export default function SystemsPage() {
                     {system.description}
                   </p>
 
-                  <div className="grid sm:grid-cols-2 gap-6 mb-8">
+                  <div className="mb-8 grid gap-6 sm:grid-cols-2">
                     <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-text-muted mb-3">
+                      <h4 className="text-text-muted mb-3 text-xs font-bold tracking-wider uppercase">
                         Key Features
                       </h4>
                       <ul className="space-y-2">
                         {system.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-sm text-text-secondary">
-                            <CheckCircle2 className="h-4 w-4 text-edg-brand-text shrink-0" />
+                          <li
+                            key={feature}
+                            className="text-text-secondary flex items-center gap-2 text-sm"
+                          >
+                            <CheckCircle2 className="text-edg-brand-text h-4 w-4 shrink-0" />
                             {feature}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-text-muted mb-3">
+                      <h4 className="text-text-muted mb-3 text-xs font-bold tracking-wider uppercase">
                         Best For
                       </h4>
                       <ul className="space-y-2">
                         {system.bestFor.map((use) => (
-                          <li key={use} className="flex items-center gap-2 text-sm text-text-secondary">
-                            <div className="h-1.5 w-1.5 rounded-full bg-edg-brand-text shrink-0" />
+                          <li
+                            key={use}
+                            className="text-text-secondary flex items-center gap-2 text-sm"
+                          >
+                            <div className="bg-edg-brand-text h-1.5 w-1.5 shrink-0 rounded-full" />
                             {use}
                           </li>
                         ))}
@@ -339,31 +421,39 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== SECONDARY SYSTEMS ========== */}
-      <Section className="bg-white dark:bg-black border-t border-border">
+      <Section className="border-border border-t bg-white dark:bg-black">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
               Complete Your Space
             </h2>
             <p className="text-text-secondary">
-              Add the finishing touches to your outdoor living area with these complementary systems.
+              Add the finishing touches to your outdoor living area with these
+              complementary systems.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6 md:grid-cols-3">
             {secondarySystems.map((system) => (
-              <Card key={system.href} variant="outline" padding="lg" className="group">
-                <div className="flex items-center gap-3 mb-4">
+              <Card
+                key={system.href}
+                variant="outline"
+                padding="lg"
+                className="group"
+              >
+                <div className="mb-4 flex items-center gap-3">
                   <IconWrapper icon={system.icon} variant="default" size="md" />
                   <h3 className="text-lg font-bold">{system.title}</h3>
                 </div>
-                <p className="text-text-secondary text-sm mb-6">{system.description}</p>
+                <p className="text-text-secondary mb-6 text-sm">
+                  {system.description}
+                </p>
                 <Link
                   href={system.href}
-                  className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider hover:text-edg-brand-text transition-colors"
+                  className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
                 >
                   Learn More
-                  <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Card>
             ))}
@@ -372,10 +462,10 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== COMPARISON TABLE ========== */}
-      <Section className="bg-surface-muted border-t border-border">
+      <Section className="bg-surface-muted border-border border-t">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl">
               Compare Systems
             </h2>
             <p className="text-text-secondary">
@@ -384,22 +474,37 @@ export default function SystemsPage() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full bg-white dark:bg-surface border border-border">
+            <table className="dark:bg-surface border-border w-full border bg-white">
               <thead>
-                <tr className="border-b border-border bg-surface-muted dark:bg-surface-dark">
-                  <th className="text-left p-6 font-bold">Feature</th>
-                  <th className="text-left p-6 font-bold text-edg-brand-text">Pergolas</th>
-                  <th className="text-left p-6 font-bold text-edg-brand-text">Screens</th>
-                  <th className="text-left p-6 font-bold text-edg-brand-text">Enclosures</th>
+                <tr className="border-border bg-surface-muted dark:bg-surface-dark border-b">
+                  <th className="p-6 text-left font-bold">Feature</th>
+                  <th className="text-edg-brand-text p-6 text-left font-bold">
+                    Pergolas
+                  </th>
+                  <th className="text-edg-brand-text p-6 text-left font-bold">
+                    Screens
+                  </th>
+                  <th className="text-edg-brand-text p-6 text-left font-bold">
+                    Enclosures
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonData.map((row, index) => (
-                  <tr key={row.feature} className={index !== comparisonData.length - 1 ? 'border-b border-border' : ''}>
+                  <tr
+                    key={row.feature}
+                    className={
+                      index !== comparisonData.length - 1
+                        ? 'border-border border-b'
+                        : ''
+                    }
+                  >
                     <td className="p-6 font-medium">{row.feature}</td>
-                    <td className="p-6 text-text-secondary">{row.pergolas}</td>
-                    <td className="p-6 text-text-secondary">{row.shades}</td>
-                    <td className="p-6 text-text-secondary">{row.enclosures}</td>
+                    <td className="text-text-secondary p-6">{row.pergolas}</td>
+                    <td className="text-text-secondary p-6">{row.shades}</td>
+                    <td className="text-text-secondary p-6">
+                      {row.enclosures}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -411,50 +516,57 @@ export default function SystemsPage() {
       {/* ========== CHICAGO CLIMATE SECTION ========== */}
       <Section className="bg-edg-dark text-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="inline-flex items-center gap-2 text-edg-brand text-xs font-bold tracking-[0.2em] uppercase mb-6">
+              <div className="text-edg-brand mb-6 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
                 <Wind className="h-4 w-4" />
                 Midwest Engineered
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 Built for the Chicago Climate
               </h2>
-              <p className="text-lg text-gray-300 leading-relaxed mb-8">
-                Our systems are specifically engineered to handle the demanding conditions of the upper Midwest—from summer storms and high winds to heavy snow loads and subzero temperatures.
+              <p className="mb-8 text-lg leading-relaxed text-gray-300">
+                Our systems are specifically engineered to handle the demanding
+                conditions of the upper Midwest—from summer storms and high
+                winds to heavy snow loads and subzero temperatures.
               </p>
 
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-none bg-white/10 flex items-center justify-center shrink-0">
-                    <Wind className="h-6 w-6 text-edg-brand" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-none bg-white/10">
+                    <Wind className="text-edg-brand h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-1">Wind Rated</h3>
-                    <p className="text-zinc-300 text-sm">
-                      Pergolas withstand 120 mph winds. Screens handle 35 mph gusts with MagnaTrack self-correcting technology.
+                    <h3 className="mb-1 font-bold">Wind Rated</h3>
+                    <p className="text-sm text-zinc-300">
+                      Pergolas and screens are specified around the site
+                      exposure, opening size, selected system, sensors, and
+                      expected operating conditions.
                     </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-none bg-white/10 flex items-center justify-center shrink-0">
-                    <CloudRain className="h-6 w-6 text-edg-brand" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-none bg-white/10">
+                    <CloudRain className="text-edg-brand h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-1">Snow Load Engineered</h3>
-                    <p className="text-zinc-300 text-sm">
-                      Structural engineering for up to 40 psf snow loads—handling the heaviest Midwest winters without deflection.
+                    <h3 className="mb-1 font-bold">Snow Load Engineered</h3>
+                    <p className="text-sm text-zinc-300">
+                      Structural engineering for up to 40 psf snow
+                      loads—handling the heaviest Midwest winters without
+                      deflection.
                     </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="h-12 w-12 rounded-none bg-white/10 flex items-center justify-center shrink-0">
-                    <Thermometer className="h-6 w-6 text-edg-brand" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-none bg-white/10">
+                    <Thermometer className="text-edg-brand h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-bold mb-1">Year-Round Use</h3>
-                    <p className="text-zinc-300 text-sm">
-                      Integrated heating, weather sealing, and insulation options extend your outdoor season into the colder months.
+                    <h3 className="mb-1 font-bold">Year-Round Use</h3>
+                    <p className="text-sm text-zinc-300">
+                      Integrated heating, weather sealing, and insulation
+                      options extend your outdoor season into the colder months.
                     </p>
                   </div>
                 </div>
@@ -473,31 +585,39 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== SHOWROOM CTA ========== */}
-      <Section className="bg-surface-muted border-t border-border">
+      <Section className="bg-surface-muted border-border border-t">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-6">
+              <div className="text-edg-brand-text mb-6 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
                 <MapPin className="h-4 w-4" />
                 Visit Us
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 See Systems in Action
               </h2>
-              <p className="text-lg text-text-secondary leading-relaxed mb-8">
-                Our Spring Grove showroom features working displays of multiple pergola systems, retractable screens, and outdoor kitchen setups. Experience the smooth operation, test the controls, and see color samples in natural light.
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                Our Spring Grove showroom features working displays of multiple
+                pergola systems, retractable screens, and outdoor kitchen
+                setups. Experience the smooth operation, test the controls, and
+                see color samples in natural light.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-edg-brand-text shrink-0 mt-0.5" />
+                  <MapPin className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
                   <div>
                     <div className="font-bold">1802 Holian Drive</div>
-                    <div className="text-text-secondary">Spring Grove, IL 60081</div>
+                    <div className="text-text-secondary">
+                      Spring Grove, IL 60081
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-edg-brand-text shrink-0" />
-                  <a href="tel:+18155810138" className="font-bold hover:text-edg-brand-text transition-colors">
+                  <Phone className="text-edg-brand-text h-5 w-5 shrink-0" />
+                  <a
+                    href="tel:+18155810138"
+                    className="hover:text-edg-brand-text font-bold transition-colors"
+                  >
                     (815) 581-0138
                   </a>
                 </div>
@@ -524,11 +644,11 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== FAQ SECTION ========== */}
-      <Section className="bg-white dark:bg-black border-t border-border">
+      <Section className="border-border border-t bg-white dark:bg-black">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight mb-4">
+          <div className="mx-auto max-w-3xl">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold tracking-tight">
                 Common Questions
               </h2>
               <p className="text-text-secondary">
@@ -539,8 +659,10 @@ export default function SystemsPage() {
             <div className="space-y-6">
               {faqs.map((faq, index) => (
                 <Card key={index} variant="default" padding="lg">
-                  <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-text-secondary leading-relaxed">{faq.answer}</p>
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -549,21 +671,27 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== FINAL CTA ========== */}
-      <section className="bg-edg-dark text-white py-24">
+      <section className="bg-edg-dark py-24 text-white">
         <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
               Ready to Transform Your Outdoor Space?
             </h2>
-            <p className="text-lg text-gray-300 mb-8">
-              Start with a free consultation. We&apos;ll assess your space, understand your goals, and recommend the right systems for your needs and budget.
+            <p className="mb-8 text-lg text-gray-300">
+              Start with a free consultation. We&apos;ll assess your space,
+              understand your goals, and recommend the right systems for your
+              needs and budget.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">
                 <Button size="lg">Start Your Project</Button>
               </Link>
               <Link href="/guides/planning-guide">
-                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white hover:text-black">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 text-white hover:bg-white hover:text-black"
+                >
                   Get Planning Guide
                 </Button>
               </Link>

@@ -355,12 +355,13 @@ export default function Home() {
               <div className="md:order-1">
                 <div className="label-editorial-brand mb-4">Core Product</div>
                 <h3 className="mb-6 text-3xl font-bold md:text-4xl">
-                  Retractable Screens
+                  Motorized Screens
                 </h3>
                 <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                  MagnaTrack technology ensures your screens never get stuck or
-                  blown out of their tracks. Block 95% of wind, bugs, and UV
-                  rays without losing your view.
+                  Featured MagnaTrack by Progressive Screens systems use a
+                  magnetic track-guided design for patios that need better bug,
+                  sun, privacy, and everyday wind comfort without losing the
+                  open-air feel.
                 </p>
                 <Link href="/systems/shades">
                   <Button variant="secondary" className="px-8 py-3">

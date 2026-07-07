@@ -1,12 +1,12 @@
 /**
  * SINGLE SOURCE OF TRUTH for all images in the project
- * 
+ *
  * RULES:
  * 1. NEVER hardcode image paths in components/pages - import from here
  * 2. All images must have a descriptive key name
  * 3. Add new images here first, then use them
  * 4. Run `npm run validate-images` to check all images exist
- * 
+ *
  * BENEFITS:
  * - TypeScript autocomplete prevents typos
  * - Change image in one place, updates everywhere
@@ -25,19 +25,27 @@ export const systems = {
     blackBlade01: '/images/pergolas/residential-black-r-blade-01.webp',
     blackBlade02: '/images/pergolas/residential-black-r-blade-02.webp',
     blackBlade04: '/images/pergolas/residential-black-r-blade-04.webp',
-    blackBladePool: '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
-    grayBronzeWhite: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
-    whiteScreen: '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
-    whitePoolGlass: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
+    blackBladePool:
+      '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
+    grayBronzeWhite:
+      '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
+    whiteScreen:
+      '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
+    whitePoolGlass:
+      '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
     whiteLedStrip: '/images/pergolas/residential-white-r-blade-led-strip.jpg',
     sanibelShoprosGrayWhite: '/images/pergolas/sanibel-shopros-gray-white.jpg',
-    sanibelShoprosGrayWhite02: '/images/pergolas/sanibel-shopros-gray-white-02.jpg',
+    sanibelShoprosGrayWhite02:
+      '/images/pergolas/sanibel-shopros-gray-white-02.jpg',
   },
 
   /** Shade/screen system images */
   shades: {
     hero: '/images/shades/shades-hero.jpg',
     deployed: '/images/shades/shade-deployed-screens-01.jpg',
+    ohareHero: '/projects/ohare/hero.jpg',
+    ohareClosed: '/projects/ohare/1.jpg',
+    oharePartOpen: '/projects/ohare/2.jpg',
   },
 
   /** Glass enclosure system images - ACTUAL GLASS WALLS */
@@ -57,15 +65,24 @@ export const systems = {
     system07: '/images/enclosures/glass-system-07.jpg',
     system08: '/images/enclosures/glass-system-08.jpg',
     system09: '/images/enclosures/glass-system-09.jpg',
-    commercialDayExterior: '/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg',
-    commercialDayInterior: '/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg',
-    commercialNightDining: '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
-    commercialNightExterior: '/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg',
-    commercialNightInterior01: '/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg',
-    commercialNightInterior02: '/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg',
-    commercialInteriorWood: '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg',
-    commercialPergolaDay: '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg',
-    commercialPergolaLights: '/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg',
+    commercialDayExterior:
+      '/images/enclosures/commercial-glass-enclosure-day-exterior-01.jpg',
+    commercialDayInterior:
+      '/images/enclosures/commercial-glass-enclosure-day-interior-01.jpg',
+    commercialNightDining:
+      '/images/enclosures/commercial-glass-enclosure-night-dining-01.jpg',
+    commercialNightExterior:
+      '/images/enclosures/commercial-glass-enclosure-night-exterior-01.jpg',
+    commercialNightInterior01:
+      '/images/enclosures/commercial-glass-enclosure-night-interior-01.jpg',
+    commercialNightInterior02:
+      '/images/enclosures/commercial-glass-enclosure-night-interior-02.jpg',
+    commercialInteriorWood:
+      '/images/enclosures/commercial-glass-enclosure-interior-wood-deck-01.jpg',
+    commercialPergolaDay:
+      '/images/enclosures/commercial-pergola-glass-enclosure-day-dining-01.jpg',
+    commercialPergolaLights:
+      '/images/enclosures/commercial-pergola-glass-enclosure-hanging-lights-01.jpg',
     framelessGlass: '/images/enclosures/frameless-sliding-glass-walls.jpg',
   },
 
@@ -154,14 +171,20 @@ export function getProjectHero(slug: string): string {
  * Pattern: /projects/{slug}/{1|2|3|...}.jpg
  */
 export function getProjectGallery(slug: string, count: number = 3): string[] {
-  return Array.from({ length: count }, (_, i) => `/projects/${slug}/${i + 1}.jpg`);
+  return Array.from(
+    { length: count },
+    (_, i) => `/projects/${slug}/${i + 1}.jpg`
+  );
 }
 
 /**
  * Get complete image set for a project
  * Returns hero + gallery paths in a convenient object
  */
-export function getProjectImageSet(slug: string, galleryCount: number = 3): ProjectImageSet {
+export function getProjectImageSet(
+  slug: string,
+  galleryCount: number = 3
+): ProjectImageSet {
   const hero = getProjectHero(slug);
   const gallery = getProjectGallery(slug, galleryCount);
   return {
@@ -287,7 +310,10 @@ export const featuredProjects = {
   /** Deerfield - Backyard oasis (Residential) */
   deerfieldBackyardOasis: getProjectImageSet('deerfield-backyard-oasis', 3),
   /** Elmhurst - Entertainment space (Commercial) */
-  elmhurstEntertainmentSpace: getProjectImageSet('elmhurst-entertainment-space', 3),
+  elmhurstEntertainmentSpace: getProjectImageSet(
+    'elmhurst-entertainment-space',
+    3
+  ),
   /** Evanston - Rooftop terrace (Commercial) */
   evanstonRooftopTerrace: getProjectImageSet('evanston-rooftop-terrace', 3),
   /** Glencoe - Modern estate (Residential) */
@@ -338,7 +364,7 @@ export const featuredProjects = {
 } as const;
 
 /** All featured project slugs for iteration */
-export const featuredProjectSlugs = Object.keys(featuredProjects).map(key => {
+export const featuredProjectSlugs = Object.keys(featuredProjects).map((key) => {
   const project = featuredProjects[key as keyof typeof featuredProjects];
   return project.hero.split('/')[2]; // Extract slug from /projects/{slug}/hero.jpg
 });
@@ -354,36 +380,102 @@ export const featuredProjectSlugs = Object.keys(featuredProjects).map(key => {
 export const projects = {
   carmines: { slug: 'carmines', ...featuredProjects.carmines },
   avaella: { slug: 'avaella', ...featuredProjects.avaella },
-  barringtonHills: { slug: 'barrington-hills-estate', ...featuredProjects.barringtonHillsEstate },
+  barringtonHills: {
+    slug: 'barrington-hills-estate',
+    ...featuredProjects.barringtonHillsEstate,
+  },
   wade: { slug: 'wade', ...featuredProjects.wade },
   jake: { slug: 'jake', ...featuredProjects.jake },
   greco: { slug: 'greco', ...featuredProjects.greco },
   karp: { slug: 'karp', ...featuredProjects.karp },
-  buffaloGroveBrewery: { slug: 'buffalo-grove-brewery', ...featuredProjects.buffaloGroveBrewery },
-  deerfieldBackyardOasis: { slug: 'deerfield-backyard-oasis', ...featuredProjects.deerfieldBackyardOasis },
-  elmhurstEntertainmentSpace: { slug: 'elmhurst-entertainment-space', ...featuredProjects.elmhurstEntertainmentSpace },
-  evanstonRooftopTerrace: { slug: 'evanston-rooftop-terrace', ...featuredProjects.evanstonRooftopTerrace },
-  glencoeModernEstate: { slug: 'glencoe-modern-estate', ...featuredProjects.glencoeModernEstate },
-  glencoeRenovationBuilder: { slug: 'glencoe-renovation-builder', ...featuredProjects.glencoeRenovationBuilder },
-  highlandPark: { slug: 'highland-park-builder', ...featuredProjects.highlandParkBuilder },
-  hinsdaleCustomBuilder: { slug: 'hinsdale-custom-builder', ...featuredProjects.hinsdaleCustomBuilder },
-  hinsdaleGardenRoom: { slug: 'hinsdale-garden-room', ...featuredProjects.hinsdaleGardenRoom },
-  kenilworthHeritageHome: { slug: 'kenilworth-heritage-home', ...featuredProjects.kenilworthHeritageHome },
-  lakeForestEstateBuilder: { slug: 'lake-forest-estate-builder', ...featuredProjects.lakeForestEstateBuilder },
-  lakeForest: { slug: 'lake-forest-pergola', ...featuredProjects.lakeForestPergola },
-  lakeGeneva: { slug: 'lake-geneva-restaurant', ...featuredProjects.lakeGenevaRestaurant },
-  libertyville: { slug: 'libertyville-shade-system', ...featuredProjects.libertyvilleShadeSystem },
-  napervillePoolPavilion: { slug: 'naperville-pool-pavilion', ...featuredProjects.napervillePoolPavilion },
-  northbrookFamily: { slug: 'karp', ...featuredProjects.northbrookFamilyEntertaining },
-  stCharlesWinery: { slug: 'st-charles-winery', ...featuredProjects.stCharlesWinery },
-  wheatonOutdoorDining: { slug: 'wheaton-outdoor-dining', ...featuredProjects.wheatonOutdoorDining },
-  wilmette: { slug: 'wilmette-country-club', ...featuredProjects.wilmetteCountryClub },
-  winnetkaLakesideRetreat: { slug: 'winnetka-lakeside-retreat', ...featuredProjects.winnetkaLakesideRetreat },
-  winnetkaModernBuilder: { slug: 'winnetka-modern-builder', ...featuredProjects.winnetkaModernBuilder },
+  buffaloGroveBrewery: {
+    slug: 'buffalo-grove-brewery',
+    ...featuredProjects.buffaloGroveBrewery,
+  },
+  deerfieldBackyardOasis: {
+    slug: 'deerfield-backyard-oasis',
+    ...featuredProjects.deerfieldBackyardOasis,
+  },
+  elmhurstEntertainmentSpace: {
+    slug: 'elmhurst-entertainment-space',
+    ...featuredProjects.elmhurstEntertainmentSpace,
+  },
+  evanstonRooftopTerrace: {
+    slug: 'evanston-rooftop-terrace',
+    ...featuredProjects.evanstonRooftopTerrace,
+  },
+  glencoeModernEstate: {
+    slug: 'glencoe-modern-estate',
+    ...featuredProjects.glencoeModernEstate,
+  },
+  glencoeRenovationBuilder: {
+    slug: 'glencoe-renovation-builder',
+    ...featuredProjects.glencoeRenovationBuilder,
+  },
+  highlandPark: {
+    slug: 'highland-park-builder',
+    ...featuredProjects.highlandParkBuilder,
+  },
+  hinsdaleCustomBuilder: {
+    slug: 'hinsdale-custom-builder',
+    ...featuredProjects.hinsdaleCustomBuilder,
+  },
+  hinsdaleGardenRoom: {
+    slug: 'hinsdale-garden-room',
+    ...featuredProjects.hinsdaleGardenRoom,
+  },
+  kenilworthHeritageHome: {
+    slug: 'kenilworth-heritage-home',
+    ...featuredProjects.kenilworthHeritageHome,
+  },
+  lakeForestEstateBuilder: {
+    slug: 'lake-forest-estate-builder',
+    ...featuredProjects.lakeForestEstateBuilder,
+  },
+  lakeForest: {
+    slug: 'lake-forest-pergola',
+    ...featuredProjects.lakeForestPergola,
+  },
+  lakeGeneva: {
+    slug: 'lake-geneva-restaurant',
+    ...featuredProjects.lakeGenevaRestaurant,
+  },
+  libertyville: {
+    slug: 'libertyville-shade-system',
+    ...featuredProjects.libertyvilleShadeSystem,
+  },
+  napervillePoolPavilion: {
+    slug: 'naperville-pool-pavilion',
+    ...featuredProjects.napervillePoolPavilion,
+  },
+  northbrookFamily: {
+    slug: 'karp',
+    ...featuredProjects.northbrookFamilyEntertaining,
+  },
+  stCharlesWinery: {
+    slug: 'st-charles-winery',
+    ...featuredProjects.stCharlesWinery,
+  },
+  wheatonOutdoorDining: {
+    slug: 'wheaton-outdoor-dining',
+    ...featuredProjects.wheatonOutdoorDining,
+  },
+  wilmette: {
+    slug: 'wilmette-country-club',
+    ...featuredProjects.wilmetteCountryClub,
+  },
+  winnetkaLakesideRetreat: {
+    slug: 'winnetka-lakeside-retreat',
+    ...featuredProjects.winnetkaLakesideRetreat,
+  },
+  winnetkaModernBuilder: {
+    slug: 'winnetka-modern-builder',
+    ...featuredProjects.winnetkaModernBuilder,
+  },
 } as const;
 
 /** @deprecated Use featuredProjectSlugs or Object.keys(featuredProjects) instead */
-export const projectSlugs = Object.values(projects).map(p => p.slug);
+export const projectSlugs = Object.values(projects).map((p) => p.slug);
 
 /**
  * @deprecated Use getProjectImageSet() instead for consistency
@@ -391,7 +483,7 @@ export const projectSlugs = Object.values(projects).map(p => p.slug);
  */
 export function getProjectImages(slug: string): ProjectImageSet | null {
   // Check if it's a known legacy project
-  const legacyProject = Object.values(projects).find(p => p.slug === slug);
+  const legacyProject = Object.values(projects).find((p) => p.slug === slug);
   if (legacyProject) {
     return {
       hero: legacyProject.hero,
@@ -417,15 +509,18 @@ export const pages = {
   /** Shared shade/pergola images */
   price: {
     shadesHero: '/images/shades/shades-hero.jpg',
-    pergolaGray: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
-    whitePergolaPool: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
+    pergolaGray:
+      '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
+    whitePergolaPool:
+      '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
   },
 
   /** Guides */
   guides: {
     cover: '/images/misc/guide-cover.png',
     louveredPergolasHero: '/images/pergolas/pergola-hero.jpg',
-    pergolaVsPatioCover: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
+    pergolaVsPatioCover:
+      '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
   },
 
   /** Shared guide detail images */
@@ -435,8 +530,10 @@ export const pages = {
 
   /** Systems index */
   systems: {
-    blackBladePool: '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
-    grayBladeWhite: '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
+    blackBladePool:
+      '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
+    grayBladeWhite:
+      '/images/pergolas/residential-gray-bronze-r-blade-white-louvers-01.jpg',
     whiteLedStrip: '/images/pergolas/residential-white-r-blade-led-strip.jpg',
   },
 
@@ -445,15 +542,21 @@ export const pages = {
     defaultHero: brand.hero.pergola,
     barringtonPergola1: '/images/pergolas/residential-black-r-blade-01.webp',
     barringtonPergola4: '/images/pergolas/residential-black-r-blade-04.webp',
-    chicagoCourtyardPergola: '/images/service-areas/chicago-courtyard-pergola.jpg',
-    chicagoScreenExterior: '/images/service-areas/chicago-retractable-screen-exterior.jpg',
-    chicagoScreenCorner: '/images/service-areas/chicago-retractable-screen-corner.jpg',
-    chicagoScreenRestaurant: '/images/service-areas/chicago-retractable-screen-restaurant.jpg',
-    sanibelPergola: '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
+    chicagoCourtyardPergola:
+      '/images/service-areas/chicago-courtyard-pergola.jpg',
+    chicagoScreenExterior:
+      '/images/service-areas/chicago-retractable-screen-exterior.jpg',
+    chicagoScreenCorner:
+      '/images/service-areas/chicago-retractable-screen-corner.jpg',
+    chicagoScreenRestaurant:
+      '/images/service-areas/chicago-retractable-screen-restaurant.jpg',
+    sanibelPergola:
+      '/images/pergolas/residential-white-gray-bronze-r-blade-screen.jpg',
     sanibelShade: '/images/shades/shade-deployed-screens-01.jpg',
     sanibelShopros: systems.pergolas.sanibelShoprosGrayWhite,
     sanibelShopros02: systems.pergolas.sanibelShoprosGrayWhite02,
-    napervillePergolaPool01: '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
+    napervillePergolaPool01:
+      '/images/pergolas/residential-white-pergola-pool-glass-doors-03.jpg',
   },
 
   /** Locations */
@@ -491,7 +594,7 @@ export const galleries = {
     pages.price.shadesHero,
     '/images/shades/shade-deployed-screens-01.jpg',
     brand.context.lake,
-    pages.serviceAreas.sanibelShade,
+    systems.shades.ohareHero,
   ],
 
   /** Enclosures system page gallery - REAL GLASS IMAGES */
@@ -583,7 +686,7 @@ export const allImagePaths = [
   ...Object.values(testimonials),
 
   // Project images (from featuredProjects)
-  ...Object.values(featuredProjects).flatMap(p => [p.hero, ...p.gallery]),
+  ...Object.values(featuredProjects).flatMap((p) => [p.hero, ...p.gallery]),
 
   // Page-specific images
   pages.home.heroVideo,
@@ -611,5 +714,5 @@ export const allImagePaths = [
 
 /** Check if a path is a valid image path (for runtime validation) */
 export function isValidImagePath(path: string): boolean {
-  return allImagePaths.includes(path as typeof allImagePaths[number]);
+  return allImagePaths.includes(path as (typeof allImagePaths)[number]);
 }
