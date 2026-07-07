@@ -160,6 +160,13 @@ const resourceLinks = [
     icon: DollarSign,
   },
   {
+    title: 'Pergola + Glass Outdoor Room',
+    description:
+      'See how a louvered roof, frameless glass, screens, heat, and lighting become one protected patio plan.',
+    href: '/outdoor-rooms/pergola-glass-outdoor-room',
+    icon: Home,
+  },
+  {
     title: 'How EDG Chooses A Pergola System',
     description:
       "See how Brustor, Azenco, and Sundance fit into EDG's manufacturer-flexible toolkit.",

@@ -198,8 +198,14 @@ const relatedProducts = [
   {
     title: 'Glass Enclosures',
     description:
-      'Transform your outdoor space into a year-round room with motorized glass wall systems.',
+      'Add season-extending glass walls when the goal is a protected outdoor room with clear views.',
     href: '/systems/enclosures',
+  },
+  {
+    title: 'Pergola + Glass Outdoor Room',
+    description:
+      'See how a louvered roof, frameless glass, and comfort options can become one finished patio plan.',
+    href: '/outdoor-rooms/pergola-glass-outdoor-room',
   },
   {
     title: 'Outdoor Heating',

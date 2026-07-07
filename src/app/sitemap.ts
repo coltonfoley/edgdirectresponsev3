@@ -15,6 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: '/systems/appliances', priority: 0.9 },
     { url: '/systems/saunas', priority: 0.9 },
     { url: '/systems', priority: 0.8 },
+    { url: '/outdoor-rooms', priority: 0.85 },
+    { url: '/outdoor-rooms/pergola-glass-outdoor-room', priority: 0.85 },
     { url: '/commercial', priority: 0.9 },
     { url: '/contact', priority: 0.8 },
     { url: '/projects', priority: 0.8 },

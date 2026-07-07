@@ -39,6 +39,16 @@ const sitemapLinks = [
     ],
   },
   {
+    category: 'Outdoor Rooms',
+    links: [
+      { href: '/outdoor-rooms', label: 'Outdoor Room Plans' },
+      {
+        href: '/outdoor-rooms/pergola-glass-outdoor-room',
+        label: 'Pergola + Glass Outdoor Room',
+      },
+    ],
+  },
+  {
     category: 'Commercial',
     links: [
       { href: '/commercial', label: 'Commercial Solutions' },

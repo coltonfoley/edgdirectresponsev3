@@ -14,6 +14,7 @@ import {
   Wind,
   Thermometer,
   Home,
+  Layers,
   Building2,
   MapPin,
   Phone,
@@ -144,6 +145,13 @@ const systems = [
 
 // Secondary systems
 const secondarySystems = [
+  {
+    href: '/outdoor-rooms',
+    title: 'Outdoor Room Plans',
+    description:
+      'Finished-room concepts that combine pergolas, glass, screens, heat, lighting, and outdoor kitchens around one complete space.',
+    icon: Layers,
+  },
   {
     href: '/systems/saunas',
     title: 'Custom Saunas',
@@ -527,8 +535,8 @@ export default function SystemsPage() {
               </h2>
               <p className="mb-8 text-lg leading-relaxed text-gray-300">
                 Our systems are specifically engineered to handle the demanding
-                conditions of the upper Midwest—from summer storms and high
-                winds to heavy snow loads and subzero temperatures.
+                conditions of the upper Midwest, from summer rain and high winds
+                to heavy snow loads and cold winter temperatures.
               </p>
 
               <div className="space-y-6">
@@ -563,10 +571,10 @@ export default function SystemsPage() {
                     <Thermometer className="text-edg-brand h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="mb-1 font-bold">Year-Round Use</h3>
+                    <h3 className="mb-1 font-bold">Season-Extending Comfort</h3>
                     <p className="text-sm text-zinc-300">
-                      Integrated heating, weather sealing, and insulation
-                      options extend your outdoor season into the colder months.
+                      Heating, glass, screens, and selected comfort details can
+                      extend the outdoor season when the site supports them.
                     </p>
                   </div>
                 </div>
