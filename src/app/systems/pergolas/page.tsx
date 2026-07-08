@@ -202,6 +202,12 @@ const relatedProducts = [
     href: '/systems/enclosures',
   },
   {
+    title: 'Outdoor Room Plans',
+    description:
+      'Start with the finished patio outcome when the pergola needs to coordinate with glass, screens, lighting, heat, or cooking.',
+    href: '/outdoor-rooms',
+  },
+  {
     title: 'Pergola + Glass Outdoor Room',
     description:
       'See how a louvered roof, frameless glass, and comfort options can become one finished patio plan.',

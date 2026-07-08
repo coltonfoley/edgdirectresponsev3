@@ -35,6 +35,7 @@ const guides = [
     href: '/guides/motorized-pergola-planning',
     icon: SlidersHorizontal,
     readTime: '14 min read',
+    intent: 'choose-system',
   },
   {
     title: 'Pergola System Fit Review',
@@ -42,6 +43,7 @@ const guides = [
     href: '/guides/pergola-system-fit-review',
     icon: ClipboardCheck,
     readTime: '3 min intake',
+    intent: 'submit-review',
   },
   {
     title: 'Motorized Pergola Budget Examples',
@@ -49,6 +51,7 @@ const guides = [
     href: '/guides/motorized-pergola-budget-examples',
     icon: DollarSign,
     readTime: '8 min read',
+    intent: 'budget',
   },
   {
     title: 'Pergolas on Decks and Roof Decks',
@@ -56,6 +59,7 @@ const guides = [
     href: '/guides/motorized-pergola-deck-roof-deck',
     icon: Building2,
     readTime: '9 min read',
+    intent: 'constraints',
   },
   {
     title: 'Permits, HOA, and Engineering',
@@ -63,6 +67,7 @@ const guides = [
     href: '/guides/motorized-pergola-permits-hoa-engineering',
     icon: ShieldCheck,
     readTime: '9 min read',
+    intent: 'constraints',
   },
   {
     title: 'Free Outdoor Living Planning Guide',
@@ -70,6 +75,7 @@ const guides = [
     href: '/guides/planning-guide',
     icon: FileText,
     readTime: '15 min read',
+    intent: 'constraints',
   },
   {
     title: 'Pergola Cost Guide 2026',
@@ -77,6 +83,7 @@ const guides = [
     href: '/guides/pergola-cost',
     icon: DollarSign,
     readTime: '12 min read',
+    intent: 'budget',
   },
   {
     title: 'MagnaTrack Screens Cost Guide 2026',
@@ -84,6 +91,7 @@ const guides = [
     href: '/guides/magnatrack-screens-cost',
     icon: Wind,
     readTime: '9 min read',
+    intent: 'budget',
   },
   {
     title: 'The Complete Guide to Louvered Pergolas',
@@ -91,6 +99,7 @@ const guides = [
     href: '/guides/louvered-pergolas',
     icon: BookOpen,
     readTime: '12 min read',
+    intent: 'choose-system',
   },
   {
     title: 'How EDG Chooses a Pergola System',
@@ -98,6 +107,7 @@ const guides = [
     href: '/guides/louvered-pergola-brands-compared',
     icon: Layers,
     readTime: '10 min read',
+    intent: 'choose-system',
   },
   {
     title: 'Pergola vs. Patio Cover vs. Awning',
@@ -105,6 +115,34 @@ const guides = [
     href: '/guides/pergola-vs-patio-cover',
     icon: Scale,
     readTime: '8 min read',
+    intent: 'choose-system',
+  },
+];
+
+const guideSections = [
+  {
+    title: 'Choose a System',
+    description:
+      'Compare the core product paths before narrowing the project scope.',
+    intent: 'choose-system',
+  },
+  {
+    title: 'Budget',
+    description:
+      'Use realistic planning ranges before requesting a site-specific review.',
+    intent: 'budget',
+  },
+  {
+    title: 'Permits and Site Constraints',
+    description:
+      'Check the physical, municipal, and review-path details that shape the recommendation.',
+    intent: 'constraints',
+  },
+  {
+    title: 'Submit for Review',
+    description:
+      'Move from research to a fit review when you have photos, goals, and rough constraints.',
+    intent: 'submit-review',
   },
 ];
 
@@ -140,31 +178,55 @@ export default function GuidesIndexPage() {
       <Section className="py-20">
         <Container>
           <FadeIn delay={0.2}>
-            <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-              {guides.map((guide, i) => (
-                <Link key={i} href={guide.href} className="group block h-full">
-                  <div className="hover:border-edg-brand h-full rounded-3xl border border-zinc-200 bg-white p-8 transition-all hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900">
-                    <div className="mb-8 flex items-start justify-between">
-                      <div className="group-hover:bg-edg-brand/10 group-hover:border-edg-brand/20 rounded-2xl border border-zinc-100 bg-zinc-50 p-4 transition-colors dark:border-zinc-700 dark:bg-zinc-800">
-                        <guide.icon className="text-edg-brand-text dark:text-edg-brand h-8 w-8" />
-                      </div>
-                      <span className="rounded-full bg-zinc-100 px-4 py-1.5 text-xs font-bold tracking-wider text-zinc-600 uppercase dark:bg-zinc-800">
-                        {guide.readTime}
-                      </span>
+            <div className="mx-auto max-w-6xl space-y-16">
+              {guideSections.map((section) => {
+                const sectionGuides = guides.filter(
+                  (guide) => guide.intent === section.intent
+                );
+
+                return (
+                  <section key={section.intent}>
+                    <div className="mb-6 max-w-3xl">
+                      <h2 className="mb-2 text-2xl font-bold text-zinc-900 md:text-3xl dark:text-zinc-50">
+                        {section.title}
+                      </h2>
+                      <p className="text-muted-foreground text-base leading-relaxed">
+                        {section.description}
+                      </p>
                     </div>
-                    <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-4 text-2xl font-bold transition-colors md:text-3xl">
-                      {guide.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                      {guide.desc}
-                    </p>
-                    <div className="text-edg-brand-text dark:text-edg-brand flex items-center text-sm font-bold transition-all group-hover:gap-2">
-                      Read Full Article{' '}
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <div className="grid gap-6 md:grid-cols-2">
+                      {sectionGuides.map((guide) => (
+                        <Link
+                          key={guide.href}
+                          href={guide.href}
+                          className="group block h-full"
+                        >
+                          <div className="hover:border-edg-brand h-full rounded-lg border border-zinc-200 bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900">
+                            <div className="mb-6 flex items-start justify-between gap-4">
+                              <div className="group-hover:bg-edg-brand/10 group-hover:border-edg-brand/20 rounded-lg border border-zinc-100 bg-zinc-50 p-4 transition-colors dark:border-zinc-700 dark:bg-zinc-800">
+                                <guide.icon className="text-edg-brand-text dark:text-edg-brand h-8 w-8" />
+                              </div>
+                              <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-bold tracking-wider text-zinc-600 uppercase dark:bg-zinc-800">
+                                {guide.readTime}
+                              </span>
+                            </div>
+                            <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-4 text-2xl font-bold transition-colors">
+                              {guide.title}
+                            </h3>
+                            <p className="text-muted-foreground mb-8 text-base leading-relaxed">
+                              {guide.desc}
+                            </p>
+                            <div className="text-edg-brand-text dark:text-edg-brand flex items-center text-sm font-bold transition-all group-hover:gap-2">
+                              Read Full Article{' '}
+                              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </section>
+                );
+              })}
             </div>
           </FadeIn>
         </Container>

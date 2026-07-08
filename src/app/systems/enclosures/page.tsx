@@ -146,6 +146,7 @@ const upgradeOptions = [
 const relatedProducts = [
   { name: 'Louvered Pergolas', href: '/systems/pergolas', description: 'Motorized adjustable roof systems' },
   { name: 'Retractable Screens', href: '/systems/shades', description: 'Motorized insect and sun screens' },
+  { name: 'Outdoor Room Plans', href: '/outdoor-rooms', description: 'Outcome-led patio plans that combine roof, glass, screens, lighting, heat, and cooking paths' },
   { name: 'Pergola + Glass Outdoor Room', href: '/outdoor-rooms/pergola-glass-outdoor-room', description: 'A protected patio plan with roof, glass, and comfort options' },
   { name: 'Outdoor Heating', href: '/systems/appliances', description: 'Infrared heaters and fire features' },
 ];

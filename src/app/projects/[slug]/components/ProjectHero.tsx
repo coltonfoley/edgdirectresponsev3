@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { ProjectPhotoPlaceholder } from '@/components/projects/ProjectPhotoPlaceholder';
+import { buildContactHref } from '@/lib/contact-links';
 import { EnrichedProject } from '../lib/project-utils';
 
 interface ProjectHeroProps {
@@ -17,9 +18,15 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       : project.hasRealPhotography
         ? 'Project media in review'
         : 'Project profile in progress';
+  const contactHref = buildContactHref({
+    type: 'fit-review',
+    project: project.slug,
+    location: project.location,
+    source: 'project_hero',
+  });
 
   return (
-    <section className="relative min-h-[72svh] overflow-hidden bg-edg-dark pt-28 text-white">
+    <section className="bg-edg-dark relative min-h-[72svh] overflow-hidden pt-28 text-white">
       <div className="absolute inset-0">
         {project.hasRealPhotography ? (
           <Image
@@ -38,10 +45,10 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       <div className="absolute inset-0 bg-black/70" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/15" />
 
-      <div className="container relative z-10 mx-auto flex min-h-[72svh] flex-col px-4 pb-12 sm:px-6 lg:px-8">
+      <div className="relative z-10 container mx-auto flex min-h-[72svh] flex-col px-4 pb-12 sm:px-6 lg:px-8">
         <div className="mb-6">
           <Breadcrumb
-            className="text-zinc-300 [&_[aria-current='page']]:text-white [&_a]:text-zinc-300 [&_a:hover]:text-edg-brand"
+            className="[&_a:hover]:text-edg-brand text-zinc-300 [&_[aria-current='page']]:text-white [&_a]:text-zinc-300"
             items={[
               { label: 'Projects', href: '/projects' },
               { label: project.title },
@@ -52,7 +59,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         <div className="mt-auto grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:items-end">
           <div className="max-w-4xl">
             <div className="mb-5 flex flex-wrap gap-3">
-              <span className="border border-edg-brand/45 bg-edg-brand/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+              <span className="border-edg-brand/45 bg-edg-brand/10 text-edg-brand border px-3 py-1 text-xs font-bold tracking-[0.2em] uppercase">
                 {project.type} Project
               </span>
               <span className="border border-white/20 bg-white/10 px-3 py-1 text-xs font-bold tracking-[0.2em] text-white uppercase">
@@ -70,7 +77,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
               itemScope
               itemType="https://schema.org/Place"
             >
-              <MapPin className="mr-2 h-5 w-5 text-edg-brand" />
+              <MapPin className="text-edg-brand mr-2 h-5 w-5" />
               <span itemProp="name">{project.location}</span>
               <meta itemProp="address" content={project.location} />
             </div>
@@ -81,8 +88,8 @@ export function ProjectHero({ project }: ProjectHeroProps) {
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href={`/contact?project=${project.slug}&location=${encodeURIComponent(project.location)}`}
-                className="inline-flex items-center justify-center bg-edg-brand px-6 py-3 text-sm font-bold tracking-wider text-black uppercase transition-colors hover:bg-white"
+                href={contactHref}
+                className="bg-edg-brand inline-flex items-center justify-center px-6 py-3 text-sm font-bold tracking-wider text-black uppercase transition-colors hover:bg-white"
               >
                 Plan a similar project
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -97,7 +104,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           </div>
 
           <div className="border border-white/15 bg-black/45 p-6 backdrop-blur-sm">
-            <h2 className="mb-5 text-sm font-bold tracking-[0.2em] text-edg-brand uppercase">
+            <h2 className="text-edg-brand mb-5 text-sm font-bold tracking-[0.2em] uppercase">
               Project Snapshot
             </h2>
             <dl className="space-y-5">
@@ -125,7 +132,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
                   {project.systems.map((system) => (
                     <span
                       key={system}
-                      className="border border-edg-brand/25 bg-edg-brand/10 px-3 py-1 text-sm font-semibold text-edg-brand"
+                      className="border-edg-brand/25 bg-edg-brand/10 text-edg-brand border px-3 py-1 text-sm font-semibold"
                     >
                       {system}
                     </span>

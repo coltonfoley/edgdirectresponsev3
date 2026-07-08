@@ -13,6 +13,7 @@
     "postinstall": "node scripts/patch-next-metadata.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "routes:check": "node scripts/check-route-registry.mjs",
     "test:e2e": "npm run build && playwright test",
     "test:contrast": "node scripts/test-contrast.mjs",
     "test:contrast:dark": "COLOR_SCHEME=dark node scripts/test-contrast.mjs",

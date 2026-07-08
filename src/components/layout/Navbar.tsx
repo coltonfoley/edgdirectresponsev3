@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { trackConversion } from '@/lib/analytics';
+import { buildContactHref } from '@/lib/contact-links';
+import { commercialNavLinks } from '@/lib/site-routes';
 
 type MenuLink = {
   href: string;
@@ -44,33 +46,11 @@ const productsDropdown: MenuLink[] = [
   },
 ];
 
-const solutionsDropdown: MenuLink[] = [
-  {
-    href: '/outdoor-rooms/pergola-glass-outdoor-room',
-    label: 'Pergola + Glass Room',
-    desc: 'Protected patio concept with louvers and frameless glass',
-  },
-  {
-    href: '/commercial',
-    label: 'Commercial Outdoor Living',
-    desc: 'Revenue-minded systems for hospitality and shared spaces',
-  },
-  {
-    href: '/commercial/restaurant-patio-enclosures',
-    label: 'Restaurant Patio Enclosures',
-    desc: 'Roof, glass, screens, heat and shade for outdoor dining',
-  },
-  {
-    href: '/commercial/hotel-roof-deck-systems',
-    label: 'Hotel Roof Deck Systems',
-    desc: 'Pool decks, rooftop bars and guest amenity spaces',
-  },
-  {
-    href: '/commercial/country-club-outdoor-spaces',
-    label: 'Country Clubs',
-    desc: 'Dining terraces, pool decks and event-ready outdoor areas',
-  },
-];
+const commercialDropdown: MenuLink[] = commercialNavLinks.map((route) => ({
+  href: route.href,
+  label: route.label,
+  desc: route.desc ?? '',
+}));
 
 // Locations dropdown (renamed from Areas)
 const locationsDropdown: MenuLink[] = [
@@ -206,12 +186,12 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
+  const [commercialOpen, setCommercialOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
   const [workOpen, setWorkOpen] = useState(false);
   const [guidesOpen, setGuidesOpen] = useState(false);
   const productsDropdownRef = useRef<HTMLDivElement>(null);
-  const solutionsDropdownRef = useRef<HTMLDivElement>(null);
+  const commercialDropdownRef = useRef<HTMLDivElement>(null);
   const locationsDropdownRef = useRef<HTMLDivElement>(null);
   const workDropdownRef = useRef<HTMLDivElement>(null);
   const guidesDropdownRef = useRef<HTMLDivElement>(null);
@@ -236,10 +216,10 @@ export function Navbar() {
         setProductsOpen(false);
       }
       if (
-        solutionsDropdownRef.current &&
-        !solutionsDropdownRef.current.contains(event.target as Node)
+        commercialDropdownRef.current &&
+        !commercialDropdownRef.current.contains(event.target as Node)
       ) {
-        setSolutionsOpen(false);
+        setCommercialOpen(false);
       }
       if (
         locationsDropdownRef.current &&
@@ -279,10 +259,20 @@ export function Navbar() {
     '/service-areas/sanibel-outdoor-living'
   );
   const startProjectHref = isSouthwestFloridaPage
-    ? '/contact?type=price&product=shades&area=southwest-florida&source=nav_florida'
+    ? buildContactHref({
+        type: 'price',
+        product: 'shades',
+        area: 'southwest-florida',
+        source: 'nav_florida',
+      })
     : isSanibelPage
-      ? '/contact?type=price&product=shades&area=sanibel&source=nav_sanibel'
-      : '/contact';
+      ? buildContactHref({
+          type: 'price',
+          product: 'shades',
+          area: 'sanibel',
+          source: 'nav_sanibel',
+        })
+      : buildContactHref({ type: 'fit-review', source: 'nav' });
 
   return (
     <header
@@ -313,7 +303,7 @@ export function Navbar() {
               <button
                 onClick={() => {
                   setProductsOpen(!productsOpen);
-                  setSolutionsOpen(false);
+                  setCommercialOpen(false);
                   setLocationsOpen(false);
                   setWorkOpen(false);
                   setGuidesOpen(false);
@@ -382,66 +372,15 @@ export function Navbar() {
               )}
             </div>
 
-            {/* Solutions Dropdown */}
-            <div className="relative" ref={solutionsDropdownRef}>
-              <button
-                onClick={() => {
-                  setSolutionsOpen(!solutionsOpen);
-                  setProductsOpen(false);
-                  setLocationsOpen(false);
-                  setWorkOpen(false);
-                  setGuidesOpen(false);
-                }}
-                className={cn(
-                  'hover:text-edg-brand flex items-center gap-1 text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
-                  textColor
-                )}
-                aria-label="View solutions"
-                aria-expanded={solutionsOpen}
-              >
-                Solutions
-                <ChevronDown
-                  className={cn(
-                    'h-4 w-4 transition-transform',
-                    solutionsOpen && 'rotate-180'
-                  )}
-                />
-              </button>
-
-              {solutionsOpen && (
-                <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-[32rem] overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
-                  <Link
-                    href="/outdoor-rooms"
-                    onClick={() => setSolutionsOpen(false)}
-                    className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
-                  >
-                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
-                      Outdoor Room Plans
-                    </div>
-                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
-                      Browse complete pergola, glass, screen and comfort plans
-                    </div>
-                  </Link>
-                  <div className="grid max-h-[65vh] overflow-y-auto sm:grid-cols-2">
-                    {solutionsDropdown.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setSolutionsOpen(false)}
-                        className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
-                      >
-                        <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
-                          {item.label}
-                        </div>
-                        <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
-                          {item.desc}
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+            <Link
+              href="/outdoor-rooms"
+              className={cn(
+                'hover:text-edg-brand text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
+                textColor
               )}
-            </div>
+            >
+              Outdoor Rooms
+            </Link>
 
             {/* Locations Dropdown */}
             <div className="relative" ref={locationsDropdownRef}>
@@ -449,7 +388,7 @@ export function Navbar() {
                 onClick={() => {
                   setLocationsOpen(!locationsOpen);
                   setProductsOpen(false);
-                  setSolutionsOpen(false);
+                  setCommercialOpen(false);
                   setWorkOpen(false);
                   setGuidesOpen(false);
                 }}
@@ -535,7 +474,7 @@ export function Navbar() {
                 onClick={() => {
                   setWorkOpen(!workOpen);
                   setProductsOpen(false);
-                  setSolutionsOpen(false);
+                  setCommercialOpen(false);
                   setLocationsOpen(false);
                   setGuidesOpen(false);
                 }}
@@ -603,7 +542,7 @@ export function Navbar() {
                 onClick={() => {
                   setGuidesOpen(!guidesOpen);
                   setProductsOpen(false);
-                  setSolutionsOpen(false);
+                  setCommercialOpen(false);
                   setLocationsOpen(false);
                   setWorkOpen(false);
                 }}
@@ -657,21 +596,61 @@ export function Navbar() {
                 </div>
               )}
             </div>
+
+            {/* Commercial Dropdown */}
+            <div className="relative" ref={commercialDropdownRef}>
+              <button
+                onClick={() => {
+                  setCommercialOpen(!commercialOpen);
+                  setProductsOpen(false);
+                  setLocationsOpen(false);
+                  setWorkOpen(false);
+                  setGuidesOpen(false);
+                }}
+                className={cn(
+                  'hover:text-edg-brand flex items-center gap-1 text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
+                  textColor
+                )}
+                aria-label="View commercial pages"
+                aria-expanded={commercialOpen}
+              >
+                Commercial
+                <ChevronDown
+                  className={cn(
+                    'h-4 w-4 transition-transform',
+                    commercialOpen && 'rotate-180'
+                  )}
+                />
+              </button>
+
+              {commercialOpen && (
+                <div className="animate-in fade-in zoom-in-95 absolute top-full right-0 mt-3 w-[34rem] overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
+                  <div className="grid max-h-[65vh] overflow-y-auto sm:grid-cols-2">
+                    {commercialDropdown.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setCommercialOpen(false)}
+                        className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
+                      >
+                        <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
+                          {item.label}
+                        </div>
+                        <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
+                          {item.desc}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Right side actions */}
           <div className="flex items-center gap-4">
             {/* Desktop CTAs */}
             <div className="hidden items-center gap-4 xl:flex">
-              <Link
-                href="/trade-partners"
-                className={cn(
-                  'hover:text-edg-brand text-sm font-bold tracking-wide whitespace-nowrap uppercase transition-colors',
-                  textColor
-                )}
-              >
-                Trade
-              </Link>
               <Link
                 href={startProjectHref}
                 onClick={(event) =>
@@ -763,10 +742,10 @@ export function Navbar() {
 
               <div className="h-px bg-white/10" />
 
-              {/* Solutions Section */}
+              {/* Outdoor Rooms Section */}
               <div className="space-y-4">
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
-                  Solutions
+                  Outdoor Rooms
                 </div>
                 <Link
                   href="/outdoor-rooms"
@@ -775,16 +754,41 @@ export function Navbar() {
                 >
                   Outdoor Rooms
                 </Link>
-                {solutionsDropdown.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                <Link
+                  href="/outdoor-rooms/pergola-glass-outdoor-room"
+                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Pergola + Glass Outdoor Room
+                </Link>
+              </div>
+
+              <div className="h-px bg-white/10" />
+
+              {/* Commercial Section */}
+              <div className="space-y-4">
+                <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
+                  Commercial
+                </div>
+                <Link
+                  href="/commercial"
+                  className="hover:text-edg-brand block text-2xl font-bold text-white transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Commercial
+                </Link>
+                {commercialDropdown
+                  .filter((item) => item.href !== '/commercial')
+                  .map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
               </div>
 
               <div className="h-px bg-white/10" />
@@ -880,24 +884,6 @@ export function Navbar() {
               </div>
 
               <div className="h-px bg-white/10" />
-
-              {/* Trade */}
-              <div className="space-y-4">
-                <Link
-                  href="/trade-partners"
-                  className="hover:text-edg-brand block text-lg font-bold text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  For Trade Partners
-                </Link>
-                <Link
-                  href="/service-areas"
-                  className="hover:text-edg-brand block text-lg font-bold text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Service Areas
-                </Link>
-              </div>
 
               <div className="mt-8">
                 <Link

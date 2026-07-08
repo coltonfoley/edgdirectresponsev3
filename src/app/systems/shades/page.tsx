@@ -283,6 +283,18 @@ const relatedProducts = [
     href: '/systems/enclosures',
   },
   {
+    name: 'Outdoor Room Plans',
+    description:
+      'See where screens belong inside a larger pergola, glass, lighting, heat, or outdoor kitchen plan.',
+    href: '/outdoor-rooms',
+  },
+  {
+    name: 'Pergola + Glass Outdoor Room',
+    description:
+      'Review the pilot outdoor-room plan when screens are one part of a more protected patio.',
+    href: '/outdoor-rooms/pergola-glass-outdoor-room',
+  },
+  {
     name: "O'Hare Screen Project",
     description:
       'See EDG project media from a wide Progressive Screens motorized insect screen installation.',

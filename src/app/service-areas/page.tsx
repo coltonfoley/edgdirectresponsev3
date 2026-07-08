@@ -168,6 +168,24 @@ const priorityLocalPages = [
       'Installer-focused guidance for louvered roof systems in Chicago.',
   },
   {
+    title: 'Barrington Motorized Pergolas',
+    href: '/service-areas/barrington-il/motorized-pergolas',
+    description:
+      'Large-span motorized pergola planning for Barrington estates and patios.',
+  },
+  {
+    title: 'Naperville Motorized Pergolas',
+    href: '/service-areas/naperville-il/motorized-pergolas',
+    description:
+      'HOA-aware motorized pergola planning for Naperville homes and patios.',
+  },
+  {
+    title: 'Northbrook Motorized Pergolas',
+    href: '/service-areas/northbrook-il/motorized-pergolas',
+    description:
+      'Motorized pergola planning for Northbrook patios, decks, and Cook County approvals.',
+  },
+  {
     title: 'Algonquin Motorized Pergolas',
     href: '/service-areas/algonquin-il/motorized-pergolas',
     description:

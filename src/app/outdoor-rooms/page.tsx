@@ -18,11 +18,15 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
-const outdoorRoomCta =
-  '/contact?type=price&product=multiple&source=outdoor_room_glass';
+const outdoorRoomCta = buildContactHref({
+  type: 'fit-review',
+  product: 'multiple',
+  source: 'outdoor_rooms',
+});
 
 export const metadata: Metadata = {
   title: 'Outdoor Room Plans | Pergolas, Glass & Screens | EDG',
@@ -49,7 +53,8 @@ const roomConcepts = [
     href: '/outdoor-rooms/pergola-glass-outdoor-room',
     image: images.projects.wade.hero,
     icon: Home,
-    label: 'Pilot plan',
+    label: 'Dedicated plan',
+    ctaLabel: 'View room plan',
   },
   {
     title: 'Pergola + Screens + Outdoor Kitchen',
@@ -58,7 +63,8 @@ const roomConcepts = [
     href: '/systems/appliances',
     image: images.systems.appliances.kitchen,
     icon: Sun,
-    label: 'Entertaining',
+    label: 'Related path',
+    ctaLabel: 'View related path',
   },
   {
     title: 'Florida Lanai Modernization',
@@ -67,7 +73,8 @@ const roomConcepts = [
     href: '/service-areas/sanibel-outdoor-living/modern-lanai',
     image: images.pages.serviceAreas.sanibelShade,
     icon: Wind,
-    label: 'Lanai update',
+    label: 'Related path',
+    ctaLabel: 'View related path',
   },
   {
     title: 'Restaurant Patio Protection',
@@ -76,7 +83,8 @@ const roomConcepts = [
     href: '/commercial/restaurant-patio-enclosures',
     image: images.systems.enclosures.commercialNightExterior,
     icon: Building2,
-    label: 'Commercial',
+    label: 'Related path',
+    ctaLabel: 'View related path',
   },
 ];
 
@@ -229,13 +237,16 @@ export default function OutdoorRoomsPage() {
       <Section className="bg-surface-muted border-border border-t">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">Outdoor room ideas</div>
+            <div className="label-editorial-brand mb-4">
+              Room plan and related paths
+            </div>
             <h2 className="section-title mb-4">
               Start with the outcome, then choose the systems.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              These plans keep the product pages clear while giving homeowners
-              and commercial buyers a better picture of the finished space.
+              The first card is the current outdoor-room plan. The other cards
+              point to existing system, local, and commercial pages that answer
+              nearby buyer questions without creating thin duplicate pages.
             </p>
           </div>
 
@@ -276,7 +287,7 @@ export default function OutdoorRoomsPage() {
                       {concept.description}
                     </p>
                     <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
-                      Explore concept
+                      {concept.ctaLabel}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>

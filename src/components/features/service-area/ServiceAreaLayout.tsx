@@ -8,6 +8,7 @@ import { ArrowRight, MapPin, Shield, Wind, Snowflake, Home, FileCheck } from 'lu
 import type { LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import { TrackedLink } from '@/components/ui/TrackedLink';
+import { buildContactHref } from '@/lib/contact-links';
 
 interface ServiceAreaLayoutProps {
   location: string;
@@ -44,6 +45,12 @@ export function ServiceAreaLayout({
   challenges,
   links,
 }: ServiceAreaLayoutProps) {
+  const contactHref = buildContactHref({
+    type: 'quote',
+    location: `${location}, ${state}`,
+    source: 'service_area_hero',
+  });
+
   return (
     <main className="bg-white min-h-screen">
       {/* ========== SPLIT HERO ========== */}
@@ -66,7 +73,7 @@ export function ServiceAreaLayout({
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <TrackedLink href="/contact">
+              <TrackedLink href={contactHref}>
                 <Button className="bg-edg-brand text-black hover:bg-black hover:text-white rounded-none px-8 py-6 text-lg font-bold uppercase tracking-wider">
                   Get a {location} Quote
                 </Button>

@@ -3,6 +3,8 @@ import { Section } from '@/components/ui/Section';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { getAllProjects } from '@/lib/projects';
+import { getHtmlSitemapRoutes, type SiteRouteFamily } from '@/lib/site-routes';
 
 export const metadata: Metadata = {
   title: 'Sitemap | EDG Patio & Shade',
@@ -12,225 +14,46 @@ export const metadata: Metadata = {
   },
 };
 
-const sitemapLinks = [
-  {
-    category: 'Main',
-    links: [
-      { href: '/', label: 'Home' },
-      { href: '/contact', label: 'Contact' },
-      { href: '/contact', label: 'Project Planning' },
-      { href: '/contact', label: 'Pricing Consultation' },
-      { href: '/trade-partners', label: 'For Pros' },
-      { href: '/gallery', label: 'Gallery' },
-      { href: '/projects', label: 'Project Portfolio' },
-      { href: '/showroom', label: 'Showroom' },
-    ],
-  },
-  {
-    category: 'Systems',
-    links: [
-      { href: '/systems', label: 'All Systems' },
-      { href: '/systems/pergolas', label: 'Louvered Pergolas' },
-      { href: '/systems/pergolas/configure', label: '3D Pergola Configurator' },
-      { href: '/systems/shades', label: 'Motorized Screens' },
-      { href: '/systems/enclosures', label: 'Glass Enclosures' },
-      { href: '/systems/appliances', label: 'Outdoor Appliances' },
-      { href: '/systems/saunas', label: 'Outdoor Saunas' },
-    ],
-  },
-  {
-    category: 'Outdoor Rooms',
-    links: [
-      { href: '/outdoor-rooms', label: 'Outdoor Room Plans' },
-      {
-        href: '/outdoor-rooms/pergola-glass-outdoor-room',
-        label: 'Pergola + Glass Outdoor Room',
-      },
-    ],
-  },
-  {
-    category: 'Commercial',
-    links: [
-      { href: '/commercial', label: 'Commercial Solutions' },
-      {
-        href: '/commercial/chicago-hospitality-outdoor-living',
-        label: 'Hospitality Outdoor Living',
-      },
-      {
-        href: '/commercial/restaurant-patio-enclosures',
-        label: 'Restaurant Patio Enclosures',
-      },
-      {
-        href: '/commercial/hotel-roof-deck-systems',
-        label: 'Hotel Roof Deck Systems',
-      },
-      { href: '/commercial/hotel-pergolas', label: 'Hotel Pergolas' },
-      {
-        href: '/commercial/restaurant-patio-solutions',
-        label: 'Restaurant Patio Solutions',
-      },
-      {
-        href: '/commercial/country-club-outdoor-spaces',
-        label: 'Country Club Context',
-      },
-      { href: '/commercial/west-loop', label: 'West Loop Projects' },
-    ],
-  },
-  {
-    category: 'Service Areas',
-    links: [
-      { href: '/service-areas', label: 'All Service Areas' },
-      { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
-      { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
-      { href: '/service-areas/algonquin-il', label: 'Algonquin, IL' },
-      { href: '/service-areas/lake-county-il', label: 'Lake County, IL' },
-      { href: '/service-areas/mchenry-county-il', label: 'McHenry County, IL' },
-      {
-        href: '/service-areas/north-shore-chicago',
-        label: 'North Shore Chicago',
-      },
-      {
-        href: '/service-areas/southeast-wisconsin',
-        label: 'Southeast Wisconsin',
-      },
-      {
-        href: '/service-areas/algonquin-il/motorized-pergolas',
-        label: 'Algonquin Motorized Pergolas',
-      },
-      {
-        href: '/service-areas/algonquin-il/retractable-screens',
-        label: 'Algonquin Motorized Screens',
-      },
-      {
-        href: '/service-areas/algonquin-il/zoning-guide',
-        label: 'Algonquin Pergola Permit Guide',
-      },
-      {
-        href: '/service-areas/chicago-il/motorized-pergolas',
-        label: 'Chicago Motorized Pergolas',
-      },
-      {
-        href: '/service-areas/chicago-il/retractable-screens',
-        label: 'Chicago Retractable Screens',
-      },
-      {
-        href: '/service-areas/chicago-il/glass-enclosures',
-        label: 'Chicago Glass Patio Enclosures',
-      },
-      { href: '/service-areas/deerfield-il', label: 'Deerfield, IL' },
-      {
-        href: '/service-areas/deerfield-il/retractable-screens',
-        label: 'Deerfield Retractable Screens',
-      },
-      { href: '/service-areas/wilmette-il', label: 'Wilmette, IL' },
-      {
-        href: '/service-areas/wilmette-il/louvered-pergolas',
-        label: 'Wilmette Louvered Pergolas',
-      },
-      { href: '/service-areas/winnetka-il', label: 'Winnetka, IL' },
-      {
-        href: '/service-areas/winnetka-il/louvered-pergolas',
-        label: 'Winnetka Louvered Pergolas',
-      },
-      { href: '/service-areas/northbrook-il', label: 'Northbrook, IL' },
-      { href: '/service-areas/lake-forest-il', label: 'Lake Forest, IL' },
-      {
-        href: '/service-areas/lake-forest-il/motorized-pergolas',
-        label: 'Lake Forest Motorized Pergolas',
-      },
-      {
-        href: '/service-areas/lake-forest-il/zoning-guide',
-        label: 'Lake Forest Pergola Permit Guide',
-      },
-      { href: '/service-areas/barrington-il', label: 'Barrington, IL' },
-      { href: '/service-areas/naperville-il', label: 'Naperville, IL' },
-      { href: '/service-areas/hinsdale-il', label: 'Hinsdale, IL' },
-      { href: '/service-areas/oak-brook-il', label: 'Oak Brook, IL' },
-      { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
-      {
-        href: '/service-areas/lake-geneva-wi/motorized-pergolas',
-        label: 'Lake Geneva Motorized Pergolas',
-      },
-      {
-        href: '/service-areas/lake-geneva-wi/retractable-screens',
-        label: 'Lake Geneva Motorized Screens',
-      },
-      {
-        href: '/service-areas/lake-geneva-wi/zoning-guide',
-        label: 'Lake Geneva Pergola Permit Guide',
-      },
-      {
-        href: '/service-areas/southwest-florida',
-        label: 'Southwest Florida',
-      },
-      {
-        href: '/service-areas/southwest-florida/motorized-screens',
-        label: 'Southwest Florida Motorized Screens',
-      },
-      { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
-      {
-        href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
-        label: 'Sanibel Hurricane-Rated Pergolas',
-      },
-      {
-        href: '/service-areas/sanibel-outdoor-living/modern-lanai',
-        label: 'Modern Lanai Sanibel',
-      },
-      {
-        href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
-        label: 'Sanibel Lanai Replacement',
-      },
-      {
-        href: '/service-areas/sanibel-outdoor-living/zoning-guide',
-        label: 'Sanibel Permit Guide',
-      },
-    ],
-  },
-  {
-    category: 'Resources',
-    links: [
-      { href: '/guides', label: 'Knowledge Base' },
-      { href: '/guides/planning-guide', label: 'Planning Guide' },
-      {
-        href: '/guides/motorized-pergola-planning',
-        label: 'Motorized Pergola Planning Guide',
-      },
-      {
-        href: '/guides/pergola-system-fit-review',
-        label: 'Pergola System Fit Review',
-      },
-      {
-        href: '/guides/motorized-pergola-budget-examples',
-        label: 'Motorized Pergola Budget Examples',
-      },
-      {
-        href: '/guides/motorized-pergola-deck-roof-deck',
-        label: 'Pergolas on Decks and Roof Decks',
-      },
-      {
-        href: '/guides/motorized-pergola-permits-hoa-engineering',
-        label: 'Pergola Permits, HOA, and Engineering',
-      },
-      { href: '/guides/pergola-cost', label: 'Pergola Cost Guide' },
-      {
-        href: '/guides/louvered-pergola-brands-compared',
-        label: 'How EDG Chooses a Pergola System',
-      },
-      {
-        href: '/guides/pergola-vs-patio-cover',
-        label: 'Pergola vs Patio Cover',
-      },
-      {
-        href: '/guides/magnatrack-screens-cost',
-        label: 'MagnaTrack Screens Cost Guide',
-      },
-      { href: '/privacy', label: 'Privacy Policy' },
-      { href: '/terms', label: 'Terms of Service' },
-    ],
-  },
+type SitemapSection = {
+  category: string;
+  links: { href: string; label: string }[];
+};
+
+const sectionFamilies: { category: string; family: SiteRouteFamily }[] = [
+  { category: 'Main', family: 'main' },
+  { category: 'Systems', family: 'systems' },
+  { category: 'Outdoor Rooms', family: 'outdoor-rooms' },
+  { category: 'Commercial', family: 'commercial' },
+  { category: 'Service Areas', family: 'service-areas' },
+  { category: 'Most Requested Local Pages', family: 'local-products' },
+  { category: 'Guides', family: 'guides' },
+  { category: 'Policies', family: 'utility' },
 ];
 
+function routeLinksForFamily(family: SiteRouteFamily) {
+  return getHtmlSitemapRoutes(family).map((route) => ({
+    href: route.href,
+    label: route.label,
+  }));
+}
+
 export default function SitemapPage() {
+  const sitemapLinks: SitemapSection[] = [
+    ...sectionFamilies
+      .map((section) => ({
+        category: section.category,
+        links: routeLinksForFamily(section.family),
+      }))
+      .filter((section) => section.links.length > 0),
+    {
+      category: 'Project Detail Pages',
+      links: getAllProjects().map((project) => ({
+        href: `/projects/${project.slug}`,
+        label: project.title,
+      })),
+    },
+  ];
+
   return (
     <main className="bg-background min-h-screen pt-24 pb-16">
       <Section>

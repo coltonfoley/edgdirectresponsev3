@@ -8,6 +8,7 @@ import { MapPin, Phone, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, type ReactNode } from 'react';
 import { trackConversion } from '@/lib/analytics';
+import { buildContactHref } from '@/lib/contact-links';
 
 type FooterLink = {
   href: string;
@@ -63,6 +64,10 @@ const footerGuideLinks: FooterLink[] = [
     label: 'Pergola Planning Guide',
   },
   {
+    href: '/guides/louvered-pergolas',
+    label: 'Louvered Pergolas Guide',
+  },
+  {
     href: '/guides/pergola-system-fit-review',
     label: 'System Fit Review',
   },
@@ -114,6 +119,18 @@ const footerLocalProductLinks: FooterLink[] = [
   {
     href: '/service-areas/chicago-il/motorized-pergolas',
     label: 'Chicago Pergolas',
+  },
+  {
+    href: '/service-areas/barrington-il/motorized-pergolas',
+    label: 'Barrington Pergolas',
+  },
+  {
+    href: '/service-areas/naperville-il/motorized-pergolas',
+    label: 'Naperville Pergolas',
+  },
+  {
+    href: '/service-areas/northbrook-il/motorized-pergolas',
+    label: 'Northbrook Pergolas',
   },
   {
     href: '/service-areas/chicago-il/retractable-screens',
@@ -236,12 +253,27 @@ export function Footer() {
     '/service-areas/lake-geneva-wi'
   );
   const consultationHref = isSouthwestFloridaPage
-    ? '/contact?type=price&product=shades&area=southwest-florida&source=footer_florida'
+    ? buildContactHref({
+        type: 'price',
+        product: 'shades',
+        area: 'southwest-florida',
+        source: 'footer_florida',
+      })
     : isSanibelPage
-      ? '/contact?type=price&product=shades&area=sanibel&source=footer_sanibel'
+      ? buildContactHref({
+          type: 'price',
+          product: 'shades',
+          area: 'sanibel',
+          source: 'footer_sanibel',
+        })
       : isLakeGenevaPage
-        ? '/contact?type=price&product=multiple&location=Lake%20Geneva%2C%20WI&source=footer_lake_geneva'
-        : '/contact';
+        ? buildContactHref({
+            type: 'price',
+            product: 'multiple',
+            location: 'Lake Geneva, WI',
+            source: 'footer_lake_geneva',
+          })
+        : buildContactHref({ type: 'consultation', source: 'footer' });
 
   return (
     <footer className="bg-black text-white">
