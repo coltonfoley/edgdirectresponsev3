@@ -6,19 +6,123 @@ import { Button } from '@/components/ui/Button';
 
 import { MapPin, Phone, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { trackConversion } from '@/lib/analytics';
 
-const footerServiceAreas = [
+type FooterLink = {
+  href: string;
+  label: string;
+};
+
+const footerSystemLinks: FooterLink[] = [
+  { href: '/systems', label: 'All Systems' },
+  { href: '/systems/pergolas', label: 'Motorized Pergolas' },
+  { href: '/systems/pergolas/configure', label: 'Pergola Configurator' },
+  { href: '/systems/shades', label: 'Retractable Screens' },
+  { href: '/systems/enclosures', label: 'Glass Enclosures' },
+  { href: '/systems/appliances', label: 'Outdoor Kitchens' },
+  { href: '/systems/saunas', label: 'Outdoor Saunas' },
+];
+
+const footerSolutionLinks: FooterLink[] = [
+  { href: '/outdoor-rooms', label: 'Outdoor Room Plans' },
+  {
+    href: '/outdoor-rooms/pergola-glass-outdoor-room',
+    label: 'Pergola + Glass Room',
+  },
+  { href: '/commercial', label: 'Commercial Outdoor Living' },
+  {
+    href: '/commercial/restaurant-patio-enclosures',
+    label: 'Restaurant Patio Enclosures',
+  },
+  {
+    href: '/commercial/hotel-roof-deck-systems',
+    label: 'Hotel Roof Deck Systems',
+  },
+  {
+    href: '/commercial/country-club-outdoor-spaces',
+    label: 'Country Club Outdoor Spaces',
+  },
+  { href: '/commercial/hotel-pergolas', label: 'Hotel Pergolas' },
+  {
+    href: '/commercial/restaurant-patio-solutions',
+    label: 'Restaurant Patio Solutions',
+  },
+  {
+    href: '/commercial/chicago-hospitality-outdoor-living',
+    label: 'Chicago Hospitality Patios',
+  },
+  { href: '/commercial/west-loop', label: 'West Loop Patios' },
+];
+
+const footerGuideLinks: FooterLink[] = [
+  { href: '/guides', label: 'All Guides' },
+  { href: '/guides/planning-guide', label: 'Planning Guide' },
+  {
+    href: '/guides/motorized-pergola-planning',
+    label: 'Pergola Planning Guide',
+  },
+  {
+    href: '/guides/pergola-system-fit-review',
+    label: 'System Fit Review',
+  },
+  {
+    href: '/guides/motorized-pergola-budget-examples',
+    label: 'Budget Examples',
+  },
+  {
+    href: '/guides/motorized-pergola-permits-hoa-engineering',
+    label: 'Permits, HOA & Engineering',
+  },
+  {
+    href: '/guides/motorized-pergola-deck-roof-deck',
+    label: 'Deck & Roof Deck Pergolas',
+  },
+  { href: '/guides/pergola-cost', label: 'Pergola Cost Guide' },
+  {
+    href: '/guides/magnatrack-screens-cost',
+    label: 'MagnaTrack Screens Cost',
+  },
+  {
+    href: '/guides/louvered-pergola-brands-compared',
+    label: 'Pergola System Comparison',
+  },
+  {
+    href: '/guides/pergola-vs-patio-cover',
+    label: 'Pergola vs. Patio Cover',
+  },
+];
+
+const footerLocationLinks: FooterLink[] = [
   { href: '/service-areas', label: 'All Service Areas' },
   { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
   { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
   { href: '/service-areas/north-shore-chicago', label: 'North Shore Chicago' },
+  { href: '/service-areas/lake-forest-il', label: 'Lake Forest, IL' },
+  { href: '/service-areas/barrington-il', label: 'Barrington, IL' },
+  { href: '/service-areas/naperville-il', label: 'Naperville, IL' },
+  { href: '/service-areas/algonquin-il', label: 'Algonquin, IL' },
   { href: '/service-areas/lake-county-il', label: 'Lake County, IL' },
   { href: '/service-areas/mchenry-county-il', label: 'McHenry County, IL' },
+  { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
+  { href: '/service-areas/southeast-wisconsin', label: 'Southeast Wisconsin' },
   { href: '/service-areas/southwest-florida', label: 'Southwest Florida' },
   { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
-  { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
+];
+
+const footerLocalProductLinks: FooterLink[] = [
+  {
+    href: '/service-areas/chicago-il/motorized-pergolas',
+    label: 'Chicago Pergolas',
+  },
+  {
+    href: '/service-areas/chicago-il/retractable-screens',
+    label: 'Chicago Screens',
+  },
+  {
+    href: '/service-areas/chicago-il/glass-enclosures',
+    label: 'Chicago Glass Enclosures',
+  },
   {
     href: '/service-areas/lake-geneva-wi/motorized-pergolas',
     label: 'Lake Geneva Pergolas',
@@ -27,7 +131,80 @@ const footerServiceAreas = [
     href: '/service-areas/lake-geneva-wi/retractable-screens',
     label: 'Lake Geneva Screens',
   },
+  {
+    href: '/service-areas/southwest-florida/motorized-screens',
+    label: 'Southwest Florida Screens',
+  },
+  {
+    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
+    label: 'Sanibel Louvered Pergolas',
+  },
+  {
+    href: '/service-areas/sanibel-outdoor-living/zoning-guide',
+    label: 'Sanibel Permit Guide',
+  },
+  {
+    href: '/service-areas/algonquin-il/motorized-pergolas',
+    label: 'Algonquin Pergolas',
+  },
+  {
+    href: '/service-areas/algonquin-il/retractable-screens',
+    label: 'Algonquin Screens',
+  },
+  {
+    href: '/service-areas/wilmette-il/louvered-pergolas',
+    label: 'Wilmette Louvered Pergolas',
+  },
+  {
+    href: '/service-areas/winnetka-il/louvered-pergolas',
+    label: 'Winnetka Louvered Pergolas',
+  },
 ];
+
+const footerWorkLinks: FooterLink[] = [
+  { href: '/projects', label: 'Projects' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/showroom', label: 'Showroom' },
+  { href: '/trade-partners', label: 'Trade Partners' },
+  { href: '/contact', label: 'Contact' },
+];
+
+function FooterLinkList({ links }: { links: FooterLink[] }) {
+  return (
+    <ul className="space-y-2.5">
+      {links.map((link) => (
+        <li key={link.href}>
+          <Link
+            href={link.href}
+            className="hover:text-edg-brand block text-sm leading-snug text-zinc-300 transition-colors"
+          >
+            {link.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+  children,
+}: {
+  title: string;
+  links?: FooterLink[];
+  children?: ReactNode;
+}) {
+  return (
+    <div>
+      <h4 className="mb-5 text-xs font-bold tracking-widest text-white uppercase">
+        {title}
+      </h4>
+      {links ? <FooterLinkList links={links} /> : null}
+      {children}
+    </div>
+  );
+}
 
 export function Footer() {
   const pathname = usePathname();
@@ -153,9 +330,9 @@ export function Footer() {
       {/* Main Footer */}
       <div className="border-t border-white/10 py-16">
         <Container>
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-12 xl:grid-cols-[1.2fr_repeat(5,minmax(0,1fr))]">
             {/* Brand & Location */}
-            <div className="space-y-8 md:col-span-2 lg:col-span-2">
+            <div className="space-y-8 md:col-span-2 lg:col-span-3 xl:col-span-1">
               <Link
                 href="/"
                 className="block text-4xl font-bold tracking-tighter text-white"
@@ -183,173 +360,46 @@ export function Footer() {
             </div>
 
             {/* Navigation */}
-            <div>
-              <h4 className="mb-6 text-xs font-bold tracking-widest text-white uppercase">
-                Explore
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/systems"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    All Systems
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/systems/pergolas"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Motorized Pergolas
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/systems/pergolas/configure"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Pergola Configurator
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides/motorized-pergola-planning"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Pergola Planning Guide
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides/pergola-system-fit-review"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    System Fit Review
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/systems/shades"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Retractable Screens
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/systems/enclosures"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Glass Enclosures
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/guides"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Guides & Resources
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/projects"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Projects
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/gallery"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/showroom"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Showroom
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <FooterColumn title="Systems" links={footerSystemLinks} />
 
-            {/* Service Areas & Commercial */}
-            <div>
-              <h4 className="mb-6 text-xs font-bold tracking-widest text-white uppercase">
-                Service Areas
-              </h4>
-              <ul className="space-y-3">
-                {footerServiceAreas.map((area) => (
-                  <li key={area.href}>
-                    <Link
-                      href={area.href}
-                      className="hover:text-edg-brand text-zinc-300 transition-colors"
-                    >
-                      {area.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              <h4 className="mt-8 mb-6 text-xs font-bold tracking-widest text-white uppercase">
-                Commercial
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link
-                    href="/commercial"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Commercial Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/trade-partners"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    Trade Partners
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <FooterColumn title="Solutions" links={footerSolutionLinks} />
+
+            <FooterColumn title="Guides" links={footerGuideLinks} />
+
+            <FooterColumn title="Locations" links={footerLocationLinks}>
+              <div className="mt-7 border-t border-white/10 pt-6">
+                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+                  Local Product Pages
+                </h5>
+                <FooterLinkList links={footerLocalProductLinks} />
+              </div>
+            </FooterColumn>
 
             {/* Legal / Social */}
-            <div>
-              <h4 className="mb-6 text-xs font-bold tracking-widest text-white uppercase">
-                Connect
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="mailto:sales@edgpatioshade.com"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    sales@edgpatioshade.com
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+18155810138"
-                    className="hover:text-edg-brand text-zinc-300 transition-colors"
-                  >
-                    (815) 581-0138
-                  </a>
-                </li>
-              </ul>
+            <FooterColumn title="Work & Contact" links={footerWorkLinks}>
+              <div className="mt-7 border-t border-white/10 pt-6">
+                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+                  Connect
+                </h5>
+                <ul className="space-y-2.5">
+                  <li>
+                    <a
+                      href="mailto:sales@edgpatioshade.com"
+                      className="hover:text-edg-brand block text-sm leading-snug text-zinc-300 transition-colors"
+                    >
+                      sales@edgpatioshade.com
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="tel:+18155810138"
+                      className="hover:text-edg-brand block text-sm leading-snug text-zinc-300 transition-colors"
+                    >
+                      (815) 581-0138
+                    </a>
+                  </li>
+                </ul>
+              </div>
               <div className="mt-8 space-y-2 border-t border-white/10 pt-8">
                 <Link
                   href="/html-sitemap"
@@ -373,7 +423,7 @@ export function Footer() {
                   © {year} EDG Patio & Shade
                 </div>
               </div>
-            </div>
+            </FooterColumn>
           </div>
         </Container>
       </div>
