@@ -32,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: '/showroom', priority: 0.8 },
     { url: '/trade-partners', priority: 0.8 },
-    { url: '/design-your-pergola', priority: 0.8 },
     { url: '/privacy', priority: 0.5 },
     { url: '/terms', priority: 0.5 },
     // Service Areas

@@ -132,6 +132,11 @@ const nextConfig: NextConfig = {
         destination: '/contact',
         permanent: true,
       },
+      {
+        source: '/design-your-pergola',
+        destination: '/systems/pergolas/configure',
+        permanent: true,
+      },
 
       // ══════════════════════════════════════════════════════════
       // OLD WORDPRESS CORE PRODUCT PAGES

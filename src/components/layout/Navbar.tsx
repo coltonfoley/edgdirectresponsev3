@@ -363,21 +363,6 @@ export function Navbar() {
                     </div>
                     <ArrowRight className="text-edg-brand-dark/50 h-4 w-4" />
                   </Link>
-                  <Link
-                    href="/design-your-pergola"
-                    onClick={() => setProductsOpen(false)}
-                    className="group border-edg-brand/20 bg-edg-brand/5 hover:bg-edg-brand/15 flex items-center justify-between border-b px-5 py-3 transition-colors"
-                  >
-                    <div>
-                      <div className="text-edg-brand-dark text-sm font-bold tracking-wide uppercase transition-colors">
-                        3D Pergola Visualizer
-                      </div>
-                      <div className="text-edg-brand-dark/70 mt-0.5 text-xs">
-                        Preview finishes and enclosure options
-                      </div>
-                    </div>
-                    <ArrowRight className="text-edg-brand-dark/50 h-4 w-4" />
-                  </Link>
                   {productsDropdown.map((item) => (
                     <Link
                       key={item.href}
@@ -766,13 +751,6 @@ export function Navbar() {
                   onClick={() => setIsOpen(false)}
                 >
                   3D Pergola Configurator <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/design-your-pergola"
-                  className="text-edg-brand hover:text-edg-brand/80 flex items-center gap-2 text-lg font-bold transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  3D Pergola Visualizer <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/systems"

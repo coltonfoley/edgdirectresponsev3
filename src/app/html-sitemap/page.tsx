@@ -24,7 +24,6 @@ const sitemapLinks = [
       { href: '/gallery', label: 'Gallery' },
       { href: '/projects', label: 'Project Portfolio' },
       { href: '/showroom', label: 'Showroom' },
-      { href: '/design-your-pergola', label: 'Design Your Pergola' },
     ],
   },
   {
@@ -32,6 +31,7 @@ const sitemapLinks = [
     links: [
       { href: '/systems', label: 'All Systems' },
       { href: '/systems/pergolas', label: 'Louvered Pergolas' },
+      { href: '/systems/pergolas/configure', label: '3D Pergola Configurator' },
       { href: '/systems/shades', label: 'Motorized Screens' },
       { href: '/systems/enclosures', label: 'Glass Enclosures' },
       { href: '/systems/appliances', label: 'Outdoor Appliances' },
