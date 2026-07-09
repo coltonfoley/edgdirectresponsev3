@@ -236,8 +236,8 @@ export function ProjectContent({ project }: ProjectContentProps) {
       </ProjectSection>
 
       {project.completionStatus !== 'complete' && (
-        <div className="border border-yellow-300 bg-yellow-50 p-5">
-          <p className="text-sm leading-relaxed text-yellow-900">
+        <div className="border border-edg-brand/30 bg-white p-5">
+          <p className="text-sm leading-relaxed text-text-secondary">
             <strong>Publication note:</strong> This page is intentionally
             limited to details confirmed for publication. Contact EDG for
             complete information about similar projects in {project.location}.

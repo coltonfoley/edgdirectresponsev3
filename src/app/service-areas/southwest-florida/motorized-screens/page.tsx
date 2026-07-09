@@ -20,6 +20,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -149,6 +150,27 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  area: 'southwest-florida',
+  source: 'swfl_screens_hero',
+});
+
+const inputsContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  area: 'southwest-florida',
+  source: 'swfl_screens_inputs',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  area: 'southwest-florida',
+  source: 'swfl_screens_bottom',
+});
+
 export default function SouthwestFloridaMotorizedScreensPage() {
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -186,7 +208,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
         }}
       />
 
-      <main className="min-h-screen bg-surface">
+      <div className="min-h-screen bg-surface">
         <section className="relative flex min-h-[65vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -234,7 +256,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 flexible.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=price&product=shades&area=southwest-florida&source=swfl_screens_hero">
+                <Link href={heroContactHref}>
                   <Button size="lg">Get a Screen Layout Review</Button>
                 </Link>
                 <Link href="/guides/magnatrack-screens-cost">
@@ -359,7 +381,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                   wind exposure, power path, and salt-air details need to make
                   sense.
                 </p>
-                <Link href="/contact?type=price&product=shades&area=southwest-florida&source=swfl_screens_inputs">
+                <Link href={inputsContactHref}>
                   <Button>
                     Send Photos and Dimensions
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -439,7 +461,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                   want solved first: bugs, sun, privacy, wind comfort, or a
                   pergola-and-screen plan.
                 </p>
-                <Link href="/contact?type=price&product=shades&area=southwest-florida&source=swfl_screens_bottom">
+                <Link href={bottomContactHref}>
                   <Button size="lg">Start a Screen Quote</Button>
                 </Link>
               </div>
@@ -488,7 +510,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

@@ -1,121 +1,136 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import * as images from '@/lib/images';
 import {
   ArrowLeft,
   ArrowRight,
-  ChevronRight,
-  ShieldCheck,
-  Wind,
-  Thermometer,
-  Sun,
-  Utensils,
-  DollarSign,
+  Building2,
   CheckCircle2,
-  BarChart3,
+  ChevronRight,
+  ClipboardCheck,
   Phone,
+  ShieldCheck,
+  Sun,
+  Thermometer,
+  Wind,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { buildContactHref } from '@/lib/contact-links';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Restaurant Patio Enclosures Chicago | Commercial Covers & Shades',
   description:
-    'Increase table covers by 30% with custom restaurant patio enclosures. Heavy-duty motorized pergolas and commercial patio covers for Chicago dining.',
+    'Commercial restaurant patio enclosures for Chicago dining spaces. EDG plans motorized pergolas, screens, glass, heaters, controls, and permitting around hospitality operations.',
   alternates: {
     canonical: '/commercial/restaurant-patio-enclosures',
   },
   openGraph: {
     title: 'Restaurant Patio Enclosures | EDG Commercial',
     description:
-      'Turn your patio into a year-round profit center. Wind-rated commercial enclosures.',
+      'Commercial patio enclosure planning for restaurants that need weather protection, clear operations, and system-agnostic recommendations.',
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════════════
+const heroContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'restaurant-patio-enclosure',
+  location: 'chicago',
+  source: 'restaurant_enclosures_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'restaurant-patio-enclosure',
+  location: 'chicago',
+  source: 'restaurant_enclosures_bottom',
+});
+
 const faqs = [
   {
-    question: 'How quickly can the louvered roof close during unexpected rain?',
+    question: 'How quickly can a louvered roof close during unexpected rain?',
     answer:
-      'Our motorized louvered roofs close completely in under 60 seconds, creating a waterproof seal that protects your diners and their meals from sudden weather changes. The system can be operated manually by staff or set to auto-close based on rain sensors.',
+      'Motorized louvered systems can be specified with rain sensors and staff controls so the roof closes quickly when weather changes. Exact timing and water-management performance depend on the selected system, size, drainage plan, and controls package.',
   },
   {
-    question: 'Are restaurant patio enclosures compliant with Chicago building codes?',
+    question: 'Can EDG help with Chicago restaurant patio permitting?',
     answer:
-      'Yes. We handle all permitting and ensure full compliance with Chicago building codes, including wind load requirements, fire safety regulations, and accessibility standards. Our systems are engineered specifically for commercial use and meet all local restaurant patio design requirements.',
+      'Yes. Restaurant patio work usually needs careful review of structure, egress, electrical, fire-safety, right-of-way, and local code requirements. EDG helps organize system specifications, drawings, engineering inputs, and permit coordination for the project team.',
   },
   {
-    question: 'What is the typical ROI for restaurant patio enclosures?',
+    question: 'What business-case inputs should a restaurant review?',
     answer:
-      'Most restaurant patio enclosure systems pay for themselves in a single season. By extending your outdoor dining season from 4-5 months to 8-9 months and eliminating weather-related closures, a typical installation generates $50,000-$150,000 in additional annual revenue for a mid-sized patio.',
+      'The business case depends on seat count, ticket average, weather exposure, staffing, hours, and how the patio is operated. EDG can help model the assumptions from a specific patio layout instead of promising a generic financial outcome.',
   },
   {
-    question: 'Can the system handle Chicago\'s heavy winds and winter snow loads?',
+    question: "Can these systems handle Chicago's wind and winter conditions?",
     answer:
-      'Absolutely. Our commercial-grade systems are engineered for Chicago wind loads up to 120 mph and snow loads up to 40 psf. The louvers automatically open in high winds to prevent damage, and the structural aluminum frame with powder coating withstands harsh winters without maintenance.',
+      'Commercial systems can be engineered around Chicago wind, snow, drainage, and seasonal shutdown requirements. The right answer depends on the structure, exposure, mounting conditions, and selected product, so engineering review happens before final specification.',
   },
 ];
 
-const keyFeatures = [
+const planningSteps = [
+  {
+    icon: ClipboardCheck,
+    title: 'Site and operations review',
+    description:
+      'We review dining layout, service paths, staff controls, guest comfort, power, drainage, and the weather problems that actually interrupt service.',
+  },
+  {
+    icon: Building2,
+    title: 'System and code coordination',
+    description:
+      'Pergolas, screens, glass, heaters, and controls are planned with structural, permit, and inspection requirements in mind before the proposal is finalized.',
+  },
   {
     icon: ShieldCheck,
-    title: 'Weather Protection',
+    title: 'Install and handoff planning',
     description:
-      'Waterproof louvered roof closes in 60 seconds to protect diners from rain. Wind-rated screens block gusts without obstructing views.',
+      'Commercial projects need phasing, training, maintenance expectations, and clear handoff so staff can operate the system confidently.',
+  },
+];
+
+const systemOptions = [
+  {
+    icon: Sun,
+    title: 'Motorized louvered roofs',
+    description:
+      'Adjustable roof systems for rain protection, shade control, ventilation, and a more permanent architectural patio structure.',
   },
   {
     icon: Wind,
-    title: 'Wind-Rated Engineering',
+    title: 'Retractable screens',
     description:
-      'Engineered for Chicago wind loads up to 120 mph. Louvers automatically open in high winds to prevent damage and protect the structure.',
+      'Commercial screen planning for wind, insects, privacy, sun control, and guest comfort without closing off the entire patio visually.',
   },
   {
     icon: Thermometer,
-    title: 'Integrated Climate Control',
+    title: 'Heat, light, and controls',
     description:
-      'Add heating and cooling systems for year-round comfort. Keep guests warm in fall and cool during summer heat waves.',
-  },
-  {
-    icon: Sun,
-    title: 'Smart Sun Management',
-    description:
-      'Adjust louvers to control sunlight and shade throughout the day. Reduce glare for diners while maintaining open-air ambiance.',
+      'Infrared heat, integrated lighting, sensors, remotes, app control, and staff-only operation can be planned as one restaurant system.',
   },
 ];
 
-const enclosureTypes = [
-  {
-    icon: Utensils,
-    title: 'Restaurant Patio Covers',
-    description:
-      'Fixed or motorized options. Our louvered covers provide ventilation on hot days and full rain protection on wet ones.',
-  },
-  {
-    icon: DollarSign,
-    title: 'Commercial Outdoor Shades',
-    description:
-      'Heavy-duty zipper screens that hold up to commercial use. Reduce glare for diners and block wind for comfort.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Permitting & Compliance',
-    description:
-      'We handle all Chicago permitting. We know the codes for restaurant patio design and ensure full compliance.',
-  },
+const operationalChecks = [
+  'Seat count, server path, host stand flow, and ADA clearances',
+  'Drainage route, roof pitch, electrical location, and control zones',
+  'Wind exposure, snow plan, seasonal operation, and emergency procedures',
+  'Permit drawings, product specifications, finish direction, and owner approvals',
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Restaurant Patio Enclosure Installation',
-  description: 'Commercial patio covers and motorized enclosures for restaurants in Chicago',
+  description:
+    'Commercial patio covers and motorized enclosures for restaurants in Chicago',
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -134,273 +149,242 @@ const schema = {
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// PAGE COMPONENT
-// ═══════════════════════════════════════════════════════════
 export default function RestaurantPatioEnclosuresPage() {
   return (
-    <main className="min-h-screen">
-      {/* JSON-LD Schema */}
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ═══════════════════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
-        {/* Background Image */}
+      <section className="bg-edg-dark relative flex min-h-[68vh] items-center overflow-hidden pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
-            src={images.brand.context.commercial}
-            alt=""
-            aria-hidden="true"
+            src={images.systems.enclosures.commercialNightDining}
+            alt="Commercial restaurant patio enclosure with dining tables and glass walls at night"
             fill
             priority
+            loading="eager"
             sizes="100vw"
-            className="object-cover opacity-30"
+            className="object-cover opacity-35"
           />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-        {/* Content */}
         <Container className="relative z-10">
-          {/* Breadcrumb - Left Aligned */}
-          <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Commercial', href: '/commercial' },
-                { label: 'Restaurant Enclosures' },
-              ]}
-              className="text-zinc-300"
-            />
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Commercial', href: '/commercial' },
+              { label: 'Restaurant Enclosures' },
+            ]}
+            className="mb-6 text-zinc-300"
+          />
+          <Link
+            href="/commercial"
+            className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to commercial
+          </Link>
 
-          {/* Text - Left Aligned */}
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
-              Restaurant Solutions
+          <div className="max-w-4xl">
+            <div className="label-editorial mb-6 text-edg-brand">
+              Restaurant Patio Enclosures
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              The ROI of a Commercial{' '}
-              <span className="text-edg-brand">Patio Enclosure</span> is Measured in Weeks.
+            <h1 className="hero-title mb-6 max-w-4xl">
+              Commercial Patio Enclosures for Restaurant Operations
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              Stop losing reservations to rain and wind. Our Restaurant Patio Covers
-              and motorized shades turn your seasonal outdoor space into a 365-day
-              revenue engine.
+            <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+              Weather protection for dining spaces planned around covers,
+              staff flow, guest comfort, permitting, controls, and the way the
+              patio actually runs during service.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
-                <Button size="lg" className="rounded-none">
-                  Get Pricing
-                  <ArrowRight className="ml-2 h-5 w-5" />
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TrackedLink href={heroContactHref}>
+                <Button size="lg">
+                  Schedule a Commercial Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </Link>
-              <Link href="tel:+18155810138">
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 rounded-none"
+                  className="border-white/20 text-white hover:bg-white/10"
                 >
-                  <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
+                  <Phone className="mr-2 h-4 w-4" />
+                  (815) 581-0138
                 </Button>
-              </Link>
+              </TrackedPhoneLink>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
-          PROBLEM/SOLUTION SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-950 text-white">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-3">
+            {planningSteps.map((step) => (
+              <div key={step.title} className="border border-white/10 p-6">
+                <IconWrapper
+                  icon={step.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h2 className="mb-3 text-xl font-bold">{step.title}</h2>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                &quot;We used to close the patio when it looked like rain.&quot;
+              <div className="label-editorial mb-4 text-edg-brand">
+                Commercial Planning Standard
+              </div>
+              <h2 className="section-title mb-6">
+                A restaurant patio is an operations project, not a shade add-on
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
-                Chicago weather is unpredictable. If you rely on umbrellas or
-                simple awnings, you&apos;re losing money every time the forecast is
-                &quot;iffy.&quot;
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                A useful enclosure plan starts with service reality. The system
+                has to support how many guests can be seated, how staff move,
+                where controls live, how rain drains, how wind is handled, and
+                which inspections or approvals may be required.
               </p>
-              <h3 className="mb-4 text-xl font-bold text-white">
-                The EDG Commercial System:
-              </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="text-edg-brand h-6 w-6 shrink-0" />
-                  <div>
-                    <span className="font-bold text-white">
-                      Motorized Louvered Roof:
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                EDG is system-agnostic, so the recommendation can combine
+                louvered roofs, screens, glass, heat, lighting, and controls
+                only where they make sense for the restaurant. The result should
+                be easier to operate, easier to review, and easier to maintain.
+              </p>
+              <div className="grid gap-3">
+                {operationalChecks.map((check) => (
+                  <div key={check} className="flex items-start gap-3">
+                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
+                    <span className="text-sm font-medium text-zinc-800">
+                      {check}
                     </span>
-                    <p className="text-sm text-zinc-300">
-                      Closes in 60 seconds to become completely waterproof.
-                    </p>
                   </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="text-edg-brand h-6 w-6 shrink-0" />
-                  <div>
-                    <span className="font-bold text-white">
-                      Integrated Heating:
-                    </span>
-                    <p className="text-sm text-zinc-300">
-                      Keep guests comfortable for 8-9 months of the year.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="text-edg-brand h-6 w-6 shrink-0" />
-                  <div>
-                    <span className="font-bold text-white">
-                      Wind-Rated Screens:
-                    </span>
-                    <p className="text-sm text-zinc-300">
-                      Block the wind without blocking the view. Rated for
-                      commercial use.
-                    </p>
-                  </div>
-                </li>
-              </ul>
+                ))}
+              </div>
             </div>
-            <div className="relative min-h-[400px] overflow-hidden rounded-3xl">
+
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={images.brand.hero.screensOld}
-                alt="Restaurant Patio Shades"
+                src={images.systems.enclosures.commercialPergolaDay}
+                alt="Commercial pergola and glass enclosure over a restaurant dining patio"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-black/20" />
-              <div className="absolute right-8 bottom-8 left-8 rounded-2xl border border-white/10 bg-zinc-900/90 p-6 shadow-2xl backdrop-blur-sm">
-                <h3 className="mb-6 flex items-center gap-3 text-2xl font-bold">
-                  <BarChart3 className="text-edg-brand" /> Revenue Impact
-                </h3>
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-sm text-gray-500 uppercase">
-                      Average Ticket (4-top)
-                    </div>
-                    <div className="text-2xl font-semibold">$200 - $400</div>
-                  </div>
-                  <div className="h-px bg-white/10"></div>
-                  <div>
-                    <div className="text-sm text-gray-500 uppercase">
-                      Lost Revenue (Fri/Sat Rainout)
-                    </div>
-                    <div className="text-2xl font-semibold text-red-500">
-                      -$5,000 to -$15,000
-                    </div>
-                  </div>
-                  <div className="h-px bg-white/10"></div>
-                  <div>
-                    <div className="text-sm text-gray-500 uppercase">
-                      EDG Solution
-                    </div>
-                    <div className="text-edg-brand text-3xl font-bold">
-                      $0 Lost Revenue
-                    </div>
-                    <p className="mt-1 text-xs text-gray-500">
-                      Pay for the system in one season.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          ENCLOSURE TYPES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md bg-surface">
         <Container>
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Commercial Patio Enclosure Options
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              System Options
+            </div>
+            <h2 className="section-title mb-4">
+              Components that can work together as one patio system
             </h2>
-            <p className="text-lg text-gray-600">
-              We design heavy-duty systems specifically for the demands of the
-              restaurant industry.
+            <p className="text-text-secondary text-lg leading-relaxed">
+              The right commercial enclosure may be a simple screen plan, a
+              louvered roof, a glass enclosure, or a layered system. The goal
+              is to make the product choice after the restaurant, site, and
+              operations are understood.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {enclosureTypes.map((type) => (
-              <Card key={type.title} variant="outline" padding="lg" className="group">
+          <div className="grid gap-6 md:grid-cols-3">
+            {systemOptions.map((option) => (
+              <Card key={option.title} variant="outline" padding="lg">
                 <IconWrapper
-                  icon={type.icon}
+                  icon={option.icon}
                   variant="brand"
                   size="lg"
                   className="mb-6"
                 />
-                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                  {type.title}
-                </h3>
-                <p className="text-gray-600">{type.description}</p>
+                <h3 className="mb-3 text-xl font-bold">{option.title}</h3>
+                <p className="text-text-secondary leading-relaxed">
+                  {option.description}
+                </p>
               </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FEATURES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Built for Restaurant Demands
-            </h2>
-            <p className="text-lg text-gray-600">
-              Commercial-grade systems engineered for high-traffic dining environments.
-            </p>
-          </div>
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Proof Standard
+              </div>
+              <h2 className="section-title mb-6 text-white">
+                Model the business case from the actual patio
+              </h2>
+              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
+                A useful review does not start with a generic financial promise.
+                It starts with the patio, the operating model, and the
+                assumptions behind the business case: covers, hours, ticket
+                averages, weather exposure, staffing, and service flow.
+              </p>
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Request a Patio Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+            </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {keyFeatures.map((feature) => (
-              <Card
-                key={feature.title}
-                variant="outline"
-                padding="lg"
-                className="group"
-              >
-                <IconWrapper
-                  icon={feature.icon}
-                  variant="brand"
-                  size="lg"
-                  className="mb-6"
-                />
-                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </Card>
-            ))}
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ['Inputs', 'Seat count, ticket average, hours, staffing, and weather exposure'],
+                ['System', 'Roof, screen, glass, heat, lighting, drainage, and controls'],
+                ['Output', 'A qualified plan instead of a generic financial claim'],
+              ].map(([label, description]) => (
+                <div key={label} className="border border-white/10 p-6">
+                  <div className="text-edg-brand mb-3 text-xs font-bold tracking-[0.18em] uppercase">
+                    {label}
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-300">
+                    {description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FAQ SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Common Questions
+          <div className="mx-auto max-w-3xl">
+            <div className="label-editorial-brand mb-4 text-center">
+              FAQ
+            </div>
+            <h2 className="section-title mb-10 text-center">
+              Restaurant Patio Enclosure Questions
             </h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <Card key={i} variant="outline" padding="lg">
-                  <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+            <div className="space-y-5">
+              {faqs.map((faq) => (
+                <Card key={faq.question} variant="outline" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -408,63 +392,67 @@ export default function RestaurantPatioEnclosuresPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          RELATED SOLUTIONS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-zinc-100 border-t border-gray-200">
+      <Section className="border-t border-black/10 bg-surface py-12">
         <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-edg-brand-text transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span className="font-medium">All Commercial Solutions</span>
+              All Commercial Pages
             </Link>
-            <div className="flex gap-4 flex-wrap justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/restaurant-patio-solutions"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                Restaurant Solutions <ChevronRight className="h-4 w-4" />
+                Restaurant Solutions
+                <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/commercial/hotel-pergolas"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                Hotel Solutions <ChevronRight className="h-4 w-4" />
+                Hotel Pergolas
+                <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          CTA SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="bg-edg-brand py-20">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Ready to Upgrade Your Patio?
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold text-text-inverse md:text-4xl">
+              Plan the patio before choosing the system
             </h2>
-            <p className="text-xl text-black/80 mb-8">
-              Schedule a site visit. We&apos;ll give you a clear proposal with ROI
-              projections for your specific cover count.
+            <p className="mb-8 text-xl leading-relaxed text-text-inverse-muted">
+              EDG can review the restaurant, operating goals, and site
+              constraints before recommending the enclosure package.
             </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-black text-white hover:bg-gray-900"
-              >
-                Request Proposal
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Start Commercial Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call EDG
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

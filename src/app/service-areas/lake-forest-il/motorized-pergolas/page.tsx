@@ -97,7 +97,7 @@ const faqs = [
 
 export default function LakeForestMotorizedPergolasPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -132,7 +132,7 @@ export default function LakeForestMotorizedPergolasPage() {
         <div className="absolute inset-0 opacity-35">
           <Image
             src={images.systems.pergolas.blackBladePool}
-            alt="Motorized black louvered pergola over a premium outdoor dining patio"
+            alt="Motorized black louvered pergola over an outdoor dining patio"
             fill
             priority
             className="object-cover"
@@ -365,6 +365,6 @@ export default function LakeForestMotorizedPergolasPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

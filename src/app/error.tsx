@@ -13,9 +13,9 @@ export default function Error({
   return (
     <div className="bg-edg-dark flex min-h-screen items-center justify-center px-6">
       <div className="max-w-md text-center">
-        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-500/10">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center border border-edg-brand/30 bg-white/10">
           <svg
-            className="h-8 w-8 text-red-500"
+            className="h-8 w-8 text-edg-brand"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
@@ -36,22 +36,22 @@ export default function Error({
           the problem persists.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Button onClick={reset} className="rounded-lg">
+          <Button onClick={reset}>
             Try again
           </Button>
           <Link
             href="/"
-            className="rounded-lg border border-white/20 px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
+            className="border border-white/20 px-6 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
           >
             Go home
           </Link>
         </div>
         {process.env.NODE_ENV === 'development' && error.message && (
           <details className="mt-8 text-left">
-            <summary className="cursor-pointer text-sm text-gray-500">
+            <summary className="cursor-pointer text-sm text-zinc-500">
               Error details
             </summary>
-            <pre className="mt-2 overflow-auto rounded bg-red-500/10 p-4 text-xs text-red-400">
+            <pre className="mt-2 overflow-auto border border-white/15 bg-white/5 p-4 text-xs text-zinc-300">
               {error.message}
             </pre>
           </details>

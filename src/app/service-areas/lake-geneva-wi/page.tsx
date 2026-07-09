@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -83,7 +84,7 @@ const localConsiderations = [
     icon: Wind,
   },
   {
-    title: 'Four-Season Use',
+    title: 'Seasonal Use Planning',
     description:
       'Wisconsin outdoor rooms need winter planning even when the main goal is summer entertaining. Drainage, snow, freeze-thaw movement, electrical routing, and off-season access all affect the final system.',
     icon: Thermometer,
@@ -91,7 +92,7 @@ const localConsiderations = [
   {
     title: 'Summer Heat & UV',
     description:
-      'July afternoons on the lake can be intense. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your patio comfortable even during peak summer heat.',
+      'July afternoons on the lake can bring direct sun, glare, and heat. Exterior shades can cut glare and heat while preserving airflow when the fabric, track path, and controls are planned around the opening.',
     icon: CloudSun,
   },
   {
@@ -127,7 +128,7 @@ const localPages = [
   {
     title: 'Lake Geneva Motorized Pergolas',
     description:
-      'Louvered roof planning for shade, light rain, lake wind, view protection, screens, lighting, heaters, and premium patio layouts.',
+      'Louvered roof planning for shade, light rain, lake wind, view protection, screens, lighting, heaters, and lake-home patio layouts.',
     href: '/service-areas/lake-geneva-wi/motorized-pergolas',
     icon: CloudSun,
   },
@@ -169,6 +170,27 @@ const faqs = [
       'A custom Lake Geneva area project can take several weeks for design, review, fabrication, and installation. Seasonal schedules, guest calendars, review requirements, electrical coordination, and weather can change the timeline, so we set expectations after the address and scope are clear.',
   },
 ];
+
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'multiple',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_hub_hero',
+});
+
+const localProofContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'multiple',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_local_proof',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_hub_bottom',
+});
 
 export default function LakeGenevaHubPage() {
   const faqSchema = generateFAQSchema(faqs);
@@ -229,9 +251,9 @@ export default function LakeGenevaHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Lake Geneva, WI
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Upgrade Your Lake Geneva Home with
+                Plan Your Lake Geneva Home With{' '}
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -239,7 +261,7 @@ export default function LakeGenevaHubPage() {
                 Williams Bay, we design engineered shade systems built for
                 Wisconsin lakefront living.
               </p>
-              <Link href="/contact?type=price&product=multiple&location=Lake%20Geneva%2C%20WI&source=lake_geneva_hub_hero">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Lake Geneva Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -328,7 +350,7 @@ export default function LakeGenevaHubPage() {
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Lake homes, weekend houses, smaller inland properties, and
-                year-round residences need different outdoor-room plans. The
+                full-time residences need different outdoor-room plans. The
                 view, guest use, and seasonal schedule matter from the start.
               </p>
             </div>
@@ -357,8 +379,8 @@ export default function LakeGenevaHubPage() {
                 Lake Geneva planning notes
               </div>
               <h2 className="section-title mb-4">
-                The best lake-home outdoor rooms protect the reason you are
-                there.
+                Strong lake-home outdoor rooms protect the reason you are
+                there
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 A Lake Geneva pergola or screen project should improve comfort
@@ -390,7 +412,7 @@ export default function LakeGenevaHubPage() {
         <Container>
           <FadeIn>
             <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <div className="relative aspect-[4/3] overflow-hidden border border-border">
                 <Image
                   src={images.featuredProjects.lakeGenevaRestaurant.hero}
                   alt="Lake Geneva commercial outdoor dining project by EDG"
@@ -419,7 +441,7 @@ export default function LakeGenevaHubPage() {
                   pergola, motorized screens, a permit planning conversation, or
                   a phased outdoor-room plan.
                 </p>
-                <Link href="/contact?type=price&product=multiple&location=Lake%20Geneva%2C%20WI&source=lake_geneva_local_proof">
+                <Link href={localProofContactHref}>
                   <Button variant="secondary">
                     Share Photos for a Lake Geneva Review
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -440,8 +462,8 @@ export default function LakeGenevaHubPage() {
                 Built for Lake Geneva&apos;s Waterfront Conditions
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for Wisconsin lakefront
-                challenges.
+                System choice, drainage, screens, controls, and service access
+                should all be reviewed against Wisconsin lakefront conditions.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -488,19 +510,20 @@ export default function LakeGenevaHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Lake Geneva Project?
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Lake Geneva project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation with our local design team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Send photos, rough dimensions, and the comfort problem you want
+                solved before choosing a system.
               </p>
-              <Link href="/contact?type=price&product=multiple&location=Lake%20Geneva%2C%20WI&source=lake_geneva_hub_bottom">
-                <Button size="lg" variant="dark" className="px-8 text-lg">
-                  Schedule Free Consultation{' '}
+              <Link href={bottomContactHref}>
+                <Button size="lg" className="px-8 text-lg">
+                  Start Lake Geneva Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

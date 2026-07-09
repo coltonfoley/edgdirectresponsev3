@@ -21,6 +21,7 @@ import { Container } from '@/components/ui/Container';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 
 export const metadata: Metadata = {
   title: 'Algonquin IL Pergolas & Outdoor Living | EDG Patio & Shade',
@@ -123,9 +124,21 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  area: 'algonquin',
+  product: 'pergola',
+  source: 'algonquin_hub',
+});
+
+const bottomContactHref = buildContactHref({
+  area: 'algonquin',
+  product: 'pergola',
+  source: 'algonquin_hub_bottom',
+});
+
 export default function AlgonquinServiceAreaPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -194,7 +207,7 @@ export default function AlgonquinServiceAreaPage() {
                 for Algonquin homes from Old Town to Randall Road.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=algonquin&product=pergola&source=algonquin_hub">
+                <Link href={heroContactHref}>
                   <Button size="lg" className="px-8 text-lg">
                     Plan an Algonquin Pergola{' '}
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -419,7 +432,7 @@ export default function AlgonquinServiceAreaPage() {
               outdoor room.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link href="/contact?area=algonquin&product=pergola&source=algonquin_hub_bottom">
+              <Link href={bottomContactHref}>
                 <Button size="lg">
                   Request a Site Review
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -435,6 +448,6 @@ export default function AlgonquinServiceAreaPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

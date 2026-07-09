@@ -132,7 +132,7 @@ export default async function ProjectPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
       />
 
-      <main className="min-h-screen bg-edg-light dark:bg-black">
+      <div className="min-h-screen bg-edg-light dark:bg-black">
         {/* Hero Section */}
         <ProjectHero project={enrichedProject} />
 
@@ -160,7 +160,7 @@ export default async function ProjectPage({ params }: PageProps) {
             currentLocation={project.location}
           />
         )}
-      </main>
+      </div>
     </>
   );
 }

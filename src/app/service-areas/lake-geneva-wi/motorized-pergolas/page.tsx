@@ -15,6 +15,7 @@ import {
   Wind,
 } from 'lucide-react';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Button } from '@/components/ui/Button';
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Lake Geneva Motorized Pergolas & Louvered Roofs | EDG',
     description:
-      'Premium louvered roof planning for Lake Geneva area homes, lakefront patios, pool decks, and outdoor entertaining spaces.',
+      'Louvered roof planning for Lake Geneva area homes, lakefront patios, pool decks, and outdoor entertaining spaces.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -133,9 +134,23 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'pergola',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_pergola_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'pergola',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_pergola_bottom',
+});
+
 export default function LakeGenevaMotorizedPergolasPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -218,7 +233,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
               and a polished outdoor-room feel for weekends on the water.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact?type=price&product=pergola&location=Lake%20Geneva%2C%20WI&source=lake_geneva_pergola_hero">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8">
                   Request Lake Geneva Pergola Review
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -227,8 +242,8 @@ export default function LakeGenevaMotorizedPergolasPage() {
               <a href="tel:+18155810138">
                 <Button
                   size="lg"
-                  variant="secondary"
-                  className="border-white/40 bg-white/10 px-8 text-white hover:bg-white/20"
+                  variant="outline"
+                  className="px-8"
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   815-581-0138
@@ -251,7 +266,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
             <p className="text-text-secondary text-lg leading-relaxed">
               Lake Geneva outdoor rooms are often asked to do a lot at once:
               host guests, protect a dining table, stay open to the view, handle
-              quick weather changes, and look appropriate on a premium home. A
+              quick weather changes, and look appropriate on a lake home. A
               motorized pergola is strongest when the roof, screens, drainage,
               lighting, heaters, and controls are planned as one system instead
               of a catalog structure dropped onto the patio.
@@ -275,7 +290,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
       <Section className="section-md bg-surface-muted">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            <div className="relative aspect-[4/3] overflow-hidden border border-border">
               <Image
                 src={images.systems.pergolas.blackBladePool}
                 alt="Motorized louvered pergola over a poolside outdoor dining space"
@@ -372,7 +387,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
                   key={step}
                   className="flex gap-4 border border-zinc-200 bg-white p-5"
                 >
-                  <div className="bg-edg-brand text-edg-dark flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                  <div className="bg-edg-brand text-edg-dark flex h-9 w-9 shrink-0 items-center justify-center text-sm font-bold">
                     {index + 1}
                   </div>
                   <p className="text-text-secondary leading-relaxed">{step}</p>
@@ -416,7 +431,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
                 needs to improve first: shade, rain, bugs, wind, privacy, or
                 guest entertaining.
               </p>
-              <Link href="/contact?type=price&product=pergola&location=Lake%20Geneva%2C%20WI&source=lake_geneva_pergola_bottom">
+              <Link href={bottomContactHref}>
                 <Button size="lg">Start Pergola Review</Button>
               </Link>
             </div>
@@ -458,6 +473,6 @@ export default function LakeGenevaMotorizedPergolasPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

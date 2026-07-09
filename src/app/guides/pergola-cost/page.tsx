@@ -300,8 +300,8 @@ const roiPoints = [
     icon: Building2,
     title: 'Commercial ROI',
     description:
-      'For restaurants and hospitality, each outdoor seat generates revenue. Systems often pay for themselves in 1-2 seasons.',
-    value: '$150K+ annual revenue increase typical',
+      'For restaurants and hospitality, outdoor coverage can protect more seating hours when the site, demand, staffing, and weather exposure support it.',
+    value: 'Project-specific revenue model required',
   },
   {
     icon: TrendingUp,
@@ -339,7 +339,7 @@ const faqs = [
   {
     question: 'Do premium pergolas really add home value?',
     answer:
-      'Yes—when properly permitted and installed, permanent aluminum pergolas add appraised value similar to a high-end deck or sunroom. Unlike temporary structures or awnings that depreciate immediately, these are permanent improvements. Real estate agents in our markets (Chicago-Milwaukee corridor) report that homes with premium outdoor living spaces sell faster and for more money, particularly in the luxury segment.',
+      'They can support home value when properly permitted, professionally installed, and planned as a permanent architectural improvement rather than a temporary shade kit. Appraisal and resale impact still depends on the home, market, project quality, and buyer priorities, so we treat value as a site-specific planning factor rather than a fixed return.',
   },
   {
     question: 'What ongoing costs should I expect after installation?',
@@ -505,7 +505,7 @@ export default function PergolaCostGuide() {
                     motorized systems
                   </strong>
                   —the architectural-grade pergolas we specify and install that
-                  transform outdoor spaces into year-round living areas.
+                  turn outdoor spaces into more usable living areas.
                 </p>
               </div>
 
@@ -525,7 +525,7 @@ export default function PergolaCostGuide() {
                 </div>
               </div>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={images.brand.hero.pergola}
                 alt="Premium motorized louvered pergola installation"
@@ -623,7 +623,7 @@ export default function PergolaCostGuide() {
             {costFactors.map((factor) => (
               <Card key={factor.title} variant="default" padding="lg">
                 <div className="mb-4 flex items-start gap-4">
-                  <div className="bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-edg-brand/20 bg-edg-brand/10">
                     <factor.icon className="text-edg-brand-text h-6 w-6" />
                   </div>
                   <div>
@@ -779,14 +779,14 @@ export default function PergolaCostGuide() {
             ))}
           </div>
 
-          <div className="mt-12 border border-amber-200 bg-amber-50 p-6">
+          <div className="mt-12 border border-border bg-white p-6">
             <div className="flex items-start gap-4">
-              <AlertTriangle className="mt-0.5 h-6 w-6 shrink-0 text-amber-600" />
+              <AlertTriangle className="text-edg-brand-text mt-0.5 h-6 w-6 shrink-0" />
               <div>
-                <h4 className="mb-2 font-bold text-amber-900">
+                <h4 className="mb-2 font-bold text-text-primary">
                   Budget Recommendation
                 </h4>
-                <p className="text-sm leading-relaxed text-amber-800">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   Plan for a 10-15% contingency on top of your base pergola
                   cost. Site conditions, electrical requirements, and permit
                   complexities vary significantly. During our site assessment,
@@ -817,7 +817,7 @@ export default function PergolaCostGuide() {
             {roiPoints.map((point) => (
               <Card key={point.title} variant="default" padding="lg">
                 <div className="flex items-start gap-4">
-                  <div className="bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-edg-brand/20 bg-edg-brand/10">
                     <point.icon className="text-edg-brand-text h-6 w-6" />
                   </div>
                   <div>
@@ -898,7 +898,7 @@ export default function PergolaCostGuide() {
             {budgetSteps.map((step, index) => (
               <div key={step.number} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="bg-edg-brand text-edg-dark flex h-12 w-12 items-center justify-center rounded-full text-lg font-bold">
+                  <div className="flex h-12 w-12 items-center justify-center bg-edg-brand text-lg font-bold text-edg-dark">
                     {step.number}
                   </div>
                   {index < budgetSteps.length - 1 && (

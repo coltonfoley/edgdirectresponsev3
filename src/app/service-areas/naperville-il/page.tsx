@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -56,7 +57,7 @@ const neighborhoods = [
   {
     name: 'South Naperville',
     description:
-      'South Naperville\'s newer developments feature expansive homes with large outdoor spaces perfect for premium pergola installations. We specialize in creating multi-zone outdoor living areas that accommodate both intimate family gatherings and larger entertaining spaces.',
+      'South Naperville\'s newer developments often include expansive homes with large outdoor spaces. We plan multi-zone outdoor rooms that can support quiet family use, larger gatherings, and future screens, heat, lighting, or controls.',
   },
   {
     name: 'East Ogden Corridor',
@@ -86,7 +87,7 @@ const localConsiderations = [
   {
     title: 'Summer Heat & UV',
     description:
-      'Naperville summers can be intense with high UV exposure. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your outdoor space comfortable during peak summer months.',
+      'Naperville summers can bring direct sun and afternoon glare. Exterior shades can cut heat and glare while preserving airflow when the fabric, track path, and controls are planned around the opening.',
     icon: Wind,
   },
   {
@@ -142,6 +143,18 @@ const faqs = [
 ];
 
 const faqSchema = generateFAQSchema(faqs);
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Naperville, IL',
+  source: 'naperville_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Naperville, IL',
+  source: 'naperville_hub_bottom',
+});
 
 export default function NapervilleHubPage() {
   return (
@@ -204,9 +217,9 @@ export default function NapervilleHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Naperville, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Upgrade Your Naperville Home with
+                Plan Your Naperville Backyard With
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -214,7 +227,7 @@ export default function NapervilleHubPage() {
                 corridor, we design engineered shade systems that enhance your
                 suburban lifestyle and handle DuPage County weather.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Naperville Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -310,7 +323,7 @@ export default function NapervilleHubPage() {
             <div className="grid md:grid-cols-2 gap-6 mt-8">
               <Card>
                 <h3 className="font-bold mb-2 flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-amber-500" />
+                  <AlertTriangle className="text-edg-brand-dark h-4 w-4" />
                   Subdivision/PUD Factor
                 </h3>
                 <p className="text-sm text-text-secondary">
@@ -416,7 +429,7 @@ export default function NapervilleHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -437,23 +450,22 @@ export default function NapervilleHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Naperville Project?
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Naperville project?
               </h2>
-              <p className="text-edg-dark mb-8 text-xl">
-                Get a free consultation with our local design team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Review the address, HOA path, privacy needs, and right system direction with our local design team.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Naperville Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Color contrast smoke test for critical EDG website pages.
+ * Color contrast and rendered-structure smoke test for critical EDG website pages.
  *
  * This uses Playwright from the repo dependency tree, so the check works in a
  * local path with spaces and does not depend on a globally installed pa11y.
@@ -34,9 +34,9 @@ const PAGES = [
   '/systems/saunas',
   '/guides',
   '/guides/louvered-pergolas',
+  '/html-sitemap',
   '/privacy',
   '/showroom',
-  '/design',
 ];
 
 function pageUrl(route) {
@@ -78,7 +78,107 @@ async function testPage(browser, route, viewport) {
     }, viewport.scrollY);
     await page.waitForTimeout(350);
 
-    const issues = await page.evaluate(() => {
+    const structureIssues = await page.evaluate(() => {
+      function elementPath(element) {
+        const parts = [];
+        let current = element;
+
+        while (current && current.nodeType === Node.ELEMENT_NODE && parts.length < 4) {
+          let part = current.tagName.toLowerCase();
+
+          if (current.id) {
+            part += `#${current.id}`;
+            parts.unshift(part);
+            break;
+          }
+
+          if (current.classList.length) {
+            part += `.${[...current.classList].slice(0, 2).join('.')}`;
+          }
+
+          parts.unshift(part);
+          current = current.parentElement;
+        }
+
+        return parts.join(' > ');
+      }
+
+      function isVisible(element) {
+        const style = window.getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+
+        return (
+          style.display !== 'none' &&
+          style.visibility !== 'hidden' &&
+          Number(style.opacity || 1) > 0.05 &&
+          rect.width > 0 &&
+          rect.height > 0
+        );
+      }
+
+      function isNearViewport(element) {
+        const rect = element.getBoundingClientRect();
+
+        return rect.bottom >= -200 && rect.top <= window.innerHeight + 200;
+      }
+
+      const issues = [];
+      const visibleH1s = [...document.querySelectorAll('h1')].filter(isVisible);
+      const main = document.querySelector('main');
+      const scrollWidth = document.documentElement.scrollWidth;
+      const clientWidth = document.documentElement.clientWidth;
+      const frameworkOverlay = document.querySelector(
+        '[data-nextjs-dialog-overlay], [data-nextjs-toast], nextjs-portal'
+      );
+      const brokenNearViewportImages = [...document.images].filter((image) => {
+        if (!isVisible(image) || !isNearViewport(image)) return false;
+        return !image.complete || image.naturalWidth === 0;
+      });
+
+      if (frameworkOverlay) {
+        issues.push({
+          text: 'Framework error overlay is visible',
+          selector: elementPath(frameworkOverlay),
+          type: 'structure',
+        });
+      }
+
+      if (!main || (main.textContent || '').trim().length < 200) {
+        issues.push({
+          text: 'Main content is missing or unexpectedly short',
+          selector: main ? elementPath(main) : 'main',
+          type: 'structure',
+        });
+      }
+
+      if (visibleH1s.length !== 1) {
+        issues.push({
+          text: `Expected 1 visible h1, found ${visibleH1s.length}`,
+          selector: 'h1',
+          type: 'structure',
+        });
+      }
+
+      if (scrollWidth > clientWidth + 2) {
+        issues.push({
+          text: `Horizontal overflow: scrollWidth ${scrollWidth}, clientWidth ${clientWidth}`,
+          selector: 'document',
+          type: 'structure',
+        });
+      }
+
+      brokenNearViewportImages.slice(0, 5).forEach((image) => {
+        issues.push({
+          text: 'Visible image near viewport did not load',
+          selector: elementPath(image),
+          type: 'structure',
+        });
+      });
+
+      return issues;
+    });
+
+    const contrastIssues = await page.evaluate(() => {
       const MIN_NORMAL_TEXT = 4.5;
       const MIN_LARGE_TEXT = 3;
       const DEFAULT_PAGE_BACKGROUND = { r: 255, g: 255, b: 255, a: 1 };
@@ -477,6 +577,8 @@ async function testPage(browser, route, viewport) {
         .slice(0, 20);
     });
 
+    const issues = [...structureIssues, ...contrastIssues];
+
     return { route: label, passed: issues.length === 0, issues };
   } finally {
     await page.close();
@@ -484,7 +586,7 @@ async function testPage(browser, route, viewport) {
 }
 
 async function runTests() {
-  console.log('EDG Patio & Shade - Color Contrast Tests');
+  console.log('EDG Patio & Shade - Color Contrast and Structure Tests');
   console.log(`Testing against: ${BASE_URL}`);
   console.log(`Browser color preference: ${COLOR_SCHEME}`);
   console.log(
@@ -507,7 +609,9 @@ async function runTests() {
           console.log(`fail (${result.issues.length} issue(s))`);
           result.issues.slice(0, 5).forEach((issue) => {
             console.log(
-              `  - ${issue.selector}: "${issue.text}" ratio ${issue.ratio}:1, needs ${issue.required}:1`
+              issue.type === 'structure'
+                ? `  - ${issue.selector}: "${issue.text}"`
+                : `  - ${issue.selector}: "${issue.text}" ratio ${issue.ratio}:1, needs ${issue.required}:1`
             );
           });
         }

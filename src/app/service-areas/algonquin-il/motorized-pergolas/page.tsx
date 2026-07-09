@@ -96,7 +96,7 @@ const faqs = [
 
 export default function AlgonquinMotorizedPergolasPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -229,7 +229,7 @@ export default function AlgonquinMotorizedPergolasPage() {
       <Section className="section-md bg-surface-muted">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={images.systems.pergolas.whiteLedStrip}
                 alt="White motorized pergola with integrated LED lighting"
@@ -297,7 +297,7 @@ export default function AlgonquinMotorizedPergolasPage() {
               {planningSteps.map((step, index) => (
                 <Card key={step} variant="muted" padding="lg">
                   <div className="flex gap-4">
-                    <div className="bg-edg-brand text-edg-dark flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-edg-brand text-sm font-bold text-edg-dark">
                       {index + 1}
                     </div>
                     <p className="text-text-secondary leading-relaxed">
@@ -387,6 +387,6 @@ export default function AlgonquinMotorizedPergolasPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

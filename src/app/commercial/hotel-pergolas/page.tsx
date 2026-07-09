@@ -1,111 +1,135 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import * as images from '@/lib/images';
 import {
   ArrowLeft,
   ArrowRight,
-  ChevronRight,
-  Sun,
+  Building2,
   Calendar,
-  TrendingUp,
-  Wine,
+  CheckCircle2,
+  ChevronRight,
+  Hotel,
   PartyPopper,
-  Building,
+  Phone,
+  SlidersHorizontal,
+  Sun,
+  Wine,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { buildContactHref } from '@/lib/contact-links';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Commercial Hotel Pergola Systems | EDG',
   description:
-    'Professional hotel pergola systems for Chicago and Milwaukee hotels. Motorized louvers, integrated rain sensors, and year-round revenue optimization.',
+    'Commercial hotel pergola planning for Chicago and Milwaukee rooftops, pool decks, terraces, and amenity spaces with louvers, heat, lighting, and controls.',
   alternates: {
     canonical: '/commercial/hotel-pergolas',
   },
   openGraph: {
     title: 'Commercial Hotel Pergola Systems | EDG',
     description:
-      'Professional hotel pergola systems for Chicago and Milwaukee hotels. Motorized louvers, integrated rain sensors, and year-round revenue optimization.',
+      'Commercial hotel pergola planning for rooftops, pool decks, terraces, and amenity spaces.',
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════════════
+const heroContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'hotel-pergolas',
+  location: 'chicago',
+  source: 'hotel_pergolas_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'hotel-pergolas',
+  location: 'chicago',
+  source: 'hotel_pergolas_bottom',
+});
+
 const faqs = [
   {
     question: 'How quickly can hotel pergola systems respond to weather changes?',
     answer:
-      'Our commercial-grade motors close louvers in 60-90 seconds when rain sensors detect precipitation. Wind sensors automatically open louvers when speeds exceed 25 mph, protecting the structure from damage.',
+      'Response behavior depends on the selected pergola, controls, sensors, and operating settings. EDG helps hotel teams review rain, wind, heat, lighting, and staff override needs before specifying the controls package.',
   },
   {
     question: 'What permit requirements apply for Chicago hotel rooftop installations?',
     answer:
-      'Most installations require structural engineering review and Chicago Department of Buildings permits. We handle all permit applications, provide stamped engineering drawings, and coordinate inspections.',
+      'Most hotel rooftop and terrace projects should be reviewed for structure, egress, fire safety, utilities, wind exposure, and local permitting. EDG helps organize product documentation and project-team coordination early in the planning process.',
   },
   {
-    question: 'How do you handle the structural load on existing rooftops?',
+    question: 'How do you handle structural load on existing rooftops?',
     answer:
-      'We perform structural analysis to verify existing roof capacity. For buildings requiring reinforcement, we design and install structural steel support columns, spread footings, or connections to existing structural elements.',
+      'Structural review belongs in the planning path before the system is selected. EDG coordinates the pergola scope, mounting concept, product documentation, and design inputs with the project team so structural questions are addressed directly.',
   },
   {
     question: 'What operational training do you provide hotel staff?',
     answer:
-      'We provide comprehensive training including daily operation, seasonal maintenance, troubleshooting common issues, and emergency procedures. Written operation manuals and 24/7 technical support are included.',
+      'Hotel teams should receive a simple handoff for everyday operation, weather procedures, controls, maintenance expectations, and service contacts. The exact handoff depends on the systems and controls selected for the property.',
   },
 ];
 
-const keyFeatures = [
+const planningSteps = [
+  {
+    icon: Hotel,
+    title: 'Guest amenity review',
+    description:
+      'Pool decks, rooftops, terraces, bars, and event spaces each need different shade, heat, lighting, access, and staff-control assumptions.',
+  },
+  {
+    icon: Building2,
+    title: 'Rooftop and structure coordination',
+    description:
+      'Mounting, wind exposure, drainage, power, egress, and building-operations constraints should be reviewed before the pergola package is selected.',
+  },
+  {
+    icon: SlidersHorizontal,
+    title: 'Controls and staff handoff',
+    description:
+      'Sensors, remotes, staff-only zones, heaters, and lighting should be easy enough for hotel teams to operate consistently.',
+  },
+];
+
+const pergolaOptions = [
   {
     icon: Sun,
-    title: 'Motorized Louvers',
+    title: 'Louvered shade control',
     description:
-      'Adjustable aluminum louvers open and close at the touch of a button, providing instant sun or rain protection.',
+      'Adjustable louvers can help hotels manage sun, glare, and rain exposure when the roof deck or terrace conditions support the system.',
   },
   {
     icon: Calendar,
-    title: 'Year-Round Use',
+    title: 'Shoulder-season comfort',
     description:
-      'Integrated heating, lighting, and side enclosures transform seasonal spaces into year-round revenue generators.',
+      'Heat, side protection, and lighting can extend useful amenity time when they are planned around guest access and operations.',
   },
-  {
-    icon: Building,
-    title: 'Commercial Grade',
-    description:
-      'Engineered for high-traffic hospitality use with powder-coated aluminum and commercial-rated components.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Revenue Growth',
-    description:
-      'Convert underutilized rooftop and patio areas into bookable event spaces that generate revenue in any weather.',
-  },
-];
-
-const useCases = [
   {
     icon: Wine,
-    title: 'Rooftop Bars',
+    title: 'Rooftop bar planning',
     description:
-      'Create weather-protected rooftop bar experiences that stay open through Chicago\'s unpredictable weather.',
+      'Bars and lounges need practical decisions around staff flow, cleanup, wind, power, furniture, guest controls, and weather procedures.',
   },
   {
     icon: PartyPopper,
-    title: 'Event Spaces',
+    title: 'Event terrace planning',
     description:
-      'Transform rooftops into bookable wedding and corporate event venues with guaranteed weather protection.',
+      'Event spaces need a clear operating plan for weather interruptions, seating changes, AV, lighting, heat, and staff handoff.',
   },
-  {
-    icon: Sun,
-    title: 'Pool Decks',
-    description:
-      'Provide shade for pool areas during peak sun hours while allowing airflow and views.',
-  },
+];
+
+const planningChecklist = [
+  'Rooftop exposure, mounting surface, wind direction, power, and drainage',
+  'Guest seating, pool access, event layout, staff paths, and ADA clearances',
+  'Louvers, screens, heat, lighting, sensors, and manual override behavior',
+  'Owner approval, brand standards, maintenance, documentation, and service plan',
 ];
 
 const relatedPages = [
@@ -119,7 +143,7 @@ const schema = {
   '@type': 'Service',
   name: 'Commercial Hotel Pergola Systems',
   description:
-    'Professional hotel pergola systems for Chicago and Milwaukee hotels with motorized louvers, integrated rain sensors, and year-round revenue optimization.',
+    'Commercial hotel pergola planning for Chicago and Milwaukee hotels with louvers, heat, lighting, sensors, and controls',
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -138,186 +162,237 @@ const schema = {
   ],
 };
 
-// ═══════════════════════════════════════════════════════════
-// PAGE COMPONENT
-// ═══════════════════════════════════════════════════════════
 export default function HotelPergolasPage() {
   return (
-    <main className="min-h-screen">
-      {/* JSON-LD Schema */}
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ═══════════════════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
-        {/* Background Image */}
+      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
-            src={images.brand.hero.lifestyle}
-            alt=""
-            aria-hidden="true"
+            src={images.systems.enclosures.commercialDayExterior}
+            alt="Commercial hotel terrace with outdoor shade planning"
             fill
             priority
+            loading="eager"
             sizes="100vw"
-            className="object-cover opacity-30"
+            className="object-cover opacity-35"
           />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-        {/* Content */}
         <Container className="relative z-10">
-          {/* Breadcrumb - Left Aligned */}
-          <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Commercial', href: '/commercial' },
-                { label: 'Hotel Pergolas' },
-              ]}
-              className="text-zinc-300"
-            />
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Commercial', href: '/commercial' },
+              { label: 'Hotel Pergolas' },
+            ]}
+            className="mb-6 text-zinc-300"
+          />
+          <Link
+            href="/commercial"
+            className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to commercial
+          </Link>
 
-          {/* Text - Left Aligned */}
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
-              Commercial
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <div className="max-w-4xl">
+            <div className="label-editorial mb-6 text-edg-brand">
               Hotel Pergola Systems
+            </div>
+            <h1 className="hero-title mb-6 max-w-4xl">
+              Hotel Pergola Planning for Rooftops and Amenities
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              Professional-grade motorized pergolas designed for hospitality. 
-              Weather-responsive louvers, integrated climate control, and commercial 
-              durability for Chicago and Milwaukee hotel rooftops.
+            <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+              Commercial pergola, heat, lighting, sensor, and control planning
+              for hotel terraces, pool decks, rooftop bars, and event spaces.
             </p>
-            <Link href="/contact">
-              <Button size="lg" className="rounded-none">
-                Request Hotel Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TrackedLink href={heroContactHref}>
+                <Button size="lg">
+                  Schedule a Hotel Pergola Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  (815) 581-0138
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
-          STATS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-zinc-900 text-white">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-edg-brand mb-2">60s</div>
-              <p className="text-zinc-300">Rain Response Time</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-edg-brand mb-2">50+</div>
-              <p className="text-zinc-300">Hotel Installations</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-edg-brand mb-2">100k+</div>
-              <p className="text-zinc-300">Guest Hours Served</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-edg-brand mb-2">10yr</div>
-              <p className="text-zinc-300">Warranty</p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          FEATURES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Engineered for Hospitality
-            </h2>
-            <p className="text-lg text-gray-600">
-              Commercial-grade features designed for the demands of hotel operations.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {keyFeatures.map((feature) => (
-              <Card
-                key={feature.title}
-                variant="outline"
-                padding="lg"
-                className="group"
-              >
+          <div className="grid gap-8 md:grid-cols-3">
+            {planningSteps.map((step) => (
+              <div key={step.title} className="border border-white/10 p-6">
                 <IconWrapper
-                  icon={feature.icon}
+                  icon={step.icon}
                   variant="brand"
                   size="lg"
                   className="mb-6"
                 />
-                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </Card>
+                <h2 className="mb-3 text-xl font-bold">{step.title}</h2>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {step.description}
+                </p>
+              </div>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          USE CASES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-50">
+      <Section className="section-md">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Hotel Applications
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <div className="label-editorial mb-4 text-edg-brand">
+                Commercial Planning Standard
+              </div>
+              <h2 className="section-title mb-6">
+                A hotel pergola has to work with the property team
+              </h2>
+              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+                The useful question is not simply whether a pergola fits. It is
+                how the system affects guest use, staff access, weather
+                procedures, power, drainage, structure, controls, and ongoing
+                service.
+              </p>
+              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                EDG is system-agnostic, so the recommendation can pair
+                pergolas with screens, glass, heaters, lighting, and controls
+                only where the property and operation call for it.
+              </p>
+              <div className="grid gap-3">
+                {planningChecklist.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <span className="text-sm font-medium text-zinc-800">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={images.systems.shades.progressiveCommercialPatio}
+                alt="Commercial hotel patio with exterior shade system and seating"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-surface">
+        <Container>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Hotel Use Cases
+            </div>
+            <h2 className="section-title mb-4">
+              Pergola packages should follow the amenity use case
             </h2>
-            <p className="text-lg text-gray-600">
-              Common installations that transform underutilized spaces into revenue drivers.
+            <p className="text-lg leading-relaxed text-text-secondary">
+              Rooftop bars, pool decks, and event terraces need different
+              combinations of shade, heat, lighting, screens, and controls.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {useCases.map((useCase) => (
-              <Card
-                key={useCase.title}
-                variant="default"
-                padding="lg"
-                className="text-center group hover:-translate-y-2 transition-all duration-300"
-              >
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {pergolaOptions.map((option) => (
+              <Card key={option.title} variant="outline" padding="lg">
                 <IconWrapper
-                  icon={useCase.icon}
+                  icon={option.icon}
                   variant="brand"
                   size="lg"
-                  className="mb-6 mx-auto"
+                  className="mb-6"
                 />
-                <h3 className="text-xl font-bold mb-3">{useCase.title}</h3>
-                <p className="text-gray-600">{useCase.description}</p>
+                <h3 className="mb-3 text-xl font-bold">{option.title}</h3>
+                <p className="leading-relaxed text-text-secondary">
+                  {option.description}
+                </p>
               </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FAQ SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Common Questions
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Proof Standard
+              </div>
+              <h2 className="section-title mb-6 text-white">
+                Keep the scope tied to the hotel operation
+              </h2>
+              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
+                A good hotel pergola plan is specific: the amenity, weather
+                exposure, control model, maintenance expectations, and guest
+                experience all shape the recommendation.
+              </p>
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Request a Pergola Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ['Amenity', 'Rooftop, pool deck, terrace, bar, or event space'],
+                ['Controls', 'Staff zones, sensors, heat, lighting, and overrides'],
+                ['Handoff', 'Training, maintenance notes, and service expectations'],
+              ].map(([label, description]) => (
+                <div key={label} className="border border-white/10 p-6">
+                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                    {label}
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-300">
+                    {description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <div className="label-editorial-brand mb-4 text-center">
+              FAQ
+            </div>
+            <h2 className="section-title mb-10 text-center">
+              Hotel Pergola Questions
             </h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <Card key={i} variant="default" padding="lg">
-                  <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+            <div className="space-y-5">
+              {faqs.map((faq) => (
+                <Card key={faq.question} variant="outline" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="leading-relaxed text-text-secondary">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -325,27 +400,25 @@ export default function HotelPergolasPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          RELATED SOLUTIONS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200">
+      <Section className="border-t border-black/10 bg-surface py-12">
         <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-edg-brand-text transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span className="font-medium">All Commercial Solutions</span>
+              All Commercial Pages
             </Link>
-            <div className="flex gap-4 flex-wrap justify-center">
+            <div className="flex flex-wrap gap-4">
               {relatedPages.map((page) => (
                 <Link
                   key={page.href}
                   href={page.href}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
                 >
-                  {page.name} <ChevronRight className="h-4 w-4" />
+                  {page.name}
+                  <ChevronRight className="h-4 w-4" />
                 </Link>
               ))}
             </div>
@@ -353,31 +426,37 @@ export default function HotelPergolasPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          CTA SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="bg-edg-brand py-20">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Ready to Transform Your Hotel Rooftop?
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+              Review the hotel amenity before choosing the pergola
             </h2>
-            <p className="text-xl text-black/80 mb-8">
-              Schedule a consultation with our commercial team to discuss your hotel pergola project.
+            <p className="mb-8 text-xl leading-relaxed text-zinc-300">
+              Send EDG the rooftop, terrace, or pool deck context. We will help
+              narrow the system and operating path.
             </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-black text-white hover:bg-gray-900"
-              >
-                Request Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Start Hotel Pergola Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call EDG
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

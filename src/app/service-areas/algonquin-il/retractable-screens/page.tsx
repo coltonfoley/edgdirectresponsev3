@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -147,6 +148,20 @@ const gallery = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  area: 'algonquin',
+  source: 'algonquin_screens',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  area: 'algonquin',
+  source: 'algonquin_screens_bottom',
+});
+
 export default function AlgonquinRetractableScreensPage() {
   const serviceSchema = generateServiceSchema({
     name: 'Motorized Retractable Patio Screens in Algonquin, IL',
@@ -169,7 +184,7 @@ export default function AlgonquinRetractableScreensPage() {
         }}
       />
 
-      <main className="bg-surface min-h-screen">
+      <div className="bg-surface min-h-screen">
         <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -213,7 +228,7 @@ export default function AlgonquinRetractableScreensPage() {
                 privacy, wind comfort, and late-day shade.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=price&product=shades&area=algonquin&source=algonquin_screens">
+                <Link href={heroContactHref}>
                   <Button size="lg">Get a Screen Layout Review</Button>
                 </Link>
                 <Link href="/systems/shades">
@@ -342,7 +357,7 @@ export default function AlgonquinRetractableScreensPage() {
                 </p>
                 <p className="text-text-secondary text-lg leading-relaxed">
                   That is why EDG starts with photos, dimensions, and a simple
-                  priority call: bugs, privacy, glare, wind, or all-season
+                  priority call: bugs, privacy, glare, wind, or seasonal
                   comfort. From there we can tell whether screens alone are a
                   clean first phase or whether the patio should be planned with
                   a pergola, heaters, lighting, or glass.
@@ -507,7 +522,7 @@ export default function AlgonquinRetractableScreensPage() {
                   decide whether screens alone solve the problem or whether the
                   patio should be planned with a pergola or enclosure.
                 </p>
-                <Link href="/contact?type=price&product=shades&area=algonquin&source=algonquin_screens_bottom">
+                <Link href={bottomContactHref}>
                   <Button size="lg">Start Your Quote</Button>
                 </Link>
               </div>
@@ -549,7 +564,7 @@ export default function AlgonquinRetractableScreensPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

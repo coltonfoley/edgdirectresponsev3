@@ -4,6 +4,10 @@ import { Section } from '@/components/ui/Section';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Link } from '@/components/ui/Link';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { buildContactHref } from '@/lib/contact-links';
 import {
   BookOpen,
   Scale,
@@ -17,12 +21,13 @@ import {
   SlidersHorizontal,
   Building2,
   ShieldCheck,
+  CheckCircle2,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Outdoor Living Knowledge Base | Guides & Resources',
+  title: 'Outdoor System Planning Guides | EDG',
   description:
-    'Expert guides on louvered pergolas, shade systems, and outdoor enclosures. Cost breakdowns, installation tips, and zoning information for Chicago-Milwaukee homeowners.',
+    'Planning guides for motorized pergolas, retractable screens, glass enclosures, costs, permits, controls, and local outdoor-room decisions.',
   alternates: {
     canonical: '/guides',
   },
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
 const guides = [
   {
     title: 'Motorized Pergola Planning Guide',
-    desc: 'The central planning hub for premium pergola buyers: cost, system fit, drainage, controls, accessories, and local constraints.',
+    desc: 'The central planning hub for motorized pergola buyers: cost, system fit, drainage, controls, accessories, and local constraints.',
     href: '/guides/motorized-pergola-planning',
     icon: SlidersHorizontal,
     readTime: '14 min read',
@@ -70,7 +75,7 @@ const guides = [
     intent: 'constraints',
   },
   {
-    title: 'Free Outdoor Living Planning Guide',
+    title: 'Outdoor Living Planning Guide',
     desc: 'The complete workbook for planning your project. Budget ranges, system comparisons, and the 7 mistakes to avoid.',
     href: '/guides/planning-guide',
     icon: FileText,
@@ -79,7 +84,7 @@ const guides = [
   },
   {
     title: 'Pergola Cost Guide 2026',
-    desc: 'Comprehensive breakdown of what drives pergola pricing from $25K to $150K+. Compare premium systems to big-box alternatives.',
+    desc: 'Comprehensive breakdown of what drives pergola pricing from $25K to $150K+. Compare installed systems to basic kit alternatives.',
     href: '/guides/pergola-cost',
     icon: DollarSign,
     readTime: '12 min read',
@@ -150,29 +155,101 @@ export default function GuidesIndexPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* ========== HERO SECTION ========== */}
-      <section className="relative overflow-hidden border-b border-zinc-200 bg-zinc-50 pt-32 pb-20 dark:border-zinc-800 dark:bg-zinc-900">
+      <section className="relative overflow-hidden border-b border-white/10 bg-edg-dark pt-32 pb-20 text-white">
         <Container>
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Breadcrumb items={[{ label: 'Guides' }]} />
+            <Breadcrumb
+              items={[{ label: 'Guides' }]}
+              className="text-zinc-300"
+            />
           </div>
-          <FadeIn>
-            <div className="max-w-4xl">
-              <span className="text-edg-brand-text dark:text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
-                <Library className="h-4 w-4" /> Resources & Learning
-              </span>
-              <h1 className="mb-6 text-4xl leading-[1.1] font-bold tracking-tight text-zinc-900 md:text-5xl lg:text-6xl dark:text-zinc-50">
-                EDG Knowledge Base
-              </h1>
-              <p className="text-muted-foreground max-w-2xl text-xl leading-relaxed">
-                Deep-dive resources to help you make informed decisions about
-                your outdoor living investment. From zoning guides to cost
-                breakdowns.
-              </p>
+          <FadeIn immediate>
+            <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+              <div className="max-w-4xl">
+                <p className="mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                  <span className="h-px w-8 bg-edg-brand" />
+                  <Library className="h-4 w-4" />
+                  Resources & Learning
+                </p>
+                <h1 className="mb-6 text-4xl leading-none font-bold text-white md:text-6xl">
+                  Outdoor system planning guides.
+                </h1>
+                <p className="max-w-2xl text-xl leading-relaxed text-zinc-300">
+                  Cost, fit, permitting, and system-selection resources for
+                  homeowners and partners planning motorized pergolas, screens,
+                  glass, and complete outdoor rooms.
+                </p>
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                  <Link href="/guides/pergola-system-fit-review">
+                    <Button size="lg" className="w-full sm:w-auto">
+                      Start a Fit Review{' '}
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <Link href="/guides/planning-guide">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="w-full sm:w-auto"
+                    >
+                      Get the Planning Guide
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+
+              <Card
+                variant="dark"
+                padding="lg"
+                className="border-white/15 bg-white/5"
+              >
+                <p className="mb-6 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                  How to use this library
+                </p>
+                <div className="space-y-5">
+                  {[
+                    'Start with system fit if the project scope is still open.',
+                    'Use budget and permit guides before setting expectations.',
+                    'Move to a fit review when photos, goals, and constraints are ready.',
+                  ].map((item) => (
+                    <div key={item} className="flex gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                      <p className="text-sm leading-relaxed text-zinc-300">
+                        {item}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </Card>
             </div>
           </FadeIn>
         </Container>
       </section>
+
+      <Section className="border-b border-zinc-200 bg-white py-8 dark:border-zinc-800 dark:bg-zinc-950">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              ['11', 'current planning resources'],
+              ['4', 'decision paths: fit, budget, permits, review'],
+              ['1', 'direct handoff to EDG system review'],
+            ].map(([value, label]) => (
+              <div
+                key={label}
+                className="border-l-2 border-edg-brand pl-5"
+              >
+                <div className="text-3xl font-bold text-zinc-950 dark:text-white">
+                  {value}
+                </div>
+                <p className="mt-1 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
       {/* ========== GUIDES GRID ========== */}
       <Section className="py-20">
@@ -187,10 +264,10 @@ export default function GuidesIndexPage() {
                 return (
                   <section key={section.intent}>
                     <div className="mb-6 max-w-3xl">
-                      <h2 className="mb-2 text-2xl font-bold text-zinc-900 md:text-3xl dark:text-zinc-50">
+                      <h2 className="section-title mb-3 text-zinc-950 dark:text-zinc-50">
                         {section.title}
                       </h2>
-                      <p className="text-muted-foreground text-base leading-relaxed">
+                      <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
                         {section.description}
                       </p>
                     </div>
@@ -199,28 +276,30 @@ export default function GuidesIndexPage() {
                         <Link
                           key={guide.href}
                           href={guide.href}
-                          className="group block h-full"
+                          className="group block h-full focus-visible:outline-none"
                         >
-                          <div className="hover:border-edg-brand h-full rounded-lg border border-zinc-200 bg-white p-7 transition-all hover:-translate-y-1 hover:shadow-xl dark:border-zinc-800 dark:bg-zinc-900">
+                          <Card className="h-full transition-colors group-hover:border-edg-brand group-focus-visible:border-edg-brand">
                             <div className="mb-6 flex items-start justify-between gap-4">
-                              <div className="group-hover:bg-edg-brand/10 group-hover:border-edg-brand/20 rounded-lg border border-zinc-100 bg-zinc-50 p-4 transition-colors dark:border-zinc-700 dark:bg-zinc-800">
-                                <guide.icon className="text-edg-brand-text dark:text-edg-brand h-8 w-8" />
-                              </div>
-                              <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-bold tracking-wider text-zinc-600 uppercase dark:bg-zinc-800">
+                              <IconWrapper
+                                icon={guide.icon}
+                                variant="brand"
+                                size="lg"
+                              />
+                              <span className="border border-zinc-200 px-3 py-1.5 text-xs font-bold tracking-wider text-zinc-600 uppercase dark:border-zinc-700 dark:text-zinc-400">
                                 {guide.readTime}
                               </span>
                             </div>
-                            <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-4 text-2xl font-bold transition-colors">
+                            <h3 className="mb-4 text-2xl font-bold transition-colors group-hover:text-edg-brand-text dark:group-hover:text-edg-brand">
                               {guide.title}
                             </h3>
-                            <p className="text-muted-foreground mb-8 text-base leading-relaxed">
+                            <p className="mb-8 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
                               {guide.desc}
                             </p>
-                            <div className="text-edg-brand-text dark:text-edg-brand flex items-center text-sm font-bold transition-all group-hover:gap-2">
+                            <div className="flex items-center text-sm font-bold text-edg-brand-text transition-all group-hover:gap-2 dark:text-edg-brand">
                               Read Full Article{' '}
                               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                             </div>
-                          </div>
+                          </Card>
                         </Link>
                       ))}
                     </div>
@@ -229,6 +308,37 @@ export default function GuidesIndexPage() {
               })}
             </div>
           </FadeIn>
+        </Container>
+      </Section>
+
+      <Section className="section-lg bg-surface-dark text-text-inverse">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div className="max-w-3xl">
+              <p className="mb-4 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                Ready for a recommendation?
+              </p>
+              <h2 className="section-title mb-4 text-text-inverse">
+                Send the project context and EDG will help narrow the system
+                path.
+              </h2>
+              <p className="text-text-inverse-muted">
+                A fit review is the quickest way to connect the research here
+                to a real site, budget, structure, and installation path.
+              </p>
+            </div>
+            <Link
+              href={buildContactHref({
+                type: 'fit-review',
+                product: 'planning',
+                source: 'guides_hub_bottom',
+              })}
+            >
+              <Button size="lg" className="w-full sm:w-auto">
+                Request Fit Review <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
         </Container>
       </Section>
     </div>

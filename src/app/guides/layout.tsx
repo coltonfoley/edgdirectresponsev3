@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: 'Expert Outdoor Living Guides',
   },
   description:
-    'Comprehensive guides on motorized pergolas, retractable screens, and four-season outdoor living design.',
+    'Comprehensive guides on motorized pergolas, retractable screens, glass enclosures, and outdoor room planning.',
 };
 
 export default function GuidesLayout({

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { TrackedLink } from '@/components/ui/TrackedLink';
+import { buildContactHref } from '@/lib/contact-links';
 import { Check } from 'lucide-react';
 
 interface ColorOption {
@@ -26,6 +27,12 @@ const includedFeatures = [
   'White-Glove Installation',
 ];
 
+const configuratorConsultationHref = buildContactHref({
+  type: 'consultation',
+  product: 'pergola',
+  source: 'pergola_configurator_color_panel',
+});
+
 export function PergolaConfiguratorClient() {
   const [selectedColor, setSelectedColor] = useState<ColorOption>(colorOptions[0]);
 
@@ -42,6 +49,7 @@ export function PergolaConfiguratorClient() {
           {colorOptions.map((color) => (
             <button
               key={color.name}
+              type="button"
               onClick={() => setSelectedColor(color)}
               className={`group relative bg-surface border p-6 text-center transition-all rounded-none ${
                 selectedColor.name === color.name
@@ -50,7 +58,7 @@ export function PergolaConfiguratorClient() {
               }`}
             >
               <div
-                className="w-16 h-16 mx-auto mb-4 border border-border shadow-sm"
+                className="w-16 h-16 mx-auto mb-4 border border-border"
                 style={{ backgroundColor: color.hex }}
               />
               <div className="font-bold text-sm text-text-primary">{color.name}</div>
@@ -59,7 +67,7 @@ export function PergolaConfiguratorClient() {
               )}
               {selectedColor.name === color.name && (
                 <div className="absolute top-2 right-2">
-                  <div className="bg-edg-brand text-edg-dark rounded-full p-1">
+                  <div className="bg-edg-brand p-1 text-edg-dark">
                     <Check className="h-3 w-3" />
                   </div>
                 </div>
@@ -97,7 +105,7 @@ export function PergolaConfiguratorClient() {
               Not sure which color works best with your home? Schedule a consultation and 
               we will bring samples to your site.
             </p>
-            <TrackedLink href="/contact?type=consultation&product=pergola">
+            <TrackedLink href={configuratorConsultationHref}>
               <Button variant="outline" className="w-full">
                 Book Consultation
               </Button>

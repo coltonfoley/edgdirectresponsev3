@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -109,6 +110,18 @@ const gallery = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  source: 'deerfield_screens',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  source: 'deerfield_screens_bottom',
+});
+
 export default function DeerfieldRetractableScreensPage() {
   const serviceSchema = generateServiceSchema({
     name: 'Motorized Retractable Patio Screens in Deerfield, IL',
@@ -129,7 +142,7 @@ export default function DeerfieldRetractableScreensPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
       />
 
-      <main className="min-h-screen bg-surface">
+      <div className="min-h-screen bg-surface">
         <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -168,7 +181,7 @@ export default function DeerfieldRetractableScreensPage() {
                 covered spaces that need more comfort, privacy, and bug control.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=price&product=shades&source=deerfield_screens">
+                <Link href={heroContactHref}>
                   <Button size="lg">Get a Screen Layout Review</Button>
                 </Link>
                 <Link href="/systems/shades">
@@ -335,7 +348,7 @@ export default function DeerfieldRetractableScreensPage() {
                   whether screens alone solve the problem or whether the patio should
                   be planned with a pergola or enclosure.
                 </p>
-                <Link href="/contact?type=price&product=shades&source=deerfield_screens_bottom">
+                <Link href={bottomContactHref}>
                   <Button size="lg">Start Your Quote</Button>
                 </Link>
               </div>
@@ -365,7 +378,7 @@ export default function DeerfieldRetractableScreensPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

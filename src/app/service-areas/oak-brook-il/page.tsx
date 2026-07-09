@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -23,7 +24,7 @@ import {
 export const metadata: Metadata = {
   title: 'Outdoor Living Systems in Oak Brook, IL | Pergolas & Shades | EDG',
   description:
-    'Custom motorized pergolas and exterior shades for Oak Brook estates. Serving Hinsdale, Burr Ridge, and Elmhurst. Zoning-compliant designs for luxury homes.',
+    'Custom motorized pergolas and exterior shades for Oak Brook estates. Serving Hinsdale, Burr Ridge, and Elmhurst with review-aware outdoor room planning.',
   openGraph: {
     title: 'Oak Brook Outdoor Living | Pergolas & Shades | EDG',
     description: 'Custom outdoor living systems for Oak Brook. Motorized pergolas, retractable screens, and professional installation.',
@@ -48,7 +49,7 @@ const neighborhoods = [
   {
     name: 'Oak Brook',
     description:
-      'Home to some of the most prestigious estates in the Chicago area, Oak Brook features expansive properties with diverse architectural styles. We specialize in creating outdoor living spaces that complement the grandeur of Oak Brook homes, from sprawling poolside pergolas to sophisticated outdoor kitchens that match your estate\'s character.',
+      'Oak Brook features larger estate properties with diverse architectural styles. We plan outdoor living systems that fit the scale and character of the home, from poolside pergolas to outdoor kitchens coordinated with the architecture.',
   },
   {
     name: 'Hinsdale',
@@ -83,7 +84,7 @@ const localConsiderations = [
   {
     title: 'Natural Settings',
     description:
-      'Whether you overlook Salt Creek or the golf course fairways, our glass systems protect your view while keeping the elements at bay year-round.',
+      'Whether you overlook Salt Creek or the golf course fairways, the system should protect the view while helping manage wind, rain, insects, and shoulder-season comfort.',
     icon: Trees,
   },
   {
@@ -139,6 +140,18 @@ const faqs = [
 ];
 
 const faqSchema = generateFAQSchema(faqs);
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Oak Brook, IL',
+  source: 'oak_brook_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Oak Brook, IL',
+  source: 'oak_brook_hub_bottom',
+});
 
 export default function OakBrookHubPage() {
   return (
@@ -201,9 +214,9 @@ export default function OakBrookHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Oak Brook, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Upgrade Your Oak Brook Estate with
+                Plan Your Oak Brook Estate With
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -211,7 +224,7 @@ export default function OakBrookHubPage() {
                 Hinsdale, we design engineered shade systems that complement
                 western suburb architecture and handle Illinois weather.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Oak Brook Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -247,7 +260,7 @@ export default function OakBrookHubPage() {
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Estate properties, golf-course views, older architecture, and
-                newer luxury construction all need different outdoor-room
+                newer custom construction all need different outdoor-room
                 planning. The right system should look scaled to the property.
               </p>
             </div>
@@ -277,7 +290,7 @@ export default function OakBrookHubPage() {
               <p className="text-text-secondary text-lg leading-relaxed">
                 Oak Brook projects are often judged by whether they feel
                 original to the home. That means scale, finish, sightlines,
-                review documentation, and year-round comfort matter as much as
+                review documentation, and seasonal comfort matter as much as
                 the louvered roof itself.
               </p>
             </div>
@@ -303,7 +316,7 @@ export default function OakBrookHubPage() {
                 Built for Western Suburbs Estates
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for Oak Brook area climate and architectural requirements.
+                Our systems are selected around Oak Brook area weather, architecture, review needs, and how the outdoor room will be used.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -344,23 +357,22 @@ export default function OakBrookHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Oak Brook Project?
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Oak Brook project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation with our local design team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Review the address, constraints, and right system path with our local design team.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Oak Brook Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

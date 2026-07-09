@@ -59,6 +59,11 @@ function RelatedProjectCard({ project }: { project: Project }) {
         ) : (
           <ProjectPhotoPlaceholder />
         )}
+        {!project.hasRealPhotography && (
+          <div className="absolute top-3 left-3 border border-black/10 bg-white px-3 py-1 text-[10px] font-bold tracking-[0.18em] text-zinc-700 uppercase">
+            Details in progress
+          </div>
+        )}
         <meta itemProp="image" content={project.heroImage || ''} />
       </div>
 

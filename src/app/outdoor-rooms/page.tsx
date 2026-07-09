@@ -18,6 +18,7 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
@@ -166,7 +167,7 @@ const faqSchema = generateFAQSchema(faqs);
 
 export default function OutdoorRoomsPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -201,7 +202,7 @@ export default function OutdoorRoomsPage() {
                 <Link href="/outdoor-rooms/pergola-glass-outdoor-room">
                   <Button size="lg">View Pilot Room</Button>
                 </Link>
-                <Link href={outdoorRoomCta}>
+                <TrackedLink href={outdoorRoomCta}>
                   <Button
                     variant="outline"
                     size="lg"
@@ -209,7 +210,7 @@ export default function OutdoorRoomsPage() {
                   >
                     Plan My Space
                   </Button>
-                </Link>
+                </TrackedLink>
               </div>
             </div>
 
@@ -353,9 +354,9 @@ export default function OutdoorRoomsPage() {
                 pages to understand the pergola, glass, screen, and appliance
                 decisions that make it work.
               </p>
-              <Link href={outdoorRoomCta}>
+              <TrackedLink href={outdoorRoomCta}>
                 <Button size="lg">Request an Outdoor Room Review</Button>
-              </Link>
+              </TrackedLink>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -421,12 +422,12 @@ export default function OutdoorRoomsPage() {
               EDG will help identify the right roof, glass, screen, and comfort
               path.
             </p>
-            <Link href={outdoorRoomCta}>
+            <TrackedLink href={outdoorRoomCta}>
               <Button size="lg">Start Outdoor Room Planning</Button>
-            </Link>
+            </TrackedLink>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

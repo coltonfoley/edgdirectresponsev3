@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
   },
   keywords: ['barrington pergolas', 'barrington outdoor living', 'barrington il patio', 'pergola installation barrington', 'barrington estate outdoor'],
   openGraph: {
-    title: 'Barrington Outdoor Living | Estate-Grade Design | EDG',
+    title: 'Barrington Outdoor Living | Estate Planning | EDG',
     description:
-      'Enhance your Barrington estate with luxury outdoor living systems. Expert navigation of Village and Hills zoning codes.',
+      'Plan a Barrington estate outdoor room with motorized pergolas, screens, glass, and support for Village and Hills review paths.',
   },
 };
 
@@ -52,7 +53,7 @@ const neighborhoods = [
   {
     name: 'South Barrington',
     description:
-      'Home to prestigious gated communities like The Woods of South Barrington and Wynstone Golf Club. We design outdoor living systems that complement the area\'s luxury homes while navigating HOA guidelines and architectural review requirements common in these exclusive enclaves.',
+      'Home to gated communities like The Woods of South Barrington and Wynstone Golf Club. We design outdoor living systems that complement larger estate homes while navigating HOA guidelines and architectural review requirements.',
   },
   {
     name: 'Lake Barrington & North Barrington',
@@ -62,7 +63,7 @@ const neighborhoods = [
   {
     name: 'Inverness & Deer Park',
     description:
-      'These neighboring communities share Barrington\'s commitment to spacious lots and architectural excellence. From Inverness\'s golf course estates to Deer Park\'s modern luxury homes, we create outdoor spaces that honor the area\'s blend of traditional and contemporary design sensibilities.',
+      'These neighboring communities share Barrington\'s commitment to spacious lots and architectural care. From Inverness golf-course estates to Deer Park custom homes, we plan outdoor rooms around the area\'s blend of traditional and contemporary architecture.',
   },
 ];
 
@@ -76,7 +77,7 @@ const localConsiderations = [
   {
     title: 'Snow Load Engineered',
     description:
-      'Our systems are engineered to withstand heavy Chicagoland snow loads, ensuring year-round durability for your estate.',
+      'Barrington projects need snow-load, drainage, mounting, and seasonal maintenance planning before a permanent outdoor structure is finalized.',
     icon: CloudSun,
   },
   {
@@ -88,7 +89,7 @@ const localConsiderations = [
   {
     title: 'The 3-Season Room',
     description:
-      'Extend your outdoor season with motorized screens and heaters, perfect for chilly spring evenings and crisp autumn nights.',
+      'Screens, heaters, lighting, and controls can extend patio use when they are planned with the pergola from the beginning.',
     icon: Wind,
   },
 ];
@@ -116,6 +117,19 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Barrington, IL',
+  source: 'barrington_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Barrington, IL',
+  source: 'barrington_hub_bottom',
+});
+
 export default function BarringtonHubPage() {
   const faqSchema = generateFAQSchema(faqs);
 
@@ -130,7 +144,7 @@ export default function BarringtonHubPage() {
             '@type': 'Service',
             name: 'Outdoor Living Design & Installation - Barrington',
             description:
-              'Premium motorized pergolas, exterior shades, and glass enclosures for Barrington area estates.',
+              'Motorized pergolas, exterior shades, and glass enclosures for Barrington area estates.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -175,17 +189,17 @@ export default function BarringtonHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Barrington, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Estate-Grade Outdoor Living for
+                Outdoor Living Systems for
                 <span className="text-edg-brand block">
                   Barrington & The Hills
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Premium motorized pergolas designed for Barrington&apos;s estate zoning, 
+                Motorized pergolas, screens, and glass systems planned for Barrington&apos;s estate zoning,
                 from Barrington Hills to South Barrington. We navigate 5-acre lot 
                 requirements while maximizing your outdoor living space.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Barrington Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -282,8 +296,8 @@ export default function BarringtonHubPage() {
                 Built for the Barrington Estate Lifestyle
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for Barrington&apos;s unique 
-                zoning requirements and climate challenges.
+                Our systems are planned around Barrington&apos;s zoning requirements,
+                estate architecture, snow exposure, and seasonal comfort needs.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -340,15 +354,15 @@ export default function BarringtonHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Wind} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Snow-Load Rated Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Explore our heavy-duty louvered roof systems engineered 
-                    specifically for Chicagoland winters and estate-scale installations.
+                    Explore louvered roof planning for Chicagoland winters,
+                    estate-scale patios, review requirements, and site exposure.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Explore Systems <ArrowRight className="h-4 w-4" />
@@ -361,23 +375,22 @@ export default function BarringtonHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Barrington Project?
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Barrington project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation with our local design team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Review the address, estate review path, snow exposure, and right system direction with our local design team.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Barrington Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

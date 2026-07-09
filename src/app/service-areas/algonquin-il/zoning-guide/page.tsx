@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 
 export const metadata: Metadata = {
   title: 'Algonquin Pergola Permit & Zoning Guide | EDG Patio & Shade',
@@ -105,9 +106,15 @@ const faqs = [
   },
 ];
 
+const permitGuideContactHref = buildContactHref({
+  area: 'algonquin',
+  product: 'pergola',
+  source: 'algonquin_zoning_guide',
+});
+
 export default function AlgonquinZoningGuidePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -198,7 +205,7 @@ export default function AlgonquinZoningGuidePage() {
               </a>
             </div>
 
-            <div className="overflow-hidden rounded-lg border border-zinc-200">
+            <div className="overflow-hidden border border-zinc-200">
               <table className="w-full border-collapse text-left text-sm">
                 <thead className="bg-zinc-100">
                   <tr>
@@ -277,7 +284,7 @@ export default function AlgonquinZoningGuidePage() {
               <div className="space-y-4">
                 {gotchas.map((item) => (
                   <div key={item} className="flex gap-3">
-                    <TriangleAlert className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
+                    <TriangleAlert className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <p className="text-text-secondary leading-relaxed">
                       {item}
                     </p>
@@ -298,7 +305,7 @@ export default function AlgonquinZoningGuidePage() {
                   'Submit permit documents, wait for approval, schedule work, and call JULIE before digging.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-3">
-                    <span className="bg-edg-brand text-edg-dark flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center bg-edg-brand text-sm font-bold text-edg-dark">
                       {index + 1}
                     </span>
                     <span className="text-text-secondary leading-relaxed">
@@ -349,7 +356,7 @@ export default function AlgonquinZoningGuidePage() {
               dimensions. We will help you decide the next practical step.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link href="/contact?area=algonquin&product=pergola&source=algonquin_zoning_guide">
+              <Link href={permitGuideContactHref}>
                 <Button size="lg">
                   Ask About an Algonquin Pergola
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -365,6 +372,6 @@ export default function AlgonquinZoningGuidePage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
     'Custom motorized pergolas, exterior shades, and glass enclosures for Southeast Wisconsin homes. Local planning for Lake Geneva, Kenosha, Pleasant Prairie, Walworth County, and border-area lake properties.',
   openGraph: {
     title: 'Wisconsin Outdoor Living | EDG Patio & Shade',
-    description: 'Luxury outdoor living systems for Wisconsin homes. Motorized pergolas and screens designed for harsh winter weather.',
+    description:
+      'Outdoor living systems for Wisconsin homes. Motorized pergolas and screens planned for winter weather.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -129,9 +131,22 @@ const faqs = [
   {
     question: 'Can you install screens on my existing porch?',
     answer:
-      'Absolutely. Our motorized retractable screens can be retrofitted onto almost any existing covered porch or patio opening, instantly converting your Wisconsin outdoor space into a bug-free three-season room.',
+      'Often, yes. Motorized retractable screens can be retrofitted onto many covered porch or patio openings, turning a Wisconsin outdoor space into a more comfortable seasonal room with better bug, glare, and privacy control.',
   },
 ];
+
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Southeast Wisconsin',
+  source: 'southeast_wisconsin_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Southeast Wisconsin',
+  source: 'southeast_wisconsin_hub_bottom',
+});
 
 export default function SoutheastWisconsinHubPage() {
   return (
@@ -192,17 +207,21 @@ export default function SoutheastWisconsinHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Southeast Wisconsin
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Transform Your Wisconsin Backyard With
+                Plan Your Wisconsin Backyard With
+                {' '}
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                From luxury estates on Lake Geneva to wide-open properties in Kenosha. We design engineered shade systems that handle Wisconsin winter weather while elevating your home&apos;s value.
+                From Lake Geneva entertaining spaces to wide-open properties
+                near Kenosha, we design shade, screen, and enclosure systems
+                around Wisconsin weather, review paths, and how the property is
+                used.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Free Site Visit{' '}
+                  Request a Site Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -316,14 +335,14 @@ export default function SoutheastWisconsinHubPage() {
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
               {/* Timeline */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   We Handle the Paperwork
                 </h3>
-                <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
-                  <Clock className="h-5 w-5 shrink-0 text-amber-600" />
-                  <p className="font-medium text-amber-800 dark:text-amber-200">
+                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                  <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
+                  <p className="font-medium text-text-primary">
                     We assemble your application to prevent Wisconsin county delays.
                   </p>
                 </div>
@@ -340,7 +359,7 @@ export default function SoutheastWisconsinHubPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             </div>
           </FadeIn>
         </Container>
@@ -368,23 +387,24 @@ export default function SoutheastWisconsinHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Upgrade Your Wisconsin Home?
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Wisconsin project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and customized quote from our team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Send photos, the address, and the main comfort issue. We will
+                help you narrow the right system before drawings and pricing
+                get too far ahead of the site.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Wisconsin Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

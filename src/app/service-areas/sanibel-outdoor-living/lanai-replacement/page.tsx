@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -119,19 +120,19 @@ const costComparison = [
     factor: 'Upfront Cost (200 sq ft)',
     traditional: '$10,000 - $35,000',
     modern: '$12,000 - $24,000',
-    note: 'Comparable initial investment',
+    note: 'Actual scope depends on site conditions',
   },
   {
     factor: 'Maintenance (20 years)',
     traditional: '$3,000 - $6,000\n(rescreening, repairs)',
-    modern: '$0 - $500\n(occasional cleaning)',
-    note: 'Modern saves $2,500-5,500',
+    modern: 'Routine cleaning\nand system-specific service',
+    note: 'Compare fixed-screen maintenance vs. selected system needs',
   },
   {
     factor: 'Warranty & Lifespan',
     traditional: '10-20 years\n(screens fail first)',
-    modern: '10yr structural warranty\n(20+ yr expected lifespan)',
-    note: 'Modern backed by warranty',
+    modern: 'Warranty varies\nby selected system',
+    note: 'Review coastal exposure terms before ordering',
   },
   {
     factor: 'Usability',
@@ -142,7 +143,7 @@ const costComparison = [
   {
     factor: 'Home Value Impact',
     traditional: 'Familiar outdoor-room look',
-    modern: 'Cleaner premium story',
+    modern: 'Cleaner project story',
     note: 'Value depends on condition and market',
   },
 ];
@@ -151,7 +152,7 @@ const faqs = [
   {
     question: 'Do I have to rebuild my lanai the same way after Hurricane Ian?',
     answer:
-      'No. Even if insurance or the 50% rule requires full replacement, you can upgrade to a different type of structure. Many Sanibel homeowners are using this opportunity to switch from traditional screened lanais to louvered roof systems that offer better hurricane resistance and functionality.',
+      'No. If insurance, damage review, or the 50% rule requires serious rebuild planning, you can compare a different type of structure before rebuilding the same screen enclosure. The right answer depends on documentation, engineering, local review, and the actual scope.',
   },
   {
     question: 'What is the 50% rule and how does it affect my lanai replacement?',
@@ -179,6 +180,13 @@ const faqs = [
       'It depends on the scope. A louvered system may need different documentation than a traditional screen enclosure, including engineering, anchoring, product approvals where applicable, electrical, drainage, and attachment details. Sanibel remains the final authority.',
   },
 ];
+
+const replacementContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'lanai-replacement',
+  area: 'sanibel',
+  source: 'leads-sanibel-lanai-replacement',
+});
 
 export default function LanaiReplacementPage() {
   return (
@@ -236,8 +244,8 @@ export default function LanaiReplacementPage() {
                 <MapPin className="h-4 w-4" /> Post-Hurricane Ian Rebuilds
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Lanai Replacement in Sanibel:
-                <span className="text-edg-brand block">Rebuild Smarter, Not the Same</span>
+                Lanai Replacement in Sanibel:{' '}
+                <span className="text-edg-brand block">Compare Before You Rebuild</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 If your covered outdoor space was damaged or outdated, use the
@@ -246,7 +254,7 @@ export default function LanaiReplacementPage() {
                 documentation questions on the table.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
+                <Link href={replacementContactHref}>
                   <Button size="lg" className="px-8 text-lg">
                     Get a Replacement Quote{' '}
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -280,23 +288,23 @@ export default function LanaiReplacementPage() {
       </section>
 
       {/* ========== 50% RULE ALERT ========== */}
-      <Section className="section-md bg-amber-50 dark:bg-amber-900/10">
+      <Section className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-4xl">
-              <div className="flex items-start gap-4 border border-amber-200 bg-white p-6 shadow-sm dark:border-amber-800 dark:bg-zinc-900">
-                <AlertTriangle className="mt-1 h-8 w-8 shrink-0 text-amber-600" />
+              <div className="flex items-start gap-4 border border-border bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
+                <AlertTriangle className="text-edg-brand-dark mt-1 h-8 w-8 shrink-0" />
                 <div>
-                  <h2 className="mb-2 text-xl font-bold text-amber-800 dark:text-amber-200">
+                  <h2 className="mb-2 text-xl font-bold text-text-primary dark:text-text-inverse">
                     Understanding the 50% Rule
                   </h2>
-                  <p className="mb-4 text-amber-700 dark:text-amber-300">
+                  <p className="text-text-secondary mb-4 dark:text-text-inverse-muted">
                     Sanibel reviews repairs and improvements for substantial
                     damage or substantial improvement at permit time. If the
                     cost exceeds 50% of the market value of a noncompliant
                     building, current floodplain standards may apply.
                   </p>
-                  <p className="text-amber-700 dark:text-amber-300">
+                  <p className="text-text-secondary dark:text-text-inverse-muted">
                     <strong>The Opportunity:</strong> If the project already
                     requires serious review, compare the old outdoor room
                     against a modern screen and pergola plan before rebuilding
@@ -394,10 +402,10 @@ export default function LanaiReplacementPage() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-900/20">
+            <div className="mt-8 border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
               <div className="flex items-start gap-3">
-                <Info className="mt-1 h-5 w-5 shrink-0 text-blue-600" />
-                <p className="text-sm text-blue-800 dark:text-blue-200">
+                <Info className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
+                <p className="text-text-secondary text-sm dark:text-text-inverse-muted">
                   <strong>Bottom Line:</strong> The right comparison is not just
                   frame price. Include demolition, permit review, engineering,
                   screens, drainage, electrical, maintenance, and how often the
@@ -433,8 +441,9 @@ export default function LanaiReplacementPage() {
                     <div>
                       <h4 className="font-bold">Minimal Disruption</h4>
                       <p className="text-text-secondary text-sm">
-                        Most replacement projects take 2-3 weeks of on-site work. We protect your 
-                        landscaping and clean up daily.
+                        On-site timing depends on the approved scope, product
+                        lead time, inspections, access, and what demolition or
+                        prep work is required.
                       </p>
                     </div>
                   </div>
@@ -453,8 +462,9 @@ export default function LanaiReplacementPage() {
                     <div>
                       <h4 className="font-bold">Reuse What Works</h4>
                       <p className="text-text-secondary text-sm">
-                        Existing concrete pads, electrical connections, and footings are evaluated 
-                        for reuse to save costs.
+                        Existing concrete pads, electrical connections, and
+                        footings are evaluated to see whether they can remain
+                        part of the approved plan.
                       </p>
                     </div>
                   </div>
@@ -516,15 +526,15 @@ export default function LanaiReplacementPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     The Modern Lanai
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Learn about the evolution from traditional screened lanais to intelligent 
-                    louvered roof systems.
+                    Compare traditional screened lanais against motorized
+                    pergolas, screens, and newer outdoor room layouts.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Explore Modern Lanais <ArrowRight className="h-4 w-4" />
@@ -539,7 +549,7 @@ export default function LanaiReplacementPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -562,7 +572,7 @@ export default function LanaiReplacementPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={FileText} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -583,26 +593,27 @@ export default function LanaiReplacementPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Replace Your Damaged Lanai?
+              <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
+                Ready to Review a Lanai Replacement Plan?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free assessment and quote for upgrading to a modern coastal system.
+              <p className="mb-8 text-xl text-text-inverse-muted">
+                Send photos, dimensions, and known permit or insurance context
+                before defaulting to the old layout.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=sanibel&product=lanai-replacement&source=leads-sanibel-lanai-replacement">
-                  <Button size="lg" variant="dark" className="px-8 text-lg">
-                    Schedule Free Assessment{' '}
+                <Link href={replacementContactHref}>
+                  <Button size="lg" className="px-8 text-lg">
+                    Start Replacement Review{' '}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link
                   href="/service-areas/sanibel-outdoor-living"
-                  className="text-edg-dark/70 hover:text-edg-dark inline-flex items-center gap-2 text-sm transition-colors"
+                  className="inline-flex items-center gap-2 text-sm text-text-inverse-muted transition-colors hover:text-text-inverse"
                 >
                   <ArrowLeft className="h-4 w-4" /> Back to Sanibel Outdoor Living
                 </Link>

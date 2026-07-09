@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Button } from '@/components/ui/Button';
@@ -50,6 +51,28 @@ export const metadata: Metadata = {
   ],
 };
 
+const naplesMarcoContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'multiple',
+  area: 'southwest-florida',
+  location: 'Naples and Marco Island',
+  source: 'swfl-hub',
+});
+
+const inputContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'multiple',
+  area: 'southwest-florida',
+  source: 'swfl-inputs',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  area: 'southwest-florida',
+  source: 'swfl-bottom',
+});
+
 const markets = [
   {
     name: 'Sanibel & Captiva',
@@ -60,8 +83,8 @@ const markets = [
   {
     name: 'Naples & Marco Island',
     description:
-      'Premium Gulf Coast homes often need shade, rain control, and wind-rated outdoor rooms that preserve views instead of closing the patio off.',
-    href: '/contact?area=southwest-florida&market=naples-marco&source=swfl-hub',
+      'Gulf Coast homes often need shade, rain control, and wind-rated outdoor rooms that preserve views instead of closing the patio off.',
+    href: naplesMarcoContactHref,
   },
   {
     name: 'Fort Myers & Cape Coral',
@@ -188,7 +211,7 @@ export default function SouthwestFloridaPage() {
   };
 
   return (
-    <main className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -240,7 +263,7 @@ export default function SouthwestFloridaPage() {
                 </Button>
               </Link>
               <Link href="/service-areas/sanibel-outdoor-living/louvered-pergolas">
-                <Button size="lg" variant="secondary">
+                <Button size="lg" variant="outline">
                   Sanibel Pergola Guide
                 </Button>
               </Link>
@@ -351,7 +374,7 @@ export default function SouthwestFloridaPage() {
                 ))}
               </ul>
               <Link
-                href="/contact?area=southwest-florida&source=swfl-inputs"
+                href={inputContactHref}
                 className="mt-8 inline-flex"
               >
                 <Button>
@@ -416,7 +439,7 @@ export default function SouthwestFloridaPage() {
                   solve. EDG will help determine whether motorized screens, a
               louvered pergola, or both should be the right starting point.
             </p>
-            <Link href="/contact?area=southwest-florida&source=swfl-bottom">
+            <Link href={bottomContactHref}>
               <Button size="lg">
                 Request Florida Guidance
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -425,6 +448,6 @@ export default function SouthwestFloridaPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

@@ -1,119 +1,166 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import * as images from '@/lib/images';
 import {
   ArrowLeft,
   ArrowRight,
+  Briefcase,
+  Building2,
+  CheckCircle2,
   ChevronRight,
-  Building,
-  MapPin,
+  ClipboardCheck,
   FileCheck,
-  TrendingUp,
+  MapPin,
+  PartyPopper,
+  Phone,
+  ShieldCheck,
   Users,
   Wine,
-  Briefcase,
-  PartyPopper,
+  Wind,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { buildContactHref } from '@/lib/contact-links';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'West Loop Commercial Outdoor Living | EDG',
   description:
-    'Commercial outdoor living systems for Chicago West Loop restaurants, hotels, and hospitality venues in Fulton Market and surrounding areas.',
+    'Commercial patio, rooftop, and outdoor amenity planning for Chicago West Loop, Fulton Market, restaurant, hotel, and hospitality spaces.',
   alternates: {
     canonical: '/commercial/west-loop',
   },
   openGraph: {
     title: 'West Loop Commercial Outdoor Living | EDG',
     description:
-      'Commercial outdoor living systems for Chicago West Loop restaurants, hotels, and hospitality venues in Fulton Market and surrounding areas.',
+      'Commercial patio, rooftop, and outdoor amenity planning for West Loop and Fulton Market hospitality spaces.',
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════════════
+const heroContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'west-loop',
+  location: 'chicago',
+  source: 'west_loop_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'west-loop',
+  location: 'chicago',
+  source: 'west_loop_bottom',
+});
+
 const faqs = [
   {
     question: 'What permits are required for West Loop rooftop installations?',
     answer:
-      'West Loop falls under Chicago Ward 27. Most rooftop installations require CDOT permits and structural engineering review. We handle all permit applications and coordinate with city departments on your behalf.',
+      'West Loop and Fulton Market commercial projects can involve city review, landlord approvals, structural inputs, utilities, egress, and rooftop access constraints. EDG helps organize the system documentation and planning path with the project team.',
   },
   {
     question: 'How long does installation typically take?',
     answer:
-      'Most West Loop commercial installations take 2-3 weeks from permit approval. We coordinate with your operations team to minimize disruption during installation.',
+      'Timing depends on permitting, access, structure, product lead times, service hours, and installation sequence. EDG plans the scope around the operating venue so owners can understand timing before work starts.',
   },
   {
     question: 'Do you work with historic buildings in Fulton Market?',
     answer:
-      'Yes, we have experience with historic building requirements. Fulton Market\'s historic district may have additional design guidelines. We\'ll coordinate with the Commission on Chicago Landmarks if required.',
+      'Historic and architecturally sensitive buildings should be reviewed carefully. EDG helps coordinate system visibility, mounting, documentation, and project-team inputs when a venue or property has additional design constraints.',
   },
   {
-    question: 'What about Chicago\'s seasonal weather?',
+    question: "What about Chicago's seasonal weather?",
     answer:
-      'Our systems include integrated heating and weather sensors. Louvers close automatically in rain and snow. We design systems specifically for Chicago\'s climate extremes.',
+      'The system mix should respond to the actual exposure: sun, glare, wind, rain, drainage, heat, lighting, and staff controls. EDG compares pergolas, screens, glass, and controls around the site rather than assuming one package fits every patio.',
   },
 ];
 
-const keyFeatures = [
+const planningSteps = [
   {
     icon: MapPin,
-    title: 'Local Expertise',
+    title: 'Neighborhood context',
     description:
-      'Deep knowledge of Chicago permitting, ward requirements, and Fulton Market district regulations.',
+      'West Loop and Fulton Market sites often involve dense patios, rooftops, alleys, landlords, nearby tenants, and tight construction access.',
   },
+  {
+    icon: Building2,
+    title: 'Building and permit review',
+    description:
+      'Structure, egress, utilities, wind exposure, power, drainage, visibility, and city review can shape the final system.',
+  },
+  {
+    icon: ClipboardCheck,
+    title: 'Hospitality operations',
+    description:
+      'Dining, events, lounges, staff paths, service hours, cleanup, controls, and weather procedures should guide the scope.',
+  },
+];
+
+const localFactors = [
   {
     icon: FileCheck,
-    title: 'Permit Handling',
+    title: 'Permit and landlord path',
     description:
-      'We manage all CDOT permits, structural engineering, and city inspections from start to finish.',
+      'Commercial outdoor work should account for municipal review, property ownership, tenant approvals, and project documentation.',
   },
   {
-    icon: Building,
-    title: 'Rooftop Ready',
+    icon: Wind,
+    title: 'Rooftop and alley exposure',
     description:
-      'Engineered for Chicago rooftops with wind ratings up to 90 mph and integrated drainage systems.',
+      'Wind, drainage, shade, privacy, and neighboring buildings can change what works on a West Loop terrace or patio.',
   },
   {
-    icon: TrendingUp,
-    title: 'Revenue Growth',
+    icon: Wine,
+    title: 'Dining and bar use',
     description:
-      'Transform seasonal patios into year-round dining spaces that generate revenue in any weather.',
+      'Patio comfort should support covers, service flow, table turns, guest dwell time, heaters, lighting, and staff controls.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Serviceable systems',
+    description:
+      'Controls, access, maintenance, and service expectations should be simple enough for the venue team to own.',
   },
 ];
 
 const amenityAreas = [
   {
     icon: Wine,
-    title: 'Rooftop Dining',
+    title: 'Rooftop dining',
     description:
-      'Create weather-protected rooftop dining experiences with motorized louvers and integrated heating.',
+      'Weather-aware shade, heat, lighting, and control planning for rooftops where guest comfort has to work with service.',
   },
   {
     icon: Briefcase,
-    title: 'Corporate Events',
+    title: 'Corporate events',
     description:
-      'Bookable event spaces for corporate functions with guaranteed weather protection.',
+      'Event terraces need seating flexibility, lighting, power, privacy, weather procedures, and staff handoff.',
   },
   {
     icon: PartyPopper,
-    title: 'Private Functions',
+    title: 'Private functions',
     description:
-      'Private dining areas and event spaces that remain comfortable in any Chicago weather.',
+      'Semi-private patios and dining areas should balance atmosphere, weather protection, service access, and cleanup.',
   },
   {
     icon: Users,
-    title: 'Guest Lounges',
+    title: 'Guest lounges',
     description:
-      'Comfortable outdoor lounge areas for hotel guests and restaurant patrons.',
+      'Hotel and restaurant lounge areas need shade, wind control, furniture planning, lighting, and durable controls.',
   },
+];
+
+const areaCoverage = [
+  'Fulton Market District',
+  'Randolph Street Corridor',
+  'Greektown and University Village',
+  'Medical District',
+  'Nearby West Side hospitality corridors',
 ];
 
 const schema = {
@@ -121,7 +168,7 @@ const schema = {
   '@type': 'Service',
   name: 'West Loop Commercial Outdoor Living',
   description:
-    'Commercial outdoor living systems for Chicago West Loop restaurants, hotels, and hospitality venues in Fulton Market and surrounding areas.',
+    'Commercial patio, rooftop, and outdoor amenity planning for Chicago West Loop restaurants, hotels, and hospitality venues',
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -144,194 +191,204 @@ const schema = {
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// PAGE COMPONENT
-// ═══════════════════════════════════════════════════════════
 export default function WestLoopPage() {
   return (
-    <main className="min-h-screen">
-      {/* JSON-LD Schema */}
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ═══════════════════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
-        {/* Background Image */}
+      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
-            src={images.brand.hero.lifestyle}
-            alt=""
-            aria-hidden="true"
+            src={images.systems.enclosures.commercialNightDining}
+            alt="Commercial outdoor dining enclosure used for West Loop patio planning"
             fill
             priority
+            loading="eager"
             sizes="100vw"
-            className="object-cover opacity-30"
+            className="object-cover opacity-35"
           />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-        {/* Content */}
         <Container className="relative z-10">
-          {/* Breadcrumb - Left Aligned */}
-          <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Commercial', href: '/commercial' },
-                { label: 'West Loop' },
-              ]}
-              className="text-zinc-300"
-            />
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Commercial', href: '/commercial' },
+              { label: 'West Loop' },
+            ]}
+            className="mb-6 text-zinc-300"
+          />
+          <Link
+            href="/commercial"
+            className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to commercial
+          </Link>
 
-          {/* Text - Left Aligned */}
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
-              Chicago Commercial
+          <div className="max-w-4xl">
+            <div className="label-editorial mb-6 text-edg-brand">
+              West Loop Commercial
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              West Loop & Fulton Market
+            <h1 className="hero-title mb-6 max-w-4xl">
+              West Loop Patio Planning for Dense Hospitality Sites
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              Commercial outdoor living systems designed for Chicago West Loop restaurants, 
-              hotels, and hospitality venues. From Randolph Street to Fulton Market, 
-              we understand the unique requirements of this premier dining and entertainment district.
+            <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+              Commercial pergola, screen, glass, heat, lighting, and control
+              planning for West Loop and Fulton Market restaurants, hotels,
+              rooftops, and event spaces.
             </p>
-            <Link href="/contact">
-              <Button size="lg" className="rounded-none">
-                Request West Loop Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TrackedLink href={heroContactHref}>
+                <Button size="lg">
+                  Schedule a West Loop Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  (815) 581-0138
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
-          INTRO SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid gap-8 md:grid-cols-3">
+            {planningSteps.map((step) => (
+              <div key={step.title} className="border border-white/10 p-6">
+                <IconWrapper
+                  icon={step.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h2 className="mb-3 text-xl font-bold">{step.title}</h2>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Built for Chicago West Loop
+              <div className="label-editorial mb-4 text-edg-brand">
+                Local Commercial Planning
+              </div>
+              <h2 className="section-title mb-6">
+                West Loop outdoor spaces need product depth and site restraint
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                The West Loop and Fulton Market district has transformed into one of 
-                Chicago&apos;s premier dining and entertainment destinations. From 
-                Randolph Street&apos;s restaurant row to the hotel rooftops along 
-                Halsted, outdoor space is at a premium.
+              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+                Dense urban patios and rooftops rarely have unlimited access,
+                space, or operating flexibility. The system has to fit the
+                building, the restaurant or hotel team, and the guest
+                experience.
               </p>
-              <p className="text-lg text-gray-600 ">
-                Our commercial outdoor living systems are engineered for the specific 
-                challenges of Chicago&apos;s climate and West Loop building requirements. 
-                We handle everything from permits to installation.
+              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                EDG reviews the patio, rooftop, or terrace conditions before
+                recommending pergolas, screens, glass, heat, lighting, and
+                controls.
               </p>
+              <div className="grid gap-3">
+                {areaCoverage.map((area) => (
+                  <div key={area} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <span className="text-sm font-medium text-zinc-800">
+                      {area}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="bg-zinc-100 p-8 rounded-2xl">
-              <h3 className="text-xl font-bold mb-6">Service Area Coverage</h3>
-              <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-edg-brand-text" />
-                  Fulton Market District
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-edg-brand-text" />
-                  Randolph Street Corridor
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-edg-brand-text" />
-                  Greektown & University Village
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-edg-brand-text" />
-                  Medical District
-                </li>
-                <li className="flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-edg-brand-text" />
-                  East Garfield Park
-                </li>
-              </ul>
+
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={images.brand.context.commercial}
+                alt="Chicago commercial patio context for West Loop hospitality planning"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FEATURES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-50">
+      <Section className="section-md bg-surface">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Why West Loop Businesses Choose EDG
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Planning Factors
+            </div>
+            <h2 className="section-title mb-4">
+              The neighborhood context changes the system decision
             </h2>
-            <p className="text-lg text-gray-600">
-              Local expertise combined with commercial-grade engineering for West Loop hospitality.
+            <p className="text-lg leading-relaxed text-text-secondary">
+              A West Loop scope should account for building access, review
+              path, weather exposure, service flow, and future maintenance.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {keyFeatures.map((feature) => (
-              <Card
-                key={feature.title}
-                variant="outline"
-                padding="lg"
-                className="group"
-              >
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {localFactors.map((factor) => (
+              <Card key={factor.title} variant="outline" padding="lg">
                 <IconWrapper
-                  icon={feature.icon}
+                  icon={factor.icon}
                   variant="brand"
                   size="lg"
                   className="mb-6"
                 />
-                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <h3 className="mb-3 text-xl font-bold">{factor.title}</h3>
+                <p className="leading-relaxed text-text-secondary">
+                  {factor.description}
+                </p>
               </Card>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          AMENITY AREAS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Common West Loop Installations
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Common Uses
+            </div>
+            <h2 className="section-title mb-4">
+              West Loop projects usually need more than shade
             </h2>
-            <p className="text-lg text-gray-600">
-              Outdoor living systems tailored for the West Loop hospitality market.
+            <p className="text-lg leading-relaxed text-text-secondary">
+              Most dense hospitality spaces need a coordinated plan for guest
+              comfort, staff operation, service access, and controls.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid gap-6 md:grid-cols-2">
             {amenityAreas.map((area) => (
-              <Card
-                key={area.title}
-                variant="outline"
-                padding="lg"
-                className="group"
-              >
+              <Card key={area.title} variant="outline" padding="lg">
                 <div className="flex items-start gap-4">
-                  <IconWrapper
-                    icon={area.icon}
-                    variant="brand"
-                    size="lg"
-                  />
+                  <IconWrapper icon={area.icon} variant="brand" size="lg" />
                   <div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                      {area.title}
-                    </h3>
-                    <p className="text-gray-600">{area.description}</p>
+                    <h3 className="mb-3 text-xl font-bold">{area.title}</h3>
+                    <p className="leading-relaxed text-text-secondary">
+                      {area.description}
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -340,20 +397,65 @@ export default function WestLoopPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FAQ SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Proof Standard
+              </div>
+              <h2 className="section-title mb-6 text-white">
+                Keep the plan tied to the actual venue
+              </h2>
+              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
+                EDG helps ownership and project teams review the building,
+                operating model, weather exposure, and scope before making a
+                product recommendation.
+              </p>
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Request a West Loop Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ['Site', 'Rooftop, patio, alley, terrace, utilities, and access'],
+                ['Operation', 'Dining, events, staff paths, controls, and cleanup'],
+                ['System', 'Pergola, screens, glass, heat, lighting, and sensors'],
+              ].map(([label, description]) => (
+                <div key={label} className="border border-white/10 p-6">
+                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                    {label}
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-300">
+                    {description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <div className="label-editorial-brand mb-4 text-center">
+              FAQ
+            </div>
+            <h2 className="section-title mb-10 text-center">
               West Loop Installation Questions
             </h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <Card key={i} variant="default" padding="lg">
-                  <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+            <div className="space-y-5">
+              {faqs.map((faq) => (
+                <Card key={faq.question} variant="outline" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="leading-relaxed text-text-secondary">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -361,56 +463,67 @@ export default function WestLoopPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          RELATED SOLUTIONS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200">
+      <Section className="border-t border-black/10 bg-surface py-12">
         <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-edg-brand-text transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span className="font-medium">All Commercial Solutions</span>
+              All Commercial Pages
             </Link>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/chicago-hospitality-outdoor-living"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                Chicago Hospitality <ChevronRight className="h-4 w-4" />
+                Chicago Hospitality
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/commercial/restaurant-patio-solutions"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+              >
+                Restaurant Planning
+                <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          CTA SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="bg-edg-brand py-20">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Transform Your West Loop Space
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+              Start with the West Loop site constraints
             </h2>
-            <p className="text-xl text-black/80 mb-8">
-              Schedule a consultation to discuss your West Loop commercial outdoor living project.
+            <p className="mb-8 text-xl leading-relaxed text-zinc-300">
+              Send EDG the venue, building, and outdoor-space context. We will
+              help narrow the system and planning path.
             </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-black text-white hover:bg-gray-900"
-              >
-                Request West Loop Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Start West Loop Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call EDG
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

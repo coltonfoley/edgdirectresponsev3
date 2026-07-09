@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -29,7 +30,8 @@ export const metadata: Metadata = {
     'Custom motorized pergolas and exterior shades for Wilmette homes. Serving the Cage neighborhood to Lake Michigan. Zoning-compliant designs for historic districts.',
   openGraph: {
     title: 'Wilmette Outdoor Living | North Shore Pergolas | EDG',
-    description: 'Luxury outdoor living systems for Wilmette homes. Motorized pergolas and screens designed for North Shore architecture.',
+    description:
+      'Outdoor living systems for Wilmette homes. Motorized pergolas and screens planned for North Shore architecture.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -37,7 +39,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/wilmette-il',
   },
-  keywords: ['wilmette pergolas', 'wilmette outdoor living', 'wilmette il patio', 'pergola installation wilmette', 'north shore pergolas'],
+  keywords: [
+    'wilmette pergolas',
+    'wilmette outdoor living',
+    'wilmette il patio',
+    'pergola installation wilmette',
+    'north shore pergolas',
+  ],
 };
 
 const localBenefits = [
@@ -61,12 +69,12 @@ const neighborhoods = [
   {
     name: 'Indian Hill Estates',
     description:
-      'This prestigious neighborhood features larger lots perfect for expansive outdoor living spaces. Our large-span engineering minimizes support columns, preserving sightlines across your property while maximizing usable covered area.',
+      'Indian Hill Estates includes larger lots where span, column placement, and sightlines matter. We plan the structure around how the patio, landscape, and home work together.',
   },
   {
     name: 'McKenzie Neighborhood',
     description:
-      'The McKenzie area\'s mix of traditional and contemporary homes benefits from our custom design approach. Whether you have a classic colonial or modern architecture, we create systems that feel like they were built with your home.',
+      "The McKenzie area's mix of traditional and contemporary homes benefits from our custom design approach. Whether you have a classic colonial or modern architecture, we create systems that feel like they were built with your home.",
   },
 ];
 
@@ -74,7 +82,7 @@ const weatherConsiderations = [
   {
     title: 'Lake Effect Weather',
     description:
-      'Wilmette\'s proximity to Lake Michigan creates quick changes in wind, temperature, and glare. We plan louver direction, side protection, and controls around the way the patio actually feels.',
+      "Wilmette's proximity to Lake Michigan creates quick changes in wind, temperature, and glare. We plan louver direction, side protection, and controls around the way the patio actually feels.",
     icon: Wind,
   },
   {
@@ -86,7 +94,7 @@ const weatherConsiderations = [
   {
     title: 'Summer Heat & UV',
     description:
-      'Wilmette summers can be intense. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your outdoor space comfortable even in July.',
+      'Wilmette summers can bring direct sun, glare, and afternoon heat. Exterior shades can cut glare and heat while preserving airflow when fabric, track path, and controls are planned around the opening.',
     icon: CloudSun,
   },
 ];
@@ -119,7 +127,8 @@ const faqs = [
       'Permanent outdoor structures commonly require local review, but the exact path depends on the address, structure size, attachment method, lot coverage, setbacks, and whether the property has historic, HOA, or lake-adjacent considerations. We help verify the correct path before design is finalized.',
   },
   {
-    question: 'How do louvered pergolas help with Wilmette\'s impermeable surface limits?',
+    question:
+      "How do louvered pergolas help with Wilmette's impermeable surface limits?",
     answer:
       'Coverage and drainage questions should be reviewed for the specific address. A louvered pergola may be evaluated differently than a solid roof in some situations, but that is a local review question, not something to assume before the site and design are known.',
   },
@@ -129,11 +138,30 @@ const faqs = [
       'Yes, when the project is planned carefully. Historic or architecturally sensitive homes usually need better documentation: renderings, finish samples, placement notes, and product information that show how the outdoor room relates to the existing structure.',
   },
   {
-    question: 'What\'s the typical timeline for a Wilmette project?',
+    question: "What's the typical timeline for a Wilmette project?",
     answer:
       'A custom Wilmette project can take several weeks for design, review, fabrication, and installation. Historic-area review, HOA input, electrical coordination, custom finishes, and weather can change the schedule, so we set expectations after the site and approval path are clear.',
   },
 ];
+
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Wilmette, IL',
+  source: 'wilmette_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Wilmette, IL',
+  source: 'wilmette_hub_bottom',
+});
+const resourceContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'permitting',
+  location: 'Wilmette, IL',
+  source: 'wilmette_hub_resources',
+});
 
 export default function WilmetteHubPage() {
   return (
@@ -162,7 +190,9 @@ export default function WilmetteHubPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -177,7 +207,7 @@ export default function WilmetteHubPage() {
             className="object-cover opacity-20"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-black/75" />
         </div>
 
         <Container className="relative z-10">
@@ -196,17 +226,18 @@ export default function WilmetteHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Wilmette, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Upgrade Your Wilmette Home with
+                Plan Your Wilmette Home With
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 From the brick streets of the Cage to the shores of Lake
                 Michigan, we design engineered shade systems that respect
-                Wilmette&apos;s architectural heritage and handle its unique weather.
+                Wilmette&apos;s architectural heritage and handle its unique
+                weather.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Wilmette Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -223,8 +254,12 @@ export default function WilmetteHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -242,15 +277,19 @@ export default function WilmetteHubPage() {
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Wilmette outdoor rooms need more than shade. Historic homes,
-                lake-adjacent lots, larger estate properties, and close
-                neighborhood sightlines each create different planning decisions.
+                lake-adjacent lots, larger properties, and close neighborhood
+                sightlines each create different planning decisions.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -267,19 +306,25 @@ export default function WilmetteHubPage() {
                 Wilmette planning notes
               </div>
               <h2 className="section-title mb-4">
-                The design needs to satisfy the home, the weather, and the review path.
+                The design needs to satisfy the home, the weather, and the
+                review path.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 A Wilmette pergola or screen project can involve architecture,
-                lake comfort, drainage, lot coverage, and neighborhood visibility
-                at the same time. We sort those constraints before recommending
-                a system.
+                lake comfort, drainage, lot coverage, and neighborhood
+                visibility at the same time. We sort those constraints before
+                recommending a system.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -298,13 +343,19 @@ export default function WilmetteHubPage() {
                 Built for Wilmette&apos;s Lakefront Weather
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for North Shore climate challenges.
+                Our systems are planned around North Shore wind, snow, lake
+                exposure, sun, and review expectations.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {weatherConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -330,41 +381,43 @@ export default function WilmetteHubPage() {
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
               {/* Impermeable Surface Challenge */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   The &quot;Impermeable Surface&quot; Challenge
                 </h3>
                 <p className="text-text-secondary mb-6">
                   Many North Shore properties need careful review of lot
-                  coverage, drainage, hardscape, and whether an outdoor structure
-                  changes stormwater assumptions. A driveway, patio, garage, and
-                  new roof structure should be reviewed together instead of
-                  guessed from a generic rule.
+                  coverage, drainage, hardscape, and whether an outdoor
+                  structure changes stormwater assumptions. A driveway, patio,
+                  garage, and new roof structure should be reviewed together
+                  instead of guessed from a generic rule.
                 </p>
-                <div className="bg-edg-brand/5 border-edg-brand/20 rounded-2xl border p-6">
+                <div className="bg-edg-brand/5 border-edg-brand/20 border p-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                      <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5" />
-                    </div>
+                    <IconWrapper
+                      icon={CheckCircle2}
+                      variant="brand"
+                      size="md"
+                    />
                     <div>
                       <h4 className="mb-2 text-lg font-bold">
                         The Louvered Advantage
                       </h4>
                       <p className="text-text-secondary">
                         A <strong>louvered pergola</strong> may be reviewed
-                        differently than a solid roof in some situations, but the
-                        correct answer depends on the address, design, drainage,
-                        and reviewer. We help homeowners prepare the right
-                        documentation before assuming the outcome.
+                        differently than a solid roof in some situations, but
+                        the correct answer depends on the address, design,
+                        drainage, and reviewer. We help homeowners prepare the
+                        right documentation before assuming the outcome.
                       </p>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Card>
 
               {/* Setbacks */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <AlertTriangle className="text-edg-brand-dark h-6 w-6" />
                   Setback Requirements
@@ -373,36 +426,36 @@ export default function WilmetteHubPage() {
                   Detached accessory structures typically must be:
                 </p>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                  <li className="flex items-center gap-3 border border-zinc-200 bg-white p-4">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
                     <span>
                       Reviewed against the property survey, zoning district, and
                       whether the structure is attached or freestanding.
                     </span>
                   </li>
-                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                  <li className="flex items-center gap-3 border border-zinc-200 bg-white p-4">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
                     <span>
                       Checked for easements, drainage paths, utilities, and any
                       HOA or historic-area requirements.
                     </span>
                   </li>
-                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
-                    <AlertTriangle className="h-5 w-5 shrink-0 text-amber-500" />
+                  <li className="flex items-center gap-3 border border-zinc-200 bg-white p-4">
+                    <AlertTriangle className="text-edg-brand-dark h-5 w-5 shrink-0" />
                     <span>Often cannot be in the required front yard.</span>
                   </li>
                 </ul>
-              </div>
+              </Card>
 
               {/* Timeline */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <Clock className="text-edg-brand-dark h-6 w-6" />
                   Review Package
                 </h3>
-                <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
-                  <Clock className="h-5 w-5 shrink-0 text-amber-600" />
-                  <p className="font-medium text-amber-800 dark:text-amber-200">
+                <div className="mb-6 flex items-center gap-3 border border-border bg-white p-4">
+                  <Clock className="text-edg-brand-dark h-5 w-5 shrink-0" />
+                  <p className="font-medium text-text-primary">
                     The cleaner the submission, the easier it is for everyone to
                     understand the proposed outdoor room.
                   </p>
@@ -421,12 +474,12 @@ export default function WilmetteHubPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
 
               <p className="text-center text-sm text-zinc-400 italic">
-                Disclaimer: Zoning codes change. This guide is for
-                informational purposes. EDG verifies the current review path
-                during site assessment and design.
+                Disclaimer: Zoning codes change. This guide is for informational
+                purposes. EDG verifies the current review path during site
+                assessment and design.
               </p>
             </div>
           </FadeIn>
@@ -471,18 +524,23 @@ export default function WilmetteHubPage() {
                 href="/service-areas/wilmette-il/louvered-pergolas"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Home}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Louvered Pergolas in Wilmette
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Why aluminum louvered roofs are the preferred choice for North
-                    Shore winters over traditional wood structures.
+                    Why aluminum louvered roofs are the preferred choice for
+                    North Shore winters over traditional wood structures.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
@@ -490,16 +548,18 @@ export default function WilmetteHubPage() {
                 </Card>
               </Link>
 
-              <Link
-                href="/contact?area=wilmette&source=hub-resources"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
+              <Link href={resourceContactHref} className="group block">
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={ShieldCheck}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Get Permit Assistance
                   </h3>
@@ -518,23 +578,20 @@ export default function WilmetteHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Wilmette Project?
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Wilmette project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation with our local design team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Review the address, constraints, and right system path with our
+                local design team.
               </p>
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="dark"
-                  className="px-8 text-lg"
-                >
-                  Schedule Free Consultation{' '}
+              <Link href={bottomContactHref}>
+                <Button size="lg" className="px-8 text-lg">
+                  Schedule Wilmette Planning{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

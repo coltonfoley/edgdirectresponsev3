@@ -13,6 +13,7 @@ import {
   TriangleAlert,
   Waves,
 } from 'lucide-react';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Button } from '@/components/ui/Button';
@@ -102,9 +103,16 @@ const faqs = [
   },
 ];
 
+const permitGuideContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'permit-guide',
+  area: 'sanibel',
+  source: 'sanibel_zoning_guide',
+});
+
 export default function SanibelZoningGuidePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -210,7 +218,7 @@ export default function SanibelZoningGuidePage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-lg border border-zinc-200">
+            <div className="overflow-hidden border border-zinc-200">
               <table className="w-full border-collapse text-left text-sm">
                 <thead className="bg-zinc-100">
                   <tr>
@@ -289,7 +297,7 @@ export default function SanibelZoningGuidePage() {
               <div className="space-y-4">
                 {gotchas.map((item) => (
                   <div key={item} className="flex gap-3">
-                    <TriangleAlert className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
+                    <TriangleAlert className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <p className="text-text-secondary leading-relaxed">
                       {item}
                     </p>
@@ -310,7 +318,7 @@ export default function SanibelZoningGuidePage() {
                   'Submit a complete permit package and wait for local approval before construction starts.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-3">
-                    <span className="bg-edg-brand text-edg-dark flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-bold">
+                    <span className="bg-edg-brand text-edg-dark flex h-7 w-7 shrink-0 items-center justify-center text-sm font-bold">
                       {index + 1}
                     </span>
                     <span className="text-text-secondary leading-relaxed">
@@ -353,7 +361,7 @@ export default function SanibelZoningGuidePage() {
         <Container>
           <Card variant="muted" padding="lg" className="mx-auto max-w-4xl">
             <div className="flex gap-4">
-              <Info className="mt-1 h-6 w-6 shrink-0 text-blue-600" />
+              <Info className="text-edg-brand-dark mt-1 h-6 w-6 shrink-0" />
               <div>
                 <h2 className="mb-3 text-2xl font-bold">
                   Official sources to confirm before you build
@@ -415,7 +423,7 @@ export default function SanibelZoningGuidePage() {
               the next practical permit questions.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link href="/contact?area=sanibel&product=permit-guide&source=sanibel_zoning_guide">
+              <Link href={permitGuideContactHref}>
                 <Button size="lg">
                   Ask About a Sanibel Project
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -431,6 +439,6 @@ export default function SanibelZoningGuidePage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

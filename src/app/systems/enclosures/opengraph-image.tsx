@@ -13,6 +13,6 @@ export default async function Image() {
   return generateProductOG({
     product: 'Glass Enclosures',
     category: 'Outdoor Rooms',
-    benefit: 'Year-round outdoor living with frameless glass walls',
+    benefit: 'More protected outdoor living with frameless glass walls',
   });
 }

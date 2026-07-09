@@ -25,12 +25,13 @@ import {
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Louvered Pergolas Sanibel | Coastal Outdoor Living | EDG',
   description:
-    'Premium motorized louvered pergolas for Sanibel and Captiva homes, planned around coastal wind documentation, salt-air materials, modern lanai alternatives, and permits.',
+    'Motorized louvered pergolas for Sanibel and Captiva homes, planned around coastal wind documentation, salt-air materials, modern lanai alternatives, and permits.',
   openGraph: {
     title: 'Louvered Pergolas Sanibel | Coastal Outdoor Living | EDG',
     description:
@@ -104,7 +105,7 @@ const vsTraditional = [
   {
     aspect: 'Temperature Control',
     traditional: 'Traps heat, blocks airflow',
-    louvered: 'Ventilated design reduces temps 15-20°F',
+    louvered: 'Ventilated design supports shade, airflow, and heat relief',
     advantage: 'louvered',
   },
   {
@@ -143,13 +144,13 @@ const smartFeatures = [
   {
     title: 'Integrated Lighting & Climate',
     description:
-      'LED strip lighting integrated into the beam structure creates ambient evening atmosphere. Add infrared heaters for cool winter evenings, extending your outdoor season year-round.',
+      'LED strip lighting integrated into the beam structure creates ambient evening atmosphere. Infrared heaters can support cooler winter evenings when the layout and electrical plan allow.',
     icon: Layers,
   },
   {
     title: 'Optional Retractable Screens',
     description:
-      'Deploy motorized screens when you need bug protection or privacy, retract them when you want unobstructed Gulf views. The best of both worlds without permanent obstruction.',
+      'Deploy motorized screens when you need bug protection or privacy, then retract them when the priority is open air and Gulf views.',
     icon: Home,
   },
 ];
@@ -201,7 +202,7 @@ const faqs = [
   {
     question: 'What is the cost compared to rebuilding a traditional lanai?',
     answer:
-      'Premium motorized louvered systems are usually a higher-spec option than basic screen enclosure work. The useful comparison is full scope: demolition, slab or footing work, engineering, screens, drainage, electrical, permits, and long-term maintenance.',
+      'Motorized louvered systems are usually a higher-spec option than basic screen enclosure work. The useful comparison is full scope: demolition, slab or footing work, engineering, screens, drainage, electrical, permits, and long-term maintenance.',
   },
   {
     question: 'How long does installation take in Sanibel?',
@@ -210,9 +211,16 @@ const faqs = [
   },
 ];
 
+const pergolaContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'pergola',
+  area: 'sanibel',
+  source: 'leads-sanibel-pergolas',
+});
+
 export default function SanibelPergolaPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
@@ -265,7 +273,7 @@ export default function SanibelPergolaPage() {
               <MapPin className="h-3 w-3" /> Sanibel coastal planning
             </div>
             <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
-              Louvered Pergolas
+              Louvered Pergolas{' '}
               <span className="text-edg-brand block">for Sanibel Island</span>
             </h1>
             <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-gray-300 md:text-xl">
@@ -283,10 +291,10 @@ export default function SanibelPergolaPage() {
             </div>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=sanibel&product=pergola&source=leads-sanibel-pergolas">
+                <Link href={pergolaContactHref}>
                   <Button
                     size="lg"
-                    className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 rounded-none px-10 font-bold"
+                    className="px-10 font-bold"
                   >
                     Request Design Consultation <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
@@ -324,7 +332,8 @@ export default function SanibelPergolaPage() {
               </h2>
               <p className="text-text-secondary text-lg">
                 Every component selected to withstand Sanibel\'s unique challenges: 
-                hurricane-force winds, corrosive salt air, and intense subtropical sun.
+                coastal wind exposure, corrosive salt air, and intense
+                subtropical sun.
               </p>
             </div>
 
@@ -413,7 +422,7 @@ export default function SanibelPergolaPage() {
       <Section className="overflow-hidden border-y border-zinc-100 bg-white py-24 dark:border-zinc-800 dark:bg-black">
         <Container>
           <div className="grid items-center gap-16 lg:grid-cols-2">
-            <div className="relative h-[500px] overflow-hidden shadow-lg">
+            <div className="relative h-[500px] overflow-hidden border border-border">
               <Image
                 src={images.pages.serviceAreas.sanibelShade}
                 alt="Motorized screens deployed on louvered pergola for Sanibel coastal patio"
@@ -451,8 +460,8 @@ export default function SanibelPergolaPage() {
                 </div>
 
                 <div className="pt-4">
-                  <Link href="/contact?area=sanibel&product=pergola&source=leads-sanibel-pergolas">
-                    <Button className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90 rounded-none px-10 py-6 text-lg font-bold">
+                  <Link href={pergolaContactHref}>
+                    <Button className="px-10 py-6 text-lg font-bold">
                       Request a Design Quote
                     </Button>
                   </Link>
@@ -504,31 +513,34 @@ export default function SanibelPergolaPage() {
                 <div className="grid gap-8 md:grid-cols-3">
                   <div className="text-center">
                     <div className="text-edg-brand-dark mb-2 text-4xl font-bold">$120-200</div>
-                    <div className="text-sm font-semibold">Per Square Foot</div>
+                    <div className="text-sm font-semibold">Budget Range</div>
                     <p className="text-text-secondary mt-2 text-sm">
-                      Premium motorized system installed
+                      Varies by size, engineering, screens, drainage, and
+                      site conditions
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="text-edg-brand-dark mb-2 text-4xl font-bold">10 Year</div>
-                    <div className="text-sm font-semibold">Structural Warranty</div>
+                    <div className="text-edg-brand-dark mb-2 text-4xl font-bold">System</div>
+                    <div className="text-sm font-semibold">Warranty Review</div>
                     <p className="text-text-secondary mt-2 text-sm">
-                      Expected 20+ year lifespan with marine-grade aluminum
+                      Warranty, maintenance, and coastal exclusions depend on
+                      the selected system
                     </p>
                   </div>
                   <div className="text-center">
-                    <div className="text-edg-brand-dark mb-2 text-4xl font-bold">Resale</div>
-                    <div className="text-sm font-semibold">Premium Resale Feature</div>
+                    <div className="text-edg-brand-dark mb-2 text-4xl font-bold">Fit</div>
+                    <div className="text-sm font-semibold">Design Differentiator</div>
                     <p className="text-text-secondary mt-2 text-sm">
-                      Premium outdoor-living feature for Florida homes
+                      A clean, documented outdoor room can support a stronger
+                      property story
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-8 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+                <div className="mt-8 border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
                   <div className="flex items-start gap-3">
-                    <Info className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
-                    <p className="text-sm text-amber-800 dark:text-amber-200">
+                    <Info className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
+                    <p className="text-text-secondary text-sm dark:text-text-inverse-muted">
                       <strong>Post-Ian Opportunity:</strong> If storm damage
                       changed the outdoor room, the 50% rule may require full
                       reconstruction. This is your chance to compare a
@@ -584,7 +596,7 @@ export default function SanibelPergolaPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -607,7 +619,7 @@ export default function SanibelPergolaPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={AlertTriangle} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -630,7 +642,7 @@ export default function SanibelPergolaPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Info} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -651,19 +663,20 @@ export default function SanibelPergolaPage() {
       </Section>
 
       {/* Final CTA */}
-      <section className="bg-edg-brand py-24">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
                 Ready for Coastal Outdoor Living?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and see how a louvered system transforms your Sanibel home.
+              <p className="mb-8 text-xl text-text-inverse-muted">
+                Send the site conditions and review whether a louvered system
+                is the right starting point for the Sanibel property.
               </p>
-              <Link href="/contact?area=sanibel&product=pergola&source=leads-sanibel-pergolas">
-                <Button size="lg" variant="dark" className="px-8 text-lg">
-                  Schedule Free Design Consultation{' '}
+              <Link href={pergolaContactHref}>
+                <Button size="lg" className="px-8 text-lg">
+                  Start Louvered Pergola Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -671,6 +684,6 @@ export default function SanibelPergolaPage() {
           </FadeIn>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

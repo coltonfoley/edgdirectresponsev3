@@ -18,13 +18,14 @@ import { Container } from '@/components/ui/Container';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Chicago Outdoor Living Systems | Pergolas, Screens & Enclosures | EDG',
   description:
-    'Custom motorized pergolas, retractable screens, and glass enclosures for Chicago homes. Built for roof decks, tight lots, and four-season city living.',
+    'Custom motorized pergolas, retractable screens, and glass enclosures for Chicago homes. Built for roof decks, tight lots, and seasonal city outdoor living.',
   alternates: {
     canonical: '/service-areas/chicago-il',
   },
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
 
 const localBenefits = [
   'Comfortable with Chicago permit review, condo approvals, and alley-loaded sites',
-  'Designs built for lake effect wind, heavy snow, and year-round exposure',
+  'Designs planned around lake effect wind, snow loads, and exposed city sites',
   'System layouts that protect views while adding privacy on dense urban blocks',
   'Showroom support in Spring Grove plus local installation across the city',
 ];
@@ -72,7 +73,7 @@ const neighborhoods = [
   {
     title: 'Beverly and Mount Greenwood',
     description:
-      'Further south, larger lots along Longwood Drive, Western Avenue, and the surrounding residential grid create opportunities for bigger entertaining zones. These projects still need Chicago-ready engineering, but they also benefit from integrated screens, heaters, and lighting that turn a backyard into a true four-season extension of the house.',
+      'Further south, larger lots along Longwood Drive, Western Avenue, and the surrounding residential grid create opportunities for bigger entertaining zones. These projects still need Chicago-ready engineering, but they also benefit from integrated screens, heaters, and lighting that turn a backyard into a more finished extension of the house.',
   },
 ];
 
@@ -92,7 +93,7 @@ const solutions = [
   {
     title: 'Glass Enclosures',
     description:
-      'For four-season spaces where you want to keep views and daylight while protecting a city terrace or outdoor room from the elements.',
+      'For weather-protected spaces where you want to keep views and daylight while shielding a city terrace or outdoor room from wind and rain.',
     href: '/service-areas/chicago-il/glass-enclosures',
   },
 ];
@@ -127,7 +128,7 @@ const faqs = [
   {
     question: 'Can these systems work on small city lots and garage roof decks?',
     answer:
-      'Absolutely. In Chicago, the best projects are often the tightest ones. We regularly design around parapet walls, detached garages, masonry patios, and limited access routes. The key is selecting the right span, post layout, drainage strategy, and privacy approach before fabrication begins.',
+      'Absolutely. In Chicago, the strongest projects are often the tightest ones. We regularly design around parapet walls, detached garages, masonry patios, and limited access routes. The key is selecting the right span, post layout, drainage strategy, and privacy approach before fabrication begins.',
   },
   {
     question: 'How do motorized systems handle Chicago weather?',
@@ -142,6 +143,19 @@ const faqs = [
 ];
 
 export default function ChicagoServiceAreaPage() {
+  const heroContactHref = buildContactHref({
+    type: 'consultation',
+    product: 'multiple',
+    location: 'Chicago, IL',
+    source: 'chicago_hub_hero',
+  });
+  const bottomContactHref = buildContactHref({
+    type: 'fit-review',
+    product: 'multiple',
+    location: 'Chicago, IL',
+    source: 'chicago_hub_bottom',
+  });
+
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -160,7 +174,7 @@ export default function ChicagoServiceAreaPage() {
   };
 
   return (
-    <main className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -199,6 +213,7 @@ export default function ChicagoServiceAreaPage() {
               </span>
               <h1 className="hero-title mb-6 text-white">
                 Chicago Outdoor Living That Works
+                {' '}
                 <span className="block text-edg-brand">Block by Block</span>
               </h1>
               <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-text-inverse-muted md:text-xl">
@@ -207,7 +222,7 @@ export default function ChicagoServiceAreaPage() {
                 real weather performance without sacrificing architecture.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?source=chicago_hub">
+                <Link href={heroContactHref}>
                   <Button size="lg" className="px-8 text-lg">
                     Request a Chicago Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -367,14 +382,14 @@ export default function ChicagoServiceAreaPage() {
                 <h3 className="mb-4 text-2xl font-bold">A better path than generic city SEO pages</h3>
                 <p className="mb-4 leading-relaxed text-text-secondary">
                   Most "Chicago pergola" pages on the internet say the same vague
-                  things about style and luxury. What matters more is whether the
+                  things about style and finish level. What matters more is whether the
                   company understands access constraints, drainage, parapet walls,
                   snow exposure, and how to make an outdoor system feel integrated
                   with the building instead of set on top of it. That is where good
                   design protects both your budget and the finished result.
                 </p>
                 <p className="leading-relaxed text-text-secondary">
-                  We work best with homeowners who want help making those decisions
+                  We are strongest with homeowners who want help making those decisions
                   early. If you already know you want a pergola or screens, jump to
                   the product page. If you are still comparing options, start with a
                   consultation and we will narrow the system mix based on layout,
@@ -382,7 +397,7 @@ export default function ChicagoServiceAreaPage() {
                 </p>
               </div>
               <div>
-                <h3 className="mb-4 text-2xl font-bold">Designed for real four-season use</h3>
+                <h3 className="mb-4 text-2xl font-bold">Designed for extended seasonal use</h3>
                 <p className="mb-4 leading-relaxed text-text-secondary">
                   Chicago projects only pay off when they meaningfully stretch the
                   outdoor season. That can mean a louvered roof that handles sudden
@@ -439,7 +454,7 @@ export default function ChicagoServiceAreaPage() {
                 right system before you commit.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?source=chicago_hub_bottom">
+                <Link href={bottomContactHref}>
                   <Button size="lg">Book a Consultation</Button>
                 </Link>
                 <Link href="/service-areas/chicago-il/motorized-pergolas">
@@ -479,6 +494,6 @@ export default function ChicagoServiceAreaPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

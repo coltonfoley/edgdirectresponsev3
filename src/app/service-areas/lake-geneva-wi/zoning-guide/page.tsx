@@ -13,6 +13,7 @@ import {
   TriangleAlert,
   Waves,
 } from 'lucide-react';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Button } from '@/components/ui/Button';
@@ -126,9 +127,23 @@ const faqs = [
   },
 ];
 
+const topContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'planning',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_zoning_top',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'planning',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_permit_guide',
+});
+
 export default function LakeGenevaZoningGuidePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -210,7 +225,7 @@ export default function LakeGenevaZoningGuidePage() {
                 then review the survey, scope, structure type, electrical work,
                 and whether the project changes the patio, deck, roof, or yard.
               </p>
-              <Link href="/contact?type=price&product=planning&location=Lake%20Geneva%2C%20WI&source=lake_geneva_zoning_top">
+              <Link href={topContactHref}>
                 <Button variant="secondary">
                   Ask EDG to Review the Site
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -250,8 +265,8 @@ export default function LakeGenevaZoningGuidePage() {
               The permit questions that shape a Lake Geneva outdoor room
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              A premium pergola or screen system can be designed around local
-              review requirements, but only if the review questions are raised
+              A pergola or screen system can be designed around local review
+              requirements, but only if the review questions are raised
               before the final size, post locations, electrical package, and
               accessory choices are locked in.
             </p>
@@ -327,10 +342,10 @@ export default function LakeGenevaZoningGuidePage() {
               {commonMistakes.map((mistake) => (
                 <div
                   key={mistake}
-                  className="flex items-start gap-3 border border-amber-200 bg-amber-50 p-5"
+                  className="flex items-start gap-3 border border-border bg-white p-5"
                 >
-                  <TriangleAlert className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
-                  <p className="text-text-primary leading-relaxed">{mistake}</p>
+                  <TriangleAlert className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
+                  <p className="text-text-secondary leading-relaxed">{mistake}</p>
                 </div>
               ))}
             </div>
@@ -414,7 +429,7 @@ export default function LakeGenevaZoningGuidePage() {
               <Link href="/service-areas/lake-geneva-wi/motorized-pergolas">
                 <Button size="lg">Explore Lake Geneva Pergolas</Button>
               </Link>
-              <Link href="/contact?type=price&product=planning&location=Lake%20Geneva%2C%20WI&source=lake_geneva_permit_guide">
+              <Link href={bottomContactHref}>
                 <Button
                   variant="outline"
                   size="lg"
@@ -440,6 +455,6 @@ export default function LakeGenevaZoningGuidePage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

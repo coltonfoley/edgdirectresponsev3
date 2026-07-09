@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -73,7 +74,8 @@ const comparisonFeatures = [
   {
     feature: 'Airflow & Cooling',
     traditional: 'Screens block breeze, trap heat',
-    modern: 'Open sides + vented roof reduces temps 15-20°F',
+    modern:
+      'Open sides and a vented roof can support better airflow and shade control',
     winner: 'modern',
   },
   {
@@ -118,7 +120,7 @@ const modernFeatures = [
   {
     title: 'Optional Motorized Screens',
     description:
-      'Want the best of both? Add retractable screens that deploy when you need bug protection and disappear when you want unobstructed Gulf views.',
+      'Add retractable screens that deploy when you need bug protection and disappear when you want unobstructed Gulf views.',
     icon: Eye,
   },
 ];
@@ -132,7 +134,7 @@ const neighborhoods = [
   {
     name: 'Canal Homes & Waterfront',
     description:
-      'Properties along the Sanibel River and interior canals rely on seabreezes for cooling. Traditional enclosed lanais block airflow, but a louvered system captures crosswinds while providing shade. Perfect for homes on Dixie Beach Boulevard and Buttonwood Lane.',
+      'Properties along the Sanibel River and interior canals rely on seabreezes for cooling. Traditional enclosed lanais block airflow, but a louvered system captures crosswinds while providing shade. That approach can suit homes near Dixie Beach Boulevard, Buttonwood Lane, and similar canal-side conditions.',
   },
   {
     name: 'The Dunes & Wulfert',
@@ -155,7 +157,7 @@ const faqs = [
   {
     question: 'Can I replace my existing lanai with a modern louvered system?',
     answer:
-      'Yes. Many Sanibel homeowners are replacing traditional lanais—especially after Hurricane Ian damage. If your lanai was damaged, the 50% rule may require full reconstruction anyway, making this the perfect time to upgrade. We can often reuse existing concrete pads and structural connections while replacing the roof system.',
+      'Often, yes, but it depends on the existing structure, damage review, floodplain context, anchoring, and permit path. If your lanai was damaged, the 50% rule may require full reconstruction anyway, which can make this the right moment to compare the old layout against a different system.',
   },
   {
     question: 'Does a modern lanai count toward Sanibel developed-area limits?',
@@ -165,19 +167,26 @@ const faqs = [
   {
     question: 'Will a modern lanai protect against bugs like a screened lanai?',
     answer:
-      'A basic louvered system does not include bug protection. However, we can integrate motorized retractable screens that deploy when needed. This gives you the best of both worlds—open air and Gulf views most of the time, with bug protection available at the touch of a button.',
+      'A basic louvered system does not include bug protection. Motorized retractable screens can be integrated when the structure, openings, and budget support it, so the space can stay open most of the time and close down when bugs or privacy matter.',
   },
   {
     question: 'Is a louvered roof as hurricane-resistant as a traditional lanai?',
     answer:
-      'It depends on the selected system, engineering, anchoring, exposure, and installation. The advantage of a premium louvered system is that it can be specified with stronger documentation than many older screen enclosures, but Sanibel review and project-specific engineering still matter.',
+      'It depends on the selected system, engineering, anchoring, exposure, and installation. A louvered system can be specified with current documentation, but Sanibel review and project-specific engineering still matter.',
   },
   {
     question: 'What does a modern lanai cost compared to rebuilding a traditional lanai?',
     answer:
-      'Traditional lanai and screen enclosure replacement can vary widely by size, engineering, floodplain conditions, screens, concrete, and storm damage. Premium motorized louvered systems are usually a higher-spec option, so EDG compares the full scope: structure, screens, drainage, electrical, permitting, and long-term maintenance.',
+      'Traditional lanai and screen enclosure replacement can vary widely by size, engineering, floodplain conditions, screens, concrete, and storm damage. Motorized louvered systems are usually a higher-spec option, so EDG compares the full scope: structure, screens, drainage, electrical, permitting, and long-term maintenance.',
   },
 ];
+
+const modernLanaiContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'modern-lanai',
+  area: 'sanibel',
+  source: 'leads-sanibel-modern-lanai',
+});
 
 export default function ModernLanaiPage() {
   return (
@@ -235,7 +244,7 @@ export default function ModernLanaiPage() {
                 <MapPin className="h-4 w-4" /> Sanibel & Captiva Island
               </span>
               <h1 className="hero-title mb-6 text-white">
-                The Modern Lanai:
+                The Modern Lanai:{' '}
                 <span className="text-edg-brand block">Next-Generation Outdoor Living</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -244,7 +253,7 @@ export default function ModernLanaiPage() {
                 coastal documentation, and cleaner Gulf views.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=sanibel&product=modern-lanai&source=leads-sanibel-modern-lanai">
+                <Link href={modernLanaiContactHref}>
                   <Button size="lg" className="px-8 text-lg">
                     Design Your Modern Lanai{' '}
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -284,8 +293,10 @@ export default function ModernLanaiPage() {
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="section-title mb-6">Redefining Outdoor Living on Sanibel</h2>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                For decades, Florida homeowners have accepted the traditional lanai—a fixed roof, static screens, 
-                and little flexibility—as the only option for covered outdoor living. But Sanibel Island deserves better.
+                Many Florida homes start with the traditional lanai: a fixed
+                roof, static screens, and limited flexibility. On Sanibel, that
+                existing structure should be compared against newer outdoor
+                living options before a rebuild is chosen.
               </p>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 <strong>The Modern Lanai</strong> is our term for a louvered roof system that replaces the rigid 
@@ -293,8 +304,10 @@ export default function ModernLanaiPage() {
                 you and the Gulf Coast environment, you get precise control over shade, airflow, and weather protection.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                It is the same covered outdoor space you want, evolved for how you actually live—adaptable, 
-                low-maintenance, and engineered for Sanibel's unique coastal challenges.
+                It is the same covered outdoor space you want, planned around
+                how you actually live: adaptable shade, possible screen
+                integration, coastal documentation, and Sanibel review
+                questions.
               </p>
             </div>
           </FadeIn>
@@ -331,7 +344,7 @@ export default function ModernLanaiPage() {
             </div>
 
             <div className="mt-8 text-center">
-              <Link href="/contact?area=sanibel&product=modern-lanai&source=leads-sanibel-modern-lanai">
+              <Link href={modernLanaiContactHref}>
                 <Button size="lg" className="px-8">
                   Get a Modern Lanai Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -348,7 +361,8 @@ export default function ModernLanaiPage() {
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">What Makes It "Modern"</h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                Four key innovations that transform how Sanibel homeowners experience outdoor living.
+                Four planning choices that change how Sanibel homeowners use
+                covered outdoor space.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -408,10 +422,10 @@ export default function ModernLanaiPage() {
                   existing developed area, and Sanibel guidance before quoting
                   the final layout.
                 </p>
-                <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+                <div className="border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
                   <div className="flex items-start gap-3">
-                    <Info className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
-                    <p className="text-sm text-amber-800 dark:text-amber-200">
+                    <Info className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
+                    <p className="text-text-secondary text-sm dark:text-text-inverse-muted">
                       <strong>Zoning Note:</strong> Every property is different.
                       Use the Sanibel permit guide before choosing a footprint,
                       attachment method, screens, or electrical package.
@@ -474,16 +488,16 @@ export default function ModernLanaiPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Louvered Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Explore our full range of louvered roof systems engineered specifically 
-                    for Sanibel&apos;s coastal review, salt-air exposure, and
-                    permit documentation needs.
+                    Explore louvered roof systems planned around Sanibel&apos;s
+                    coastal review, salt-air exposure, and permit
+                    documentation needs.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
@@ -498,15 +512,15 @@ export default function ModernLanaiPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Lanai Replacement
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Replacing a damaged lanai after Hurricane Ian? Learn why rebuilding 
-                    with a modern system makes sense.
+                    Replacing a damaged lanai after Hurricane Ian? Review
+                    whether a modern system belongs in the rebuild plan.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     View Replacement Guide <ArrowRight className="h-4 w-4" />
@@ -521,7 +535,7 @@ export default function ModernLanaiPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Info} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
@@ -542,19 +556,20 @@ export default function ModernLanaiPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+              <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
                 Ready to Modernize Your Outdoor Living?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and see how a modern lanai transforms your Sanibel home.
+              <p className="mb-8 text-xl text-text-inverse-muted">
+                Send the site details and compare a modern lanai plan before
+                committing to a fixed screen enclosure rebuild.
               </p>
-              <Link href="/contact?area=sanibel&product=modern-lanai&source=leads-sanibel-modern-lanai">
-                <Button size="lg" variant="dark" className="px-8 text-lg">
-                  Schedule Free Design Consultation{' '}
+              <Link href={modernLanaiContactHref}>
+                <Button size="lg" className="px-8 text-lg">
+                  Start Modern Lanai Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

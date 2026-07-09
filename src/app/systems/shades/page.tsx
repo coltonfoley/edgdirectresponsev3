@@ -30,6 +30,7 @@ import {
   generateHowToSchema,
   generateServiceSchema,
 } from '@/lib/schema';
+import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -58,6 +59,17 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: '/systems/shades' },
 };
+
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  source: 'shades_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  source: 'shades_bottom',
+});
 
 const galleryImages = [
   {
@@ -394,7 +406,7 @@ export default function ShadesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="bg-surface min-h-screen">
+      <div className="bg-surface min-h-screen">
         <section className="flex flex-col justify-center pt-32 pb-12 lg:min-h-screen">
           <Container>
             <div className="mb-8">
@@ -423,7 +435,7 @@ export default function ShadesPage() {
                 </p>
 
                 <div className="mb-12 flex flex-col gap-4">
-                  <TrackedLink href="/contact?type=price&product=shades&source=shades_hero">
+                  <TrackedLink href={heroContactHref}>
                     <Button size="lg" className="w-full sm:w-auto">
                       Check Screen Fit
                     </Button>
@@ -910,7 +922,7 @@ export default function ShadesPage() {
                   is the right next move.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <TrackedLink href="/contact?type=price&product=shades&source=shades_bottom">
+                  <TrackedLink href={bottomContactHref}>
                     <Button variant="primary" size="lg">
                       Get Screen Fit + Budget Range
                     </Button>
@@ -970,7 +982,7 @@ export default function ShadesPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

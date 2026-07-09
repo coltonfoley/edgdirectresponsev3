@@ -7,6 +7,11 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 import type { Metadata } from 'next';
+import { buildContactHref } from '@/lib/contact-links';
+import {
+  priorityLocalProductRoutes,
+  serviceAreaHubRoutes,
+} from '@/lib/site-routes';
 
 export const metadata: Metadata = {
   title: 'Service Areas | Pergolas & Screens | EDG Patio & Shade',
@@ -22,234 +27,34 @@ export const metadata: Metadata = {
   },
 };
 
-const serviceAreas = [
-  {
-    name: 'Chicago, IL',
-    slug: 'chicago-il',
-    description:
-      'Urban roof decks, masonry patios, and tight-lot outdoor living tailored to Chicago neighborhoods.',
-    region: 'Chicago',
-  },
-  {
-    name: 'Spring Grove, IL',
-    slug: 'spring-grove-il',
-    description:
-      'Our home base and showroom. See motorized pergolas, patio screens, and outdoor living systems before you build.',
-    region: 'Showroom',
-  },
-  {
-    name: 'Algonquin, IL',
-    slug: 'algonquin-il',
-    description:
-      'Fox River Valley pergola planning for Old Town, Randall Road neighborhoods, permits, screens, and year-round patio comfort.',
-    region: 'McHenry County',
-  },
-  {
-    name: 'Wilmette, IL',
-    slug: 'wilmette-il',
-    description:
-      'Historic districts to lakefront estates. Zoning-compliant outdoor living for North Shore homes.',
-    region: 'North Shore',
-  },
-  {
-    name: 'Winnetka, IL',
-    slug: 'winnetka-il',
-    description:
-      'Estate-scale installations with architectural review board expertise for prestigious properties.',
-    region: 'North Shore',
-  },
-  {
-    name: 'Northbrook, IL',
-    slug: 'northbrook-il',
-    description:
-      'From Techny to Northbrook Heights. Hurricane-rated systems for Cook County homes.',
-    region: 'North Shore',
-  },
-  {
-    name: 'Deerfield, IL',
-    slug: 'deerfield-il',
-    description:
-      'Motorized patio screens and outdoor living systems for North Shore homes that need privacy, bug control, and wind protection.',
-    region: 'North Shore',
-  },
-  {
-    name: 'Lake Forest, IL',
-    slug: 'lake-forest-il',
-    description:
-      'Permit-aware motorized pergola and outdoor room planning for lakefront homes, wooded lots, and west-side estates.',
-    region: 'North Shore',
-  },
-  {
-    name: 'Barrington, IL',
-    slug: 'barrington-il',
-    description:
-      'Estate properties and equestrian communities. Large-span engineering for expansive patios.',
-    region: 'Northwest Suburbs',
-  },
-  {
-    name: 'Naperville, IL',
-    slug: 'naperville-il',
-    description:
-      'Historic downtown to new developments. HOA-compliant designs for western suburbs.',
-    region: 'West Suburbs',
-  },
-  {
-    name: 'Hinsdale, IL',
-    slug: 'hinsdale-il',
-    description:
-      'Premier estates and historic properties. Custom designs for The Lane and surrounding areas.',
-    region: 'West Suburbs',
-  },
-  {
-    name: 'Oak Brook, IL',
-    slug: 'oak-brook-il',
-    description:
-      'Estate-style outdoor living for Oak Brook, Burr Ridge, and surrounding western suburbs.',
-    region: 'West Suburbs',
-  },
-  {
-    name: 'Lake Geneva, WI',
-    slug: 'lake-geneva-wi',
-    description:
-      'Lakefront pergolas, motorized screens, permit planning, and outdoor-room design for Geneva Lake area homes.',
-    region: 'Wisconsin',
-  },
-  {
-    name: 'Southwest Florida',
-    slug: 'southwest-florida',
-    description:
-      'Motorized screens, louvered pergolas, and coastal outdoor living planning for Sanibel, Captiva, Naples, Marco Island, and the Gulf Coast.',
-    region: 'Florida',
-  },
-  {
-    name: 'Sanibel & Captiva, FL',
-    slug: 'sanibel-outdoor-living',
-    description:
-      'Hurricane-rated coastal living. Salt-air resistant systems for island homes.',
-    region: 'Florida',
-  },
-];
+const serviceAreas = serviceAreaHubRoutes
+  .filter((route) => route.href !== '/service-areas')
+  .map((route) => ({
+    name: route.label,
+    href: route.href,
+    description: route.desc ?? 'Local outdoor living planning from EDG.',
+    region: route.region ?? 'Local Service',
+  }));
 
-const priorityLocalPages = [
-  {
-    title: 'Southwest Florida Motorized Screens',
-    href: '/service-areas/southwest-florida/motorized-screens',
-    description:
-      'Motorized lanai and patio screen planning for Gulf Coast homes.',
-  },
-  {
-    title: 'Southwest Florida Pergolas',
-    href: '/service-areas/southwest-florida',
-    description:
-      'Regional planning for louvered roofs, screen-ready patios, and coastal outdoor rooms.',
-  },
-  {
-    title: 'Sanibel Louvered Pergolas',
-    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
-    description:
-      'Miami-Dade rated pergola guidance for Sanibel and Captiva homes.',
-  },
-  {
-    title: 'Sanibel Lanai Replacement',
-    href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
-    description:
-      'Rebuild damaged lanais with modern systems designed for coastal code pressure.',
-  },
-  {
-    title: 'Sanibel Permit Guide',
-    href: '/service-areas/sanibel-outdoor-living/zoning-guide',
-    description:
-      'Permit, floodplain, product approval, and 50% rule guidance for Sanibel outdoor living projects.',
-  },
-  {
-    title: 'Chicago Motorized Pergolas',
-    href: '/service-areas/chicago-il/motorized-pergolas',
-    description:
-      'Installer-focused guidance for louvered roof systems in Chicago.',
-  },
-  {
-    title: 'Barrington Motorized Pergolas',
-    href: '/service-areas/barrington-il/motorized-pergolas',
-    description:
-      'Large-span motorized pergola planning for Barrington estates and patios.',
-  },
-  {
-    title: 'Naperville Motorized Pergolas',
-    href: '/service-areas/naperville-il/motorized-pergolas',
-    description:
-      'HOA-aware motorized pergola planning for Naperville homes and patios.',
-  },
-  {
-    title: 'Northbrook Motorized Pergolas',
-    href: '/service-areas/northbrook-il/motorized-pergolas',
-    description:
-      'Motorized pergola planning for Northbrook patios, decks, and Cook County approvals.',
-  },
-  {
-    title: 'Algonquin Motorized Pergolas',
-    href: '/service-areas/algonquin-il/motorized-pergolas',
-    description:
-      'Fox River Valley pergola planning for shade, rain, bugs, privacy, and permits.',
-  },
-  {
-    title: 'Algonquin Motorized Screens',
-    href: '/service-areas/algonquin-il/retractable-screens',
-    description:
-      'Retractable patio screen layouts for bugs, glare, privacy, wind, and pergola openings.',
-  },
-  {
-    title: 'Chicago Retractable Screens',
-    href: '/service-areas/chicago-il/retractable-screens',
-    description:
-      'Outdoor screen planning for city patios, roof decks, and covered spaces.',
-  },
-  {
-    title: 'Chicago Glass Enclosures',
-    href: '/service-areas/chicago-il/glass-enclosures',
-    description:
-      'Frameless glass walls for wind, rain, views, and year-round patio use.',
-  },
-  {
-    title: 'Deerfield Retractable Screens',
-    href: '/service-areas/deerfield-il/retractable-screens',
-    description:
-      'North Shore screen layouts for bugs, privacy, sun, and wind control.',
-  },
-  {
-    title: 'Lake Forest Motorized Pergolas',
-    href: '/service-areas/lake-forest-il/motorized-pergolas',
-    description:
-      'Permit-aware pergola planning for lakefront homes, wooded yards, and estate patios.',
-  },
-  {
-    title: 'Lake Forest Permit Guide',
-    href: '/service-areas/lake-forest-il/zoning-guide',
-    description:
-      'Building permit, accessory-structure, and plan-review notes for Lake Forest outdoor living projects.',
-  },
-  {
-    title: 'Lake Geneva Motorized Pergolas',
-    href: '/service-areas/lake-geneva-wi/motorized-pergolas',
-    description:
-      'Louvered roof planning for lake wind, views, shade, rain control, screens, and outdoor entertaining.',
-  },
-  {
-    title: 'Lake Geneva Motorized Screens',
-    href: '/service-areas/lake-geneva-wi/retractable-screens',
-    description:
-      'Retractable screen layouts for bugs, glare, privacy, wind comfort, and flexible screen-room use.',
-  },
-  {
-    title: 'Lake Geneva Permit Guide',
-    href: '/service-areas/lake-geneva-wi/zoning-guide',
-    description:
-      'Permit and review planning notes for Lake Geneva, Fontana, Williams Bay, and Walworth County projects.',
-  },
-];
+const priorityLocalPages = priorityLocalProductRoutes.map((route) => ({
+  title: route.label,
+  href: route.href,
+  description: route.desc ?? 'Product-specific local project planning.',
+}));
+
+const consultationHref = buildContactHref({
+  type: 'consultation',
+  source: 'service_areas_hub',
+});
+
+const outsideServiceAreaHref = buildContactHref({
+  type: 'consultation',
+  source: 'service_areas_outside_area',
+});
 
 export default function ServiceAreasPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-edg-dark pt-24 pb-16 text-white md:pt-32 md:pb-24">
         <Container>
@@ -329,8 +134,8 @@ export default function ServiceAreasPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {serviceAreas.map((area) => (
               <Link
-                key={area.slug}
-                href={`/service-areas/${area.slug}`}
+                key={area.href}
+                href={area.href}
                 className="group"
               >
                 <Card
@@ -431,7 +236,7 @@ export default function ServiceAreasPage() {
                 ))}
               </ul>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact">
+                <Link href={consultationHref}>
                   <Button size="lg">
                     Schedule a Consultation
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -473,12 +278,12 @@ export default function ServiceAreasPage() {
               discuss options—including design consulting with installation by
               qualified local partners.
             </p>
-            <Link href="/contact">
+            <Link href={outsideServiceAreaHref}>
               <Button variant="dark">Contact Us to Discuss</Button>
             </Link>
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

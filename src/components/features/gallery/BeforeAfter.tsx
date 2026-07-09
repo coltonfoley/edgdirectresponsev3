@@ -74,7 +74,7 @@ export function BeforeAfter({
     <div
       ref={containerRef}
       className={cn(
-        'group relative w-full touch-none overflow-hidden rounded-2xl select-none',
+        'group relative w-full touch-none overflow-hidden select-none',
         className
       )}
       onMouseDown={handleMouseDown}
@@ -90,7 +90,7 @@ export function BeforeAfter({
           draggable={false}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
-        <div className="absolute right-4 bottom-4 z-10 rounded bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
+        <div className="absolute right-4 bottom-4 z-10 bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
           {afterLabel}
         </div>
 
@@ -107,18 +107,18 @@ export function BeforeAfter({
             draggable={false}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute bottom-4 left-4 z-10 rounded bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
+          <div className="absolute bottom-4 left-4 z-10 bg-black/50 px-2 py-1 text-sm font-medium text-white backdrop-blur-sm">
             {beforeLabel}
           </div>
         </div>
 
         {/* Slider Handle */}
         <div
-          className="absolute top-0 bottom-0 z-20 w-1 cursor-ew-resize bg-white shadow-[0_0_10px_rgba(0,0,0,0.5)]"
+          className="absolute top-0 bottom-0 z-20 w-1 cursor-ew-resize bg-edg-brand"
           style={{ left: `${sliderPosition}%` }}
         >
-          <div className="absolute top-1/2 left-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gray-200 bg-white shadow-lg">
-            <MoveHorizontal className="h-4 w-4 text-gray-600" />
+          <div className="absolute top-1/2 left-1/2 flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center border border-edg-brand bg-white">
+            <MoveHorizontal className="h-4 w-4 text-edg-dark" />
           </div>
         </div>
       </div>

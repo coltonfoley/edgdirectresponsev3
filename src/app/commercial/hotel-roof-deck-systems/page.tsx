@@ -1,88 +1,143 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
-import * as images from '@/lib/images';
 import {
   ArrowLeft,
   ArrowRight,
+  Building2,
+  CheckCircle2,
   ChevronRight,
+  ClipboardCheck,
+  Phone,
+  ShieldCheck,
+  SlidersHorizontal,
+  Thermometer,
   Waves,
   Wind,
-  ShieldCheck,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { buildContactHref } from '@/lib/contact-links';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Hotel Patio Shading & Roof Deck Systems | Chicago Hospitality',
   description:
-    'Activate your hotel rooftop or terrace. Commercial outdoor shades and heavy-duty pergolas designed for high-wind hotel environments.',
+    'Hotel roof deck and terrace planning for commercial shade, pergolas, screens, heat, controls, wind exposure, guest comfort, and operations.',
   alternates: {
     canonical: '/commercial/hotel-roof-deck-systems',
   },
   openGraph: {
     title: 'Hotel Patio Shading | EDG Commercial',
     description:
-      'Chicago hotel outdoor amenities. Wind-rated protection for guests.',
+      'Commercial roof deck planning for Chicago hotel terraces, guest comfort, wind exposure, shade, screens, and controls.',
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════════════
+const heroContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'hotel-roof-deck-systems',
+  location: 'chicago',
+  source: 'hotel_roof_deck_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'hotel-roof-deck-systems',
+  location: 'chicago',
+  source: 'hotel_roof_deck_bottom',
+});
+
 const faqs = [
   {
     question: 'What wind ratings do hotel roof deck systems require?',
     answer:
-      'Hotel rooftop systems in Chicago must withstand wind loads up to 120 mph. Our commercial-grade pergolas and exterior shades are engineered with reinforced mounting systems specifically for elevated installations. Louvers automatically open in high winds to prevent damage, and we conduct structural engineering reviews to ensure attachment points can handle wind uplift forces.',
+      'Wind requirements depend on the building, elevation, exposure, selected system, mounting method, and local code review. EDG helps coordinate product documentation, structural inputs, and wind-load planning before a rooftop or terrace system is specified.',
   },
   {
     question: 'Do you handle permitting for hotel rooftop installations?',
     answer:
-      'Yes, we manage the entire permitting process for hotel roof deck systems including structural engineering, wind load calculations, and city approvals. Chicago requires specific permits for rooftop structures on commercial properties, and we have extensive experience navigating CDOT and building department requirements for hospitality venues.',
+      'EDG can help organize the commercial planning package: system specifications, drawings, structural coordination, product documentation, and permit support for the project team. Rooftop and terrace work should be reviewed early because structure, fire safety, egress, electrical, and building operations can all affect the final scope.',
   },
   {
     question: 'How are the shading controls managed for hotel guests?',
     answer:
-      'Our hotel roof deck systems offer flexible control options. Staff can manage the entire system remotely via smartphone app, or guests can have direct control through intuitive wall switches or tabletop remotes. Controls can be limited to staff-only during certain hours, or guests can have full control to adjust sun and shade as needed.',
+      'Controls can be planned around the operating model. Some hotels keep staff-only control for louvers, screens, heat, and sensors; others use limited guest-facing controls for specific zones. The right setup depends on staffing, guest access, weather exposure, and the selected product package.',
   },
   {
     question: 'What maintenance is required for hotel roof deck systems?',
     answer:
-      'Our aluminum pergolas and shade systems require minimal maintenance—just occasional cleaning with soap and water. The powder-coat finish never needs painting, and motors are sealed against weather. We offer annual service plans that include inspection, lubrication, and preventive maintenance to keep your hotel amenities operating flawlessly for guests.',
+      'Powder-coated aluminum pergolas, exterior shades, and glass systems are designed for commercial use, but they still need periodic cleaning, inspection, and service checks. EDG can review maintenance expectations with the hotel team based on the selected systems and exposure.',
   },
 ];
 
-const keyFeatures = [
+const planningSteps = [
+  {
+    icon: ClipboardCheck,
+    title: 'Amenity and operations review',
+    description:
+      'Guest seating, staff access, food and beverage flow, pool use, noise, hours, and weather interruptions should be reviewed before products are selected.',
+  },
+  {
+    icon: Building2,
+    title: 'Structure and code coordination',
+    description:
+      'Rooftop projects need early alignment around mounting, wind exposure, egress, power, drainage, fire-safety concerns, and owner or brand approvals.',
+  },
+  {
+    icon: SlidersHorizontal,
+    title: 'Controls and handoff',
+    description:
+      'Staff controls, guest zones, sensors, heat, lighting, and maintenance expectations should be simple enough for hotel teams to operate consistently.',
+  },
+];
+
+const systemOptions = [
   {
     icon: Wind,
-    title: 'High Wind Ratings',
+    title: 'Wind-aware shade planning',
     description:
-      'Rooftops in Chicago face extreme wind loads. Our Commercial Outdoor Shades and pergolas are engineered to withstand these forces without consistent noise or damage.',
+      'Exterior shades can help with sun, glare, privacy, and guest comfort when the opening, wind exposure, and staff control plan are specified together.',
   },
   {
     icon: Waves,
-    title: 'Pool Deck Comfort',
+    title: 'Pool and terrace comfort',
     description:
-      'Offer guests refuge from the sun. Automated systems can track the sun or be controlled by staff to optimize comfort throughout the day.',
+      'Pergolas, screens, and heaters can make pool decks and terraces easier to use through changing sun, wind, and shoulder-season conditions.',
   },
   {
     icon: ShieldCheck,
-    title: 'Commercial Durability',
+    title: 'Commercial durability',
     description:
-      'Low maintenance aluminum construction means no rust, no painting, and minimal downtime for your engineering team.',
+      'Aluminum structures, commercial motors, serviceable controls, and clear maintenance planning reduce downtime for engineering and operations teams.',
   },
+  {
+    icon: Thermometer,
+    title: 'Heat, light, and sensors',
+    description:
+      'Infrared heat, integrated lighting, rain and wind sensors, remotes, and staff-only control zones should be planned as one operating package.',
+  },
+];
+
+const operationalChecks = [
+  'Rooftop exposure, wind direction, mounting surface, and structural review',
+  'Guest seating, pool access, staff path, service zones, and ADA clearance',
+  'Drainage, power, control locations, sensor behavior, and emergency procedures',
+  'Hotel brand standards, owner approvals, product documentation, and maintenance handoff',
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Hotel Roof Deck Systems',
-  description: 'Commercial outdoor shades and heavy-duty pergolas for hotel rooftops and terraces',
+  description:
+    'Commercial outdoor shades and heavy-duty pergolas for hotel rooftops and terraces',
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -101,134 +156,251 @@ const schema = {
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// PAGE COMPONENT
-// ═══════════════════════════════════════════════════════════
 export default function HotelRoofDeckPage() {
   return (
-    <main className="min-h-screen">
-      {/* JSON-LD Schema */}
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ═══════════════════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
-        {/* Background Image */}
+      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
-            src={images.systems.enclosures.framelessGlass}
-            alt=""
-            aria-hidden="true"
+            src={images.systems.enclosures.commercialDayExterior}
+            alt="Commercial glass and roof system used for hotel terrace planning"
             fill
             priority
+            loading="eager"
             sizes="100vw"
-            className="object-cover opacity-30"
+            className="object-cover opacity-35"
           />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-        {/* Content */}
         <Container className="relative z-10">
-          {/* Breadcrumb - Left Aligned */}
-          <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Commercial', href: '/commercial' },
-                { label: 'Roof Deck Systems' },
-              ]}
-              className="text-zinc-300"
-            />
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Commercial', href: '/commercial' },
+              { label: 'Hotel Roof Deck Systems' },
+            ]}
+            className="mb-6 text-zinc-300"
+          />
+          <Link
+            href="/commercial"
+            className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to commercial
+          </Link>
 
-          {/* Text - Left Aligned */}
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
-              Hotel & Resort Solutions
+          <div className="max-w-4xl">
+            <div className="label-editorial mb-6 text-edg-brand">
+              Hotel Roof Deck Systems
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Premium{' '}
-              <span className="text-edg-brand">Hotel Patio Shading</span> &
-              Rooftop Systems.
+            <h1 className="hero-title mb-6 max-w-4xl">
+              Hotel Patio Shading and Roof Deck Planning
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              Create memorable guest experiences on rooftops, terraces, and pool
-              decks. Wind-rated systems built for the Chicago skyline.
+            <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+              Commercial shade, pergola, glass, heat, and control planning for
+              rooftops, terraces, pool decks, and amenity spaces where guest
+              comfort has to work with operations.
             </p>
-            <Link href="/contact">
-              <Button size="lg" className="rounded-none">
-                Hotel Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TrackedLink href={heroContactHref}>
+                <Button size="lg">
+                  Schedule a Hotel Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  (815) 581-0138
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FEATURES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md bg-black text-white">
         <Container>
           <div className="grid gap-8 md:grid-cols-3">
-            {keyFeatures.map((feature) => (
-              <Card key={feature.title} variant="outline" padding="lg" className="group">
+            {planningSteps.map((step) => (
+              <div key={step.title} className="border border-white/10 p-6">
                 <IconWrapper
-                  icon={feature.icon}
+                  icon={step.icon}
                   variant="brand"
                   size="lg"
                   className="mb-6"
                 />
-                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </Card>
-            ))}
-          </div>
-
-          {/* Feature Image */}
-          <div className="relative mt-16 h-[500px] overflow-hidden rounded-3xl">
-            <Image
-              src={images.brand.hero.screensOld}
-              alt="Hotel Terrace Amenities"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute inset-0 flex items-center justify-center p-8 text-center">
-              <div className="max-w-2xl">
-                <h3 className="mb-6 text-3xl font-bold text-white md:text-5xl">
-                  Activate Every Square Foot
-                </h3>
-                <p className="text-xl text-gray-200">
-                  Turn your hotel terrace into a premium revenue generator, day
-                  or night, rain or shine.
+                <h2 className="mb-3 text-xl font-bold">{step.title}</h2>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {step.description}
                 </p>
               </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <div className="label-editorial mb-4 text-edg-brand">
+                Commercial Planning Standard
+              </div>
+              <h2 className="section-title mb-6">
+                A hotel terrace is an operations project before it is a product
+                choice
+              </h2>
+              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+                A useful roof deck plan starts with the property: where guests
+                sit, how staff access the space, how the hotel handles weather,
+                what brand standards apply, and which building constraints
+                shape the system.
+              </p>
+              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                EDG is system-agnostic, so the recommendation can combine
+                louvered pergolas, exterior screens, glass walls, heaters,
+                lighting, and controls only where they support the hotel&apos;s
+                operating model.
+              </p>
+              <div className="grid gap-3">
+                {operationalChecks.map((check) => (
+                  <div key={check} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <span className="text-sm font-medium text-zinc-800">
+                      {check}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={images.systems.shades.progressiveCommercialPatio}
+                alt="Commercial patio with retractable screens and guest seating"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FAQ SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100">
+      <Section className="section-md bg-surface">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Hotel Roof Deck FAQs
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              System Options
+            </div>
+            <h2 className="section-title mb-4">
+              Components selected around the hotel, not the other way around
             </h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <Card key={i} variant="default" padding="lg">
-                  <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+            <p className="text-lg leading-relaxed text-text-secondary">
+              A roof deck or pool terrace may need one system or a layered
+              package. EDG compares the use case, exposure, controls, and
+              service expectations before recommending the final mix.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {systemOptions.map((option) => (
+              <Card key={option.title} variant="outline" padding="lg">
+                <IconWrapper
+                  icon={option.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h3 className="mb-3 text-xl font-bold">{option.title}</h3>
+                <p className="leading-relaxed text-text-secondary">
+                  {option.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-black text-white">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Proof Standard
+              </div>
+              <h2 className="section-title mb-6 text-white">
+                Keep the business case tied to the actual amenity space
+              </h2>
+              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
+                EDG does not need to promise a generic financial outcome to
+                make a hotel roof deck project worth reviewing. The useful
+                question is how weather protection, comfort, maintenance,
+                staffing, and guest experience change for the specific property.
+              </p>
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Request a Roof Deck Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                [
+                  'Inputs',
+                  'Use case, exposure, seating, hours, staff control, and maintenance',
+                ],
+                [
+                  'System',
+                  'Pergola, screens, glass, heat, lighting, sensors, and controls',
+                ],
+                [
+                  'Output',
+                  'A qualified recommendation instead of a generic package',
+                ],
+              ].map(([label, description]) => (
+                <div key={label} className="border border-white/10 p-6">
+                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                    {label}
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-300">
+                    {description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <div className="label-editorial-brand mb-4 text-center">
+              FAQ
+            </div>
+            <h2 className="section-title mb-10 text-center">
+              Hotel Roof Deck Questions
+            </h2>
+            <div className="space-y-5">
+              {faqs.map((faq) => (
+                <Card key={faq.question} variant="outline" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="leading-relaxed text-text-secondary">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -236,59 +408,68 @@ export default function HotelRoofDeckPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          RELATED SOLUTIONS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-white border-t border-gray-200">
+      <Section className="border-t border-black/10 bg-surface py-12">
         <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-edg-brand-text transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span className="font-medium">All Commercial Solutions</span>
+              All Commercial Pages
             </Link>
-            <div className="flex gap-4 flex-wrap justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/hotel-pergolas"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                Hotel Pergolas <ChevronRight className="h-4 w-4" />
+                Hotel Pergolas
+                <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/commercial/restaurant-patio-solutions"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                Restaurant Solutions <ChevronRight className="h-4 w-4" />
+                Restaurant Solutions
+                <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          CTA SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="bg-edg-brand py-20">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Upgrade Your Guest Experience
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+              Review the roof deck before choosing the system
             </h2>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-black text-white hover:bg-gray-900"
-              >
-                Get a Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <p className="mb-8 text-xl leading-relaxed text-zinc-300">
+              Send EDG the terrace use case, exposure, guest comfort goals, and
+              operational constraints. We will help narrow the system and
+              planning path.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Start Hotel Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call EDG
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

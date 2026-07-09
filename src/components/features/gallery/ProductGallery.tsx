@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { ChevronLeft, ChevronRight, Play, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -21,6 +21,9 @@ interface ProductGalleryProps {
 export function ProductGallery({ items, className }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const lightboxTitleId = useId();
+  const lightboxCloseRef = useRef<HTMLButtonElement>(null);
+  const activeItem = items[activeIndex];
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
@@ -30,16 +33,35 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
     setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
   };
 
+  useEffect(() => {
+    if (!lightboxOpen) return;
+
+    lightboxCloseRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setLightboxOpen(false);
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen]);
+
+  if (!activeItem) {
+    return null;
+  }
+
   return (
     <div className={cn('space-y-4', className)}>
       {/* Main Viewport */}
-      <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800">
-        {items[activeIndex].type === 'image' ? (
+      <div className="group relative aspect-[4/3] w-full overflow-hidden border border-border bg-surface-muted">
+        {activeItem.type === 'image' ? (
           <Image
-            src={items[activeIndex].src}
-            alt={items[activeIndex].alt || 'Product image'}
+            src={activeItem.src}
+            alt={activeItem.alt || 'Product image'}
             fill
-            className="cursor-zoom-in object-cover transition-transform duration-500 hover:scale-105"
+            className="cursor-zoom-in object-cover"
             onClick={() => setLightboxOpen(true)}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority
@@ -47,8 +69,8 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
         ) : (
           <div className="relative h-full w-full">
             <video
-              src={items[activeIndex].src}
-              poster={items[activeIndex].poster}
+              src={activeItem.src}
+              poster={activeItem.poster}
               className="h-full w-full object-cover"
               controls
             />
@@ -56,33 +78,37 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
         )}
 
         {/* Navigation Arrows */}
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-4 opacity-100 transition-opacity md:opacity-0 md:group-hover:opacity-100">
           <Button
             variant="secondary"
             size="icon"
+            type="button"
+            aria-label="Previous media item"
             onClick={(e) => {
               e.stopPropagation();
               prevSlide();
             }}
-            className="pointer-events-auto h-10 w-10 rounded-full bg-white/80 shadow-lg backdrop-blur"
+            className="pointer-events-auto h-10 w-10 border-white/70 bg-white/85 text-edg-dark backdrop-blur"
           >
             <ChevronLeft className="h-5 w-5" />
           </Button>
           <Button
             variant="secondary"
             size="icon"
+            type="button"
+            aria-label="Next media item"
             onClick={(e) => {
               e.stopPropagation();
               nextSlide();
             }}
-            className="pointer-events-auto h-10 w-10 rounded-full bg-white/80 shadow-lg backdrop-blur"
+            className="pointer-events-auto h-10 w-10 border-white/70 bg-white/85 text-edg-dark backdrop-blur"
           >
             <ChevronRight className="h-5 w-5" />
           </Button>
         </div>
 
         {/* Counter Badge */}
-        <div className="pointer-events-none absolute right-4 bottom-4 z-10 rounded-full bg-black/75 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+        <div className="pointer-events-none absolute right-4 bottom-4 z-10 bg-black/75 px-3 py-1 text-xs font-bold tracking-wider text-white backdrop-blur">
           {activeIndex + 1} / {items.length}
         </div>
       </div>
@@ -92,12 +118,15 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
         {items.map((item, index) => (
           <button
             key={index}
+            type="button"
             onClick={() => setActiveIndex(index)}
+            aria-label={`Show media item ${index + 1}`}
+            aria-current={index === activeIndex ? 'true' : undefined}
             className={cn(
-              'relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-lg border-2 transition-all',
+              'relative h-20 w-20 flex-shrink-0 overflow-hidden border-2 transition-all focus-visible:ring-2 focus-visible:ring-edg-brand focus-visible:ring-offset-2 focus-visible:outline-none',
               index === activeIndex
-                ? 'border-edg-brand ring-edg-brand/20 ring-2'
-                : 'border-transparent opacity-70 hover:opacity-100'
+                ? 'border-edg-brand opacity-100'
+                : 'border-border opacity-70 hover:border-edg-brand/60 hover:opacity-100'
             )}
           >
             {item.type === 'image' ? (
@@ -131,10 +160,19 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
       {/* Simple Lightbox (Overlay) */}
       {lightboxOpen && items[activeIndex].type === 'image' && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={lightboxTitleId}
           className="animate-in fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 duration-200"
           onClick={() => setLightboxOpen(false)}
         >
+          <h2 id={lightboxTitleId} className="sr-only">
+            Product image preview
+          </h2>
           <button
+            type="button"
+            ref={lightboxCloseRef}
+            aria-label="Close media preview"
             className="absolute top-4 right-4 z-50 p-2 text-zinc-300 transition-colors hover:text-white"
             onClick={() => setLightboxOpen(false)}
           >
@@ -143,8 +181,8 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
 
           <div className="relative h-full max-h-[90vh] w-full max-w-[90vw]">
             <Image
-              src={items[activeIndex].src}
-              alt={items[activeIndex].alt || 'Product image'}
+              src={activeItem.src}
+              alt={activeItem.alt || 'Product image'}
               fill
               className="object-contain"
               onClick={(e) => e.stopPropagation()}

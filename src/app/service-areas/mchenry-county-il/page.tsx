@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'McHenry County Outdoor Living | EDG Patio & Shade',
     description:
-      'Luxury outdoor living systems for McHenry County. Motorized pergolas and screens designed for Illinois weather.',
+      'Outdoor living systems for McHenry County. Motorized pergolas and screens planned for Illinois weather.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -92,7 +93,7 @@ const weatherConsiderations = [
   {
     title: 'Summer Humidity & Bugs',
     description:
-      'Keep the mosquitoes away without blocking the summer breeze. Our tight-weave motorized screens block out pests and 95% of UV rays.',
+      'Retractable screens help reduce mosquitoes, glare, and privacy issues without making the patio feel closed off from the summer breeze.',
     icon: CloudSun,
   },
 ];
@@ -140,6 +141,19 @@ const faqs = [
       'A straightforward custom project often takes several weeks for design, review, fabrication, and installation. Permitting, HOA review, electrical coordination, and weather can change the timeline, so we set expectations once the address and scope are clear.',
   },
 ];
+
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'McHenry County, IL',
+  source: 'mchenry_county_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'McHenry County, IL',
+  source: 'mchenry_county_hub_bottom',
+});
 
 export default function McHenryCountyHubPage() {
   return (
@@ -202,17 +216,18 @@ export default function McHenryCountyHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: McHenry County, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Premium Outdoor Living Systems in
+                Motorized Outdoor Living Systems in
+                {' '}
                 <span className="text-edg-brand block">McHenry County</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 We design and install engineered, motorized shade systems right
                 in our backyard. From Crystal Lake to Spring Grove, experience
-                four-season outdoor comfort.
+                extended seasonal outdoor comfort.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Free Site Visit{' '}
+                  Request a Site Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -266,7 +281,7 @@ export default function McHenryCountyHubPage() {
                 </Card>
               ))}
             </div>
-            <div className="mt-8 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-900">
+            <Card variant="default" padding="md" className="mt-8">
               <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                 <div>
                   <h3 className="mb-2 text-xl font-bold">
@@ -291,7 +306,7 @@ export default function McHenryCountyHubPage() {
                   </Button>
                 </Link>
               </div>
-            </div>
+            </Card>
           </FadeIn>
         </Container>
       </Section>
@@ -365,14 +380,14 @@ export default function McHenryCountyHubPage() {
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
               {/* Timeline */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   We Handle the Paperwork
                 </h3>
-                <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
-                  <Clock className="h-5 w-5 shrink-0 text-amber-600" />
-                  <p className="font-medium text-amber-800 dark:text-amber-200">
+                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                  <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
+                  <p className="font-medium text-text-primary">
                     We assemble your application to prevent county/city delays.
                   </p>
                 </div>
@@ -389,7 +404,7 @@ export default function McHenryCountyHubPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             </div>
           </FadeIn>
         </Container>
@@ -417,20 +432,21 @@ export default function McHenryCountyHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Upgrade Your McHenry County Home?
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your McHenry County project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and customized quote from our local
-                team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Share a few photos and the address. We can help you decide
+                whether a showroom visit, site review, or phased system plan is
+                the right next step.
               </p>
-              <Link href="/contact">
-                <Button size="lg" variant="dark" className="px-8 text-lg">
-                  Schedule Free Consultation{' '}
+              <Link href={bottomContactHref}>
+                <Button size="lg" className="px-8 text-lg">
+                  Start McHenry County Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

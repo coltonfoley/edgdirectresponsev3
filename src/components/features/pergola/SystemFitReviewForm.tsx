@@ -329,7 +329,7 @@ export function SystemFitReviewForm() {
 
   if (success) {
     return (
-      <div className="border border-black/10 bg-white p-8 text-center shadow-xl">
+      <div className="border border-border bg-white p-8 text-center">
         <div className="bg-edg-brand text-edg-dark mx-auto mb-6 flex h-16 w-16 items-center justify-center">
           <Check className="h-8 w-8" />
         </div>

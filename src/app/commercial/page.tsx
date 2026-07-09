@@ -1,337 +1,416 @@
 import type { Metadata } from 'next';
-import * as images from '@/lib/images';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import {
-  Check,
   ArrowRight,
-  DollarSign,
-  CloudRain,
   BarChart3,
-  ShieldCheck,
-  Zap,
-  TrendingUp,
   Building2,
-  Utensils,
-  Trees,
+  Check,
+  ChevronRight,
+  ClipboardCheck,
   Hotel,
   MapPin,
-  ChevronRight,
+  Phone,
+  ShieldCheck,
+  SlidersHorizontal,
+  Trees,
+  Utensils,
+  Zap,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
-
-const faqs = [
-  {
-    question: 'How quickly can you install?',
-    answer:
-      'Most commercial projects install in 3-5 days. We can work around your operating hours—early mornings, late nights, or closed days.',
-  },
-  {
-    question: 'Do I need city permits?',
-    answer:
-      'Yes. We handle the entire engineering and permit process. Timelines vary by municipality (typically 2-4 weeks).',
-  },
-  {
-    question: 'What is the maintenance requirement?',
-    answer:
-      'Annual service visit recommended. We clean, lubricate, and inspect all components to ensure warranty compliance.',
-  },
-  {
-    question: 'Can this integrate with our existing structure?',
-    answer:
-      "Almost always. We attach to steel, masonry, or wood. Site assessment confirms structural load requirements.",
-  },
-];
-
-import { generateFAQSchema } from '@/lib/schema';
+import { buildContactHref } from '@/lib/contact-links';
+import {
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+  generateServiceSchema,
+} from '@/lib/schema';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Commercial Outdoor Living | Hospitality & Restaurant Systems | EDG',
-  description: 'Motorized pergolas and retractable screens for commercial properties. Serving restaurants, hotels, and hospitality venues nationwide.',
+  description:
+    'Commercial pergola, screen, glass, heat, and control planning for restaurants, hotels, clubs, and hospitality venues.',
   alternates: { canonical: '/commercial' },
   openGraph: {
     title: 'Commercial Outdoor Living | EDG',
-    description: 'Motorized pergolas and screens for hospitality and restaurants.',
+    description:
+      'Commercial outdoor system planning for hospitality venues, restaurants, hotels, clubs, and amenity spaces.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
   },
 };
 
+const heroContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'commercial',
+  location: 'chicago',
+  source: 'commercial_hub_hero',
+});
+
+const assessmentContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'commercial',
+  location: 'chicago',
+  source: 'commercial_hub_assessment',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'commercial',
+  location: 'chicago',
+  source: 'commercial_hub_bottom',
+});
+
+const faqs = [
+  {
+    question: 'How quickly can a commercial outdoor system be installed?',
+    answer:
+      'Timing depends on the system mix, permitting, structural review, lead times, and the operating schedule for the property. EDG helps sequence design, procurement, and installation around service hours instead of assuming every site follows one timeline.',
+  },
+  {
+    question: 'Do commercial patio projects need permits or engineering?',
+    answer:
+      'Often, yes. Requirements vary by municipality, mounting condition, wind exposure, egress, fire-safety review, and whether the project changes the building envelope. EDG helps coordinate product documentation and structural inputs early.',
+  },
+  {
+    question: 'Can this integrate with an existing patio, roof deck, or terrace?',
+    answer:
+      'Many projects can work with existing steel, masonry, concrete, or wood conditions, but the right answer depends on the structure, drainage, utilities, clearances, and code path. A site assessment confirms what should be reused and what needs to change.',
+  },
+  {
+    question: 'What maintenance should operators plan for?',
+    answer:
+      'Commercial systems should be cleaned, inspected, and serviced on a predictable schedule. EDG reviews care expectations, staff operating rules, sensor behavior, and service access so ownership knows how the system will be managed after installation.',
+  },
+];
+
+const planningSteps = [
+  {
+    icon: Utensils,
+    title: 'Operations first',
+    description:
+      'Seating plans, staff paths, host flow, weather procedures, heaters, lighting, and closing routines shape the system before product selection.',
+  },
+  {
+    icon: ClipboardCheck,
+    title: 'Code and structure review',
+    description:
+      'Mounting, drainage, wind exposure, egress, power, landlord approvals, and municipal review are handled as part of the commercial planning path.',
+  },
+  {
+    icon: SlidersHorizontal,
+    title: 'System mix and controls',
+    description:
+      'Pergolas, screens, glass, heat, lighting, and sensors are compared as a complete operating system instead of a single-feature purchase.',
+  },
+];
+
+const industrySolutions = [
+  {
+    href: '/commercial/hotel-pergolas',
+    icon: Hotel,
+    title: 'Hotels & Rooftops',
+    description:
+      'Pergola, screen, glass, and comfort planning for rooftop bars, pool decks, lounges, and guest-facing terraces.',
+  },
+  {
+    href: '/commercial/restaurant-patio-solutions',
+    icon: Utensils,
+    title: 'Restaurants',
+    description:
+      'Outdoor dining systems planned around table layout, service rhythm, staff controls, weather exposure, and permit needs.',
+  },
+  {
+    href: '/commercial/country-club-outdoor-spaces',
+    icon: Trees,
+    title: 'Country Clubs',
+    description:
+      'Member dining, event, terrace, and poolside systems that balance comfort, appearance, service access, and long-term care.',
+  },
+  {
+    href: '/commercial/chicago-hospitality-outdoor-living',
+    icon: Building2,
+    title: 'Hospitality Groups',
+    description:
+      'A repeatable planning standard for restaurant groups, hotel operators, and multi-location hospitality teams.',
+  },
+];
+
+const locationLinks = [
+  {
+    href: '/commercial/west-loop',
+    title: 'West Loop / Fulton Market',
+    description: "Terrace and patio planning for Chicago's dense restaurant row",
+  },
+  {
+    href: '/commercial/restaurant-patio-enclosures',
+    title: 'Restaurant Patio Enclosures',
+    description: 'Glass, screen, and pergola combinations for dining patios',
+  },
+  {
+    href: '/commercial/hotel-roof-deck-systems',
+    title: 'Hotel Roof Deck Systems',
+    description: 'Structural and comfort planning for elevated outdoor spaces',
+  },
+];
+
+const capabilityCards = [
+  {
+    icon: ShieldCheck,
+    title: 'Commercial-grade product review',
+    description:
+      'EDG compares products for exposure, daily cycles, service access, sensors, warranty expectations, and staff use.',
+  },
+  {
+    icon: Zap,
+    title: 'Installation sequencing',
+    description:
+      'Planning accounts for operating hours, guest access, staging, weather windows, inspections, and handoff.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Business-case inputs',
+    description:
+      'The review can model seats, hours, weather interruptions, staffing, seasonality, and maintenance without promising a generic outcome.',
+  },
+];
+
+const relatedSystems = [
+  {
+    href: '/systems/pergolas',
+    title: 'Motorized Pergolas',
+    description: 'Adjustable louvers for sun, shade, and rain management',
+  },
+  {
+    href: '/systems/shades',
+    title: 'Retractable Screens',
+    description: 'Side protection for sun, wind, privacy, and insects',
+  },
+  {
+    href: '/systems/enclosures',
+    title: 'Glass Enclosures',
+    description: 'Sliding glass walls for enclosed outdoor-room planning',
+  },
+];
+
+const serviceSchema = generateServiceSchema({
+  name: 'Commercial Outdoor Living Systems',
+  description:
+    'Commercial outdoor living planning for restaurants, hotels, country clubs, and hospitality properties using pergolas, screens, glass, heat, lighting, and controls.',
+  url: 'https://www.edgpatioshade.com/commercial',
+  image: `https://www.edgpatioshade.com${images.brand.context.commercial}`,
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: '/' },
+  { name: 'Commercial', url: '/commercial' },
+]);
+
 export default function CommercialPage() {
   const faqSchema = generateFAQSchema(faqs);
+  const schemas = [serviceSchema, breadcrumbSchema, faqSchema];
 
   return (
-    <main className="bg-white min-h-screen">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
-      {/* ========== HERO ========== */}
-      <Section className="bg-black text-white pt-32 pb-20 border-b border-white/10">
-        <Container>
-          {/* Breadcrumb */}
-          <div className="mb-8">
-            <Breadcrumb items={[{ label: 'Commercial' }]} className="text-zinc-400" />
-          </div>
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
+        <div className="absolute inset-0">
+          <Image
+            src={images.brand.context.commercial}
+            alt="Commercial outdoor living installation with covered dining"
+            fill
+            priority
+            loading="eager"
+            sizes="100vw"
+            className="object-cover opacity-35"
+          />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+
+        <Container className="relative z-10">
+          <Breadcrumb items={[{ label: 'Commercial' }]} className="mb-6 text-zinc-300" />
+
+          <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div>
-              <div className="inline-flex items-center gap-2 border border-edg-brand/40 bg-edg-brand/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-edg-brand mb-8">
-                <BarChart3 className="h-4 w-4" />
-                Revenue Infrastructure
+              <div className="label-editorial mb-6 text-edg-brand">
+                Commercial Outdoor Living
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 leading-[0.9]">
-                Profit from <br /> <span className="text-gray-500">every seat.</span>
+              <h1 className="hero-title mb-6 max-w-5xl">
+                Commercial Outdoor Systems Planned Around Operations
               </h1>
-              <p className="text-xl text-zinc-300 mb-10 leading-relaxed max-w-lg">
-                Turn weather from a liability into a revenue driver. Commercial-grade pergolas and enclosures that pay for themselves in one season.
+              <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+                EDG helps restaurants, hotels, country clubs, and hospitality
+                groups plan pergolas, screens, glass, heat, lighting, and
+                controls around the way the space needs to work.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <TrackedLink href="/contact?type=commercial">
-                  <Button className="bg-edg-brand text-black hover:bg-white rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider">
-                    Schedule Assessment
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <TrackedLink href={heroContactHref}>
+                  <Button size="lg">
+                    Schedule a Commercial Assessment
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">
-                  <Button variant="secondary" className="border-white text-white hover:bg-white hover:text-black rounded-none px-8 py-6 text-base font-bold uppercase tracking-wider">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
                     (815) 581-0138
                   </Button>
                 </TrackedPhoneLink>
               </div>
             </div>
-            <div className="bg-zinc-900 border border-white/10 p-10">
-              <h3 className="text-white font-bold uppercase tracking-wide mb-8 border-b border-white/10 pb-4">
-                The Cost of "Weather Permitting"
-              </h3>
-              <div className="space-y-8">
-                <div className="flex gap-6 items-start">
-                  <CloudRain className="h-8 w-8 text-red-500 shrink-0" />
-                  <div>
-                    <div className="text-3xl font-bold text-white mb-1">42 Days</div>
-                    <div className="text-sm text-zinc-300">Average rain days in Chicago season per year.</div>
+
+            <div className="border border-white/10 bg-black/35 p-8">
+              <div className="mb-6 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                Commercial Review Covers
+              </div>
+              <div className="space-y-6">
+                {[
+                  ['Use case', 'Dining, rooftop, pool deck, club terrace, or event space'],
+                  ['Site conditions', 'Wind, sun, rain, drainage, power, structure, and egress'],
+                  ['Operating model', 'Staff controls, service paths, opening routines, and closing rules'],
+                  ['Planning output', 'A qualified system path with clear next steps'],
+                ].map(([label, description]) => (
+                  <div key={label} className="border-t border-white/10 pt-5 first:border-t-0 first:pt-0">
+                    <div className="mb-1 text-sm font-bold text-white">
+                      {label}
+                    </div>
+                    <p className="text-sm leading-relaxed text-zinc-300">
+                      {description}
+                    </p>
                   </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <DollarSign className="h-8 w-8 text-red-500 shrink-0" />
-                  <div>
-                    <div className="text-3xl font-bold text-white mb-1">$150,000+</div>
-                    <div className="text-sm text-zinc-300">Annual revenue lost to unseated outdoor tables.</div>
-                  </div>
-                </div>
-                <div className="flex gap-6 items-start">
-                  <TrendingUp className="h-8 w-8 text-edg-brand shrink-0" />
-                  <div>
-                    <div className="text-3xl font-bold text-white mb-1">10 Weeks</div>
-                    <div className="text-sm text-zinc-300">Additional season length with heaters & enclosures.</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </Container>
-      </Section>
+      </section>
 
-      {/* ========== ROI CASE STUDY (Sharp, Technical) ========== */}
-      <Section className="bg-white py-24 border-b border-black/5">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="grid lg:grid-cols-12 gap-16">
-            <div className="lg:col-span-5">
-              <h2 className="text-4xl font-bold tracking-tighter mb-6 text-black">
-                Real Numbers.<br /> Real Return.
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Data from a fine dining installation in Lake Geneva, WI.
-              </p>
-              <div className="border-l-2 border-black pl-6 py-2 mb-8">
-                <p className="text-xl font-medium italic text-black">
-                  "Refusing to seat the patio because of 'a chance of rain' was costing us $5k a night. Now we book it rain or shine."
+          <div className="grid gap-8 md:grid-cols-3">
+            {planningSteps.map((step) => (
+              <div key={step.title} className="border border-white/10 p-6">
+                <IconWrapper
+                  icon={step.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h2 className="mb-3 text-xl font-bold">{step.title}</h2>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {step.description}
                 </p>
               </div>
-              <TrackedLink href="/contact?type=commercial">
-                <div className="inline-flex items-center gap-2 font-bold uppercase tracking-wider text-sm border-b border-black pb-1 hover:text-edg-brand-text transition-colors">
-                  Request ROI Analysis <ArrowRight className="h-4 w-4" />
-                </div>
-              </TrackedLink>
-            </div>
-            <div className="lg:col-span-7">
-              <div className="bg-zinc-50 border border-black/5 p-8 md:p-12">
-                <div className="grid grid-cols-2 gap-8 mb-12">
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-2">Project Cost</div>
-                    <div className="text-4xl font-bold text-black">$62,000</div>
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-zinc-600 mb-2">Payback Period</div>
-                    <div className="text-4xl font-bold text-edg-brand-text">4 Months</div>
-                  </div>
-                </div>
-                <div className="space-y-4 border-t border-black/5 pt-8">
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-black">Additional Covers / Night</span>
-                    <span className="font-mono text-gray-600">+40 Seats</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-black">Season Extension</span>
-                    <span className="font-mono text-gray-600">+8 Weeks</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="font-bold text-black">Weather Cancellations</span>
-                    <span className="font-mono text-gray-600">0</span>
-                  </div>
-                  <div className="flex justify-between items-center bg-black text-white p-4 -mx-4 mt-4">
-                    <span className="font-bold uppercase tracking-wider">Addt'l Revenue (Year 1)</span>
-                    <span className="font-mono text-edg-brand font-bold text-xl">$180,000</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </Container>
       </Section>
 
-      {/* ========== SOLUTIONS BY INDUSTRY ========== */}
-      <Section className="bg-white py-24 border-b border-black/5">
+      <Section className="section-md bg-white">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-4">
-              <span className="h-px w-8 bg-edg-brand-text" />
-              Solutions
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Solutions by Industry
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Commercial Solutions by Industry
+            <h2 className="section-title mb-4">
+              One commercial standard, adapted to each property type
             </h2>
-            <p className="text-text-secondary">
-              Specialized outdoor living systems designed for the unique demands of hospitality and food service.
+            <p className="text-lg leading-relaxed text-text-secondary">
+              The hub should help buyers find the right commercial route
+              without making every hospitality page feel like a different site.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Hotels */}
-            <Link href="/commercial/hotel-pergolas" className="group">
-              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
-                <IconWrapper icon={Hotel} variant="brand" size="lg" className="mb-6" />
-                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Hotels & Rooftops
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Transform rooftop bars and pool decks into year-round revenue centers.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
-                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Card>
-            </Link>
-
-            {/* Restaurants */}
-            <Link href="/commercial/restaurant-patio-solutions" className="group">
-              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
-                <IconWrapper icon={Utensils} variant="brand" size="lg" className="mb-6" />
-                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Restaurants
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Add 40-100 weatherproof seats with motorized pergolas and enclosures.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
-                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Card>
-            </Link>
-
-            {/* Country Clubs */}
-            <Link href="/commercial/country-club-outdoor-spaces" className="group">
-              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
-                <IconWrapper icon={Trees} variant="brand" size="lg" className="mb-6" />
-                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Country Clubs
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Elevate member experiences with premium outdoor dining and event spaces.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
-                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Card>
-            </Link>
-
-            {/* Hospitality Group */}
-            <Link href="/commercial/chicago-hospitality-outdoor-living" className="group">
-              <Card variant="outline" padding="lg" className="h-full hover:border-edg-brand transition-colors">
-                <IconWrapper icon={Building2} variant="brand" size="lg" className="mb-6" />
-                <h3 className="text-xl font-bold mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Hospitality Groups
-                </h3>
-                <p className="text-text-secondary text-sm mb-4">
-                  Multi-location solutions for restaurant groups and hotel chains.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text">
-                  Learn More <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Card>
-            </Link>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {industrySolutions.map((solution) => (
+              <Link key={solution.href} href={solution.href} className="group">
+                <Card
+                  variant="outline"
+                  padding="lg"
+                  className="h-full hover:border-edg-brand"
+                >
+                  <IconWrapper
+                    icon={solution.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-6"
+                  />
+                  <h3 className="mb-3 text-xl font-bold transition-colors group-hover:text-edg-brand-text">
+                    {solution.title}
+                  </h3>
+                  <p className="mb-5 text-sm leading-relaxed text-text-secondary">
+                    {solution.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-text uppercase">
+                    Learn More
+                    <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </Card>
+              </Link>
+            ))}
           </div>
         </Container>
       </Section>
 
-      {/* ========== SOLUTIONS BY LOCATION ========== */}
-      <Section className="bg-surface-muted py-24 border-b border-border">
+      <Section className="section-md bg-surface-muted border-y border-border">
         <Container>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="inline-flex items-center gap-2 text-edg-brand-text text-xs font-bold tracking-[0.2em] uppercase mb-4">
+              <div className="label-editorial-brand mb-4 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                Local Solutions
+                Chicago Commercial Routes
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Chicago Commercial Outdoor Living
+              <h2 className="section-title mb-6">
+                Local pages carry the same planning logic into specific
+                hospitality contexts
               </h2>
-              <p className="text-text-secondary text-lg mb-8">
-                From Fulton Market rooftops to Gold Coast hotels, we understand Chicago's unique permitting, wind conditions, and design aesthetic.
+              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                From Fulton Market patios to hotel roof decks, the commercial
+                route family should feel connected: same proof standard, same
+                CTA behavior, same restrained language, and clear links to the
+                next useful page.
               </p>
               <div className="space-y-4">
-                <Link
-                  href="/commercial/west-loop"
-                  className="flex items-center justify-between p-4 bg-white border border-border hover:border-edg-brand transition-colors group"
-                >
-                  <div>
-                    <h3 className="font-bold group-hover:text-edg-brand-text transition-colors">West Loop / Fulton Market</h3>
-                    <p className="text-sm text-text-secondary">Terrace enclosures for Chicago's restaurant row</p>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-text-muted group-hover:text-edg-brand-text group-hover:translate-x-1 transition-all" />
-                </Link>
-                <Link
-                  href="/commercial/restaurant-patio-enclosures"
-                  className="flex items-center justify-between p-4 bg-white border border-border hover:border-edg-brand transition-colors group"
-                >
-                  <div>
-                    <h3 className="font-bold group-hover:text-edg-brand-text transition-colors">Restaurant Patio Enclosures</h3>
-                    <p className="text-sm text-text-secondary">Glass and screen solutions for year-round dining</p>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-text-muted group-hover:text-edg-brand-text group-hover:translate-x-1 transition-all" />
-                </Link>
-                <Link
-                  href="/commercial/hotel-roof-deck-systems"
-                  className="flex items-center justify-between p-4 bg-white border border-border hover:border-edg-brand transition-colors group"
-                >
-                  <div>
-                    <h3 className="font-bold group-hover:text-edg-brand-text transition-colors">Hotel Roof Deck Systems</h3>
-                    <p className="text-sm text-text-secondary">Structural solutions for elevated outdoor spaces</p>
-                  </div>
-                  <ChevronRight className="h-5 w-5 text-text-muted group-hover:text-edg-brand-text group-hover:translate-x-1 transition-all" />
-                </Link>
+                {locationLinks.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="group flex items-center justify-between border border-border bg-white p-4 transition-colors hover:border-edg-brand"
+                  >
+                    <div>
+                      <h3 className="font-bold transition-colors group-hover:text-edg-brand-text">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-text-secondary">
+                        {item.description}
+                      </p>
+                    </div>
+                    <ChevronRight className="h-5 w-5 shrink-0 text-text-muted transition-all group-hover:translate-x-1 group-hover:text-edg-brand-text" />
+                  </Link>
+                ))}
               </div>
             </div>
-            <div className="relative aspect-[4/3]">
+
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={images.brand.context.commercial}
-                alt="Commercial outdoor living installation in Chicago"
+                src={images.systems.enclosures.commercialPergolaDay}
+                alt="Commercial pergola and glass patio dining area"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -341,52 +420,76 @@ export default function CommercialPage() {
         </Container>
       </Section>
 
-      {/* ========== CAPABILITIES GRID ========== */}
-      <Section className="py-24">
+      <Section className="section-md bg-white">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tighter mb-4">Commercial Grade Only.</h2>
-            <p className="text-gray-500">We don't install residential toys on commercial sites. Our systems are engineered for high-cycle daily use.</p>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Commercial Capabilities
+            </div>
+            <h2 className="section-title mb-4">
+              Serious outdoor spaces need planning, not a residential template
+            </h2>
+            <p className="text-lg leading-relaxed text-text-secondary">
+              EDG stays system-agnostic and matches the product mix to the
+              site, staff model, approvals, and ownership expectations.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="border border-black/10 p-8 hover:border-black transition-colors group">
-              <ShieldCheck className="h-10 w-10 text-black mb-6 group-hover:text-edg-brand-text transition-colors" />
-              <h3 className="text-xl font-bold mb-3">Priority Support</h3>
-              <p className="text-gray-600">Downtime is lost revenue. Our commercial clients get 24-48hr response times and local parts stocking.</p>
-            </div>
-            <div className="border border-black/10 p-8 hover:border-black transition-colors group">
-              <Zap className="h-10 w-10 text-black mb-6 group-hover:text-edg-brand-text transition-colors" />
-              <h3 className="text-xl font-bold mb-3">Rapid Deployment</h3>
-              <p className="text-gray-600">We respect your operating hours. Most installs complete in 3-5 days with minimal disruption to service.</p>
-            </div>
-            <div className="border border-black/10 p-8 hover:border-black transition-colors group">
-              <BarChart3 className="h-10 w-10 text-black mb-6 group-hover:text-edg-brand-text transition-colors" />
-              <h3 className="text-xl font-bold mb-3">Custom Branding</h3>
-              <p className="text-gray-600">Color match to your brand standards. Integrate signage and lighting into the structure seamlessly.</p>
-            </div>
+          <div className="grid gap-8 md:grid-cols-3">
+            {capabilityCards.map((card) => (
+              <Card key={card.title} variant="outline" padding="lg">
+                <IconWrapper
+                  icon={card.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
+                <p className="leading-relaxed text-text-secondary">
+                  {card.description}
+                </p>
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>
 
-      {/* ========== FAQ (Minimalist) ========== */}
-      <Section className="bg-zinc-50 py-24 border-t border-black/5">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="grid lg:grid-cols-12 gap-12">
-            <div className="lg:col-span-4">
-              <h2 className="text-3xl font-bold tracking-tighter mb-4">Operations FAQ</h2>
-              <p className="text-gray-500 mb-8">Common questions from GMs and Owners.</p>
-              <TrackedLink href="/contact?type=commercial">
-                <Button className="w-full justify-start rounded-none border-l-4 border-edg-brand bg-white text-black hover:bg-zinc-100 font-bold">
-                  Ask a specific question
+          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Assessment Path
+              </div>
+              <h2 className="section-title mb-6 text-white">
+                Review the business case with the actual site assumptions
+              </h2>
+              <p className="mb-8 text-lg leading-relaxed text-zinc-300">
+                A commercial recommendation should be tied to the property:
+                seats, weather exposure, staffing, service hours, utilities,
+                permit path, maintenance, and who will operate the system.
+              </p>
+              <TrackedLink href={assessmentContactHref}>
+                <Button size="lg">
+                  Request Commercial Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
             </div>
-            <div className="lg:col-span-8 space-y-6">
-              {faqs.map((item, i) => (
-                <div key={i} className="bg-white border border-black/5 p-6">
-                  <h4 className="font-bold text-lg mb-2 text-black">{item.question}</h4>
-                  <p className="text-gray-600">{item.answer}</p>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {[
+                ['Inputs', 'Seating, service flow, exposure, approvals, and goals'],
+                ['System', 'Pergola, screens, glass, heat, lighting, and controls'],
+                ['Handoff', 'Staff rules, care plan, service access, and next steps'],
+              ].map(([label, description]) => (
+                <div key={label} className="border border-white/10 p-6">
+                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                    {label}
+                  </div>
+                  <p className="text-sm leading-relaxed text-zinc-300">
+                    {description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -394,96 +497,132 @@ export default function CommercialPage() {
         </Container>
       </Section>
 
-      {/* ========== RELATED RESOURCES ========== */}
-      <Section className="bg-surface-muted py-24 border-t border-border">
+      <Section className="section-md bg-surface-muted border-b border-border">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
-              Explore Our Systems
-            </h2>
-            <p className="text-text-secondary">
-              The commercial solutions above are built on our core outdoor living systems.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link href="/systems/pergolas" className="group">
-              <Card variant="default" padding="lg" className="text-center h-full hover:border-edg-brand transition-colors">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Motorized Pergolas
-                </h3>
-                <p className="text-text-secondary text-sm">
-                  Adjustable louvers for sun, shade, and rain control
-                </p>
-              </Card>
-            </Link>
-            <Link href="/systems/shades" className="group">
-              <Card variant="default" padding="lg" className="text-center h-full hover:border-edg-brand transition-colors">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Retractable Screens
-                </h3>
-                <p className="text-text-secondary text-sm">
-                  Wind-rated screens for wind, sun, and insect protection
-                </p>
-              </Card>
-            </Link>
-            <Link href="/systems/enclosures" className="group">
-              <Card variant="default" padding="lg" className="text-center h-full hover:border-edg-brand transition-colors">
-                <h3 className="font-bold text-lg mb-2 group-hover:text-edg-brand-text transition-colors">
-                  Glass Enclosures
-                </h3>
-                <p className="text-text-secondary text-sm">
-                  Frameless glass walls for year-round outdoor rooms
-                </p>
-              </Card>
-            </Link>
+          <div className="grid gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <div className="label-editorial-brand mb-4">
+                FAQ
+              </div>
+              <h2 className="section-title mb-4">
+                Commercial planning questions
+              </h2>
+              <p className="mb-8 leading-relaxed text-text-secondary">
+                Common questions from owners, operators, GMs, and facilities
+                teams before they choose a system path.
+              </p>
+              <TrackedLink href={assessmentContactHref}>
+                <Button variant="dark" className="w-full justify-start">
+                  Ask a Specific Question
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+            </div>
+            <div className="space-y-5 lg:col-span-8">
+              {faqs.map((item) => (
+                <Card key={item.question} variant="default" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold text-black">
+                    {item.question}
+                  </h3>
+                  <p className="leading-relaxed text-text-secondary">
+                    {item.answer}
+                  </p>
+                </Card>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
 
-      {/* ========== FINAL CTA ========== */}
-      <section className="bg-black text-white py-32">
+      <Section className="section-md bg-white">
         <Container>
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Stop losing revenue to rain.
-              </h2>
-              <p className="text-xl text-zinc-300 mb-8 max-w-md">
-                We'll walk your space, calculate your ROI, and provide a fixed-price proposal.
-              </p>
-              <TrackedLink href="/contact?type=commercial">
-                <Button className="bg-edg-brand text-black hover:bg-white rounded-none px-10 py-6 text-lg font-bold uppercase tracking-wider">
-                  Site Assessment
-                </Button>
-              </TrackedLink>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Explore the Systems
             </div>
-            <div className="border-l border-white/20 pl-16 hidden md:block">
-              <div className="space-y-6">
-                <h4 className="text-lg font-bold uppercase tracking-wide">Our Clients Include</h4>
-                <ul className="space-y-4 text-zinc-300">
-                  <li className="flex items-center gap-3">
-                    <Check className="h-4 w-4 text-edg-brand" />
-                    Fine Dining Restaurants
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="h-4 w-4 text-edg-brand" />
-                    Country Clubs & Golf Courses
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="h-4 w-4 text-edg-brand" />
-                    Hotels & Rooftop Bars
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <Check className="h-4 w-4 text-edg-brand" />
-                    Corporate Campuses
-                  </li>
-                </ul>
+            <h2 className="section-title mb-4">
+              Commercial plans are built from EDG's core system categories
+            </h2>
+            <p className="text-lg leading-relaxed text-text-secondary">
+              The industry pages above should connect back to the technical
+              system pages without forcing commercial visitors into a
+              residential buying path.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {relatedSystems.map((system) => (
+              <Link key={system.href} href={system.href} className="group">
+                <Card
+                  variant="outline"
+                  padding="lg"
+                  className="h-full text-center hover:border-edg-brand"
+                >
+                  <h3 className="mb-2 text-lg font-bold transition-colors group-hover:text-edg-brand-text">
+                    {system.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-text-secondary">
+                    {system.description}
+                  </p>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <section className="section-lg bg-surface-dark text-text-inverse">
+        <Container>
+          <div className="grid gap-12 md:grid-cols-[1fr_0.8fr] md:items-center">
+            <div>
+              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+                Start with the commercial conditions
+              </h2>
+              <p className="mb-8 max-w-2xl text-xl leading-relaxed text-zinc-300">
+                Send EDG the use case, site constraints, and operating goals.
+                We will help narrow the system, approvals, and next planning
+                steps.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <TrackedLink href={bottomContactHref}>
+                  <Button size="lg">
+                    Start Commercial Review
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </TrackedLink>
+                <TrackedPhoneLink href="tel:+18155810138">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
+                    <Phone className="mr-2 h-4 w-4" />
+                    Call EDG
+                  </Button>
+                </TrackedPhoneLink>
               </div>
+            </div>
+            <div className="border-l border-white/20 pl-8">
+              <h3 className="mb-6 text-lg font-bold tracking-wide uppercase">
+                Commercial Fit Examples
+              </h3>
+              <ul className="space-y-4 text-zinc-300">
+                {[
+                  'Fine dining restaurants',
+                  'Country clubs and golf courses',
+                  'Hotels and rooftop bars',
+                  'Hospitality groups and commercial campuses',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <Check className="h-4 w-4 shrink-0 text-edg-brand" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

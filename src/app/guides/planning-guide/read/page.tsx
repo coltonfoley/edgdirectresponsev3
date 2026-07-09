@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import GuideReadClient from './GuideReadClient';
 
 export const metadata: Metadata = {
-  title: 'Four-Season Outdoor Living Guide | Full Content',
+  title: 'Outdoor Living Planning Guide | Full Content',
   description:
     "The complete 2026 homeowner's guide to outdoor living systems. Louvered pergolas, motorized shades, and frameless glass for Chicago-Milwaukee homes.",
   alternates: {

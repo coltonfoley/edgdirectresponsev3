@@ -6,12 +6,11 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight,
   Check,
   Building2,
-  Ruler,
   Phone,
   Globe,
   Award,
@@ -20,6 +19,8 @@ import {
 } from 'lucide-react';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { buildContactHref } from '@/lib/contact-links';
+import * as images from '@/lib/images';
 
 const capabilities = [
   "Motorized Louvered Pergolas",
@@ -36,7 +37,7 @@ const differentiators = [
   {
     icon: Globe,
     title: 'Nationwide Design & Supply',
-    description: 'We spec and ship systems to professionals in all 50 states. Not a local-only business—we bring our expertise wherever your projects are.',
+    description: 'We spec and ship systems to professionals in all 50 states. EDG is not local-only; we bring our expertise wherever your projects are.',
   },
   {
     icon: Award,
@@ -46,14 +47,29 @@ const differentiators = [
   {
     icon: Users,
     title: 'Installer Training',
-    description: 'Bring your team to our Spring Grove showroom for hands-on training, or we\'ll come to you. We don\'t just sell systems—we teach you to install them.',
+    description: 'Bring your team to our Spring Grove showroom for hands-on training, or we\'ll come to you. We also teach your team how to install the systems correctly.',
   },
   {
     icon: Wrench,
     title: 'Specialist Expertise',
-    description: 'Motorized pergolas and screens are what we do—not an add-on to a deck business. Complex engineering, wind loads, integration: we handle it.',
+    description: 'Motorized pergolas and screens are what we do, not an add-on to a deck business. Complex engineering, wind loads, integration: we handle it.',
   },
 ];
+
+const tradeHeroHref = buildContactHref({
+  type: 'pro',
+  source: 'trade_partners_hero',
+});
+
+const tradeScopeHref = buildContactHref({
+  type: 'pro',
+  source: 'trade_partners_scope',
+});
+
+const tradeBottomHref = buildContactHref({
+  type: 'pro',
+  source: 'trade_partners_bottom',
+});
 
 export function TradePartnersPageContent() {
   return (
@@ -80,48 +96,45 @@ export function TradePartnersPageContent() {
                 <span className="text-edg-brand">Motorized Outdoor Systems</span>
               </h1>
               <p className="text-xl text-text-inverse-muted mb-10 leading-relaxed max-w-xl">
-                We spec the right system, handle engineering, and deliver to your job site—anywhere in the country. One call. No brand bias. Reliable execution.
+                We spec the right system, handle engineering, and deliver to your job site, anywhere in the country. One call. No brand bias. Reliable execution.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <TrackedLink href="/contact?type=pro">
+                <TrackedLink href={tradeHeroHref}>
                   <Button size="lg">
                     Discuss Your Project
                   </Button>
                 </TrackedLink>
-                <TrackedLink href="tel:+18155810138">
+                <TrackedPhoneLink href="tel:+18155810138">
                   <Button variant="outline" size="lg">
                     <Phone className="mr-2 h-4 w-4" />
                     Call Trade Desk
                   </Button>
-                </TrackedLink>
+                </TrackedPhoneLink>
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/3] bg-surface-dark-elevated border border-border-inverse p-8 flex flex-col justify-between relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <Ruler className="h-48 w-48 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-white text-lg font-bold uppercase tracking-wide mb-2">Why Partners Choose EDG</h3>
-                  <div className="h-1 w-12 bg-edg-brand mb-6"></div>
-                </div>
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
-                    <span className="text-white">Not locked into one manufacturer</span>
+              <div className="relative aspect-[4/3] overflow-hidden border border-border-inverse bg-surface-dark-elevated">
+                <Image
+                  src={images.brand.hero.showroom}
+                  alt="EDG showroom display used for partner client walkthroughs and installer training"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-black/35" />
+                <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/80 p-6">
+                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                    Spring Grove partner resource
                   </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
-                    <span className="text-white">Engineering support included</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
-                    <span className="text-white">Ship anywhere in the US</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-edg-brand shrink-0 mt-0.5" />
-                    <span className="text-white">Showroom training available</span>
-                  </div>
+                  <h2 className="mb-3 text-2xl font-bold text-white">
+                    Showroom demos, finish review, and installer training.
+                  </h2>
+                  <p className="max-w-xl text-sm leading-relaxed text-zinc-300">
+                    Bring clients to see full-size motorized systems in person,
+                    or use the facility to train installers before a project
+                    reaches the job site.
+                  </p>
                 </div>
               </div>
             </div>
@@ -160,7 +173,7 @@ export function TradePartnersPageContent() {
                 We Make Your Projects Easier
               </h2>
               <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-                Most motorized pergola companies are set up to sell to homeowners. We&apos;re built to support professionals. Send us plans, we send specs—fast.
+                Most motorized pergola companies are set up to sell to homeowners. We&apos;re built to support professionals. Send plans, and EDG returns a clear system path.
               </p>
               
               <div className="space-y-6">
@@ -170,7 +183,7 @@ export function TradePartnersPageContent() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Send Plans</h4>
-                    <p className="text-text-secondary">Email us PDFs or DWGs. We review within 24 hours and call with questions.</p>
+                    <p className="text-text-secondary">Email PDFs or DWGs. We review the package and call with questions.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -179,7 +192,7 @@ export function TradePartnersPageContent() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1">Receive Spec & Quote</h4>
-                    <p className="text-text-secondary">Detailed recommendation with DWG files, loading specs, and pricing—within 48 hours.</p>
+                    <p className="text-text-secondary">Detailed recommendation with DWG files, loading specs, and pricing details needed to keep the project moving.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -208,8 +221,8 @@ export function TradePartnersPageContent() {
                   ))}
                 </div>
                 <div className="mt-8 pt-6 border-t border-border">
-                  <Link 
-                    href="/contact?type=pro" 
+                  <TrackedLink
+                    href={tradeScopeHref}
                     className="group flex items-center justify-between"
                   >
                     <div>
@@ -221,7 +234,7 @@ export function TradePartnersPageContent() {
                     <div className="flex h-10 w-10 items-center justify-center bg-edg-dark text-white">
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
-                  </Link>
+                  </TrackedLink>
                 </div>
               </Card>
             </div>
@@ -234,12 +247,21 @@ export function TradePartnersPageContent() {
         <Container>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <div className="aspect-[4/3] bg-surface-muted border border-border relative">
-                <div className="absolute inset-0 flex items-center justify-center text-text-muted">
-                  <div className="text-center">
-                    <Building2 className="h-16 w-16 mx-auto mb-4 opacity-20" />
-                    <span className="text-sm uppercase tracking-widest">Spring Grove Showroom</span>
+              <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-muted">
+                <Image
+                  src={images.brand.hero.showroom}
+                  alt="EDG showroom display with outdoor dining system and operable pergola"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/70 p-5">
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-edg-brand">
+                    Spring Grove Showroom
                   </div>
+                  <p className="mt-2 text-sm leading-relaxed text-white">
+                    Full-size displays for client walkthroughs, finish review, and installer training.
+                  </p>
                 </div>
               </div>
             </div>
@@ -249,7 +271,7 @@ export function TradePartnersPageContent() {
                 Bring Your Clients. Train Your Team.
               </h2>
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-                Our Spring Grove facility isn&apos;t just for homeowners—it&apos;s a resource for trade partners. Bring skeptical clients to see full-size systems in operation. Send your installers for hands-on training.
+                Our Spring Grove facility is not just for homeowners; it is a resource for trade partners. Bring skeptical clients to see full-size systems in operation. Send your installers for hands-on training.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
@@ -278,23 +300,23 @@ export function TradePartnersPageContent() {
       </Section>
 
       {/* ========== CTA SECTION ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-edg-dark mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Spec Your Next Project?
             </h2>
-            <p className="text-lg text-edg-dark/80 mb-8">
+            <p className="text-lg text-zinc-300 mb-8">
               One partner for everything motorized outdoors. We pick up the phone.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <TrackedLink href="/contact?type=pro">
-                <Button variant="dark" size="lg" className="min-w-[200px]">
+              <TrackedLink href={tradeBottomHref}>
+                <Button size="lg" className="min-w-[200px]">
                   Start a Project
                 </Button>
               </TrackedLink>
               <TrackedPhoneLink href="tel:+18155810138">
-                <Button variant="ghost" size="lg" className="text-edg-dark border-2 border-edg-dark hover:bg-edg-dark hover:text-white min-w-[200px]">
+                <Button variant="outline" size="lg" className="min-w-[200px]">
                   <Phone className="mr-2 h-4 w-4" />
                   (815) 581-0138
                 </Button>

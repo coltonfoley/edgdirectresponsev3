@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -60,7 +61,7 @@ const benefits = [
     icon: Smartphone,
     title: 'Fast enough to use every day',
     description:
-      'The best screen system is the one you actually deploy. Remote control, automation, and integrated controls make it easy to adapt the space as wind, sun, and privacy needs change during the day.',
+      'A strong screen system is one you actually deploy. Remote control, automation, and integrated controls make it easy to adapt the space as wind, sun, and privacy needs change during the day.',
   },
 ];
 
@@ -103,6 +104,19 @@ const gallery = [
 ];
 
 export default function ChicagoScreensPage() {
+  const heroContactHref = buildContactHref({
+    type: 'price',
+    product: 'shades',
+    location: 'Chicago, IL',
+    source: 'chicago_screens_hero',
+  });
+  const bottomContactHref = buildContactHref({
+    type: 'fit-review',
+    product: 'shades',
+    location: 'Chicago, IL',
+    source: 'chicago_screens_bottom',
+  });
+
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -133,7 +147,7 @@ export default function ChicagoScreensPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
       />
 
-      <main className="min-h-screen bg-surface">
+      <div className="min-h-screen bg-surface">
         <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -172,7 +186,7 @@ export default function ChicagoScreensPage() {
                 need better comfort, privacy, and glare control without losing the view.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=price&product=shades&source=chicago_screens">
+                <Link href={heroContactHref}>
                   <Button size="lg">Get a Screen Layout Review</Button>
                 </Link>
                 <Link href="/systems/shades">
@@ -202,7 +216,7 @@ export default function ChicagoScreensPage() {
                 </p>
                 <p className="text-lg leading-relaxed text-text-secondary">
                   They are also flexible in a way fixed partitions are not. When the
-                  weather is perfect, the screens disappear. When the sun drops low or
+                  weather is clear, the screens disappear. When the sun drops low or
                   the wind starts pushing through the yard, they come down and calm
                   the space. That adaptability is especially useful in Chicago, where
                   outdoor conditions can change quickly across a single afternoon.
@@ -246,7 +260,7 @@ export default function ChicagoScreensPage() {
         <Section className="section-md">
           <Container>
             <div className="mb-12 text-center">
-              <div className="label-editorial-brand mb-4">Where They Fit Best</div>
+              <div className="label-editorial-brand mb-4">Where They Fit</div>
               <h2 className="section-title mb-4">Great for pergolas, patios, and roof decks</h2>
             </div>
             <div className="grid gap-10 lg:grid-cols-2">
@@ -265,7 +279,7 @@ export default function ChicagoScreensPage() {
                   screens to do first. If the answer is privacy, fabric selection and
                   sightline planning matter most. If the answer is wind, opening size
                   and track strategy become more important. If the answer is overall
-                  comfort, the screens usually work best when planned alongside the
+                  comfort, the screens usually work strongest when planned alongside the
                   pergola, lighting, and heater package.
                 </p>
               </div>
@@ -375,8 +389,8 @@ export default function ChicagoScreensPage() {
                   enough or if the space should be planned with a pergola at the same time.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <Link href="/contact?type=price&product=shades&source=chicago_city_page">
-                    <Button size="lg">Start Your Quote</Button>
+                  <Link href={bottomContactHref}>
+                    <Button size="lg">Start Screen Layout Review</Button>
                   </Link>
                   <Link href="/service-areas/chicago-il/motorized-pergolas">
                     <Button variant="outline" size="lg">
@@ -411,7 +425,7 @@ export default function ChicagoScreensPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

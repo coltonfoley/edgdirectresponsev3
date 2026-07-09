@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import {
+  ArrowRight,
+  CheckCircle2,
+  Lightbulb,
+  ShieldCheck,
+  X,
+} from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import { FadeIn } from '@/components/ui/FadeIn';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import {
-  Check,
-  X,
-  ArrowRight,
-  DollarSign,
-  Star,
-  Lightbulb,
-} from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -44,16 +44,16 @@ const comparisonMatrix = [
   },
   {
     type: 'Solid Patio Cover',
-    shade: '100% (Fixed)',
-    rain: '100% Protection',
+    shade: 'Full fixed shade',
+    rain: 'Fixed roof coverage',
     airflow: 'Poor (Traps Heat)',
     cost: '$$$ - $$$$',
     recommended: false,
   },
   {
     type: 'Louvered Pergola',
-    shade: 'Adjustable (0-100%)',
-    rain: '100% Protection',
+    shade: 'Adjustable',
+    rain: 'Rain management when closed',
     airflow: 'Excellent (Vented)',
     cost: '$$$$',
     recommended: true,
@@ -65,12 +65,12 @@ const faqs = [
     question:
       'What is the main difference between a pergola and a patio cover?',
     answer:
-      "A patio cover is an extension of your roofline (solid roof) designed to provide 100% shade and rain protection at all times. A pergola typically has an open lattice roof. A 'Louvered Pergola' is the hybrid that gives you both options.",
+      "A patio cover is an extension of your roofline with a solid roof for fixed shade and rain coverage. A pergola typically has an open lattice roof. A 'Louvered Pergola' is the hybrid that gives you adjustable overhead control when the system, drainage, and site conditions are specified correctly.",
   },
   {
     question: 'Which increases home value more?',
     answer:
-      'Generally, permanent structures like louvered pergolas and solid patio covers add more appraised value than simple aesthetic wooden pergolas because they create functional, usable square footage.',
+      'Permanent structures can support perceived value when they make the outdoor area more useful, but appraised value depends on the local market, documentation, installation quality, and buyer priorities.',
   },
   {
     question: 'Can I attach a pergola to my house?',
@@ -90,7 +90,7 @@ export default function PergolaVsPatioCover() {
       />
 
       {/* ========== HERO SECTION ========== */}
-      <section className="bg-edg-dark relative flex min-h-[50vh] items-center justify-center overflow-hidden pt-24 pb-16">
+      <section className="bg-edg-dark relative flex min-h-[58vh] items-center overflow-hidden pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.pages.guides.pergolaVsPatioCover}
@@ -99,249 +99,257 @@ export default function PergolaVsPatioCover() {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-25"
+            className="object-cover opacity-30"
           />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
         <Container className="relative z-10">
-          {/* Breadcrumb */}
-          <div className="mb-6">
-            <Breadcrumb
-              items={[
-                { label: 'Guides', href: '/guides' },
-                { label: 'Pergola vs Patio Cover' },
-              ]}
-            />
-          </div>
-          <FadeIn>
-            <div className="mx-auto max-w-4xl text-center">
-              <span className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-bold tracking-wider uppercase">
-                <Lightbulb className="h-4 w-4" /> Comparison Guide
-              </span>
-              <h1 className="mb-4 text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-                {guideData.title}
-              </h1>
-              <p className="text-edg-brand mb-6 text-xl font-medium md:text-2xl">
-                {guideData.subtitle}
-              </p>
-              <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
-                {guideData.intro}
-              </p>
+          <Breadcrumb
+            items={[
+              { label: 'Guides', href: '/guides' },
+              { label: 'Pergola vs Patio Cover' },
+            ]}
+            className="mb-8"
+          />
+          <div className="max-w-4xl">
+            <div className="label-editorial mb-5 inline-flex items-center gap-3 text-edg-brand">
+              <Lightbulb className="h-4 w-4" />
+              Comparison Guide
             </div>
-          </FadeIn>
+            <h1 className="mb-5 max-w-4xl text-4xl leading-tight font-bold md:text-6xl">
+              {guideData.title}
+            </h1>
+            <p className="mb-4 text-xl font-bold text-edg-brand md:text-2xl">
+              {guideData.subtitle}
+            </p>
+            <p className="max-w-3xl text-xl leading-relaxed text-zinc-300">
+              {guideData.intro}
+            </p>
+          </div>
         </Container>
       </section>
 
       {/* ========== COMPARISON MATRIX ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-white">
         <Container>
-          <FadeIn>
-            <div className="mx-auto max-w-5xl">
-              <h2 className="mb-4 text-center text-3xl font-bold tracking-tight md:text-4xl">
+          <div className="mx-auto max-w-5xl">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Decision Matrix
+              </div>
+              <h2 className="section-title mb-4">
                 Quick Decision Matrix
               </h2>
-              <p className="text-muted-foreground mb-10 text-center text-lg">
-                Compare the three main options side by side.
+              <p className="text-text-secondary text-lg leading-relaxed">
+                Compare the three main options by the job they actually do:
+                fixed shade, fixed weather protection, or adjustable outdoor
+                room control.
               </p>
-
-              <div className="grid gap-6 md:grid-cols-3">
-                {comparisonMatrix.map((item, i) => (
-                  <div
-                    key={i}
-                    className={`relative rounded-2xl border p-6 transition-all ${
-                      item.recommended
-                        ? 'bg-edg-brand/5 border-edg-brand scale-105 shadow-lg'
-                        : 'border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900'
-                    }`}
-                  >
-                    {item.recommended && (
-                      <div className="bg-edg-brand text-edg-dark absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full px-3 py-1 text-xs font-bold">
-                        <Star className="h-3 w-3 fill-current" /> EDG CHOICE
-                      </div>
-                    )}
-                    <h3 className="mb-4 text-center text-xl font-bold">
-                      {item.type}
-                    </h3>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Shade</span>
-                        <span className="font-medium">{item.shade}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">
-                          Rain Protection
-                        </span>
-                        <span className="font-medium">{item.rain}</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="text-muted-foreground">Airflow</span>
-                        <span className="font-medium">{item.airflow}</span>
-                      </div>
-                      <div className="flex justify-between border-t border-zinc-200 pt-2 dark:border-zinc-700">
-                        <span className="text-muted-foreground">
-                          Investment
-                        </span>
-                        <span className="font-bold">{item.cost}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
-          </FadeIn>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {comparisonMatrix.map((item) => (
+                <Card
+                  key={item.type}
+                  variant={item.recommended ? 'dark' : 'muted'}
+                  padding="lg"
+                  className={item.recommended ? 'border-edg-brand/60' : ''}
+                >
+                  <div
+                    className={
+                      item.recommended
+                        ? 'text-edg-brand mb-4 text-xs font-bold tracking-[0.18em] uppercase'
+                        : 'text-text-muted mb-4 text-xs font-bold tracking-[0.18em] uppercase'
+                    }
+                  >
+                    {item.recommended ? 'EDG preferred path when fit supports it' : 'Fixed option'}
+                  </div>
+                  <h3
+                    className={
+                      item.recommended
+                        ? 'mb-5 text-xl font-bold text-text-inverse'
+                        : 'mb-5 text-xl font-bold text-text-primary'
+                    }
+                  >
+                    {item.type}
+                  </h3>
+                  <div
+                    className={
+                      item.recommended
+                        ? 'divide-y divide-border-inverse text-sm'
+                        : 'divide-y divide-border text-sm'
+                    }
+                  >
+                    {[
+                      ['Shade', item.shade],
+                      ['Rain Protection', item.rain],
+                      ['Airflow', item.airflow],
+                      ['Investment', item.cost],
+                    ].map(([label, value]) => (
+                      <div
+                        key={label}
+                        className="grid grid-cols-[0.95fr_1.05fr] gap-4 py-3"
+                      >
+                        <span
+                          className={
+                            item.recommended
+                              ? 'text-text-inverse-muted'
+                              : 'text-text-secondary'
+                          }
+                        >
+                          {label}
+                        </span>
+                        <span
+                          className={
+                            item.recommended
+                              ? 'font-bold text-text-inverse'
+                              : 'font-bold text-text-primary'
+                          }
+                        >
+                          {value}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* ========== DEEP DIVE ========== */}
-      <Section className="bg-zinc-100 py-20 dark:bg-zinc-900">
+      <Section className="section-md bg-surface">
         <Container>
-          <FadeIn>
-            <div className="mx-auto max-w-4xl">
-              <h2 className="mb-10 text-center text-3xl font-bold tracking-tight md:text-4xl">
-                Side-by-Side Breakdown
-              </h2>
-
-              <div className="grid gap-8 md:grid-cols-2">
-                {/* Fixed Patio Cover */}
-                <div className="rounded-2xl border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
-                  <h3 className="mb-4 text-2xl font-bold">
-                    Option A: Fixed Patio Cover
-                  </h3>
-                  <p className="text-muted-foreground mb-6">
-                    Usually an extension of your home's roofline. It uses
-                    shingles or metal roofing to create a permanent shadow.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500/10">
-                        <Check className="h-3 w-3 text-green-600" />
-                      </div>
-                      <span>Total rain protection</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-green-500/10">
-                        <Check className="h-3 w-3 text-green-600" />
-                      </div>
-                      <span>Seamless look with house</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500/10">
-                        <X className="h-3 w-3 text-red-500" />
-                      </div>
-                      <span>Darkens adjacent interior rooms</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-500/10">
-                        <X className="h-3 w-3 text-red-500" />
-                      </div>
-                      <span>Traps heat in summer</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Louvered Pergola */}
-                <div className="bg-edg-dark border-edg-brand/20 relative overflow-hidden rounded-2xl border p-8 text-white">
-                  <div className="bg-edg-brand text-edg-dark absolute top-0 right-0 flex items-center gap-1 rounded-bl-lg px-3 py-1 text-xs font-bold">
-                    <Star className="h-3 w-3 fill-current" /> EDG CHOICE
-                  </div>
-                  <h3 className="mb-4 text-2xl font-bold">
-                    Option B: Louvered Pergola
-                  </h3>
-                  <p className="mb-6 text-gray-300">
-                    The modern solution. An aluminum structure with automated
-                    blades that rotate to follow the sun or close for rain.
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="bg-edg-brand/20 flex h-6 w-6 items-center justify-center rounded-full">
-                        <Check className="text-edg-brand h-3 w-3" />
-                      </div>
-                      <span>Sun when you want it (Winter)</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="bg-edg-brand/20 flex h-6 w-6 items-center justify-center rounded-full">
-                        <Check className="text-edg-brand h-3 w-3" />
-                      </div>
-                      <span>Shade when you need it (Summer)</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="bg-edg-brand/20 flex h-6 w-6 items-center justify-center rounded-full">
-                        <Check className="text-edg-brand h-3 w-3" />
-                      </div>
-                      <span>Active ventilation cools the space</span>
-                    </div>
-                    <div className="flex items-center gap-3 text-sm">
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500/20">
-                        <DollarSign className="h-3 w-3 text-amber-500" />
-                      </div>
-                      <span>Higher initial investment</span>
-                    </div>
-                  </div>
-                </div>
+          <div className="mx-auto max-w-4xl">
+            <div className="mb-10 text-center">
+              <div className="label-editorial-brand mb-4">
+                Side-by-side breakdown
               </div>
+              <h2 className="section-title">
+                The difference is control, not just cover
+              </h2>
             </div>
-          </FadeIn>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              <Card variant="outline" padding="lg">
+                <h3 className="mb-4 text-2xl font-bold text-text-primary">
+                  Option A: Fixed Patio Cover
+                </h3>
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  Usually an extension of your home&apos;s roofline. It uses
+                  shingles or metal roofing to create permanent shade and a
+                  fixed rain cover.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    ['Total rain protection', true],
+                    ['Seamless look with house', true],
+                    ['Darkens adjacent interior rooms', false],
+                    ['Traps heat in summer', false],
+                  ].map(([label, positive]) => (
+                    <div key={label as string} className="flex items-center gap-3 text-sm">
+                      {positive ? (
+                        <CheckCircle2 className="h-5 w-5 shrink-0 text-edg-brand-text" />
+                      ) : (
+                        <X className="h-5 w-5 shrink-0 text-zinc-500" />
+                      )}
+                      <span className="text-text-secondary">{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              <Card variant="dark" padding="lg" className="border-edg-brand/40">
+                <div className="text-edg-brand mb-4 text-xs font-bold tracking-[0.18em] uppercase">
+                  EDG preferred path when the site fits
+                </div>
+                <h3 className="mb-4 text-2xl font-bold text-text-inverse">
+                  Option B: Louvered Pergola
+                </h3>
+                <p className="text-text-inverse-muted mb-6 leading-relaxed">
+                  An aluminum structure with motorized louvers that can open for
+                  light and airflow or close for rain management when the system,
+                  pitch, drainage, and controls are specified correctly.
+                </p>
+                <div className="space-y-3">
+                  {[
+                    'Sun when you want it',
+                    'Shade when you need it',
+                    'Active ventilation for comfort',
+                    'Higher initial investment',
+                  ].map((label) => (
+                    <div key={label} className="flex items-center gap-3 text-sm">
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-edg-brand" />
+                      <span className="text-text-inverse-muted">{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+          </div>
         </Container>
       </Section>
 
       {/* ========== RECOMMENDATION ========== */}
-      <Section className="bg-white py-20 dark:bg-zinc-950">
+      <Section className="section-md bg-white">
         <Container>
-          <FadeIn>
-            <div className="mx-auto max-w-3xl">
-              <div className="bg-edg-brand/5 border-edg-brand rounded-r-2xl border-l-4 p-8">
-                <h3 className="mb-4 text-2xl font-bold">Our Recommendation</h3>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  If you have south-facing windows that you don't want to
-                  darken, a <strong>louvered pergola</strong> is the superior
-                  choice. It allows you to harvest light in the winter while
-                  blocking the hot summer sun. If you want a strictly "dry" room
-                  that feels more indoors, consider a full enclosure or sunroom.
-                </p>
+          <div className="mx-auto max-w-3xl">
+            <Card variant="muted" padding="lg" className="border-l-4 border-l-edg-brand">
+              <div className="mb-4 flex items-center gap-3">
+                <IconWrapper icon={ShieldCheck} variant="brand" size="md" />
+                <div className="label-editorial-brand">Our Recommendation</div>
               </div>
-            </div>
-          </FadeIn>
+              <h2 className="section-title mb-4">
+                Start with the problem the structure has to solve
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                If you have south-facing windows that you don&apos;t want to
+                darken, a <strong>louvered pergola</strong> is often the better
+                path because it can keep winter light available while reducing
+                summer heat and glare. If you want a strictly dry room that
+                feels more indoors, consider a full enclosure, sunroom, or fixed
+                cover.
+              </p>
+            </Card>
+          </div>
         </Container>
       </Section>
 
       {/* ========== CTA SECTION ========== */}
-      <Section className="bg-edg-brand py-20">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <FadeIn>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Learn More?
-              </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Dive deeper into louvered pergola systems with our complete
-                guide.
-              </p>
-              <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/guides/motorized-pergola-planning">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    className="bg-edg-dark hover:bg-edg-dark/90 rounded-full px-8 text-lg text-white"
-                  >
-                    Read the Planning Guide{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/guides/pergola-system-fit-review">
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="text-edg-dark hover:bg-edg-dark/10 rounded-full px-8 text-lg"
-                  >
-                    Get a Fit Review
-                  </Button>
-                </Link>
-              </div>
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold text-text-inverse md:text-4xl">
+              Need to choose the right path?
+            </h2>
+            <p className="mb-8 text-xl leading-relaxed text-text-inverse-muted">
+              Use the planning guide or send the project context so EDG can
+              compare pergola, cover, screen, glass, and outdoor-room options
+              against the actual site.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Link href="/guides/motorized-pergola-planning">
+                <Button
+                  size="lg"
+                >
+                  Read the Planning Guide
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/guides/pergola-system-fit-review?source=pergola_vs_patio_cover_bottom">
+                <Button
+                  size="lg"
+                  variant="outline"
+                >
+                  Get a Fit Review
+                </Button>
+              </Link>
             </div>
-          </FadeIn>
+          </div>
         </Container>
-      </Section>
+      </section>
     </article>
   );
 }

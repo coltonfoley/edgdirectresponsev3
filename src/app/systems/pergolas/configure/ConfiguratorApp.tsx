@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 import {
@@ -120,18 +120,24 @@ function SliderField({
   unit: string;
   onChange: (v: number) => void;
 }) {
+  const inputId = useId();
+
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between">
-        <span className="text-xs font-bold tracking-wider text-white/65 uppercase">
+        <label
+          htmlFor={inputId}
+          className="text-xs font-bold tracking-wider text-white/65 uppercase"
+        >
           {label}
-        </span>
+        </label>
         <span className="text-lg font-bold text-white">
           {value}
           <span className="ml-1 text-xs font-normal text-white/60">{unit}</span>
         </span>
       </div>
       <input
+        id={inputId}
         type="range"
         min={min}
         max={max}
@@ -156,8 +162,13 @@ function SliderField({
 export function ConfiguratorApp() {
   const [config, setConfig] = useState<Config>(DEFAULT);
   const [showModal, setShowModal] = useState(false);
-  const [mobileTab, setMobileTab] = useState<'configure' | 'view'>('configure');
+  const [mobileTab, setMobileTab] = useState<'configure' | 'view'>('view');
   const [nightMode, setNightMode] = useState(false);
+  const mobileTabsId = useId();
+  const configureTabId = `${mobileTabsId}-configure-tab`;
+  const viewTabId = `${mobileTabsId}-view-tab`;
+  const configurePanelId = `${mobileTabsId}-configure-panel`;
+  const viewPanelId = `${mobileTabsId}-view-panel`;
 
   const selectedColor =
     COLORS.find((c) => c.hex === config.frameColor) ?? COLORS[2];
@@ -186,11 +197,23 @@ export function ConfiguratorApp() {
       {/* Full-screen layout — dvh accounts for mobile browser chrome */}
       <div className="flex h-[100dvh] flex-col overflow-hidden bg-[#0F1014]">
         {/* Mobile tab bar — appears below fixed navbar */}
-        <div className="flex flex-shrink-0 border-b border-white/10 pt-16 lg:hidden">
-          {(['configure', 'view'] as const).map((tab) => (
+        <div
+          className="flex flex-shrink-0 border-b border-white/10 pt-16 lg:hidden"
+          role="tablist"
+          aria-label="Pergola configurator mobile view"
+        >
+          {(['view', 'configure'] as const).map((tab) => (
             <button
               key={tab}
+              id={tab === 'configure' ? configureTabId : viewTabId}
+              type="button"
+              role="tab"
               onClick={() => setMobileTab(tab)}
+              aria-selected={mobileTab === tab}
+              aria-controls={
+                tab === 'configure' ? configurePanelId : viewPanelId
+              }
+              tabIndex={mobileTab === tab ? 0 : -1}
               className={`flex-1 py-3.5 text-xs font-bold tracking-widest uppercase transition-colors ${
                 mobileTab === tab
                   ? 'border-edg-brand text-edg-brand border-b-2'
@@ -205,6 +228,9 @@ export function ConfiguratorApp() {
         <div className="flex min-h-0 flex-1 overflow-hidden">
           {/* ── Left: config panel ── */}
           <aside
+            id={configurePanelId}
+            role="tabpanel"
+            aria-labelledby={configureTabId}
             className={`flex w-full flex-shrink-0 flex-col border-r border-white/18 bg-[#13151A] lg:w-[390px] ${
               mobileTab !== 'configure' ? 'hidden lg:flex' : 'flex'
             }`}
@@ -265,7 +291,9 @@ export function ConfiguratorApp() {
                     {(['freestanding', 'wall-mounted'] as const).map((type) => (
                       <button
                         key={type}
+                        type="button"
                         onClick={() => set('mountType', type)}
+                        aria-pressed={config.mountType === type}
                         className={`min-h-[52px] border p-3 text-left transition-all ${
                           config.mountType === type
                             ? 'border-edg-brand bg-edg-brand/10 text-edg-brand'
@@ -292,7 +320,9 @@ export function ConfiguratorApp() {
                     {COLORS.map((color) => (
                       <button
                         key={color.hex}
+                        type="button"
                         onClick={() => set('frameColor', color.hex)}
+                        aria-pressed={config.frameColor === color.hex}
                         title={`${color.name} (${color.ral})`}
                         className={`relative min-h-[64px] border p-2 transition-all ${
                           config.frameColor === color.hex
@@ -332,6 +362,7 @@ export function ConfiguratorApp() {
                       <span className="text-[10px] text-white/55">Open</span>
                     </div>
                     <input
+                      aria-label="Louver position"
                       type="range"
                       min={0}
                       max={90}
@@ -357,12 +388,14 @@ export function ConfiguratorApp() {
                       return (
                         <button
                           key={addon.key}
+                          type="button"
                           onClick={() =>
                             set(
                               addon.key as keyof Config,
                               !isOn as Config[keyof Config]
                             )
                           }
+                          aria-pressed={isOn}
                           className={`flex min-h-[48px] w-full items-center border p-3 text-left transition-all ${
                             isOn
                               ? 'border-edg-brand/60 bg-edg-brand/8 text-edg-brand'
@@ -419,6 +452,7 @@ export function ConfiguratorApp() {
             {/* Sticky CTA */}
             <div className="flex-shrink-0 border-t border-white/10 bg-[#13151A] px-6 py-5">
               <Button
+                type="button"
                 className="w-full"
                 size="lg"
                 onClick={() => setShowModal(true)}
@@ -433,7 +467,10 @@ export function ConfiguratorApp() {
           </aside>
 
           {/* ── Right: 3D canvas ── */}
-          <main
+          <div
+            id={viewPanelId}
+            role="tabpanel"
+            aria-labelledby={viewTabId}
             className={`relative min-h-0 flex-1 ${
               mobileTab !== 'view' ? 'hidden lg:block' : 'block'
             }`}
@@ -463,7 +500,9 @@ export function ConfiguratorApp() {
 
             {/* Night mode toggle */}
             <button
+              type="button"
               onClick={() => setNightMode((n) => !n)}
+              aria-pressed={nightMode}
               title={nightMode ? 'Switch to day mode' : 'Switch to night mode'}
               className={`absolute right-5 bottom-5 flex items-center gap-2 border px-3 py-2 text-[10px] font-bold tracking-widest uppercase backdrop-blur-sm transition-all ${
                 nightMode
@@ -484,15 +523,30 @@ export function ConfiguratorApp() {
               )}
             </button>
 
+            {/* Mobile: visible context when the 3D preview is the first view */}
+            <div className="pointer-events-none absolute top-4 left-4 right-32 border border-white/10 bg-black/60 p-3 backdrop-blur-sm lg:hidden">
+              <div className="text-[10px] font-bold tracking-[0.2em] text-edg-brand uppercase">
+                System Fit Visualizer
+              </div>
+              <h1 className="mt-1 text-sm font-bold leading-tight text-white">
+                Design your pergola in 3D.
+              </h1>
+              <p className="mt-1 text-[11px] leading-snug text-white/60">
+                Representative preview. EDG confirms final system fit after
+                site review.
+              </p>
+            </div>
+
             {/* Mobile: switch to config */}
             <button
+              type="button"
               className="absolute top-4 right-4 flex items-center gap-1.5 border border-white/22 bg-black/60 px-3 py-2 text-[10px] font-bold tracking-widest text-white/65 uppercase backdrop-blur-sm transition-colors hover:text-white/90 lg:hidden"
               onClick={() => setMobileTab('configure')}
             >
               <ChevronLeft className="h-3 w-3" />
               Configure
             </button>
-          </main>
+          </div>
         </div>
       </div>
 
@@ -534,6 +588,16 @@ function QuoteModal({
   summary: string;
   onClose: () => void;
 }) {
+  const dialogTitleId = useId();
+  const dialogDescriptionId = useId();
+  const firstNameId = useId();
+  const lastNameId = useId();
+  const emailId = useId();
+  const phoneId = useId();
+  const zipId = useId();
+  const timelineId = useId();
+  const budgetId = useId();
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [formStarted, setFormStarted] = useState(false);
   const [testimonialIdx] = useState(() =>
     Math.floor(Math.random() * TESTIMONIALS.length)
@@ -552,6 +616,19 @@ function QuoteModal({
   const { submitLead, trackFormStart, loading, error, success } =
     useLeadSubmission();
   const testimonial = TESTIMONIALS[testimonialIdx];
+
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [onClose]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -599,8 +676,17 @@ function QuoteModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/80 p-0 backdrop-blur-sm sm:items-center sm:p-4">
-      <div className="relative max-h-[92dvh] w-full overflow-y-auto border-t border-white/10 bg-[#13151A] sm:max-h-[85dvh] sm:max-w-lg sm:border">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={dialogTitleId}
+        aria-describedby={dialogDescriptionId}
+        className="relative max-h-[92dvh] w-full overflow-y-auto border-t border-white/10 bg-[#13151A] sm:max-h-[85dvh] sm:max-w-lg sm:border"
+      >
         <button
+          ref={closeButtonRef}
+          type="button"
+          aria-label="Close configuration review form"
           onClick={onClose}
           className="absolute top-4 right-4 z-10 text-white/55 transition-colors hover:text-white"
         >
@@ -613,10 +699,13 @@ function QuoteModal({
             <div className="bg-edg-brand mx-auto mb-5 flex h-12 w-12 items-center justify-center">
               <Check className="h-6 w-6 text-black" />
             </div>
-            <h2 className="mb-2 text-2xl font-bold text-white">
+            <h2 id={dialogTitleId} className="mb-2 text-2xl font-bold text-white">
               Configuration Sent
             </h2>
-            <p className="mb-3 text-sm leading-relaxed text-white/70">
+            <p
+              id={dialogDescriptionId}
+              className="mb-3 text-sm leading-relaxed text-white/70"
+            >
               A designer will review your pergola configuration and reach out
               within
               <strong className="text-white"> 1 business day</strong> to discuss
@@ -637,10 +726,10 @@ function QuoteModal({
             <div className="text-edg-brand mb-1 text-[10px] font-bold tracking-[0.25em] uppercase">
               System Fit Review
             </div>
-            <h2 className="mb-1 text-2xl font-bold text-white">
+            <h2 id={dialogTitleId} className="mb-1 text-2xl font-bold text-white">
               Send This Configuration for Review
             </h2>
-            <p className="mb-5 text-xs text-white/60">
+            <p id={dialogDescriptionId} className="mb-5 text-xs text-white/60">
               We&apos;ll review size, mount type, screens, heaters, timeline,
               and budget before recommending a next step.
             </p>
@@ -679,10 +768,12 @@ function QuoteModal({
               />
 
               <div className="grid grid-cols-2 gap-3">
-                <ModalField label="First Name *">
+                <ModalField id={firstNameId} label="First Name *">
                   <input
+                    id={firstNameId}
                     type="text"
                     required
+                    autoComplete="given-name"
                     placeholder="Jane"
                     value={form.firstName}
                     onChange={(e) =>
@@ -691,9 +782,11 @@ function QuoteModal({
                     className="modal-input"
                   />
                 </ModalField>
-                <ModalField label="Last Name">
+                <ModalField id={lastNameId} label="Last Name">
                   <input
+                    id={lastNameId}
                     type="text"
+                    autoComplete="family-name"
                     placeholder="Smith"
                     value={form.lastName}
                     onChange={(e) =>
@@ -704,10 +797,12 @@ function QuoteModal({
                 </ModalField>
               </div>
 
-              <ModalField label="Email *">
+              <ModalField id={emailId} label="Email *">
                 <input
+                  id={emailId}
                   type="email"
                   required
+                  autoComplete="email"
                   placeholder="jane@example.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -716,9 +811,11 @@ function QuoteModal({
               </ModalField>
 
               <div className="grid grid-cols-2 gap-3">
-                <ModalField label="Phone">
+                <ModalField id={phoneId} label="Phone">
                   <input
+                    id={phoneId}
                     type="tel"
+                    autoComplete="tel"
                     placeholder="(815) 555-0100"
                     value={form.phone}
                     onChange={(e) =>
@@ -727,9 +824,12 @@ function QuoteModal({
                     className="modal-input"
                   />
                 </ModalField>
-                <ModalField label="ZIP Code">
+                <ModalField id={zipId} label="ZIP Code">
                   <input
+                    id={zipId}
                     type="text"
+                    inputMode="numeric"
+                    autoComplete="postal-code"
                     placeholder="60081"
                     value={form.zip}
                     onChange={(e) => setForm({ ...form, zip: e.target.value })}
@@ -739,8 +839,9 @@ function QuoteModal({
               </div>
 
               <div className="grid grid-cols-2 gap-3">
-                <ModalField label="Timeline">
+                <ModalField id={timelineId} label="Timeline">
                   <select
+                    id={timelineId}
                     value={form.timeline}
                     onChange={(e) =>
                       setForm({ ...form, timeline: e.target.value })
@@ -755,8 +856,9 @@ function QuoteModal({
                     <option>Just exploring</option>
                   </select>
                 </ModalField>
-                <ModalField label="Budget Range">
+                <ModalField id={budgetId} label="Budget Range">
                   <select
+                    id={budgetId}
                     value={form.budget}
                     onChange={(e) =>
                       setForm({ ...form, budget: e.target.value })
@@ -799,15 +901,20 @@ function QuoteModal({
 }
 
 function ModalField({
+  id,
   label,
   children,
 }: {
+  id: string;
   label: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
-      <label className="mb-1.5 block text-[10px] font-bold tracking-wider text-white/60 uppercase">
+      <label
+        htmlFor={id}
+        className="mb-1.5 block text-[10px] font-bold tracking-wider text-white/60 uppercase"
+      >
         {label}
       </label>
       {children}

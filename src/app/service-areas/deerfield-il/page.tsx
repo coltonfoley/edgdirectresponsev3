@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -89,6 +90,14 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  source: 'deerfield_hub',
+});
+
+const bottomContactHref = buildContactHref({
+  source: 'deerfield_hub_bottom',
+});
+
 export default function DeerfieldServiceAreaPage() {
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -108,7 +117,7 @@ export default function DeerfieldServiceAreaPage() {
   };
 
   return (
-    <main className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -154,7 +163,7 @@ export default function DeerfieldServiceAreaPage() {
               <Link href="/service-areas/deerfield-il/retractable-screens">
                 <Button size="lg">Explore Deerfield Screens</Button>
               </Link>
-              <Link href="/contact?source=deerfield_hub">
+              <Link href={heroContactHref}>
                 <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                   Request a Consultation
                 </Button>
@@ -309,7 +318,7 @@ export default function DeerfieldServiceAreaPage() {
                 bugs, sun, privacy, or rain. We will help you choose the cleanest
                 first step.
               </p>
-              <Link href="/contact?source=deerfield_hub_bottom">
+              <Link href={bottomContactHref}>
                 <Button size="lg">Start Your Deerfield Project</Button>
               </Link>
             </div>
@@ -335,6 +344,6 @@ export default function DeerfieldServiceAreaPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

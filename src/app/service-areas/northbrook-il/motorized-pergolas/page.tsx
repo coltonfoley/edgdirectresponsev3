@@ -1,26 +1,77 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  Home,
+  Palette,
+  Ruler,
+  ShieldCheck,
+  Smartphone,
+  Sun,
+  Wind,
+} from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import Link from 'next/link';
-import { ArrowLeft, ArrowRight, Check, Wind, ShieldCheck } from 'lucide-react';
-import { Metadata } from 'next';
-import * as images from '@/lib/images';
 import { generateFAQSchema } from '@/lib/schema';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Motorized Louvered Pergolas in Northbrook, IL | EDG',
   description:
-    "Motorized louvered pergolas for Northbrook homes. Local planning for Techny, Shermer Road, Northbrook Heights, HOA review, winter weather, screens, lighting, and outdoor rooms.",
+    'Motorized louvered pergolas for Northbrook homes. Local planning for Techny, Shermer Road, Northbrook Heights, HOA review, winter weather, screens, lighting, and outdoor rooms.',
   alternates: {
     canonical: '/service-areas/northbrook-il/motorized-pergolas',
   },
 };
 
+const fitReviewHref =
+  '/guides/pergola-system-fit-review?area=northbrook&source=northbrook_product';
+const bottomFitReviewHref =
+  '/guides/pergola-system-fit-review?area=northbrook&source=northbrook_bottom';
+
+const benefits = [
+  {
+    icon: Wind,
+    title: 'Planned around exposure',
+    description:
+      'Open yards, corner lots, and elevated patios need a system selected around wind, drainage, mounting conditions, and seasonal operation instead of a catalog size alone.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Review-ready documentation',
+    description:
+      'Northbrook projects are easier to review when finish information, drawings, product specifications, and site context are organized before the homeowner submits.',
+  },
+  {
+    icon: Palette,
+    title: 'Architectural finish control',
+    description:
+      'Brick, stone, traditional trim, and newer modern exteriors can all point to different frame and louver finishes. The system should feel intentional next to the home.',
+  },
+  {
+    icon: Smartphone,
+    title: 'Simple daily control',
+    description:
+      'Remote, app, sensor, lighting, and heater planning should be sorted before installation so the pergola is useful in normal weekday life, not only special occasions.',
+  },
+];
+
+const planningNotes = [
+  'Louvered roof control for sun, rain, and ventilation',
+  'Drainage, electrical routing, and controls reviewed before final specification',
+  'Screens, lighting, and heaters planned as part of one outdoor room when needed',
+  'Finish direction selected around the home, hardscape, and neighborhood context',
+];
+
 const faqs = [
   {
-    question: 'Will this work with my Homeowners Association?',
+    question: 'Will this work with my homeowners association?',
     answer:
       'Often, yes. Northbrook HOA and architectural review requests are easier when the homeowner can submit drawings, finish information, product specifications, and a clear site plan. EDG helps assemble that documentation so the pergola is reviewed as a planned architectural addition.',
   },
@@ -33,6 +84,26 @@ const faqs = [
     question: 'What happens during a power outage?',
     answer:
       'Motorized systems can be specified with manual override or backup options depending on the selected product and controls package. We review control expectations during design so the homeowner understands how the pergola behaves during storms, power interruptions, and seasonal shutdowns.',
+  },
+  {
+    question: 'Can a Northbrook pergola become a fuller outdoor room?',
+    answer:
+      'Yes. Many projects start with a louvered roof and later add screens, lighting, heaters, or side-wall planning. It is better to discuss those possibilities early so the frame, electrical, controls, and drainage plan do not create avoidable retrofit work.',
+  },
+];
+
+const gallery = [
+  {
+    src: images.featuredProjects.karp.hero,
+    alt: 'Northbrook louvered pergola project beside a pool and outdoor entertaining area',
+  },
+  {
+    src: images.featuredProjects.karp.gallery[0],
+    alt: 'Wood-grain louver detail on a Northbrook motorized pergola project',
+  },
+  {
+    src: images.featuredProjects.karp.gallery[1],
+    alt: 'Northbrook poolside pergola structure with privacy wall planning',
   },
 ];
 
@@ -52,7 +123,7 @@ export default function NorthbrookPergolaPage() {
       addressRegion: 'IL',
     },
     url: 'https://www.edgpatioshade.com/service-areas/northbrook-il/motorized-pergolas',
-    image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
+    image: `https://www.edgpatioshade.com${images.featuredProjects.karp.hero}`,
   };
 
   return (
@@ -65,21 +136,27 @@ export default function NorthbrookPergolaPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
-      <main className="min-h-screen bg-white dark:bg-black">
-        {/* Hero */}
-        <div className="relative flex h-[60vh] min-h-[500px] items-center justify-center overflow-hidden text-white">
-          <div className="absolute inset-0 z-10 bg-black/60" />
-          <Image
-            src={images.pages.locations.defaultHero}
-            alt="Luxury Motorized Pergola in Northbrook"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-          <div className="relative z-20 max-w-4xl px-6 text-center">
+
+      <div className="bg-surface min-h-screen">
+        <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
+          <div className="absolute inset-0">
+            <Image
+              src={images.featuredProjects.karp.hero}
+              alt="Northbrook louvered pergola project with poolside outdoor living space"
+              fill
+              priority
+              loading="eager"
+              className="object-cover opacity-35"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-black/65" />
+          </div>
+
+          <Container className="relative z-10">
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
@@ -92,281 +169,287 @@ export default function NorthbrookPergolaPage() {
               href="/service-areas/northbrook-il"
               className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Northbrook
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Northbrook service area
             </Link>
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-              Motorized Pergolas for Northbrook Homes
-            </h1>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-white md:text-2xl">
-              Louvered roof systems planned around Northbrook architecture,
-              winter weather, HOA review, shade, privacy, and everyday outdoor
-              room comfort.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/guides/pergola-system-fit-review?area=northbrook&source=northbrook_product">
-                <Button
-                  size="lg"
-                  className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90"
-                >
-                  Get a System Fit Review
-                </Button>
-              </Link>
-              <Link href="/systems/pergolas/configure">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/20 text-white hover:bg-white/10"
-                >
-                  Design in 3D <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Why Northbrook Needs This */}
-        <Section className="py-20">
-          <Container>
-            <div className="grid items-center gap-16 md:grid-cols-2">
-              <div className="space-y-8">
-                <h2 className="text-3xl font-bold md:text-4xl">
-                  Why Northbrook Pergolas Need Site-Specific Planning
-                </h2>
-                <p className="text-muted-foreground text-lg">
-                  Northbrook homeowners are usually balancing comfort, architecture,
-                  neighborhood review, and weather exposure. A light catalog
-                  pergola may create shade, but it rarely solves wind, drainage,
-                  privacy, winter exposure, lighting, and finish integration in
-                  one plan.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex gap-4">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-red-100 dark:bg-red-900/30">
-                      <Wind className="h-4 w-4 text-red-600 dark:text-red-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold">Wind and Exposure</h3>
-                      <p className="text-muted-foreground text-sm">
-                        Open yards, corner lots, and elevated patios need a
-                        system selected around exposure, not just around the
-                        opening size.
-                      </p>
-                    </div>
-                  </li>
-                  <li className="flex gap-4">
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/30">
-                      <ShieldCheck className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold">Snow, Drainage, and Controls</h3>
-                      <p className="text-muted-foreground text-sm">
-                        We review louver operation, drainage, electrical routing,
-                        and seasonal maintenance before recommending the final
-                        configuration.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded-2xl border border-black/5 bg-zinc-100 p-8 dark:bg-zinc-800">
-                <h3 className="mb-6 text-xl font-bold">
-                  Designed for Northbrook Architecture
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Whether you live in a classic Brick Georgian in Techny or a
-                  modern build near the village center, we match your trim color
-                  and architectural lines.
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <Check className="text-edg-brand-dark h-4 w-4" />{' '}
-                    <span>Custom Color Matching (RAL)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="text-edg-brand-dark h-4 w-4" />{' '}
-                    <span>Hidden Fasteners (No ugly bolts)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="text-edg-brand-dark h-4 w-4" />{' '}
-                    <span>Integrated LED Lighting</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </Section>
-
-        {/* Local Context Section */}
-        <Section className="border-t border-black/5 bg-zinc-50 py-20 dark:border-white/5 dark:bg-zinc-950">
-          <Container>
-            <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-                Built for Northbrook&apos;s Distinct Neighborhoods
-              </h2>
-              <p className="text-muted-foreground mb-8 text-lg">
-                From the stately Georgian estates in{' '}
-                <strong className="text-foreground">Techny</strong> to the
-                contemporary homes in <strong>Anets Woods</strong>, the
-                craftsman-inspired properties in{' '}
-                <strong>Greenfield Knolls</strong>, and the elegant residences
-                near <strong>Shermer Commons</strong>—our pergola systems are
-                designed to complement every architectural tradition found
-                throughout Northbrook. Whether your home features classic
-                Georgian symmetry, Tudor detailing, or clean Modern lines, we
-                customize every element to harmonize with your property. Our
-                proximity to Chicago means we stay current with the latest
-                design trends while respecting the timeless character that makes
-                Northbrook&apos;s neighborhoods so desirable.
+            <div className="max-w-4xl">
+              <h1 className="mb-6 text-4xl font-bold md:text-6xl">
+                Motorized Pergolas for Northbrook Homes
+              </h1>
+              <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
+                Louvered roof systems planned around Northbrook architecture,
+                winter weather, HOA review, privacy, lighting, and everyday
+                outdoor room comfort.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link
-                  href="/service-areas/northbrook-il"
-                  className="text-edg-brand-dark inline-flex items-center font-medium hover:underline"
-                >
-                  <ArrowLeft className="mr-1 h-4 w-4" /> Back to Northbrook
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Link href={fitReviewHref}>
+                  <Button size="lg">Get a System Fit Review</Button>
                 </Link>
-                <span className="text-muted-foreground hidden sm:inline">
-                  |
-                </span>
-                <Link
-                  href="/service-areas/northbrook-il#zoning"
-                  className="text-edg-brand-dark inline-flex items-center font-medium hover:underline"
-                >
-                  View Northbrook Planning Notes →
+                <Link href="/systems/pergolas/configure">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
+                    Design in 3D
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
                 </Link>
+                <Link href="/systems/pergolas">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
+                    View Pergola Systems
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        <Section className="section-md">
+          <Container>
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  Why This Product Fits Northbrook
+                </div>
+                <h2 className="section-title mb-6">
+                  Site-specific planning matters more than a catalog pergola
+                </h2>
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                  Northbrook homeowners are usually balancing comfort,
+                  architecture, neighborhood review, and weather exposure. A
+                  light decorative pergola may create shade, but it rarely
+                  solves wind, drainage, privacy, winter exposure, lighting, and
+                  finish integration in one plan.
+                </p>
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                  A motorized louvered system gives the patio more range. Open
+                  the roof for sun and airflow, close it when rain moves in, and
+                  pair it with screens or lighting when the space needs to
+                  perform more like an outdoor room.
+                </p>
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  The goal is not to make the backyard look more expensive. The
+                  goal is to make the space easier to use, easier to review, and
+                  better matched to the home.
+                </p>
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src={images.featuredProjects.karp.gallery[1]}
+                  alt="Northbrook poolside pergola structure with surrounding landscape"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
               </div>
             </div>
           </Container>
         </Section>
 
-        {/* Features & Specifications Section */}
-        <Section className="py-20">
+        <Section className="section-md bg-surface-muted">
           <Container>
-            <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">
-              Specifications & Smart Features
-            </h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/30">
-                  <Wind className="h-5 w-5 text-green-600 dark:text-green-400" />
-                </div>
-                <h3 className="mb-2 font-bold">Wind Rating</h3>
-                <p className="text-muted-foreground text-sm">
-                  Product-specific wind performance is reviewed against your
-                  site exposure, mounting conditions, and selected system.
-                </p>
+            <div className="mb-12 text-center">
+              <div className="label-editorial-brand mb-4">
+                Local Planning Priorities
               </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30">
-                  <ShieldCheck className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="mb-2 font-bold">Snow Load</h3>
-                <p className="text-muted-foreground text-sm">
-                  Louver operation, drainage, and winter maintenance are planned
-                  before the structure is finalized.
-                </p>
-              </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                  <span className="text-lg font-bold text-purple-600 dark:text-purple-400">
-                    ↔
-                  </span>
-                </div>
-                <h3 className="mb-2 font-bold">Beam Spans</h3>
-                <p className="text-muted-foreground text-sm">
-                  Up to 24-foot clear spans without interior posts—maximize
-                  your usable outdoor living space.
-                </p>
-              </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-900/30">
-                  <span className="text-lg font-bold text-amber-600 dark:text-amber-400">
-                    ⚙
-                  </span>
-                </div>
-                <h3 className="mb-2 font-bold">Motor System</h3>
-                <p className="text-muted-foreground text-sm">
-                  Premium Somfy® motors or equivalent with 10-year warranty.
-                  Whisper-quiet operation you can barely hear.
-                </p>
-              </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
-                  <span className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
-                    📱
-                  </span>
-                </div>
-                <h3 className="mb-2 font-bold">Smart Controls</h3>
-                <p className="text-muted-foreground text-sm">
-                  Remote control, smartphone app, and voice integration with
-                  Alexa and Google Home. Set schedules and automation.
-                </p>
-              </div>
-              <div className="rounded-xl border border-black/5 bg-white p-6 shadow-sm dark:border-white/5 dark:bg-zinc-900">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 dark:bg-rose-900/30">
-                  <span className="text-lg font-bold text-rose-600 dark:text-rose-400">
-                    🎨
-                  </span>
-                </div>
-                <h3 className="mb-2 font-bold">Custom Finishes</h3>
-                <p className="text-muted-foreground text-sm">
-                  Any RAL color available plus realistic wood-grain textures.
-                  Match your home&apos;s trim, siding, or create a contrast.
-                </p>
-              </div>
+              <h2 className="section-title mb-4">
+                What a pergola needs to solve in Northbrook
+              </h2>
             </div>
-          </Container>
-        </Section>
-
-        {/* FAQ Section */}
-        <Section className="border-t border-black/5 bg-zinc-50 py-20 dark:border-white/5 dark:bg-zinc-950">
-          <Container>
-            <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl">
-              Northbrook Pergola FAQ
-            </h2>
-            <div className="mx-auto max-w-3xl space-y-6">
-              {faqs.map((faq) => (
-                <div
-                  key={faq.question}
-                  className="rounded-xl border border-black/5 bg-white p-6 dark:border-white/5 dark:bg-zinc-900"
-                >
-                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {benefits.map((benefit) => (
+                <Card key={benefit.title} variant="default" padding="lg">
+                  <div className="mb-4 flex items-center gap-3">
+                    <benefit.icon className="text-edg-brand-text h-5 w-5" />
+                    <h3 className="text-xl font-bold">{benefit.title}</h3>
+                  </div>
+                  <p className="text-text-secondary leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </Card>
               ))}
             </div>
           </Container>
         </Section>
 
-        {/* Enhanced CTA Section */}
-        <Section className="py-20">
+        <Section className="section-md">
           <Container>
-            <div className="rounded-2xl bg-gradient-to-br from-zinc-900 to-zinc-800 p-8 text-center text-white dark:from-zinc-800 dark:to-zinc-900 md:p-12">
-              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
-                Ready for Your Northbrook Outdoor Living Space?
+            <div className="mb-12 text-center">
+              <div className="label-editorial-brand mb-4">
+                Features and Planning Notes
+              </div>
+              <h2 className="section-title mb-4">
+                Selected around the home, not just the opening size
               </h2>
-              <p className="mx-auto mb-6 max-w-2xl text-lg text-zinc-200">
-                We understand Northbrook&apos;s unique requirements—from the
-                historic homes near the village center to new construction in
-                Anets Woods. Every system is engineered for your specific site
-                conditions.
-              </p>
-              <p className="mx-auto mb-8 max-w-2xl text-zinc-300">
-                Get a complimentary design consultation and see how a motorized
-                pergola can transform your patio into a year-round outdoor room.
-              </p>
-              <Link href="/guides/pergola-system-fit-review?area=northbrook&source=northbrook_bottom">
-                <Button
-                  size="lg"
-                  className="bg-edg-brand text-edg-dark hover:bg-edg-brand/90"
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {planningNotes.map((item) => (
+                <Card key={item} variant="muted" padding="lg">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-primary font-medium">{item}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            <div className="mt-12 grid gap-10 lg:grid-cols-2">
+              <div>
+                <h3 className="mb-4 flex items-center gap-3 text-2xl font-bold">
+                  <Ruler className="text-edg-brand-text h-5 w-5" />
+                  Neighborhood context
+                </h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Homes near Techny, Shermer Road, Northbrook Heights, and the
+                  village center can have very different architecture and review
+                  needs. Some projects need a structure that disappears into
+                  traditional trim lines. Others need a cleaner modern profile
+                  beside updated hardscape and pool work.
+                </p>
+                <p className="text-text-secondary leading-relaxed">
+                  That is why the first conversation should include photos,
+                  rough dimensions, how exposed the site feels, and whether the
+                  pergola is meant to stand alone or become the roof of a fuller
+                  outdoor room.
+                </p>
+              </div>
+              <div>
+                <h3 className="mb-4 flex items-center gap-3 text-2xl font-bold">
+                  <Sun className="text-edg-brand-text h-5 w-5" />
+                  How this connects to the rest of the space
+                </h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  A louvered roof can solve sun and rain, but many Northbrook
+                  projects also need privacy, evening use, and seasonal comfort.
+                  Screens, heaters, lighting, and controls should be considered
+                  early so the system feels like one plan.
+                </p>
+                <p className="text-text-secondary leading-relaxed">
+                  If the side-wall problem is bigger than the roof problem, EDG
+                  can also compare screens and enclosure strategies before the
+                  pergola spec is locked in.
+                </p>
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        <Section className="section-md bg-surface-muted">
+          <Container>
+            <div className="mb-12 text-center">
+              <div className="label-editorial-brand mb-4">Project Proof</div>
+              <h2 className="section-title mb-4">
+                Northbrook project imagery, not a generic catalog scene
+              </h2>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {gallery.map((item) => (
+                <div
+                  key={item.alt}
+                  className="relative aspect-[4/3] overflow-hidden"
                 >
-                  Start Your System Fit Review
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link href="/projects/karp">
+                <Button variant="secondary">
+                  View the Northbrook Karp Project
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
           </Container>
         </Section>
-      </main>
+
+        <Section className="section-lg">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-12 text-center">
+                <div className="label-editorial-brand mb-4">FAQ</div>
+                <h2 className="section-title">Northbrook pergola questions</h2>
+              </div>
+              <div className="space-y-6">
+                {faqs.map((faq) => (
+                  <Card key={faq.question} variant="default" padding="lg">
+                    <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                    <p className="text-text-secondary leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </Container>
+        </Section>
+
+        <section className="section-lg bg-surface-dark text-text-inverse">
+          <Container>
+            <div className="grid items-center gap-16 md:grid-cols-2">
+              <div>
+                <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
+                  Ready to plan a Northbrook pergola?
+                </h2>
+                <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
+                  Send a few photos, rough dimensions, and any HOA or review
+                  concerns. EDG will help narrow the system direction before
+                  you chase the wrong quote.
+                </p>
+                <div className="flex flex-col gap-4 sm:flex-row">
+                  <Link href={bottomFitReviewHref}>
+                    <Button size="lg">Start a System Fit Review</Button>
+                  </Link>
+                  <Link href="/systems/pergolas">
+                    <Button variant="outline" size="lg">
+                      Compare Pergola Systems
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="border-border-inverse hidden border-l pl-16 md:block">
+                <div className="text-text-inverse-muted space-y-4">
+                  <h4 className="text-lg font-bold tracking-wide uppercase">
+                    Keep exploring
+                  </h4>
+                  <Link
+                    href="/service-areas/northbrook-il"
+                    className="flex items-center gap-3"
+                  >
+                    <Home className="text-edg-brand h-4 w-4" />
+                    Back to Northbrook service area hub
+                  </Link>
+                  <Link
+                    href="/systems/pergolas"
+                    className="flex items-center gap-3"
+                  >
+                    <ShieldCheck className="text-edg-brand h-4 w-4" />
+                    Full pergola specs and accessories
+                  </Link>
+                  <Link
+                    href="/service-areas/northbrook-il#zoning"
+                    className="flex items-center gap-3"
+                  >
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
+                    Northbrook planning notes
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      </div>
     </>
   );
 }

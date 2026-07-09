@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Card } from '@/components/ui/Card';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       <Section className="pt-24 pb-16 md:pt-32">
         <Container>
           {/* Breadcrumb */}
@@ -156,18 +157,18 @@ export default function TermsPage() {
                   If you have any questions about these Terms of Service, please
                   contact us at:
                 </p>
-                <div className="mt-4 rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+                <Card variant="muted" padding="lg" className="mt-4">
                   <p className="text-foreground font-bold">EDG Patio & Shade</p>
                   <p>1802 Holian Drive</p>
                   <p>Spring Grove, IL 60081</p>
                   <p>Email: sales@edgpatioshade.com</p>
                   <p>Phone: (815) 581-0138</p>
-                </div>
+                </Card>
               </section>
             </div>
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

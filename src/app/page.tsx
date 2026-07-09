@@ -11,6 +11,8 @@ import { ReviewsSection } from '@/components/features/ReviewsSection';
 import { ClientLogoBar } from '@/components/features/ClientLogoBar';
 import { ImageSlider } from '@/components/ui/ImageSlider';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
+import { getAllProjects, getProject, type Project } from '@/lib/projects';
 import { ArrowRight, Check } from 'lucide-react';
 
 // Pergola images for the slider
@@ -100,6 +102,20 @@ const priorityPlanningLinks = [
   },
 ];
 
+const allProjects = getAllProjects();
+const projectCount = allProjects.length;
+const photoReadyProjectCount = allProjects.filter(
+  (project) => project.hasRealPhotography
+).length;
+const featuredProjectSlugs = ['karp', 'carmines', 'wade'];
+const featuredProjects = featuredProjectSlugs
+  .map((slug) => getProject(slug))
+  .filter((project): project is Project => Boolean(project));
+const homeownerContactHref = buildContactHref({
+  type: 'homeowner',
+  source: 'home_residential_directory',
+});
+
 export const metadata: Metadata = {
   title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
   description:
@@ -119,7 +135,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="selection:bg-edg-brand flex min-h-screen flex-col bg-white selection:text-black">
+    <div className="selection:bg-edg-brand flex min-h-screen flex-col bg-white selection:text-black">
       {/* ========== HERO SECTION ========== */}
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden pt-24">
         {/* Background Visuals - Optimized for Performance */}
@@ -226,7 +242,7 @@ export default function Home() {
 
           {/* Residential Side */}
           <Link
-            href="/contact?type=homeowner"
+            href={homeownerContactHref}
             className="group relative block min-h-[40vh] overflow-hidden border-t border-white/10 bg-zinc-900 md:min-h-[60vh] md:border-t-0 md:border-l"
           >
             {/* Background Image using next/Image */}
@@ -469,124 +485,68 @@ export default function Home() {
       </Section>
 
       {/* ========== FEATURED PROJECTS ========== */}
-      <Section className="bg-zinc-50 py-24 dark:bg-zinc-950">
+      <Section className="border-y border-border bg-surface-muted py-24">
         <Container>
           <div className="mb-16 text-center">
-            <span className="text-edg-brand-dark mb-4 inline-block text-sm font-bold tracking-[0.2em] uppercase">
+            <span className="label-editorial-brand mb-4 inline-block">
               Our Work
             </span>
-            <h2 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-              24 Outdoor Transformations
+            <h2 className="mb-4 text-4xl font-bold md:text-5xl">
+              {photoReadyProjectCount} Finished Project Photo Sets
             </h2>
-            <p className="mx-auto max-w-2xl text-lg text-gray-600 dark:text-zinc-300">
-              From Northbrook estates to Chicago rooftops, see how we help
-              homeowners and businesses create outdoor spaces they use
-              year-round.
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary">
+              Browse {projectCount} project profiles across residential and
+              commercial work. Finished photo sets are highlighted here, with
+              more project records available in the full portfolio.
             </p>
           </div>
 
           {/* Featured Project Cards */}
-          <div className="grid gap-8 md:grid-cols-3">
-            {/* Project 1: Karp - Northbrook */}
-            <Link
-              href="/projects/karp"
-              className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={images.projects.northbrookFamily.hero}
-                  alt="Karp - Northbrook"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  quality={75}
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-white px-3 py-1 text-xs font-bold text-black uppercase">
-                    Residential
-                  </span>
+          <div className="grid gap-6 md:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="group block h-full overflow-hidden border border-border bg-white transition-colors hover:border-edg-brand"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden border-b border-border bg-surface-muted">
+                  <Image
+                    src={project.cardImage}
+                    alt={`${project.title} project in ${project.location}`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={75}
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span
+                      className={`px-3 py-1 text-xs font-bold tracking-wider uppercase ${
+                        project.type === 'Commercial'
+                          ? 'bg-edg-brand text-black'
+                          : 'bg-white text-black'
+                      }`}
+                    >
+                      {project.type}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-2 flex items-center gap-1 text-sm text-gray-500">
-                  <span className="text-edg-brand-dark">Northbrook, IL</span>
+                <div className="p-6">
+                  <div className="mb-2 text-sm font-bold text-edg-brand-dark">
+                    {project.location}
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-edg-brand-dark">
+                    {project.title}
+                  </h3>
+                  <p className="mb-5 line-clamp-2 text-sm leading-relaxed text-text-secondary">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-dark uppercase transition-colors group-hover:text-black">
+                    View Project
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </div>
                 </div>
-                <h3 className="group-hover:text-edg-brand mb-2 text-xl font-bold transition-colors">
-                  Karp
-                </h3>
-                <p className="line-clamp-2 text-sm text-gray-600 dark:text-zinc-300">
-                  Multi Bay System with Wood Grain Panels and Privacy Wall
-                </p>
-              </div>
-            </Link>
-
-            {/* Project 2: Carmine&apos;s - Chicago */}
-            <Link
-              href="/projects/carmines"
-              className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={images.projects.carmines.hero}
-                  alt="Carmine's - Chicago"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  quality={75}
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-edg-brand px-3 py-1 text-xs font-bold text-black uppercase">
-                    Commercial
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-2 flex items-center gap-1 text-sm text-gray-500">
-                  <span className="text-edg-brand-dark">Chicago, IL</span>
-                </div>
-                <h3 className="group-hover:text-edg-brand mb-2 text-xl font-bold transition-colors">
-                  Carmine&apos;s
-                </h3>
-                <p className="line-clamp-2 text-sm text-gray-600 dark:text-zinc-300">
-                  Multi-Bay commercial system to increase outdoor seating on
-                  Rush Street
-                </p>
-              </div>
-            </Link>
-
-            {/* Project 3: Wade - Barrington */}
-            <Link
-              href="/projects/wade"
-              className="group block overflow-hidden bg-white transition-all duration-300 hover:shadow-2xl dark:bg-zinc-900"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={images.projects.wade.hero}
-                  alt="Wade - Barrington"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  quality={75}
-                />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-white px-3 py-1 text-xs font-bold text-black uppercase">
-                    Residential
-                  </span>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="mb-2 flex items-center gap-1 text-sm text-gray-500">
-                  <span className="text-edg-brand-dark">Barrington, IL</span>
-                </div>
-                <h3 className="group-hover:text-edg-brand mb-2 text-xl font-bold transition-colors">
-                  Wade
-                </h3>
-                <p className="line-clamp-2 text-sm text-gray-600 dark:text-zinc-300">
-                  Outdoor room with fully retractable louvers and motorized
-                  glass
-                </p>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
 
           {/* View All CTA */}
@@ -602,6 +562,6 @@ export default function Home() {
 
       {/* ========== GOOGLE REVIEWS ========== */}
       <ReviewsSection />
-    </main>
+    </div>
   );
 }

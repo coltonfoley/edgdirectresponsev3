@@ -9,7 +9,15 @@ import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { trackConversion } from '@/lib/analytics';
 import { buildContactHref } from '@/lib/contact-links';
-import { commercialNavLinks } from '@/lib/site-routes';
+import {
+  commercialNavLinks,
+  guideNavLinks,
+  localProductNavLinks,
+  locationNavLinks,
+  outdoorRoomNavLinks,
+  productsNavLinks,
+  workNavLinks,
+} from '@/lib/site-routes';
 
 type MenuLink = {
   href: string;
@@ -17,170 +25,29 @@ type MenuLink = {
   desc: string;
 };
 
-// Products dropdown - all systems combined
-const productsDropdown: MenuLink[] = [
-  {
-    href: '/systems/pergolas',
-    label: 'Pergolas',
-    desc: 'Motorized louvered roof systems',
-  },
-  {
-    href: '/systems/shades',
-    label: 'Screens',
-    desc: 'Retractable exterior shades',
-  },
-  {
-    href: '/systems/enclosures',
-    label: 'Enclosures',
-    desc: 'Glass wall systems',
-  },
-  {
-    href: '/systems/appliances',
-    label: 'Outdoor Kitchens',
-    desc: 'Built-in grills & appliances',
-  },
-  {
-    href: '/systems/saunas',
-    label: 'Saunas',
-    desc: 'Premium outdoor sauna systems',
-  },
-];
+const toMenuLinks = (
+  routes: {
+    href: string;
+    label: string;
+    desc?: string;
+  }[]
+): MenuLink[] =>
+  routes.map((route) => ({
+    href: route.href,
+    label: route.label,
+    desc: route.desc ?? '',
+  }));
 
-const commercialDropdown: MenuLink[] = commercialNavLinks.map((route) => ({
-  href: route.href,
-  label: route.label,
-  desc: route.desc ?? '',
-}));
-
-// Locations dropdown (renamed from Areas)
-const locationsDropdown: MenuLink[] = [
-  {
-    href: '/service-areas/chicago-il',
-    label: 'Chicago, IL',
-    desc: 'City rooftops, patios, and tight lots',
-  },
-  {
-    href: '/service-areas/spring-grove-il',
-    label: 'Spring Grove, IL',
-    desc: 'Showroom and local home base',
-  },
-  {
-    href: '/service-areas/north-shore-chicago',
-    label: 'North Shore Chicago',
-    desc: 'Lakefront homes and estate properties',
-  },
-  {
-    href: '/service-areas/lake-forest-il',
-    label: 'Lake Forest, IL',
-    desc: 'Permit-aware North Shore pergolas',
-  },
-  {
-    href: '/service-areas/barrington-il',
-    label: 'Barrington, IL',
-    desc: 'Estate communities & horse country',
-  },
-  {
-    href: '/service-areas/naperville-il',
-    label: 'Naperville, IL',
-    desc: 'Western suburban hub',
-  },
-  {
-    href: '/service-areas/lake-geneva-wi',
-    label: 'Lake Geneva, WI',
-    desc: 'Lakefront pergolas and screens',
-  },
-  {
-    href: '/service-areas/southwest-florida',
-    label: 'Southwest Florida',
-    desc: 'Gulf Coast screens and pergolas',
-  },
-  {
-    href: '/service-areas/sanibel-outdoor-living',
-    label: 'Sanibel, FL',
-    desc: 'Gulf Coast outdoor living',
-  },
-];
-
-const localProductDropdown: MenuLink[] = [
-  {
-    href: '/service-areas/chicago-il/motorized-pergolas',
-    label: 'Chicago Pergolas',
-    desc: 'City rooftops, tight lots and permit-aware planning',
-  },
-  {
-    href: '/service-areas/chicago-il/retractable-screens',
-    label: 'Chicago Screens',
-    desc: 'Outdoor shades for wind, privacy, insects and glare',
-  },
-  {
-    href: '/service-areas/chicago-il/glass-enclosures',
-    label: 'Chicago Glass Enclosures',
-    desc: 'Flexible wind and rain comfort for urban patios',
-  },
-  {
-    href: '/service-areas/lake-geneva-wi/motorized-pergolas',
-    label: 'Lake Geneva Pergolas',
-    desc: 'Waterfront shade, views and wind-aware structure',
-  },
-  {
-    href: '/service-areas/lake-geneva-wi/retractable-screens',
-    label: 'Lake Geneva Screens',
-    desc: 'Bug, glare and privacy control for lake homes',
-  },
-  {
-    href: '/service-areas/southwest-florida/motorized-screens',
-    label: 'Southwest Florida Screens',
-    desc: 'Coastal screen planning for Gulf Coast homes',
-  },
-  {
-    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
-    label: 'Sanibel Louvered Pergolas',
-    desc: 'Open-air shade planning for island outdoor living',
-  },
-  {
-    href: '/service-areas/sanibel-outdoor-living/zoning-guide',
-    label: 'Sanibel Permit Guide',
-    desc: 'Permit and review path for lanais and pergolas',
-  },
-];
-
-const guidesDropdown: MenuLink[] = [
-  {
-    href: '/guides/motorized-pergola-planning',
-    label: 'Pergola Planning Guide',
-    desc: 'Cost, fit, drainage, controls, accessories and constraints',
-  },
-  {
-    href: '/guides/pergola-system-fit-review',
-    label: 'System Fit Review',
-    desc: 'Share photos and goals so EDG can identify the likely path',
-  },
-  {
-    href: '/guides/motorized-pergola-budget-examples',
-    label: 'Budget Examples',
-    desc: 'Realistic planning bands for premium outdoor living projects',
-  },
-  {
-    href: '/guides/motorized-pergola-permits-hoa-engineering',
-    label: 'Permits, HOA & Engineering',
-    desc: 'How approvals, drawings and site details shape the project',
-  },
-  {
-    href: '/guides/pergola-cost',
-    label: 'Pergola Cost Guide',
-    desc: 'What drives premium pergola pricing and project scope',
-  },
-  {
-    href: '/guides/magnatrack-screens-cost',
-    label: 'MagnaTrack Screens Cost',
-    desc: 'Budget factors for motorized screens and shade retrofits',
-  },
-  {
-    href: '/guides/louvered-pergola-brands-compared',
-    label: 'Pergola System Comparison',
-    desc: 'How EDG matches brand, site, budget and feature needs',
-  },
-];
+const productsDropdown = toMenuLinks(productsNavLinks);
+const commercialDropdown = toMenuLinks(commercialNavLinks);
+const locationsDropdown = toMenuLinks(locationNavLinks);
+const localProductDropdown = toMenuLinks(localProductNavLinks);
+const guidesDropdown = toMenuLinks(guideNavLinks);
+const outdoorRoomDropdown = toMenuLinks(outdoorRoomNavLinks);
+const workOrder = ['Projects', 'Gallery', 'Showroom'];
+const workDropdown = toMenuLinks(workNavLinks).sort(
+  (a, b) => workOrder.indexOf(a.label) - workOrder.indexOf(b.label)
+);
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -195,7 +62,10 @@ export function Navbar() {
   const locationsDropdownRef = useRef<HTMLDivElement>(null);
   const workDropdownRef = useRef<HTMLDivElement>(null);
   const guidesDropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
+  const mobileMenuId = 'site-mobile-menu';
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -244,12 +114,67 @@ export function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (
+      !isOpen &&
+      !productsOpen &&
+      !commercialOpen &&
+      !locationsOpen &&
+      !workOpen &&
+      !guidesOpen
+    ) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+
+      setProductsOpen(false);
+      setCommercialOpen(false);
+      setLocationsOpen(false);
+      setWorkOpen(false);
+      setGuidesOpen(false);
+
+      if (isOpen) {
+        setIsOpen(false);
+        window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [
+    commercialOpen,
+    guidesOpen,
+    isOpen,
+    locationsOpen,
+    productsOpen,
+    workOpen,
+  ]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.requestAnimationFrame(() => mobileMenuRef.current?.focus());
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
+
   // Hide navbar on admin pages
   if (pathname?.startsWith('/admin')) return null;
 
-  // Contact starts with a split light/dark first viewport, so the transparent
-  // white nav can disappear over the form side.
-  const solidNav = scrolled || pathname === '/contact';
+  // Light first-view routes need the solid nav immediately so the transparent
+  // white nav does not disappear over the page body.
+  const solidNav =
+    scrolled ||
+    pathname === '/contact' ||
+    pathname === '/privacy' ||
+    pathname === '/terms' ||
+    pathname === '/html-sitemap';
   const textColor = solidNav ? 'text-edg-dark' : 'text-white';
   const logoColor = solidNav ? 'text-edg-dark' : 'text-white';
   const isSouthwestFloridaPage = pathname?.startsWith(
@@ -496,42 +421,24 @@ export function Navbar() {
 
               {workOpen && (
                 <div className="animate-in fade-in zoom-in-95 absolute top-full left-0 mt-3 w-64 overflow-hidden rounded-none border border-black/10 bg-white shadow-2xl">
-                  <Link
-                    href="/projects"
-                    onClick={() => setWorkOpen(false)}
-                    className="group block border-b border-black/5 px-5 py-3 transition-colors hover:bg-black hover:text-white"
-                  >
-                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
-                      Projects
-                    </div>
-                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
-                      Case studies & installations
-                    </div>
-                  </Link>
-                  <Link
-                    href="/gallery"
-                    onClick={() => setWorkOpen(false)}
-                    className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
-                  >
-                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
-                      Gallery
-                    </div>
-                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
-                      Browse our portfolio
-                    </div>
-                  </Link>
-                  <Link
-                    href="/showroom"
-                    onClick={() => setWorkOpen(false)}
-                    className="group block px-5 py-3 transition-colors hover:bg-black hover:text-white"
-                  >
-                    <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
-                      Showroom
-                    </div>
-                    <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
-                      Visit the Spring Grove showroom
-                    </div>
-                  </Link>
+                  {workDropdown.map((item, index) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setWorkOpen(false)}
+                      className={cn(
+                        'group block px-5 py-3 transition-colors hover:bg-black hover:text-white',
+                        index === 0 && 'border-b border-black/5'
+                      )}
+                    >
+                      <div className="group-hover:text-edg-brand text-sm font-bold tracking-wide text-black uppercase transition-colors">
+                        {item.label}
+                      </div>
+                      <div className="mt-1 text-xs text-gray-500 group-hover:text-gray-300">
+                        {item.desc}
+                      </div>
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -691,9 +598,20 @@ export function Navbar() {
                 <Phone className="h-5 w-5" />
               </a>
               <button
+                ref={mobileMenuButtonRef}
+                type="button"
                 className={cn('p-2', textColor)}
-                onClick={() => setIsOpen(!isOpen)}
-                aria-label="Toggle menu"
+                onClick={() => {
+                  setIsOpen((open) => !open);
+                  setProductsOpen(false);
+                  setCommercialOpen(false);
+                  setLocationsOpen(false);
+                  setWorkOpen(false);
+                  setGuidesOpen(false);
+                }}
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpen}
+                aria-controls={mobileMenuId}
               >
                 {isOpen ? (
                   <X className="h-6 w-6" />
@@ -707,7 +625,13 @@ export function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex h-screen flex-col overflow-y-auto bg-black p-6 text-white xl:hidden">
+          <nav
+            id={mobileMenuId}
+            ref={mobileMenuRef}
+            tabIndex={-1}
+            aria-label="Mobile navigation"
+            className="animate-in slide-in-from-top-2 absolute top-full right-0 left-0 flex h-screen flex-col overflow-y-auto bg-black p-6 text-white xl:hidden"
+          >
             <div className="flex flex-col gap-8 pt-10">
               {/* Products Section */}
               <div className="space-y-4">
@@ -747,20 +671,21 @@ export function Navbar() {
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
                   Outdoor Rooms
                 </div>
-                <Link
-                  href="/outdoor-rooms"
-                  className="hover:text-edg-brand block text-2xl font-bold text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Outdoor Rooms
-                </Link>
-                <Link
-                  href="/outdoor-rooms/pergola-glass-outdoor-room"
-                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Pergola + Glass Outdoor Room
-                </Link>
+                {outdoorRoomDropdown.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      'block transition-colors',
+                      index === 0
+                        ? 'hover:text-edg-brand text-2xl font-bold text-white'
+                        : 'text-lg font-medium text-gray-300 hover:text-white'
+                    )}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
 
               <div className="h-px bg-white/10" />
@@ -837,27 +762,21 @@ export function Navbar() {
                 <div className="text-edg-brand text-xs font-bold tracking-[0.2em] uppercase">
                   Our Work
                 </div>
-                <Link
-                  href="/projects"
-                  className="hover:text-edg-brand block text-2xl font-bold text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/gallery"
-                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Gallery
-                </Link>
-                <Link
-                  href="/showroom"
-                  className="block text-lg font-medium text-gray-300 transition-colors hover:text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Showroom
-                </Link>
+                {workDropdown.map((item, index) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={cn(
+                      'block transition-colors',
+                      index === 0
+                        ? 'hover:text-edg-brand text-2xl font-bold text-white'
+                        : 'text-lg font-medium text-gray-300 hover:text-white'
+                    )}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
 
               <div className="h-px bg-white/10" />
@@ -903,7 +822,7 @@ export function Navbar() {
                 </Link>
               </div>
             </div>
-          </div>
+          </nav>
         )}
       </Container>
     </header>

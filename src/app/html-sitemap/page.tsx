@@ -53,47 +53,104 @@ export default function SitemapPage() {
       })),
     },
   ];
+  const routeCount = sitemapLinks.reduce(
+    (total, section) => total + section.links.length,
+    0
+  );
 
   return (
-    <main className="bg-background min-h-screen pt-24 pb-16">
-      <Section>
+    <div className="min-h-screen bg-surface text-text-primary">
+      <Section className="border-b border-border bg-surface-dark pt-28 pb-16 text-text-inverse md:pt-32 md:pb-20">
         <Container>
-          {/* Breadcrumb */}
           <div className="mb-8">
-            <Breadcrumb items={[{ label: 'Sitemap' }]} />
+            <Breadcrumb
+              items={[{ label: 'Sitemap' }]}
+              className="text-text-inverse-muted"
+            />
           </div>
-          <div className="mx-auto max-w-4xl">
-            <h1 className="mb-8 text-4xl font-bold md:text-5xl">Sitemap</h1>
-            <p className="text-muted-foreground mb-12 text-lg">
-              Overview of all pages on our website.
-            </p>
 
-            <div className="grid gap-x-12 gap-y-12 md:grid-cols-2">
-              {sitemapLinks.map((section) => (
-                <div key={section.category}>
-                  <h2 className="text-edg-brand-text dark:text-edg-brand mb-4 text-xl font-bold">
-                    {section.category}
-                  </h2>
-                  <ul className="space-y-3">
-                    {section.links.map((link) => (
-                      <li
-                        key={`${section.category}-${link.href}-${link.label}`}
-                      >
-                        <Link
-                          href={link.href}
-                          className="text-muted-foreground hover:text-foreground transition-colors hover:underline"
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
+            <div className="max-w-4xl">
+              <div className="label-editorial mb-5 text-edg-brand">
+                Site Index
+              </div>
+              <h1 className="mb-6 text-5xl leading-tight font-bold md:text-7xl">
+                EDG page directory.
+              </h1>
+              <p className="max-w-2xl text-xl leading-relaxed text-zinc-300">
+                A source-backed index of product, guide, service-area,
+                commercial, project, and policy pages on EDG Patio & Shade.
+              </p>
+            </div>
+
+            <div className="border border-white/10 bg-black/35 p-6">
+              <div className="mb-4 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                Route Inventory
+              </div>
+              <div className="flex items-baseline justify-between gap-4 border-t border-white/10 pt-4">
+                <span className="text-sm font-bold text-white">
+                  Listed pages
+                </span>
+                <span className="text-4xl font-bold text-edg-brand">
+                  {routeCount}
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                Generated from the shared route registry plus current project
+                records.
+              </p>
             </div>
           </div>
         </Container>
       </Section>
-    </main>
+
+      <Section className="section-md bg-surface">
+        <Container>
+          <div className="grid gap-6 md:grid-cols-2">
+            {sitemapLinks.map((section) => (
+              <section
+                key={section.category}
+                className="border border-border bg-white p-6"
+                aria-labelledby={`sitemap-${section.category
+                  .toLowerCase()
+                  .replace(/[^a-z0-9]+/g, '-')}`}
+              >
+                <div className="mb-5 flex items-baseline justify-between gap-4 border-b border-border pb-4">
+                  <h2
+                    id={`sitemap-${section.category
+                      .toLowerCase()
+                      .replace(/[^a-z0-9]+/g, '-')}`}
+                    className="text-xl font-bold text-text-primary"
+                  >
+                    {section.category}
+                  </h2>
+                  <span className="text-xs font-bold tracking-[0.18em] text-text-muted uppercase">
+                    {section.links.length} pages
+                  </span>
+                </div>
+                <ul className="space-y-3">
+                  {section.links.map((link) => (
+                    <li key={`${section.category}-${link.href}-${link.label}`}>
+                      <Link
+                        href={link.href}
+                        className="group flex items-center justify-between gap-4 text-sm font-medium text-text-secondary transition-colors hover:text-edg-brand-dark"
+                      >
+                        <span>{link.label}</span>
+                        <span
+                          aria-hidden="true"
+                          className="text-edg-brand-dark opacity-0 transition-opacity group-hover:opacity-100"
+                        >
+                          /
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
+        </Container>
+      </Section>
+    </div>
   );
 }

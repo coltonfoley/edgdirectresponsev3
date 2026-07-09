@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import SaunasPageClient from './SaunasPageClient';
 import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Container } from '@/components/ui/Container';
 
 export const metadata: Metadata = {
   title: 'Custom Sauna Installation Chicago & Milwaukee | EDG Patio & Shade',
@@ -21,11 +19,11 @@ export const metadata: Metadata = {
 const saunasFAQSchema = generateFAQSchema([
   {
     question: 'How much does a sauna installation cost?',
-    answer: 'Sauna installations typically range from $8,000 to $40,000+, depending on the model, size (2–3, 4, or 5–6 person), site prep requirements, and electrical work. Contact us for a free consultation and detailed quote.',
+    answer: 'Sauna installations typically range from $8,000 to $40,000+, depending on the model, size (2–3, 4, or 5–6 person), site prep requirements, and electrical work. EDG reviews the location, access, electrical path, and model direction before preparing a detailed quote.',
   },
   {
     question: 'Can saunas be used outdoors in winter?',
-    answer: 'Yes. Our outdoor sauna cabins are built from ThermoWood®—heat-treated Scandinavian timber engineered for outdoor exposure in cold climates. They are designed to be used year-round, including through Midwest winters with heavy snow.',
+    answer: 'Outdoor sauna cabins can be specified for cold-climate exterior use when the model, placement, base, electrical path, ventilation, and owner maintenance expectations are reviewed before installation.',
   },
   {
     question: 'How long does sauna installation take?',
@@ -33,7 +31,7 @@ const saunasFAQSchema = generateFAQSchema([
   },
   {
     question: 'Do outdoor saunas require permits or electrical work?',
-    answer: 'Yes. Outdoor saunas require an electrical connection and most municipalities require a permit for the structure. We handle site prep, electrical connections, and all permit submissions as part of our turnkey installation.',
+    answer: 'Yes. Outdoor saunas require an electrical connection, and many municipalities require a permit for the structure. EDG coordinates site planning, electrical requirements, and permit documentation around the selected installation path.',
   },
   {
     question: 'What types of saunas do you install?',
@@ -56,15 +54,6 @@ export default function SaunasPage() {
           __html: JSON.stringify(saunasBreadcrumbSchema),
         }}
       />
-      <div className="bg-white dark:bg-black border-b border-black/5 dark:border-white/5 pt-20 pb-3">
-        <Container>
-          <Breadcrumb items={[
-            { label: 'Home', href: '/' },
-            { label: 'Systems', href: '/systems' },
-            { label: 'Saunas', href: '/systems/saunas' },
-          ]} />
-        </Container>
-      </div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

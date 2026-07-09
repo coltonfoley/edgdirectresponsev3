@@ -1,32 +1,68 @@
 'use client';
 
 import Image from 'next/image';
+import {
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  DollarSign,
+  FileCheck,
+  Ruler,
+  Shield,
+} from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
 import { LeadCaptureForm } from '@/components/features/contact/LeadCaptureForm';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import {
-  CheckCircle2,
-  Sun,
-  Thermometer,
-  Shield,
-  DollarSign,
-  Ruler,
-  FileCheck,
-  BookOpen,
-  Star,
-} from 'lucide-react';
 import * as images from '@/lib/images';
 
+const guideBullets = [
+  'Compare pergolas, screens, glass, heat, and controls before narrowing a system',
+  'Understand the budget and project variables that change the recommendation',
+  'Know what to document before talking with contractors or builders',
+  'Avoid common planning misses around structure, drainage, power, and service access',
+];
+
+const proofPoints = [
+  'System-agnostic planning',
+  'Pergolas, screens, and glass',
+  'Built for early project decisions',
+];
+
+const guideBenefits = [
+  {
+    icon: DollarSign,
+    title: 'Budget Drivers',
+    description:
+      'What changes the cost of a pergola, screen, glass, heat, or outdoor-room package.',
+  },
+  {
+    icon: Ruler,
+    title: 'Site Review',
+    description:
+      'The conditions to check before a project gets locked into the wrong structure.',
+  },
+  {
+    icon: Shield,
+    title: 'Planning Risks',
+    description:
+      'The mistakes that create friction later: drainage, power, controls, access, and code.',
+  },
+  {
+    icon: FileCheck,
+    title: 'Questions to Ask',
+    description:
+      'A practical checklist for comparing contractors, products, and system recommendations.',
+  },
+];
 
 export default function PlanningGuideLanding() {
   return (
-    <main className="min-h-screen">
-      {/* ========== HERO SECTION ========== */}
-      <section className="bg-edg-dark relative flex min-h-[90vh] items-center overflow-hidden pt-20">
-        {/* Background layers */}
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 via-black to-gray-800" />
-        <div className="absolute inset-0 z-0">
+    <div className="min-h-screen bg-white">
+      <section className="relative overflow-hidden bg-edg-dark pt-28 pb-16 text-white lg:pb-20">
+        <div className="absolute inset-0">
           <Image
             src={images.pages.guides.louveredPergolasHero}
             alt=""
@@ -34,87 +70,92 @@ export default function PlanningGuideLanding() {
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-20"
+            className="object-cover opacity-25"
           />
+          <div className="absolute inset-0 bg-black/78" />
         </div>
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-black/40" />
 
-        <Container className="relative z-20 py-20">
-          {/* Breadcrumb */}
-          <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Guides', href: '/guides' },
-                { label: 'Free Planning Guide' },
-              ]}
-            />
-          </div>
+        <Container className="relative z-10">
+          <Breadcrumb
+            items={[
+              { label: 'Guides', href: '/guides' },
+              { label: 'Planning Guide' },
+            ]}
+            className="mb-6 text-zinc-300"
+          />
 
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            {/* Left: Copy */}
-            <div className="space-y-8">
-              <div className="text-edg-brand bg-edg-brand/10 border-edg-brand/20 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium tracking-wider uppercase">
-                <BookOpen className="h-4 w-4" />
-                Free Planning Guide
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+            <div>
+              <div className="label-editorial mb-6 text-edg-brand">
+                Planning Guide
               </div>
-
-              <h1 className="text-4xl leading-[1.1] font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-                The Complete Guide to <br />
-                <span className="text-edg-brand">
-                  Four-Season Outdoor Living
-                </span>
+              <h1 className="hero-title mb-6 max-w-5xl">
+                Plan the Outdoor Room Before You Quote It
               </h1>
-
-              <p className="max-w-xl text-xl leading-relaxed text-gray-300">
-                Planning a pergola, shade system, or outdoor enclosure? This
-                guide helps you avoid expensive mistakes and make confident
-                decisions—before you talk to a single contractor.
+              <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+                A practical EDG guide for homeowners and project teams comparing
+                pergolas, retractable screens, glass, heat, lighting, and
+                controls before committing to a system.
               </p>
 
-              <ul className="space-y-3">
-                {[
-                  'Understand your options (and which one fits your needs)',
-                  'Get real budget ranges—no surprises',
-                  'Learn what questions to ask contractors',
-                  'Avoid the 7 most common planning mistakes',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-gray-200">
-                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
-                    <span>{item}</span>
-                  </li>
+              <a
+                href="#planning-guide-form"
+                className="mb-8 inline-flex h-14 w-full items-center justify-center gap-2 bg-edg-brand px-8 text-base font-bold tracking-wider text-edg-dark uppercase transition-colors hover:bg-white sm:w-auto lg:hidden"
+              >
+                Read the Planning Guide
+                <ArrowRight className="h-4 w-4" />
+              </a>
+
+              <div className="grid gap-3">
+                {guideBullets.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <span className="text-sm leading-relaxed text-zinc-200 md:text-base">
+                      {item}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
-            {/* Right: Form + Mockup */}
-            <div className="space-y-6">
-              <div className="relative">
-                <div className="bg-edg-brand/20 absolute -inset-4 rounded-3xl opacity-50 blur-2xl" />
-                <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 shadow-2xl">
-                  <div className="from-edg-brand/20 via-edg-brand/10 border-edg-brand/30 mx-auto flex aspect-[3/4] max-w-[280px] flex-col justify-between rounded-lg border bg-gradient-to-br to-transparent p-6">
+            <div
+              id="planning-guide-form"
+              className="scroll-mt-28 border border-white/10 bg-black/45 p-5 md:p-8"
+            >
+              <div className="mb-6 grid items-center gap-6 sm:grid-cols-[0.75fr_1fr]">
+                <div className="hidden border border-white/10 bg-white/5 p-5 sm:block">
+                  <div className="flex aspect-[3/4] flex-col justify-between border border-edg-brand/30 bg-black/40 p-5">
                     <div>
-                      <div className="text-edg-brand mb-2 text-xs font-bold tracking-wider uppercase">
+                      <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
                         EDG Guide
                       </div>
-                      <h3 className="text-lg leading-tight font-bold text-white">
-                        Four-Season Outdoor Living
-                      </h3>
-                      <p className="mt-2 text-sm text-zinc-300">
+                      <h2 className="text-lg leading-tight font-bold text-white">
+                        Outdoor System Planning
+                      </h2>
+                      <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                         Planning Guide 2026
                       </p>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Sun className="text-edg-brand h-5 w-5" />
-                      <Thermometer className="text-edg-brand h-5 w-5" />
-                      <Shield className="text-edg-brand h-5 w-5" />
-                    </div>
+                    <BookOpen className="h-6 w-6 text-edg-brand" />
                   </div>
+                </div>
+                <div>
+                  <div className="label-editorial mb-3 text-edg-brand">
+                    Email Access
+                  </div>
+                  <h2 className="mb-3 text-2xl font-bold text-white">
+                    Get the guide and open the reader
+                  </h2>
+                  <p className="text-sm leading-relaxed text-zinc-300">
+                    Enter your name and email. The form unlocks the online
+                    reader without changing the site lead path.
+                  </p>
                 </div>
               </div>
 
               <LeadCaptureForm
                 source="planning-guide-hero"
-                ctaText="Read the Free Guide"
+                ctaText="Read the Planning Guide"
                 redirectUrl="/guides/planning-guide/read"
                 autoDownload={false}
               />
@@ -123,83 +164,52 @@ export default function PlanningGuideLanding() {
         </Container>
       </section>
 
-      {/* ========== SOCIAL PROOF BAR ========== */}
-      <section className="bg-edg-dark border-t border-white/5 py-6">
+      <section className="border-t border-white/10 bg-edg-dark py-6">
         <Container>
-          <div className="flex flex-wrap items-center justify-center gap-8 text-center text-sm text-zinc-300">
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-white">75+</span> projects
-              delivered
-            </div>
-            <div className="hidden h-4 w-px bg-white/20 sm:block" />
-            <div className="flex items-center gap-2">
-              <span className="font-bold text-white">10+</span> years experience
-            </div>
-            <div className="hidden h-4 w-px bg-white/20 sm:block" />
-            <div className="flex items-center gap-1">
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-bold text-white">5.0</span> Google rating
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ========== WHAT YOU'LL LEARN ========== */}
-      <Section className="bg-white py-24 dark:bg-zinc-950">
-        <Container>
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight md:text-4xl">
-              What You'll Learn
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              This isn't fluff. It's the same information we share with clients
-              who invest $30k–$150k+ in outdoor living systems.
-            </p>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                icon: DollarSign,
-                title: 'Know Real Costs',
-                description:
-                  "Budget ranges for every system type so you're never caught off guard.",
-              },
-              {
-                icon: Ruler,
-                title: 'Site Assessment Guide',
-                description:
-                  'A checklist for evaluating your space before getting quotes.',
-              },
-              {
-                icon: Shield,
-                title: 'Avoid Costly Mistakes',
-                description:
-                  'Learn the 7 pitfalls that derail outdoor living projects.',
-              },
-              {
-                icon: FileCheck,
-                title: 'Ask the Right Questions',
-                description:
-                  'What to ask contractors to ensure you get quality work.',
-              },
-            ].map((benefit) => (
-              <div
-                key={benefit.title}
-                className="rounded-2xl border border-zinc-100 bg-white p-6 text-center shadow-sm dark:border-zinc-800 dark:bg-zinc-900"
-              >
-                <div className="bg-edg-brand/10 mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl">
-                  <benefit.icon className="text-edg-brand-text h-7 w-7" />
-                </div>
-                <h3 className="mb-2 text-lg font-bold">{benefit.title}</h3>
-                <p className="text-edg-gray-text text-sm dark:text-gray-400">
-                  {benefit.description}
-                </p>
+          <div className="grid gap-4 text-center text-sm font-bold tracking-wider text-zinc-300 uppercase md:grid-cols-3">
+            {proofPoints.map((point) => (
+              <div key={point} className="border border-white/10 px-4 py-3">
+                {point}
               </div>
             ))}
           </div>
         </Container>
+      </section>
+
+      <Section className="section-md bg-white">
+        <Container>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              What You Will Learn
+            </div>
+            <h2 className="section-title mb-4">
+              The questions to answer before the project becomes expensive
+            </h2>
+            <p className="text-lg leading-relaxed text-text-secondary">
+              The guide keeps the buyer focused on system fit, project
+              constraints, and real planning decisions instead of product claims
+              in isolation.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {guideBenefits.map((benefit) => (
+              <Card key={benefit.title} variant="outline" padding="lg">
+                <IconWrapper
+                  icon={benefit.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h3 className="mb-3 text-xl font-bold">{benefit.title}</h3>
+                <p className="text-sm leading-relaxed text-text-secondary">
+                  {benefit.description}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </Container>
       </Section>
-    </main>
+    </div>
   );
 }

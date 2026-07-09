@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import * as images from '@/lib/images';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Card } from '@/components/ui/Card';
+import { IconWrapper } from '@/components/ui/IconWrapper';
 import {
   CheckCircle2,
   ArrowRight,
@@ -21,6 +23,154 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
+import { buildContactHref } from '@/lib/contact-links';
+
+const designConsultationHref = buildContactHref({
+  type: 'consultation',
+  product: 'planning',
+  source: 'planning_guide_reader',
+});
+
+const tableOfContents = [
+  { id: 'chapter-1', label: '01. Options' },
+  { id: 'chapter-2', label: '02. Assessment' },
+  { id: 'chapter-3', label: '03. Budget' },
+  { id: 'chapter-4', label: '04. Mistakes' },
+  { id: 'chapter-5', label: '05. Checklist' },
+];
+
+const systemProblems = [
+  {
+    icon: Droplets,
+    title: 'The Roof Problem',
+    description:
+      'Sun glare rendering the patio unusable? Rain canceling your dinner party?',
+    solution: 'Adjustable louvered pergolas',
+  },
+  {
+    icon: Zap,
+    title: 'The Wall Problem',
+    description:
+      'Mosquitoes eating you alive? Wind blowing the napkins off the table?',
+    solution: 'Motorized retractable shades',
+  },
+  {
+    icon: Snowflake,
+    title: 'The Temperature Problem',
+    description:
+      'Too cold to sit outside in October? Snow covering your expensive furniture?',
+    solution: 'Frameless glass plus infrared heat',
+  },
+];
+
+const systemHighlights = [
+  {
+    image: images.pages.serviceAreas.barringtonPergola1,
+    alt: 'Louvered pergola over a finished patio',
+    title: 'Louvered Pergolas',
+    description:
+      'Motorized aluminum roof that opens for sun and closes for rain management when specified correctly.',
+    bullets: [
+      'Adjustable roof coverage',
+      'Integrated gutter planning',
+      'Smart-home ready controls',
+    ],
+  },
+  {
+    image: images.systems.shades.deployed,
+    alt: 'Motorized retractable screens deployed on a patio',
+    title: 'Motorized Shades',
+    description:
+      'Wind, insect, privacy, and sun control that disappears when you do not need it.',
+    bullets: [
+      'Wind-exposure planning',
+      'Bug and privacy control',
+      'Tensioned track options',
+    ],
+  },
+  {
+    image: images.pages.design.framelessGlass,
+    alt: 'Frameless sliding glass enclosure system',
+    title: 'Sliding Glass',
+    description:
+      'Frameless panels that slide and stack for enclosed outdoor-room projects.',
+    bullets: [
+      'Clear open views',
+      'Season-extension planning',
+      'Clean indoor-outdoor transition',
+    ],
+  },
+];
+
+const budgetRanges = [
+  {
+    title: 'Automated Louvered Pergolas',
+    description: 'Including design, engineering, shipping, and installation.',
+    value: '$180 - $350',
+    label: 'Per square foot',
+  },
+  {
+    title: 'Motorized Retractable Shades',
+    description:
+      'Depending on width, retention fabric, and mounting difficulty.',
+    value: '$3k - $12k',
+    label: 'Per unit installed',
+  },
+  {
+    title: 'Frameless Glass Systems',
+    description: 'For enclosed outdoor-room projects with more project scope.',
+    value: '$50k - $150k+',
+    label: 'Typical project total',
+  },
+];
+
+const hiddenCosts = [
+  'Permitting fees by township or municipality',
+  'Electrical hookup by a licensed electrician',
+  'Concrete footings or structural reinforcement when needed',
+];
+
+const mistakes = [
+  {
+    title: 'Ignoring the HOA',
+    desc: "The #1 project killer. Check your bylaws for 'pergola' or 'permanent structure' restrictions before you sign any contract.",
+  },
+  {
+    title: "The 'DIY' Drainage",
+    desc: 'Water has to go somewhere. If your patio slopes toward the house, adding a roof without proper gutters can create problems fast.',
+  },
+  {
+    title: 'Cheaping out on the Motor',
+    desc: 'A motorized screen is only as good as its engine. Ask which motor is specified and what support exists if it fails.',
+  },
+  {
+    title: "Missing the 'Rough-In'",
+    desc: 'The time to run wire is before the concrete is poured or the patio is finished. Retrofitting power is expensive and messy.',
+  },
+  {
+    title: 'Wrong Color Choice',
+    desc: 'Dark colors absorb heat. A black framework can look modern, but two-tone designs may perform better in exposed sun.',
+  },
+  {
+    title: 'Under-engineering for Snow',
+    desc: 'Do not assume a warm-climate product belongs in a Chicago winter. Ask for the snow-load documentation before committing.',
+  },
+  {
+    title: 'No Permit Strategy',
+    desc: 'Hoping the village does not notice is not a strategy. It can lead to stop-work orders, fines, and redesign.',
+  },
+];
+
+const contractorQuestions = [
+  'Who handles the permit application?',
+  'Can I see a project you installed 5 years ago?',
+  'Is the motor UL listed?',
+  'What is the exact wind rating?',
+  'Does your quote include the electrical hookup?',
+  'What happens if the motor fails in year 4?',
+  'Are your installers employees or subcontractors?',
+  'How do you handle drainage and downspouts?',
+];
 
 export default function GuideReadPage() {
   const router = useRouter();
@@ -64,18 +214,19 @@ export default function GuideReadPage() {
   };
 
   return (
-    <main className="selection:bg-edg-brand/20 bg-white font-sans text-zinc-900">
+    <div className="selection:bg-edg-brand/20 bg-white font-sans text-zinc-900">
       {/* COVER SECTION */}
       <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden bg-zinc-900 text-white">
         <div className="absolute inset-0 z-0">
           <Image
-            src={images.pages.guides.cover}
-            alt="Guide Cover"
+            src={images.pages.guides.louveredPergolasHero}
+            alt=""
+            aria-hidden="true"
             fill
             className="object-cover opacity-50"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/60 to-transparent" />
+          <div className="absolute inset-0 bg-black/75" />
         </div>
 
         <div className="relative z-10 max-w-5xl px-6 pt-20 text-center">
@@ -84,26 +235,30 @@ export default function GuideReadPage() {
             <Breadcrumb
               items={[
                 { label: 'Guides', href: '/guides' },
-                { label: 'Free Planning Guide', href: '/guides/planning-guide' },
+                {
+                  label: 'Planning Guide',
+                  href: '/guides/planning-guide',
+                },
                 { label: 'Read' },
               ]}
             />
           </div>
-          <div className="border-edg-brand/30 bg-edg-brand/10 text-edg-brand mb-8 inline-block rounded-full border px-5 py-2 text-sm font-bold tracking-widest uppercase backdrop-blur-sm">
+          <div className="border-edg-brand/30 bg-edg-brand/10 text-edg-brand mb-8 inline-flex border px-5 py-2 text-sm font-bold tracking-widest uppercase">
             The 2026 Homeowner's Report
           </div>
-          <h1 className="mb-8 text-4xl leading-[1.1] font-extrabold tracking-tight drop-shadow-lg md:text-7xl">
+          <h1 className="hero-title mx-auto mb-8 max-w-5xl text-white">
             It's Time to Stop Apologizing <br className="hidden md:block" />
             for the Weather.
           </h1>
-          <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed font-light text-gray-200 drop-shadow-md md:text-3xl">
+          <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
             The comprehensive guide to solving the Bug, Wind, and Rain problem
             for Chicago-Milwaukee homeowners.
           </p>
 
           <button
+            type="button"
             onClick={() => scrollToSection('chapter-1')}
-            className="text-edg-brand/80 hover:text-edg-brand inline-flex animate-bounce flex-col items-center gap-2 text-sm font-medium tracking-widest uppercase transition-colors"
+            className="text-edg-brand hover:bg-edg-brand hover:text-edg-dark border-edg-brand/30 focus-visible:ring-edg-brand inline-flex flex-col items-center gap-2 border px-5 py-3 text-sm font-bold tracking-widest uppercase transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 focus-visible:outline-none"
           >
             Start Reading
             <ChevronDown className="h-6 w-6" />
@@ -115,17 +270,12 @@ export default function GuideReadPage() {
       <div className="sticky top-0 z-50 hidden border-b border-zinc-200 bg-white/80 backdrop-blur-md md:block">
         <Container>
           <div className="flex justify-center gap-1">
-            {[
-              { id: 'chapter-1', label: '01. Options' },
-              { id: 'chapter-2', label: '02. Assessment' },
-              { id: 'chapter-3', label: '03. Budget' },
-              { id: 'chapter-4', label: '04. Mistakes' },
-              { id: 'chapter-5', label: '05. Checklist' },
-            ].map((item) => (
+            {tableOfContents.map((item) => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => scrollToSection(item.id)}
-                className="hover:text-edg-brand hover:border-edg-brand border-b-2 border-transparent px-6 py-4 text-sm font-bold text-zinc-500 transition-all hover:bg-zinc-50"
+                className="hover:text-edg-brand hover:border-edg-brand focus-visible:ring-edg-brand border-b-2 border-transparent px-6 py-4 text-sm font-bold text-zinc-500 uppercase transition-all hover:bg-zinc-50 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
               >
                 {item.label}
               </button>
@@ -157,7 +307,7 @@ export default function GuideReadPage() {
             for "perfect weather" is a fool's errand.
           </p>
 
-          <blockquote className="border-edg-brand my-12 rounded-r-xl border-l-4 bg-zinc-50 py-8 pr-8 pl-8 font-serif text-2xl text-zinc-800 italic">
+          <blockquote className="border-edg-brand my-12 border-l-4 bg-zinc-50 py-8 pr-8 pl-8 font-serif text-2xl text-zinc-800 italic">
             "Most outdoor spaces are designed for the best 10 days of the year.
             We design for the other 355."
           </blockquote>
@@ -172,59 +322,27 @@ export default function GuideReadPage() {
           </p>
 
           <div className="not-prose my-12 grid gap-6">
-            <div className="flex items-start gap-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100">
-                <Droplets className="h-6 w-6 text-blue-600" />
-              </div>
-              <div>
-                <h4 className="mb-1 text-lg font-bold text-zinc-900">
-                  The Roof Problem
-                </h4>
-                <p className="text-sm text-zinc-600">
-                  Sun glare rendering the patio unusable? Rain canceling your
-                  dinner party?
-                </p>
-                <div className="text-edg-brand mt-2 text-sm font-bold">
-                  Solution: Adjustable Louvered Pergolas
+            {systemProblems.map((problem) => (
+              <Card
+                key={problem.title}
+                variant="outline"
+                padding="lg"
+                className="flex items-start gap-5"
+              >
+                <IconWrapper icon={problem.icon} variant="brand" size="lg" />
+                <div>
+                  <h4 className="mb-1 text-lg font-bold text-zinc-900">
+                    {problem.title}
+                  </h4>
+                  <p className="text-sm leading-relaxed text-zinc-600">
+                    {problem.description}
+                  </p>
+                  <div className="text-edg-brand-dark mt-3 text-sm font-bold tracking-wider uppercase">
+                    System: {problem.solution}
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-green-100">
-                <Zap className="h-6 w-6 text-green-600" />
-              </div>
-              <div>
-                <h4 className="mb-1 text-lg font-bold text-zinc-900">
-                  The Wall Problem
-                </h4>
-                <p className="text-sm text-zinc-600">
-                  Mosquitoes eating you alive? Wind blowing the napkins off the
-                  table?
-                </p>
-                <div className="text-edg-brand mt-2 text-sm font-bold">
-                  Solution: Motorized Retractable Shades
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-6 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-100">
-                <Snowflake className="h-6 w-6 text-orange-600" />
-              </div>
-              <div>
-                <h4 className="mb-1 text-lg font-bold text-zinc-900">
-                  The Temperature Problem
-                </h4>
-                <p className="text-sm text-zinc-600">
-                  Too cold to sit outside in October? Snow covering your
-                  expensive furniture?
-                </p>
-                <div className="text-edg-brand mt-2 text-sm font-bold">
-                  Solution: Frameless Glass + Infrared Heat
-                </div>
-              </div>
-            </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -233,104 +351,38 @@ export default function GuideReadPage() {
       <section className="border-y border-zinc-200 bg-zinc-50 py-24">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-8 md:grid-cols-3">
-            {/* Card 1 */}
-            <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={images.pages.serviceAreas.barringtonPergola1}
-                  alt="Pergola"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1 p-8">
-                <h3 className="mb-4 text-xl font-bold">Louvered Pergolas</h3>
-                <p className="mb-6 text-sm text-zinc-500">
-                  Motorized aluminum roof that rotates 150°. Open for sun,
-                  closed for rain and snow.
-                </p>
-                <ul className="space-y-2 text-sm text-zinc-700">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> 100%
-                    Watertight
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" />{' '}
-                    Integrated Gutters
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Smart
-                    Home Ready
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src='/images/shades/shade-deployed-screens-01.jpg'
-                  alt="Shades"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1 p-8">
-                <h3 className="mb-4 text-xl font-bold">Motorized Shades</h3>
-                <p className="mb-6 text-sm text-zinc-500">
-                  Wind and insect protection that disappears when you don't need
-                  it. Tensioned "zipper" track.
-                </p>
-                <ul className="space-y-2 text-sm text-zinc-700">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Cuts
-                    Wind by 95%
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Bug-Free
-                    Zone
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Privacy
-                    Mesh
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="flex flex-col overflow-hidden rounded-2xl border border-zinc-100 bg-white shadow-xl">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={images.pages.design.framelessGlass}
-                  alt="Glass"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1 p-8">
-                <h3 className="mb-4 text-xl font-bold">Sliding Glass</h3>
-                <p className="mb-6 text-sm text-zinc-500">
-                  Frameless panels that slide and stack. The ultimate
-                  winter-ready extension for your home.
-                </p>
-                <ul className="space-y-2 text-sm text-zinc-700">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Clear,
-                    Open Views
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Thermal
-                    Protection
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="text-edg-brand h-4 w-4" /> Seamless
-                    Transition
-                  </li>
-                </ul>
-              </div>
-            </div>
+            {systemHighlights.map((system) => (
+              <Card
+                key={system.title}
+                variant="default"
+                padding="none"
+                className="flex flex-col overflow-hidden"
+              >
+                <div className="relative aspect-[4/3] border-b border-zinc-200">
+                  <Image
+                    src={system.image}
+                    alt={system.alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex-1 p-8">
+                  <h3 className="mb-4 text-xl font-bold">{system.title}</h3>
+                  <p className="mb-6 text-sm leading-relaxed text-zinc-600">
+                    {system.description}
+                  </p>
+                  <ul className="space-y-2 text-sm text-zinc-700">
+                    {system.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-center gap-2">
+                        <CheckCircle2 className="text-edg-brand h-4 w-4 shrink-0" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -359,19 +411,17 @@ export default function GuideReadPage() {
 
           <div className="not-prose mt-12 space-y-8">
             <div className="flex gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-zinc-900 text-white">
-                <Ruler className="h-7 w-7" />
-              </div>
+              <IconWrapper icon={Ruler} variant="default" size="lg" />
               <div>
                 <h4 className="mb-2 text-xl font-bold">
                   1. Structural Integrity
                 </h4>
                 <p className="mb-2 text-zinc-600">
-                  A louvered roof is heavy. With snow load, we are talking about
-                  thousands of pounds of dynamic force.
+                  A louvered roof adds meaningful structural load. With snow
+                  load, the support plan matters as much as the product.
                 </p>
-                <div className="flex gap-3 rounded-lg border border-yellow-200 bg-yellow-50 p-4 text-sm text-yellow-800">
-                  <AlertTriangle className="h-5 w-5 shrink-0" />
+                <div className="flex gap-3 border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900">
+                  <AlertTriangle className="h-5 w-5 shrink-0" aria-hidden />
                   If you are building on a deck, you will likely need to
                   reinforce headers or pour new footings under the deck posts.
                 </div>
@@ -379,9 +429,7 @@ export default function GuideReadPage() {
             </div>
 
             <div className="flex gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-zinc-900 text-white">
-                <Zap className="h-7 w-7" />
-              </div>
+              <IconWrapper icon={Zap} variant="default" size="lg" />
               <div>
                 <h4 className="mb-2 text-xl font-bold">
                   2. Electrical Capacity
@@ -404,14 +452,12 @@ export default function GuideReadPage() {
             </div>
 
             <div className="flex gap-6">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-zinc-900 text-white">
-                <Compass className="h-7 w-7" />
-              </div>
+              <IconWrapper icon={Compass} variant="default" size="lg" />
               <div>
                 <h4 className="mb-2 text-xl font-bold">3. Sun Orientation</h4>
                 <p className="text-zinc-600">
-                  Where does the sun hit at 5:00 PM in August? That's your
-                  enemy.
+                  Where does the sun hit at 5:00 PM in August? That is the
+                  design problem to solve.
                   <br />
                   <span className="font-bold text-black">
                     West-facing patios
@@ -444,87 +490,50 @@ export default function GuideReadPage() {
             </p>
 
             <div className="grid gap-6">
-              {/* Cost Card 1 */}
-              <div className="flex flex-col items-center gap-8 rounded-2xl border border-white/10 bg-white/5 p-8 md:flex-row">
-                <div className="flex-1">
-                  <h3 className="mb-2 text-2xl font-bold text-white">
-                    Automated Louvered Pergolas
-                  </h3>
-                  <p className="text-sm text-gray-400">
-                    Including design, engineering, shipping, and installation.
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="text-edg-brand text-4xl font-bold">
-                    $180 - $350
+              {budgetRanges.map((item) => (
+                <Card
+                  key={item.title}
+                  variant="dark"
+                  padding="lg"
+                  className="flex flex-col gap-6 bg-white/5 md:flex-row md:items-center md:justify-between"
+                >
+                  <div className="flex-1">
+                    <h3 className="mb-2 text-2xl font-bold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-gray-400">
+                      {item.description}
+                    </p>
                   </div>
-                  <div className="mt-1 text-xs font-bold tracking-widest text-gray-500 uppercase">
-                    Per Square Foot
+                  <div className="md:text-right">
+                    <div className="text-edg-brand text-4xl font-bold">
+                      {item.value}
+                    </div>
+                    <div className="mt-1 text-xs font-bold tracking-widest text-gray-500 uppercase">
+                      {item.label}
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Cost Card 2 */}
-              <div className="flex flex-col items-center gap-8 rounded-2xl border border-white/10 bg-white/5 p-8 md:flex-row">
-                <div className="flex-1">
-                  <h3 className="mb-2 text-2xl font-bold text-white">
-                    Motorized Retractable Shades
-                  </h3>
-                  <p className="text-sm text-gray-400">
-                    Depending on width (up to 26'), retention fabric, and
-                    mounting difficulty.
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="text-edg-brand text-4xl font-bold">
-                    $3k - $12k
-                  </div>
-                  <div className="mt-1 text-xs font-bold tracking-widest text-gray-500 uppercase">
-                    Per Unit Installed
-                  </div>
-                </div>
-              </div>
-
-              {/* Cost Card 3 */}
-              <div className="flex flex-col items-center gap-8 rounded-2xl border border-white/10 bg-white/5 p-8 md:flex-row">
-                <div className="flex-1">
-                  <h3 className="mb-2 text-2xl font-bold text-white">
-                    Frameless Glass Systems
-                  </h3>
-                  <p className="text-sm text-gray-400">
-                    For creating true 4-season enclosures.
-                  </p>
-                </div>
-                <div className="text-right">
-                  <div className="text-edg-brand text-4xl font-bold">
-                    $50k - $150k+
-                  </div>
-                  <div className="mt-1 text-xs font-bold tracking-widest text-gray-500 uppercase">
-                    Typical Project Total
-                  </div>
-                </div>
-              </div>
+                </Card>
+              ))}
             </div>
 
-            <div className="bg-edg-brand/10 border-edg-brand/20 mt-12 rounded-xl border p-6">
+            <Card
+              variant="dark"
+              padding="lg"
+              className="bg-edg-brand/10 border-edg-brand/20 mt-12"
+            >
               <h4 className="text-edg-brand mb-3 text-sm font-bold tracking-wider uppercase">
-                The "Hidden" Costs to Remember
+                Costs to Remember
               </h4>
               <ul className="space-y-2 text-gray-300">
-                <li className="flex gap-2">
-                  <DollarSign className="text-edg-brand h-5 w-5" /> Permitting
-                  Fees (Township dependent)
-                </li>
-                <li className="flex gap-2">
-                  <DollarSign className="text-edg-brand h-5 w-5" /> Electrical
-                  Hookup (Licensed Electrician)
-                </li>
-                <li className="flex gap-2">
-                  <DollarSign className="text-edg-brand h-5 w-5" /> Concrete
-                  Footings (If adding to a patio)
-                </li>
+                {hiddenCosts.map((cost) => (
+                  <li key={cost} className="flex gap-2">
+                    <DollarSign className="text-edg-brand h-5 w-5 shrink-0" />
+                    {cost}
+                  </li>
+                ))}
               </ul>
-            </div>
+            </Card>
           </div>
         </Container>
       </section>
@@ -547,37 +556,8 @@ export default function GuideReadPage() {
           </p>
 
           <ol className="not-prose m-0 list-none space-y-8 p-0 text-zinc-800">
-            {[
-              {
-                title: 'Ignoring the HOA',
-                desc: "The #1 project killer. Check your bylaws for 'pergola' or 'permanent structure' restrictions before you sign ANY contract.",
-              },
-              {
-                title: "The 'DIY' Drainage",
-                desc: 'Water has to go somewhere. If your patio slopes toward the house, adding a roof without proper gutters is a recipe for a flooded basement.',
-              },
-              {
-                title: 'Cheaping out on the Motor',
-                desc: "A motorized screen is only as good as its engine. We see 'white label' motors fail in 2 years. Stick to Somfy or known heavy-duty brands.",
-              },
-              {
-                title: "Missing the 'Rough-In'",
-                desc: 'The time to run wire is BEFORE the concrete is poured or the patio is finished. Retrofitting power is expensive and messy.',
-              },
-              {
-                title: 'Wrong Color Choice',
-                desc: 'Dark colors absorb heat. A black framework looks modern, but a black roof slab? It turns your patio into an oven. Consider two-tone designs.',
-              },
-              {
-                title: 'Under-engineering for Snow',
-                desc: "Florida products don't work in Chicago. Ensure your system is rated for at least 30-40psf snow load.",
-              },
-              {
-                title: 'No Permit Strategy',
-                desc: "Hoping the village 'doesn't notice' is not a strategy. It leads to Stop Work Orders and fines. Do it right.",
-              },
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-6">
+            {mistakes.map((item, i) => (
+              <li key={item.title} className="flex items-start gap-6">
                 <span className="-mt-4 text-6xl leading-none font-black text-zinc-100 select-none">
                   {i + 1}
                 </span>
@@ -605,7 +585,7 @@ export default function GuideReadPage() {
                 Chapter 05
               </div>
               <h2 className="mb-4 font-serif text-4xl font-bold text-zinc-900">
-                The Contractor Interrogation Checklist
+                The Contractor Planning Checklist
               </h2>
               <p className="text-xl text-zinc-600">
                 Don't sign until you get good answers to these questions.
@@ -613,23 +593,15 @@ export default function GuideReadPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {[
-                'Who handles the permit application? (They should.)',
-                'Can I see a project you installed 5 years ago?',
-                'Is the motor UL listed?',
-                'What is the exact wind rating? (Ask for the engineering packet)',
-                'Does your quote include the electrical hookup?',
-                'What happens if the motor fails in year 4?',
-                'Are your installers employees or subcontractors?',
-                'How do you handle drainage/downspouts?',
-              ].map((q, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 rounded-xl border border-zinc-200 bg-white p-6 shadow-sm"
+              {contractorQuestions.map((q) => (
+                <Card
+                  key={q}
+                  variant="default"
+                  className="flex items-start gap-4"
                 >
                   <HelpCircle className="text-edg-brand mt-0.5 h-6 w-6 shrink-0" />
                   <span className="font-medium text-zinc-800">{q}</span>
-                </div>
+                </Card>
               ))}
             </div>
           </div>
@@ -640,7 +612,12 @@ export default function GuideReadPage() {
       <section className="bg-zinc-900 py-32 text-center text-white">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <Construction className="text-edg-brand mx-auto mb-8 h-16 w-16" />
+            <IconWrapper
+              icon={Construction}
+              variant="dark"
+              size="lg"
+              className="text-edg-brand mx-auto mb-8 h-16 w-16"
+            />
             <h2 className="mb-6 text-4xl font-extrabold md:text-6xl">
               Stop Researching.
               <br />
@@ -653,8 +630,8 @@ export default function GuideReadPage() {
 
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
-                href="/contact"
-                className="bg-edg-brand inline-flex items-center justify-center gap-2 rounded-full px-8 py-5 text-lg font-bold text-zinc-900 shadow-[0_0_20px_rgba(66,255,193,0.3)] transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(66,255,193,0.5)]"
+                href={designConsultationHref}
+                className="bg-edg-brand focus-visible:ring-edg-brand inline-flex h-14 items-center justify-center gap-2 px-8 text-base font-bold tracking-wider text-zinc-900 uppercase transition-colors hover:bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 focus-visible:outline-none"
               >
                 Book Your Design Consultation <ArrowRight className="h-5 w-5" />
               </Link>
@@ -665,6 +642,6 @@ export default function GuideReadPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

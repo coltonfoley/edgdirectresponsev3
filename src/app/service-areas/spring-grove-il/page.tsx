@@ -18,6 +18,7 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -136,6 +137,19 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  source: 'spring_grove_service_area',
+});
+
+const showroomContactHref = buildContactHref({
+  type: 'showroom',
+  source: 'spring_grove_service_area',
+});
+
+const bottomContactHref = buildContactHref({
+  source: 'spring_grove_service_area_bottom',
+});
+
 export default function SpringGroveServiceAreaPage() {
   const serviceSchema = {
     '@context': 'https://schema.org',
@@ -184,7 +198,7 @@ export default function SpringGroveServiceAreaPage() {
   };
 
   return (
-    <main className="bg-surface min-h-screen">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -235,7 +249,7 @@ export default function SpringGroveServiceAreaPage() {
               Spring Grove showroom at 1802 Holian Drive.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact?source=spring_grove_service_area">
+              <Link href={heroContactHref}>
                 <Button size="lg">
                   Request a Spring Grove Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -461,7 +475,7 @@ export default function SpringGroveServiceAreaPage() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=showroom&source=spring_grove_service_area">
+                <Link href={showroomContactHref}>
                   <Button size="lg">Schedule a Visit</Button>
                 </Link>
                 <Link href="https://maps.google.com/?q=1802+Holian+Drive+Spring+Grove+IL+60081">
@@ -507,7 +521,7 @@ export default function SpringGroveServiceAreaPage() {
               want solved. We will help you decide whether a pergola, screen
               system, glass enclosure, or showroom visit should come first.
             </p>
-            <Link href="/contact?source=spring_grove_service_area_bottom">
+            <Link href={bottomContactHref}>
               <Button variant="dark" size="lg">
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -516,6 +530,6 @@ export default function SpringGroveServiceAreaPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

@@ -25,16 +25,16 @@ import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
 
 export const metadata: Metadata = {
-  title: 'Motorized Pergolas in Barrington, IL | Estate-Grade Systems | EDG',
+  title: 'Motorized Pergolas in Barrington, IL | Louvered Roof Planning | EDG',
   description:
-    'Motorized louvered pergolas for Barrington, Barrington Hills, South Barrington, and Lake Barrington homes. Planned for estate architecture, HOA review, wind, snow, and year-round comfort.',
+    'Motorized louvered pergolas for Barrington, Barrington Hills, South Barrington, and Lake Barrington homes. Planned for architecture, HOA review, wind, snow, and extended-season comfort.',
   alternates: {
     canonical: '/service-areas/barrington-il/motorized-pergolas',
   },
   openGraph: {
     title: 'Motorized Pergolas in Barrington, IL | EDG Patio & Shade',
     description:
-      'Estate-grade louvered pergola planning for Barrington area homes, patios, pools, and outdoor rooms.',
+      'Louvered pergola planning for Barrington area homes, patios, pools, and outdoor rooms.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -125,7 +125,7 @@ export default function BarringtonPergolaPage() {
   };
 
   return (
-    <main className="min-h-screen bg-surface">
+    <div className="min-h-screen bg-surface">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -387,19 +387,19 @@ export default function BarringtonPergolaPage() {
         </Container>
       </Section>
 
-      <section className="section-md bg-edg-brand">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-edg-dark md:text-4xl">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
               Plan a Barrington Pergola That Belongs on the Property
             </h2>
-            <p className="mb-8 text-xl text-edg-dark/80">
+            <p className="mb-8 text-xl text-text-inverse-muted">
               Share photos, rough dimensions, and the way you want the patio to
               work. We will help decide whether a louvered roof, screens,
               heaters, lighting, or a phased outdoor room plan makes the most sense.
             </p>
             <Link href="/guides/pergola-system-fit-review?area=barrington&source=barrington_pergola_cta">
-              <Button size="lg" variant="dark" className="px-8 text-lg">
+              <Button size="lg" className="px-8 text-lg">
                 Request a System Fit Review
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -407,6 +407,6 @@ export default function BarringtonPergolaPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

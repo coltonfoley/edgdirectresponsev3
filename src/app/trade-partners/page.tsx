@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 
 export default function TradePartnersPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <TradePartnersPageContent />
-    </main>
+    </div>
   );
 }

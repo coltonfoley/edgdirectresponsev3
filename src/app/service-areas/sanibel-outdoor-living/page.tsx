@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -62,22 +63,22 @@ const areas = [
   {
     name: 'Sanibel Island (Gulf Coast)',
     description:
-      'From beachfront estates to canal homes, we design outdoor living systems that maximize Gulf views while meeting Sanibel\'s strict impermeable surface and vegetation codes. Our motorized screens provide protection from afternoon storms without blocking the seabreeze.',
+      'From beachfront homes to canal properties, we plan outdoor living systems around Gulf views, salt air, Sanibel developed-area questions, vegetation review, and the comfort problems that show up on the actual patio.',
   },
   {
     name: 'Captiva Island',
     description:
-      'Captiva\'s narrow geography creates unique microclimates with higher wind exposure. We plan louvered pergolas around coastal wind documentation, salt air, and intense subtropical sun for the island\'s resort-style homes.',
+      'Captiva\'s narrow geography creates unique microclimates and higher wind exposure. We plan louvered pergolas around coastal wind documentation, salt air, sun, and the way the outdoor room should feel day to day.',
   },
   {
     name: 'Wulfert & The Dunes',
     description:
-      'This prestigious Gulf-front community demands systems that complement high-end architecture. We specialize in large-span designs that minimize support columns while maximizing panoramic water views. All designs respect the fragile dune ecosystem.',
+      'Gulf-front and golf-course homes need outdoor rooms that respect architecture, sightlines, support-column placement, and the island\'s sensitive dune and habitat context.',
   },
   {
     name: 'Roosevelt Channel & Blind Pass',
     description:
-      'Properties near these dynamic waterways face unique salt-air exposure and wind patterns. Our marine-grade aluminum systems with specialized coatings resist corrosion while standing up to coastal winds. Ideal for boat dockside living spaces.',
+      'Properties near these waterways face salt-air exposure, changing wind, and boat-dock lifestyle needs. Materials, finishes, anchoring, drainage, and service access should all be reviewed early.',
   },
 ];
 
@@ -158,6 +159,20 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'shades',
+  area: 'sanibel',
+  source: 'sanibel_hub_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'shades',
+  area: 'sanibel',
+  source: 'sanibel_hub_bottom',
+});
+
 export default function SanibelHubPage() {
   return (
     <div className="min-h-screen">
@@ -170,7 +185,7 @@ export default function SanibelHubPage() {
             '@type': 'Service',
             name: 'Outdoor Living Design & Installation - Sanibel',
             description:
-              'Premium louvered roof systems and motorized screens designed for Sanibel Island\'s strict sanctuary codes and coastal climate.',
+              'Louvered roof systems and motorized screens planned around Sanibel Island\'s sanctuary codes and coastal climate.',
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -221,7 +236,7 @@ export default function SanibelHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Sanibel & Captiva
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Modern Outdoor Living
+                Modern Outdoor Living{' '}
                 <span className="text-edg-brand block">for Sanibel Island</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -230,7 +245,7 @@ export default function SanibelHubPage() {
                 floodplain review, product documentation, and local permit
                 questions.
               </p>
-              <Link href="/contact?area=sanibel&product=shades&source=sanibel_hub_hero">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Sanibel Screen Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -290,8 +305,8 @@ export default function SanibelHubPage() {
                 Built for Gulf Coast Conditions
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for Florida&apos;s coastal
-                climate challenges.
+                System choice, finish, anchoring, screens, and drainage should
+                all be reviewed against Florida coastal conditions.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -330,7 +345,7 @@ export default function SanibelHubPage() {
             </div>
             <div className="mt-8 border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
               <h4 className="mb-4 flex items-center gap-2 font-bold">
-                <Info className="h-5 w-5 text-blue-500" />
+                <Info className="text-edg-brand-dark h-5 w-5" />
                 What Counts as Impermeable?
               </h4>
               <ul className="grid gap-3 text-sm text-zinc-600 sm:grid-cols-2 dark:text-zinc-400">
@@ -352,14 +367,20 @@ export default function SanibelHubPage() {
                 </li>
               </ul>
               <p className="mt-4 text-sm text-zinc-600 dark:text-zinc-400">
-                <strong>Our Strategy:</strong> We help homeowners maximize outdoor living by utilizing lightweight, high-performance systems that often have a smaller footprint or can be integrated into existing structures to stay within coverage limits.
+                <strong>Planning note:</strong> We compare the existing
+                structure, survey, drainage, and product documentation before
+                assuming a new system can fit within coverage limits.
               </p>
             </div>
-            <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+            <div className="mt-6 border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
               <div className="flex items-start gap-3">
-                <AlertTriangle className="mt-1 h-5 w-5 shrink-0 text-amber-600" />
-                <p className="text-sm text-amber-800 dark:text-amber-200">
-                  <strong>50% Rule Warning:</strong> If repair costs exceed 50% of your home&apos;s value, the entire structure must be brought to current flood codes. We can help assess your situation and design accordingly.
+                <AlertTriangle className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
+                <p className="text-text-secondary text-sm">
+                  <strong>50% rule note:</strong> If repair or improvement
+                  costs trigger substantial-improvement review, current
+                  floodplain standards may apply. Use that review point to
+                  compare the old outdoor room against a better-documented
+                  modern plan.
                 </p>
               </div>
             </div>
@@ -408,7 +429,7 @@ export default function SanibelHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
@@ -432,7 +453,7 @@ export default function SanibelHubPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper
                     icon={Wind}
@@ -460,7 +481,7 @@ export default function SanibelHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Sun} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
@@ -483,7 +504,7 @@ export default function SanibelHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={AlertTriangle} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
@@ -506,7 +527,7 @@ export default function SanibelHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-colors hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
@@ -536,9 +557,10 @@ export default function SanibelHubPage() {
                 Ready to Start Your Sanibel Project?
               </h2>
               <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation with our coastal design team.
+                Send the address, photos, and the outdoor comfort problem you
+                want solved first.
               </p>
-              <Link href="/contact?area=sanibel&product=shades&source=sanibel_hub_bottom">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
                   variant="dark"

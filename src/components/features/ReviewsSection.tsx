@@ -33,7 +33,7 @@ function StarRating({ rating }: { rating: number }) {
         <Star
           key={i}
           className={`h-5 w-5 ${
-            i < rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'
+            i < rating ? 'fill-edg-brand text-edg-brand' : 'text-zinc-400'
           }`}
         />
       ))}
@@ -57,15 +57,15 @@ export function ReviewsSection() {
             </h2>
             
             {/* Google Rating Badge */}
-            <div className="mt-6 inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-full px-6 py-3">
+            <div className="mt-6 inline-flex items-center gap-3 border border-white/10 bg-white/5 px-6 py-3">
               <div className="flex items-center gap-1">
-                <Star className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                <Star className="h-5 w-5 fill-edg-brand text-edg-brand" />
                 <span className="text-white font-bold text-lg">5.0</span>
               </div>
               <div className="text-left">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="h-4 w-4 fill-edg-brand text-edg-brand" />
                   ))}
                 </div>
                 <p className="text-zinc-300 text-xs">Google Reviews</p>

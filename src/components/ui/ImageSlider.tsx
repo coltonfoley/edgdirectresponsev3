@@ -129,7 +129,7 @@ export function ImageSlider({
               aria-current={index === currentIndex ? 'true' : 'false'}
             >
               <span
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 transition-all duration-300 ${
                   index === currentIndex
                     ? 'w-6 bg-white'
                     : 'w-2 bg-white/60 hover:bg-white/80'

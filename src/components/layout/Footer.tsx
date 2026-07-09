@@ -9,182 +9,51 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState, type ReactNode } from 'react';
 import { trackConversion } from '@/lib/analytics';
 import { buildContactHref } from '@/lib/contact-links';
+import {
+  getRoutesByFooterGroup,
+  priorityLocalProductRoutes,
+  serviceAreaHubRoutes,
+} from '@/lib/site-routes';
 
 type FooterLink = {
   href: string;
   label: string;
 };
 
-const footerSystemLinks: FooterLink[] = [
-  { href: '/systems', label: 'All Systems' },
-  { href: '/systems/pergolas', label: 'Motorized Pergolas' },
-  { href: '/systems/pergolas/configure', label: 'Pergola Configurator' },
-  { href: '/systems/shades', label: 'Retractable Screens' },
-  { href: '/systems/enclosures', label: 'Glass Enclosures' },
-  { href: '/systems/appliances', label: 'Outdoor Kitchens' },
-  { href: '/systems/saunas', label: 'Outdoor Saunas' },
-];
+const toFooterLinks = (
+  routes: {
+    href: string;
+    label: string;
+  }[]
+): FooterLink[] =>
+  routes.map((route) => ({
+    href: route.href,
+    label: route.label,
+  }));
 
-const footerSolutionLinks: FooterLink[] = [
-  { href: '/outdoor-rooms', label: 'Outdoor Room Plans' },
-  {
-    href: '/outdoor-rooms/pergola-glass-outdoor-room',
-    label: 'Pergola + Glass Room',
-  },
-  { href: '/commercial', label: 'Commercial Outdoor Living' },
-  {
-    href: '/commercial/restaurant-patio-enclosures',
-    label: 'Restaurant Patio Enclosures',
-  },
-  {
-    href: '/commercial/hotel-roof-deck-systems',
-    label: 'Hotel Roof Deck Systems',
-  },
-  {
-    href: '/commercial/country-club-outdoor-spaces',
-    label: 'Country Club Outdoor Spaces',
-  },
-  { href: '/commercial/hotel-pergolas', label: 'Hotel Pergolas' },
-  {
-    href: '/commercial/restaurant-patio-solutions',
-    label: 'Restaurant Patio Solutions',
-  },
-  {
-    href: '/commercial/chicago-hospitality-outdoor-living',
-    label: 'Chicago Hospitality Patios',
-  },
-  { href: '/commercial/west-loop', label: 'West Loop Patios' },
+const footerSystemLinks = toFooterLinks(getRoutesByFooterGroup('systems'));
+const footerSolutionLinks = toFooterLinks([
+  ...getRoutesByFooterGroup('outdoorRooms'),
+  ...getRoutesByFooterGroup('commercial'),
+]);
+const footerGuideLinks = toFooterLinks(getRoutesByFooterGroup('guides'));
+const footerLocationLinks = toFooterLinks(serviceAreaHubRoutes);
+const footerLocalProductLinks = toFooterLinks(priorityLocalProductRoutes);
+const footerWorkOrder = [
+  'Projects',
+  'Gallery',
+  'Showroom',
+  'Trade Partners',
+  'Contact',
 ];
-
-const footerGuideLinks: FooterLink[] = [
-  { href: '/guides', label: 'All Guides' },
-  { href: '/guides/planning-guide', label: 'Planning Guide' },
-  {
-    href: '/guides/motorized-pergola-planning',
-    label: 'Pergola Planning Guide',
-  },
-  {
-    href: '/guides/louvered-pergolas',
-    label: 'Louvered Pergolas Guide',
-  },
-  {
-    href: '/guides/pergola-system-fit-review',
-    label: 'System Fit Review',
-  },
-  {
-    href: '/guides/motorized-pergola-budget-examples',
-    label: 'Budget Examples',
-  },
-  {
-    href: '/guides/motorized-pergola-permits-hoa-engineering',
-    label: 'Permits, HOA & Engineering',
-  },
-  {
-    href: '/guides/motorized-pergola-deck-roof-deck',
-    label: 'Deck & Roof Deck Pergolas',
-  },
-  { href: '/guides/pergola-cost', label: 'Pergola Cost Guide' },
-  {
-    href: '/guides/magnatrack-screens-cost',
-    label: 'MagnaTrack Screens Cost',
-  },
-  {
-    href: '/guides/louvered-pergola-brands-compared',
-    label: 'Pergola System Comparison',
-  },
-  {
-    href: '/guides/pergola-vs-patio-cover',
-    label: 'Pergola vs. Patio Cover',
-  },
-];
-
-const footerLocationLinks: FooterLink[] = [
-  { href: '/service-areas', label: 'All Service Areas' },
-  { href: '/service-areas/chicago-il', label: 'Chicago, IL' },
-  { href: '/service-areas/spring-grove-il', label: 'Spring Grove, IL' },
-  { href: '/service-areas/north-shore-chicago', label: 'North Shore Chicago' },
-  { href: '/service-areas/lake-forest-il', label: 'Lake Forest, IL' },
-  { href: '/service-areas/barrington-il', label: 'Barrington, IL' },
-  { href: '/service-areas/naperville-il', label: 'Naperville, IL' },
-  { href: '/service-areas/algonquin-il', label: 'Algonquin, IL' },
-  { href: '/service-areas/lake-county-il', label: 'Lake County, IL' },
-  { href: '/service-areas/mchenry-county-il', label: 'McHenry County, IL' },
-  { href: '/service-areas/lake-geneva-wi', label: 'Lake Geneva, WI' },
-  { href: '/service-areas/southeast-wisconsin', label: 'Southeast Wisconsin' },
-  { href: '/service-areas/southwest-florida', label: 'Southwest Florida' },
-  { href: '/service-areas/sanibel-outdoor-living', label: 'Sanibel, FL' },
-];
-
-const footerLocalProductLinks: FooterLink[] = [
-  {
-    href: '/service-areas/chicago-il/motorized-pergolas',
-    label: 'Chicago Pergolas',
-  },
-  {
-    href: '/service-areas/barrington-il/motorized-pergolas',
-    label: 'Barrington Pergolas',
-  },
-  {
-    href: '/service-areas/naperville-il/motorized-pergolas',
-    label: 'Naperville Pergolas',
-  },
-  {
-    href: '/service-areas/northbrook-il/motorized-pergolas',
-    label: 'Northbrook Pergolas',
-  },
-  {
-    href: '/service-areas/chicago-il/retractable-screens',
-    label: 'Chicago Screens',
-  },
-  {
-    href: '/service-areas/chicago-il/glass-enclosures',
-    label: 'Chicago Glass Enclosures',
-  },
-  {
-    href: '/service-areas/lake-geneva-wi/motorized-pergolas',
-    label: 'Lake Geneva Pergolas',
-  },
-  {
-    href: '/service-areas/lake-geneva-wi/retractable-screens',
-    label: 'Lake Geneva Screens',
-  },
-  {
-    href: '/service-areas/southwest-florida/motorized-screens',
-    label: 'Southwest Florida Screens',
-  },
-  {
-    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
-    label: 'Sanibel Louvered Pergolas',
-  },
-  {
-    href: '/service-areas/sanibel-outdoor-living/zoning-guide',
-    label: 'Sanibel Permit Guide',
-  },
-  {
-    href: '/service-areas/algonquin-il/motorized-pergolas',
-    label: 'Algonquin Pergolas',
-  },
-  {
-    href: '/service-areas/algonquin-il/retractable-screens',
-    label: 'Algonquin Screens',
-  },
-  {
-    href: '/service-areas/wilmette-il/louvered-pergolas',
-    label: 'Wilmette Louvered Pergolas',
-  },
-  {
-    href: '/service-areas/winnetka-il/louvered-pergolas',
-    label: 'Winnetka Louvered Pergolas',
-  },
-];
-
-const footerWorkLinks: FooterLink[] = [
-  { href: '/projects', label: 'Projects' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/showroom', label: 'Showroom' },
-  { href: '/trade-partners', label: 'Trade Partners' },
-  { href: '/contact', label: 'Contact' },
-];
+const footerWorkLinks = toFooterLinks([
+  ...getRoutesByFooterGroup('work'),
+  ...getRoutesByFooterGroup('utility').filter((route) =>
+    ['/trade-partners', '/contact'].includes(route.href)
+  ),
+]).sort(
+  (a, b) => footerWorkOrder.indexOf(a.label) - footerWorkOrder.indexOf(b.label)
+);
 
 function FooterLinkList({ links }: { links: FooterLink[] }) {
   return (
@@ -400,7 +269,7 @@ export function Footer() {
 
             <FooterColumn title="Locations" links={footerLocationLinks}>
               <div className="mt-7 border-t border-white/10 pt-6">
-                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">
                   Local Product Pages
                 </h5>
                 <FooterLinkList links={footerLocalProductLinks} />
@@ -410,7 +279,7 @@ export function Footer() {
             {/* Legal / Social */}
             <FooterColumn title="Work & Contact" links={footerWorkLinks}>
               <div className="mt-7 border-t border-white/10 pt-6">
-                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-500 uppercase">
+                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">
                   Connect
                 </h5>
                 <ul className="space-y-2.5">

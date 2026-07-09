@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
     'Custom motorized pergolas, exterior shades, and glass enclosures for North Shore Chicago homes. Expert design and installation in Winnetka, Wilmette, and Glencoe.',
   openGraph: {
     title: 'North Shore Chicago Outdoor Living | EDG Patio & Shade',
-    description: 'Luxury outdoor living systems for the North Shore. Motorized pergolas and screens designed for lakefront weather and historic districts.',
+    description:
+      'Outdoor living systems for the North Shore. Motorized pergolas and screens planned for lakefront weather and historic districts.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -49,17 +51,17 @@ const neighborhoods = [
   {
     name: 'Winnetka & Glencoe',
     description:
-      'We excel at securing approvals in historic districts and designing systems that complement century-old homes. Our louvered pergolas look like high-end, permanent architecture.',
+      'Historic districts and century-old homes need careful documentation and restrained detailing. We plan louvered pergolas so the structure feels intentional next to the home instead of added after the fact.',
   },
   {
     name: 'Wilmette & Kenilworth',
     description:
-      'Turn your brick patio into a true outdoor room. Our motorized screens keep out the lake-effect wind, while our heavy-duty extrusions match your home\'s premium aesthetic.',
+      "Brick patios and traditional homes need systems that respect the existing architecture. Motorized screens can soften lake-effect wind while keeping the outdoor room visually connected to the house.",
   },
   {
     name: 'Highland Park & Lake Forest',
     description:
-      'For expansive ravines and lakefront lots, we engineer large-span shade systems that protect you from the elements without ruining your million-dollar view.',
+      'Ravine and lakefront lots need careful shade, wind, and view planning. We review spans, sightlines, and side protection so the system supports the property instead of competing with it.',
   },
   {
     name: 'Evanston',
@@ -84,7 +86,7 @@ const weatherConsiderations = [
   {
     title: 'Summer Humidity & Bugs',
     description:
-      'Enjoy summer evenings without mosquitoes. Our tight-weave motorized screens block out pests and 95% of UV rays.',
+      'Retractable screens help reduce mosquitoes, glare, and privacy issues while keeping North Shore patios open to daylight and views.',
     icon: CloudSun,
   },
 ];
@@ -132,6 +134,19 @@ const faqs = [
       'A custom North Shore project can take several weeks for design, review, fabrication, and installation. Village review, HOA review, architectural documentation, electrical planning, and weather can change the schedule, so we set expectations after the address and scope are known.',
   },
 ];
+
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'North Shore Chicago',
+  source: 'north_shore_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'North Shore Chicago',
+  source: 'north_shore_hub_bottom',
+});
 
 export default function NorthShoreHubPage() {
   return (
@@ -192,7 +207,8 @@ export default function NorthShoreHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: North Shore Chicago
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Premium Outdoor Living Systems on the
+                Motorized Outdoor Living Systems on the
+                {' '}
                 <span className="text-edg-brand block">
                   North Shore
                 </span>
@@ -200,9 +216,9 @@ export default function NorthShoreHubPage() {
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 We design engineered shade systems that respect your home&apos;s architectural heritage while handling heavy lakefront weather. From Winnetka to Lake Forest.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Free Site Visit{' '}
+                  Request a Site Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -298,7 +314,7 @@ export default function NorthShoreHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Engineered for Lake-Effect Climiate
+                Planned for Lake-Effect Climate
               </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -320,20 +336,21 @@ export default function NorthShoreHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Historic Commisions & Zoning Approvals
+                Historic Commissions & Zoning Approvals
               </h2>
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
               {/* Timeline */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
-                  We Handle the Rigid Paperwork
+                  Approval Documentation Matters
                 </h3>
-                <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
-                  <Clock className="h-5 w-5 shrink-0 text-amber-600" />
-                  <p className="font-medium text-amber-800 dark:text-amber-200">
-                    We manage the dense permitting processes on the North Shore.
+                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                  <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
+                  <p className="font-medium text-text-primary">
+                    We help prepare the documentation North Shore reviewers
+                    need to understand the project.
                   </p>
                 </div>
                 <ul className="grid gap-3 md:grid-cols-2">
@@ -349,7 +366,7 @@ export default function NorthShoreHubPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             </div>
           </FadeIn>
         </Container>
@@ -377,23 +394,24 @@ export default function NorthShoreHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Upgrade Your North Shore Home?
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your North Shore project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and customized quote from our team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Send the address, a few photos, and any village or HOA context.
+                We will help you decide what the review package needs before
+                the system is specified.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start North Shore Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

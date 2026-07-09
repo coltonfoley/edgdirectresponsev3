@@ -134,7 +134,7 @@ export default function ChicagoPergolasPage() {
         }}
       />
 
-      <main className="bg-surface min-h-screen">
+      <div className="bg-surface min-h-screen">
         <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -334,8 +334,9 @@ export default function ChicagoPergolasPage() {
                   every job by itself. Chicago homeowners frequently pair
                   pergolas with retractable screens for privacy and comfort,
                   especially on blocks where neighboring windows overlook the
-                  patio. If four-season use is the real goal, glass enclosure
-                  strategies may also be part of the conversation.
+                  patio. If shoulder-season wind and rain protection are part
+                  of the goal, glass enclosure strategies may also be part of
+                  the conversation.
                 </p>
                 <p className="text-text-secondary leading-relaxed">
                   That is one advantage of working with a team that looks at the
@@ -451,7 +452,7 @@ export default function ChicagoPergolasPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

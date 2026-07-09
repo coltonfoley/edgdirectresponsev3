@@ -1,148 +1,156 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import * as images from '@/lib/images';
-import { Container } from '@/components/ui/Container';
-import { Section } from '@/components/ui/Section';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { IconWrapper } from '@/components/ui/IconWrapper';
-import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import {
   ArrowLeft,
   ArrowRight,
-  ChevronRight,
   Building2,
-  Wind,
-  TrendingUp,
-  FileCheck,
-  Utensils,
-  Hotel,
-  GlassWater,
-  Phone,
   CheckCircle2,
+  ChevronRight,
+  ClipboardCheck,
+  GlassWater,
+  Hotel,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  Utensils,
+  Wind,
 } from 'lucide-react';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
+import { Container } from '@/components/ui/Container';
+import { IconWrapper } from '@/components/ui/IconWrapper';
+import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
+import { buildContactHref } from '@/lib/contact-links';
+import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Chicago Hospitality Outdoor Living | Restaurant & Hotel Pergolas',
   description:
-    'Maximize your Chicago hospitality revenue with all-weather outdoor living systems. Custom pergolas and enclosures for restaurants, hotels, and clubs.',
+    'Commercial outdoor dining, rooftop, hotel, and club patio planning for Chicago hospitality venues using pergolas, screens, glass, heat, and controls.',
   alternates: {
     canonical: '/commercial/chicago-hospitality-outdoor-living',
   },
   openGraph: {
     title: 'Chicago Hospitality Outdoor Living | EDG',
     description:
-      'Turn your Chicago patio into a year-round profit center. Commercial pergolas and enclosures.',
+      'Commercial patio, pergola, screen, glass, heat, and control planning for Chicago hospitality venues.',
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// DATA
-// ═══════════════════════════════════════════════════════════
+const heroContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'hospitality-outdoor-living',
+  location: 'chicago',
+  source: 'chicago_hospitality_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'commercial',
+  product: 'hospitality-outdoor-living',
+  location: 'chicago',
+  source: 'chicago_hospitality_bottom',
+});
+
 const faqs = [
   {
     question: 'Do Chicago restaurants need permits for outdoor patio enclosures?',
     answer:
-      'Yes, most Chicago hospitality venues require permits for permanent patio structures. We handle the entire permitting process including zoning reviews, structural engineering, and City of Chicago building department approvals. Our team knows the specific requirements for commercial outdoor dining structures in the West Loop, North Shore, and downtown districts.',
+      'Most permanent commercial patio structures need some level of review. The exact path depends on the municipality, structure, mounting, utilities, egress, fire safety, and whether the venue is in the City of Chicago or a surrounding community.',
   },
   {
-    question: 'How do your systems handle Chicago\'s extreme weather and lake effect snow?',
+    question: "How do these systems handle Chicago's weather?",
     answer:
-      'Our commercial pergolas are engineered specifically for Midwest conditions with snow load ratings up to 40 psf and wind ratings to 120 mph. The motorized louvers automatically open during high winds to prevent damage, and our integrated heating systems extend outdoor dining season to 8-9 months, even through Chicago\'s unpredictable lake effect weather.',
+      'Weather planning should be specific to the building and system. EDG helps compare product documentation, wind exposure, drainage, heat, sensors, glass, screens, and operating procedures before recommending a package.',
   },
   {
-    question: 'What is the typical ROI for a Chicago restaurant patio enclosure?',
+    question: 'What business-case inputs should a hospitality venue review?',
     answer:
-      'Most Chicago hospitality venues see a complete return on investment within one season. A typical 1,500 sq ft enclosed patio generates $150,000-$300,000 in additional annual revenue by eliminating weather-related cancellations and extending the outdoor dining season from 4 months to year-round operation.',
+      'The business case should be modeled from the actual venue: seats, ticket averages, weather interruptions, hours, staffing, events, maintenance, and project cost. EDG can help organize those assumptions without promising a generic financial outcome.',
   },
   {
-    question: 'How long does installation take for a commercial hospitality project?',
+    question: 'How disruptive is installation for a hospitality venue?',
     answer:
-      'Most Chicago hospitality installations are completed in 2-4 weeks, depending on permitting and customization. We work around your service hours to minimize disruption—often installing during closed hours or maintenance windows. Our team coordinates closely with your operations to ensure zero downtime for your venue.',
+      'Installation sequencing depends on permits, product lead times, access, power, structure, and service hours. EDG plans the project around the operating venue so ownership can understand timing before the work starts.',
   },
 ];
 
-const keyFeatures = [
-  {
-    icon: Building2,
-    title: 'Chicago Code Compliant',
-    description:
-      'Full permitting support for City of Chicago, North Shore, and suburban municipalities. We know what gets approved.',
-  },
-  {
-    icon: Wind,
-    title: 'Lake Effect Rated',
-    description:
-      'Engineered for Chicago\'s harsh winters and severe storms with 120 mph wind ratings and 40 psf snow load capacity.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Revenue Optimization',
-    description:
-      'Transform seasonal patio space into year-round profit centers. Typical ROI is achieved in a single season.',
-  },
-  {
-    icon: FileCheck,
-    title: 'Turnkey Installation',
-    description:
-      'Low-disruption installation coordinated around your service hours. We handle everything from permits to final inspection.',
-  },
-];
-
-const industrySolutions = [
+const hospitalityContexts = [
   {
     icon: Utensils,
-    title: 'Restaurant Patios',
+    title: 'Restaurant patios',
     description:
-      'Maximize cover counts and eliminate reservation cancellations. See how leading Chicago restaurants protect their revenue.',
-    href: '/commercial/restaurant-patio-enclosures',
-    cta: 'Restaurant Solutions',
-    image: images.brand.context.commercial,
-  },
-  {
-    icon: GlassWater,
-    title: 'Country Clubs',
-    description:
-      'Enhance member amenities with premium outdoor dining and event spaces. Create the perfect 19th hole environment.',
-    href: '/commercial/country-club-outdoor-spaces',
-    cta: 'Club Solutions',
-    image: images.brand.hero.pergola,
+      'Plan outdoor dining around covers, server flow, guest comfort, heat, glare, noise, staff controls, and weather procedures.',
+    href: '/commercial/restaurant-patio-solutions',
+    cta: 'Restaurant Planning',
+    image: images.systems.enclosures.commercialNightDining,
+    alt: 'Commercial glass patio dining at night',
   },
   {
     icon: Hotel,
-    title: 'Hotels & Rooftops',
+    title: 'Hotels and rooftops',
     description:
-      'Transform underutilized rooftops and terraces into year-round event venues and bars.',
+      'Review rooftop bars, pool decks, terraces, and amenity spaces around structure, wind exposure, guest access, and staff handoff.',
     href: '/commercial/hotel-roof-deck-systems',
-    cta: 'Hotel Solutions',
-    image: images.systems.enclosures.framelessGlass,
+    cta: 'Hotel Roof Decks',
+    image: images.systems.enclosures.commercialDayExterior,
+    alt: 'Commercial terrace enclosure at a hospitality property',
+  },
+  {
+    icon: GlassWater,
+    title: 'Clubs and amenities',
+    description:
+      'Support dining terraces, 19th-hole spaces, pool decks, events, and member amenities with systems that fit the operating model.',
+    href: '/commercial/country-club-outdoor-spaces',
+    cta: 'Club Amenities',
+    image: images.brand.context.pool,
+    alt: 'Poolside outdoor living area for member amenities',
   },
 ];
 
-const localBenefits = [
+const planningFactors = [
   {
-    title: 'Local Code Expertise',
+    icon: Building2,
+    title: 'Local review path',
     description:
-      'We handle permitting for City of Chicago, North Shore, and suburbs. We know what gets approved.',
+      'City of Chicago, North Shore, suburban, and Lake Geneva projects can have different permit, landlord, and inspection expectations.',
   },
   {
-    title: 'Midwest Weather Rated',
+    icon: Wind,
+    title: 'Weather exposure',
     description:
-      'Our systems are engineered for Chicago winters (heavy snow load) and severe storms (high wind rating).',
+      'Lakefront wind, rooftop exposure, winter operation, drainage, and shoulder-season comfort should be tested against the actual site.',
   },
   {
-    title: 'Rapid, Low-Disruption Install',
+    icon: ClipboardCheck,
+    title: 'Operating sequence',
     description:
-      'We work around your service hours to get your new revenue-generating space up and running fast.',
+      'Service hours, closures, construction access, storage, controls, and staff training need to be part of the commercial plan.',
   },
+  {
+    icon: ShieldCheck,
+    title: 'System-agnostic scope',
+    description:
+      'EDG compares pergolas, screens, glass, heat, lighting, sensors, and controls instead of forcing every venue into one product answer.',
+  },
+];
+
+const localChecklist = [
+  'Chicago, North Shore, suburban, Lake Geneva, and Milwaukee-area hospitality planning',
+  'Restaurant patios, hotel rooftops, pool decks, clubs, event terraces, and amenity spaces',
+  'Structure, wind, drainage, power, heat, lighting, sensors, controls, and maintenance',
+  'Commercial owner, architect, contractor, operator, and staff handoff coordination',
 ];
 
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Chicago Hospitality Outdoor Living Design',
-  description: 'Commercial pergolas and outdoor living systems for Chicago restaurants, hotels, and hospitality venues',
+  description:
+    'Commercial pergolas, screens, glass enclosures, heat, and control planning for Chicago restaurants, hotels, clubs, and hospitality venues',
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -161,131 +169,149 @@ const schema = {
   },
 };
 
-// ═══════════════════════════════════════════════════════════
-// PAGE COMPONENT
-// ═══════════════════════════════════════════════════════════
 export default function ChicagoHospitalityPage() {
   return (
-    <main className="min-h-screen">
-      {/* JSON-LD Schema */}
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ═══════════════════════════════════════════════════════
-          HERO SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] overflow-hidden pt-32 pb-20">
-        {/* Background Image */}
+      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.brand.context.commercial}
-            alt=""
-            aria-hidden="true"
+            alt="Commercial patio and hospitality outdoor dining area"
             fill
             priority
+            loading="eager"
             sizes="100vw"
-            className="object-cover opacity-30"
+            className="object-cover opacity-35"
           />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
-        {/* Content */}
         <Container className="relative z-10">
-          {/* Breadcrumb - Left Aligned */}
-          <div className="mb-8">
-            <Breadcrumb
-              items={[
-                { label: 'Commercial', href: '/commercial' },
-                { label: 'Chicago Hospitality' },
-              ]}
-              className="text-zinc-300"
-            />
-          </div>
+          <Breadcrumb
+            items={[
+              { label: 'Commercial', href: '/commercial' },
+              { label: 'Chicago Hospitality' },
+            ]}
+            className="mb-6 text-zinc-300"
+          />
+          <Link
+            href="/commercial"
+            className="mb-6 inline-flex items-center text-zinc-200 transition-colors hover:text-white"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to commercial
+          </Link>
 
-          {/* Text - Left Aligned */}
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Chicago&apos;s Premier{' '}
-              <span className="text-edg-brand">Hospitality Outdoor Design</span>{' '}
-              Experts.
+          <div className="max-w-4xl">
+            <div className="label-editorial mb-6 text-edg-brand">
+              Chicago Hospitality Outdoor Living
+            </div>
+            <h1 className="hero-title mb-6 max-w-4xl">
+              Hospitality Patio Planning for Chicago Venues
             </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-              From the West Loop to the North Shore, we specialize in Restaurant
-              Patio Design and high-ROI outdoor spaces for Chicago&apos;s top hotels
-              and country clubs.
+            <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
+              System-agnostic planning for restaurants, hotels, clubs, rooftops,
+              pool decks, and event terraces that need outdoor comfort to work
+              with commercial operations.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link href="/contact">
-                <Button size="lg" className="rounded-none">
-                  Get a Proposal
-                  <ArrowRight className="ml-2 h-5 w-5" />
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <TrackedLink href={heroContactHref}>
+                <Button size="lg">
+                  Schedule a Commercial Assessment
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </Link>
-              <Link href="tel:+18155810138">
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10 rounded-none"
+                  className="border-white/20 text-white hover:bg-white/10"
                 >
-                  <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
+                  <Phone className="mr-2 h-4 w-4" />
+                  (815) 581-0138
                 </Button>
-              </Link>
+              </TrackedPhoneLink>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════
-          INDUSTRY SOLUTIONS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100">
+      <Section className="section-md bg-black text-white">
         <Container>
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Tailored Solutions for Your Venue
+          <div className="grid gap-8 md:grid-cols-4">
+            {planningFactors.map((factor) => (
+              <div key={factor.title} className="border border-white/10 p-6">
+                <IconWrapper
+                  icon={factor.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-6"
+                />
+                <h2 className="mb-3 text-xl font-bold">{factor.title}</h2>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {factor.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Venue Types
+            </div>
+            <h2 className="section-title mb-4">
+              One commercial standard, different operating realities
             </h2>
-            <p className="text-lg text-gray-600">
-              Every hospitality space has unique needs. Explore our specialized
-              solutions designed for your specific business model.
+            <p className="text-lg leading-relaxed text-text-secondary">
+              Restaurant patios, hotel terraces, and club amenities all need
+              weather planning. They should not all be forced into the same
+              package.
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            {industrySolutions.map((solution) => (
+            {hospitalityContexts.map((context) => (
               <Card
-                key={solution.title}
+                key={context.title}
                 variant="default"
                 padding="none"
-                className="group overflow-hidden"
+                className="overflow-hidden"
               >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden bg-black">
                   <Image
-                    src={solution.image}
-                    alt=""
-                    aria-hidden="true"
+                    src={context.image}
+                    alt={context.alt}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10" />
                 </div>
                 <div className="p-8">
                   <IconWrapper
-                    icon={solution.icon}
+                    icon={context.icon}
                     variant="brand"
                     size="lg"
                     className="mb-6"
                   />
-                  <h3 className="text-2xl font-bold mb-3">{solution.title}</h3>
-                  <p className="text-gray-600 mb-6">{solution.description}</p>
+                  <h3 className="mb-3 text-2xl font-bold">{context.title}</h3>
+                  <p className="mb-6 leading-relaxed text-text-secondary">
+                    {context.description}
+                  </p>
                   <Link
-                    href={solution.href}
-                    className="text-edg-brand-text inline-flex items-center font-bold hover:underline"
+                    href={context.href}
+                    className="inline-flex items-center text-sm font-bold tracking-wider text-edg-brand-text uppercase transition-colors hover:text-black"
                   >
-                    {solution.cta} <ArrowRight className="ml-1 h-4 w-4" />
+                    {context.cta}
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </div>
               </Card>
@@ -294,91 +320,56 @@ export default function ChicagoHospitalityPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FEATURES SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md bg-surface">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Built for Chicago Hospitality
-            </h2>
-            <p className="text-lg text-gray-600">
-              Commercial-grade systems engineered for the unique demands of Chicago&apos;s hospitality industry.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {keyFeatures.map((feature) => (
-              <Card
-                key={feature.title}
-                variant="outline"
-                padding="lg"
-                className="group"
-              >
-                <IconWrapper
-                  icon={feature.icon}
-                  variant="brand"
-                  size="lg"
-                  className="mb-6"
-                />
-                <h3 className="text-xl font-bold mb-3 group-hover:text-edg-brand-text transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* ═══════════════════════════════════════════════════════
-          LOCAL EXPERTISE SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-zinc-100">
-        <Container>
-          <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                We Understand Chicago Hospitality.
+              <div className="label-editorial mb-4 text-edg-brand">
+                Local Commercial Planning
+              </div>
+              <h2 className="section-title mb-6">
+                Chicago hospitality work needs local context and technical
+                product depth
               </h2>
-              <p className="text-lg text-gray-600 mb-8">
-                Operating a hospitality venue in Chicago is unique. We know the
-                challenges of the &quot;patio season&quot; scramble, the unpredictable
-                lake effect weather, and the strict City of Chicago and suburban
-                building codes.
+              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+                A commercial outdoor space can involve ownership goals,
+                architects, contractors, landlords, staff, guests, municipal
+                review, utilities, and maintenance teams. EDG helps organize
+                the system choices around those realities.
               </p>
-
-              <div className="space-y-6">
-                {localBenefits.map((benefit) => (
-                  <div key={benefit.title} className="flex gap-4">
-                    <div className="bg-edg-brand/10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
-                      <CheckCircle2 className="text-edg-brand-text h-5 w-5" />
-                    </div>
-                    <div>
-                      <h4 className="mb-1 text-lg font-bold">{benefit.title}</h4>
-                      <p className="text-gray-600">{benefit.description}</p>
-                    </div>
+              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                The result should be a specific scope that considers the venue,
+                not a generic promise about always-open operation or fixed
+                financial outcomes.
+              </p>
+              <div className="grid gap-3">
+                {localChecklist.map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <span className="text-sm font-medium text-zinc-800">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative min-h-[500px] overflow-hidden rounded-3xl bg-zinc-800">
+
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={images.brand.context.commercial}
-                alt=""
-                aria-hidden="true"
+                src={images.systems.shades.progressiveCommercialPatio}
+                alt="Commercial patio with exterior screen system and seating"
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute right-0 bottom-0 left-0 p-10">
-                <h3 className="mb-2 text-2xl font-bold text-white">
-                  Serving the Greater Chicago Area
-                </h3>
-                <p className="text-gray-300">
-                  Downtown • West Loop • North Shore • Lake Geneva
+              <div className="absolute right-0 bottom-0 left-0 bg-black/80 p-8 text-white">
+                <div className="mb-2 flex items-center gap-2 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                  <MapPin className="h-4 w-4" />
+                  Greater Chicago Area
+                </div>
+                <p className="text-sm text-zinc-300">
+                  Downtown, West Loop, North Shore, Lake Geneva, Milwaukee, and
+                  nearby hospitality markets.
                 </p>
               </div>
             </div>
@@ -386,20 +377,22 @@ export default function ChicagoHospitalityPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          FAQ SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-24 bg-white">
+      <Section className="section-md">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Common Questions
+          <div className="mx-auto max-w-3xl">
+            <div className="label-editorial-brand mb-4 text-center">
+              FAQ
+            </div>
+            <h2 className="section-title mb-10 text-center">
+              Chicago Hospitality Questions
             </h2>
-            <div className="space-y-6">
-              {faqs.map((faq, i) => (
-                <Card key={i} variant="outline" padding="lg">
-                  <h3 className="font-bold text-lg mb-3">{faq.question}</h3>
-                  <p className="text-gray-600">{faq.answer}</p>
+            <div className="space-y-5">
+              {faqs.map((faq) => (
+                <Card key={faq.question} variant="outline" padding="lg">
+                  <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
+                  <p className="leading-relaxed text-text-secondary">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -407,63 +400,67 @@ export default function ChicagoHospitalityPage() {
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          RELATED SOLUTIONS SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <Section className="py-16 bg-zinc-100 border-t border-gray-200">
+      <Section className="border-t border-black/10 bg-surface py-12">
         <Container>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-edg-brand-text transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span className="font-medium">All Commercial Solutions</span>
+              All Commercial Pages
             </Link>
-            <div className="flex gap-4 flex-wrap justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/west-loop"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                West Loop <ChevronRight className="h-4 w-4" />
+                West Loop
+                <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/commercial/hotel-pergolas"
-                className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-edg-brand-text transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
               >
-                Hotel Pergolas <ChevronRight className="h-4 w-4" />
+                Hotel Pergolas
+                <ChevronRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* ═══════════════════════════════════════════════════════
-          CTA SECTION
-          ═══════════════════════════════════════════════════════ */}
-      <section className="bg-edg-brand py-20">
+      <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Start Planning Your 4-Season Space
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="mb-6 text-3xl font-bold md:text-4xl">
+              Review the venue before choosing the system
             </h2>
-            <p className="text-xl text-black/80 mb-8">
-              Don&apos;t let another season of revenue wash away. Schedule a
-              consultation with our commercial design team today.
+            <p className="mb-8 text-xl leading-relaxed text-zinc-300">
+              Send EDG the venue type, current outdoor space, and commercial
+              goals. We will help narrow the product and planning path.
             </p>
-            <Link href="/contact">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-black text-white hover:bg-gray-900"
-              >
-                Book Site Assessment
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <TrackedLink href={bottomContactHref}>
+                <Button size="lg">
+                  Start Hospitality Review
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </TrackedLink>
+              <TrackedPhoneLink href="tel:+18155810138">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  <Phone className="mr-2 h-4 w-4" />
+                  Call EDG
+                </Button>
+              </TrackedPhoneLink>
+            </div>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

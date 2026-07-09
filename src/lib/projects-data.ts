@@ -89,10 +89,10 @@ export const projects: Project[] = [
     challenge: "This system presented several integration challenges because multiple motorized products needed to work together cleanly. It also required concealed power and drainage planning. Pairing motorized glass windows with louvers that both rotate and fully retract gave the homeowner a flexible poolside entertaining space.",
     solution: "EDG designed and installed a custom outdoor room with a motorized louvered roof, integrated lighting, and motorized glass walls. The drainage and electrical work were planned to stay concealed, while the retractable glass and adjustable louvers allow the space to shift between open-air use and more protected conditions.",
     results: [
-      "Created a true four-season outdoor living space by the pool",
+      "Created a protected outdoor living space by the pool",
       "Successfully integrated multiple motorized systems (louvers + glass walls) with seamless control",
       "Concealed all electrical and drainage systems maintaining clean aesthetic",
-      "Enabled year-round entertaining with protection from wind, rain, and insects",
+      "Extended the comfortable entertaining season with protection from wind, rain, and insects",
       "Created a clean architectural addition next to the pool"
     ],
     videoUrl: "https://youtube.com/shorts/7K8sbQ2YXQM",

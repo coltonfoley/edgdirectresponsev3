@@ -125,7 +125,7 @@ export default function MotorizedPergolaPermitsHoaEngineeringPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -286,6 +286,6 @@ export default function MotorizedPergolaPermitsHoaEngineeringPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

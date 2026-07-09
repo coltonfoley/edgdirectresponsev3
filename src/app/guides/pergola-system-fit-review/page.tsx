@@ -102,7 +102,7 @@ export default function PergolaSystemFitReviewPage() {
   ]);
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -207,7 +207,7 @@ export default function PergolaSystemFitReviewPage() {
               </Link>
             </div>
 
-            <Card variant="default" padding="lg" className="shadow-xl">
+            <Card variant="default" padding="lg">
               <SystemFitReviewForm />
             </Card>
           </div>
@@ -231,6 +231,6 @@ export default function PergolaSystemFitReviewPage() {
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

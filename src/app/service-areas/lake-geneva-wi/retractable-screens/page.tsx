@@ -17,6 +17,7 @@ import {
   Wind,
 } from 'lucide-react';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Button } from '@/components/ui/Button';
@@ -136,6 +137,20 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_screens_hero',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'fit-review',
+  product: 'shades',
+  location: 'Lake Geneva, WI',
+  source: 'lake_geneva_screens_bottom',
+});
+
 export default function LakeGenevaRetractableScreensPage() {
   const serviceSchema = generateServiceSchema({
     name: 'Motorized Retractable Screens in Lake Geneva, WI',
@@ -158,7 +173,7 @@ export default function LakeGenevaRetractableScreensPage() {
         }}
       />
 
-      <main className="bg-surface min-h-screen">
+      <div className="bg-surface min-h-screen">
         <section className="bg-edg-dark relative flex min-h-[62vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -205,14 +220,14 @@ export default function LakeGenevaRetractableScreensPage() {
                 privacy, wind comfort, and a flexible screen-room feel.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=price&product=shades&location=Lake%20Geneva%2C%20WI&source=lake_geneva_screens_hero">
+                <Link href={heroContactHref}>
                   <Button size="lg">Get a Screen Layout Review</Button>
                 </Link>
                 <a href="tel:+18155810138">
                   <Button
                     size="lg"
-                    variant="secondary"
-                    className="border-white/40 bg-white/10 px-8 text-white hover:bg-white/20"
+                    variant="outline"
+                    className="px-8"
                   >
                     <Phone className="mr-2 h-5 w-5" />
                     815-581-0138
@@ -269,7 +284,7 @@ export default function LakeGenevaRetractableScreensPage() {
         <Section className="section-md bg-surface-muted">
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
+              <div className="relative aspect-[4/3] overflow-hidden border border-border">
                 <Image
                   src={images.systems.shades.deployed}
                   alt="Deployed motorized screen protecting an outdoor room"
@@ -398,7 +413,7 @@ export default function LakeGenevaRetractableScreensPage() {
                   problem. EDG will help decide whether screens, a pergola, or a
                   larger outdoor-room plan makes the most sense.
                 </p>
-                <Link href="/contact?type=price&product=shades&location=Lake%20Geneva%2C%20WI&source=lake_geneva_screens_bottom">
+                <Link href={bottomContactHref}>
                   <Button size="lg">Start Screen Layout Review</Button>
                 </Link>
               </div>
@@ -447,7 +462,7 @@ export default function LakeGenevaRetractableScreensPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

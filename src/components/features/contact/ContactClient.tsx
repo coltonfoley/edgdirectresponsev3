@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { MapPin, Clock, ArrowRight, Check } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
 
 export type ContactFormType = 'homeowner' | 'pro' | 'commercial';
@@ -120,11 +120,77 @@ function normalizeProjectType(value: string | null): string {
     return 'planning';
   }
 
-  if (normalized === 'commercial' || normalized === 'multiple') {
+  if (
+    normalized === 'commercial' ||
+    normalized === 'restaurant-patio-enclosure' ||
+    normalized === 'restaurant-patio-enclosures' ||
+    normalized === 'commercial-patio-enclosure' ||
+    normalized === 'commercial-patio-enclosures' ||
+    normalized === 'restaurant-enclosure' ||
+    normalized === 'restaurant-enclosures' ||
+    normalized === 'restaurant-patio-solutions' ||
+    normalized === 'hotel-roof-deck-systems' ||
+    normalized === 'hotel-pergolas' ||
+    normalized === 'country-club-outdoor-spaces' ||
+    normalized === 'chicago-hospitality-outdoor-living' ||
+    normalized === 'hospitality-outdoor-living' ||
+    normalized === 'west-loop' ||
+    normalized === 'west-loop-projects'
+  ) {
+    return 'commercial';
+  }
+
+  if (normalized === 'multiple') {
     return normalized;
   }
 
   return '';
+}
+
+function normalizeLocationPrefill(value: string | null): string {
+  const location = value?.trim();
+
+  if (!location) {
+    return '';
+  }
+
+  const normalized = location.toLowerCase().replace(/[\s_]+/g, '-');
+  const knownLocations: Record<string, string> = {
+    algonquin: 'Algonquin, IL',
+    barrington: 'Barrington, IL',
+    chicago: 'Chicago, IL',
+    deerfield: 'Deerfield, IL',
+    hinsdale: 'Hinsdale, IL',
+    'lake-county': 'Lake County, IL',
+    'lake-forest': 'Lake Forest, IL',
+    'lake-geneva': 'Lake Geneva, WI',
+    'lake-geneva-wi': 'Lake Geneva, WI',
+    'mchenry-county': 'McHenry County, IL',
+    naperville: 'Naperville, IL',
+    'north-shore': 'North Shore Chicago',
+    northbrook: 'Northbrook, IL',
+    'oak-brook': 'Oak Brook, IL',
+    sanibel: 'Sanibel',
+    'southeast-wisconsin': 'Southeast Wisconsin',
+    'southwest-florida': 'Southwest Florida',
+    'spring-grove': 'Spring Grove, IL',
+    wilmette: 'Wilmette, IL',
+    winnetka: 'Winnetka, IL',
+  };
+
+  if (knownLocations[normalized]) {
+    return knownLocations[normalized];
+  }
+
+  if (location.includes('-')) {
+    return location
+      .split('-')
+      .filter(Boolean)
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' ');
+  }
+
+  return location;
 }
 
 function isFloridaLocation(value: string, source: string): boolean {
@@ -150,10 +216,21 @@ function ContactForm({
   initialFormType = 'homeowner',
   initialSource = 'contact_page',
 }: ContactClientProps) {
+  const formTypeOptions = [
+    { id: 'homeowner', label: 'Residential' },
+    { id: 'pro', label: 'Trade / Builder' },
+    { id: 'commercial', label: 'Commercial' },
+  ] satisfies { id: ContactFormType; label: string }[];
   const [formType, setFormType] = useState<ContactFormType>(initialFormType);
   const [leadSource, setLeadSource] = useState(initialSource);
   const [leadMarket, setLeadMarket] = useState('');
   const [formStarted, setFormStarted] = useState(false);
+  const formId = useId();
+  const formTitleId = `${formId}-title`;
+  const formDescriptionId = `${formId}-description`;
+  const formErrorId = `${formId}-error`;
+  const successTitleId = `${formId}-success-title`;
+  const successDescriptionId = `${formId}-success-description`;
 
   // Form state
   const [formData, setFormData] = useState({
@@ -167,6 +244,9 @@ function ContactForm({
   });
 
   const { submitLead, trackFormStart, loading, error, success } = useLeadSubmission();
+  const formDescriptionIds = error
+    ? `${formDescriptionId} ${formErrorId}`
+    : formDescriptionId;
   const floridaLead = isFloridaLocation(
     `${formData.location} ${leadMarket}`,
     leadSource
@@ -178,9 +258,11 @@ function ContactForm({
     const projectType = normalizeProjectType(
       searchParams.get('product') || searchParams.get('project')
     );
-    const location = searchParams.get('location') || '';
     const market =
       searchParams.get('area') || searchParams.get('market') || '';
+    const location = normalizeLocationPrefill(
+      searchParams.get('location') || market
+    );
 
     const frame = requestAnimationFrame(() => {
       setFormType(normalizeFormType(intent));
@@ -241,14 +323,26 @@ function ContactForm({
   if (success) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-zinc-50">
-        <div className="max-w-2xl border border-black/5 bg-white p-16 text-center shadow-2xl">
-          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-black text-white">
+        <div
+          role="status"
+          aria-live="polite"
+          aria-labelledby={successTitleId}
+          aria-describedby={successDescriptionId}
+          className="max-w-2xl border border-border bg-white p-16 text-center"
+        >
+          <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center bg-black text-white">
             <Check className="h-10 w-10" />
           </div>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-black">
+          <h1
+            id={successTitleId}
+            className="mb-4 text-4xl font-bold tracking-tight text-black"
+          >
             Request Received.
           </h1>
-          <p className="mb-10 text-xl leading-relaxed text-gray-500">
+          <p
+            id={successDescriptionId}
+            className="mb-10 text-xl leading-relaxed text-gray-500"
+          >
             We'll review your details and connect you with a specialized
             designer within 24 hours.
           </p>
@@ -272,13 +366,27 @@ function ContactForm({
             <Breadcrumb items={[{ label: 'Contact' }]} />
           </div>
 
-          <h1 className="mb-8 text-5xl leading-[0.9] font-bold tracking-tighter md:text-7xl">
+          <h1
+            id={formTitleId}
+            className="mb-8 text-5xl leading-[0.9] font-bold tracking-tighter md:text-7xl"
+          >
             Start your <br /> project.
           </h1>
-          <p className="mb-12 max-w-md text-xl leading-relaxed text-zinc-300">
+          <p
+            id={formDescriptionId}
+            className="mb-12 max-w-md text-xl leading-relaxed text-zinc-300"
+          >
             Tell us about your space. We'll provide a preliminary budget,
             timeline, and design concepts.
           </p>
+
+          <a
+            href="#contact-project-form"
+            className="bg-edg-brand mb-10 inline-flex h-14 w-full items-center justify-center gap-2 px-8 text-base font-bold tracking-wider text-black uppercase transition-colors hover:bg-white sm:w-auto lg:hidden"
+          >
+            Jump to Project Form
+            <ArrowRight className="h-4 w-4" />
+          </a>
 
           <div className="space-y-8">
             <div className="flex gap-4">
@@ -312,13 +420,13 @@ function ContactForm({
         <div className="relative z-10 mt-12 border-t border-white/10 pt-12">
           <div className="grid gap-8 sm:grid-cols-2">
             <div>
-              <div className="mb-2 text-xs font-bold tracking-widest text-zinc-400 uppercase">
+              <div className="mb-2 text-xs font-bold tracking-widest text-zinc-300 uppercase">
                 Call Us
               </div>
               <div className="text-lg font-bold">815.581.0138</div>
             </div>
             <div>
-              <div className="mb-2 text-xs font-bold tracking-widest text-zinc-400 uppercase">
+              <div className="mb-2 text-xs font-bold tracking-widest text-zinc-300 uppercase">
                 Email
               </div>
               <div className="text-lg font-bold">sales@edgpatioshade.com</div>
@@ -328,22 +436,25 @@ function ContactForm({
       </div>
 
       {/* RIGHT COLUMN: The Form */}
-      <div className="overflow-y-auto bg-white p-12 lg:p-24">
+      <div
+        id="contact-project-form"
+        className="scroll-mt-28 overflow-y-auto bg-white p-12 lg:p-24"
+      >
         {/* Type Selector */}
-        <div className="mb-12 flex flex-wrap gap-0 border-b border-black/10 pb-12">
-          {[
-            { id: 'homeowner', label: 'Residential' },
-            { id: 'pro', label: 'Trade / Builder' },
-            { id: 'commercial', label: 'Commercial' },
-          ].map((type) => (
+        <div
+          className="mb-12 grid max-w-lg grid-cols-1 border-b border-black/10 pb-12 sm:grid-cols-3"
+          role="radiogroup"
+          aria-label="Project type"
+        >
+          {formTypeOptions.map((type) => (
             <button
               key={type.id}
+              type="button"
               onClick={() => setFormType(type.id as typeof formType)}
-              className={`-ml-[1px] border border-black/10 px-6 py-3 text-sm font-bold tracking-wider uppercase transition-colors first:ml-0 ${
-                formType === type.id
-                  ? 'z-10 border-black bg-black text-white'
-                  : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-black'
-              }`}
+              role="radio"
+              aria-checked={formType === type.id}
+              data-active={formType === type.id ? 'true' : 'false'}
+              className="contact-type-radio px-4 py-3 text-sm font-bold tracking-wider whitespace-nowrap uppercase transition-colors sm:-ml-[1px] first:ml-0 focus-visible:ring-2 focus-visible:ring-edg-brand-dark focus-visible:ring-offset-2 focus-visible:outline-none"
             >
               {type.label}
             </button>
@@ -353,16 +464,24 @@ function ContactForm({
         <form
           onSubmit={handleSubmit}
           onFocusCapture={handleFormStart}
+          aria-labelledby={formTitleId}
+          aria-describedby={formDescriptionIds}
+          aria-busy={loading}
           className="max-w-lg space-y-8"
         >
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+              <label
+                htmlFor="contact-first-name"
+                className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+              >
                 First Name
               </label>
               <input
+                id="contact-first-name"
                 type="text"
                 name="firstName"
+                autoComplete="given-name"
                 value={formData.firstName}
                 onChange={handleChange}
                 required
@@ -372,12 +491,17 @@ function ContactForm({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+              <label
+                htmlFor="contact-last-name"
+                className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+              >
                 Last Name
               </label>
               <input
+                id="contact-last-name"
                 type="text"
                 name="lastName"
+                autoComplete="family-name"
                 value={formData.lastName}
                 onChange={handleChange}
                 required
@@ -389,12 +513,17 @@ function ContactForm({
           </div>
 
           <div className="space-y-2">
-            <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+            <label
+              htmlFor="contact-email"
+              className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+            >
               Email Address
             </label>
             <input
+              id="contact-email"
               type="email"
               name="email"
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -406,12 +535,17 @@ function ContactForm({
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
-              <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+              <label
+                htmlFor="contact-phone"
+                className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+              >
                 Phone
               </label>
               <input
+                id="contact-phone"
                 type="tel"
                 name="phone"
+                autoComplete="tel"
                 value={formData.phone}
                 onChange={handleChange}
                 disabled={loading}
@@ -420,12 +554,17 @@ function ContactForm({
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
-                Zip Code
+              <label
+                htmlFor="contact-location"
+                className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+              >
+                Location / Zip Code
               </label>
               <input
+                id="contact-location"
                 type="text"
                 name="location"
+                autoComplete="postal-code"
                 value={formData.location}
                 onChange={handleChange}
                 required
@@ -437,10 +576,14 @@ function ContactForm({
           </div>
 
           <div className="space-y-2">
-            <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+            <label
+              htmlFor="contact-project-type"
+              className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+            >
               System Interest
             </label>
             <select
+              id="contact-project-type"
               name="projectType"
               value={formData.projectType}
               onChange={handleChange}
@@ -460,10 +603,14 @@ function ContactForm({
           </div>
 
           <div className="space-y-2 pt-4">
-            <label className="text-xs font-bold tracking-widest text-gray-500 uppercase">
+            <label
+              htmlFor="contact-message"
+              className="text-xs font-bold tracking-widest text-gray-500 uppercase"
+            >
               Project Details
             </label>
             <textarea
+              id="contact-message"
               name="message"
               value={formData.message}
               onChange={handleChange}
@@ -476,7 +623,11 @@ function ContactForm({
 
           <div className="pt-8">
             {error && (
-              <div className="mb-6 border-l-4 border-red-500 bg-red-50 p-4 text-sm font-medium text-red-600">
+              <div
+                id={formErrorId}
+                role="alert"
+                className="mb-6 border-l-4 border-red-500 bg-red-50 p-4 text-sm font-medium text-red-600"
+              >
                 {error}
               </div>
             )}

@@ -20,11 +20,16 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Section } from '@/components/ui/Section';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
-const outdoorRoomCta =
-  '/contact?type=price&product=multiple&source=outdoor_room_glass';
+const outdoorRoomCta = buildContactHref({
+  type: 'price',
+  product: 'multiple',
+  source: 'outdoor_room_glass',
+});
 
 export const metadata: Metadata = {
   title: 'Pergola + Glass Outdoor Room | EDG Patio & Shade',
@@ -163,7 +168,7 @@ const faqSchema = generateFAQSchema(faqs);
 
 export default function PergolaGlassOutdoorRoomPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -198,9 +203,9 @@ export default function PergolaGlassOutdoorRoomPage() {
                 and controls where the site supports them.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href={outdoorRoomCta}>
+                <TrackedLink href={outdoorRoomCta}>
                   <Button size="lg">Request This Review</Button>
-                </Link>
+                </TrackedLink>
                 <Link href="/projects/wade">
                   <Button
                     variant="outline"
@@ -412,9 +417,9 @@ export default function PergolaGlassOutdoorRoomPage() {
                 <Link href="/projects/wade">
                   <Button variant="dark">View Project</Button>
                 </Link>
-                <Link href={outdoorRoomCta}>
+                <TrackedLink href={outdoorRoomCta}>
                   <Button variant="secondary">Plan a Similar Review</Button>
-                </Link>
+                </TrackedLink>
               </div>
             </div>
           </div>
@@ -493,12 +498,12 @@ export default function PergolaGlassOutdoorRoomPage() {
               EDG will review photos, dimensions, exposure, and goals before
               recommending a pergola, glass, screen, and comfort direction.
             </p>
-            <Link href={outdoorRoomCta}>
+            <TrackedLink href={outdoorRoomCta}>
               <Button size="lg">Request Outdoor Room Pricing</Button>
-            </Link>
+            </TrackedLink>
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

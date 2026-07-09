@@ -16,6 +16,7 @@ import {
   generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
+import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 import {
   Sun,
@@ -54,6 +55,12 @@ export const metadata: Metadata = {
   },
 };
 
+const showroomContactHref = buildContactHref({
+  type: 'showroom',
+  product: 'pergola',
+  source: 'pergolas_showroom',
+});
+
 // Gallery images for the hero - uses brand image set
 const galleryImages = images.galleries.pergolas.map((src, index) => ({
   type: 'image' as const,
@@ -61,7 +68,7 @@ const galleryImages = images.galleries.pergolas.map((src, index) => ({
   alt:
     [
       'Precision-engineered aluminum louver detail',
-      'Luxury poolside pergola installation',
+      'Poolside louvered pergola installation',
       'Pergola with integrated LED lighting at dusk',
       'Smart home integration with motorized controls',
     ][index] || 'Motorized pergola installation',
@@ -256,7 +263,7 @@ export default function PergolasPage() {
   const schemas = [serviceSchema, productSchema, faqSchema];
 
   return (
-    <main className="bg-surface min-h-screen">
+    <div className="bg-surface min-h-screen">
       {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
@@ -530,7 +537,7 @@ export default function PergolasPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
-                  <span>Spa enclosures for year-round hydrotherapy</span>
+                  <span>Spa enclosures planned for extended-season use</span>
                 </li>
               </ul>
             </Card>
@@ -720,7 +727,7 @@ export default function PergolasPage() {
                 See the products, meet the team, and get your questions
                 answered. Perfect for homeowners and trade partners alike.
               </p>
-              <TrackedLink href="/contact?type=showroom">
+              <TrackedLink href={showroomContactHref}>
                 <Button className="w-full">Book Appointment</Button>
               </TrackedLink>
             </div>
@@ -798,7 +805,7 @@ export default function PergolasPage() {
               <ArrowLeft className="h-4 w-4" />
               <span className="font-medium">Back to All Systems</span>
             </Link>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center gap-4 md:justify-end">
               <Link href="/service-areas/chicago-il/motorized-pergolas">
                 <Button variant="outline" size="sm">
                   Chicago Pergolas
@@ -890,6 +897,6 @@ export default function PergolasPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

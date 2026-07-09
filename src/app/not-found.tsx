@@ -2,6 +2,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { FadeIn } from '@/components/ui/FadeIn';
+import { buildContactHref } from '@/lib/contact-links';
+
+const quoteHref = buildContactHref({
+  type: 'fit-review',
+  source: 'not_found_quote',
+});
 
 export default function NotFound() {
   return (
@@ -28,7 +34,7 @@ export default function NotFound() {
                   Return Home
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href={quoteHref}>
                 <Button
                   variant="secondary"
                   size="lg"
@@ -67,9 +73,6 @@ export default function NotFound() {
           </FadeIn>
         </div>
       </Container>
-
-      {/* Background ambient glow */}
-      <div className="from-edg-brand/20 pointer-events-none absolute top-1/2 left-1/2 -z-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-tr to-blue-500/20 opacity-20 blur-[120px]" />
     </div>
   );
 }

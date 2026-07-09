@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -51,7 +52,7 @@ const neighborhoods = [
   {
     name: 'Techny',
     description:
-      'The winding lanes of Techny feature expansive properties perfect for estate-scale outdoor living systems. Our large-span engineering minimizes columns while maximizing your view of the mature tree canopy and open spaces that define this prestigious area.',
+      'The winding lanes of Techny include expansive properties that can support estate-scale outdoor living systems. Large-span planning helps minimize columns while preserving mature tree canopy views and open-space character.',
   },
   {
     name: 'Shermer Road Corridor',
@@ -86,7 +87,7 @@ const weatherConsiderations = [
   {
     title: 'Summer Heat & UV',
     description:
-      'Northbrook summers can be intense with direct sun exposure. Our exterior shades block 95% of UV rays while maintaining airflow, keeping your outdoor space comfortable even in July heat.',
+      'Northbrook summers can bring direct sun and July heat. Exterior shades can cut glare and heat while preserving airflow when fabric, track path, and controls are planned around the opening.',
     icon: CloudSun,
   },
 ];
@@ -110,6 +111,18 @@ const faqs = [
 ];
 
 const faqSchema = generateFAQSchema(faqs);
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Northbrook, IL',
+  source: 'northbrook_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Northbrook, IL',
+  source: 'northbrook_hub_bottom',
+});
 
 export default function NorthbrookHubPage() {
   return (
@@ -172,9 +185,9 @@ export default function NorthbrookHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Northbrook, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Upgrade Your Northbrook Home with
+                Plan Your Northbrook Home With
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -183,7 +196,7 @@ export default function NorthbrookHubPage() {
                 classic Georgian architecture and handle its unique weather
                 challenges.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
                   Request Northbrook Site Visit{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -247,7 +260,7 @@ export default function NorthbrookHubPage() {
             <div className="grid md:grid-cols-2 gap-6 mt-8">
               <Card>
                 <h3 className="font-bold mb-2 flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4 text-amber-500" />
+                  <AlertTriangle className="text-edg-brand-dark h-4 w-4" />
                   Coverage Review
                 </h3>
                 <p className="text-sm text-text-secondary">
@@ -306,7 +319,7 @@ export default function NorthbrookHubPage() {
                 Built for Northbrook&apos;s Weather
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are engineered specifically for North Shore climate challenges.
+                Our systems are planned around North Shore wind, snow, sun, drainage, and everyday patio use.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -363,7 +376,7 @@ export default function NorthbrookHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
@@ -387,7 +400,7 @@ export default function NorthbrookHubPage() {
                 <Card 
                   variant="muted" 
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50 hover:shadow-lg"
+                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
                 >
                   <IconWrapper icon={Phone} variant="default" size="lg" className="mb-4" />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
@@ -407,23 +420,22 @@ export default function NorthbrookHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Northbrook Project?
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Northbrook project?
               </h2>
-              <p className="text-edg-dark mb-8 text-xl">
-                Get a free consultation with our local design team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Review the address, weather exposure, review path, and right system direction with our local design team.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Northbrook Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

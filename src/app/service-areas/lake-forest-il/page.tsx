@@ -20,6 +20,7 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { FadeIn } from '@/components/ui/FadeIn';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 
 export const metadata: Metadata = {
   title: 'Lake Forest IL Pergolas & Outdoor Living | EDG Patio & Shade',
@@ -122,9 +123,15 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  area: 'lake-forest',
+  product: 'pergola',
+  source: 'lake_forest_hub',
+});
+
 export default function LakeForestServiceAreaPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -193,7 +200,7 @@ export default function LakeForestServiceAreaPage() {
                 for Lake Forest homes from the lakefront to Conway Farms.
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
-                <Link href="/contact?area=lake-forest&product=pergola&source=lake_forest_hub">
+                <Link href={heroContactHref}>
                   <Button size="lg" className="px-8 text-lg">
                     Plan a Lake Forest Pergola
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -446,6 +453,6 @@ export default function LakeForestServiceAreaPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

@@ -17,6 +17,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -110,6 +111,19 @@ const gallery = [
 ];
 
 export default function ChicagoGlassEnclosuresPage() {
+  const heroContactHref = buildContactHref({
+    type: 'price',
+    product: 'enclosures',
+    location: 'Chicago, IL',
+    source: 'chicago_glass_enclosures_hero',
+  });
+  const bottomContactHref = buildContactHref({
+    type: 'fit-review',
+    product: 'enclosures',
+    location: 'Chicago, IL',
+    source: 'chicago_glass_enclosures_bottom',
+  });
+
   const serviceSchema = generateServiceSchema({
     name: 'Glass Patio Enclosures in Chicago, IL',
     description:
@@ -129,7 +143,7 @@ export default function ChicagoGlassEnclosuresPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
       />
 
-      <main className="min-h-screen bg-surface">
+      <div className="min-h-screen bg-surface">
         <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
@@ -168,7 +182,7 @@ export default function ChicagoGlassEnclosuresPage() {
                 outdoor rooms that need wind and rain protection without losing views.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact?type=price&product=enclosures&source=chicago_glass_enclosures">
+                <Link href={heroContactHref}>
                   <Button size="lg">Review an Enclosure Layout</Button>
                 </Link>
                 <Link href="/systems/enclosures">
@@ -244,7 +258,7 @@ export default function ChicagoGlassEnclosuresPage() {
           <Container>
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
-                <h2 className="mb-4 text-3xl font-bold">Where glass fits best</h2>
+                <h2 className="mb-4 text-3xl font-bold">Where glass fits</h2>
                 <p className="mb-4 leading-relaxed text-text-secondary">
                   Glass patio enclosures are strongest on projects where the view is
                   part of the value. They fit restaurant patios, roof terraces,
@@ -334,7 +348,7 @@ export default function ChicagoGlassEnclosuresPage() {
                   Send photos of the patio, terrace, or pergola and tell us whether
                   wind, rain, season length, or visibility is the main issue.
                 </p>
-                <Link href="/contact?type=price&product=enclosures&source=chicago_glass_enclosures_bottom">
+                <Link href={bottomContactHref}>
                   <Button size="lg">Start Your Enclosure Review</Button>
                 </Link>
               </div>
@@ -360,7 +374,7 @@ export default function ChicagoGlassEnclosuresPage() {
             </div>
           </Container>
         </section>
-      </main>
+      </div>
     </>
   );
 }

@@ -2,7 +2,11 @@ import type { Metadata } from 'next';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { Button } from '@/components/ui/Button';
+import { Link } from '@/components/ui/Link';
+import { buildContactHref } from '@/lib/contact-links';
 import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 import galleryData from '@/data/gallery-images.json';
 
 interface GalleryImage {
@@ -29,6 +33,31 @@ const shimmer = (w: number, h: number) => `
 
 const toBase64 = (str: string) => Buffer.from(str).toString('base64');
 
+const displayPriority = new Map(
+  [
+    '/images/brand/hero-outdoor-dining-showcase.jpg',
+    '/images/pergolas/residential-black-r-blade-outdoor-dining-pool.webp',
+    '/images/shades/progressive-magnatrack-waterfront-lounge.jpg',
+    '/images/enclosures/residential-glass-enclosure-lifestyle.jpg',
+    '/projects/karp/karp-hero.jpg',
+    '/projects/carmines/carmines-hero.jpg',
+  ].map((src, index) => [src, index])
+);
+
+function getGallerySortKey(image: GalleryImage): string {
+  const priority = displayPriority.get(image.src);
+  if (priority !== undefined) return String(priority).padStart(3, '0');
+
+  if (image.src.startsWith('/projects/')) return `100-${image.src}`;
+  if (image.src.includes('/pergolas/')) return `200-${image.src}`;
+  if (image.src.includes('/shades/')) return `300-${image.src}`;
+  if (image.src.includes('/enclosures/')) return `400-${image.src}`;
+  if (image.src.includes('/images/brand/')) return `500-${image.src}`;
+  if (image.src.includes('/images/appliances/')) return `700-${image.src}`;
+
+  return `600-${image.src}`;
+}
+
 export const metadata: Metadata = {
   title: 'Project Gallery | EDG Patio & Shade Work',
   description: 'View our portfolio of motorized pergola and screen installations across Chicago, Wisconsin, and Florida.',
@@ -44,11 +73,11 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   const displayImages: GalleryImage[] = [...galleryData].sort((a, b) =>
-    a.src.localeCompare(b.src)
+    getGallerySortKey(a).localeCompare(getGallerySortKey(b))
   );
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white">
       <Section className="bg-black pt-32 pb-24 border-b border-white/10">
         <Container>
           {/* Breadcrumb */}
@@ -59,17 +88,57 @@ export default function GalleryPage() {
               ]}
             />
           </div>
-          <div className="max-w-4xl">
-            <p className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3">
-              <span className="h-px w-8 bg-edg-brand"></span>
+          <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="max-w-4xl">
+              <p className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3">
+                <span className="h-px w-8 bg-edg-brand"></span>
               Visual Portfolio
-            </p>
-            <h1 className="mb-8 text-6xl md:text-8xl font-bold tracking-tighter text-white">
-              The Work.
-            </h1>
-            <p className="max-w-xl text-xl leading-relaxed text-zinc-300 mb-12">
-              Real projects, real results. See how we transform outdoor spaces across Chicagoland and beyond.
-            </p>
+              </p>
+              <h1 className="mb-8 text-5xl font-bold leading-none text-white md:text-7xl">
+                The Work.
+              </h1>
+              <p className="max-w-xl text-xl leading-relaxed text-zinc-300">
+                Real project, product, and showroom imagery from EDG patio,
+                shade, screen, glass, and outdoor room work.
+              </p>
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                <Link href="/projects">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    View Case Studies <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+                <Link
+                  href={buildContactHref({
+                    type: 'consultation',
+                    product: 'multiple',
+                    source: 'gallery_hero',
+                  })}
+                >
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto"
+                  >
+                    Plan a Similar Project
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid gap-4 border-l-2 border-edg-brand pl-6">
+              {[
+                ['Pergolas', 'adjustable shade and rain control'],
+                ['Screens', 'bug, glare, wind, and privacy control'],
+                ['Glass', 'enclosed outdoor-room projects'],
+              ].map(([label, description]) => (
+                <div key={label}>
+                  <div className="text-sm font-bold tracking-[0.16em] text-white uppercase">
+                    {label}
+                  </div>
+                  <p className="mt-1 text-sm text-zinc-400">{description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
@@ -104,13 +173,43 @@ export default function GalleryPage() {
 
       <Section className="bg-black py-24 border-t border-white/10">
         <Container>
-          <div className="text-center">
-            <div className="text-zinc-400 text-sm uppercase tracking-widest animate-pulse flex justify-center items-center gap-2">
-              End of Portfolio <span className="h-1 w-1 bg-edg-brand rounded-full"></span>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mb-4 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+              End of Portfolio
+            </p>
+            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
+              Turn the inspiration into a site-specific plan.
+            </h2>
+            <p className="mb-10 text-zinc-300">
+              EDG can help match the right pergola, screen, glass, appliance,
+              or outdoor-room package to the way the space needs to work.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Link
+                href={buildContactHref({
+                  type: 'consultation',
+                  product: 'multiple',
+                  source: 'gallery_bottom',
+                })}
+              >
+                <Button size="lg" className="w-full sm:w-auto">
+                  Start a Project Review{' '}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/showroom">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                >
+                  Visit the Showroom
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

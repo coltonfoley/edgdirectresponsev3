@@ -6,7 +6,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Card } from '@/components/ui/Card';
-import { EnclosuresGallery } from './EnclosuresGallery';
+import { ProductGallery } from '@/components/features/gallery/ProductGallery';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -25,6 +25,7 @@ import {
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
+import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -48,6 +49,17 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: '/systems/enclosures' },
 };
+
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'enclosure',
+  source: 'enclosures_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'price',
+  product: 'enclosure',
+  source: 'enclosures_bottom',
+});
 
 // Gallery images for the client component - ALL SHOW REAL GLASS
 const galleryImages = [
@@ -225,7 +237,7 @@ const faqSchema = generateFAQSchema(faqs);
 
 export default function EnclosuresPage() {
   return (
-    <main className="bg-surface min-h-screen">
+    <div className="bg-surface min-h-screen">
       {/* JSON-LD Schemas */}
       <script
         type="application/ld+json"
@@ -253,7 +265,7 @@ export default function EnclosuresPage() {
             />
           </div>
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24">
-            <div className="lg:col-span-5 flex flex-col justify-center order-2 lg:order-1">
+            <div className="order-1 flex min-w-0 flex-col justify-center lg:col-span-5">
               <div className="label-editorial-brand mb-6 flex items-center gap-3">
                 <div className="h-px w-8 bg-black"></div>
                 Featured Lumon Glass Systems
@@ -266,7 +278,7 @@ export default function EnclosuresPage() {
               </p>
 
               <div className="flex flex-col gap-4 mb-12">
-                <TrackedLink href="/contact?type=price&product=enclosure">
+                <TrackedLink href={heroContactHref}>
                   <Button size="lg" className="w-full sm:w-auto">
                     Configure System
                   </Button>
@@ -304,10 +316,8 @@ export default function EnclosuresPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-7 order-1 lg:order-2">
-              <div className="relative aspect-[4/5] bg-surface-muted overflow-hidden">
-                <EnclosuresGallery items={galleryImages} />
-              </div>
+            <div className="order-2 min-w-0 lg:col-span-7">
+              <ProductGallery items={galleryImages} />
             </div>
           </div>
         </Container>
@@ -556,7 +566,7 @@ export default function EnclosuresPage() {
                 </li>
                 <li className="flex gap-2">
                   <Check className="h-5 w-5 text-edg-brand shrink-0" />
-                  <span><strong>Rooftop Bars:</strong> Weatherproof rooftop venues without sacrificing the open-air experience.</span>
+                  <span><strong>Rooftop Bars:</strong> Create more protected rooftop venues without sacrificing the open-air experience.</span>
                 </li>
               </ul>
             </Card>
@@ -726,7 +736,7 @@ export default function EnclosuresPage() {
               <p className="text-xl text-text-inverse-muted mb-8 max-w-md">
                 Explore Lumon glass enclosures with EDG and decide whether LGR, LGS, screens, heaters, or another enclosure strategy is the right fit for your space.
               </p>
-              <TrackedLink href="/contact?type=price&product=enclosure">
+              <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
                   Start Quote
                 </Button>
@@ -771,6 +781,6 @@ export default function EnclosuresPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

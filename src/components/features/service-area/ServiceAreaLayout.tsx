@@ -52,7 +52,7 @@ export function ServiceAreaLayout({
   });
 
   return (
-    <main className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* ========== SPLIT HERO ========== */}
       <section className="min-h-screen flex flex-col md:flex-row relative">
         {/* LEFT: Content */}
@@ -101,7 +101,7 @@ export function ServiceAreaLayout({
         <div className="md:w-1/2 relative min-h-[50vh] md:min-h-screen">
           <Image
             src={heroImage}
-            alt={`Luxury pergola in ${location}, ${state}`}
+            alt={`Outdoor living project in ${location}, ${state}`}
             fill
             className="object-cover"
             priority
@@ -154,6 +154,6 @@ export function ServiceAreaLayout({
           </div>
         </Container>
       </Section>
-    </main>
+    </div>
   );
 }

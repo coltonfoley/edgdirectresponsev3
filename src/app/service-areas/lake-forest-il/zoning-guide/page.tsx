@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
+import { buildContactHref } from '@/lib/contact-links';
 
 export const metadata: Metadata = {
   title: 'Lake Forest Pergola Permit & Zoning Guide | EDG Patio & Shade',
@@ -118,9 +119,14 @@ const faqs = [
   },
 ];
 
+const permitGuideContactHref = buildContactHref({
+  area: 'lake-forest',
+  source: 'lake_forest_permit_guide',
+});
+
 export default function LakeForestZoningGuidePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -215,7 +221,7 @@ export default function LakeForestZoningGuidePage() {
               </a>
             </div>
 
-            <div className="overflow-hidden rounded-lg border border-zinc-200">
+            <div className="overflow-hidden border border-zinc-200">
               <table className="w-full border-collapse text-left text-sm">
                 <thead className="bg-zinc-100">
                   <tr>
@@ -384,7 +390,7 @@ export default function LakeForestZoningGuidePage() {
               <Link href="/service-areas/lake-forest-il/motorized-pergolas">
                 <Button size="lg">Explore Lake Forest Pergolas</Button>
               </Link>
-              <Link href="/contact?area=lake-forest&source=lake_forest_permit_guide">
+              <Link href={permitGuideContactHref}>
                 <Button
                   variant="outline"
                   size="lg"
@@ -397,6 +403,6 @@ export default function LakeForestZoningGuidePage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

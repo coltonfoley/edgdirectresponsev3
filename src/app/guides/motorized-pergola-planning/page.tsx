@@ -348,7 +348,7 @@ export default function MotorizedPergolaPlanningPage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -821,6 +821,6 @@ export default function MotorizedPergolaPlanningPage() {
           </div>
         </Container>
       </section>
-    </main>
+    </div>
   );
 }

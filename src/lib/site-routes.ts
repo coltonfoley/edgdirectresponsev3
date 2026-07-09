@@ -70,9 +70,11 @@ export const siteRoutes: SiteRoute[] = [
     family: 'main',
     xmlSitemap: true,
     htmlSitemap: true,
+    navGroup: 'work',
     footerGroup: 'work',
     priority: 0.8,
     status: 'active',
+    desc: 'Visit the Spring Grove showroom',
   },
   {
     href: '/trade-partners',
@@ -354,7 +356,7 @@ export const siteRoutes: SiteRoute[] = [
     priority: 0.9,
     status: 'active',
     region: 'McHenry County',
-    desc: 'Fox River Valley pergola planning for Old Town, Randall Road neighborhoods, permits, screens, and year-round patio comfort.',
+    desc: 'Fox River Valley pergola planning for Old Town, Randall Road neighborhoods, permits, screens, and flexible patio comfort.',
   },
   {
     href: '/service-areas/lake-county-il',
@@ -568,7 +570,7 @@ export const siteRoutes: SiteRoute[] = [
     footerGroup: 'localProducts',
     priority: 0.8,
     status: 'active',
-    desc: 'Miami-Dade rated pergola guidance for Sanibel and Captiva homes.',
+    desc: 'Coastal pergola guidance for Sanibel and Captiva homes.',
   },
   {
     href: '/service-areas/sanibel-outdoor-living/modern-lanai',
@@ -659,7 +661,7 @@ export const siteRoutes: SiteRoute[] = [
     footerGroup: 'localProducts',
     priority: 0.9,
     status: 'active',
-    desc: 'Installer-focused guidance for louvered roof systems in Chicago.',
+    desc: 'Pergola planning for Chicago rooftops, tight lots, masonry patios, and permit-aware outdoor rooms.',
   },
   {
     href: '/service-areas/chicago-il/retractable-screens',

@@ -17,6 +17,7 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { TrackedLink } from '@/components/ui/TrackedLink';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -132,6 +133,18 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  source: 'magnatrack_cost_guide',
+});
+
+const bottomContactHref = buildContactHref({
+  type: 'price',
+  product: 'shades',
+  source: 'magnatrack_cost_bottom',
+});
+
 export default function MagnaTrackScreensCostGuide() {
   const articleSchema = generateArticleSchema({
     title: 'MagnaTrack Screens Cost Guide 2026',
@@ -183,7 +196,7 @@ export default function MagnaTrackScreensCostGuide() {
                 pricing.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <TrackedLink href="/contact?type=price&product=shades&source=magnatrack_cost_guide">
+                <TrackedLink href={heroContactHref}>
                   <Button size="lg">Get Screen Fit + Budget Range</Button>
                 </TrackedLink>
                 <Link href="#cost-ranges">
@@ -413,7 +426,7 @@ export default function MagnaTrackScreensCostGuide() {
                 solved. We will help you understand whether screens are the
                 right first move and what budget range fits the project.
               </p>
-              <TrackedLink href="/contact?type=price&product=shades&source=magnatrack_cost_bottom">
+              <TrackedLink href={bottomContactHref}>
                 <Button size="lg">Send Openings for Review</Button>
               </TrackedLink>
             </div>

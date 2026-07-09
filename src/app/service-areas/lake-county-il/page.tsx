@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import * as images from '@/lib/images';
+import { buildContactHref } from '@/lib/contact-links';
 import { generateFAQSchema } from '@/lib/schema';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -29,7 +30,8 @@ export const metadata: Metadata = {
     'Custom motorized pergolas, exterior shades, and glass enclosures for Lake County, IL homes. Local planning for Barrington estates, North Shore homes, Libertyville patios, and Chain O Lakes waterfronts.',
   openGraph: {
     title: 'Lake County Outdoor Living | EDG Patio & Shade',
-    description: 'Luxury outdoor living systems for Lake County homes. Motorized pergolas and screens designed for Illinois weather.',
+    description:
+      'Outdoor living systems for Lake County homes. Motorized pergolas and screens planned for Illinois weather.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -51,7 +53,7 @@ const neighborhoods = [
   {
     name: 'Barrington, Deer Park, and Kildeer',
     description:
-      'Western Lake County projects often involve large patios, pool areas, wooded views, and HOA review. We plan louvered pergolas around long sightlines, mature trees, outdoor kitchens, and the need for a system that looks estate-grade rather than kit-built.',
+      'Western Lake County projects often involve large patios, pool areas, wooded views, and HOA review. We plan louvered pergolas around long sightlines, mature trees, outdoor kitchens, and the need for a system that looks architectural rather than kit-built.',
   },
   {
     name: 'Lake Forest, Lake Bluff, and Highland Park',
@@ -135,6 +137,19 @@ const faqs = [
   },
 ];
 
+const heroContactHref = buildContactHref({
+  type: 'quote',
+  product: 'multiple',
+  location: 'Lake County, IL',
+  source: 'lake_county_hub_hero',
+});
+const bottomContactHref = buildContactHref({
+  type: 'consultation',
+  product: 'multiple',
+  location: 'Lake County, IL',
+  source: 'lake_county_hub_bottom',
+});
+
 export default function LakeCountyHubPage() {
   return (
     <div className="min-h-screen">
@@ -194,17 +209,21 @@ export default function LakeCountyHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Lake County, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Transform Your Lake County Backyard With
+                Plan Your Lake County Backyard With
+                {' '}
                 <span className="text-edg-brand block">
-                  Four-Season Outdoor Living
+                  Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                From luxury estates in Barrington to waterfront homes on the Chain O&apos;Lakes. We design engineered shade systems that handle Illinois weather while elevating your home&apos;s value.
+                From Barrington estate lots to waterfront homes on the Chain
+                O&apos;Lakes, we design motorized shade, screen, and enclosure
+                systems around Illinois weather, review paths, and the way each
+                property is used.
               </p>
-              <Link href="/contact">
+              <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Free Site Visit{' '}
+                  Request a Site Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -291,10 +310,11 @@ export default function LakeCountyHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Engineered for Northern Illinois Climate
+                Planned for Northern Illinois Climate
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Don&apos;t let mosquitoes, rain, or snow dictate outside time.
+                Plan for mosquitoes, rain, wind, and snow before you pick a
+                system.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -324,7 +344,7 @@ export default function LakeCountyHubPage() {
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
               {/* Setbacks */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   Property Setbacks & Variances
@@ -333,26 +353,26 @@ export default function LakeCountyHubPage() {
                   Structures like pergolas are often viewed as &quot;accessory structures.&quot; Because of this, they must adhere to setbacks:
                 </p>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                  <li className="flex items-center gap-3 border border-border bg-surface p-4">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
                     <span>Side yards and rear yards often carry 5 to 10-foot boundaries from the property line.</span>
                   </li>
-                  <li className="flex items-center gap-3 rounded-xl bg-white p-4 dark:bg-zinc-800">
+                  <li className="flex items-center gap-3 border border-border bg-surface p-4">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
                     <span>Easements (utility or drainage) must remain completely clear of permanent footings.</span>
                   </li>
                 </ul>
-              </div>
+              </Card>
 
               {/* Timeline */}
-              <div className="rounded-2xl border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-zinc-900">
+              <Card variant="muted" padding="lg">
                 <h3 className="mb-4 flex items-center gap-3 text-xl font-bold">
                   <Clock className="text-edg-brand-dark h-6 w-6" />
                   Approval Packages
                 </h3>
-                <div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
-                  <Clock className="h-5 w-5 shrink-0 text-amber-600" />
-                  <p className="font-medium text-amber-800 dark:text-amber-200">
+                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                  <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
+                  <p className="font-medium text-text-primary">
                     We assemble your application to prevent village & HOA delays.
                   </p>
                 </div>
@@ -369,7 +389,7 @@ export default function LakeCountyHubPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Card>
             </div>
           </FadeIn>
         </Container>
@@ -397,23 +417,24 @@ export default function LakeCountyHubPage() {
       </Section>
 
       {/* ========== CTA ========== */}
-      <section className="section-md bg-edg-brand">
+      <section className="section-md bg-surface-dark text-text-inverse">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Upgrade Your Lake County Home?
+              <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
+                Ready to plan your Lake County project?
               </h2>
-              <p className="text-edg-dark/80 mb-8 text-xl">
-                Get a free consultation and customized quote from our team.
+              <p className="text-text-inverse-muted mb-8 text-xl">
+                Send photos, the address, and the main comfort problem. We will
+                help you narrow the right system before pricing gets too far
+                ahead of the site.
               </p>
-              <Link href="/contact">
+              <Link href={bottomContactHref}>
                 <Button
                   size="lg"
-                  variant="dark"
                   className="px-8 text-lg"
                 >
-                  Schedule Free Consultation{' '}
+                  Start Lake County Review{' '}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
