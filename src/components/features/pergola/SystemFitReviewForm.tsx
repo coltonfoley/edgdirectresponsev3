@@ -303,6 +303,8 @@ export function SystemFitReviewForm() {
       metadata: {
         cta_label: 'Get a System Fit Review',
         form_variant: 'pergola_system_fit_review',
+        pilot_name: 'pergola_system_fit',
+        pilot_version: 'v1',
         inbound_context: inboundContext || undefined,
         photo_count: photos.length,
       },
@@ -323,6 +325,8 @@ export function SystemFitReviewForm() {
       metadata: {
         cta_label: 'Get a System Fit Review',
         form_variant: 'pergola_system_fit_review',
+        pilot_name: 'pergola_system_fit',
+        pilot_version: 'v1',
       },
     });
   };

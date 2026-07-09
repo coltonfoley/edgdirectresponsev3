@@ -4,7 +4,7 @@ import { ConfiguratorApp } from './ConfiguratorApp';
 export const metadata: Metadata = {
   title: 'Motorized Pergola Configurator | 3D Planning Tool | EDG',
   description:
-    'Use EDG’s 3D pergola configurator to explore size, color, mount type, louver position, lighting, screens, heaters, and controls before a project-specific System Fit Review.',
+    'Use EDG’s 3D pergola configurator to explore size, color, mount type, louvers, screens, lighting, and controls before a System Fit Review.',
   keywords: [
     'pergola configurator',
     'design your pergola',

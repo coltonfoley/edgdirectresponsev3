@@ -23,7 +23,7 @@ import * as images from '@/lib/images';
 export const metadata: Metadata = {
   title: 'Pergola System Fit Review | EDG Patio & Shade',
   description:
-    'Send EDG your photos, dimensions, location, budget, and project goals. We will help identify the right motorized pergola system direction before you chase the wrong quote.',
+    'Send photos, dimensions, location, budget, and project goals. EDG will outline the right pergola direction, budget range, and site red flags.',
   alternates: {
     canonical: '/guides/pergola-system-fit-review',
   },

@@ -37,7 +37,7 @@ import {
 export const metadata: Metadata = {
   title: 'Motorized Louvered Pergolas | Adjustable Roof Systems | EDG',
   description:
-    'Motorized louvered pergolas selected around sun, rain, drainage, and site exposure. Manufacturer-flexible design and supply, with installation in the Chicago-Milwaukee corridor.',
+    'Compare motorized louvered pergolas around sun, rain, drainage, and exposure. EDG designs and installs the right fit across Chicago, Milwaukee, and Lake Geneva.',
   keywords: [
     'motorized pergolas',
     'louvered pergolas',

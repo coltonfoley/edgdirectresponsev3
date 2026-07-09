@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { trackConversion } from '@/lib/analytics';
 import {
   Check,
   ChevronLeft,
@@ -455,7 +456,13 @@ export function ConfiguratorApp() {
                 type="button"
                 className="w-full"
                 size="lg"
-                onClick={() => setShowModal(true)}
+                onClick={() => {
+                  trackConversion({
+                    conversionName: 'pergola_configurator_review_open',
+                    linkText: 'Send Configuration for Review',
+                  });
+                  setShowModal(true);
+                }}
               >
                 Send Configuration for Review →
               </Button>
@@ -653,6 +660,8 @@ function QuoteModal({
       metadata: {
         cta_label: 'Send Configuration for Review',
         form_variant: 'pergola_configurator',
+        pilot_name: 'pergola_system_fit',
+        pilot_version: 'v1',
         configurator_summary: summary,
         timeline: form.timeline || undefined,
         budget: form.budget || undefined,
@@ -669,6 +678,8 @@ function QuoteModal({
       metadata: {
         cta_label: 'Send Configuration for Review',
         form_variant: 'pergola_configurator',
+        pilot_name: 'pergola_system_fit',
+        pilot_version: 'v1',
         configurator_summary: summary,
       },
     });

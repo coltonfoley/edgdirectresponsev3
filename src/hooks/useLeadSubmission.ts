@@ -215,9 +215,14 @@ function getPilotEventName(
   metadata: LeadMetadata,
   stage: 'form_start' | 'submit'
 ) {
-  if (metadata.pilot_name !== 'screen_fit_budget') return null;
+  const pilotEventPrefix =
+    metadata.pilot_name === 'screen_fit_budget'
+      ? 'screen_fit_budget'
+      : metadata.pilot_name === 'pergola_system_fit'
+        ? 'pergola_system_fit'
+        : null;
 
-  return stage === 'form_start'
-    ? 'screen_fit_budget_form_start'
-    : 'screen_fit_budget_submit';
+  if (!pilotEventPrefix) return null;
+
+  return `${pilotEventPrefix}_${stage === 'form_start' ? 'form_start' : 'submit'}`;
 }

@@ -23,7 +23,7 @@ import * as images from '@/lib/images';
 export const metadata: Metadata = {
   title: 'The Complete Guide to Louvered Pergolas | 2026 Edition',
   description:
-    'Everything Chicago homeowners need to know about motorized louvered pergolas: costs ($120-180/sqft), permits, winter performance, drainage, and system fit. Updated for 2026.',
+    'Chicago homeowners: learn how motorized louvered pergolas handle sun, rain, drainage, permits, winter weather, and system-fit planning.',
   alternates: {
     canonical: '/guides/louvered-pergolas',
   },

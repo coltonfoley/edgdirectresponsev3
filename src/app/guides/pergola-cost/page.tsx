@@ -32,10 +32,9 @@ import {
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title:
-    'Pergola Cost Guide 2026: What Drives Pricing for Premium Systems | EDG',
+  title: 'Motorized Pergola Cost Guide 2026 | EDG',
   description:
-    'Comprehensive guide to motorized pergola costs in 2026. Understand what drives pricing from $25K to $100K+, why premium systems cost more than big-box alternatives, and how to budget for your project.',
+    'Learn what drives motorized pergola costs, from size and mounting to louvers, screens, lighting, drainage, and installation. Plan your project budget.',
   keywords: [
     'pergola cost',
     'how much does a pergola cost',

@@ -20,7 +20,7 @@ import * as images from '@/lib/images';
 export const metadata: Metadata = {
   title: 'Pergola vs. Patio Cover: How We Match Systems to Your Needs',
   description:
-    'Understanding the differences between pergolas, patio covers, and louvered systems. Learn how we recommend the right shade solution based on your home, climate, and priorities.',
+    'Compare pergolas, patio covers, and louvered systems by weather protection, drainage, permits, and design fit to choose the right outdoor shade solution.',
   alternates: {
     canonical: '/guides/pergola-vs-patio-cover',
   },
