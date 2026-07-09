@@ -79,7 +79,36 @@ async function testPage(browser, route, viewport) {
       const targetY = Math.min(scrollY, document.body.scrollHeight - window.innerHeight);
       window.scrollTo(0, Math.max(0, targetY));
     }, viewport.scrollY);
-    await page.waitForTimeout(350);
+
+    // `domcontentloaded` lets the test begin before Next's optimized, lazy
+    // images have all finished streaming. Wait only for the visible images
+    // that this check will inspect; waiting for every network request makes
+    // the gallery route hang on intentional background-image work.
+    await page
+      .waitForFunction(
+        () => {
+          const isVisibleNearViewport = (image) => {
+            const style = window.getComputedStyle(image);
+            const rect = image.getBoundingClientRect();
+
+            return (
+              style.display !== 'none' &&
+              style.visibility !== 'hidden' &&
+              Number(style.opacity || 1) > 0.05 &&
+              rect.width > 0 &&
+              rect.height > 0 &&
+              rect.bottom >= -200 &&
+              rect.top <= window.innerHeight + 200
+            );
+          };
+
+          return [...document.images]
+            .filter(isVisibleNearViewport)
+            .every((image) => image.complete && image.naturalWidth > 0);
+        },
+        { timeout: 8_000 }
+      )
+      .catch(() => {});
 
     const structureIssues = await page.evaluate(() => {
       function elementPath(element) {
