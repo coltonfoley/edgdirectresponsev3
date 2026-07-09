@@ -63,6 +63,8 @@ export function useLeadSubmission({
     cta_position: metadata?.cta_position,
     page_path: metadata?.page_path,
     landing_page: metadata?.landing_page,
+    pilot_name: metadata?.pilot_name,
+    pilot_version: metadata?.pilot_version,
     has_phone: Boolean(data.phone),
     has_project_type: Boolean(data.projectType),
     has_message: Boolean(data.message),
@@ -70,10 +72,19 @@ export function useLeadSubmission({
 
   const trackFormStart = (data: Partial<LeadData>) => {
     const metadata = getLeadJourneyMetadata(data.metadata);
+    const analyticsPayload = getAnalyticsPayload(data, metadata);
     pushAnalyticsEvent({
       event: 'form_start',
-      ...getAnalyticsPayload(data, metadata),
+      ...analyticsPayload,
     });
+
+    const pilotEvent = getPilotEventName(metadata, 'form_start');
+    if (pilotEvent) {
+      pushAnalyticsEvent({
+        event: pilotEvent,
+        ...analyticsPayload,
+      });
+    }
   };
 
   const submitLead = async (data: LeadData) => {
@@ -127,16 +138,25 @@ export function useLeadSubmission({
           ...getAnalyticsPayload(data, metadata),
         });
       } else {
+        const analyticsPayload = getAnalyticsPayload(data, metadata);
         pushAnalyticsEvent({
           event: 'generate_lead',
-          ...getAnalyticsPayload(data, metadata),
+          ...analyticsPayload,
           currency: 'USD',
           value: 0,
         });
         pushAnalyticsEvent({
           event: 'form_submit_success',
-          ...getAnalyticsPayload(data, metadata),
+          ...analyticsPayload,
         });
+
+        const pilotEvent = getPilotEventName(metadata, 'submit');
+        if (pilotEvent) {
+          pushAnalyticsEvent({
+            event: pilotEvent,
+            ...analyticsPayload,
+          });
+        }
       }
 
       if (onSuccess) {
@@ -189,4 +209,15 @@ function getSubmissionErrorCode(error: unknown) {
   }
 
   return 'submission_error';
+}
+
+function getPilotEventName(
+  metadata: LeadMetadata,
+  stage: 'form_start' | 'submit'
+) {
+  if (metadata.pilot_name !== 'screen_fit_budget') return null;
+
+  return stage === 'form_start'
+    ? 'screen_fit_budget_form_start'
+    : 'screen_fit_budget_submit';
 }

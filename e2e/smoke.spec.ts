@@ -161,6 +161,53 @@ test.describe('Smoke Tests', () => {
     await expect(form.locator('select[name="mainProblem"]')).toBeVisible();
   });
 
+  test('the Screen Fit + Budget pilot emits its own accepted-lead funnel events', async ({
+    page,
+  }) => {
+    await page.goto('/guides/magnatrack-screens-cost');
+    await page.evaluate(() => {
+      window.dataLayer = [];
+    });
+    await page.route('**/api/leads', async (route) => {
+      await route.fulfill({
+        status: 201,
+        contentType: 'application/json',
+        body: JSON.stringify({ success: true, accepted: true }),
+      });
+    });
+
+    const form = page.locator('#screen-fit-budget form');
+    await form.locator('input[name="firstName"]').fill('Taylor');
+    await form.locator('input[name="email"]').fill('taylor@example.com');
+    await form.locator('input[name="location"]').fill('Barrington, IL');
+    await form
+      .locator('select[name="mainProblem"]')
+      .selectOption('Privacy');
+    await form
+      .getByRole('button', { name: 'Get My Screen Fit + Budget Range' })
+      .click();
+
+    await expect(
+      page.getByRole('heading', { name: 'Your screen review is in.' })
+    ).toBeVisible();
+
+    const eventNames = await page.evaluate(() =>
+      (window.dataLayer || [])
+        .map((event) => event.event)
+        .filter((event): event is string => typeof event === 'string')
+    );
+
+    expect(eventNames).toEqual(
+      expect.arrayContaining([
+        'form_start',
+        'screen_fit_budget_form_start',
+        'generate_lead',
+        'form_submit_success',
+        'screen_fit_budget_submit',
+      ])
+    );
+  });
+
   test('contact form honors CTA query params', async ({ page }) => {
     await page.goto('/contact?type=price&product=saunas&area=Sanibel');
 
