@@ -127,18 +127,21 @@ export default function ServiceAreasPage() {
             <p className="text-text-secondary mt-4 text-lg">
               Click your community to learn about local projects,
               considerations, and how we can help. If you are inside city
-              limits, start with Chicago and then drill into the product pages
-              that match your project.
+              limits, start with the city page that matches your address—such as{' '}
+              <Link
+                href="/service-areas/milwaukee-wi"
+                className="text-edg-brand-text font-semibold hover:underline"
+              >
+                Milwaukee
+              </Link>{' '}
+              or Chicago—and then drill into the product pages that match your
+              project.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {serviceAreas.map((area) => (
-              <Link
-                key={area.href}
-                href={area.href}
-                className="group"
-              >
+              <Link key={area.href} href={area.href} className="group">
                 <Card
                   variant="muted"
                   padding="lg"

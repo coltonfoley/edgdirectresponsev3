@@ -6,6 +6,12 @@ import { Metadata } from 'next';
 import { getIndexableProjects } from '@/lib/projects';
 import { getHtmlSitemapRoutes, type SiteRouteFamily } from '@/lib/site-routes';
 
+const requiredMilwaukeeRoutes = [
+  '/service-areas/milwaukee-wi',
+  '/service-areas/milwaukee-wi/motorized-pergolas',
+  '/service-areas/milwaukee-wi/zoning-guide',
+] as const;
+
 export const metadata: Metadata = {
   title: 'Sitemap | EDG Patio & Shade',
   description: 'Complete overview of pages on EDG Patio & Shade website.',
@@ -38,6 +44,20 @@ function routeLinksForFamily(family: SiteRouteFamily) {
 }
 
 export default function SitemapPage() {
+  const allHtmlRoutes = [
+    ...getHtmlSitemapRoutes('service-areas'),
+    ...getHtmlSitemapRoutes('local-products'),
+  ];
+  const missingMilwaukeeRoute = requiredMilwaukeeRoutes.find(
+    (href) => !allHtmlRoutes.some((route) => route.href === href)
+  );
+
+  if (missingMilwaukeeRoute) {
+    throw new Error(
+      `Missing required Milwaukee HTML sitemap route: ${missingMilwaukeeRoute}`
+    );
+  }
+
   const sitemapLinks: SitemapSection[] = [
     ...sectionFamilies
       .map((section) => ({
@@ -59,8 +79,8 @@ export default function SitemapPage() {
   );
 
   return (
-    <div className="min-h-screen bg-surface text-text-primary">
-      <Section className="border-b border-border bg-surface-dark pt-28 pb-16 text-text-inverse md:pt-32 md:pb-20">
+    <div className="bg-surface text-text-primary min-h-screen">
+      <Section className="border-border bg-surface-dark text-text-inverse border-b pt-28 pb-16 md:pt-32 md:pb-20">
         <Container>
           <div className="mb-8">
             <Breadcrumb
@@ -71,7 +91,7 @@ export default function SitemapPage() {
 
           <div className="grid gap-10 lg:grid-cols-[1fr_0.42fr] lg:items-end">
             <div className="max-w-4xl">
-              <div className="label-editorial mb-5 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-5">
                 Site Index
               </div>
               <h1 className="mb-6 text-5xl leading-tight font-bold md:text-7xl">
@@ -84,14 +104,14 @@ export default function SitemapPage() {
             </div>
 
             <div className="border border-white/10 bg-black/35 p-6">
-              <div className="mb-4 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+              <div className="text-edg-brand mb-4 text-xs font-bold tracking-[0.2em] uppercase">
                 Route Inventory
               </div>
               <div className="flex items-baseline justify-between gap-4 border-t border-white/10 pt-4">
                 <span className="text-sm font-bold text-white">
                   Listed pages
                 </span>
-                <span className="text-4xl font-bold text-edg-brand">
+                <span className="text-edg-brand text-4xl font-bold">
                   {routeCount}
                 </span>
               </div>
@@ -110,21 +130,21 @@ export default function SitemapPage() {
             {sitemapLinks.map((section) => (
               <section
                 key={section.category}
-                className="border border-border bg-white p-6"
+                className="border-border border bg-white p-6"
                 aria-labelledby={`sitemap-${section.category
                   .toLowerCase()
                   .replace(/[^a-z0-9]+/g, '-')}`}
               >
-                <div className="mb-5 flex items-baseline justify-between gap-4 border-b border-border pb-4">
+                <div className="border-border mb-5 flex items-baseline justify-between gap-4 border-b pb-4">
                   <h2
                     id={`sitemap-${section.category
                       .toLowerCase()
                       .replace(/[^a-z0-9]+/g, '-')}`}
-                    className="text-xl font-bold text-text-primary"
+                    className="text-text-primary text-xl font-bold"
                   >
                     {section.category}
                   </h2>
-                  <span className="text-xs font-bold tracking-[0.18em] text-text-muted uppercase">
+                  <span className="text-text-muted text-xs font-bold tracking-[0.18em] uppercase">
                     {section.links.length} pages
                   </span>
                 </div>
@@ -133,7 +153,7 @@ export default function SitemapPage() {
                     <li key={`${section.category}-${link.href}-${link.label}`}>
                       <Link
                         href={link.href}
-                        className="group flex items-center justify-between gap-4 text-sm font-medium text-text-secondary transition-colors hover:text-edg-brand-dark"
+                        className="group text-text-secondary hover:text-edg-brand-dark flex items-center justify-between gap-4 text-sm font-medium transition-colors"
                       >
                         <span>{link.label}</span>
                         <span

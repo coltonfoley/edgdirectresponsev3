@@ -40,6 +40,11 @@ const footerSolutionLinks = toFooterLinks([
 const footerGuideLinks = toFooterLinks(getRoutesByFooterGroup('guides'));
 const footerLocationLinks = toFooterLinks(serviceAreaHubRoutes);
 const footerLocalProductLinks = toFooterLinks(priorityLocalProductRoutes);
+const milwaukeeClusterRoutes = [
+  '/service-areas/milwaukee-wi',
+  '/service-areas/milwaukee-wi/motorized-pergolas',
+  '/service-areas/milwaukee-wi/zoning-guide',
+] as const;
 const footerWorkOrder = [
   'Projects',
   'Gallery',
@@ -122,6 +127,9 @@ export function Footer() {
   const isLakeGenevaPage = pathname?.startsWith(
     '/service-areas/lake-geneva-wi'
   );
+  const isMilwaukeePage = milwaukeeClusterRoutes.some((route) =>
+    pathname?.startsWith(route)
+  );
   const consultationHref = isSouthwestFloridaPage
     ? buildContactHref({
         type: 'price',
@@ -143,7 +151,14 @@ export function Footer() {
             location: 'Lake Geneva, WI',
             source: 'footer_lake_geneva',
           })
-        : buildContactHref({ type: 'consultation', source: 'footer' });
+        : isMilwaukeePage
+          ? buildContactHref({
+              type: 'fit-review',
+              product: 'pergola',
+              location: 'Milwaukee, WI',
+              source: 'footer_milwaukee',
+            })
+          : buildContactHref({ type: 'consultation', source: 'footer' });
 
   return (
     <footer className="bg-black text-white">

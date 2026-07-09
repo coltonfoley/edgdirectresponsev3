@@ -11,10 +11,7 @@ import { ProductGallery } from '@/components/features/gallery/ProductGallery';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { PergolaConfiguratorClient } from './PergolaConfiguratorClient';
-import {
-  generateServiceSchema,
-  generateFAQSchema,
-} from '@/lib/schema';
+import { generateServiceSchema, generateFAQSchema } from '@/lib/schema';
 import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 import {
@@ -80,9 +77,15 @@ const specifications = [
   { label: 'Post Options', value: '4-post, 2-post wall mount, cantilever' },
   { label: 'Material', value: 'Specified by selected system' },
   { label: 'Finish', value: 'System-specific colors and finishes' },
-  { label: 'Wind & Snow', value: 'Engineering and ratings vary by model and site' },
+  {
+    label: 'Wind & Snow',
+    value: 'Engineering and ratings vary by model and site',
+  },
   { label: 'Louver Movement', value: 'Model-specific adjustment range' },
-  { label: 'Control Options', value: 'Remote, wall control, app, or sensors as specified' },
+  {
+    label: 'Control Options',
+    value: 'Remote, wall control, app, or sensors as specified',
+  },
 ];
 
 // Key features
@@ -236,6 +239,12 @@ const relatedProducts = [
     description:
       'Lakefront louvered roof guidance for wind, views, outdoor dining, screens, and permit review.',
     href: '/service-areas/lake-geneva-wi/motorized-pergolas',
+  },
+  {
+    title: 'Milwaukee Pergola Planning',
+    description:
+      'Motorized-pergola and City permit-planning guidance for Milwaukee patios, yards, terraces, and urban outdoor spaces.',
+    href: '/service-areas/milwaukee-wi/motorized-pergolas',
   },
 ];
 
@@ -813,6 +822,12 @@ export default function PergolasPage() {
               <Link href="/service-areas/lake-geneva-wi/motorized-pergolas">
                 <Button variant="outline" size="sm">
                   Lake Geneva Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/service-areas/milwaukee-wi/motorized-pergolas">
+                <Button variant="outline" size="sm">
+                  Milwaukee Pergolas
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>

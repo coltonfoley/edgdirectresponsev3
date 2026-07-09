@@ -167,6 +167,8 @@ function normalizeLocationPrefill(value: string | null): string {
     'lake-geneva': 'Lake Geneva, WI',
     'lake-geneva-wi': 'Lake Geneva, WI',
     'mchenry-county': 'McHenry County, IL',
+    milwaukee: 'Milwaukee, WI',
+    'milwaukee-wi': 'Milwaukee, WI',
     naperville: 'Naperville, IL',
     'north-shore': 'North Shore Chicago',
     northbrook: 'Northbrook, IL',
@@ -244,7 +246,8 @@ function ContactForm({
     message: '',
   });
 
-  const { submitLead, trackFormStart, loading, error, success } = useLeadSubmission();
+  const { submitLead, trackFormStart, loading, error, success } =
+    useLeadSubmission();
   const formDescriptionIds = error
     ? `${formDescriptionId} ${formErrorId}`
     : formDescriptionId;
@@ -259,8 +262,7 @@ function ContactForm({
     const projectType = normalizeProjectType(
       searchParams.get('product') || searchParams.get('project')
     );
-    const market =
-      searchParams.get('area') || searchParams.get('market') || '';
+    const market = searchParams.get('area') || searchParams.get('market') || '';
     const location = normalizeLocationPrefill(
       searchParams.get('location') || market
     );
@@ -329,7 +331,7 @@ function ContactForm({
           aria-live="polite"
           aria-labelledby={successTitleId}
           aria-describedby={successDescriptionId}
-          className="max-w-2xl border border-border bg-white p-16 text-center"
+          className="border-border max-w-2xl border bg-white p-16 text-center"
         >
           <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center bg-black text-white">
             <Check className="h-10 w-10" />
@@ -426,7 +428,7 @@ function ContactForm({
               </div>
               <TrackedPhoneLink
                 href="tel:+18155810138"
-                className="text-lg font-bold transition-colors hover:text-edg-brand"
+                className="hover:text-edg-brand text-lg font-bold transition-colors"
               >
                 815.581.0138
               </TrackedPhoneLink>
@@ -460,7 +462,7 @@ function ContactForm({
               role="radio"
               aria-checked={formType === type.id}
               data-active={formType === type.id ? 'true' : 'false'}
-              className="contact-type-radio px-4 py-3 text-sm font-bold tracking-wider whitespace-nowrap uppercase transition-colors sm:-ml-[1px] first:ml-0 focus-visible:ring-2 focus-visible:ring-edg-brand-dark focus-visible:ring-offset-2 focus-visible:outline-none"
+              className="contact-type-radio focus-visible:ring-edg-brand-dark px-4 py-3 text-sm font-bold tracking-wider whitespace-nowrap uppercase transition-colors first:ml-0 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none sm:-ml-[1px]"
             >
               {type.label}
             </button>

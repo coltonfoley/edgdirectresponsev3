@@ -48,6 +48,7 @@ export const localBusinessSchema = {
         { '@type': 'AdministrativeArea', name: 'Milwaukee County' },
         { '@type': 'AdministrativeArea', name: 'Walworth County' },
         { '@type': 'City', name: 'Lake Geneva' },
+        { '@type': 'City', name: 'Milwaukee' },
         { '@type': 'City', name: 'Fontana-on-Geneva Lake' },
         { '@type': 'City', name: 'Williams Bay' },
       ],

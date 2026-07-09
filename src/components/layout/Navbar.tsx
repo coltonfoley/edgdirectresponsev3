@@ -45,6 +45,11 @@ const locationsDropdown = toMenuLinks(locationNavLinks);
 const localProductDropdown = toMenuLinks(localProductNavLinks);
 const guidesDropdown = toMenuLinks(guideNavLinks);
 const outdoorRoomDropdown = toMenuLinks(outdoorRoomNavLinks);
+const milwaukeeClusterRoutes = [
+  '/service-areas/milwaukee-wi',
+  '/service-areas/milwaukee-wi/motorized-pergolas',
+  '/service-areas/milwaukee-wi/zoning-guide',
+] as const;
 const workOrder = ['Projects', 'Gallery', 'Showroom'];
 const workDropdown = toMenuLinks(workNavLinks).sort(
   (a, b) => workOrder.indexOf(a.label) - workOrder.indexOf(b.label)
@@ -138,7 +143,9 @@ export function Navbar() {
 
       if (isOpen) {
         setIsOpen(false);
-        window.requestAnimationFrame(() => mobileMenuButtonRef.current?.focus());
+        window.requestAnimationFrame(() =>
+          mobileMenuButtonRef.current?.focus()
+        );
       }
     };
 
@@ -184,6 +191,9 @@ export function Navbar() {
   const isSanibelPage = pathname?.startsWith(
     '/service-areas/sanibel-outdoor-living'
   );
+  const isMilwaukeePage = milwaukeeClusterRoutes.some((route) =>
+    pathname?.startsWith(route)
+  );
   const startProjectHref = isSouthwestFloridaPage
     ? buildContactHref({
         type: 'price',
@@ -198,7 +208,14 @@ export function Navbar() {
           area: 'sanibel',
           source: 'nav_sanibel',
         })
-      : buildContactHref({ type: 'fit-review', source: 'nav' });
+      : isMilwaukeePage
+        ? buildContactHref({
+            type: 'fit-review',
+            product: 'pergola',
+            location: 'Milwaukee, WI',
+            source: 'nav_milwaukee',
+          })
+        : buildContactHref({ type: 'fit-review', source: 'nav' });
 
   return (
     <header
