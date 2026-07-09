@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 const guideData = {
   title: 'The Complete Guide to Motorized Louvered Pergolas',
   subtitle: '2026 Edition',
-  publishedDate: '2026-02-03',
+  publishedDate: '2026-07-09',
   author: 'Colton Foley',
   intro:
     'Everything Chicago homeowners need to know about louvered roof systems: costs, permits, Midwest weather, drainage, and system fit.',
@@ -75,7 +75,7 @@ const faqs = [
   {
     question: 'Do I need a permit for a louvered pergola?',
     answer:
-      'Yes. In almost every municipality from Wilmette to Lake Forest, a louvered pergola is considered a permanent structure. It requires zoning approval (setbacks/coverage) and a building permit. We handle this entire process.',
+      'Often, but not always. The answer depends on the address, jurisdiction, structure, attachment, electrical scope, and local review path. EDG can help organize the project information, but the city, village, county, or HOA confirms final requirements.',
   },
   {
     question: 'Can it handle Chicago winters?',

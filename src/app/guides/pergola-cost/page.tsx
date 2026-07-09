@@ -32,9 +32,9 @@ import {
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Motorized Pergola Cost Guide 2026 | EDG',
+  title: 'Motorized Pergola Cost in Chicago & Lake Geneva | 2026',
   description:
-    'Learn what drives motorized pergola costs, from size and mounting to louvers, screens, lighting, drainage, and installation. Plan your project budget.',
+    'See 2026 planning ranges for installed motorized pergolas in Chicago and Lake Geneva, with site, engineering, drainage, and feature costs that change a quote.',
   keywords: [
     'pergola cost',
     'how much does a pergola cost',
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Pergola Cost Guide 2026: Understanding Premium System Pricing',
+    title: 'Motorized Pergola Cost in Chicago & Lake Geneva | EDG',
     description:
-      'What drives pergola costs from $25K to $100K+? A comprehensive breakdown of materials, engineering, installation, and why premium systems outperform big-box alternatives.',
+      'Planning ranges for complete motorized pergola projects, including site conditions, engineering, drainage, features, and installation scope.',
   },
 };
 
@@ -141,10 +141,10 @@ const costFactors = [
     icon: Hammer,
     title: 'Professional Installation',
     description:
-      'Proper installation requires certified crews, specialized equipment, and coordination with electricians. This is not a weekend DIY project.',
+      'Proper installation requires specialized equipment, precise layout work, and coordination with electrical and site trades where needed.',
     impact: 'Project-specific cost driver',
     details: [
-      'Certified installation teams',
+      'Installation coordinated around the selected system',
       'Precision leveling and alignment',
       'Electrical rough-in and connections',
       'Final programming and calibration',
@@ -165,7 +165,7 @@ const hiddenCosts = [
       },
       {
         name: 'Electrical Rough-In',
-        description: '220V dedicated circuit from main panel',
+        description: 'Dedicated circuit and local electrical work, if required',
         cost: '$1,500 – $4,000',
       },
       {
@@ -267,8 +267,8 @@ const comparisonData = [
   },
   {
     feature: 'Installation',
-    premium: 'Certified crews, permit handling, warranty support',
-    bigBox: 'DIY or general contractor; no specialized support',
+    premium: 'Specialized installation planning, permit coordination, warranty support',
+    bigBox: 'DIY or installer support varies by product and seller',
     difference: 'Proper installation ensures performance and safety',
   },
   {
@@ -328,12 +328,12 @@ const faqs = [
   {
     question: 'Are there financing options available?',
     answer:
-      'Yes, many homeowners finance pergola projects through home improvement loans, HELOCs, or specialized outdoor living financing. Some manufacturers offer promotional financing. For commercial projects, equipment financing and lease-to-own options are available. The key is treating this as a home improvement investment rather than a discretionary purchase.',
+      'Financing choices vary by homeowner, lender, and project. Common starting points can include home-improvement lending or a HELOC; confirm current options and terms directly with the lender before treating them as part of the project budget.',
   },
   {
     question: 'How much should I budget for unexpected costs?',
     answer:
-      'We recommend budgeting an additional 10-15% contingency for site preparation, electrical work, and permitting. If your property has challenging access, requires crane rental for installation, or needs significant deck reinforcement, costs can increase. During our site assessment, we identify these factors upfront so there are no surprises.',
+      'Keep room in the plan for site preparation, electrical work, permits, access, and structural coordination. Challenging access, crane needs, or deck reinforcement can change scope. A site assessment helps identify those factors before a project direction is finalized.',
   },
   {
     question: 'Do premium pergolas really add home value?',
@@ -343,17 +343,17 @@ const faqs = [
   {
     question: 'What ongoing costs should I expect after installation?',
     answer:
-      'Premium motorized pergolas are designed to be low-maintenance. Annual costs typically include: professional inspection and cleaning ($200-400/year, optional but recommended), occasional touch-up of powder coat if scratched, and eventual motor replacement after 10-15 years ($800-1,500 per motor). Compare this to wood pergolas requiring staining every 2-3 years ($1,000+) or cheap aluminum systems requiring full replacement after 5-7 years.',
+      'Care needs depend on the selected system, exposure, drainage, controls, finish, and warranty terms. Review the recommended operating and maintenance guidance for the actual system before comparing long-term ownership costs with a wood or kit-based alternative.',
   },
   {
     question: 'Why is installation such a significant portion of the cost?',
     answer:
-      'Proper installation requires specialized skills: precision leveling of structural posts, integration with home electrical systems, programming of smart controls, and calibration of safety sensors. We use certified installation crews—not general laborers—who understand the engineering requirements. Improper installation can void warranties, compromise structural integrity, and cause operational issues. This is not a DIY project or suitable for a general handyman.',
+      'Installation can include precision layout of structural posts, electrical coordination, control setup, drainage, access planning, and system-specific commissioning. Those details affect performance, review requirements, warranty support, and the scope needed for the actual site.',
   },
   {
     question: 'How do I get an accurate quote for my specific project?',
     answer:
-      'Accurate quoting requires a site assessment. We need to evaluate: exact measurements and layout, soil conditions for footings, electrical access and capacity, wind exposure and snow loads for your area, and integration with existing structures. We provide fixed-price quotes after this assessment—not estimates that balloon later. Online calculators or per-square-foot pricing without site evaluation are unreliable for custom installations.',
+      'Accurate pricing starts with a site assessment: dimensions and layout, footing or structure conditions, electrical access, exposure, drainage, installation access, and how the system connects to existing surfaces. Online calculators and per-square-foot figures are useful starting points, but they cannot replace that project-specific review.',
   },
 ];
 
@@ -369,7 +369,7 @@ const budgetSteps = [
     number: '02',
     title: 'Assess Site Conditions',
     description:
-      'Check electrical panel capacity (220V required), foundation needs, and access for installation. These factors significantly impact total cost.',
+      'Check available electrical capacity, potential circuit needs, foundation conditions, and installation access. These factors can significantly affect total cost.',
   },
   {
     number: '03',
@@ -394,11 +394,12 @@ const budgetSteps = [
 export default function PergolaCostGuide() {
   const faqSchema = generateFAQSchema(faqs);
   const articleSchema = generateArticleSchema({
-    title: 'Pergola Cost Guide 2026: Understanding Premium System Pricing',
+    title: 'Motorized Pergola Cost in Chicago & Lake Geneva',
     description:
-      'Comprehensive guide to motorized pergola costs. What drives pricing from $25K to $100K+, why premium systems cost more than big-box alternatives, and how to budget for your project.',
+      'Planning guide to motorized pergola costs in Chicago and Lake Geneva, including installed project ranges, site variables, and budget considerations.',
     url: 'https://www.edgpatioshade.com/guides/pergola-cost',
     datePublished: '2026-03-17',
+    dateModified: '2026-07-09',
     category: 'Buying Guide',
   });
 
@@ -443,20 +444,22 @@ export default function PergolaCostGuide() {
           <div className="max-w-4xl">
             <div className="label-editorial-brand text-edg-brand mb-6 flex items-center gap-3">
               <div className="bg-edg-brand h-px w-8" />
-              2026 Pricing Guide
+              Chicago &amp; Lake Geneva Pricing Guide
             </div>
 
             <h1 className="mb-8 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
-              What Does a Premium
+              What does a motorized
               <br />
-              <span className="text-edg-brand">Pergola Cost?</span>
+              <span className="text-edg-brand">
+                pergola cost in Chicago &amp; Lake Geneva?
+              </span>
             </h1>
 
             <p className="text-text-inverse-muted mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
-              A comprehensive breakdown of motorized pergola pricing. Understand
-              why premium systems range from $25,000 to $150,000+, what drives
-              the cost, and how to budget for a long-term system that fits the
-              actual site and selected manufacturer.
+              Planning ranges for complete motorized pergola projects in the
+              Chicago-Milwaukee corridor and Lake Geneva area. These are not
+              kit prices or quotes: site conditions, engineering, drainage,
+              features, and installation scope all shape the final proposal.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -498,6 +501,13 @@ export default function PergolaCostGuide() {
                   motorized louvered system share a category name but little
                   else in terms of engineering, materials, longevity, or
                   performance.
+                </p>
+                <p>
+                  In Chicago and Lake Geneva, the same footprint can carry very
+                  different scope depending on an existing deck or roof deck,
+                  wind exposure, drainage, access, electrical work, and the
+                  local review path. A useful planning range has to account for
+                  those conditions.
                 </p>
                 <p>
                   <strong>

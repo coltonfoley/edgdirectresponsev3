@@ -18,9 +18,9 @@ import { generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Pergola vs. Patio Cover: How We Match Systems to Your Needs',
+  title: 'Pergola vs. Patio Cover in Chicago & Lake Geneva | EDG',
   description:
-    'Compare pergolas, patio covers, and louvered systems by weather protection, drainage, permits, and design fit to choose the right outdoor shade solution.',
+    'Compare pergolas, patio covers, and louvered systems for Chicago and Lake Geneva homes by weather protection, drainage, daylight, review needs, and design fit.',
   alternates: {
     canonical: '/guides/pergola-vs-patio-cover',
   },
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
 
 const guideData = {
   title: 'Pergola vs. Patio Cover',
-  subtitle: 'How We Determine the Right Solution',
+  subtitle: 'How to Choose for Chicago & Lake Geneva Homes',
   intro:
-    "Confused by the terminology? You are not alone. Here is how we think about matching the right outdoor structure to your home's architecture, your climate, and how you plan to use the space.",
+    "The right answer depends on more than the name of the structure. For Chicago patios, roof decks, and Lake Geneva properties, compare daylight, drainage, wind exposure, attachment, and how the space needs to work before choosing a fixed cover or an adjustable louvered system.",
 };
 
 const comparisonMatrix = [
@@ -45,15 +45,15 @@ const comparisonMatrix = [
   {
     type: 'Solid Patio Cover',
     shade: 'Full fixed shade',
-    rain: 'Fixed roof coverage',
-    airflow: 'Poor (Traps Heat)',
+    rain: 'Fixed roof coverage when properly designed',
+    airflow: 'May reduce airflow',
     cost: '$$$ - $$$$',
     recommended: false,
   },
   {
     type: 'Louvered Pergola',
     shade: 'Adjustable',
-    rain: 'Rain management when closed',
+    rain: 'Rain management when the system is specified correctly',
     airflow: 'Excellent (Vented)',
     cost: '$$$$',
     recommended: true,
@@ -311,6 +311,11 @@ export default function PergolaVsPatioCover() {
                 summer heat and glare. If you want a strictly dry room that
                 feels more indoors, consider a full enclosure, sunroom, or fixed
                 cover.
+              </p>
+              <p className="text-text-secondary mt-4 text-lg leading-relaxed">
+                For a Chicago roof deck or a Lake Geneva site with more open
+                exposure, review structure, drainage, attachment, and local
+                approvals before treating any option as a standard package.
               </p>
             </Card>
           </div>
