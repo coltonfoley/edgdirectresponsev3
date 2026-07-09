@@ -3,7 +3,7 @@ import { Section } from '@/components/ui/Section';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { getAllProjects } from '@/lib/projects';
+import { getIndexableProjects } from '@/lib/projects';
 import { getHtmlSitemapRoutes, type SiteRouteFamily } from '@/lib/site-routes';
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function SitemapPage() {
       .filter((section) => section.links.length > 0),
     {
       category: 'Project Detail Pages',
-      links: getAllProjects().map((project) => ({
+      links: getIndexableProjects().map((project) => ({
         href: `/projects/${project.slug}`,
         label: project.title,
       })),

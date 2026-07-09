@@ -33,6 +33,7 @@ export const metadata: Metadata = {
   description:
     'Motorized louvered pergolas for Sanibel and Captiva homes, planned around coastal wind documentation, salt-air materials, modern lanai alternatives, and permits.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Louvered Pergolas Sanibel | Coastal Outdoor Living | EDG',
     description:
       'Motorized louvered roof systems for Sanibel with coastal materials, rain control, and permit planning.',

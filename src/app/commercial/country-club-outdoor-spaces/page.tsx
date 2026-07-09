@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/country-club-outdoor-spaces',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Country Club Outdoor Spaces | EDG Commercial',
     description:
       'Outdoor amenity planning for country club dining terraces, pool decks, cabanas, and events.',

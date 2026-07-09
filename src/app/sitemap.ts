@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next';
-import { getAllProjects } from '@/lib/projects';
+import { getIndexableProjects } from '@/lib/projects';
 import { xmlSitemapRoutes } from '@/lib/site-routes';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.edgpatioshade.com';
-  const projects = getAllProjects();
+  const projects = getIndexableProjects();
 
   const staticPages = xmlSitemapRoutes.map((route) => ({
     url: route.href === '/' ? `${baseUrl}/` : `${baseUrl}${route.href}`,

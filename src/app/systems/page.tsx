@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     canonical: '/systems',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Outdoor Living Systems | EDG Patio & Shade',
     description:
       'Complete outdoor living solutions: pergolas, screens, enclosures, and kitchens. Built for the Midwest climate.',

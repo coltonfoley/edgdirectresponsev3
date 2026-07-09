@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     'Start your outdoor living project. Request a quote for motorized pergolas, motorized screens, or glass enclosures in the Midwest and select Southwest Florida markets.',
   keywords: ['contact edg', 'outdoor living consultation', 'pergola quote', 'schedule consultation'],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Contact EDG Patio & Shade | Free Consultation',
     description: 'Schedule a free consultation for your outdoor living project. Visit our Spring Grove showroom or request an on-site assessment.',
     type: 'website',

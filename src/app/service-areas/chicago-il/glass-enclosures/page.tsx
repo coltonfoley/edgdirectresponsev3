@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/chicago-il/glass-enclosures',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Glass Patio Enclosures in Chicago, IL | EDG Patio & Shade',
     description:
       'Retractable glass wall systems for Chicago patios, terraces, and outdoor rooms.',

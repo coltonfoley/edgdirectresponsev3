@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/lake-geneva-wi/zoning-guide',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lake Geneva Pergola Permit & Outdoor Living Planning Guide | EDG',
     description:
       'Address-specific permit and review notes for Lake Geneva area pergolas, patio covers, screens, and outdoor living systems.',

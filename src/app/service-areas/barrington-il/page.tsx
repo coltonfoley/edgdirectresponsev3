@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   },
   keywords: ['barrington pergolas', 'barrington outdoor living', 'barrington il patio', 'pergola installation barrington', 'barrington estate outdoor'],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Barrington Outdoor Living | Estate Planning | EDG',
     description:
       'Plan a Barrington estate outdoor room with motorized pergolas, screens, glass, and support for Village and Hills review paths.',

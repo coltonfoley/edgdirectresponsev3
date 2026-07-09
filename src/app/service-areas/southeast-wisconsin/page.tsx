@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas, exterior shades, and glass enclosures for Southeast Wisconsin homes. Local planning for Lake Geneva, Kenosha, Pleasant Prairie, Walworth County, and border-area lake properties.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Wisconsin Outdoor Living | EDG Patio & Shade',
     description:
       'Outdoor living systems for Wisconsin homes. Motorized pergolas and screens planned for winter weather.',

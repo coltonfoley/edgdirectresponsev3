@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/deerfield-il/retractable-screens',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Retractable Patio Screens in Deerfield, IL | EDG',
     description:
       'Custom motorized patio screens for Deerfield outdoor living spaces.',

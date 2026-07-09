@@ -63,6 +63,7 @@ export const metadata: Metadata = {
   description: 'View our portfolio of motorized pergola and screen installations across Chicago, Wisconsin, and Florida.',
   alternates: { canonical: '/gallery' },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Project Gallery | EDG Patio & Shade',
     description: 'Portfolio of outdoor living installations.',
     type: 'website',

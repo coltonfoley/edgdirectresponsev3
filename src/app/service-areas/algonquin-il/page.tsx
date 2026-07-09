@@ -38,6 +38,7 @@ export const metadata: Metadata = {
     'outdoor living Algonquin IL',
   ],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Algonquin IL Pergolas & Outdoor Living | EDG Patio & Shade',
     description:
       'Engineered motorized pergolas, screens, and outdoor living systems for Algonquin homeowners near the Fox River, Randall Road, and surrounding neighborhoods.',

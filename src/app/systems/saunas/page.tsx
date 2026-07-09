@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     canonical: '/systems/saunas',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Custom Sauna Installation | EDG Patio & Shade',
     description:
       'Indoor and outdoor sauna installation — traditional steam, infrared, and barrel-style — tailored to your space.',

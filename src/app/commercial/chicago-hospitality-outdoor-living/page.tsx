@@ -35,6 +35,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/chicago-hospitality-outdoor-living',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Chicago Hospitality Outdoor Living | EDG',
     description:
       'Commercial patio, pergola, screen, glass, heat, and control planning for Chicago hospitality venues.',

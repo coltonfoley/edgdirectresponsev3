@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas, exterior shades, and glass enclosures for North Shore Chicago homes. Expert design and installation in Winnetka, Wilmette, and Glencoe.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'North Shore Chicago Outdoor Living | EDG Patio & Shade',
     description:
       'Outdoor living systems for the North Shore. Motorized pergolas and screens planned for lakefront weather and historic districts.',

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     canonical: '/guides/planning-guide',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'The Complete Outdoor Living Planning Guide',
     description:
       'Planning a pergola, shade system, or outdoor enclosure? Get real budget ranges and avoid costly mistakes.',

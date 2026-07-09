@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
+import { buttonClassName } from '@/components/ui/Button';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ChevronDown, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { trackConversion } from '@/lib/analytics';
 import { buildContactHref } from '@/lib/contact-links';
 import {
   commercialNavLinks,
@@ -558,45 +559,31 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             {/* Desktop CTAs */}
             <div className="hidden items-center gap-4 xl:flex">
-              <Link
+              <TrackedLink
                 href={startProjectHref}
-                onClick={(event) =>
-                  trackConversion({
-                    conversionName: 'book_call_click',
-                    linkUrl: event.currentTarget.href,
-                    linkText: event.currentTarget.textContent?.trim(),
-                  })
-                }
-              >
-                <Button
-                  variant={solidNav ? 'primary' : 'outline'}
-                  size="sm"
-                  className={cn(
+                conversionName="start_project_click"
+                className={buttonClassName({
+                  variant: solidNav ? 'primary' : 'outline',
+                  size: 'sm',
+                  className: cn(
                     !solidNav &&
                       'border-white text-white hover:bg-white hover:text-black'
-                  )}
-                >
-                  Start Project
-                </Button>
-              </Link>
+                  ),
+                })}
+              >
+                Start Project
+              </TrackedLink>
             </div>
 
             {/* Mobile: Phone + Menu Toggle */}
             <div className="flex items-center gap-2 xl:hidden">
-              <a
+              <TrackedPhoneLink
                 href="tel:+18155810138"
-                onClick={(event) =>
-                  trackConversion({
-                    conversionName: 'phone_click',
-                    linkUrl: event.currentTarget.href,
-                    linkText: event.currentTarget.textContent?.trim(),
-                  })
-                }
                 className={cn('p-2 transition-colors', textColor)}
                 aria-label="Call us"
               >
                 <Phone className="h-5 w-5" />
-              </a>
+              </TrackedPhoneLink>
               <button
                 ref={mobileMenuButtonRef}
                 type="button"
@@ -805,21 +792,19 @@ export function Navbar() {
               <div className="h-px bg-white/10" />
 
               <div className="mt-8">
-                <Link
+                <TrackedLink
                   href={startProjectHref}
-                  onClick={(event) => {
+                  conversionName="start_project_click"
+                  className={buttonClassName({
+                    className:
+                      'bg-edg-brand text-edg-dark w-full py-6 text-lg font-bold uppercase hover:bg-white',
+                  })}
+                  onClick={() => {
                     setIsOpen(false);
-                    trackConversion({
-                      conversionName: 'book_call_click',
-                      linkUrl: event.currentTarget.href,
-                      linkText: event.currentTarget.textContent?.trim(),
-                    });
                   }}
                 >
-                  <Button className="bg-edg-brand text-edg-dark w-full py-6 text-lg font-bold uppercase hover:bg-white">
-                    Start Your Project
-                  </Button>
-                </Link>
+                  Start Your Project
+                </TrackedLink>
               </div>
             </div>
           </nav>

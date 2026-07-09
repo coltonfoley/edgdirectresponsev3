@@ -23,6 +23,8 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const lightboxTitleId = useId();
   const lightboxCloseRef = useRef<HTMLButtonElement>(null);
+  const lightboxTriggerRef = useRef<HTMLButtonElement>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
   const activeItem = items[activeIndex];
 
   const nextSlide = () => {
@@ -36,16 +38,50 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
   useEffect(() => {
     if (!lightboxOpen) return;
 
+    const previouslyFocusedElement = document.activeElement as HTMLElement | null;
+    const lightboxTrigger = lightboxTriggerRef.current;
     lightboxCloseRef.current?.focus();
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
         setLightboxOpen(false);
+        return;
+      }
+
+      if (event.key !== 'Tab' || !lightboxRef.current) return;
+
+      const focusableElements = [
+        ...lightboxRef.current.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ),
+      ].filter((element) => !element.hasAttribute('hidden'));
+
+      if (focusableElements.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
       }
     }
 
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      if (previouslyFocusedElement === lightboxTrigger) {
+        lightboxTrigger?.focus();
+      } else {
+        previouslyFocusedElement?.focus();
+      }
+    };
   }, [lightboxOpen]);
 
   if (!activeItem) {
@@ -57,15 +93,22 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
       {/* Main Viewport */}
       <div className="group relative aspect-[4/3] w-full overflow-hidden border border-border bg-surface-muted">
         {activeItem.type === 'image' ? (
-          <Image
-            src={activeItem.src}
-            alt={activeItem.alt || 'Product image'}
-            fill
-            className="cursor-zoom-in object-cover"
+          <button
+            ref={lightboxTriggerRef}
+            type="button"
             onClick={() => setLightboxOpen(true)}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            priority
-          />
+            className="absolute inset-0 cursor-zoom-in focus-visible:ring-2 focus-visible:ring-edg-brand focus-visible:ring-inset focus-visible:outline-none"
+            aria-label={`Open image preview: ${activeItem.alt || 'Product image'}`}
+          >
+            <Image
+              src={activeItem.src}
+              alt={activeItem.alt || 'Product image'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority={activeIndex === 0}
+            />
+          </button>
         ) : (
           <div className="relative h-full w-full">
             <video
@@ -136,7 +179,6 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
                 fill
                 className="object-cover"
                 sizes="80px"
-                unoptimized
               />
             ) : (
               <div className="relative h-full w-full bg-zinc-900">
@@ -160,6 +202,7 @@ export function ProductGallery({ items, className }: ProductGalleryProps) {
       {/* Simple Lightbox (Overlay) */}
       {lightboxOpen && items[activeIndex].type === 'image' && (
         <div
+          ref={lightboxRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby={lightboxTitleId}

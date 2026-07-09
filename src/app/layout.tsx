@@ -71,6 +71,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'EDG Patio & Shade | Motorized Pergolas & Outdoor Shades',
+    description:
+      'Motorized pergolas, exterior shades, and glass enclosures for residential and commercial outdoor spaces.',
+    images: ['/images/brand/hero-pergola.jpg'],
+  },
   robots: {
     index: true,
     follow: true,

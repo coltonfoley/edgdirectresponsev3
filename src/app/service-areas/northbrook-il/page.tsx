@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas and exterior shades for Northbrook homes. Serving Techny, Shermer Road, and Northbrook Heights. Zoning-compliant designs for Georgian architecture.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Northbrook Outdoor Living | Pergolas & Screens | EDG',
     description: 'Outdoor living systems for Northbrook homes. Motorized pergolas, screens, and glass enclosures.',
     type: 'website',

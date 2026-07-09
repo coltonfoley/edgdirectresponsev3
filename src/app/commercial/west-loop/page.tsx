@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/west-loop',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'West Loop Commercial Outdoor Living | EDG',
     description:
       'Commercial patio, rooftop, and outdoor amenity planning for West Loop and Fulton Market hospitality spaces.',

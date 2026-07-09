@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   description:
     'Lanai replacement planning in Sanibel. Compare motorized screens, modern louvered pergolas, coastal materials, permits, and the FEMA 50% rule.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lanai Replacement Sanibel | Motorized Screens & Pergolas | EDG',
     description:
       'Compare motorized screens, covered outdoor living upgrades, and modern louvered systems for Sanibel homes.',

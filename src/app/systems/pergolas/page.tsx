@@ -13,7 +13,6 @@ import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { PergolaConfiguratorClient } from './PergolaConfiguratorClient';
 import {
   generateServiceSchema,
-  generateProductSchema,
   generateFAQSchema,
 } from '@/lib/schema';
 import { buildContactHref } from '@/lib/contact-links';
@@ -38,7 +37,7 @@ import {
 export const metadata: Metadata = {
   title: 'Motorized Louvered Pergolas | Adjustable Roof Systems | EDG',
   description:
-    'Premium motorized pergolas with 135° adjustable louvers. Manufacturer-flexible design and supply partner for professionals nationwide. Installation in the Chicago-Milwaukee corridor.',
+    'Motorized louvered pergolas selected around sun, rain, drainage, and site exposure. Manufacturer-flexible design and supply, with installation in the Chicago-Milwaukee corridor.',
   keywords: [
     'motorized pergolas',
     'louvered pergolas',
@@ -49,9 +48,10 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/systems/pergolas' },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Louvered Pergolas | EDG Patio & Shade',
     description:
-      'Architectural shade control with 135° of rotation. Sun when you want it, watertight seal when you do not.',
+      'Architectural shade control selected around the site. Adjust sun and shade, with rain management on specified systems.',
   },
 };
 
@@ -76,14 +76,13 @@ const galleryImages = images.galleries.pergolas.map((src, index) => ({
 
 // Specifications data
 const specifications = [
-  { label: 'Maximum Span', value: 'Up to 24 feet' },
+  { label: 'Maximum Span', value: 'Model and engineering dependent' },
   { label: 'Post Options', value: '4-post, 2-post wall mount, cantilever' },
-  { label: 'Material', value: 'Extruded aluminum alloy' },
-  { label: 'Finish', value: 'Powder-coated, 15+ colors' },
-  { label: 'Wind Rating', value: 'Up to 120 mph' },
-  { label: 'Snow Load', value: 'Up to 40 psf' },
-  { label: 'Louver Rotation', value: '135° (0-135°)' },
-  { label: 'Control Options', value: 'Remote, smartphone, voice, sensors' },
+  { label: 'Material', value: 'Specified by selected system' },
+  { label: 'Finish', value: 'System-specific colors and finishes' },
+  { label: 'Wind & Snow', value: 'Engineering and ratings vary by model and site' },
+  { label: 'Louver Movement', value: 'Model-specific adjustment range' },
+  { label: 'Control Options', value: 'Remote, wall control, app, or sensors as specified' },
 ];
 
 // Key features
@@ -92,25 +91,25 @@ const keyFeatures = [
     icon: Sun,
     title: 'Adjustable Louvers',
     description:
-      'Our motorized pergolas feature louvers that rotate a full 135 degrees, giving you complete control over sunlight and shade. Open them partially for gentle filtered light and natural ventilation, or close them completely for full shade and rain protection. The precision-engineered louvers create an airtight seal when closed, keeping your outdoor space dry even during heavy rain.',
+      'Selected systems use adjustable louvers to tune sunlight, shade, and ventilation. The available movement range, rain performance, and drainage details depend on the model, layout, engineering, and installation conditions.',
   },
   {
     icon: CloudRain,
     title: 'Integrated Rain Management',
     description:
-      'Unlike traditional pergolas that let rain through, our systems feature a sophisticated internal gutter system hidden within the beams. When louvers close, rainwater is channeled through the frame and down the posts, directed away from your patio and outdoor furniture. No external gutters needed—just clean architectural lines that perform as beautifully as they look.',
+      'Many louvered systems can route rain through integrated gutters and posts when specified for that function. EDG coordinates drainage with the patio, structure, local conditions, and selected system rather than assuming one detail fits every site.',
   },
   {
     icon: Settings,
     title: 'Motorized Operation',
     description:
-      'Control your pergola with the touch of a button. Our systems use whisper-quiet Somfy motors—the industry standard for reliability and performance. Adjust your louvers instantly from a handheld remote, wall switch, or smartphone app. Program favorite positions for one-touch recall of your preferred settings throughout the day.',
+      'Controls can be planned around the selected system: handheld remotes, wall switches, app control, and presets where supported. Motor, control, and automation options are confirmed during specification.',
   },
   {
     icon: Wifi,
     title: 'Smart Home Integration',
     description:
-      'Seamlessly integrate your pergola with your smart home ecosystem. Our systems work with Alexa, Google Home, and major home automation platforms. Create scenes that adjust lighting and louver position together, or schedule automatic adjustments based on time of day. Voice control means you can adjust your shade without putting down your drink.',
+      'Some selected systems can coordinate with compatible controls, lighting, sensors, or home-automation platforms. EDG verifies the available integration path before it becomes part of the project scope.',
   },
   {
     icon: Lightbulb,
@@ -122,7 +121,7 @@ const keyFeatures = [
     icon: Wind,
     title: 'Wind & Snow Load Engineering',
     description:
-      'Engineered for the demanding Chicago climate, our pergolas withstand wind speeds up to 120 mph and snow loads up to 40 pounds per square foot. Integrated wind sensors automatically open louvers during high winds to prevent damage, while the robust aluminum construction handles our heaviest snowfalls without deflection or stress.',
+      'Wind, snow, attachment, and drainage requirements are reviewed for the selected system and site. Ratings, sensor behavior, and operating guidance vary by model, engineering, approvals, and local conditions.',
   },
 ];
 
@@ -185,7 +184,7 @@ const faqs = [
   {
     question: 'What warranty do you offer?',
     answer:
-      'Our motorized pergolas come with comprehensive warranty coverage: 10 years on the aluminum structure and powder-coat finish, 5 years on motors and electrical components, and 2 years on labor. We stand behind our installations and respond quickly to any warranty concerns. Extended warranty options are available for added peace of mind.',
+      'Warranty coverage depends on the selected manufacturer, components, installation scope, and project location. We review the applicable product and labor coverage with the final proposal so the warranty matches the actual system being specified.',
   },
   {
     question: 'Are you locked into one manufacturer?',
@@ -250,17 +249,10 @@ export default function PergolasPage() {
     image: `https://www.edgpatioshade.com${images.brand.hero.pergola}`,
   });
 
-  const productSchema = generateProductSchema({
-    name: 'Motorized Louvered Pergola',
-    description:
-      'Architectural aluminum pergola with 135° rotating louvers, integrated rain management, and smart home compatibility.',
-    image: `https://www.edgpatioshade.com${images.pages.serviceAreas.barringtonPergola1}`,
-  });
-
   const faqSchema = generateFAQSchema(faqs);
 
   // Combine schemas
-  const schemas = [serviceSchema, productSchema, faqSchema];
+  const schemas = [serviceSchema, faqSchema];
 
   return (
     <div className="bg-surface min-h-screen">

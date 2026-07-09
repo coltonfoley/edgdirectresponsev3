@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/hotel-pergolas',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Commercial Hotel Pergola Systems | EDG',
     description:
       'Commercial hotel pergola planning for rooftops, pool decks, terraces, and amenity spaces.',

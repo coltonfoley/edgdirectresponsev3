@@ -189,6 +189,14 @@ export function getAllProjects(): Project[] {
   return projects;
 }
 
+export function isIndexableProject(project: Project): boolean {
+  return project.hasRealPhotography && project.isComplete;
+}
+
+export function getIndexableProjects(): Project[] {
+  return projects.filter(isIndexableProject);
+}
+
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }

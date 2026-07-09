@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     'outdoor living Lake Forest IL',
   ],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lake Forest IL Pergolas & Outdoor Living | EDG Patio & Shade',
     description:
       'Premium motorized pergolas, screens, and outdoor living systems planned for Lake Forest homes, architectural expectations, and local permit review.',

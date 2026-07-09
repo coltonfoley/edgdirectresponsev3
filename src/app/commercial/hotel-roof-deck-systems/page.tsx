@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/hotel-roof-deck-systems',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Hotel Patio Shading | EDG Commercial',
     description:
       'Commercial roof deck planning for Chicago hotel terraces, guest comfort, wind exposure, shade, screens, and controls.',

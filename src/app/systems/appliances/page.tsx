@@ -27,7 +27,6 @@ import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { buildContactHref } from '@/lib/contact-links';
 import {
   generateFAQSchema,
-  generateProductSchema,
   generateServiceSchema,
 } from '@/lib/schema';
 import * as images from '@/lib/images';
@@ -47,6 +46,7 @@ export const metadata: Metadata = {
     'outdoor refrigeration',
   ],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Premium Outdoor Appliances | EDG Patio & Shade',
     description:
       'Chef-grade outdoor kitchens and heating solutions for sophisticated outdoor living.',
@@ -244,15 +244,8 @@ export default function AppliancesPage() {
     image: `https://www.edgpatioshade.com${images.galleries.appliances[0]}`,
   });
 
-  const productSchema = generateProductSchema({
-    name: 'Outdoor Kitchen Appliances',
-    description:
-      'Premium outdoor kitchen appliances, grills, and heating systems for outdoor living spaces.',
-    image: `https://www.edgpatioshade.com${images.galleries.appliances[0]}`,
-  });
-
   const faqSchema = generateFAQSchema(faqs);
-  const schemas = [serviceSchema, productSchema, faqSchema];
+  const schemas = [serviceSchema, faqSchema];
 
   return (
     <div className="min-h-screen bg-surface">

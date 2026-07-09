@@ -12,12 +12,12 @@ import {
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { LinkButton, buttonClassName } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { TrackedLink } from '@/components/ui/TrackedLink';
-import { buildContactHref } from '@/lib/contact-links';
+import { ScreenFitBudgetForm } from '@/components/features/shades/ScreenFitBudgetForm';
 import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     canonical: '/guides/magnatrack-screens-cost',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'MagnaTrack Screens Cost Guide 2026 | EDG Patio & Shade',
     description:
       'A practical cost guide for MagnaTrack motorized screens, including size, fabric, controls, retrofit details, and local installation factors.',
@@ -133,18 +134,6 @@ const faqs = [
   },
 ];
 
-const heroContactHref = buildContactHref({
-  type: 'price',
-  product: 'shades',
-  source: 'magnatrack_cost_guide',
-});
-
-const bottomContactHref = buildContactHref({
-  type: 'price',
-  product: 'shades',
-  source: 'magnatrack_cost_bottom',
-});
-
 export default function MagnaTrackScreensCostGuide() {
   const articleSchema = generateArticleSchema({
     title: 'MagnaTrack Screens Cost Guide 2026',
@@ -196,18 +185,21 @@ export default function MagnaTrackScreensCostGuide() {
                 pricing.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <TrackedLink href={heroContactHref}>
-                  <Button size="lg">Get Screen Fit + Budget Range</Button>
+                <TrackedLink
+                  href="#screen-fit-budget"
+                  conversionName="screen_fit_budget_cta"
+                  className={buttonClassName({ size: 'lg' })}
+                >
+                  Get Screen Fit + Budget Range
                 </TrackedLink>
-                <Link href="#cost-ranges">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-white/20 text-white hover:bg-white/10"
-                  >
-                    See Cost Ranges
-                  </Button>
-                </Link>
+                <LinkButton
+                  href="#cost-ranges"
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  See Cost Ranges
+                </LinkButton>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -282,6 +274,29 @@ export default function MagnaTrackScreensCostGuide() {
                 </p>
               </Card>
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section id="screen-fit-budget" className="section-lg scroll-mt-24 bg-surface">
+        <Container>
+          <div className="mx-auto grid max-w-5xl gap-12 border border-border bg-white p-6 md:grid-cols-[0.8fr_1.2fr] md:p-10">
+            <div>
+              <div className="label-editorial-brand mb-4">Screen Fit + Budget</div>
+              <h2 className="section-title mb-6">
+                Get a useful first answer before a sales call.
+              </h2>
+              <p className="mb-5 text-lg leading-relaxed text-text-secondary">
+                Tell us what the opening needs to solve. We will use the space,
+                the issue, and your planning range to point you toward the most
+                practical screen direction.
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                This is a fit-and-budget review, not a generic quote request.
+                Clear rough details help us give you a better first response.
+              </p>
+            </div>
+            <ScreenFitBudgetForm />
           </div>
         </Container>
       </Section>
@@ -426,8 +441,12 @@ export default function MagnaTrackScreensCostGuide() {
                 solved. We will help you understand whether screens are the
                 right first move and what budget range fits the project.
               </p>
-              <TrackedLink href={bottomContactHref}>
-                <Button size="lg">Send Openings for Review</Button>
+              <TrackedLink
+                href="#screen-fit-budget"
+                conversionName="screen_fit_budget_cta"
+                className={buttonClassName({ size: 'lg' })}
+              >
+                Get My Screen Fit + Budget Range
               </TrackedLink>
             </div>
             <div className="border-border-inverse hidden border-l pl-16 md:block">

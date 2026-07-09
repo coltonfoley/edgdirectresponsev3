@@ -119,29 +119,6 @@ export function generateFAQSchema(
   };
 }
 
-export function generateProductSchema(params: {
-  name: string;
-  description: string;
-  image?: string;
-  brand?: string;
-  category?: string;
-  sku?: string;
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: params.name,
-    description: params.description,
-    brand: {
-      '@type': 'Brand',
-      name: params.brand || 'EDG Patio & Shade',
-    },
-    ...(params.category && { category: params.category }),
-    ...(params.image && { image: params.image }),
-    ...(params.sku && { sku: params.sku }),
-  };
-}
-
 /**
  * Generate BreadcrumbList Schema
  *
@@ -240,7 +217,7 @@ export function generateOrganizationSchema() {
     image: 'https://www.edgpatioshade.com/og-image.jpg',
     description:
       'Design and supply partner for motorized pergolas, exterior shades, and glass enclosures. Serving the Chicago-Milwaukee corridor with nationwide trade partnerships.',
-    foundingDate: '2018',
+    foundingDate: '2017',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '1802 Holian Drive',

@@ -1,7 +1,12 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import { getProject, getAllProjects, Project } from '@/lib/projects';
+import {
+  getProject,
+  getAllProjects,
+  isIndexableProject,
+  Project,
+} from '@/lib/projects';
 import {
   enrichProject,
   findRelatedProjects,
@@ -76,6 +81,10 @@ export async function generateMetadata({
     ],
     alternates: {
       canonical: `/projects/${slug}`,
+    },
+    robots: {
+      index: isIndexableProject(project),
+      follow: true,
     },
     openGraph: {
       title: `${project.title} ${primarySystem} Project | EDG Patio & Shade`,

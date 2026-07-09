@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     canonical: '/guides/pergola-cost',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Pergola Cost Guide 2026: Understanding Premium System Pricing',
     description:
       'What drives pergola costs from $25K to $100K+? A comprehensive breakdown of materials, engineering, installation, and why premium systems outperform big-box alternatives.',
@@ -103,21 +104,20 @@ const costFactors = [
     icon: Globe,
     title: 'Materials & Sourcing',
     description:
-      'Premium systems use extruded aluminum alloy (6061-T6 or 6063-T5), not stamped steel or vinyl. We source from specialized manufacturers in Belgium, the US, and Europe—each chosen for specific engineering advantages.',
-    impact: '30-40% of total cost',
+      'Material, finish, drainage, and sourcing details vary by selected manufacturer and project. They are reviewed alongside the required performance, lead time, and service path.',
+    impact: 'Project-specific cost driver',
     details: [
-      'Marine-grade aluminum resists corrosion for decades',
-      'Powder-coat finish (not paint) maintains color integrity',
-      'Internal gutter systems require precision manufacturing',
-      'Global sourcing ensures best-in-class components',
+      'Material and coating options match exposure and finish needs',
+      'Drainage details are selected around the system and patio',
+      'Manufacturer choice follows engineering and service requirements',
     ],
   },
   {
     icon: Shield,
     title: 'Engineering & Ratings',
     description:
-      'Systems rated for 100-120 mph winds and 30-40 psf snow loads require structural engineering, reinforced connections, and automated safety sensors.',
-    impact: '15-20% of total cost',
+      'Wind, snow, attachment, and permit requirements can change the specification, structural scope, and cost. Ratings are only meaningful when tied to the selected model and project conditions.',
+    impact: 'Project-specific cost driver',
     details: [
       'Wind and snow load calculations',
       'Structural engineering stamps for permits',
@@ -129,13 +129,13 @@ const costFactors = [
     icon: Zap,
     title: 'Motorization & Controls',
     description:
-      'Somfy or comparable motors with smart home integration, rain sensors, and multi-zone control add cost but deliver convenience and safety.',
-    impact: '15-25% of total cost',
+      'Motors, controls, sensors, and automation options add cost when they are compatible with the selected system and useful to the owner.',
+    impact: 'Project-specific cost driver',
     details: [
-      'Whisper-quiet tubular motors (not chain-driven)',
-      'Smart home integration (Control4, Crestron, Alexa)',
-      'Automated weather sensors',
-      'Multi-zone control systems',
+      'Motor and control selection',
+      'Compatible home-automation integration',
+      'Sensors and operating safeguards where specified',
+      'Multi-zone control where useful',
     ],
   },
   {
@@ -143,7 +143,7 @@ const costFactors = [
     title: 'Professional Installation',
     description:
       'Proper installation requires certified crews, specialized equipment, and coordination with electricians. This is not a weekend DIY project.',
-    impact: '20-25% of total cost',
+    impact: 'Project-specific cost driver',
     details: [
       'Certified installation teams',
       'Precision leveling and alignment',
@@ -237,22 +237,22 @@ const hiddenCosts = [
 const comparisonData = [
   {
     feature: 'Frame Material',
-    premium: '6061-T6/6063-T5 aluminum alloy, 2mm+ wall thickness',
-    bigBox: 'Stamped aluminum or steel, <1mm wall thickness',
+    premium: 'Specified material and finish for the selected system',
+    bigBox: 'Varying materials and construction by kit',
     difference:
-      'Premium systems last 25+ years; big-box often shows wear in 5-7 years',
+      'Compare documented material, finish, warranty, and service support',
   },
   {
     feature: 'Wind Rating',
-    premium: '100-120 mph engineered rating with sensors',
-    bigBox: 'No rating; may void warranty in high winds',
-    difference: 'Insurance and peace of mind in storms',
+    premium: 'Model-specific engineering and ratings where required',
+    bigBox: 'Verify ratings and operating guidance before buying',
+    difference: 'Match the system to site exposure and approvals',
   },
   {
     feature: 'Snow Load',
-    premium: '30-40 psf engineered capacity',
-    bigBox: 'Not rated; risk of collapse in heavy snow',
-    difference: 'Critical for northern climates',
+    premium: 'Model-specific snow and structural requirements',
+    bigBox: 'Verify project suitability for local snow conditions',
+    difference: 'Critical for northern climates and attachments',
   },
   {
     feature: 'Drainage',
@@ -262,9 +262,9 @@ const comparisonData = [
   },
   {
     feature: 'Motors',
-    premium: 'Somfy tubular, 5-year warranty, smart-ready',
-    bigBox: 'Generic motors, 1-year warranty, no integration',
-    difference: 'Reliability and smart home compatibility',
+    premium: 'Specified motors, controls, and coverage',
+    bigBox: 'Verify component support and warranty terms',
+    difference: 'Compare service path and compatible controls',
   },
   {
     feature: 'Installation',
@@ -274,9 +274,9 @@ const comparisonData = [
   },
   {
     feature: 'Warranty',
-    premium: '10-year structural, 3-5 year motor',
-    bigBox: '1-5 years limited, often prorated',
-    difference: 'Long-term protection and service availability',
+    premium: 'Manufacturer and labor coverage stated in the proposal',
+    bigBox: 'Coverage varies by product and seller',
+    difference: 'Compare actual terms and local service availability',
   },
 ];
 
@@ -286,15 +286,15 @@ const roiPoints = [
     icon: Home,
     title: 'Appraised Value',
     description:
-      'Unlike temporary structures, permanent aluminum pergolas are appraised as improvements, similar to a high-end deck or sunroom.',
-    value: '60-80% cost recovery',
+      'A permitted, well-integrated project can support resale appeal, but appraisal and market response are not fixed returns.',
+    value: 'Market- and project-specific',
   },
   {
     icon: Ruler,
     title: 'Added Square Footage',
     description:
       'Creates usable outdoor living space that functions as an extension of your home. Cost per square foot is significantly less than an addition.',
-    value: '$150-250/sq ft vs. $300-500+ for room addition',
+    value: 'Compare the actual project scope, not a universal ratio',
   },
   {
     icon: Building2,
@@ -307,8 +307,8 @@ const roiPoints = [
     icon: TrendingUp,
     title: 'Depreciation vs. Appreciation',
     description:
-      'Cheap alternatives depreciate immediately and require replacement. Premium systems maintain value and performance.',
-    value: '25+ year lifespan vs. 5-7 years',
+      'Long-term ownership cost depends on the selected system, maintenance, exposure, warranty, and how the project is installed.',
+    value: 'Compare documented lifecycle and service support',
   },
 ];
 
@@ -318,7 +318,7 @@ const faqs = [
     question:
       'Why do motorized pergolas cost so much more than basic pergolas from home improvement stores?',
     answer:
-      'The difference is engineering, materials, and longevity. A $3,000 big-box pergola uses thin stamped aluminum with no wind or snow rating, generic motors, and no integrated drainage. It may last 5-7 years before showing significant wear. A premium motorized system uses aircraft-grade aluminum (6061-T6), is engineered for 100+ mph winds and heavy snow loads, includes internal gutter systems, and uses commercial-grade Somfy motors. These systems last 25+ years with minimal maintenance. You are not just buying shade—you are buying a permanent architectural improvement to your home.',
+      'The difference is usually engineering, materials, drainage, controls, installation, warranty, and service support. A kit and a custom motorized system should be compared model by model: documented ratings, attachment requirements, drainage design, components, coverage, and the local team that will support the project. The right choice depends on the site and the expected use, not a universal specification.',
   },
   {
     question:
@@ -456,7 +456,8 @@ export default function PergolaCostGuide() {
             <p className="text-text-inverse-muted mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
               A comprehensive breakdown of motorized pergola pricing. Understand
               why premium systems range from $25,000 to $150,000+, what drives
-              the cost, and how to budget for a system that lasts 25+ years.
+              the cost, and how to budget for a long-term system that fits the
+              actual site and selected manufacturer.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -730,11 +731,11 @@ export default function PergolaCostGuide() {
                 The True Cost of Cheap
               </h3>
               <p className="text-text-inverse-muted text-sm leading-relaxed">
-                A $5,000 kit that lasts 5 years costs $1,000/year. A $50,000
-                premium system lasting 25 years costs $2,000/year—but adds home
-                value, provides superior performance, and never needs
-                replacement. When you factor in replacement costs and lost home
-                value, the "cheap" option often costs more.
+                A lower initial price can still be expensive if the system does
+                not fit the site's exposure, installation needs, or service
+                path. Compare documented performance, maintenance, warranty,
+                and expected ownership costs instead of relying on a universal
+                lifespan or resale claim.
               </p>
             </div>
           </div>
@@ -837,7 +838,7 @@ export default function PergolaCostGuide() {
           {/* Cost comparison over time */}
           <Card variant="dark" padding="lg">
             <h3 className="text-text-inverse mb-6 text-xl font-bold">
-              25-Year Cost Comparison
+              Long-Term Cost Comparison
             </h3>
             <div className="grid gap-8 md:grid-cols-3">
               <div className="text-center">
@@ -848,8 +849,8 @@ export default function PergolaCostGuide() {
                   $15K–25K
                 </p>
                 <p className="text-text-inverse-muted text-xs">
-                  Replace 3-4 times over 25 years. No value added to home.
-                  Depreciates immediately.
+                  Ownership cost depends on material, exposure, installation,
+                  maintenance, and warranty support.
                 </p>
               </div>
               <div className="border-border-inverse border-x text-center">
@@ -860,8 +861,8 @@ export default function PergolaCostGuide() {
                   $40K–60K
                 </p>
                 <p className="text-text-inverse-muted text-xs">
-                  Replace once after 12-15 years. Moderate home value increase.
-                  Better performance.
+                  Compare documented coverage, component support, and local
+                  service with the actual system being considered.
                 </p>
               </div>
               <div className="text-center">
@@ -872,8 +873,9 @@ export default function PergolaCostGuide() {
                   $50K–75K
                 </p>
                 <p className="text-text-inverse-muted text-xs">
-                  Lasts 25+ years. Adds $30K–50K in home value. Superior
-                  performance entire lifespan.
+                  A well-specified project can be a durable architectural
+                  improvement, but lifecycle and resale impact are site- and
+                  market-specific.
                 </p>
               </div>
             </div>

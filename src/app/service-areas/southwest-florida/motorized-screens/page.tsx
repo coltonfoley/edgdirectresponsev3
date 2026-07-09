@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/southwest-florida/motorized-screens',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Screens Southwest Florida | EDG Patio & Shade',
     description:
       'Motorized screen layouts for coastal patios, covered lanais, outdoor kitchens, and pergola openings in Southwest Florida.',

@@ -29,5 +29,29 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Verify route registry
+        run: npm run routes:check
+
       - name: Build
         run: npm run build
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Browser smoke tests
+        run: npm run test:e2e:built
+
+      - name: Contrast regression check
+        run: |
+          npm run start -- --hostname 127.0.0.1 --port 3000 > /tmp/edg-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid' EXIT
+          for attempt in {1..60}; do
+            curl --fail --silent http://127.0.0.1:3000 > /dev/null && break
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:3000 > /dev/null
+          npm run test:contrast

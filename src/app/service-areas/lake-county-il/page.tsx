@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas, exterior shades, and glass enclosures for Lake County, IL homes. Local planning for Barrington estates, North Shore homes, Libertyville patios, and Chain O Lakes waterfronts.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lake County Outdoor Living | EDG Patio & Shade',
     description:
       'Outdoor living systems for Lake County homes. Motorized pergolas and screens planned for Illinois weather.',

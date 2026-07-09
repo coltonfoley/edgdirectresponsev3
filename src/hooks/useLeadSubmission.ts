@@ -5,6 +5,20 @@ import { getLeadJourneyMetadata, pushAnalyticsEvent } from '@/lib/analytics';
 
 type LeadMetadata = Record<string, unknown>;
 
+type LeadSubmissionResponse = {
+  success?: boolean;
+  accepted?: boolean;
+  errors?: string[];
+};
+
+function createSubmissionId() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+
+  return `edg-${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
+}
+
 export interface LeadData {
   firstName?: string;
   lastName?: string;
@@ -68,7 +82,10 @@ export function useLeadSubmission({
     setSuccess(false);
 
     try {
-      const metadata = getLeadJourneyMetadata(data.metadata);
+      const metadata = getLeadJourneyMetadata({
+        ...data.metadata,
+        submission_id: data.metadata?.submission_id || createSubmissionId(),
+      });
       const { attachments, ...leadFields } = { ...data, metadata };
       const hasAttachments = !!attachments?.length;
       const body = hasAttachments ? new FormData() : JSON.stringify(leadFields);
@@ -96,7 +113,7 @@ export function useLeadSubmission({
         body,
       });
 
-      const result = await response.json();
+      const result = (await response.json()) as LeadSubmissionResponse;
 
       if (!response.ok || !result.success) {
         throw new Error(result.errors?.[0] || 'Something went wrong');
@@ -104,17 +121,23 @@ export function useLeadSubmission({
 
       setSuccess(true);
 
-      // Track conversion
-      pushAnalyticsEvent({
-        event: 'generate_lead',
-        ...getAnalyticsPayload(data, metadata),
-        currency: 'USD',
-        value: 0,
-      });
-      pushAnalyticsEvent({
-        event: 'form_submit_success',
-        ...getAnalyticsPayload(data, metadata),
-      });
+      if (result.accepted === false) {
+        pushAnalyticsEvent({
+          event: 'form_submit_filtered',
+          ...getAnalyticsPayload(data, metadata),
+        });
+      } else {
+        pushAnalyticsEvent({
+          event: 'generate_lead',
+          ...getAnalyticsPayload(data, metadata),
+          currency: 'USD',
+          value: 0,
+        });
+        pushAnalyticsEvent({
+          event: 'form_submit_success',
+          ...getAnalyticsPayload(data, metadata),
+        });
+      }
 
       if (onSuccess) {
         onSuccess();
@@ -124,10 +147,7 @@ export function useLeadSubmission({
       pushAnalyticsEvent({
         event: 'form_submit_blocked',
         ...getAnalyticsPayload(data, metadata),
-        error_message:
-          err instanceof Error
-            ? err.message
-            : 'Something went wrong. Please try again.',
+        error_code: getSubmissionErrorCode(err),
       });
       setError(
         err instanceof Error
@@ -154,4 +174,19 @@ export function useLeadSubmission({
     success,
     reset,
   };
+}
+
+function getSubmissionErrorCode(error: unknown) {
+  if (!(error instanceof Error)) return 'unknown_submission_error';
+
+  const message = error.message.toLowerCase();
+  if (message.includes('required') || message.includes('valid email')) {
+    return 'validation_error';
+  }
+  if (message.includes('too many requests')) return 'rate_limited';
+  if (message.includes('photo') || message.includes('upload')) {
+    return 'attachment_error';
+  }
+
+  return 'submission_error';
 }

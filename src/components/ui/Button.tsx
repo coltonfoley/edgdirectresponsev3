@@ -1,9 +1,49 @@
-import { ButtonHTMLAttributes } from 'react';
+import Link from 'next/link';
+import type { ButtonHTMLAttributes, ComponentProps } from 'react';
 import { cn } from '@/lib/utils';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonStyleProps = {
   variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'dark';
   size?: 'sm' | 'md' | 'lg' | 'icon';
+  className?: string;
+};
+
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonStyleProps['variant'];
+  size?: ButtonStyleProps['size'];
+}
+
+export interface LinkButtonProps
+  extends Omit<ComponentProps<typeof Link>, 'className'>,
+    ButtonStyleProps {}
+
+export function buttonClassName({
+  className,
+  variant = 'primary',
+  size = 'md',
+}: ButtonStyleProps = {}) {
+  return cn(
+    'inline-flex cursor-pointer items-center justify-center font-bold uppercase tracking-wider transition-all duration-200',
+    'focus-visible:ring-2 focus-visible:ring-edg-brand-dark focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',
+    'disabled:pointer-events-none disabled:opacity-50',
+    {
+      'bg-edg-brand text-edg-dark hover:bg-edg-brand/90': variant === 'primary',
+      'border border-border-strong bg-transparent text-text-primary hover:bg-surface-muted':
+        variant === 'secondary',
+      'bg-transparent text-text-primary hover:bg-surface-muted': variant === 'ghost',
+      'border border-white/20 bg-transparent text-white hover:bg-white/10':
+        variant === 'outline',
+      'bg-edg-dark text-white hover:bg-edg-dark/90': variant === 'dark',
+    },
+    {
+      'h-9 px-4 text-xs': size === 'sm',
+      'h-11 px-6 py-2 text-sm': size === 'md',
+      'h-14 px-8 text-base': size === 'lg',
+      'h-11 w-11 p-0': size === 'icon',
+    },
+    'rounded-none',
+    className
+  );
 }
 
 /**
@@ -35,51 +75,19 @@ const Button = ({
   return (
     <button
       ref={ref}
-      className={cn(
-        // Base styles - sharp corners, uppercase tracking
-        'inline-flex cursor-pointer items-center justify-center font-bold uppercase tracking-wider transition-all duration-200',
-        'focus-visible:ring-2 focus-visible:ring-edg-brand-dark focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:outline-none',
-        'disabled:pointer-events-none disabled:opacity-50',
-        
-        // Variant styles
-        {
-          // Primary: Mint brand color
-          'bg-edg-brand text-edg-dark hover:bg-edg-brand/90':
-            variant === 'primary',
-          
-          // Secondary: Bordered
-          'border border-border-strong bg-transparent text-text-primary hover:bg-surface-muted':
-            variant === 'secondary',
-          
-          // Ghost: Minimal
-          'bg-transparent text-text-primary hover:bg-surface-muted':
-            variant === 'ghost',
-          
-          // Outline: For dark backgrounds
-          'border border-white/20 bg-transparent text-white hover:bg-white/10':
-            variant === 'outline',
-          
-          // Dark: Black bg for light surfaces
-          'bg-edg-dark text-white hover:bg-edg-dark/90':
-            variant === 'dark',
-        },
-        
-        // Size styles
-        {
-          'h-9 px-4 text-xs': size === 'sm',
-          'h-11 px-6 py-2 text-sm': size === 'md',
-          'h-14 px-8 text-base': size === 'lg',
-          'h-11 w-11 p-0': size === 'icon',
-        },
-        
-        // Editorial/Sharp: No border radius
-        'rounded-none',
-        
-        className
-      )}
+      className={buttonClassName({ className, variant, size })}
       {...props}
     />
   );
 };
 
-export { Button };
+function LinkButton({ className, variant, size, ...props }: LinkButtonProps) {
+  return (
+    <Link
+      {...props}
+      className={buttonClassName({ className, variant, size })}
+    />
+  );
+}
+
+export { Button, LinkButton };

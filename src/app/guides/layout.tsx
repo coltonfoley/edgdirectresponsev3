@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | EDG Expert Guides',
+    template: '%s',
     default: 'Expert Outdoor Living Guides',
   },
   description:

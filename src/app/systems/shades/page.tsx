@@ -18,7 +18,7 @@ import {
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { LinkButton, buttonClassName } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
@@ -30,7 +30,6 @@ import {
   generateHowToSchema,
   generateServiceSchema,
 } from '@/lib/schema';
-import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -50,6 +49,7 @@ export const metadata: Metadata = {
     'MagnaTrack motorized screens',
   ],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Screens & MagnaTrack Screens | EDG Patio & Shade',
     description:
       'Premium motorized patio screens and outdoor screen systems for bugs, sun, privacy, and everyday wind comfort.',
@@ -60,16 +60,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/systems/shades' },
 };
 
-const heroContactHref = buildContactHref({
-  type: 'price',
-  product: 'shades',
-  source: 'shades_hero',
-});
-const bottomContactHref = buildContactHref({
-  type: 'price',
-  product: 'shades',
-  source: 'shades_bottom',
-});
+const screenFitGuideHref =
+  '/guides/magnatrack-screens-cost?source=shades_page#screen-fit-budget';
 
 const galleryImages = [
   {
@@ -435,10 +427,15 @@ export default function ShadesPage() {
                 </p>
 
                 <div className="mb-12 flex flex-col gap-4">
-                  <TrackedLink href={heroContactHref}>
-                    <Button size="lg" className="w-full sm:w-auto">
-                      Check Screen Fit
-                    </Button>
+                  <TrackedLink
+                    href={screenFitGuideHref}
+                    conversionName="screen_fit_budget_cta"
+                    className={buttonClassName({
+                      size: 'lg',
+                      className: 'w-full sm:w-auto',
+                    })}
+                  >
+                    Check Screen Fit + Budget
                   </TrackedLink>
                   <TrackedPhoneLink
                     href="tel:+18155810138"
@@ -830,12 +827,10 @@ export default function ShadesPage() {
                   add bug protection and daily-use comfort without permanently
                   closing the opening.
                 </p>
-                <Link href="/projects/ohare">
-                  <Button variant="secondary">
-                    View O&apos;Hare Project
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <LinkButton href="/projects/ohare" variant="secondary">
+                  View O&apos;Hare Project
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </LinkButton>
               </div>
               <div className="relative aspect-[16/9] overflow-hidden bg-black">
                 <Image
@@ -922,20 +917,21 @@ export default function ShadesPage() {
                   is the right next move.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
-                  <TrackedLink href={bottomContactHref}>
-                    <Button variant="primary" size="lg">
-                      Get Screen Fit + Budget Range
-                    </Button>
+                  <TrackedLink
+                    href={screenFitGuideHref}
+                    conversionName="screen_fit_budget_cta"
+                    className={buttonClassName({ size: 'lg' })}
+                  >
+                    Get Screen Fit + Budget Range
                   </TrackedLink>
-                  <Link href="/showroom">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="border-white/20 text-white hover:bg-white/10"
-                    >
-                      Visit Showroom
-                    </Button>
-                  </Link>
+                  <LinkButton
+                    href="/showroom"
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
+                    Visit Showroom
+                  </LinkButton>
                 </div>
               </div>
               <div className="border-border-inverse hidden border-l pl-16 md:block">

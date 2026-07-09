@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     canonical: '/guides/motorized-pergola-planning',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Pergola Planning Guide | EDG Patio & Shade',
     description:
       'Understand cost, system fit, project constraints, and the questions that determine the right motorized pergola system for your site.',

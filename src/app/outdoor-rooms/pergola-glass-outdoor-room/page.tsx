@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     canonical: '/outdoor-rooms/pergola-glass-outdoor-room',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Pergola + Glass Outdoor Room | EDG Patio & Shade',
     description:
       'A finished outdoor room concept combining a louvered pergola, frameless glass, and optional screens, heat, and lighting.',

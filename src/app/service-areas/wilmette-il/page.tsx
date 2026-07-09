@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas and exterior shades for Wilmette homes. Serving the Cage neighborhood to Lake Michigan. Zoning-compliant designs for historic districts.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Wilmette Outdoor Living | North Shore Pergolas | EDG',
     description:
       'Outdoor living systems for Wilmette homes. Motorized pergolas and screens planned for North Shore architecture.',

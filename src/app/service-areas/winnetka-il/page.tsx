@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   description:
     'Motorized pergolas, exterior shades, and outdoor room planning for Winnetka homes. Review support for historic districts, lakefront lots, and larger patios.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Winnetka Outdoor Living | Pergolas & Shades | EDG',
     description:
       'Outdoor living systems for Winnetka homes. Pergolas, screens, and enclosures planned for North Shore properties.',

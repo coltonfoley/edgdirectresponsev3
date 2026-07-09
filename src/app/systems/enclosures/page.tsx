@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     'glass patio enclosures',
   ],
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lumon Glass Enclosures | Retractable Glass Walls | EDG',
     description: 'Featured Lumon LGR and LGS glass enclosure systems for patios, pergolas, roof decks, and restaurant spaces.',
     type: 'website',

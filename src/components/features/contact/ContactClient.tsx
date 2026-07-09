@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/Button';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import Link from 'next/link';
 import { MapPin, Clock, ArrowRight, Check } from 'lucide-react';
 import { useEffect, useId, useState } from 'react';
@@ -423,7 +424,12 @@ function ContactForm({
               <div className="mb-2 text-xs font-bold tracking-widest text-zinc-300 uppercase">
                 Call Us
               </div>
-              <div className="text-lg font-bold">815.581.0138</div>
+              <TrackedPhoneLink
+                href="tel:+18155810138"
+                className="text-lg font-bold transition-colors hover:text-edg-brand"
+              >
+                815.581.0138
+              </TrackedPhoneLink>
             </div>
             <div>
               <div className="mb-2 text-xs font-bold tracking-widest text-zinc-300 uppercase">

@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/lake-geneva-wi/motorized-pergolas',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lake Geneva Motorized Pergolas & Louvered Roofs | EDG',
     description:
       'Louvered roof planning for Lake Geneva area homes, lakefront patios, pool decks, and outdoor entertaining spaces.',

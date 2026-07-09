@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/restaurant-patio-enclosures',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Restaurant Patio Enclosures | EDG Commercial',
     description:
       'Commercial patio enclosure planning for restaurants that need weather protection, clear operations, and system-agnostic recommendations.',

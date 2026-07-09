@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/chicago-il',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Chicago Outdoor Living Systems | EDG Patio & Shade',
     description:
       'Pergolas, retractable screens, and enclosure systems for Chicago homes, roof decks, and city patios.',

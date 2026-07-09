@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/algonquin-il/retractable-screens',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Screens in Algonquin, IL | EDG Patio & Shade',
     description:
       'Custom retractable patio screens for Algonquin porches, pergolas, patios, and outdoor rooms.',

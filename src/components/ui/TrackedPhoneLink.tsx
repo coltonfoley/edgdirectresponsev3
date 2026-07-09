@@ -25,7 +25,7 @@ export function TrackedPhoneLink({
   };
 
   return (
-    <a onClick={handleClick} {...props}>
+    <a onClick={handleClick} {...props} data-analytics-phone-tracked="true">
       {children}
     </a>
   );

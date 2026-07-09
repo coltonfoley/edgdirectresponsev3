@@ -27,19 +27,19 @@ export default function robots(): MetadataRoute.Robots {
         // Googlebot specific - allow image indexing
         userAgent: 'Googlebot',
         allow: ['/images/', '/'],
-        disallow: ['/api/', '/admin/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         // Bingbot specific
         userAgent: 'Bingbot',
         allow: '/',
-        disallow: ['/api/', '/admin/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
       {
         // OpenAI search crawler - helps public resources surface in ChatGPT search.
         userAgent: 'OAI-SearchBot',
         allow: '/',
-        disallow: ['/api/', '/admin/'],
+        disallow: ['/api/', '/admin/', '/private/'],
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

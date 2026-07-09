@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
-import { Button } from '@/components/ui/Button';
+import { LinkButton, buttonClassName } from '@/components/ui/Button';
+import { TrackedLink } from '@/components/ui/TrackedLink';
+import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 
 import { MapPin, Phone, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState, type ReactNode } from 'react';
-import { trackConversion } from '@/lib/analytics';
 import { buildContactHref } from '@/lib/contact-links';
 import {
   getRoutesByFooterGroup,
@@ -166,15 +167,14 @@ export function Footer() {
                     most expensive mistakes.
                   </p>
                 </div>
-                <Link href="/guides/planning-guide" className="inline-block">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="hover:bg-edg-brand hover:border-edg-brand rounded-none border-white bg-white px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:text-black"
-                  >
-                    Get the Guide <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
+                <LinkButton
+                  href="/guides/planning-guide"
+                  size="lg"
+                  variant="outline"
+                  className="hover:bg-edg-brand hover:border-edg-brand rounded-none border-white bg-white px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:text-black"
+                >
+                  Get the Guide <ArrowRight className="ml-2 h-5 w-5" />
+                </LinkButton>
               </div>
 
               {/* Ready to talk */}
@@ -190,37 +190,24 @@ export function Footer() {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <Link
+                  <TrackedLink
                     href={consultationHref}
-                    onClick={(event) =>
-                      trackConversion({
-                        conversionName: 'book_call_click',
-                        linkUrl: event.currentTarget.href,
-                        linkText: event.currentTarget.textContent?.trim(),
-                      })
-                    }
+                    conversionName="consultation_cta_click"
+                    className={buttonClassName({
+                      size: 'lg',
+                      className:
+                        'bg-edg-brand rounded-none px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:bg-white',
+                    })}
                   >
-                    <Button
-                      size="lg"
-                      className="bg-edg-brand rounded-none px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:bg-white"
-                    >
-                      Book Consultation
-                    </Button>
-                  </Link>
-                  <a
+                    Book Consultation
+                  </TrackedLink>
+                  <TrackedPhoneLink
                     href="tel:+18155810138"
-                    onClick={(event) =>
-                      trackConversion({
-                        conversionName: 'phone_click',
-                        linkUrl: event.currentTarget.href,
-                        linkText: event.currentTarget.textContent?.trim(),
-                      })
-                    }
                     className="hover:text-edg-brand inline-flex h-14 items-center gap-3 px-6 font-bold tracking-wider text-white uppercase transition-colors"
                   >
                     <Phone className="h-5 w-5" />
                     (815) 581-0138
-                  </a>
+                  </TrackedPhoneLink>
                 </div>
               </div>
             </div>
@@ -292,12 +279,12 @@ export function Footer() {
                     </a>
                   </li>
                   <li>
-                    <a
+                    <TrackedPhoneLink
                       href="tel:+18155810138"
                       className="hover:text-edg-brand block text-sm leading-snug text-zinc-300 transition-colors"
                     >
                       (815) 581-0138
-                    </a>
+                    </TrackedPhoneLink>
                   </li>
                 </ul>
               </div>

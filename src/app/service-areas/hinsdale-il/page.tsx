@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas and exterior shades for Hinsdale homes. Serving The Lane, Katherine Legge area, and throughout the Village. Zoning-compliant designs for historic estates.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Hinsdale Outdoor Living | Estate Pergolas & Shades | EDG',
     description: 'Outdoor living systems for Hinsdale estates. Motorized pergolas, retractable screens, and glass enclosures planned around the home.',
     type: 'website',

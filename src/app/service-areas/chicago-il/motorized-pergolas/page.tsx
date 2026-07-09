@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -27,6 +27,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/chicago-il/motorized-pergolas',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Pergolas in Chicago, IL | EDG Patio & Shade',
     description:
       'Louvered pergolas for Chicago roof decks, patios, and backyard entertaining spaces.',
@@ -102,30 +103,19 @@ const gallery = [
 ];
 
 export default function ChicagoPergolasPage() {
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'Motorized Pergolas in Chicago, IL',
+  const serviceSchema = generateServiceSchema({
+    name: 'Motorized Pergola Planning and Installation in Chicago, IL',
     description:
-      'Custom louvered pergolas for Chicago patios, roof decks, and backyard entertaining spaces.',
-    brand: {
-      '@type': 'Brand',
-      name: 'EDG Patio & Shade',
-    },
-    image: gallery.map((item) => `https://www.edgpatioshade.com${item.src}`),
-    category: 'Motorized Pergolas',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      url: 'https://www.edgpatioshade.com/service-areas/chicago-il/motorized-pergolas',
-    },
-  };
+      'Custom motorized louvered pergola planning for Chicago patios, roof decks, and backyard entertaining spaces.',
+    url: 'https://www.edgpatioshade.com/service-areas/chicago-il/motorized-pergolas',
+    image: `https://www.edgpatioshade.com${gallery[0].src}`,
+  });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"

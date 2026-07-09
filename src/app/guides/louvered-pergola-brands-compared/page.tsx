@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     canonical: '/guides/louvered-pergola-brands-compared',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'How EDG Chooses the Right Motorized Pergola System',
     description:
       'A system-selection guide for buyers comparing premium louvered pergolas without getting trapped in manufacturer-first sales advice.',

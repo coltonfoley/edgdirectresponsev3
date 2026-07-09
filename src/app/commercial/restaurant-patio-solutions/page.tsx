@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     canonical: '/commercial/restaurant-patio-solutions',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Restaurant Patio Solutions | EDG Commercial',
     description:
       'Commercial outdoor dining planning for Chicago restaurants, including pergolas, screens, glass, heat, controls, and permit coordination.',

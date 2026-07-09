@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas, exterior shades, and retractable screens for Lake Geneva homes. Serving Fontana, Williams Bay, and nearby lake communities.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lake Geneva Outdoor Living | Waterfront Pergolas | EDG',
     description:
       'Waterfront outdoor living systems for Lake Geneva estates. Pergolas, screens, and enclosures designed for Wisconsin lake life.',

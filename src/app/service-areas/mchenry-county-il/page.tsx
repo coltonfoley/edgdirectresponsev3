@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas, exterior shades, and glass enclosures for McHenry County, IL homes. Expert design and installation in Crystal Lake, Spring Grove, and surrounding areas.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'McHenry County Outdoor Living | EDG Patio & Shade',
     description:
       'Outdoor living systems for McHenry County. Motorized pergolas and screens planned for Illinois weather.',

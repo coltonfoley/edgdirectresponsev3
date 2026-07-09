@@ -31,10 +31,10 @@ export const systems = [
     name: 'Louvered Pergolas',
     tagline: 'Most Popular',
     description:
-      'Motorized aluminum louvers that rotate from full sun to full shade—and close completely for rain protection. The ultimate year-round outdoor room.',
+      'Motorized aluminum louvers selected around the patio, drainage, and exposure. Adjust sun and shade, with rain protection on systems specified for that use.',
     features: [
       'Rain drainage built-in',
-      'Snow load rated',
+      'System-specific engineering',
       'Integrated LED & heating',
       'Smart home ready',
     ],
@@ -47,8 +47,8 @@ export const systems = [
     name: 'Motorized Shades',
     tagline: null,
     description:
-      'Wind-rated exterior screens that block 80%+ of heat and glare while preserving your view. Retract completely when not needed.',
-    features: ['Heat reduction', 'UV protection', 'Wind rated'],
+      'Exterior screens selected around glare, insects, privacy, view, and everyday wind comfort. Retract them when the space should stay open.',
+    features: ['Solar comfort', 'Fabric options', 'Track-guided systems'],
     image: images.brand.hero.screens,
     quoteUrl: '/contact?type=price&product=shades',
   },
@@ -101,7 +101,7 @@ export const paths = [
     badge: 'Guidance First',
     title: 'Plan a Four-Season Space',
     description:
-      'I need design guidance, feasibility checks, and a thoughtful planning process.',
+      'I need design guidance, feasibility checks, and a thoughtful planning process for a more useful patio.',
     cta: 'Start Here',
     href: '/design',
   },
@@ -131,7 +131,7 @@ export const paths = [
     badge: 'High ROI',
     title: 'Restaurants, Hotels & Clubs',
     description:
-      'High-ROI outdoor design for hospitality. Increase capacity and revenue year-round.',
+      'Outdoor design for hospitality. Plan seating comfort, coverage, and operations around the actual site.',
     cta: 'Commercial Info',
     href: '/commercial',
   },

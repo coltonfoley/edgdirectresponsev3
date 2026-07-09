@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas and exterior shades for Oak Brook estates. Serving Hinsdale, Burr Ridge, and Elmhurst with review-aware outdoor room planning.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Oak Brook Outdoor Living | Pergolas & Shades | EDG',
     description: 'Custom outdoor living systems for Oak Brook. Motorized pergolas, retractable screens, and professional installation.',
     type: 'website',

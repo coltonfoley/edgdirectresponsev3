@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   description:
     'Custom motorized pergolas and exterior shades for Naperville homes. Serving Downtown, South Naperville, East Ogden corridor, and Ranchlands. Zoning-compliant designs for DuPage County.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Naperville Outdoor Living | Pergolas & Shades | EDG',
     description: 'Motorized pergolas and retractable screens for Naperville homes. Professional design and installation.',
     type: 'website',

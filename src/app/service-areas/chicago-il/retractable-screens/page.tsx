@@ -18,7 +18,7 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { buildContactHref } from '@/lib/contact-links';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/chicago-il/retractable-screens',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Retractable Screens in Chicago, IL | EDG Patio & Shade',
     description:
       'Motorized exterior screens for Chicago patios, pergolas, and urban outdoor spaces.',
@@ -117,30 +118,19 @@ export default function ChicagoScreensPage() {
     source: 'chicago_screens_bottom',
   });
 
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: 'Retractable Screens in Chicago, IL',
+  const serviceSchema = generateServiceSchema({
+    name: 'Motorized Retractable Screen Planning in Chicago, IL',
     description:
-      'Motorized retractable screens for Chicago patios, pergolas, roof decks, and outdoor living spaces.',
-    brand: {
-      '@type': 'Brand',
-      name: 'EDG Patio & Shade',
-    },
-    image: gallery.map((item) => `https://www.edgpatioshade.com${item.src}`),
-    category: 'Motorized Exterior Screens',
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      url: 'https://www.edgpatioshade.com/service-areas/chicago-il/retractable-screens',
-    },
-  };
+      'Motorized retractable screen planning for Chicago patios, pergolas, roof decks, and outdoor living spaces.',
+    url: 'https://www.edgpatioshade.com/service-areas/chicago-il/retractable-screens',
+    image: `https://www.edgpatioshade.com${gallery[0].src}`,
+  });
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"

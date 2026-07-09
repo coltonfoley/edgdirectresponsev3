@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/lake-geneva-wi/retractable-screens',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Lake Geneva Motorized Screens & Outdoor Shades | EDG',
     description:
       'Retractable screen and shade planning for Lake Geneva, Fontana, Williams Bay, and Walworth County outdoor rooms.',

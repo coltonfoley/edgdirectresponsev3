@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     'Commercial pergola, screen, glass, heat, and control planning for restaurants, hotels, clubs, and hospitality venues.',
   alternates: { canonical: '/commercial' },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Commercial Outdoor Living | EDG',
     description:
       'Commercial outdoor system planning for hospitality venues, restaurants, hotels, clubs, and amenity spaces.',

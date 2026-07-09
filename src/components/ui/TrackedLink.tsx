@@ -14,7 +14,7 @@ interface TrackedLinkProps extends LinkProps {
 
 export function TrackedLink({
   children,
-  conversionName = 'book_call_click',
+  conversionName = 'cta_click',
   eventValue = 0,
   onClick,
   ...props
@@ -31,7 +31,7 @@ export function TrackedLink({
   };
 
   return (
-    <Link onClick={handleClick} {...props}>
+    <Link onClick={handleClick} data-analytics-cta="true" {...props}>
       {children}
     </Link>
   );

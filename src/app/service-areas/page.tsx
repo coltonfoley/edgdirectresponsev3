@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Service Areas | EDG Patio & Shade',
     description:
       'Serving the greater Chicago to Milwaukee corridor. Local expertise, professional installation.',

@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     canonical: '/guides/pergola-system-fit-review',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Pergola System Fit Review | EDG Patio & Shade',
     description:
       'A qualified intake for homeowners, builders, and commercial owners evaluating premium motorized pergola systems.',

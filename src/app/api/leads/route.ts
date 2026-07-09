@@ -83,6 +83,14 @@ interface LeadRecord {
   storage: 'rainmaker';
 }
 
+function getSubmissionId(metadata: LeadSubmission['metadata']): string | undefined {
+  const submissionId = metadata?.submission_id;
+
+  return typeof submissionId === 'string' && submissionId.length <= 160
+    ? submissionId
+    : undefined;
+}
+
 type AttachmentUploadStatus = 'none' | 'uploaded' | 'failed';
 
 interface AttachmentUploadState {
@@ -363,6 +371,7 @@ async function fakeAcceptedSpamResponse(reason: string, email?: string) {
   return NextResponse.json(
     {
       success: true,
+      accepted: false,
       message: 'Thank you! We have received your information.',
       leadId: 'spam-blocked',
     },
@@ -406,6 +415,11 @@ async function createRainmakerLead(
     'Content-Type': 'application/json',
   };
 
+  const submissionId = getSubmissionId(lead.metadata);
+  if (submissionId) {
+    headers['Idempotency-Key'] = submissionId;
+  }
+
   if (process.env.RAINMAKER_VERCEL_BYPASS) {
     headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
   }
@@ -424,6 +438,7 @@ async function createRainmakerLead(
       source: lead.source || 'website',
       customerType: lead.customerType,
       metadata: lead.metadata,
+      idempotencyKey: submissionId,
     }),
   }, RAINMAKER_FETCH_TIMEOUT_MS);
 
@@ -470,10 +485,12 @@ async function uploadRainmakerLeadAttachments({
   leadRecord,
   attachments,
   source,
+  submissionId,
 }: {
   leadRecord: LeadRecord;
   attachments: LeadAttachment[];
   source?: string;
+  submissionId?: string;
 }) {
   if (attachments.length === 0) return null;
 
@@ -491,7 +508,7 @@ async function uploadRainmakerLeadAttachments({
 
   const formData = new FormData();
   formData.append('source', source || 'website');
-  formData.append('submissionId', `${leadId}-${Date.now()}`);
+  formData.append('submissionId', submissionId || `${leadId}-${Date.now()}`);
 
   attachments.forEach((attachment) => {
     const buffer = Buffer.from(attachment.content, 'base64');
@@ -578,8 +595,7 @@ async function scheduleFollowUpEmail(
         <p>It's been a week since you reached out about your ${htmlProjectType}.
         I wanted to follow up and see if you have any questions or if you're ready to take the next step.</p>
         
-        <p>At <strong>EDG Patio & Shade</strong>, we've helped hundreds of homeowners transform their outdoor spaces 
-        into year-round living areas with our premium louvered pergolas, motorized screens, and glass enclosures.</p>
+        <p>At <strong>EDG Patio & Shade</strong>, we help homeowners plan more useful outdoor spaces with louvered pergolas, motorized screens, and glass enclosures selected around the actual site.</p>
         
         <h3 style="color: #008a5c;">What's the next step?</h3>
         <ul>
@@ -734,6 +750,7 @@ export async function POST(request: NextRequest) {
 
     const leadId = leadRecord.id;
     const timestamp = leadRecord.created_at;
+    const submissionId = getSubmissionId(metadata);
 
     let attachmentUploadState: AttachmentUploadState = {
       status: leadAttachments.length > 0 ? 'failed' : 'none',
@@ -745,6 +762,7 @@ export async function POST(request: NextRequest) {
           leadRecord,
           attachments: leadAttachments,
           source,
+          submissionId,
         });
         attachmentUploadState = { status: 'uploaded' };
       } catch (attachmentError) {
@@ -912,6 +930,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
+        accepted: true,
         message: 'Thank you! We have received your information.',
         leadId: leadId,
       },

@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   description:
     'Experience our motorized pergolas and retractable screens in person at our Spring Grove, IL showroom. See the quality difference before you build.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'EDG Patio & Shade Showroom | Spring Grove, IL',
     description:
       'Touch the materials, test the motors, compare finishes, and plan the right system at the Spring Grove showroom.',

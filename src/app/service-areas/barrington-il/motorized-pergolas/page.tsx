@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/barrington-il/motorized-pergolas',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Pergolas in Barrington, IL | EDG Patio & Shade',
     description:
       'Louvered pergola planning for Barrington area homes, patios, pools, and outdoor rooms.',

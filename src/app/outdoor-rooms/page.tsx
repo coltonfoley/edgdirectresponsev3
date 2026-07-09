@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     canonical: '/outdoor-rooms',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Outdoor Room Plans | EDG Patio & Shade',
     description:
       'Outcome-led outdoor room ideas for protected patios, poolside lounges, restaurant patios, and complete outdoor living plans.',

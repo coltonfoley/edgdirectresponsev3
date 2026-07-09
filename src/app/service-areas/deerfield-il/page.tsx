@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/deerfield-il',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Deerfield Outdoor Living Systems | EDG Patio & Shade',
     description:
       'Motorized patio screens, pergolas, and enclosure systems for Deerfield homes.',

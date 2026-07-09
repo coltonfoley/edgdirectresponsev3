@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/spring-grove-il',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Spring Grove Outdoor Living Systems | EDG Patio & Shade',
     description:
       'Outdoor living systems designed, shown, and supported from our Spring Grove, IL showroom.',

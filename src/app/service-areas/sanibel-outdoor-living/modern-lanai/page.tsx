@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   description:
     'Modern lanai planning for Sanibel and Captiva homes: motorized pergolas, motorized screens, coastal materials, and permit review.',
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Modern Lanai Sanibel | Motorized Pergolas & Screens | EDG',
     description:
       'Motorized pergola and screen planning for Sanibel homes with adjustable shade, rain control, and coastal permit review.',

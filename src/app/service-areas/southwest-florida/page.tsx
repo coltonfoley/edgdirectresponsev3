@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     canonical: '/service-areas/southwest-florida',
   },
   openGraph: {
+    images: [{ url: '/opengraph-image' }],
     title: 'Motorized Screens & Pergolas Southwest Florida | EDG',
     description:
       'Motorized screens, coastal-grade louvered roof systems, and covered-lanai comfort planning for Southwest Florida homes.',
