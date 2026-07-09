@@ -53,7 +53,10 @@ async function testPage(browser, route, viewport) {
 
   try {
     const response = await page.goto(url, {
-      waitUntil: 'networkidle',
+      // The gallery can keep background image requests active after its visible
+      // page has rendered. Waiting for network idle turns that normal behavior
+      // into a false contrast-regression failure in CI.
+      waitUntil: 'domcontentloaded',
       timeout: 30_000,
     });
 
