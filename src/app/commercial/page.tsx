@@ -82,7 +82,8 @@ const faqs = [
       'Often, yes. Requirements vary by municipality, mounting condition, wind exposure, egress, fire-safety review, and whether the project changes the building envelope. EDG helps coordinate product documentation and structural inputs early.',
   },
   {
-    question: 'Can this integrate with an existing patio, roof deck, or terrace?',
+    question:
+      'Can this integrate with an existing patio, roof deck, or terrace?',
     answer:
       'Many projects can work with existing steel, masonry, concrete, or wood conditions, but the right answer depends on the structure, drainage, utilities, clearances, and code path. A site assessment confirms what should be reused and what needs to change.',
   },
@@ -149,12 +150,14 @@ const locationLinks = [
   {
     href: '/commercial/west-loop',
     title: 'West Loop / Fulton Market',
-    description: "Terrace and patio planning for Chicago's dense restaurant row",
+    description:
+      "Terrace and patio planning for Chicago's dense restaurant row",
   },
   {
     href: '/commercial/restaurant-patio-enclosures',
-    title: 'Restaurant Patio Enclosures',
-    description: 'Glass, screen, and pergola combinations for dining patios',
+    title: 'Chicago Restaurant Patio Enclosures',
+    description:
+      'Pergola, screen, glass, heat, and control planning around restaurant seating and daily service',
   },
   {
     href: '/commercial/hotel-roof-deck-systems',
@@ -226,7 +229,7 @@ export default function CommercialPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
 
-      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
+      <section className="bg-edg-dark relative flex min-h-[68vh] items-center overflow-hidden pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.brand.context.commercial}
@@ -241,11 +244,14 @@ export default function CommercialPage() {
         </div>
 
         <Container className="relative z-10">
-          <Breadcrumb items={[{ label: 'Commercial' }]} className="mb-6 text-zinc-300" />
+          <Breadcrumb
+            items={[{ label: 'Commercial' }]}
+            className="mb-6 text-zinc-300"
+          />
 
           <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
             <div>
-              <div className="label-editorial mb-6 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-6">
                 Commercial Outdoor Living
               </div>
               <h1 className="hero-title mb-6 max-w-5xl">
@@ -277,17 +283,32 @@ export default function CommercialPage() {
             </div>
 
             <div className="border border-white/10 bg-black/35 p-8">
-              <div className="mb-6 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+              <div className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase">
                 Commercial Review Covers
               </div>
               <div className="space-y-6">
                 {[
-                  ['Use case', 'Dining, rooftop, pool deck, club terrace, or event space'],
-                  ['Site conditions', 'Wind, sun, rain, drainage, power, structure, and egress'],
-                  ['Operating model', 'Staff controls, service paths, opening routines, and closing rules'],
-                  ['Planning output', 'A qualified system path with clear next steps'],
+                  [
+                    'Use case',
+                    'Dining, rooftop, pool deck, club terrace, or event space',
+                  ],
+                  [
+                    'Site conditions',
+                    'Wind, sun, rain, drainage, power, structure, and egress',
+                  ],
+                  [
+                    'Operating model',
+                    'Staff controls, service paths, opening routines, and closing rules',
+                  ],
+                  [
+                    'Planning output',
+                    'A qualified system path with clear next steps',
+                  ],
                 ].map(([label, description]) => (
-                  <div key={label} className="border-t border-white/10 pt-5 first:border-t-0 first:pt-0">
+                  <div
+                    key={label}
+                    className="border-t border-white/10 pt-5 first:border-t-0 first:pt-0"
+                  >
                     <div className="mb-1 text-sm font-bold text-white">
                       {label}
                     </div>
@@ -332,9 +353,9 @@ export default function CommercialPage() {
             <h2 className="section-title mb-4">
               One commercial standard, adapted to each property type
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
-              The hub should help buyers find the right commercial route
-              without making every hospitality page feel like a different site.
+            <p className="text-text-secondary text-lg leading-relaxed">
+              The hub should help buyers find the right commercial route without
+              making every hospitality page feel like a different site.
             </p>
           </div>
 
@@ -344,7 +365,7 @@ export default function CommercialPage() {
                 <Card
                   variant="outline"
                   padding="lg"
-                  className="h-full hover:border-edg-brand"
+                  className="hover:border-edg-brand h-full"
                 >
                   <IconWrapper
                     icon={solution.icon}
@@ -352,13 +373,13 @@ export default function CommercialPage() {
                     size="lg"
                     className="mb-6"
                   />
-                  <h3 className="mb-3 text-xl font-bold transition-colors group-hover:text-edg-brand-text">
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     {solution.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary mb-5 text-sm leading-relaxed">
                     {solution.description}
                   </p>
-                  <div className="flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-text uppercase">
+                  <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                     Learn More
                     <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -369,7 +390,7 @@ export default function CommercialPage() {
         </Container>
       </Section>
 
-      <Section className="section-md bg-surface-muted border-y border-border">
+      <Section className="section-md bg-surface-muted border-border border-y">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
@@ -381,7 +402,7 @@ export default function CommercialPage() {
                 Local pages carry the same planning logic into specific
                 hospitality contexts
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 From Fulton Market patios to hotel roof decks, the commercial
                 route family should feel connected: same proof standard, same
                 CTA behavior, same restrained language, and clear links to the
@@ -392,17 +413,17 @@ export default function CommercialPage() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="group flex items-center justify-between border border-border bg-white p-4 transition-colors hover:border-edg-brand"
+                    className="group border-border hover:border-edg-brand flex items-center justify-between border bg-white p-4 transition-colors"
                   >
                     <div>
-                      <h3 className="font-bold transition-colors group-hover:text-edg-brand-text">
+                      <h3 className="group-hover:text-edg-brand-text font-bold transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-text-secondary">
+                      <p className="text-text-secondary text-sm">
                         {item.description}
                       </p>
                     </div>
-                    <ChevronRight className="h-5 w-5 shrink-0 text-text-muted transition-all group-hover:translate-x-1 group-hover:text-edg-brand-text" />
+                    <ChevronRight className="text-text-muted group-hover:text-edg-brand-text h-5 w-5 shrink-0 transition-all group-hover:translate-x-1" />
                   </Link>
                 ))}
               </div>
@@ -430,9 +451,9 @@ export default function CommercialPage() {
             <h2 className="section-title mb-4">
               Serious outdoor spaces need planning, not a residential template
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
-              EDG stays system-agnostic and matches the product mix to the
-              site, staff model, approvals, and ownership expectations.
+            <p className="text-text-secondary text-lg leading-relaxed">
+              EDG stays system-agnostic and matches the product mix to the site,
+              staff model, approvals, and ownership expectations.
             </p>
           </div>
 
@@ -446,7 +467,7 @@ export default function CommercialPage() {
                   className="mb-6"
                 />
                 <h3 className="mb-3 text-xl font-bold">{card.title}</h3>
-                <p className="leading-relaxed text-text-secondary">
+                <p className="text-text-secondary leading-relaxed">
                   {card.description}
                 </p>
               </Card>
@@ -459,9 +480,7 @@ export default function CommercialPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Assessment Path
-              </div>
+              <div className="label-editorial-brand mb-4">Assessment Path</div>
               <h2 className="section-title mb-6 text-white">
                 Review the business case with the actual site assumptions
               </h2>
@@ -480,12 +499,21 @@ export default function CommercialPage() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                ['Inputs', 'Seating, service flow, exposure, approvals, and goals'],
-                ['System', 'Pergola, screens, glass, heat, lighting, and controls'],
-                ['Handoff', 'Staff rules, care plan, service access, and next steps'],
+                [
+                  'Inputs',
+                  'Seating, service flow, exposure, approvals, and goals',
+                ],
+                [
+                  'System',
+                  'Pergola, screens, glass, heat, lighting, and controls',
+                ],
+                [
+                  'Handoff',
+                  'Staff rules, care plan, service access, and next steps',
+                ],
               ].map(([label, description]) => (
                 <div key={label} className="border border-white/10 p-6">
-                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                  <div className="text-edg-brand mb-3 text-xs font-bold tracking-[0.18em] uppercase">
                     {label}
                   </div>
                   <p className="text-sm leading-relaxed text-zinc-300">
@@ -498,17 +526,15 @@ export default function CommercialPage() {
         </Container>
       </Section>
 
-      <Section className="section-md bg-surface-muted border-b border-border">
+      <Section className="section-md bg-surface-muted border-border border-b">
         <Container>
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <div className="label-editorial-brand mb-4">
-                FAQ
-              </div>
+              <div className="label-editorial-brand mb-4">FAQ</div>
               <h2 className="section-title mb-4">
                 Commercial planning questions
               </h2>
-              <p className="mb-8 leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 leading-relaxed">
                 Common questions from owners, operators, GMs, and facilities
                 teams before they choose a system path.
               </p>
@@ -525,7 +551,7 @@ export default function CommercialPage() {
                   <h3 className="mb-3 text-lg font-bold text-black">
                     {item.question}
                   </h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {item.answer}
                   </p>
                 </Card>
@@ -544,7 +570,7 @@ export default function CommercialPage() {
             <h2 className="section-title mb-4">
               Commercial plans are built from EDG's core system categories
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary text-lg leading-relaxed">
               The industry pages above should connect back to the technical
               system pages without forcing commercial visitors into a
               residential buying path.
@@ -557,12 +583,12 @@ export default function CommercialPage() {
                 <Card
                   variant="outline"
                   padding="lg"
-                  className="h-full text-center hover:border-edg-brand"
+                  className="hover:border-edg-brand h-full text-center"
                 >
-                  <h3 className="mb-2 text-lg font-bold transition-colors group-hover:text-edg-brand-text">
+                  <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
                     {system.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary text-sm leading-relaxed">
                     {system.description}
                   </p>
                 </Card>
@@ -580,9 +606,8 @@ export default function CommercialPage() {
                 Start with the commercial conditions
               </h2>
               <p className="mb-8 max-w-2xl text-xl leading-relaxed text-zinc-300">
-                Send EDG the use case, site constraints, and operating goals.
-                We will help narrow the system, approvals, and next planning
-                steps.
+                Send EDG the use case, site constraints, and operating goals. We
+                will help narrow the system, approvals, and next planning steps.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink href={bottomContactHref}>
@@ -615,7 +640,7 @@ export default function CommercialPage() {
                   'Hospitality groups and commercial campuses',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-3">
-                    <Check className="h-4 w-4 shrink-0 text-edg-brand" />
+                    <Check className="text-edg-brand h-4 w-4 shrink-0" />
                     {item}
                   </li>
                 ))}

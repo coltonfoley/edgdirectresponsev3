@@ -1,0 +1,483 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "EDG Organic Search CTR & Position Audit — July 13, 2026",
+    "description": "A read-only, source-backed diagnosis of organic Google Search CTR and average position for edgpatioshade.com.",
+    "generatedAt": "2026-07-13T15:30:00Z",
+    "cards": [
+      {
+        "id": "clicks_card",
+        "dataset": "headline",
+        "sourceId": "gsc_baseline_chart",
+        "description": "Organic Web clicks from April 12 through July 11, 2026.",
+        "metrics": [
+          { "label": "Clicks", "field": "clicks", "format": "compact" }
+        ]
+      },
+      {
+        "id": "impressions_card",
+        "dataset": "headline",
+        "sourceId": "gsc_baseline_chart",
+        "description": "Organic Web impressions in the same three-month window.",
+        "metrics": [
+          { "label": "Impressions", "field": "impressions", "format": "compact" }
+        ]
+      },
+      {
+        "id": "ctr_card",
+        "dataset": "headline",
+        "sourceId": "gsc_baseline_chart",
+        "description": "Clicks divided by impressions for the property-level Web report.",
+        "metrics": [
+          { "label": "Average CTR", "field": "ctr", "format": "percent" }
+        ]
+      },
+      {
+        "id": "position_card",
+        "dataset": "headline",
+        "sourceId": "gsc_baseline_chart",
+        "description": "Impression-weighted average position reported by Search Console.",
+        "metrics": [
+          { "label": "Average position", "field": "position", "format": "number" }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "weekly_ctr_chart",
+        "title": "Weekly organic CTR",
+        "subtitle": "First and last weeks are partial; CTR peaked in early June, then fell to 0.89% in the partial week ending July 11.",
+        "type": "line",
+        "dataset": "weekly_trend",
+        "sourceId": "gsc_baseline_chart",
+        "encodings": {
+          "x": { "field": "week_start", "type": "temporal", "label": "Week starting" },
+          "y": { "field": "ctr", "type": "quantitative", "label": "CTR", "format": "percent" },
+          "tooltip": [
+            { "field": "clicks", "type": "quantitative", "label": "Clicks", "format": "number" },
+            { "field": "impressions", "type": "quantitative", "label": "Impressions", "format": "compact" },
+            { "field": "position", "type": "quantitative", "label": "Average position", "format": "number" }
+          ]
+        },
+        "valueFormat": "percent",
+        "maxRows": 14
+      },
+      {
+        "id": "weekly_position_chart",
+        "title": "Weekly average position",
+        "subtitle": "First and last weeks are partial; average position deteriorated materially after mid-June, and lower is better.",
+        "type": "line",
+        "dataset": "weekly_trend",
+        "sourceId": "gsc_baseline_chart",
+        "encodings": {
+          "x": { "field": "week_start", "type": "temporal", "label": "Week starting" },
+          "y": { "field": "position", "type": "quantitative", "label": "Average position", "format": "number" },
+          "tooltip": [
+            { "field": "ctr", "type": "quantitative", "label": "CTR", "format": "percent" },
+            { "field": "clicks", "type": "quantitative", "label": "Clicks", "format": "number" },
+            { "field": "impressions", "type": "quantitative", "label": "Impressions", "format": "compact" }
+          ]
+        },
+        "valueFormat": "number",
+        "maxRows": 14
+      }
+    ],
+    "tables": [
+      {
+        "id": "segment_summary_table",
+        "title": "Device, country, and search-appearance evidence",
+        "subtitle": "Three-month Search Console segments; rows are diagnostic slices and are not additive.",
+        "dataset": "segment_summary",
+        "sourceId": "audit_analysis",
+        "defaultSort": { "field": "impressions", "direction": "desc" },
+        "columns": [
+          { "field": "dimension", "label": "Dimension", "type": "text" },
+          { "field": "segment", "label": "Segment", "type": "text" },
+          { "field": "clicks", "label": "Clicks", "format": "number" },
+          { "field": "impressions", "label": "Impressions", "format": "number" },
+          { "field": "ctr", "label": "CTR", "format": "percent" },
+          { "field": "position", "label": "Position", "format": "number" },
+          { "field": "interpretation", "label": "Interpretation", "type": "text" }
+        ]
+      },
+      {
+        "id": "priority_table",
+        "title": "Prioritized organic-search opportunities",
+        "subtitle": "P0 protects decision quality; P1 items are the first revenue-relevant page changes to consider.",
+        "dataset": "opportunities",
+        "sourceId": "audit_analysis",
+        "defaultSort": { "field": "priority", "direction": "asc" },
+        "density": "spacious",
+        "columns": [
+          { "field": "priority", "label": "Priority", "type": "text" },
+          { "field": "lane", "label": "Lane", "type": "text" },
+          { "field": "affected", "label": "Affected query / page", "type": "text" },
+          { "field": "evidence", "label": "Evidence", "type": "text" },
+          { "field": "cause", "label": "Likely cause", "type": "text" },
+          { "field": "change", "label": "Recommended change", "type": "text" },
+          { "field": "impact", "label": "Expected impact", "type": "text" },
+          { "field": "confidence", "label": "Confidence", "type": "text" },
+          { "field": "effort", "label": "Effort", "type": "text" }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "gsc_baseline_chart",
+        "label": "Search Console — last three months",
+        "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/last-3-months/Chart.csv",
+        "href": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Aedgpatioshade.com"
+      },
+      {
+        "id": "gsc_recent_snapshot",
+        "label": "Search Console — recent 28 days versus previous 28 days",
+        "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/recent-28-days-vs-previous/Pages.csv",
+        "href": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Aedgpatioshade.com"
+      },
+      {
+        "id": "manual_filters",
+        "label": "Focused Search Console query-to-page observations",
+        "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/manual-query-page-observations.csv"
+      },
+      {
+        "id": "audit_analysis",
+        "label": "Reproducible audit analysis",
+        "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-analysis.ipynb"
+      },
+      {
+        "id": "current_source",
+        "label": "Current website source and SEO rules",
+        "path": "docs/codex/seo-rules.md"
+      },
+      {
+        "id": "live_site",
+        "label": "EDG Patio & Shade production site",
+        "href": "https://www.edgpatioshade.com"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# EDG Organic Search CTR & Position Audit — July 13, 2026\n\n**Decision:** fix measurement distortion first, then run one contained restaurant-patio page pilot while protecting the already-successful MagnaTrack cost queries.\n\nRead-only audit of `sc-domain:edgpatioshade.com`, Web, April 12–July 11, 2026, with the latest 28 days compared with the previous 28 days. Signed-in data was read in the existing Comet profile; production pages were checked in the Codex in-app Browser."
+      },
+      {
+        "id": "headline_metrics",
+        "type": "metric-strip",
+        "cardIds": ["clicks_card", "impressions_card", "ctr_card", "position_card"]
+      },
+      {
+        "id": "executive_diagnosis",
+        "type": "markdown",
+        "body": "## Executive diagnosis\n\nEDG's three-month headline is better than the previous three months: 1,042 clicks versus 370, about 95.8k impressions versus 47.0k, CTR 1.1% versus 0.8%, and average position 17.3 versus 24.7. That improvement is real, but the current trajectory is weaker. In the latest 28 days clicks fell to 357 from 437 while impressions rose to 35.7k from 30.2k; CTR fell to 1.00% from 1.45% and position worsened to 20.9 from 16.0.\n\nTwo effects are mixed together. First, at least 16,829 three-month impressions came from 262 visible, templated zero-click query rows that look like automated rank tracking or measurement activity. One exact phrase generated 3,696 impressions, almost entirely on desktop, during a short April 28–May 15 burst. Those rows make the property-wide CTR and position less useful as a pure customer-demand KPI. Excluding only the flagged rows produces an indicative 1.32% CTR, but that is a diagnostic—not a replacement for Google's official metric.\n\nSecond, genuine pages lost rank or expanded into weaker query mixes after mid-June. The MagnaTrack cost guide, the www homepage, and `/systems/shades` account for most of the recent click loss. At the same time, relevant category and local routes often do not own the queries they should: broad pergola and near-me queries map to the homepage, while cost/screen queries split between the shades service page and the cost guide.\n\nThe visible query export is directionally non-brand: EDG-branded rows contributed 52 clicks from 516 impressions, while non-EDG-branded rows contributed 293 clicks from 48,011 impressions. Because Search Console omits anonymized queries and limits rows, these are not property-wide shares. The United States is the clear market focus at 90,104 of 95,765 impressions and 994 of 1,042 clicks."
+      },
+      {
+        "id": "segment_summary",
+        "type": "table",
+        "tableId": "segment_summary_table"
+      },
+      {
+        "id": "weekly_ctr",
+        "type": "chart",
+        "chartId": "weekly_ctr_chart"
+      },
+      {
+        "id": "weekly_position",
+        "type": "chart",
+        "chartId": "weekly_position_chart"
+      },
+      {
+        "id": "recent_change",
+        "type": "markdown",
+        "sourceId": "gsc_recent_snapshot",
+        "body": "## What changed recently\n\n- `/guides/magnatrack-screens-cost`: 187 clicks versus 223, despite 8,410 impressions versus 7,284; CTR fell 0.84 percentage points and position worsened from 5.94 to 8.14. The exact query `magnatrack screens cost` actually improved to position 2.85 and 7.33% CTR, so the page-level decline comes from a broader, lower-ranking query mix—not failure of the head term.\n- `https://www.edgpatioshade.com/`: 35 clicks versus 51, with impressions up by 1,131 and position worsening 6.08 places to 34.79.\n- `/systems/shades`: 32 clicks versus 51; position worsened from 17.80 to 26.27.\n- `/guides/pergola-cost`: impressions increased by 2,237 and clicks rose by eight, but position worsened from 6.88 to 18.46. This is growth into a much broader, weaker ranking mix.\n- Both major devices weakened. Desktop CTR was 0.69% versus 1.00%, and mobile CTR was 1.35% versus 2.14%. Desktop is more distorted by suspected automated activity, but mobile deterioration proves the recent decline is not only a bot artifact."
+      },
+      {
+        "id": "priority_opportunities",
+        "type": "table",
+        "tableId": "priority_table"
+      },
+      {
+        "id": "ctr_opportunities",
+        "type": "markdown",
+        "body": "## CTR opportunities\n\n1. **Separate price intent from system intent.** For `motorized retractable screens price`, `/systems/shades` received 260 impressions and two clicks, while the MagnaTrack cost guide received only 93 impressions but the same two clicks. For `magnatrack screens`, the guide earned nine clicks from 529 page impressions while the service page earned three from 657. Make the guide the explicit cost/price owner and the service page the installed-system/fit owner through titles, H1s, copy, and internal-link anchor text.\n2. **Do not rewrite the winning MagnaTrack head-term snippet.** `magnatrack screens cost` improved to position 2.85 and 7.33% CTR in the latest 28 days. Preserve that title/description promise; improve the broader supporting query coverage around it.\n3. **Use the restaurant cluster as the first clean snippet/content pilot.** The singular/plural enclosure and patio-cover cluster produced at least 706 visible three-month impressions at roughly positions 17–19 with zero clicks, and the correct route already owns nearly all of the impressions.\n4. **Treat desktop CTR after removing suspect query families.** Baseline desktop CTR was 0.75% versus mobile at 1.60%, but automated impressions were overwhelmingly desktop. Compare clean query cohorts before making device-specific design conclusions.\n5. **Protect structured-data truth.** Historical Product snippets were weak at 0.53% CTR and position 24.2; Merchant listings were strong at 4.39% CTR and position 1.35. All came from `/systems/shades`. The live page now correctly uses Service/HowTo/FAQ markup after unsupported Product/AggregateOffer/AggregateRating markup was removed July 7. Do not restore invented offers or reviews to chase merchant visibility."
+      },
+      {
+        "id": "ranking_opportunities",
+        "type": "markdown",
+        "body": "## Ranking and average-position opportunities\n\n1. **Restore authority to the pages already closest to page one.** Prioritize the MagnaTrack guide, restaurant patio enclosures, and the pergola cost guide with materially useful updates, proof, and internal links—not mass new pages.\n2. **Fix route ownership.** The broad query `pergola` ranked 4.38 with 632 impressions, but nearly all visible impressions mapped to the non-www homepage; `/systems/pergolas` had one. `motorized pergolas near me` mapped primarily to the www homepage and not to `/systems/pergolas`. Strengthen category and local-route signals from the homepage, system hub, service-area hubs, and related guides.\n3. **Make geographic pages earn their intent.** For `deerfield il motorized porch screens`, the non-www homepage received 226 page impressions while the exact Deerfield retractable-screens route received seven. Review internal linking, unique local proof, and duplication across local templates before adding more city pages.\n4. **Consolidate legacy URL signals.** The live non-www host 301s to www and live canonicals/sitemap use www, but Search Console still reports separate homepage host rows. Old non-www WordPress routes can require multiple redirect hops. Monitor URL Inspection and simplify redirect chains where it can be done without breaking mappings.\n5. **Expand cost guides around evidence, not keyword lists.** `/guides/pergola-cost` is earning many new impressions at weaker ranks. Add real installed-project examples, range assumptions, comparison tables, permit/engineering factors, and links from the pergola system and local-market pages."
+      },
+      {
+        "id": "pilot",
+        "type": "markdown",
+        "body": "## Recommended first pilot: one commercial page, one query cluster\n\nPilot `/commercial/restaurant-patio-enclosures` for the regex cluster `restaurant patio enclosure|restaurant patio enclosures|restaurant patio cover`. The route already owns the impressions, so the test is cleaner than changing the homepage or the two competing screen pages.\n\nAfter approval, keep the scope to one page: align title and H1 with Chicago restaurant patio enclosure intent; add one source-backed project/proof section; tighten the first-screen copy around seating, weather protection, permits, and operations; and add three to five contextual internal links from the commercial hub, restaurant-solutions page, relevant system pages, and a real project page. Do not add Product/Offer/review schema.\n\n**Success threshold:** wait for at least 500 post-change cluster impressions and at least 28 days after Google recrawls. Call it a win if average position improves by at least two places without losing impressions, or if CTR rises by at least 0.5 percentage points at a comparable position band. Use exact page + regex query filters; do not judge from the property-wide average."
+      },
+      {
+        "id": "sequence",
+        "type": "markdown",
+        "body": "## Quick wins, medium-term changes, and experiments\n\n### Quick wins — first 1–2 weeks after approval\n\n- Build a clean Search Console reporting view that excludes the flagged templated query families and reports branded, non-branded, local, screen, pergola, and commercial cohorts separately.\n- Confirm whether any SEO vendor, rank tracker, or internal automation generated the suspicious phrases. Disable or throttle it if possible; do not alter customer-facing pages around those phrases.\n- Run the restaurant-page pilot and preserve the current winning MagnaTrack cost-title promise.\n- Capture URL Inspection status for www and non-www homepage variants and the top legacy routes; this is separate from deployment proof.\n\n### Medium term — 4–8 weeks\n\n- Establish explicit route ownership for screen cost versus screen service intent, and for pergola category versus local-market intent.\n- Strengthen internal links to `/systems/pergolas`, `/systems/shades`, the two cost guides, and the commercial restaurant route from high-authority hubs and relevant project pages.\n- Add real project evidence and decision-useful comparisons to pages with growing impressions but positions 8–20.\n- Review local templates for unique proof and remove or consolidate thin overlap before creating more location pages.\n\n### Controlled experiments\n\n- Title/description test on the restaurant page only; compare against the fixed query cohort, not sitewide CTR.\n- Internal-link anchor test for `/systems/pergolas` from homepage/system/local hubs.\n- If EDG later has accurate product pricing, availability, and review data, validate a compliant Product/Merchant implementation in a non-production test before considering eligibility restoration."
+      },
+      {
+        "id": "measurement_plan",
+        "type": "markdown",
+        "body": "## Measurement plan and guardrails\n\n- **Freeze baselines:** retain the attached three-month, recent-28-day, query-page, device, country, and search-appearance exports. Record the approval and deployment dates for any later change.\n- **Use fixed cohorts:** report exact page + query regex cohorts weekly. Keep branded and non-branded separate; exclude flagged suspect templates in a second clean view while preserving official unfiltered totals.\n- **Compare like with like:** CTR is only interpretable within comparable position bands. Track positions 1–3, 4–10, 11–20, and 21+ separately.\n- **Wait for enough data:** use at least 28 days and 500 impressions per pilot cluster when possible. Annotate recrawl/index dates; avoid reacting to the first few days.\n- **Primary outcomes:** clicks, CTR, impressions, and average position for the target page/query cohort. **Guardrails:** total page impressions, conversions from organic sessions, branded clicks, rich-result eligibility, canonical host, and unintended cannibalization.\n- **Schema guardrail:** review search-appearance rows after the July 7 schema cleanup, but do not use rich-result recovery as a success criterion unless the underlying data is accurate and eligible.\n- **Limitations:** Search Console query tables omit anonymized rows and can be row-limited; page rows may be non-additive; average position is not a rank-tracker reading; suspected automation is an inference from pattern, timing, device, and zero-click behavior—not a confirmed identity."
+      },
+      {
+        "id": "source_crosscheck",
+        "type": "markdown",
+        "body": "## Source and live-site cross-check\n\nThe production pages returned live canonical URLs on the www host and the sitemap contains every route named in this audit. The non-www root returns a 301 to www. The homepage, shades, MagnaTrack cost, pergola cost, pergola system, and restaurant enclosure titles/descriptions match current source. Live JSON-LD types are Service/HowTo/FAQ on shades; Article/FAQ on the MagnaTrack cost guide; Article/FAQ/HowTo on the pergola cost guide; Service/FAQ on the pergola system page; and Service on the restaurant page.\n\nCurrent source also confirms that the homepage uses a broad pergola/screens title, the category and guide pages cross-link, and legacy WordPress paths have path redirects. The redirect rules do not define the host redirect; Vercel currently supplies it. Supporting CSVs, screenshots, manual query-page observations, and the executed analysis notebook are stored beside this report under `docs/codex/`."
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-13T15:30:00Z",
+    "status": "ready",
+    "datasets": {
+      "headline": [
+        { "clicks": 1042, "impressions": 95765, "ctr": 0.01088, "position": 17.26 }
+      ],
+      "weekly_trend": [
+        { "week_start": "2026-04-06", "clicks": 5, "impressions": 494, "ctr": 0.0101, "position": 14.4 },
+        { "week_start": "2026-04-13", "clicks": 37, "impressions": 5741, "ctr": 0.0064, "position": 9.95 },
+        { "week_start": "2026-04-20", "clicks": 40, "impressions": 3392, "ctr": 0.0118, "position": 17.35 },
+        { "week_start": "2026-04-27", "clicks": 35, "impressions": 5837, "ctr": 0.006, "position": 16.35 },
+        { "week_start": "2026-05-04", "clicks": 61, "impressions": 7463, "ctr": 0.0082, "position": 14.94 },
+        { "week_start": "2026-05-11", "clicks": 84, "impressions": 8088, "ctr": 0.0104, "position": 12.88 },
+        { "week_start": "2026-05-18", "clicks": 97, "impressions": 7381, "ctr": 0.0131, "position": 14.12 },
+        { "week_start": "2026-05-25", "clicks": 99, "impressions": 7525, "ctr": 0.0132, "position": 16.55 },
+        { "week_start": "2026-06-01", "clicks": 124, "impressions": 6808, "ctr": 0.0182, "position": 17.07 },
+        { "week_start": "2026-06-08", "clicks": 110, "impressions": 8310, "ctr": 0.0132, "position": 16.92 },
+        { "week_start": "2026-06-15", "clicks": 80, "impressions": 7334, "ctr": 0.0109, "position": 19.99 },
+        { "week_start": "2026-06-22", "clicks": 94, "impressions": 8868, "ctr": 0.0106, "position": 21.48 },
+        { "week_start": "2026-06-29", "clicks": 95, "impressions": 9408, "ctr": 0.0101, "position": 18.96 },
+        { "week_start": "2026-07-06", "clicks": 81, "impressions": 9116, "ctr": 0.0089, "position": 23.94 }
+      ],
+      "segment_summary": [
+        { "dimension": "Country", "segment": "United States", "clicks": 994, "impressions": 90104, "ctr": 0.011, "position": 17.54, "interpretation": "94% of property impressions; primary market" },
+        { "dimension": "Device", "segment": "Desktop", "clicks": 460, "impressions": 61343, "ctr": 0.0075, "position": 16.39, "interpretation": "Lower CTR; heavily affected by suspected automated impressions" },
+        { "dimension": "Device", "segment": "Mobile", "clicks": 540, "impressions": 33743, "ctr": 0.016, "position": 19.02, "interpretation": "Higher CTR despite a worse average position" },
+        { "dimension": "Search appearance", "segment": "Product snippets", "clicks": 48, "impressions": 8979, "ctr": 0.0053, "position": 24.2, "interpretation": "Broad visibility but weak rank and CTR; historical shades-page markup" },
+        { "dimension": "Search appearance", "segment": "Review snippet", "clicks": 4, "impressions": 1187, "ctr": 0.0034, "position": 26.15, "interpretation": "Weak and based on markup removed July 7" },
+        { "dimension": "Search appearance", "segment": "Merchant listings", "clicks": 40, "impressions": 912, "ctr": 0.0439, "position": 1.35, "interpretation": "Strong historical result, but accuracy is the binding guardrail" },
+        { "dimension": "Device", "segment": "Tablet", "clicks": 42, "impressions": 679, "ctr": 0.0619, "position": 9.2, "interpretation": "Too little volume for priority decisions" }
+      ],
+      "opportunities": [
+        {
+          "priority": "P0",
+          "lane": "Measurement guardrail",
+          "affected": "262 flagged templated query rows; homepage and pergola pages",
+          "evidence": "0 clicks / 16,829 current impressions versus 2,004 previous; one phrase was 3,696 desktop-heavy impressions in a short burst",
+          "cause": "Likely automated rank tracking or measurement traffic",
+          "change": "Create a clean cohort view, identify the generating tool or vendor, and never optimize customer pages around these phrases",
+          "impact": "High decision quality; the clean view does not alter official totals",
+          "confidence": "High pattern confidence; source identity unconfirmed",
+          "effort": "Low"
+        },
+        {
+          "priority": "P1",
+          "lane": "CTR + intent ownership",
+          "affected": "`magnatrack screens`, `motorized retractable screens price`; `/systems/shades` and the MagnaTrack cost guide",
+          "evidence": "Guide earns more clicks per impression; service page owns more impressions; page-level recent declines coexist with a winning exact cost query",
+          "cause": "Cost and installed-system intent overlap across two routes",
+          "change": "Make the guide the cost/price owner and shades the product-fit/service owner through titles, H1, copy, and anchor text; preserve the winning cost title",
+          "impact": "High click and ranking upside with reduced cannibalization",
+          "confidence": "High",
+          "effort": "Medium"
+        },
+        {
+          "priority": "P1",
+          "lane": "First pilot",
+          "affected": "Restaurant enclosure query cluster; `/commercial/restaurant-patio-enclosures`",
+          "evidence": "At least 706 visible impressions across core singular/plural/cover terms at positions about 17–19 with zero clicks; correct route owns nearly all impressions",
+          "cause": "Page-two rank plus a generic snippet/proof package",
+          "change": "One-page title/H1/proof/internal-link pilot; measure a fixed regex cohort after recrawl",
+          "impact": "Medium near-term clicks; high learning value",
+          "confidence": "High",
+          "effort": "Low to medium"
+        },
+        {
+          "priority": "P1",
+          "lane": "Ranking recovery",
+          "affected": "`/guides/magnatrack-screens-cost`",
+          "evidence": "Latest 28 days: 187 clicks versus 223, impressions +1,126, CTR -0.84 pp, position 8.14 versus 5.94",
+          "cause": "Expansion into broader, lower-ranking queries; not failure of the exact head term",
+          "change": "Add materially useful supporting sections and internal links while preserving the exact head-term title/description promise",
+          "impact": "High because this is EDG's largest organic landing page",
+          "confidence": "High",
+          "effort": "Medium"
+        },
+        {
+          "priority": "P1",
+          "lane": "Route ownership",
+          "affected": "`pergola`, `motorized pergolas near me`; homepage and `/systems/pergolas`",
+          "evidence": "Broad queries map primarily to homepage rows; the relevant category page received one or zero observed impressions in focused filters",
+          "cause": "Homepage/category overlap and insufficient category/local authority",
+          "change": "Strengthen category and local-page ownership with descriptive internal links and clearer page roles before changing the homepage broadly",
+          "impact": "High ranking upside across non-brand pergola demand",
+          "confidence": "High",
+          "effort": "Medium"
+        },
+        {
+          "priority": "P2",
+          "lane": "Ranking expansion",
+          "affected": "`/guides/pergola-cost`",
+          "evidence": "Latest 28 days impressions +2,237 and clicks +8, but average position worsened 11.58 places to 18.46",
+          "cause": "Rapid expansion into broad cost and geographic variants without enough authority",
+          "change": "Add real range assumptions, examples, comparisons, permit/engineering evidence, and contextual links from pergola and local pages",
+          "impact": "Medium to high",
+          "confidence": "High",
+          "effort": "Medium"
+        },
+        {
+          "priority": "P2",
+          "lane": "Local relevance",
+          "affected": "Deerfield and other geographic screen/pergola queries",
+          "evidence": "For one Deerfield screen query, the non-www homepage had 226 page impressions and the exact local route had seven",
+          "cause": "Local templates lack enough unique proof or internal authority; homepage captures intent",
+          "change": "Audit local-route uniqueness and internal links; consolidate overlap before launching more city pages",
+          "impact": "Medium",
+          "confidence": "Medium to high",
+          "effort": "Medium"
+        },
+        {
+          "priority": "P2",
+          "lane": "Device diagnosis",
+          "affected": "Desktop organic results",
+          "evidence": "Three-month CTR 0.75% desktop versus 1.60% mobile; latest 28 days 0.69% versus 1.35%",
+          "cause": "Suspected desktop automation plus weaker snippets/query mix",
+          "change": "Recalculate device CTR on clean cohorts before making device-specific page changes",
+          "impact": "Medium diagnostic value",
+          "confidence": "High",
+          "effort": "Low"
+        },
+        {
+          "priority": "P2",
+          "lane": "Structured-data guardrail",
+          "affected": "Historical search appearances on `/systems/shades`",
+          "evidence": "Merchant listings 4.39% CTR at position 1.35; Product snippets 0.53% at position 24.2; live page now uses Service/HowTo/FAQ",
+          "cause": "July 7 removal of unsupported Product/Offer/review markup changes eligibility",
+          "change": "Keep truthful Service markup; only reconsider Product/Merchant data if price, availability, brand, and reviews are accurate and supportable",
+          "impact": "Protects eligibility and trust; may reduce historical rich-result volume",
+          "confidence": "High",
+          "effort": "Low now; high if accurate commerce data is built"
+        },
+        {
+          "priority": "P3",
+          "lane": "Canonical consolidation",
+          "affected": "www and non-www homepage rows; legacy WordPress URLs",
+          "evidence": "GSC still reports both hosts; live non-www 301s to www; a tested legacy non-www URL required multiple redirects",
+          "cause": "Historical indexing and chained host/path/slash redirects",
+          "change": "Monitor URL Inspection, preserve www canonicals/sitemap, and simplify redirect chains where mappings allow",
+          "impact": "Low to medium ranking/measurement cleanup",
+          "confidence": "Medium",
+          "effort": "Low to medium"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "gsc_baseline_chart",
+      "label": "Google Search Console property performance — last three months",
+      "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/last-3-months/Chart.csv",
+      "href": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Aedgpatioshade.com",
+      "query": {
+        "engine": "DuckDB over Google Search Console CSV",
+        "id": "sc-domain:edgpatioshade.com-web-2026-04-12_2026-07-11",
+        "sql": "WITH daily AS (SELECT CAST(Date AS DATE) AS date, CAST(Clicks AS DOUBLE) AS clicks, CAST(Impressions AS DOUBLE) AS impressions, CAST(Position AS DOUBLE) AS position FROM read_csv_auto('docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/last-3-months/Chart.csv', header = true)) SELECT CAST(date_trunc('week', date) AS VARCHAR) AS week_start, SUM(clicks) AS clicks, SUM(impressions) AS impressions, SUM(clicks) / NULLIF(SUM(impressions), 0) AS ctr, SUM(position * impressions) / NULLIF(SUM(impressions), 0) AS position FROM daily GROUP BY 1 ORDER BY 1",
+        "description": "Property-level daily Web performance exported from the signed-in Search Console Performance report.",
+        "executed_at": "2026-07-13T15:06:36Z",
+        "language": "csv",
+        "filters": ["Property: sc-domain:edgpatioshade.com", "Search type: Web", "Date: 2026-04-12 through 2026-07-11"],
+        "metric_definitions": ["CTR = clicks / impressions", "Average position is Search Console's impression-weighted topmost result position"]
+      }
+    },
+    {
+      "id": "gsc_recent_snapshot",
+      "label": "Google Search Console — recent 28-day comparison",
+      "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/recent-28-days-vs-previous/Pages.csv",
+      "href": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Aedgpatioshade.com",
+      "query": {
+        "engine": "Google Search Console",
+        "id": "sc-domain:edgpatioshade.com-web-28d-compare-2026-07-11",
+        "description": "Page, query, device, country, and search-appearance comparison for the latest 28 days versus the previous 28 days.",
+        "executed_at": "2026-07-13T15:15:00Z",
+        "language": "csv",
+        "filters": ["Property: sc-domain:edgpatioshade.com", "Search type: Web", "Current: 2026-06-14 through 2026-07-11", "Previous: 2026-05-17 through 2026-06-13"]
+      }
+    },
+    {
+      "id": "manual_filters",
+      "label": "Focused live Search Console query-to-page filters",
+      "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/manual-query-page-observations.csv",
+      "query": {
+        "engine": "Google Search Console",
+        "id": "edg-focused-query-page-observations-2026-07-13",
+        "description": "Manual query and page filters used to diagnose route ownership, cannibalization, host consolidation, and suspected automated impressions.",
+        "executed_at": "2026-07-13T15:20:00Z",
+        "language": "csv",
+        "filters": ["Property: sc-domain:edgpatioshade.com", "Search type: Web", "Date: 2026-04-12 through 2026-07-11"]
+      }
+    },
+    {
+      "id": "audit_analysis",
+      "label": "Executed audit analysis notebook",
+      "path": "docs/codex/organic-search-ctr-position-audit-2026-07-13-analysis.ipynb",
+      "query": {
+        "engine": "Artifact snapshot SQL with Python evidence notebook",
+        "id": "edg-organic-search-audit-analysis-2026-07-13",
+        "sql": "SELECT 'segment_summary' AS dataset, to_json(row_value) AS reviewed_row FROM snapshot.segment_summary AS row_value UNION ALL SELECT 'opportunities' AS dataset, to_json(row_value) AS reviewed_row FROM snapshot.opportunities AS row_value",
+        "description": "Reproducible calculations over the reviewed Search Console CSV snapshots and focused filter observations.",
+        "executed_at": "2026-07-13T15:30:00Z",
+        "language": "python",
+        "tables_used": [
+          "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/last-3-months/Chart.csv",
+          "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/last-3-months-vs-previous/Queries.csv",
+          "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/recent-28-days-vs-previous/Pages.csv",
+          "docs/codex/organic-search-ctr-position-audit-2026-07-13-evidence/manual-query-page-observations.csv"
+        ],
+        "filters": ["Flagged suspect templates are excluded only in explicitly labeled clean-view diagnostics", "No production data or website state was mutated"],
+        "metric_definitions": ["Indicative clean CTR = official clicks / (official impressions - flagged suspect visible impressions); this is not an official Search Console KPI"]
+      }
+    },
+    {
+      "id": "current_source",
+      "label": "Current EDG Website SEO rules and route source",
+      "path": "docs/codex/seo-rules.md",
+      "query": {
+        "engine": "Git working tree",
+        "id": "edg-website-eb636dea-source-crosscheck",
+        "description": "Current branch source cross-check at commit eb636dea11b33476bb32df260f44cd5047f93b64.",
+        "executed_at": "2026-07-13T15:25:00Z",
+        "language": "typescript",
+        "tables_used": [
+          "src/app/layout.tsx",
+          "src/app/page.tsx",
+          "src/app/systems/shades/page.tsx",
+          "src/app/guides/magnatrack-screens-cost/page.tsx",
+          "src/app/guides/pergola-cost/page.tsx",
+          "src/app/systems/pergolas/page.tsx",
+          "src/app/commercial/restaurant-patio-enclosures/page.tsx",
+          "src/app/sitemap.ts",
+          "next.config.ts"
+        ]
+      }
+    },
+    {
+      "id": "live_site",
+      "label": "EDG Patio & Shade production pages",
+      "href": "https://www.edgpatioshade.com",
+      "query": {
+        "engine": "Codex in-app Browser and HTTP response inspection",
+        "id": "edg-live-seo-crosscheck-2026-07-13",
+        "description": "Live titles, descriptions, canonicals, H1s, JSON-LD types, sitemap inclusion, internal links, and redirect responses for the audited routes.",
+        "executed_at": "2026-07-13T15:20:30Z",
+        "language": "html",
+        "filters": ["Production host: www.edgpatioshade.com", "Read-only verification"]
+      }
+    }
+  ]
+}

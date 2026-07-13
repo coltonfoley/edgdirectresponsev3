@@ -15,7 +15,7 @@ import {
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { Button, LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
@@ -26,17 +26,17 @@ import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Restaurant Patio Enclosures Chicago | Commercial Covers & Shades',
+  title: 'Restaurant Patio Enclosures Chicago | EDG Patio & Shade',
   description:
-    'Commercial restaurant patio enclosures for Chicago dining spaces. EDG plans motorized pergolas, screens, glass, heaters, controls, and permitting around hospitality operations.',
+    'Plan a Chicago restaurant patio enclosure around seating, weather protection, permits, and daily service. Compare motorized pergolas, screens, glass, heat, and controls.',
   alternates: {
     canonical: '/commercial/restaurant-patio-enclosures',
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Restaurant Patio Enclosures | EDG Commercial',
+    title: 'Chicago Restaurant Patio Enclosures | EDG Commercial',
     description:
-      'Commercial patio enclosure planning for restaurants that need weather protection, clear operations, and system-agnostic recommendations.',
+      'Restaurant patio enclosure planning around seating, weather protection, permits, and daily service in Chicago.',
   },
 };
 
@@ -131,7 +131,10 @@ const schema = {
   '@type': 'Service',
   name: 'Restaurant Patio Enclosure Installation',
   description:
-    'Commercial patio covers and motorized enclosures for restaurants in Chicago',
+    'Chicago restaurant patio enclosure planning and installation with motorized pergolas, retractable screens, glass, heat, lighting, and controls.',
+  serviceType: 'Restaurant patio enclosure design and installation',
+  url: 'https://www.edgpatioshade.com/commercial/restaurant-patio-enclosures',
+  image: images.featuredProjects.carmines.hero,
   provider: {
     '@type': 'LocalBusiness',
     name: 'EDG Patio & Shade',
@@ -189,16 +192,16 @@ export default function RestaurantPatioEnclosuresPage() {
           </Link>
 
           <div className="max-w-4xl">
-            <div className="label-editorial mb-6 text-edg-brand">
+            <div className="label-editorial text-edg-brand mb-6">
               Restaurant Patio Enclosures
             </div>
             <h1 className="hero-title mb-6 max-w-4xl">
-              Commercial Patio Enclosures for Restaurant Operations
+              Chicago Restaurant Patio Enclosures
             </h1>
             <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-200 md:text-2xl">
-              Weather protection for dining spaces planned around covers,
-              staff flow, guest comfort, permitting, controls, and the way the
-              patio actually runs during service.
+              Plan weather protection around seating, staff flow, guest comfort,
+              permitting, controls, and the way your Chicago-area patio actually
+              runs during service.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <TrackedLink href={heroContactHref}>
@@ -247,7 +250,7 @@ export default function RestaurantPatioEnclosuresPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial mb-4 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-4">
                 Commercial Planning Standard
               </div>
               <h2 className="section-title mb-6">
@@ -293,16 +296,14 @@ export default function RestaurantPatioEnclosuresPage() {
       <Section className="section-md bg-surface">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              System Options
-            </div>
+            <div className="label-editorial-brand mb-4">System Options</div>
             <h2 className="section-title mb-4">
               Components that can work together as one patio system
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               The right commercial enclosure may be a simple screen plan, a
-              louvered roof, a glass enclosure, or a layered system. The goal
-              is to make the product choice after the restaurant, site, and
+              louvered roof, a glass enclosure, or a layered system. The goal is
+              to make the product choice after the restaurant, site, and
               operations are understood.
             </p>
           </div>
@@ -323,6 +324,71 @@ export default function RestaurantPatioEnclosuresPage() {
               </Card>
             ))}
           </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-bold tracking-wider uppercase">
+            <Link
+              href="/systems/pergolas"
+              className="hover:text-edg-brand-text"
+            >
+              Motorized Pergolas
+            </Link>
+            <Link href="/systems/shades" className="hover:text-edg-brand-text">
+              Motorized Screens
+            </Link>
+            <Link
+              href="/systems/enclosures"
+              className="hover:text-edg-brand-text"
+            >
+              Glass Enclosures
+            </Link>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={images.featuredProjects.carmines.hero}
+                alt="Carmine's Chicago restaurant patio with a custom multi-bay motorized pergola"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Chicago Restaurant Project
+              </div>
+              <h2 className="section-title mb-6">
+                Carmine&apos;s: a patio system designed around real seating
+              </h2>
+              <p className="text-text-secondary mb-5 text-lg leading-relaxed">
+                Carmine&apos;s needed a multi-bay motorized pergola for an
+                angled, cantilevered Chicago patio. Custom steel beams and
+                reinforced columns reduced the number of posts so the covered
+                dining area could keep a more open layout.
+              </p>
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
+                That is the planning standard EDG brings to restaurant work:
+                start with the site and service layout, then engineer the roof,
+                drainage, structure, screens, heat, and controls around it.
+              </p>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <LinkButton href="/projects/carmines">
+                  View Carmine&apos;s Project
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </LinkButton>
+                <Link
+                  href="/systems/pergolas"
+                  className="hover:text-edg-brand-text inline-flex items-center text-sm font-bold tracking-wider uppercase"
+                >
+                  Explore Motorized Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
         </Container>
       </Section>
 
@@ -330,9 +396,7 @@ export default function RestaurantPatioEnclosuresPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Proof Standard
-              </div>
+              <div className="label-editorial-brand mb-4">Proof Standard</div>
               <h2 className="section-title mb-6 text-white">
                 Model the business case from the actual patio
               </h2>
@@ -352,9 +416,18 @@ export default function RestaurantPatioEnclosuresPage() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                ['Inputs', 'Seat count, ticket average, hours, staffing, and weather exposure'],
-                ['System', 'Roof, screen, glass, heat, lighting, drainage, and controls'],
-                ['Output', 'A qualified plan instead of a generic financial claim'],
+                [
+                  'Inputs',
+                  'Seat count, ticket average, hours, staffing, and weather exposure',
+                ],
+                [
+                  'System',
+                  'Roof, screen, glass, heat, lighting, drainage, and controls',
+                ],
+                [
+                  'Output',
+                  'A qualified plan instead of a generic financial claim',
+                ],
               ].map(([label, description]) => (
                 <div key={label} className="border border-white/10 p-6">
                   <div className="text-edg-brand mb-3 text-xs font-bold tracking-[0.18em] uppercase">
@@ -373,9 +446,7 @@ export default function RestaurantPatioEnclosuresPage() {
       <Section className="section-md">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <div className="label-editorial-brand mb-4 text-center">
-              FAQ
-            </div>
+            <div className="label-editorial-brand mb-4 text-center">FAQ</div>
             <h2 className="section-title mb-10 text-center">
               Restaurant Patio Enclosure Questions
             </h2>
@@ -393,12 +464,12 @@ export default function RestaurantPatioEnclosuresPage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-black/10 bg-surface py-12">
+      <Section className="bg-surface border-t border-black/10 py-12">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+              className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               All Commercial Pages
@@ -406,14 +477,14 @@ export default function RestaurantPatioEnclosuresPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/restaurant-patio-solutions"
-                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Restaurant Solutions
                 <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/commercial/hotel-pergolas"
-                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Hotel Pergolas
                 <ChevronRight className="h-4 w-4" />
@@ -426,10 +497,10 @@ export default function RestaurantPatioEnclosuresPage() {
       <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold text-text-inverse md:text-4xl">
+            <h2 className="text-text-inverse mb-6 text-3xl font-bold md:text-4xl">
               Plan the patio before choosing the system
             </h2>
-            <p className="mb-8 text-xl leading-relaxed text-text-inverse-muted">
+            <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
               EDG can review the restaurant, operating goals, and site
               constraints before recommending the enclosure package.
             </p>

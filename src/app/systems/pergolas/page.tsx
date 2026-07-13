@@ -199,6 +199,12 @@ const faqs = [
 // Related products
 const relatedProducts = [
   {
+    title: 'Restaurant Patio Enclosures',
+    description:
+      'See how motorized pergolas can coordinate with seating, screens, glass, heat, and restaurant operations.',
+    href: '/commercial/restaurant-patio-enclosures',
+  },
+  {
     title: 'Retractable Screens',
     description:
       'Add privacy and wind protection with motorized zip screens that integrate seamlessly with your pergola.',
@@ -291,7 +297,7 @@ export default function PergolasPage() {
                 Core System
               </div>
               <h1 className="text-text-primary mb-8 text-5xl leading-[0.9] font-bold tracking-tighter md:text-7xl">
-                The Motorized <br /> Pergola.
+                Motorized Louvered <br /> Pergolas.
               </h1>
               <p className="text-text-secondary mb-10 max-w-md text-xl leading-relaxed">
                 Architectural shade control. 135° of rotation gives you sun when

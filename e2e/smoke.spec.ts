@@ -4,7 +4,9 @@ const canonicalOrigin = 'https://www.edgpatioshade.com';
 const legacyRedirectRoutes = ['/design', '/price', '/pro'];
 const customServiceSchemaRoutes = [
   '/systems/pergolas',
+  '/systems/shades',
   '/systems/appliances',
+  '/commercial/restaurant-patio-enclosures',
   '/service-areas/chicago-il/motorized-pergolas',
   '/service-areas/chicago-il/retractable-screens',
 ];
@@ -68,8 +70,16 @@ test.describe('Smoke Tests', () => {
 
       expect(response.status(), route).toBe(200);
       expect(html, `${route} service schema`).toContain('"@type":"Service"');
-      expect(html, `${route} product schema`).not.toContain('"@type":"Product"');
+      expect(html, `${route} product schema`).not.toContain(
+        '"@type":"Product"'
+      );
       expect(html, `${route} offer schema`).not.toContain('"@type":"Offer"');
+      expect(html, `${route} aggregate offer`).not.toContain(
+        '"@type":"AggregateOffer"'
+      );
+      expect(html, `${route} aggregate rating`).not.toContain(
+        '"@type":"AggregateRating"'
+      );
     }
   });
 

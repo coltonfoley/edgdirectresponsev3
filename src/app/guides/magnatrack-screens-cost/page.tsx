@@ -128,7 +128,8 @@ const faqs = [
       'Often, yes. The structure needs enough support for the housing and side tracks, the openings need to be measured carefully, and the wiring path should be planned before installation. Some retrofits are simple; others need trim, blocking, or design adjustments.',
   },
   {
-    question: 'Are motorized screens worth it for Chicago-area or Florida homes?',
+    question:
+      'Are motorized screens worth it for Chicago-area or Florida homes?',
     answer:
       'They can be worth it when one system solves several problems at once. In the Chicago-Milwaukee corridor, homeowners usually want relief from bugs, wind, low-angle sun, and close-neighbor privacy. In Southwest Florida, buyers often care about covered-lanai comfort, glare, insects, privacy, and keeping the patio open when conditions are good.',
   },
@@ -278,15 +279,20 @@ export default function MagnaTrackScreensCostGuide() {
         </Container>
       </Section>
 
-      <Section id="screen-fit-budget" className="section-lg scroll-mt-24 bg-surface">
+      <Section
+        id="screen-fit-budget"
+        className="section-lg bg-surface scroll-mt-24"
+      >
         <Container>
-          <div className="mx-auto grid max-w-5xl gap-12 border border-border bg-white p-6 md:grid-cols-[0.8fr_1.2fr] md:p-10">
+          <div className="border-border mx-auto grid max-w-5xl gap-12 border bg-white p-6 md:grid-cols-[0.8fr_1.2fr] md:p-10">
             <div>
-              <div className="label-editorial-brand mb-4">Screen Fit + Budget</div>
+              <div className="label-editorial-brand mb-4">
+                Screen Fit + Budget
+              </div>
               <h2 className="section-title mb-6">
                 Get a useful first answer before a sales call.
               </h2>
-              <p className="mb-5 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-5 text-lg leading-relaxed">
                 Tell us what the opening needs to solve. We will use the space,
                 the issue, and your planning range to point you toward the most
                 practical screen direction.
@@ -459,7 +465,7 @@ export default function MagnaTrackScreensCostGuide() {
                   className="flex items-center gap-3"
                 >
                   <ShieldCheck className="text-edg-brand h-4 w-4" />
-                  Full screen system details
+                  Motorized screen design and installation
                 </Link>
                 <Link
                   href="/service-areas/southwest-florida/motorized-screens"

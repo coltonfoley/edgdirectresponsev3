@@ -14,6 +14,7 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "routes:check": "node scripts/check-route-registry.mjs",
+    "seo:gsc-report": "node scripts/analyze-gsc-organic.mjs",
     "test:e2e": "npm run build && playwright test",
     "test:e2e:built": "playwright test",
     "test:contrast": "node scripts/test-contrast.mjs",

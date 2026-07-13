@@ -347,7 +347,7 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link href="/systems/pergolas">
                     <Button variant="secondary" className="px-8 py-3">
-                      Explore Pergolas
+                      Explore Motorized Pergolas
                     </Button>
                   </Link>
                   <Link
@@ -381,7 +381,7 @@ export default function Home() {
                 </p>
                 <Link href="/systems/shades">
                   <Button variant="secondary" className="px-8 py-3">
-                    Explore Screens
+                    Explore Motorized Screens
                   </Button>
                 </Link>
               </div>
@@ -485,7 +485,7 @@ export default function Home() {
       </Section>
 
       {/* ========== FEATURED PROJECTS ========== */}
-      <Section className="border-y border-border bg-surface-muted py-24">
+      <Section className="border-border bg-surface-muted border-y py-24">
         <Container>
           <div className="mb-16 text-center">
             <span className="label-editorial-brand mb-4 inline-block">
@@ -494,7 +494,7 @@ export default function Home() {
             <h2 className="mb-4 text-4xl font-bold md:text-5xl">
               {photoReadyProjectCount} Finished Project Photo Sets
             </h2>
-            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary mx-auto max-w-2xl text-lg leading-relaxed">
               Browse {projectCount} project profiles across residential and
               commercial work. Finished photo sets are highlighted here, with
               more project records available in the full portfolio.
@@ -507,9 +507,9 @@ export default function Home() {
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="group block h-full overflow-hidden border border-border bg-white transition-colors hover:border-edg-brand"
+                className="group border-border hover:border-edg-brand block h-full overflow-hidden border bg-white transition-colors"
               >
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-border bg-surface-muted">
+                <div className="border-border bg-surface-muted relative aspect-[4/3] overflow-hidden border-b">
                   <Image
                     src={project.cardImage}
                     alt={`${project.title} project in ${project.location}`}
@@ -531,16 +531,16 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="mb-2 text-sm font-bold text-edg-brand-dark">
+                  <div className="text-edg-brand-dark mb-2 text-sm font-bold">
                     {project.location}
                   </div>
-                  <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-edg-brand-dark">
+                  <h3 className="group-hover:text-edg-brand-dark mb-2 text-xl font-bold transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mb-5 line-clamp-2 text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary mb-5 line-clamp-2 text-sm leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-dark uppercase transition-colors group-hover:text-black">
+                  <div className="text-edg-brand-dark flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors group-hover:text-black">
                     View Project
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>

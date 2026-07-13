@@ -33,9 +33,9 @@ import {
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Motorized Screens & MagnaTrack Screens | EDG Patio & Shade',
+  title: 'Motorized Patio Screens & MagnaTrack Installation | EDG',
   description:
-    'Motorized patio screens, retractable screens, and outdoor screen enclosures with MagnaTrack by Progressive Screens as EDG featured premium screen partner.',
+    'Design and installation for motorized patio screens and MagnaTrack systems. EDG plans the opening, track, fabric, controls, and mounting for each project.',
   keywords: [
     'motorized screens',
     'retractable screens',
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Motorized Screens & MagnaTrack Screens | EDG Patio & Shade',
+    title: 'Motorized Patio Screens & MagnaTrack Installation | EDG',
     description:
-      'Premium motorized patio screens and outdoor screen systems for bugs, sun, privacy, and everyday wind comfort.',
+      'Custom motorized patio screen design and installation for bugs, sun, privacy, and everyday wind comfort.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -269,10 +269,16 @@ const processSteps = [
 
 const relatedProducts = [
   {
-    name: 'Screen Cost Guide',
+    name: 'Screen Cost & Pricing Guide',
     description:
-      'Budget ranges and cost drivers for MagnaTrack-style motorized screen projects.',
+      'Compare planning ranges, cost drivers, and the choices that change a MagnaTrack-style motorized screen quote.',
     href: '/guides/magnatrack-screens-cost',
+  },
+  {
+    name: 'Restaurant Patio Enclosures',
+    description:
+      'Plan commercial screens with pergolas, glass, heat, controls, seating, and restaurant service flow.',
+    href: '/commercial/restaurant-patio-enclosures',
   },
   {
     name: 'Louvered Pergolas',
@@ -417,7 +423,7 @@ export default function ShadesPage() {
                   Featured MagnaTrack Partner
                 </div>
                 <h1 className="text-text-primary mb-8 text-5xl leading-[0.92] font-bold tracking-tighter md:text-7xl">
-                  Motorized <br /> Screens.
+                  Motorized Patio <br /> Screens.
                 </h1>
                 <p className="text-text-secondary mb-10 max-w-md text-xl leading-relaxed">
                   Premium retractable patio screens for bugs, sun, privacy, and
@@ -448,7 +454,8 @@ export default function ShadesPage() {
                     href="/guides/magnatrack-screens-cost"
                     className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
                   >
-                    Need budget ranges? Read the MagnaTrack screen cost guide.
+                    Comparing prices? Review MagnaTrack screen costs and quote
+                    drivers.
                   </Link>
                   <Link
                     href="/service-areas/chicago-il/retractable-screens"
@@ -736,7 +743,7 @@ export default function ShadesPage() {
                   href="/guides/magnatrack-screens-cost"
                   className="text-text-primary hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
                 >
-                  Read Screen Cost Guide
+                  Review Screen Costs &amp; Pricing
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </Card>
