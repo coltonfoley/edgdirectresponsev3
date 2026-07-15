@@ -354,8 +354,9 @@ export default function CommercialPage() {
               One commercial standard, adapted to each property type
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The hub should help buyers find the right commercial route without
-              making every hospitality page feel like a different site.
+              Choose the property type that most closely matches your
+              operation, then review the site, system, and handoff questions
+              that matter for that setting.
             </p>
           </div>
 
@@ -396,17 +397,15 @@ export default function CommercialPage() {
             <div>
               <div className="label-editorial-brand mb-4 flex items-center gap-2">
                 <MapPin className="h-4 w-4" />
-                Chicago Commercial Routes
+                Chicago Commercial Planning
               </div>
               <h2 className="section-title mb-6">
-                Local pages carry the same planning logic into specific
-                hospitality contexts
+                Bring the same planning standard to each hospitality setting
               </h2>
               <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                From Fulton Market patios to hotel roof decks, the commercial
-                route family should feel connected: same proof standard, same
-                CTA behavior, same restrained language, and clear links to the
-                next useful page.
+                From Fulton Market patios to hotel roof decks, EDG reviews each
+                site with the same focus on operations, structure, controls,
+                approvals, and long-term care.
               </p>
               <div className="space-y-4">
                 {locationLinks.map((item) => (
@@ -571,9 +570,9 @@ export default function CommercialPage() {
               Commercial plans are built from EDG's core system categories
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The industry pages above should connect back to the technical
-              system pages without forcing commercial visitors into a
-              residential buying path.
+              Compare pergolas, screens, and glass around the property&apos;s
+              exposure, operating model, staff controls, approvals, and
+              maintenance expectations.
             </p>
           </div>
 

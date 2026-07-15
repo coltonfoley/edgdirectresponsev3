@@ -311,10 +311,11 @@ export default function WilmetteProductPage() {
                 Where Louvered Pergolas Fit Best in Wilmette
               </h2>
               <p className="mb-8 text-lg leading-relaxed text-text-secondary">
-                A Wilmette pergola should not feel like the same page copied
-                from another North Shore suburb. The decision usually comes down
-                to review expectations, lake exposure, and how carefully the
-                structure can be matched to the home.
+                A Wilmette pergola should be planned around the property rather
+                than treated like a standard North Shore installation. The
+                decision usually comes down to review expectations, lake
+                exposure, and how carefully the structure can be matched to the
+                home.
               </p>
               <div className="space-y-4">
                 {planningFit.map((item) => (

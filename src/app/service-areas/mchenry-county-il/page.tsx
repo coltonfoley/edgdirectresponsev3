@@ -324,10 +324,9 @@ export default function McHenryCountyHubPage() {
                 The strongest local advantage is being able to plan in person.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                A McHenry County page should not be a placeholder between
-                Chicago and Wisconsin. It should help homeowners understand when
-                a showroom visit, site review, or phased outdoor-room plan will
-                save time before drawings and pricing begin.
+                McHenry County homeowners benefit from knowing when a showroom
+                visit, site review, or phased outdoor-room plan will save time
+                before drawings and pricing begin.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">

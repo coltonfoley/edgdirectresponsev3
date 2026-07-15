@@ -297,8 +297,9 @@ export default function PergolaGlassOutdoorRoomPage() {
               Each component keeps its job.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The product pages remain the detail layer. This page shows how
-              those details become a finished room when EDG plans them together.
+              The pergola, glass, screen, heat, and lighting decisions each
+              serve a different purpose. EDG coordinates them as one finished
+              room around the site and the way you want to use it.
             </p>
           </div>
 

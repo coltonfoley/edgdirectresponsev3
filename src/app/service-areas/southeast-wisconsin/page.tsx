@@ -330,8 +330,8 @@ export default function SoutheastWisconsinHubPage() {
               <p className="text-text-secondary text-lg leading-relaxed">
                 Southeast Wisconsin is a real service area because the homes,
                 lots, and outdoor use cases are different from the Chicago
-                suburbs. The page should help you decide what kind of system
-                belongs on your property before we get into dimensions.
+                suburbs. Before we get into dimensions, we help you decide what
+                kind of system belongs on your property.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">

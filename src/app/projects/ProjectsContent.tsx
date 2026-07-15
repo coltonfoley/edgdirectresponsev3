@@ -43,7 +43,7 @@ const portfolioStats = [
   {
     label: 'Photo-ready cases',
     value: photographyReadyCount.toString(),
-    detail: 'Pages with finished project imagery',
+    detail: 'Profiles with finished project imagery',
   },
   {
     label: 'Commercial work',
@@ -223,10 +223,10 @@ export function ProjectsContent() {
                     Portfolio Details Are Being Updated
                   </h2>
                   <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
-                    Finished photo sets are live on select project pages.
-                    Several older project profiles still need final photos,
-                    solution notes, and results from EDG before they can be
-                    treated as full case studies.
+                    Finished photo sets are available for select projects.
+                    Several older records still need final photos, solution
+                    notes, and confirmed results before they can be presented
+                    as full case studies.
                   </p>
                 </div>
               </div>
@@ -414,10 +414,9 @@ export function ProjectsContent() {
                     Additional project records without full photo sets yet
                   </h2>
                   <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
-                    These pages stay available for local relevance and internal
-                    linking, but they are separated from the photographed case
-                    studies until EDG has the proof assets and final project
-                    notes to present them as finished portfolio examples.
+                    Some older projects are still awaiting finished photography
+                    or final field notes. Browse the confirmed details below,
+                    or contact EDG for comparable completed work.
                   </p>
                 </div>
 

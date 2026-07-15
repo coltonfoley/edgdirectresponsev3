@@ -380,14 +380,13 @@ export default function ChicagoServiceAreaPage() {
             </div>
             <div className="mt-12 grid gap-10 lg:grid-cols-2">
               <div>
-                <h3 className="mb-4 text-2xl font-bold">A better path than generic city SEO pages</h3>
+                <h3 className="mb-4 text-2xl font-bold">Chicago experience should go beyond generic advice</h3>
                 <p className="mb-4 leading-relaxed text-text-secondary">
-                  Most "Chicago pergola" pages on the internet say the same vague
-                  things about style and finish level. What matters more is whether the
-                  company understands access constraints, drainage, parapet walls,
-                  snow exposure, and how to make an outdoor system feel integrated
-                  with the building instead of set on top of it. That is where good
-                  design protects both your budget and the finished result.
+                  A useful Chicago pergola plan accounts for access constraints,
+                  drainage, parapet walls, snow exposure, and how to make an
+                  outdoor system feel integrated with the building instead of
+                  set on top of it. That is where good design protects both your
+                  budget and the finished result.
                 </p>
                 <p className="leading-relaxed text-text-secondary">
                   We are strongest with homeowners who want help making those decisions

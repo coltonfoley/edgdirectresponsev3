@@ -368,10 +368,10 @@ export default function LakeGenevaZoningGuidePage() {
                 association, or your contractor.
               </p>
               <p className="text-text-secondary text-sm leading-relaxed">
-                EDG keeps the page intentionally cautious because public rules
-                can change and because the same product can be reviewed
+                Public rules can change, and the same product can be reviewed
                 differently based on attachment, electrical work, structure
-                size, and property location.
+                size, and property location. EDG treats these sources as
+                planning starting points until the address and scope are known.
               </p>
             </div>
             <div className="grid gap-4">

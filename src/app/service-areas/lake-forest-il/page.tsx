@@ -352,7 +352,7 @@ export default function LakeForestServiceAreaPage() {
             <div className="label-editorial-brand mb-4">
               Lake Forest next steps
             </div>
-            <h2 className="section-title">Plan the right page next</h2>
+            <h2 className="section-title">Choose the right next step</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             <Link

@@ -395,15 +395,14 @@ export default function Home() {
         <Container>
           <div className="mb-10 max-w-3xl">
             <div className="label-editorial-brand mb-4">
-              Popular Planning Pages
+              Popular Planning Resources
             </div>
             <h2 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl">
-              Start with the project page that matches your search.
+              Start with the question closest to your project.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              These pages answer the local questions customers ask before they
-              call: what works in Chicago, what screens cost, and which system
-              fits the space.
+              Compare local conditions, screen pricing, and system-fit guidance
+              before scheduling a consultation.
             </p>
           </div>
 

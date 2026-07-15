@@ -300,9 +300,9 @@ const faqs = [
       'EDG is a dealer for proven pergola manufacturers including Brustor, Azenco, and Sundance, but the project determines the system. The manufacturer is part of the toolkit after the site, structure, drainage, controls, and budget are understood.',
   },
   {
-    question: 'What makes a motorized pergola lead qualified?',
+    question: 'What information helps EDG give a useful first response?',
     answer:
-      'The strongest leads include project location, photos, rough dimensions, intended use, budget range, timeline, and known constraints such as HOA, permit, deck, roof deck, drainage, or electrical concerns.',
+      'Include the project location, photos, rough dimensions, intended use, budget range, timeline, and known constraints such as HOA, permit, deck, roof deck, drainage, or electrical concerns.',
   },
   {
     question:
@@ -551,7 +551,7 @@ export default function MotorizedPergolaPlanningPage() {
           <div className="border-edg-brand mt-8 flex flex-col items-start justify-between gap-4 border-l-4 bg-white p-6 md:flex-row md:items-center">
             <div>
               <h3 className="mb-2 text-xl font-bold">
-                Want the page that goes deeper on cost?
+                Want more detail on cost?
               </h3>
               <p className="text-text-secondary">
                 The cost guide explains hidden costs, accessory packages, site
@@ -573,15 +573,15 @@ export default function MotorizedPergolaPlanningPage() {
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">
-              Use the right page for the question
+              Continue planning
             </div>
             <h2 className="section-title mb-4">
-              The buyer path for qualified organic traffic
+              Move from general research to a site-specific plan
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The System Fit Engine connects the question a buyer searches with
-              the next useful decision page, then routes serious projects into
-              the System Fit Review.
+              Use these resources to compare cost, site fit, permitting,
+              structure, and system options before requesting a System Fit
+              Review.
             </p>
           </div>
 
@@ -625,11 +625,9 @@ export default function MotorizedPergolaPlanningPage() {
                 Similar sites make the advice more useful.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                A citable planning resource should not stop at generic product
-                copy. EDG&apos;s local pages connect the same planning logic to
-                real market conditions: city permitting, roof deck access,
-                estate patios, North Shore architecture, pool areas, and
-                Chicago-area weather.
+                EDG&apos;s local planning guidance accounts for real market
+                conditions: city permitting, roof deck access, estate patios,
+                North Shore architecture, pool areas, and Chicago-area weather.
               </p>
             </div>
 
@@ -737,9 +735,7 @@ export default function MotorizedPergolaPlanningPage() {
       <Section className="bg-white">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="label-editorial-brand mb-4">
-              System Fit Review intake
-            </div>
+            <div className="label-editorial-brand mb-4">Prepare for your review</div>
             <h2 className="mb-6 text-3xl font-bold md:text-5xl">
               What to send EDG for a useful first response
             </h2>
@@ -765,7 +761,7 @@ export default function MotorizedPergolaPlanningPage() {
               <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
                 <div>
                   <h3 className="mb-2 text-2xl font-bold">
-                    Ready to turn research into a project screen?
+                    Ready for a site-specific recommendation?
                   </h3>
                   <p className="text-zinc-300">
                     Submit the site details and EDG will help identify the

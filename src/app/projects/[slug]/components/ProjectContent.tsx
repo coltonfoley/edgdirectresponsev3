@@ -38,13 +38,12 @@ export function ProjectContent({ project }: ProjectContentProps) {
             </div>
             <div className="flex-1">
               <h2 className="mb-1 text-base font-bold text-zinc-900">
-                Finished Project Photos Are Still Being Confirmed
+                Additional Project Details Are Being Confirmed
               </h2>
               <p className="text-sm leading-relaxed text-zinc-600">
-                This project page is being kept intentionally concise until EDG
-                has a finished photo set and complete case-study details ready
-                for publication. The notes below focus on confirmed planning
-                details that help customers compare similar projects.
+                EDG is still confirming the finished photo set and final outcome
+                for this project. The details below reflect what is currently
+                confirmed.
               </p>
               <Link
                 href="/projects"
@@ -79,10 +78,9 @@ export function ProjectContent({ project }: ProjectContentProps) {
             Project Context
           </h2>
           <p className="text-sm leading-relaxed text-zinc-600">
-            This is a {project.type.toLowerCase()} outdoor living project in{' '}
-            {project.location}. The page focuses on site goals, systems used,
-            and planning details that help customers understand similar EDG
-            work.
+            {project.title} is a {project.type.toLowerCase()} outdoor living
+            project in {project.location}. Confirmed details include the site
+            goals, systems used, and available planning information.
           </p>
         </div>
 
@@ -238,9 +236,9 @@ export function ProjectContent({ project }: ProjectContentProps) {
       {project.completionStatus !== 'complete' && (
         <div className="border border-edg-brand/30 bg-white p-5">
           <p className="text-sm leading-relaxed text-text-secondary">
-            <strong>Publication note:</strong> This page is intentionally
-            limited to details confirmed for publication. Contact EDG for
-            complete information about similar projects in {project.location}.
+            <strong>Project information:</strong> Available details are limited
+            to information EDG has confirmed. Contact EDG for complete
+            information about similar projects in {project.location}.
           </p>
         </div>
       )}

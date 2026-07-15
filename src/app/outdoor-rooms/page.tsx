@@ -246,9 +246,9 @@ export default function OutdoorRoomsPage() {
               Start with the outcome, then choose the systems.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The first card is the current outdoor-room plan. The other cards
-              point to existing system, local, and commercial pages that answer
-              nearby buyer questions without creating thin duplicate pages.
+              Begin with the room plan that feels closest to your space, then
+              compare the pergola, glass, screen, kitchen, or commercial
+              details that shape the final design.
             </p>
           </div>
 
@@ -344,16 +344,14 @@ export default function OutdoorRoomsPage() {
             <div>
               <div className="text-edg-brand mb-6 inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
                 <ShieldCheck className="h-4 w-4" />
-                System details stay in place
+                Compare the components
               </div>
               <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Outdoor room pages connect the vision to the right product
-                detail.
+                See how each system supports the finished outdoor room.
               </h2>
               <p className="mb-8 text-lg leading-relaxed text-zinc-300">
-                Use this page to compare the finished space. Use the system
-                pages to understand the pergola, glass, screen, and appliance
-                decisions that make it work.
+                Compare the finished space first, then explore the pergola,
+                glass, screen, and appliance decisions that make it work.
               </p>
               <TrackedLink href={outdoorRoomCta}>
                 <Button size="lg">Request an Outdoor Room Review</Button>

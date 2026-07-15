@@ -289,7 +289,7 @@ export default function SpringGroveServiceAreaPage() {
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <div className="label-editorial-brand mb-4">
-                Why This Page Matters
+                Local showroom advantage
               </div>
               <h2 className="section-title mb-6">
                 Spring Grove homeowners can see the product before the project

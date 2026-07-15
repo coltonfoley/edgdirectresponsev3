@@ -358,11 +358,11 @@ export default function AlgonquinServiceAreaPage() {
                     and a local permit path.
                   </p>
                   <p>
-                    The current Algonquin search results are dominated by
-                    general contractors, deck builders, and landscape companies.
-                    That creates a clear opening for a focused page from a
-                    company that only lives in the premium shade, pergola,
-                    screen, glass, and outdoor room category.
+                    Algonquin homeowners often encounter general contractors,
+                    deck builders, and landscape companies that treat a
+                    motorized pergola as one item in a much broader catalog. EDG
+                    focuses specifically on premium shade, pergola, screen,
+                    glass, and outdoor room systems.
                   </p>
                   <p>
                     If your project is still early, start with the local permit

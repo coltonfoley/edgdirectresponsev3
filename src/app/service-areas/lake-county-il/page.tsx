@@ -283,7 +283,7 @@ export default function LakeCountyHubPage() {
                 Lake County planning notes
               </div>
               <h2 className="section-title mb-4">
-                A useful county page should help you make the first decision.
+                Start with the decision your property actually requires.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 The first question is not always "what size pergola?" It is

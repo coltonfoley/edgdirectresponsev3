@@ -427,7 +427,7 @@ export default function LakeGenevaHubPage() {
                   Local proof matters
                 </div>
                 <h2 className="section-title mb-6">
-                  Lake Geneva buyers need more than a generic patio-cover page.
+                  Lake Geneva buyers need property-specific outdoor planning.
                 </h2>
                 <p className="text-text-secondary mb-5 text-lg leading-relaxed">
                   A lake-area outdoor room should be planned around the actual
