@@ -59,12 +59,12 @@ const systems = [
     title: 'Motorized Pergolas',
     shortTitle: 'Pergolas',
     description:
-      'Architectural aluminum structures with rotating louvers for complete climate control. Sun when you want it, watertight seal when you do not.',
+      'Motorized aluminum louvered roofs that adjust for sun, shade, airflow, and rain management. EDG compares system options and confirms the engineering requirements for your site.',
     image: images.pages.serviceAreas.barringtonPergola1,
     features: [
-      '135° adjustable louvers',
-      'Wind-rated to 120 mph',
-      'Smart home integration',
+      'Model-specific louver movement',
+      'Site-specific wind and snow engineering',
+      'Remote, app, or sensor controls where supported',
       'LED lighting options',
     ],
     bestFor: [

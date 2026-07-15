@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const localBenefits = [
   'Familiar with Village of Barrington & Barrington Hills zoning',
   'Estate property experience (5+ acre lots)',
-  '50% impermeable coverage compliance expertise',
+  'Address-specific lot-coverage, setback, drainage, and review planning',
   'Licensed & insured for Cook, Lake & McHenry Counties',
 ];
 
@@ -114,7 +114,7 @@ const faqs = [
   {
     question: 'Can you work with HOA requirements in Wynstone and gated communities?',
     answer:
-      'Absolutely. We have extensive experience with Wynstone, The Woods of South Barrington, and other gated community architectural guidelines. Our systems can be customized to meet specific color, material, and design requirements. We provide detailed renderings and material samples for architectural review committees, streamlining the approval process.',
+      'For properties in Wynstone, The Woods of South Barrington, and other gated communities, EDG can prepare renderings, finish samples, product information, and site details for the applicable architectural review. Final requirements depend on the community and project.',
   },
 ];
 

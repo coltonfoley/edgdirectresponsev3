@@ -193,7 +193,7 @@ const faqs = [
   {
     question: 'How does the integrated rain management work?',
     answer:
-      'When louvers close, they form a watertight seal. Rainwater flows into integrated gutters hidden within the beam structure, then channels through the posts to drainage. There are no exposed downspouts or waterfall effects. You stay dry underneath even during Sanibel\'s heaviest tropical downpours.',
+      'On systems designed for rain management, closed louvers route water through integrated gutters and posts. Performance depends on the selected system, pitch, drainage design, installation, maintenance, and weather conditions. EDG confirms those details for the project.',
   },
   {
     question: 'Can I add screens or other features to a louvered pergola?',

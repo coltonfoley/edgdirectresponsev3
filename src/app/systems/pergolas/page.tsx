@@ -146,13 +146,13 @@ const processSteps = [
     number: '03',
     title: 'Engineering',
     description:
-      'Every project receives structural engineering review and permit-ready drawings. We handle all documentation required for your municipality.',
+      'Where required, EDG coordinates structural review, permit-ready drawings, and product documentation for the selected system and jurisdiction. The proposal identifies what is included and who is responsible for each permit step.',
   },
   {
     number: '04',
     title: 'Installation',
     description:
-      'Our certified installation crews handle every aspect of the build, from foundation preparation to final electrical connections. Most residential projects complete in 2-3 days.',
+      'After design and approvals, on-site installation often takes several days. The total schedule depends on engineering, permitting, manufacturing, delivery, site preparation, electrical scope, and project complexity.',
   },
   {
     number: '05',
@@ -172,7 +172,7 @@ const faqs = [
   {
     question: 'What is the installation timeline?',
     answer:
-      'From contract signing to completion, most residential pergola projects take 8-12 weeks. This includes 2-3 weeks for engineering and permits, 4-6 weeks for manufacturing (depending on customization), and 2-3 days for on-site installation. Commercial projects or those requiring extensive site preparation may take longer. We provide a detailed timeline with every proposal.',
+      'After design and approvals, on-site installation often takes several days. The full project schedule depends on engineering, permitting, manufacturing, delivery, site preparation, electrical scope, weather, and project complexity. EDG provides a project-specific timeline with the proposal.',
   },
   {
     question: 'Can you install a pergola on an existing deck?',
@@ -300,9 +300,10 @@ export default function PergolasPage() {
                 Motorized Louvered <br /> Pergolas.
               </h1>
               <p className="text-text-secondary mb-10 max-w-md text-xl leading-relaxed">
-                Architectural shade control. 135° of rotation gives you sun when
-                you want it, and a watertight seal when you do not. Built for
-                the Chicago climate by the specialists who know it best.
+                Control sun, shade, airflow, and rain with a motorized louvered
+                roof selected for your site and project goals. EDG compares
+                multiple systems and confirms the engineering, drainage, and
+                controls before final design.
               </p>
 
               <div className="mb-12 flex flex-col gap-4">
@@ -386,17 +387,15 @@ export default function PergolasPage() {
               <div className="text-text-secondary space-y-4 leading-relaxed">
                 <p>
                   A motorized louvered pergola is an architectural outdoor
-                  structure with a roof made of rotating aluminum blades. Unlike
-                  traditional pergolas with fixed slats or fabric canopies, the
-                  louvers rotate up to 135 degrees to control sunlight,
-                  ventilation, and rain protection on demand.
+                  structure with rotating aluminum louvers that adjust sunlight
+                  and airflow. Movement range, controls, and rain performance
+                  vary by system.
                 </p>
                 <p>
-                  When open, the louvers allow filtered sunlight and natural
-                  airflow, creating a cooling updraft effect. When closed, they
-                  form a solid, watertight roof that channels rain through
-                  internal gutters and down the posts. All controlled with the
-                  touch of a button, voice command, or automated sensors.
+                  When a system is designed and installed for rain management,
+                  closed louvers route water into integrated gutters and posts.
+                  EDG confirms those details for the actual layout before they
+                  become part of the proposal.
                 </p>
                 <p>
                   For homeowners across the Chicago-Milwaukee corridor, this
@@ -569,12 +568,15 @@ export default function PergolasPage() {
                 <span className="label-editorial">Commercial</span>
               </div>
               <h3 className="mb-4 text-2xl font-bold">
-                Spaces That Drive Revenue
+                Outdoor Spaces Planned Around Operations
               </h3>
               <ul className="text-text-secondary space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
-                  <span>Restaurant patios that operate rain or shine</span>
+                  <span>
+                    Restaurant patios planned around seating, service flow,
+                    guest comfort, and changing weather
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
@@ -678,8 +680,8 @@ export default function PergolasPage() {
             <div className="label-editorial-brand mb-4">How We Work</div>
             <h2 className="section-title">From Vision to Reality</h2>
             <p className="text-text-secondary mt-4">
-              A proven process refined over hundreds of installations. We handle
-              the complexity so you can enjoy the results.
+              A site-specific process that connects consultation, design,
+              engineering, installation, and ongoing care.
             </p>
           </div>
 
@@ -710,11 +712,9 @@ export default function PergolasPage() {
               <div className="label-editorial-brand mb-4">Visit Us</div>
               <h2 className="section-title mb-6">See It in Person</h2>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                Our Spring Grove showroom features working displays of multiple
-                pergola systems. Experience the smooth operation, test the
-                controls, and see color samples in natural light. Most
-                competitors do not have a showroom—this is one way we are
-                different.
+                Visit our Spring Grove showroom to operate working pergola
+                systems, compare controls, and review color samples in natural
+                light.
               </p>
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="text-edg-brand-text h-5 w-5 shrink-0" />

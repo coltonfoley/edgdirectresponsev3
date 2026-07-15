@@ -69,7 +69,7 @@ const comparisonFeatures = [
   {
     feature: 'Rain Protection',
     traditional: 'Solid roof - always covered',
-    modern: 'Watertight seal when closed, open to sky when desired',
+    modern: 'Rain management when closed, open to sky when desired',
     winner: 'modern',
   },
   {

@@ -93,13 +93,13 @@ const localConsiderations = [
   {
     title: 'Salt-Air Corrosion Resistance',
     description:
-      'Marine-grade 6061-T6 aluminum with fluoropolymer coatings resists the aggressive salt-air environment. Unlike steel or wood, our systems maintain their finish without rust, rot, or constant maintenance.',
+      'Coastal projects require system-specific aluminum, coatings, hardware, maintenance, and product documentation. EDG verifies the selected finish package against the property\'s salt-air exposure.',
     icon: Droplets,
   },
   {
     title: 'Coastal Wind Engineering',
     description:
-      'Engineered for open-exposure coastal conditions. Our systems handle sustained Gulf winds while allowing you to adjust louvers for optimal airflow—capturing seabreezes when desired, blocking them when needed.',
+      'Wind performance depends on the selected system, engineering, anchoring, site exposure, and approved installation details. EDG confirms those requirements before recommending a system.',
     icon: Sun,
   },
   {
@@ -120,7 +120,7 @@ const zoningConsiderations = [
   {
     title: 'Post-Ian Rebuild Review',
     description:
-      'Updated building codes now require stricter wind force requirements and flood elevation adjustments. If repair costs exceed 50% of your home\'s value, the entire structure must be brought to current flood codes.',
+      'Repairs and improvements may be reviewed for substantial damage or substantial improvement. If the cost exceeds 50% of the market value of a noncompliant building, current floodplain standards may apply. The City of Sanibel makes the final determination.',
     icon: AlertTriangle,
   },
   {

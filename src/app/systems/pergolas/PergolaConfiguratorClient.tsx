@@ -42,7 +42,10 @@ export function PergolaConfiguratorClient() {
       <div className="lg:col-span-2">
         <h3 className="label-editorial-brand mb-6">Color Options</h3>
         <p className="text-text-secondary mb-8">
-          Standard colors ship in 3-4 weeks. Custom RAL matching available for perfect architectural coordination.
+          Finish availability, coating systems, custom-color options, and
+          manufacturing lead times vary by manufacturer. EDG confirms samples,
+          warranty terms, maintenance requirements, and expected production
+          timing before order.
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -79,8 +82,8 @@ export function PergolaConfiguratorClient() {
         <div className="mt-8 p-6 bg-surface-muted border border-border">
           <h4 className="font-bold mb-2">Selected: {selectedColor.name}</h4>
           <p className="text-sm text-text-secondary">
-            Powder-coated aluminum finish with marine-grade durability. Resists fading, chalking, 
-            and corrosion for the lifetime of your structure.
+            Final coating, durability, care requirements, and warranty coverage
+            depend on the selected manufacturer and finish package.
           </p>
         </div>
       </div>

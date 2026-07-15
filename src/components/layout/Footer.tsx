@@ -178,8 +178,8 @@ export function Footer() {
                     Plan with confidence.
                   </h3>
                   <p className="max-w-md text-lg leading-relaxed text-zinc-300">
-                    Get clear budget ranges, system comparisons, and avoid the 7
-                    most expensive mistakes.
+                    Get practical budget ranges, system comparisons, and a
+                    checklist for avoiding common planning mistakes.
                   </p>
                 </div>
                 <LinkButton

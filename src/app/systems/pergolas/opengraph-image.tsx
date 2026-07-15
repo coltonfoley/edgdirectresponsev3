@@ -13,6 +13,6 @@ export default async function Image() {
   return generateProductOG({
     product: 'Motorized Pergolas',
     category: 'Outdoor Systems',
-    benefit: '135° adjustable louvers for sun, shade & rain control',
+    benefit: 'Adjustable louvers for sun, shade, airflow & rain management',
   });
 }

@@ -46,7 +46,7 @@ const comparisonData = [
   },
   {
     feature: 'Sun Control',
-    louvered: 'Adjustable (0-135°)',
+    louvered: 'Adjustable by selected system',
     traditional: 'Fixed Shade Only',
   },
   {
