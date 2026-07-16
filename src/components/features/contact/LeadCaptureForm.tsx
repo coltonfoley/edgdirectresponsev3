@@ -143,6 +143,7 @@ export function LeadCaptureForm({
   if (variant === 'default' || variant === 'compact') {
     return (
       <form
+        data-lead-form-id={`lead_capture_${variant}`}
         onSubmit={handleSubmit}
         onFocusCapture={handleFormStart}
         aria-label={`${ctaText} form`}
@@ -296,6 +297,7 @@ export function LeadCaptureForm({
   // Inline variant (horizontal form for light backgrounds)
   return (
     <form
+      data-lead-form-id={`lead_capture_${variant}`}
       onSubmit={handleSubmit}
       onFocusCapture={handleFormStart}
       aria-label={`${ctaText} form`}

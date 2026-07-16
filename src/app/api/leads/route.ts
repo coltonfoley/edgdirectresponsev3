@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { randomUUID } from 'node:crypto';
 import { getRainmakerLeadIntakeUrl } from '@/lib/rainmaker-api';
 
 // Simple in-memory rate limiter
@@ -81,6 +82,7 @@ interface LeadRecord {
   id: string;
   created_at: string;
   storage: 'rainmaker';
+  submission_id: string;
 }
 
 function getSubmissionId(metadata: LeadSubmission['metadata']): string | undefined {
@@ -154,6 +156,19 @@ function getErrorMessage(error: unknown, fallback: string): string {
   }
 
   return fallback;
+}
+
+function operationalErrorCode(error: unknown): string {
+  if (error instanceof Error && error.name) {
+    return error.name.replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 80) || 'Error';
+  }
+  if (typeof error === 'object' && error !== null) {
+    const status = 'status' in error ? error.status : undefined;
+    if (typeof status === 'number' || typeof status === 'string') {
+      return `status_${String(status).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 20)}`;
+    }
+  }
+  return 'operation_failed';
 }
 
 async function fetchWithTimeout(
@@ -364,8 +379,8 @@ function hasSpamContentSignals(lead: LeadSubmission): boolean {
   return signals >= 2 || (signals >= 1 && shortRandomMessage);
 }
 
-async function fakeAcceptedSpamResponse(reason: string, email?: string) {
-  console.log(`Spam detected (${reason}): ${email || 'unknown email'}`);
+async function fakeAcceptedSpamResponse(reason: string) {
+  console.log(`Spam detected (${reason}); customer fields were not logged.`);
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   return NextResponse.json(
@@ -455,10 +470,20 @@ async function createRainmakerLead(
     throw new Error('Rainmaker lead intake succeeded without a lead ID');
   }
 
+  const confirmedSubmissionId = result.submissionId;
+  if (
+    !submissionId ||
+    typeof confirmedSubmissionId !== 'string' ||
+    confirmedSubmissionId !== submissionId
+  ) {
+    throw new Error('Rainmaker lead intake did not confirm the submission ID');
+  }
+
   return {
     id: `rainmaker:${rainmakerId}`,
     created_at: new Date().toISOString(),
     storage: 'rainmaker',
+    submission_id: confirmedSubmissionId,
   };
 }
 
@@ -634,18 +659,21 @@ async function scheduleFollowUpEmail(
     }, RESEND_FETCH_TIMEOUT_MS);
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Resend scheduled email error:', errorData);
+      await response.json().catch(() => null);
+      console.error('Resend scheduled email failed:', `status_${response.status}`);
       return;
     }
 
     const data = await response.json();
     console.log(
-      `Follow-up email scheduled for ${lead.email} on ${scheduledAt}:`,
-      data.id
+      `Follow-up email scheduled for ${scheduledAt}; provider ID received:`,
+      Boolean(data?.id)
     );
   } catch (error) {
-    console.error('Failed to schedule follow-up email:', error);
+    console.error(
+      'Failed to schedule follow-up email:',
+      operationalErrorCode(error)
+    );
   }
 }
 
@@ -705,7 +733,7 @@ export async function POST(request: NextRequest) {
     // If the hidden 'fax' field is filled, it's likely a bot.
     // Return a fake success to fool the bot, but do NOT save or send anything.
     if (normalizeLeadText(fax).length > 0) {
-      return fakeAcceptedSpamResponse('honeypot', email);
+      return fakeAcceptedSpamResponse('honeypot');
     }
 
     // Validation
@@ -730,10 +758,15 @@ export async function POST(request: NextRequest) {
     }
 
     if (hasSpamContentSignals(body as LeadSubmission)) {
-      return fakeAcceptedSpamResponse('content-signals', email);
+      return fakeAcceptedSpamResponse('content-signals');
     }
 
     const resendApiKey = process.env.RESEND_API_KEY;
+    const submissionId = getSubmissionId(metadata) || randomUUID();
+    const normalizedMetadata = {
+      ...(metadata || {}),
+      submission_id: submissionId,
+    };
 
     const leadRecord = await createLeadRecord({
       email,
@@ -745,12 +778,12 @@ export async function POST(request: NextRequest) {
       message,
       source,
       customerType,
-      metadata,
+      metadata: normalizedMetadata,
     });
 
     const leadId = leadRecord.id;
     const timestamp = leadRecord.created_at;
-    const submissionId = getSubmissionId(metadata);
+    const confirmedSubmissionId = leadRecord.submission_id;
 
     let attachmentUploadState: AttachmentUploadState = {
       status: leadAttachments.length > 0 ? 'failed' : 'none',
@@ -762,7 +795,7 @@ export async function POST(request: NextRequest) {
           leadRecord,
           attachments: leadAttachments,
           source,
-          submissionId,
+          submissionId: confirmedSubmissionId,
         });
         attachmentUploadState = { status: 'uploaded' };
       } catch (attachmentError) {
@@ -772,7 +805,7 @@ export async function POST(request: NextRequest) {
         );
         console.error(
           'Lead captured, but Rainmaker attachment upload failed:',
-          attachmentErrorMessage
+          operationalErrorCode(attachmentError)
         );
         attachmentUploadState = {
           status: 'failed',
@@ -889,19 +922,25 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify(adminEmailPayload),
         }, RESEND_FETCH_TIMEOUT_MS);
 
-        const adminData = await adminRes.json();
+        const adminData = await adminRes.json().catch(() => null);
         if (!adminRes.ok) {
           console.error(
             'Resend Admin Email Failed:',
-            JSON.stringify(adminData)
+            `status_${adminRes.status}`
           );
-          emailLogs.admin = { success: false, error: adminData };
+          emailLogs.admin = {
+            success: false,
+            error: `status_${adminRes.status}`,
+          };
         } else {
           console.log('Admin notification sent successfully.');
           emailLogs.admin = { success: true, id: adminData.id };
         }
       } catch (adminErr) {
-        console.error('Failed to send admin notification:', adminErr);
+        console.error(
+          'Failed to send admin notification:',
+          operationalErrorCode(adminErr)
+        );
         emailLogs.admin = {
           success: false,
           error: getErrorMessage(adminErr, 'Admin notification failed'),
@@ -919,7 +958,7 @@ export async function POST(request: NextRequest) {
         }).catch((err) => {
           console.error(
             'Follow-up email scheduling error (non-blocking):',
-            err
+            operationalErrorCode(err)
           );
         });
       } else {
@@ -933,11 +972,12 @@ export async function POST(request: NextRequest) {
         accepted: true,
         message: 'Thank you! We have received your information.',
         leadId: leadId,
+        submissionId: confirmedSubmissionId,
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error('Lead capture error:', error);
+    console.error('Lead capture error:', operationalErrorCode(error));
     return NextResponse.json(
       {
         success: false,

@@ -178,11 +178,20 @@ test.describe('Smoke Tests', () => {
     await page.evaluate(() => {
       window.dataLayer = [];
     });
+    let submittedId = '';
     await page.route('**/api/leads', async (route) => {
+      const payload = route.request().postDataJSON() as {
+        metadata?: { submission_id?: string };
+      };
+      submittedId = payload.metadata?.submission_id || '';
       await route.fulfill({
         status: 201,
         contentType: 'application/json',
-        body: JSON.stringify({ success: true, accepted: true }),
+        body: JSON.stringify({
+          success: true,
+          accepted: true,
+          submissionId: submittedId,
+        }),
       });
     });
 
@@ -209,13 +218,81 @@ test.describe('Smoke Tests', () => {
 
     expect(eventNames).toEqual(
       expect.arrayContaining([
-        'form_start',
+        'lead_form_start',
+        'lead_form_submit_attempt',
         'screen_fit_budget_form_start',
         'generate_lead',
         'form_submit_success',
         'screen_fit_budget_submit',
       ])
     );
+    expect(submittedId).toBeTruthy();
+    const successfulEvent = await page.evaluate(() =>
+      (window.dataLayer || []).find((event) => event.event === 'generate_lead')
+    );
+    expect(successfulEvent?.submission_id).toBe(submittedId);
+    expect(successfulEvent?.page_path).toBe('/guides/magnatrack-screens-cost');
+    expect(successfulEvent?.landing_page).toBe('/guides/magnatrack-screens-cost');
+    expect(successfulEvent).not.toHaveProperty('email');
+    expect(successfulEvent).not.toHaveProperty('phone');
+    expect(JSON.stringify(successfulEvent)).not.toContain('taylor@example.com');
+  });
+
+  test('an unchanged retry reuses its anonymous submission ID and emits one success', async ({
+    page,
+  }) => {
+    const submittedIds: string[] = [];
+    let attempt = 0;
+    await page.route('**/api/leads', async (route) => {
+      attempt += 1;
+      const payload = route.request().postDataJSON() as {
+        metadata?: { submission_id?: string };
+      };
+      const submissionId = payload.metadata?.submission_id || '';
+      submittedIds.push(submissionId);
+      await route.fulfill({
+        status: attempt === 1 ? 503 : 201,
+        contentType: 'application/json',
+        body: JSON.stringify(
+          attempt === 1
+            ? { success: false, errors: ['Temporary intake interruption'] }
+            : { success: true, accepted: true, submissionId }
+        ),
+      });
+    });
+
+    await page.goto('/guides/magnatrack-screens-cost');
+    await page.evaluate(() => {
+      window.dataLayer = [];
+    });
+    const form = page.locator('#screen-fit-budget form');
+    await form.locator('input[name="firstName"]').fill('Taylor');
+    await form.locator('input[name="email"]').fill('taylor@example.com');
+    await form.locator('input[name="location"]').fill('Barrington, IL');
+    await form.locator('select[name="mainProblem"]').selectOption('Privacy');
+    const submit = form.getByRole('button', {
+      name: 'Get My Screen Fit + Budget Range',
+    });
+
+    await submit.click();
+    await expect(form.getByRole('alert')).toContainText(
+      'Temporary intake interruption'
+    );
+    await submit.click();
+    await expect(
+      page.getByRole('heading', { name: 'Your screen review is in.' })
+    ).toBeVisible();
+
+    expect(submittedIds).toHaveLength(2);
+    expect(submittedIds[0]).toBeTruthy();
+    expect(submittedIds[1]).toBe(submittedIds[0]);
+    const eventNames = await page.evaluate(() =>
+      (window.dataLayer || [])
+        .map((event) => event.event)
+        .filter((event): event is string => typeof event === 'string')
+    );
+    expect(eventNames.filter((event) => event === 'lead_form_error')).toHaveLength(1);
+    expect(eventNames.filter((event) => event === 'generate_lead')).toHaveLength(1);
   });
 
   test('contact form honors CTA query params', async ({ page }) => {

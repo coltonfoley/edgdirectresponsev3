@@ -92,6 +92,7 @@ export function HeroFormClient() {
         </p>
       </div>
       <form
+        data-lead-form-id="homepage_hero"
         onSubmit={handleSubmit}
         onFocusCapture={handleFormStart}
         aria-labelledby="hero-form-title"

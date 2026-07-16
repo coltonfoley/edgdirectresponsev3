@@ -763,6 +763,7 @@ function QuoteModal({
             </div>
 
             <form
+              data-lead-form-id="pergola_configurator"
               onSubmit={handleSubmit}
               onFocusCapture={handleFormStart}
               className="space-y-4"

@@ -350,6 +350,7 @@ export function SystemFitReviewForm() {
 
   return (
     <form
+      data-lead-form-id="pergola_system_fit_review"
       onSubmit={handleSubmit}
       onFocusCapture={handleFormStart}
       className="space-y-8"

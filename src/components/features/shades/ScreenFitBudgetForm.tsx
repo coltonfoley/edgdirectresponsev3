@@ -128,6 +128,7 @@ export function ScreenFitBudgetForm() {
 
   return (
     <form
+      data-lead-form-id="magnatrack_screen_fit_budget_v1"
       onSubmit={handleSubmit}
       onFocusCapture={trackStart}
       aria-label="Screen fit and budget range form"

@@ -1,22 +1,38 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { getLeadJourneyMetadata, pushAnalyticsEvent } from '@/lib/analytics';
+import {
+  createOpaqueLeadSubmissionId,
+  leadSubmissionFingerprint,
+  resolvePendingLeadSubmission,
+  type PendingLeadSubmission,
+} from '@/lib/lead-submission-identity';
 
 type LeadMetadata = Record<string, unknown>;
 
 type LeadSubmissionResponse = {
   success?: boolean;
   accepted?: boolean;
+  submissionId?: string;
   errors?: string[];
 };
 
-function createSubmissionId() {
-  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
-    return crypto.randomUUID();
+function safeAnalyticsPath(value: unknown) {
+  if (typeof value !== 'string' || !value.trim()) return undefined;
+  try {
+    return new URL(value, 'https://edgpatioshade.com').pathname;
+  } catch {
+    return undefined;
   }
+}
 
-  return `edg-${Date.now()}-${Math.random().toString(36).slice(2, 12)}`;
+function safeAnalyticsToken(value: unknown) {
+  if (typeof value !== 'string') return undefined;
+  const normalized = value.trim().slice(0, 100);
+  return /^[a-zA-Z0-9 _./:+-]+$/.test(normalized)
+    ? normalized
+    : undefined;
 }
 
 export interface LeadData {
@@ -49,6 +65,7 @@ export function useLeadSubmission({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const pendingSubmission = useRef<PendingLeadSubmission | null>(null);
 
   const getAnalyticsPayload = (
     data: Partial<LeadData>,
@@ -61,10 +78,17 @@ export function useLeadSubmission({
     form_variant: metadata?.form_variant,
     cta_label: metadata?.cta_label,
     cta_position: metadata?.cta_position,
-    page_path: metadata?.page_path,
-    landing_page: metadata?.landing_page,
+    form_id: metadata?.form_id || metadata?.form_variant,
+    page_path: safeAnalyticsPath(metadata?.page_path),
+    page_family: safeAnalyticsToken(metadata?.page_family),
+    landing_page: safeAnalyticsPath(metadata?.landing_page),
+    market: safeAnalyticsToken(metadata?.market || metadata?.market_param),
+    utm_source: safeAnalyticsToken(metadata?.utm_source),
+    utm_medium: safeAnalyticsToken(metadata?.utm_medium),
+    utm_campaign: safeAnalyticsToken(metadata?.utm_campaign),
     pilot_name: metadata?.pilot_name,
     pilot_version: metadata?.pilot_version,
+    submission_id: metadata?.submission_id,
     has_phone: Boolean(data.phone),
     has_project_type: Boolean(data.projectType),
     has_message: Boolean(data.message),
@@ -74,7 +98,7 @@ export function useLeadSubmission({
     const metadata = getLeadJourneyMetadata(data.metadata);
     const analyticsPayload = getAnalyticsPayload(data, metadata);
     pushAnalyticsEvent({
-      event: 'form_start',
+      event: 'lead_form_start',
       ...analyticsPayload,
     });
 
@@ -93,9 +117,17 @@ export function useLeadSubmission({
     setSuccess(false);
 
     try {
+      const reportingMetadata = getLeadJourneyMetadata(data.metadata);
+      const fingerprint = leadSubmissionFingerprint(data, reportingMetadata);
+      pendingSubmission.current = resolvePendingLeadSubmission({
+        pending: pendingSubmission.current,
+        fingerprint,
+        createId: createOpaqueLeadSubmissionId,
+      });
+      const submissionId = pendingSubmission.current.submissionId;
       const metadata = getLeadJourneyMetadata({
         ...data.metadata,
-        submission_id: data.metadata?.submission_id || createSubmissionId(),
+        submission_id: submissionId,
       });
       const { attachments, ...leadFields } = { ...data, metadata };
       const hasAttachments = !!attachments?.length;
@@ -116,6 +148,12 @@ export function useLeadSubmission({
         });
       }
 
+      pushAnalyticsEvent({
+        event: 'lead_form_submit_attempt',
+        ...getAnalyticsPayload(data, metadata),
+        validation_state: 'client_valid',
+      });
+
       const response = await fetch('/api/leads', {
         method: 'POST',
         ...(hasAttachments
@@ -130,6 +168,10 @@ export function useLeadSubmission({
         throw new Error(result.errors?.[0] || 'Something went wrong');
       }
 
+      if (result.accepted !== false && !result.submissionId) {
+        throw new Error('Lead captured without a verified submission ID');
+      }
+
       setSuccess(true);
 
       if (result.accepted === false) {
@@ -138,7 +180,11 @@ export function useLeadSubmission({
           ...getAnalyticsPayload(data, metadata),
         });
       } else {
-        const analyticsPayload = getAnalyticsPayload(data, metadata);
+        const confirmedMetadata = getLeadJourneyMetadata({
+          ...metadata,
+          submission_id: result.submissionId,
+        });
+        const analyticsPayload = getAnalyticsPayload(data, confirmedMetadata);
         pushAnalyticsEvent({
           event: 'generate_lead',
           ...analyticsPayload,
@@ -150,7 +196,7 @@ export function useLeadSubmission({
           ...analyticsPayload,
         });
 
-        const pilotEvent = getPilotEventName(metadata, 'submit');
+        const pilotEvent = getPilotEventName(confirmedMetadata, 'submit');
         if (pilotEvent) {
           pushAnalyticsEvent({
             event: pilotEvent,
@@ -159,15 +205,17 @@ export function useLeadSubmission({
         }
       }
 
+      pendingSubmission.current = null;
+
       if (onSuccess) {
         onSuccess();
       }
     } catch (err: unknown) {
       const metadata = getLeadJourneyMetadata(data.metadata);
       pushAnalyticsEvent({
-        event: 'form_submit_blocked',
+        event: 'lead_form_error',
         ...getAnalyticsPayload(data, metadata),
-        error_code: getSubmissionErrorCode(err),
+        error_type: getSubmissionErrorCode(err),
       });
       setError(
         err instanceof Error
@@ -184,6 +232,7 @@ export function useLeadSubmission({
     setLoading(false);
     setError('');
     setSuccess(false);
+    pendingSubmission.current = null;
   };
 
   return {
