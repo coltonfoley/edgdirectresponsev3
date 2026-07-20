@@ -255,6 +255,17 @@ export default function MotorizedPergolaDeckRoofDeckPage() {
                 structure, drainage, and controls are handled before the product
                 order.
               </p>
+              <p className="text-text-secondary mb-6 leading-relaxed">
+                If the project may need a custom structural frame, review the{' '}
+                <Link
+                  href="/guides/steel-vs-aluminum-pergolas"
+                  className="text-edg-brand-text font-bold underline underline-offset-4"
+                >
+                  steel-versus-aluminum comparison
+                </Link>{' '}
+                before assuming every rooftop pergola should use the same
+                material or roof assembly.
+              </p>
               <div className="space-y-3">
                 {[
                   'Send wide photos before close-up detail shots.',

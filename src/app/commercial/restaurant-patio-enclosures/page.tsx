@@ -386,6 +386,13 @@ export default function RestaurantPatioEnclosuresPage() {
                   Explore Motorized Pergolas
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Link>
+                <Link
+                  href="/systems/steel-pergolas"
+                  className="hover:text-edg-brand-text inline-flex items-center text-sm font-bold tracking-wider uppercase"
+                >
+                  Explore Steel Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>

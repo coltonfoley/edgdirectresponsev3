@@ -199,6 +199,12 @@ const faqs = [
 // Related products
 const relatedProducts = [
   {
+    title: 'Custom Steel Pergolas',
+    description:
+      'Compare custom steel frames, fixed shade structures, long spans, and hybrid steel-supported pergola conditions.',
+    href: '/systems/steel-pergolas',
+  },
+  {
     title: 'Restaurant Patio Enclosures',
     description:
       'See how motorized pergolas can coordinate with seating, screens, glass, heat, and restaurant operations.',

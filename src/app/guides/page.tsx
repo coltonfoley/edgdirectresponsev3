@@ -21,6 +21,7 @@ import {
   SlidersHorizontal,
   Building2,
   ShieldCheck,
+  Hammer,
   CheckCircle2,
 } from 'lucide-react';
 
@@ -122,6 +123,14 @@ const guides = [
     readTime: '8 min read',
     intent: 'choose-system',
   },
+  {
+    title: 'Steel vs. Aluminum Pergolas',
+    desc: 'Compare structural fit, weight, corrosion, maintenance, roof function, engineering, and cost drivers before choosing a material path.',
+    href: '/guides/steel-vs-aluminum-pergolas',
+    icon: Hammer,
+    readTime: '11 min read',
+    intent: 'choose-system',
+  },
 ];
 
 const guideSections = [
@@ -155,7 +164,7 @@ export default function GuidesIndexPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       {/* ========== HERO SECTION ========== */}
-      <section className="relative overflow-hidden border-b border-white/10 bg-edg-dark pt-32 pb-20 text-white">
+      <section className="bg-edg-dark relative overflow-hidden border-b border-white/10 pt-32 pb-20 text-white">
         <Container>
           {/* Breadcrumb */}
           <div className="mb-6">
@@ -167,8 +176,8 @@ export default function GuidesIndexPage() {
           <FadeIn immediate>
             <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
               <div className="max-w-4xl">
-                <p className="mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
-                  <span className="h-px w-8 bg-edg-brand" />
+                <p className="text-edg-brand mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.2em] uppercase">
+                  <span className="bg-edg-brand h-px w-8" />
                   <Library className="h-4 w-4" />
                   Resources & Learning
                 </p>
@@ -183,8 +192,7 @@ export default function GuidesIndexPage() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Link href="/guides/pergola-system-fit-review">
                     <Button size="lg" className="w-full sm:w-auto">
-                      Start a Fit Review{' '}
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      Start a Fit Review <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <Link href="/guides/planning-guide">
@@ -204,7 +212,7 @@ export default function GuidesIndexPage() {
                 padding="lg"
                 className="border-white/15 bg-white/5"
               >
-                <p className="mb-6 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                <p className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase">
                   How to use this library
                 </p>
                 <div className="space-y-5">
@@ -214,7 +222,7 @@ export default function GuidesIndexPage() {
                     'Move to a fit review when photos, goals, and constraints are ready.',
                   ].map((item) => (
                     <div key={item} className="flex gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                      <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
                       <p className="text-sm leading-relaxed text-zinc-300">
                         {item}
                       </p>
@@ -231,14 +239,11 @@ export default function GuidesIndexPage() {
         <Container>
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              ['11', 'current planning resources'],
+              [guides.length.toString(), 'current planning resources'],
               ['4', 'decision paths: fit, budget, permits, review'],
               ['1', 'direct handoff to EDG system review'],
             ].map(([value, label]) => (
-              <div
-                key={label}
-                className="border-l-2 border-edg-brand pl-5"
-              >
+              <div key={label} className="border-edg-brand border-l-2 pl-5">
                 <div className="text-3xl font-bold text-zinc-950 dark:text-white">
                   {value}
                 </div>
@@ -278,7 +283,7 @@ export default function GuidesIndexPage() {
                           href={guide.href}
                           className="group block h-full focus-visible:outline-none"
                         >
-                          <Card className="h-full transition-colors group-hover:border-edg-brand group-focus-visible:border-edg-brand">
+                          <Card className="group-hover:border-edg-brand group-focus-visible:border-edg-brand h-full transition-colors">
                             <div className="mb-6 flex items-start justify-between gap-4">
                               <IconWrapper
                                 icon={guide.icon}
@@ -289,13 +294,13 @@ export default function GuidesIndexPage() {
                                 {guide.readTime}
                               </span>
                             </div>
-                            <h3 className="mb-4 text-2xl font-bold transition-colors group-hover:text-edg-brand-text dark:group-hover:text-edg-brand">
+                            <h3 className="group-hover:text-edg-brand-text dark:group-hover:text-edg-brand mb-4 text-2xl font-bold transition-colors">
                               {guide.title}
                             </h3>
                             <p className="mb-8 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
                               {guide.desc}
                             </p>
-                            <div className="flex items-center text-sm font-bold text-edg-brand-text transition-all group-hover:gap-2 dark:text-edg-brand">
+                            <div className="text-edg-brand-text dark:text-edg-brand flex items-center text-sm font-bold transition-all group-hover:gap-2">
                               Read Full Article{' '}
                               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                             </div>
@@ -315,16 +320,16 @@ export default function GuidesIndexPage() {
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
             <div className="max-w-3xl">
-              <p className="mb-4 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+              <p className="text-edg-brand mb-4 text-xs font-bold tracking-[0.2em] uppercase">
                 Ready for a recommendation?
               </p>
-              <h2 className="section-title mb-4 text-text-inverse">
+              <h2 className="section-title text-text-inverse mb-4">
                 Send the project context and EDG will help narrow the system
                 path.
               </h2>
               <p className="text-text-inverse-muted">
-                A fit review is the quickest way to connect the research here
-                to a real site, budget, structure, and installation path.
+                A fit review is the quickest way to connect the research here to
+                a real site, budget, structure, and installation path.
               </p>
             </div>
             <Link

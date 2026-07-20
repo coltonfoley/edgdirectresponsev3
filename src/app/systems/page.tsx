@@ -21,6 +21,7 @@ import {
   MapPin,
   Phone,
   ChevronRight,
+  Hammer,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 import { buildContactHref } from '@/lib/contact-links';
@@ -150,6 +151,13 @@ const systems = [
 // Secondary systems
 const secondarySystems = [
   {
+    href: '/systems/steel-pergolas',
+    title: 'Custom Steel Pergolas',
+    description:
+      'Project-specific steel pergolas and shade structures for custom geometry, rooftops, long spans, hospitality, and architectural outdoor spaces.',
+    icon: Hammer,
+  },
+  {
     href: '/outdoor-rooms',
     title: 'Outdoor Room Plans',
     description:
@@ -237,7 +245,7 @@ const faqs = [
 
 export default function SystemsPage() {
   return (
-    <div className="min-h-screen bg-surface text-text-primary">
+    <div className="bg-surface text-text-primary min-h-screen">
       {/* ========== HERO SECTION ========== */}
       <section className="bg-surface-dark pt-28 pb-20 text-white md:pt-32 md:pb-24">
         <Container>
@@ -251,7 +259,7 @@ export default function SystemsPage() {
 
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial mb-6 inline-flex items-center gap-3 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-6 inline-flex items-center gap-3">
                 <span className="bg-edg-brand h-px w-8" />
                 Outdoor Living Solutions
               </div>
@@ -380,7 +388,7 @@ export default function SystemsPage() {
             {systems.map((system) => (
               <div
                 key={system.id}
-                className="group overflow-hidden border border-border bg-white transition-colors hover:border-edg-brand"
+                className="group border-border hover:border-edg-brand overflow-hidden border bg-white transition-colors"
               >
                 <div className="relative aspect-[16/9]">
                   <Image
@@ -451,15 +459,15 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== SECONDARY SYSTEMS ========== */}
-      <Section className="border-border border-t bg-surface">
+      <Section className="border-border bg-surface border-t">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <h2 className="mb-4 text-2xl font-bold md:text-3xl">
               Complete Your Space
             </h2>
             <p className="text-text-secondary">
-              Add the finishing touches to your outdoor living area with these
-              complementary systems.
+              Explore custom structures and complementary paths that can shape a
+              complete outdoor living project.
             </p>
           </div>
 
@@ -504,9 +512,9 @@ export default function SystemsPage() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full border border-border bg-white">
+            <table className="border-border w-full border bg-white">
               <thead>
-                <tr className="border-border border-b bg-surface-muted">
+                <tr className="border-border bg-surface-muted border-b">
                   <th className="p-6 text-left font-bold">Feature</th>
                   <th className="text-edg-brand-text p-6 text-left font-bold">
                     Pergolas
@@ -583,8 +591,8 @@ export default function SystemsPage() {
                     <h3 className="mb-1 font-bold">Snow Load Engineered</h3>
                     <p className="text-sm text-zinc-300">
                       Structural engineering is matched to local snow-load
-                      requirements, mounting conditions, and the specific
-                      system selected for the site.
+                      requirements, mounting conditions, and the specific system
+                      selected for the site.
                     </p>
                   </div>
                 </div>
@@ -674,13 +682,11 @@ export default function SystemsPage() {
       </Section>
 
       {/* ========== FAQ SECTION ========== */}
-      <Section className="border-border border-t bg-surface">
+      <Section className="border-border bg-surface border-t">
         <Container>
           <div className="mx-auto max-w-3xl">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold">
-                Common Questions
-              </h2>
+              <h2 className="mb-4 text-3xl font-bold">Common Questions</h2>
               <p className="text-text-secondary">
                 Everything you need to know about outdoor living systems.
               </p>
