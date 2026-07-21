@@ -102,16 +102,16 @@ The live EDG website uses one plain-language sales actionâ€”**Request a Quote**â
 
 ### 9. Production release
 
-- [ ] Review the final diff and separate pre-existing changes from the combined release scope.
-- [ ] Commit the completed changes.
-- [ ] Push `edg-positioning` to `origin`.
-- [ ] Deploy production.
-- [ ] Verify deployment state and production alias.
-- [ ] Verify changed live URLs return `200`.
-- [ ] Verify live rendering on desktop and mobile.
-- [ ] Verify live canonicals, sitemap entries, and internal CTA destinations.
-- [ ] Verify `/api/leads` remains POST-only without submitting a production lead.
-- [ ] Run a fresh sitemap health pass.
+- [x] Review the final diff and separate pre-existing changes from the combined release scope.
+- [x] Commit the completed changes.
+- [x] Push `edg-positioning` to `origin`.
+- [x] Deploy production.
+- [x] Verify deployment state and production alias.
+- [x] Verify changed live URLs return `200`.
+- [x] Verify live rendering on desktop and mobile.
+- [x] Verify live canonicals, sitemap entries, and internal CTA destinations.
+- [x] Verify `/api/leads` remains POST-only without submitting a production lead.
+- [x] Run a fresh sitemap health pass.
 
 ## Acceptance criteria
 
@@ -128,14 +128,14 @@ The live EDG website uses one plain-language sales actionâ€”**Request a Quote**â
 
 ## Release evidence
 
-Fill this section during execution:
-
-- Final commit: Pending
-- Push: Pending
-- Production deployment: Pending
-- Live alias: Pending
-- Local checks: Pending
-- Browser QA: Pending
-- Live URL checks: Pending
-- Sitemap health: Pending
+- Implementation commit: `b51fccf` (`Simplify site around quote requests`)
+- Push: `origin/edg-positioning` advanced from `927cbf2` to `b51fccf` without a force push
+- Production deployment: `dpl_F6nurY8bco4KCcdt74TKs8ya5YpQ`, status `Ready`
+- Live alias: `https://www.edgpatioshade.com`
+- Local checks: lint, TypeScript, lead instrumentation audit, lead submission identity tests, route registry, production build, and `git diff --check` passed
+- Browser QA: homepage, contact page, former specialty forms, configurator handoff, query prefill, optional direct photo selection, compact hero layout, and multiple-interest selection verified without submitting a production lead
+- Automated browser tests: 14 passed, including the compact homepage multi-select flow
+- Live URL checks: homepage, contact page, and sitemap returned `200`; `/api/leads` returned `405` to `GET` as expected
+- Mobile production check: 390 px viewport rendered the compact form at 316 px with no horizontal overflow
+- Sitemap health: 90 of 90 live sitemap URLs returned `200`
 - Search Console/indexing: Not required unless URLs, canonicals, or indexing signals change
