@@ -124,7 +124,7 @@ The first release standardized the shared form and priority conversion surfaces.
 - [x] Preserve each link's product, market, source-page, and position context.
 - [x] Add a reusable Playwright test that repeats the sitemap-wide CTA audit.
 - [x] Run the complete local validation suite for the correction.
-- [ ] Commit, push, deploy, and repeat the 90-page audit against production.
+- [x] Commit, push, deploy, and repeat the 90-page audit against production.
 
 ## Acceptance criteria
 
@@ -152,3 +152,14 @@ The first release standardized the shared form and priority conversion surfaces.
 - Mobile production check: 390 px viewport rendered the compact form at 316 px with no horizontal overflow
 - Sitemap health: 90 of 90 live sitemap URLs returned `200`
 - Search Console/indexing: Not required unless URLs, canonicals, or indexing signals change
+
+### All-page CTA correction evidence
+
+- Site implementation commit: `167ac48` (`Standardize quote CTAs across all routes`)
+- Production deployment: `dpl_98Qu5oj9fPFUPi9u6dNt22ZdTMnH`, status `Ready`
+- Live alias: `https://www.edgpatioshade.com`
+- Local checks: lint, TypeScript, lead instrumentation, lead submission identity, route registry, production build, and `git diff --check` passed
+- Automated browser tests: 15 passed, including the sitemap-wide lead-action guard
+- Live CTA audit: 90 sitemap pages checked, zero page failures, zero CTA violations
+- Live endpoint checks: homepage, contact page, and sitemap returned `200`; `/api/leads` returned `405` to `GET` as expected
+- Visual QA: representative product and showroom pages checked at desktop size; homepage checked at 390 px with no horizontal overflow
