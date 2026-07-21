@@ -66,7 +66,7 @@ The live EDG website uses one plain-language sales actionâ€”**Request a Quote**â
 - [x] Change the footer sales CTA to **Request a Quote**.
 - [x] Preserve location/product context in CTA query parameters.
 - [x] Standardize page-level sales CTAs that link to `/contact`.
-- [x] Keep genuinely different actions such as Call EDG, View Projects, Download the Guide, and Schedule a Showroom Visit.
+- [x] Keep genuinely different actions such as Call EDG, View Projects, and Download the Guide.
 - [x] Confirm contact links still resolve and prefill the correct interest/location.
 
 ### 6. Priority copy simplification
@@ -87,6 +87,7 @@ The live EDG website uses one plain-language sales actionâ€”**Request a Quote**â
 - [x] Run typecheck.
 - [x] Run production build.
 - [x] Run `git diff --check`.
+- [x] Add an automated sitemap-wide guard that requires **Request a Quote** on every visible lead action.
 
 ### 8. Browser validation
 
@@ -112,6 +113,18 @@ The live EDG website uses one plain-language sales actionâ€”**Request a Quote**â
 - [x] Verify live canonicals, sitemap entries, and internal CTA destinations.
 - [x] Verify `/api/leads` remains POST-only without submitting a production lead.
 - [x] Run a fresh sitemap health pass.
+
+## All-page CTA correction
+
+The first release standardized the shared form and priority conversion surfaces. A subsequent 90-page production crawl found additional page-specific lead labels in older route content. Those labels still led to the quote flow, but phrases such as **Book Appointment**, **Plan My Space**, **Configure System**, **Price Appliances**, and **Check Screen Fit + Budget** made the action sound inconsistent or more complicated than it was.
+
+- [x] Crawl every URL in the production sitemap and inspect visible page-body lead links.
+- [x] Separate genuine sales actions from navigation and content links.
+- [x] Change every genuine lead action to **Request a Quote**.
+- [x] Preserve each link's product, market, source-page, and position context.
+- [x] Add a reusable Playwright test that repeats the sitemap-wide CTA audit.
+- [x] Run the complete local validation suite for the correction.
+- [ ] Commit, push, deploy, and repeat the 90-page audit against production.
 
 ## Acceptance criteria
 

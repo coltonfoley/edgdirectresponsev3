@@ -372,7 +372,7 @@ export default function EnclosuresPage() {
               <div className="mb-12 flex flex-col gap-4">
                 <TrackedLink href={heroContactHref}>
                   <Button size="lg" className="w-full sm:w-auto">
-                    Configure System
+                    Request a Quote
                   </Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">

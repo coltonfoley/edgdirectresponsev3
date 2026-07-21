@@ -358,7 +358,7 @@ export default function AlgonquinZoningGuidePage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href={permitGuideContactHref}>
                 <Button size="lg">
-                  Ask About an Algonquin Pergola
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

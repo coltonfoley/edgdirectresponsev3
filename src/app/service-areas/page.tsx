@@ -283,7 +283,7 @@ export default function ServiceAreasPage() {
               qualified local partners.
             </p>
             <Link href={outsideServiceAreaHref}>
-              <Button variant="dark">Contact Us to Discuss</Button>
+              <Button variant="dark">Request a Quote</Button>
             </Link>
           </div>
         </Container>

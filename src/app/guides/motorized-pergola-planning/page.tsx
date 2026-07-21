@@ -577,8 +577,7 @@ export default function MotorizedPergolaPlanningPage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               Use these resources to compare cost, site fit, permitting,
-              structure, and system options before requesting a System Fit
-              Review.
+              structure, and system options before requesting a quote.
             </p>
           </div>
 

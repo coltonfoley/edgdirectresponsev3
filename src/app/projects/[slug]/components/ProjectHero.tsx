@@ -91,7 +91,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
                 href={contactHref}
                 className="bg-edg-brand inline-flex items-center justify-center px-6 py-3 text-sm font-bold tracking-wider text-black uppercase transition-colors hover:bg-white"
               >
-                Plan a similar project
+                Request a Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
               <Link

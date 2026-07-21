@@ -297,7 +297,7 @@ export default function AppliancesPage() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink href={heroContactHref}>
                   <Button size="lg" className="w-full sm:w-auto">
-                    Price Appliances
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </TrackedLink>

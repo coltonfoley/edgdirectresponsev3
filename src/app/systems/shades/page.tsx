@@ -441,7 +441,7 @@ export default function ShadesPage() {
                       className: 'w-full sm:w-auto',
                     })}
                   >
-                    Check Screen Fit + Budget
+                    Request a Quote
                   </TrackedLink>
                   <TrackedPhoneLink
                     href="tel:+18155810138"
@@ -929,7 +929,7 @@ export default function ShadesPage() {
                     conversionName="screen_fit_budget_cta"
                     className={buttonClassName({ size: 'lg' })}
                   >
-                    Get Screen Fit + Budget Range
+                    Request a Quote
                   </TrackedLink>
                   <LinkButton
                     href="/showroom"

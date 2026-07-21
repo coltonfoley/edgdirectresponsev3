@@ -477,7 +477,7 @@ export default function SpringGroveServiceAreaPage() {
               </ul>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Link href={showroomContactHref}>
-                  <Button size="lg">Schedule a Visit</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="https://maps.google.com/?q=1802+Holian+Drive+Spring+Grove+IL+60081">
                   <Button variant="outline" size="lg">

@@ -325,13 +325,15 @@ export default function PergolasPage() {
                     Speak to a Designer
                   </div>
                 </TrackedPhoneLink>
-                <Link
-                  href="/guides/pergola-system-fit-review?source=pergolas_hero_secondary"
-                  className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
-                >
-                  Have plans or photos ready? Request a detailed System Fit
-                  Review.
-                </Link>
+                <div className="text-text-secondary text-sm font-medium">
+                  Have plans or photos ready?{' '}
+                  <Link
+                    href="/guides/pergola-system-fit-review?source=pergolas_hero_secondary"
+                    className="text-edg-brand-text hover:text-edg-brand transition-colors"
+                  >
+                    Request a Quote
+                  </Link>
+                </div>
                 <Link
                   href="/guides/motorized-pergola-planning"
                   className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
@@ -774,14 +776,14 @@ export default function PergolasPage() {
             </div>
             <div className="bg-surface border-border border p-8">
               <h3 className="mb-4 text-lg font-bold">
-                Schedule a Showroom Visit
+                Visit the Showroom
               </h3>
               <p className="text-text-secondary mb-6 text-sm">
                 See the products, meet the team, and get your questions
                 answered. Perfect for homeowners and trade partners alike.
               </p>
               <TrackedLink href={showroomContactHref}>
-                <Button className="w-full">Book Appointment</Button>
+                <Button className="w-full">Request a Quote</Button>
               </TrackedLink>
             </div>
           </div>

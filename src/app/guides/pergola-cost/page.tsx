@@ -611,8 +611,7 @@ export default function PergolaCostGuide() {
               <strong>Note:</strong> These ranges are for base systems with
               minimal integrated features. LED lighting, heaters, retractable
               screens, and complex site conditions add to total investment.
-              Schedule a consultation for a fixed-price quote specific to your
-              project.
+              Request a quote for fixed pricing specific to your project.
             </p>
           </div>
         </Container>
@@ -1054,7 +1053,7 @@ export default function PergolaCostGuide() {
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-              Need a Project-Specific Budget Range?
+              Ready for a project-specific quote?
             </h2>
             <p className="text-text-inverse-muted mb-8 text-lg">
               Send photos, rough dimensions, location, budget, and what the

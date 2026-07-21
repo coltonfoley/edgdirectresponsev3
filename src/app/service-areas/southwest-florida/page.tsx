@@ -86,6 +86,7 @@ const markets = [
     description:
       'Gulf Coast homes often need shade, rain control, and wind-rated outdoor rooms that preserve views instead of closing the patio off.',
     href: naplesMarcoContactHref,
+    action: 'Request a Quote',
   },
   {
     name: 'Fort Myers & Cape Coral',
@@ -325,6 +326,11 @@ export default function SouthwestFloridaPage() {
                     <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
                   </div>
                   <p className="text-text-secondary">{market.description}</p>
+                  {'action' in market && market.action && (
+                    <span className="text-edg-brand-text mt-5 inline-flex items-center gap-2 font-bold">
+                      {market.action}
+                    </span>
+                  )}
                 </Card>
               </Link>
             ))}

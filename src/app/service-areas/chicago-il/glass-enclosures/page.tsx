@@ -187,7 +187,7 @@ export default function ChicagoGlassEnclosuresPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
-                  <Button size="lg">Review an Enclosure Layout</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/systems/enclosures">
                   <Button

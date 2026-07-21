@@ -203,7 +203,7 @@ export default function LakeForestServiceAreaPage() {
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
                   <Button size="lg" className="px-8 text-lg">
-                    Plan a Lake Forest Pergola
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>

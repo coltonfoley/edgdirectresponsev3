@@ -297,7 +297,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink href={heroContactHref}>
                   <Button size="lg" className="w-full sm:w-auto">
-                    Price a Sauna
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </TrackedLink>
@@ -525,7 +525,7 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
                 Next Step
               </div>
               <h2 className="section-title mb-6">
-                Ready to Price a Sauna for Your Space?
+                Ready for a sauna quote?
               </h2>
               <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
                 Send EDG the rough location, preferred cabin size, and how the

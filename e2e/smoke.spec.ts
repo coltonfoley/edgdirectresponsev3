@@ -54,6 +54,76 @@ test.describe('Smoke Tests', () => {
     });
   });
 
+  test('every sitemap page uses Request a Quote for visible lead actions', async ({
+    page,
+    request,
+  }) => {
+    test.setTimeout(90_000);
+
+    const sitemapResponse = await request.get('/sitemap.xml');
+    const urls = sitemapUrls(await sitemapResponse.text());
+    const violations: Array<{
+      pathname: string;
+      href: string;
+      label: string;
+    }> = [];
+
+    for (const url of urls) {
+      const pathname = new URL(url).pathname;
+      await page.goto(pathname, { waitUntil: 'domcontentloaded' });
+
+      const pageViolations = await page.locator('main a').evaluateAll(
+        (links, currentPathname) => {
+          const clean = (value: string | null) =>
+            (value || '').replace(/\s+/g, ' ').trim();
+          const isVisible = (element: HTMLAnchorElement) => {
+            const bounds = element.getBoundingClientRect();
+            const styles = window.getComputedStyle(element);
+            return (
+              bounds.width > 0 &&
+              bounds.height > 0 &&
+              styles.display !== 'none' &&
+              styles.visibility !== 'hidden'
+            );
+          };
+
+          return links.flatMap((element) => {
+            const link = element as HTMLAnchorElement;
+            const href = link.getAttribute('href') || '';
+            const isLeadAction =
+              href.includes('/contact') ||
+              /#[^#]*(quote|budget|review|contact)/i.test(href);
+            const isSitemapNavigation =
+              currentPathname === '/html-sitemap' && href === '/contact';
+
+            if (!isVisible(link) || !isLeadAction || isSitemapNavigation) {
+              return [];
+            }
+
+            const actionLabels = [link, ...link.querySelectorAll('*')].map(
+              (node) => clean(node.textContent)
+            );
+            if (actionLabels.includes('Request a Quote')) return [];
+
+            return [
+              {
+                href,
+                label: clean(link.textContent),
+              },
+            ];
+          });
+        },
+        pathname
+      );
+
+      violations.push(
+        ...pageViolations.map((violation) => ({ pathname, ...violation }))
+      );
+    }
+
+    expect(violations).toEqual([]);
+  });
+
   test('legacy redirects resolve to a live page', async ({ page }) => {
     for (const route of legacyRedirectRoutes) {
       const response = await page.goto(route);

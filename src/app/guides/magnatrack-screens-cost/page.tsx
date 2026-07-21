@@ -191,7 +191,7 @@ export default function MagnaTrackScreensCostGuide() {
                   conversionName="screen_fit_budget_cta"
                   className={buttonClassName({ size: 'lg' })}
                 >
-                  Get Screen Fit + Budget Range
+                  Request a Quote
                 </TrackedLink>
                 <LinkButton
                   href="#cost-ranges"
@@ -437,7 +437,7 @@ export default function MagnaTrackScreensCostGuide() {
           <div className="grid items-center gap-16 md:grid-cols-2">
             <div>
               <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
-                Need a screen fit and budget range?
+                Ready for a screen quote?
               </h2>
               <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
                 Send photos, rough opening sizes, and the main issue you want

@@ -568,7 +568,7 @@ export default function WilmetteHubPage() {
                     notes, and site context for the correct review path.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Contact Us <ArrowRight className="h-4 w-4" />
+                    Request a Quote <ArrowRight className="h-4 w-4" />
                   </span>
                 </Card>
               </Link>

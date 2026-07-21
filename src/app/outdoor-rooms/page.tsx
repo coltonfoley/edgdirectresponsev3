@@ -209,7 +209,7 @@ export default function OutdoorRoomsPage() {
                     size="lg"
                     className="border-white/20 text-white hover:bg-white hover:text-black"
                   >
-                    Plan My Space
+                    Request a Quote
                   </Button>
                 </TrackedLink>
               </div>

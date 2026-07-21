@@ -461,8 +461,8 @@ export default function NapervilleMotorizedPergolas() {
                 you decide.
               </p>
               <p className="text-text-inverse-muted mb-10">
-                Schedule a site survey and receive a detailed proposal tailored
-                to your Naperville property.
+                Request a quote for a proposal tailored to your Naperville
+                property.
               </p>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link href="/guides/pergola-system-fit-review?area=naperville&source=naperville_pergola_bottom">
@@ -476,7 +476,7 @@ export default function NapervilleMotorizedPergolas() {
                     size="lg"
                     className="border-white/20 text-white hover:bg-white/10"
                   >
-                    Schedule Showroom Visit
+                    Request a Quote
                   </Button>
                 </Link>
               </div>

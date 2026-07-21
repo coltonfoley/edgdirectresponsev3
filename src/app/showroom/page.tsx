@@ -65,7 +65,7 @@ const contactCards = [
     icon: Clock,
     title: 'Showroom Hours',
     body: 'Monday-Friday, 9:00 AM-5:00 PM. Saturday by appointment.',
-    action: 'Schedule ahead',
+    action: 'Request a Quote',
     href: showroomVisitHref,
   },
   {
@@ -171,7 +171,7 @@ export default function ShowroomPage() {
                   conversionName="showroom_visit_click"
                 >
                   <Button size="lg" className="w-full sm:w-auto">
-                    Schedule a Visit
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </TrackedLink>
@@ -366,7 +366,7 @@ export default function ShowroomPage() {
                 conversionName="showroom_visit_click"
               >
                 <Button size="lg" className="w-full">
-                  Schedule Showroom Visit
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
