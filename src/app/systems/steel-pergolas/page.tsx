@@ -216,7 +216,7 @@ export default function SteelPergolasPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href={contactHref}>
                 <Button size="lg" className="w-full sm:w-auto">
-                  Request a Steel Pergola Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -379,7 +379,7 @@ export default function SteelPergolasPage() {
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Project Path</div>
             <h2 className="section-title mb-5">
-              From site review to installed structure
+              From quote request to installed structure
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               Custom steel work becomes predictable when the responsibilities
@@ -485,7 +485,7 @@ export default function SteelPergolasPage() {
               ))}
               <Link href={contactHref} className="block pt-3">
                 <Button size="lg" className="w-full justify-between">
-                  Request a Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

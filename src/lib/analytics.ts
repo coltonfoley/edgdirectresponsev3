@@ -32,15 +32,15 @@ export function trackConversion({
   }
 
   const pagePath = window.location.pathname;
-  const ctaId = `${conversionName}-${String(linkText || "cta")}`
+  const ctaId = `${conversionName}-${String(linkText || 'cta')}`
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
     .slice(0, 80);
   const payload = {
     conversion_name: conversionName,
     cta_id: ctaId,
-    link_type: linkUrl?.startsWith("tel:") ? "phone" : "link",
+    link_type: linkUrl?.startsWith('tel:') ? 'phone' : 'link',
     page_path: pagePath,
     page_family: classifyPageFamily(pagePath),
   };
@@ -98,9 +98,11 @@ export function getLeadJourneyMetadata(
     window.sessionStorage.getItem('edg_landing_page') || pagePath
   );
   const productParam =
-    safeToken(searchParams.get('product')) || safeToken(searchParams.get('project'));
+    safeToken(searchParams.get('product')) ||
+    safeToken(searchParams.get('project'));
   const marketParam =
-    safeToken(searchParams.get('area')) || safeToken(searchParams.get('market'));
+    safeToken(searchParams.get('area')) ||
+    safeToken(searchParams.get('market'));
 
   return {
     page_url: `${window.location.origin}${pagePath}`,

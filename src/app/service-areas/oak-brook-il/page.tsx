@@ -28,7 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: '/opengraph-image' }],
     title: 'Oak Brook Outdoor Living | Pergolas & Shades | EDG',
-    description: 'Custom outdoor living systems for Oak Brook. Motorized pergolas, retractable screens, and professional installation.',
+    description:
+      'Custom outdoor living systems for Oak Brook. Motorized pergolas, retractable screens, and professional installation.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -36,7 +37,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/oak-brook-il',
   },
-  keywords: ['oak brook pergolas', 'oak brook outdoor living', 'oak brook il patio', 'pergola installation oak brook', 'oak brook backyard'],
+  keywords: [
+    'oak brook pergolas',
+    'oak brook outdoor living',
+    'oak brook il patio',
+    'pergola installation oak brook',
+    'oak brook backyard',
+  ],
 };
 
 const localBenefits = [
@@ -55,17 +62,17 @@ const neighborhoods = [
   {
     name: 'Hinsdale',
     description:
-      'Hinsdale\'s historic charm and tree-lined streets require thoughtful outdoor design. Our systems respect the village\'s architectural heritage while adding modern functionality. We navigate Hinsdale\'s strict building codes to create outdoor spaces that enhance property values in this coveted community.',
+      "Hinsdale's historic charm and tree-lined streets require thoughtful outdoor design. Our systems respect the village's architectural heritage while adding modern functionality. We navigate Hinsdale's strict building codes to create outdoor spaces that enhance property values in this coveted community.",
   },
   {
     name: 'Burr Ridge',
     description:
-      'Burr Ridge properties often feature rolling terrain and wooded lots with unique views. Our custom engineering adapts to sloped yards and natural landscapes, creating level outdoor living areas that maximize your property\'s potential while preserving its natural beauty.',
+      "Burr Ridge properties often feature rolling terrain and wooded lots with unique views. Our custom engineering adapts to sloped yards and natural landscapes, creating level outdoor living areas that maximize your property's potential while preserving its natural beauty.",
   },
   {
     name: 'Elmhurst',
     description:
-      'Elmhurst\'s mix of historic and contemporary homes calls for versatile design approaches. Whether you own a vintage Victorian or a modern new construction, we create outdoor systems that feel architecturally integrated and enhance your home\'s unique character.',
+      "Elmhurst's mix of historic and contemporary homes calls for versatile design approaches. Whether you own a vintage Victorian or a modern new construction, we create outdoor systems that feel architecturally integrated and enhance your home's unique character.",
   },
 ];
 
@@ -124,17 +131,18 @@ const faqs = [
       'Permanent outdoor structures commonly require local review, but the exact path depends on the address, structure size, attachment method, hardscape coverage, easements, and any HOA or estate review requirements. We help verify the correct path before design is finalized.',
   },
   {
-    question: 'How do your systems handle Oak Brook\'s impervious surface limits?',
+    question:
+      "How do your systems handle Oak Brook's impervious surface limits?",
     answer:
       'Coverage and drainage questions should be reviewed by address. A louvered pergola may be evaluated differently than a solid roof in some situations, but the right answer depends on the municipality, design, and site conditions. We review those constraints early so the plan does not surprise anyone later.',
   },
   {
-    question: 'Can you match my home\'s existing architecture?',
+    question: "Can you match my home's existing architecture?",
     answer:
       'Absolutely. Our aluminum systems can be powder-coated to match any color palette, from traditional earth tones found in Hinsdale historic districts to contemporary whites and grays popular in Oak Brook new construction. We design with sightlines and architectural character in mind.',
   },
   {
-    question: 'What\'s the typical timeline for an Oak Brook project?',
+    question: "What's the typical timeline for an Oak Brook project?",
     answer:
       'A custom Oak Brook area project can take several weeks for design, review, fabrication, and installation. Timeline depends on project scope, review requirements, electrical coordination, and weather, so we set expectations once the site and approval path are clear.',
   },
@@ -227,8 +235,7 @@ export default function OakBrookHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Oak Brook Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -242,8 +249,12 @@ export default function OakBrookHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -268,8 +279,12 @@ export default function OakBrookHubPage() {
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -291,14 +306,19 @@ export default function OakBrookHubPage() {
               <p className="text-text-secondary text-lg leading-relaxed">
                 Oak Brook projects are often judged by whether they feel
                 original to the home. That means scale, finish, sightlines,
-                review documentation, and seasonal comfort matter as much as
-                the louvered roof itself.
+                review documentation, and seasonal comfort matter as much as the
+                louvered roof itself.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -317,13 +337,20 @@ export default function OakBrookHubPage() {
                 Built for Western Suburbs Estates
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are selected around Oak Brook area weather, architecture, review needs, and how the outdoor room will be used.
+                Our systems are selected around Oak Brook area weather,
+                architecture, review needs, and how the outdoor room will be
+                used.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {localConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -342,7 +369,8 @@ export default function OakBrookHubPage() {
                 Common Questions About Oak Brook Projects
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Everything you need to know about outdoor living in the western suburbs.
+                Everything you need to know about outdoor living in the western
+                suburbs.
               </p>
             </div>
             <div className="mx-auto max-w-3xl space-y-4">
@@ -366,15 +394,12 @@ export default function OakBrookHubPage() {
                 Ready to plan your Oak Brook project?
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
-                Review the address, constraints, and right system path with our local design team.
+                Review the address, constraints, and right system path with our
+                local design team.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start Oak Brook Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

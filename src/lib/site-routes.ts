@@ -153,7 +153,7 @@ export const siteRoutes: SiteRoute[] = [
     footerGroup: 'systems',
     priority: 0.85,
     status: 'active',
-    desc: 'Explore a pergola layout before a fit review',
+    desc: 'Explore a pergola layout before requesting a quote',
   },
   {
     href: '/systems/shades',
@@ -903,7 +903,7 @@ export const siteRoutes: SiteRoute[] = [
   },
   {
     href: '/guides/pergola-system-fit-review',
-    label: 'System Fit Review',
+    label: 'Pergola Quote',
     family: 'guides',
     xmlSitemap: true,
     htmlSitemap: true,
@@ -911,7 +911,7 @@ export const siteRoutes: SiteRoute[] = [
     footerGroup: 'guides',
     priority: 0.9,
     status: 'active',
-    desc: 'Share photos and goals so EDG can identify the likely path',
+    desc: 'Request a quote and optionally share project photos or plans',
   },
   {
     href: '/guides/motorized-pergola-budget-examples',

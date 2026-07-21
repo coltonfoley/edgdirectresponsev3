@@ -169,7 +169,7 @@ export default function LouveredPergolaSystemSelectionPage() {
               </p>
               <Link href="/guides/pergola-system-fit-review">
                 <Button size="lg">
-                  Get a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -285,7 +285,7 @@ export default function LouveredPergolaSystemSelectionPage() {
               </p>
               <Link href="/guides/pergola-system-fit-review">
                 <Button className="w-full justify-between">
-                  Request Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>

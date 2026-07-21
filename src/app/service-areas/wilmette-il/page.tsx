@@ -240,8 +240,7 @@ export default function WilmetteHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Wilmette Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -376,8 +375,8 @@ export default function WilmetteHubPage() {
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Wilmette review questions can be address-specific. Use this as
-                planning context before a site review, not as a final permit
-                determination.
+                planning context before requesting a quote, not as a final
+                permit determination.
               </p>
             </div>
             <div className="mx-auto max-w-4xl space-y-8">
@@ -454,9 +453,9 @@ export default function WilmetteHubPage() {
                   <Clock className="text-edg-brand-dark h-6 w-6" />
                   Review Package
                 </h3>
-                <div className="mb-6 flex items-center gap-3 border border-border bg-white p-4">
+                <div className="border-border mb-6 flex items-center gap-3 border bg-white p-4">
                   <Clock className="text-edg-brand-dark h-5 w-5 shrink-0" />
-                  <p className="font-medium text-text-primary">
+                  <p className="text-text-primary font-medium">
                     The cleaner the submission, the easier it is for everyone to
                     understand the proposed outdoor room.
                   </p>
@@ -592,8 +591,7 @@ export default function WilmetteHubPage() {
               </p>
               <Link href={bottomContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Schedule Wilmette Planning{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

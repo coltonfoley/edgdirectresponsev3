@@ -214,8 +214,7 @@ export default function MilwaukeeZoningGuidePage() {
               </p>
               <Link href={topContactHref}>
                 <Button variant="secondary">
-                  Ask EDG to Review the Site{' '}
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
@@ -430,7 +429,7 @@ export default function MilwaukeeZoningGuidePage() {
                   size="lg"
                   className="border-white/20 text-white hover:bg-white/10"
                 >
-                  Ask EDG to Review the Site
+                  Request a Quote
                 </Button>
               </Link>
             </div>

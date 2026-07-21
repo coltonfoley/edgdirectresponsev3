@@ -258,13 +258,13 @@ export default function MotorizedPergolaPermitsHoaEngineeringPage() {
                 Have HOA, permit, or engineering concerns?
               </h2>
               <p className="text-lg leading-relaxed text-zinc-300">
-                Start with a System Fit Review. EDG can help separate normal
-                planning issues from scope-changing constraints.
+                Request a quote. EDG can help separate normal planning issues
+                from scope-changing constraints.
               </p>
             </div>
             <Link href="/guides/pergola-system-fit-review">
               <Button size="lg" className="w-full justify-between">
-                Start Review
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

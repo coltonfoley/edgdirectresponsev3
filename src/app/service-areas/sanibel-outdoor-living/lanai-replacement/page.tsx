@@ -78,7 +78,7 @@ const whyUpgrade = [
   {
     title: 'More Usable Days',
     description:
-      'Fixed lanais trap heat and block breezes. Adjustable louvers let you control temperature and airflow, extending your outdoor season through Sanibel\'s hottest months.',
+      "Fixed lanais trap heat and block breezes. Adjustable louvers let you control temperature and airflow, extending your outdoor season through Sanibel's hottest months.",
     icon: Clock,
   },
   {
@@ -156,7 +156,8 @@ const faqs = [
       'No. If insurance, damage review, or the 50% rule requires serious rebuild planning, you can compare a different type of structure before rebuilding the same screen enclosure. The right answer depends on documentation, engineering, local review, and the actual scope.',
   },
   {
-    question: 'What is the 50% rule and how does it affect my lanai replacement?',
+    question:
+      'What is the 50% rule and how does it affect my lanai replacement?',
     answer:
       'Sanibel explains that repairs, alterations, improvements, demolition, and similar work can be reviewed for substantial damage or substantial improvement at permit time. If the cost exceeds 50% of the market value of a noncompliant building, current floodplain standards may apply. That review can be the right time to compare a modern system rather than automatically rebuilding the same enclosure.',
   },
@@ -209,7 +210,9 @@ export default function LanaiReplacementPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -233,12 +236,15 @@ export default function LanaiReplacementPage() {
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
-                { label: 'Sanibel, FL', href: '/service-areas/sanibel-outdoor-living' },
+                {
+                  label: 'Sanibel, FL',
+                  href: '/service-areas/sanibel-outdoor-living',
+                },
                 { label: 'Lanai Replacement' },
               ]}
             />
           </div>
-          
+
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
               <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
@@ -246,7 +252,9 @@ export default function LanaiReplacementPage() {
               </span>
               <h1 className="hero-title mb-6 text-white">
                 Lanai Replacement in Sanibel:{' '}
-                <span className="text-edg-brand block">Compare Before You Rebuild</span>
+                <span className="text-edg-brand block">
+                  Compare Before You Rebuild
+                </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 If your covered outdoor space was damaged or outdated, use the
@@ -257,8 +265,7 @@ export default function LanaiReplacementPage() {
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href={replacementContactHref}>
                   <Button size="lg" className="px-8 text-lg">
-                    Get a Replacement Quote{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <a
@@ -279,8 +286,12 @@ export default function LanaiReplacementPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {replacementBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -293,13 +304,13 @@ export default function LanaiReplacementPage() {
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-4xl">
-              <div className="flex items-start gap-4 border border-border bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
+              <div className="border-border flex items-start gap-4 border bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
                 <AlertTriangle className="text-edg-brand-dark mt-1 h-8 w-8 shrink-0" />
                 <div>
-                  <h2 className="mb-2 text-xl font-bold text-text-primary dark:text-text-inverse">
+                  <h2 className="text-text-primary dark:text-text-inverse mb-2 text-xl font-bold">
                     Understanding the 50% Rule
                   </h2>
-                  <p className="text-text-secondary mb-4 dark:text-text-inverse-muted">
+                  <p className="text-text-secondary dark:text-text-inverse-muted mb-4">
                     Sanibel reviews repairs and improvements for substantial
                     damage or substantial improvement at permit time. If the
                     cost exceeds 50% of the market value of a noncompliant
@@ -327,13 +338,19 @@ export default function LanaiReplacementPage() {
                 Why Upgrade Instead of Rebuild?
               </h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                Four compelling reasons Sanibel homeowners are choosing modern systems for their lanai replacement.
+                Four compelling reasons Sanibel homeowners are choosing modern
+                systems for their lanai replacement.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {whyUpgrade.map((item, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -357,10 +374,19 @@ export default function LanaiReplacementPage() {
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {processSteps.map((step, i) => (
-                <Card key={i} variant="muted" padding="lg" className="text-center">
-                  <span className="text-edg-brand mb-4 block text-4xl font-bold">{step.step}</span>
+                <Card
+                  key={i}
+                  variant="muted"
+                  padding="lg"
+                  className="text-center"
+                >
+                  <span className="text-edg-brand mb-4 block text-4xl font-bold">
+                    {step.step}
+                  </span>
                   <h3 className="mb-3 text-lg font-bold">{step.title}</h3>
-                  <p className="text-text-secondary text-sm">{step.description}</p>
+                  <p className="text-text-secondary text-sm">
+                    {step.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -377,7 +403,8 @@ export default function LanaiReplacementPage() {
                 Rebuild vs. Upgrade: Cost Analysis
               </h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                Compare the true cost of rebuilding a traditional lanai versus upgrading to a modern louvered system.
+                Compare the true cost of rebuilding a traditional lanai versus
+                upgrading to a modern louvered system.
               </p>
             </div>
 
@@ -385,7 +412,9 @@ export default function LanaiReplacementPage() {
               <div className="grid grid-cols-12 gap-4 bg-zinc-100 p-4 text-sm font-bold dark:bg-zinc-900">
                 <div className="col-span-3">Cost Factor</div>
                 <div className="col-span-3">Traditional Lanai</div>
-                <div className="col-span-3 text-edg-brand-text">Modern Louvered</div>
+                <div className="text-edg-brand-text col-span-3">
+                  Modern Louvered
+                </div>
                 <div className="col-span-3">Analysis</div>
               </div>
               {costComparison.map((row, i) => (
@@ -394,19 +423,23 @@ export default function LanaiReplacementPage() {
                   className="grid grid-cols-12 gap-4 border-t border-zinc-200 p-4 text-sm dark:border-zinc-800"
                 >
                   <div className="col-span-3 font-semibold">{row.factor}</div>
-                  <div className="col-span-3 whitespace-pre-line text-text-secondary">{row.traditional}</div>
-                  <div className="col-span-3 whitespace-pre-line text-edg-brand-text font-medium">
+                  <div className="text-text-secondary col-span-3 whitespace-pre-line">
+                    {row.traditional}
+                  </div>
+                  <div className="text-edg-brand-text col-span-3 font-medium whitespace-pre-line">
                     {row.modern}
                   </div>
-                  <div className="col-span-3 text-text-secondary">{row.note}</div>
+                  <div className="text-text-secondary col-span-3">
+                    {row.note}
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+            <div className="border-border mt-8 border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
               <div className="flex items-start gap-3">
                 <Info className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
-                <p className="text-text-secondary text-sm dark:text-text-inverse-muted">
+                <p className="text-text-secondary dark:text-text-inverse-muted text-sm">
                   <strong>Bottom Line:</strong> The right comparison is not just
                   frame price. Include demolition, permit review, engineering,
                   screens, drainage, electrical, maintenance, and how often the
@@ -423,7 +456,7 @@ export default function LanaiReplacementPage() {
         <Container>
           <FadeIn>
             <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div className="relative h-[400px] overflow-hidden ">
+              <div className="relative h-[400px] overflow-hidden">
                 <Image
                   src={images.pages.serviceAreas.sanibelShopros02}
                   alt="Newly installed gray and white louvered roof system replacing traditional lanai"
@@ -491,11 +524,10 @@ export default function LanaiReplacementPage() {
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="section-title mb-4">
-                Lanai Replacement FAQs
-              </h2>
+              <h2 className="section-title mb-4">Lanai Replacement FAQs</h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                Common questions about replacing your Sanibel lanai after storm damage.
+                Common questions about replacing your Sanibel lanai after storm
+                damage.
               </p>
             </div>
             <div className="mx-auto max-w-3xl space-y-4">
@@ -527,9 +559,14 @@ export default function LanaiReplacementPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Home}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     The Modern Lanai
                   </h3>
@@ -550,15 +587,21 @@ export default function LanaiReplacementPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={ShieldCheck}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Louvered Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Explore our full range of louvered roof systems engineered for Sanibel's 
-                    coastal permit and product documentation needs.
+                    Explore our full range of louvered roof systems engineered
+                    for Sanibel's coastal permit and product documentation
+                    needs.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     View Pergola Systems <ArrowRight className="h-4 w-4" />
@@ -573,9 +616,14 @@ export default function LanaiReplacementPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={FileText} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={FileText}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Sanibel Permit Guide
                   </h3>
@@ -598,25 +646,25 @@ export default function LanaiReplacementPage() {
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 Ready to Review a Lanai Replacement Plan?
               </h2>
-              <p className="mb-8 text-xl text-text-inverse-muted">
+              <p className="text-text-inverse-muted mb-8 text-xl">
                 Send photos, dimensions, and known permit or insurance context
                 before defaulting to the old layout.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href={replacementContactHref}>
                   <Button size="lg" className="px-8 text-lg">
-                    Start Replacement Review{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link
                   href="/service-areas/sanibel-outdoor-living"
-                  className="inline-flex items-center gap-2 text-sm text-text-inverse-muted transition-colors hover:text-text-inverse"
+                  className="text-text-inverse-muted hover:text-text-inverse inline-flex items-center gap-2 text-sm transition-colors"
                 >
-                  <ArrowLeft className="h-4 w-4" /> Back to Sanibel Outdoor Living
+                  <ArrowLeft className="h-4 w-4" /> Back to Sanibel Outdoor
+                  Living
                 </Link>
               </div>
             </div>

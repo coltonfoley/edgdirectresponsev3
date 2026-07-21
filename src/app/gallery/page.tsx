@@ -60,7 +60,8 @@ function getGallerySortKey(image: GalleryImage): string {
 
 export const metadata: Metadata = {
   title: 'Project Gallery | EDG Patio & Shade Work',
-  description: 'View our portfolio of motorized pergola and screen installations across Chicago, Wisconsin, and Florida.',
+  description:
+    'View our portfolio of motorized pergola and screen installations across Chicago, Wisconsin, and Florida.',
   alternates: { canonical: '/gallery' },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
@@ -79,23 +80,19 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <Section className="bg-black pt-32 pb-24 border-b border-white/10">
+      <Section className="border-b border-white/10 bg-black pt-32 pb-24">
         <Container>
           {/* Breadcrumb */}
           <div className="mb-6">
-            <Breadcrumb
-              items={[
-                { label: 'Gallery' },
-              ]}
-            />
+            <Breadcrumb items={[{ label: 'Gallery' }]} />
           </div>
           <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="max-w-4xl">
-              <p className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase flex items-center gap-3">
-                <span className="h-px w-8 bg-edg-brand"></span>
-              Visual Portfolio
+              <p className="text-edg-brand mb-6 flex items-center gap-3 text-xs font-bold tracking-[0.2em] uppercase">
+                <span className="bg-edg-brand h-px w-8"></span>
+                Visual Portfolio
               </p>
-              <h1 className="mb-8 text-5xl font-bold leading-none text-white md:text-7xl">
+              <h1 className="mb-8 text-5xl leading-none font-bold text-white md:text-7xl">
                 The Work.
               </h1>
               <p className="max-w-xl text-xl leading-relaxed text-zinc-300">
@@ -120,13 +117,13 @@ export default function GalleryPage() {
                     variant="outline"
                     className="w-full sm:w-auto"
                   >
-                    Plan a Similar Project
+                    Request a Quote
                   </Button>
                 </Link>
               </div>
             </div>
 
-            <div className="grid gap-4 border-l-2 border-edg-brand pl-6">
+            <div className="border-edg-brand grid gap-4 border-l-2 pl-6">
               {[
                 ['Pergolas', 'adjustable shade and rain control'],
                 ['Screens', 'bug, glare, wind, and privacy control'],
@@ -147,23 +144,25 @@ export default function GalleryPage() {
       <Section className="bg-black py-0">
         <Container fluid className="px-0 md:px-0">
           {/* Use a simple flex column layout on mobile, masonry-like on desktop via columns */}
-          <div className="columns-1 md:columns-2 xl:columns-3 gap-0 space-y-0">
+          <div className="columns-1 gap-0 space-y-0 md:columns-2 xl:columns-3">
             {displayImages.map((image) => (
-              <div key={image.id} className="relative group break-inside-avoid">
+              <div key={image.id} className="group relative break-inside-avoid">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   width={image.width}
                   height={image.height}
-                  className="w-full h-auto grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                  className="h-auto w-full grayscale-[20%] transition-all duration-700 ease-out group-hover:grayscale-0"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   placeholder="blur"
                   blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                 />
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-edg-brand text-xs font-bold tracking-widest uppercase mb-2">EDG Project</p>
-                    <div className="w-8 h-px bg-white/50 mx-auto"></div>
+                <div className="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="translate-y-4 transform text-center transition-transform duration-300 group-hover:translate-y-0">
+                    <p className="text-edg-brand mb-2 text-xs font-bold tracking-widest uppercase">
+                      EDG Project
+                    </p>
+                    <div className="mx-auto h-px w-8 bg-white/50"></div>
                   </div>
                 </div>
               </div>
@@ -172,18 +171,18 @@ export default function GalleryPage() {
         </Container>
       </Section>
 
-      <Section className="bg-black py-24 border-t border-white/10">
+      <Section className="border-t border-white/10 bg-black py-24">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+            <p className="text-edg-brand mb-4 text-xs font-bold tracking-[0.2em] uppercase">
               End of Portfolio
             </p>
             <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
               Turn the inspiration into a site-specific plan.
             </h2>
             <p className="mb-10 text-zinc-300">
-              EDG can help match the right pergola, screen, glass, appliance,
-              or outdoor-room package to the way the space needs to work.
+              EDG can help match the right pergola, screen, glass, appliance, or
+              outdoor-room package to the way the space needs to work.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link
@@ -194,8 +193,7 @@ export default function GalleryPage() {
                 })}
               >
                 <Button size="lg" className="w-full sm:w-auto">
-                  Start a Project Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/showroom">

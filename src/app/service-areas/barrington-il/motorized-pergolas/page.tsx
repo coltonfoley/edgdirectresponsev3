@@ -126,7 +126,7 @@ export default function BarringtonPergolaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
@@ -138,7 +138,7 @@ export default function BarringtonPergolaPage() {
         }}
       />
 
-      <section className="relative flex min-h-[64vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <section className="bg-edg-dark relative flex min-h-[64vh] items-center overflow-hidden pt-24 pb-16 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.barringtonPergola1}
@@ -163,16 +163,17 @@ export default function BarringtonPergolaPage() {
 
           <Link
             href="/service-areas/barrington-il"
-            className="mb-8 inline-flex items-center text-sm text-zinc-300 transition-colors hover:text-edg-brand"
+            className="hover:text-edg-brand mb-8 inline-flex items-center text-sm text-zinc-300 transition-colors"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Barrington Outdoor Living
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Barrington Outdoor
+            Living
           </Link>
 
           <div className="max-w-3xl">
-            <span className="mb-6 inline-flex items-center gap-2 border border-edg-brand/20 bg-edg-brand/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-edg-brand-dark">
+            <span className="border-edg-brand/20 bg-edg-brand/10 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
               <MapPin className="h-4 w-4" /> Barrington Pergola Planning
             </span>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-6xl">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-6xl">
               Motorized Pergolas for Barrington Estates
             </h1>
             <p className="mb-10 max-w-2xl text-xl leading-relaxed text-zinc-200">
@@ -183,7 +184,7 @@ export default function BarringtonPergolaPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/guides/pergola-system-fit-review?area=barrington&source=barrington_pergola">
                 <Button size="lg" className="px-8">
-                  Request a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -197,9 +198,9 @@ export default function BarringtonPergolaPage() {
         </Container>
       </section>
 
-      <section className="border-t border-white/5 bg-edg-dark py-8">
+      <section className="bg-edg-dark border-t border-white/5 py-8">
         <Container>
-          <div className="flex flex-wrap gap-4 text-sm text-text-inverse-muted md:justify-center">
+          <div className="text-text-inverse-muted flex flex-wrap gap-4 text-sm md:justify-center">
             {[
               'Louvered roof systems',
               'Integrated screens and heaters',
@@ -207,7 +208,7 @@ export default function BarringtonPergolaPage() {
               'Spring Grove showroom access',
             ].map((item) => (
               <span key={item} className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-edg-brand-dark" />
+                <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />
                 {item}
               </span>
             ))}
@@ -225,21 +226,23 @@ export default function BarringtonPergolaPage() {
               <h2 className="section-title mb-6">
                 The right pergola has to feel built into the property.
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
-                Barrington homeowners are rarely looking for a small patio cover.
-                The real project is usually a poolside entertaining area, an
-                outdoor kitchen, a west-facing terrace, or a backyard room that
-                needs to look appropriate next to a high-value home. That changes
-                the design conversation. The pergola needs to manage sun and rain,
-                but it also needs to respect sightlines, mature landscaping,
-                architecture, and the way guests move through the property.
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                Barrington homeowners are rarely looking for a small patio
+                cover. The real project is usually a poolside entertaining area,
+                an outdoor kitchen, a west-facing terrace, or a backyard room
+                that needs to look appropriate next to a high-value home. That
+                changes the design conversation. The pergola needs to manage sun
+                and rain, but it also needs to respect sightlines, mature
+                landscaping, architecture, and the way guests move through the
+                property.
               </p>
-              <p className="text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary text-lg leading-relaxed">
                 A motorized louvered roof is strongest when it is planned as a
                 system. Louvers control overhead exposure. Side screens handle
                 bugs, wind, and privacy. Heaters and lighting extend use into
                 spring and fall. Controls make the space practical for everyday
-                life instead of another feature that only gets used during parties.
+                life instead of another feature that only gets used during
+                parties.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -258,13 +261,11 @@ export default function BarringtonPergolaPage() {
       <Section className="section-md bg-surface-muted">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Pergola fit checks
-            </div>
+            <div className="label-editorial-brand mb-4">Pergola fit checks</div>
             <h2 className="section-title mb-4">
               What we evaluate before recommending a system
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary text-lg leading-relaxed">
               The best Barrington pergola projects start with site conditions,
               not a catalog size. These are the questions that determine whether
               the final outdoor room feels natural, performs well, and survives
@@ -275,7 +276,12 @@ export default function BarringtonPergolaPage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {pergolaFit.map((item) => (
               <Card key={item.title} variant="default" padding="lg">
-                <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                <IconWrapper
+                  icon={item.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-4"
+                />
                 <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                 <p className="text-text-secondary">{item.description}</p>
               </Card>
@@ -294,12 +300,13 @@ export default function BarringtonPergolaPage() {
               <h2 className="section-title mb-6">
                 A better quote starts with the constraints.
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 Barrington area projects can involve more stakeholders than a
                 typical patio upgrade: homeowners, designers, builders, HOA
-                committees, village reviewers, and sometimes landscape architects.
-                We help bring those requirements into the plan early so the final
-                quote reflects the real job instead of a simplified placeholder.
+                committees, village reviewers, and sometimes landscape
+                architects. We help bring those requirements into the plan early
+                so the final quote reflects the real job instead of a simplified
+                placeholder.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <Link href="/service-areas/barrington-il#zoning">
@@ -320,12 +327,14 @@ export default function BarringtonPergolaPage() {
             <Card variant="muted" padding="lg">
               <div className="mb-6 flex items-center gap-3">
                 <IconWrapper icon={ShieldCheck} variant="brand" size="md" />
-                <h3 className="text-2xl font-bold">Before we finalize the pergola</h3>
+                <h3 className="text-2xl font-bold">
+                  Before we finalize the pergola
+                </h3>
               </div>
               <ul className="space-y-4">
                 {planningPriorities.map((item) => (
                   <li key={item} className="flex gap-3">
-                    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-edg-brand-dark" />
+                    <CheckCircle2 className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                     <span className="text-text-secondary">{item}</span>
                   </li>
                 ))}
@@ -356,7 +365,12 @@ export default function BarringtonPergolaPage() {
               },
             ].map((option) => (
               <Card key={option.title} variant="default" padding="lg">
-                <IconWrapper icon={option.icon} variant="brand" size="lg" className="mb-4" />
+                <IconWrapper
+                  icon={option.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-4"
+                />
                 <h3 className="mb-3 text-xl font-bold">{option.title}</h3>
                 <p className="text-text-secondary">{option.body}</p>
               </Card>
@@ -373,7 +387,7 @@ export default function BarringtonPergolaPage() {
                 Barrington pergola FAQ
               </div>
               <h2 className="section-title">
-                Common questions before a site review
+                Common questions before you request a quote
               </h2>
             </div>
             <div className="space-y-4">
@@ -391,17 +405,18 @@ export default function BarringtonPergolaPage() {
       <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
+            <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
               Plan a Barrington Pergola That Belongs on the Property
             </h2>
-            <p className="mb-8 text-xl text-text-inverse-muted">
+            <p className="text-text-inverse-muted mb-8 text-xl">
               Share photos, rough dimensions, and the way you want the patio to
               work. We will help decide whether a louvered roof, screens,
-              heaters, lighting, or a phased outdoor room plan makes the most sense.
+              heaters, lighting, or a phased outdoor room plan makes the most
+              sense.
             </p>
             <Link href="/guides/pergola-system-fit-review?area=barrington&source=barrington_pergola_cta">
               <Button size="lg" className="px-8 text-lg">
-                Request a System Fit Review
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

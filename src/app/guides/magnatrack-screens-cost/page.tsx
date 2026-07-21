@@ -286,20 +286,17 @@ export default function MagnaTrackScreensCostGuide() {
         <Container>
           <div className="border-border mx-auto grid max-w-5xl gap-12 border bg-white p-6 md:grid-cols-[0.8fr_1.2fr] md:p-10">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Screen Fit + Budget
-              </div>
+              <div className="label-editorial-brand mb-4">Screen Quotes</div>
               <h2 className="section-title mb-6">
-                Get a useful first answer before a sales call.
+                Request a quote for motorized patio screens.
               </h2>
               <p className="text-text-secondary mb-5 text-lg leading-relaxed">
-                Tell us what the opening needs to solve. We will use the space,
-                the issue, and your planning range to point you toward the most
-                practical screen direction.
+                Enter your name, email, phone, and interest. We will contact you
+                to learn about the openings and discuss pricing.
               </p>
               <p className="text-text-secondary leading-relaxed">
-                This is a fit-and-budget review, not a generic quote request.
-                Clear rough details help us give you a better first response.
+                Opening sizes, project notes, and photos can help, but they are
+                optional for the initial request.
               </p>
             </div>
             <ScreenFitBudgetForm />
@@ -452,7 +449,7 @@ export default function MagnaTrackScreensCostGuide() {
                 conversionName="screen_fit_budget_cta"
                 className={buttonClassName({ size: 'lg' })}
               >
-                Get My Screen Fit + Budget Range
+                Request a Quote
               </TrackedLink>
             </div>
             <div className="border-border-inverse hidden border-l pl-16 md:block">

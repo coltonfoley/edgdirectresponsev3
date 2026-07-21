@@ -206,7 +206,7 @@ export default function RestaurantPatioEnclosuresPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <TrackedLink href={heroContactHref}>
                 <Button size="lg">
-                  Schedule a Commercial Assessment
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -415,7 +415,7 @@ export default function RestaurantPatioEnclosuresPage() {
               </p>
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Request a Patio Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -514,7 +514,7 @@ export default function RestaurantPatioEnclosuresPage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Start Commercial Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>

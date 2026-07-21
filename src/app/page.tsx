@@ -59,9 +59,9 @@ const priorityPlanningLinks = [
     href: '/guides/motorized-pergola-planning',
   },
   {
-    title: 'Pergola System Fit Review',
+    title: 'Request a Pergola Quote',
     description:
-      'Send photos, dimensions, budget, and project goals so EDG can narrow the right system direction.',
+      'Tell EDG what you are interested in. Project details and photos are optional.',
     href: '/guides/pergola-system-fit-review',
   },
   {
@@ -112,7 +112,7 @@ const featuredProjects = featuredProjectSlugs
   .map((slug) => getProject(slug))
   .filter((project): project is Project => Boolean(project));
 const homeownerContactHref = buildContactHref({
-  type: 'homeowner',
+  type: 'quote',
   source: 'home_residential_directory',
 });
 
@@ -151,24 +151,26 @@ export default function Home() {
             {/* Left: Headline & Copy - Server Rendered for SEO/LCP */}
             <div className="flex flex-col justify-center text-white lg:col-span-7">
               <h1 className="hero-title mb-6 text-white">
-                Motorized <br />
-                <span className="text-edg-brand">Pergolas & Screens</span>
+                Motorized Pergolas, <br />
+                <span className="text-edg-brand">
+                  Patio Screens & Glass Enclosures
+                </span>
               </h1>
 
               <p className="mb-8 max-w-xl text-lg leading-relaxed font-medium text-gray-200 md:text-xl">
-                We are the design and supply partner for professionals
-                nationwide, and the full-service installer for homeowners from
-                Chicago to Milwaukee.
+                EDG helps homeowners and businesses choose the right outdoor
+                system, provides a clear quote, and handles local installation
+                from Chicago to Milwaukee.
               </p>
 
               <div className="flex flex-wrap items-center gap-6">
                 <div className="label-editorial flex items-center gap-2 text-white">
                   <div className="bg-edg-brand h-1 w-1"></div>
-                  System Agnostic
+                  Local Installation
                 </div>
                 <div className="label-editorial flex items-center gap-2 text-white">
                   <div className="bg-edg-brand h-1 w-1"></div>
-                  Engineering Support
+                  Nationwide Trade Supply
                 </div>
                 <div className="label-editorial flex items-center gap-2 text-white">
                   <div className="bg-edg-brand h-1 w-1"></div>
@@ -178,7 +180,7 @@ export default function Home() {
             </div>
 
             {/* Right: Conversion Form (Client Component Only) */}
-            <div className="flex flex-col justify-center lg:col-span-5 lg:pl-8">
+            <div className="flex flex-col justify-center lg:col-span-5 lg:pl-4">
               <HeroFormClient />
             </div>
           </div>
@@ -189,13 +191,13 @@ export default function Home() {
       <section className="border-t border-white/10 bg-black py-8">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-8 text-sm font-medium tracking-widest text-white/60 uppercase">
-            <span>Specialty Outdoor Systems</span>
+            <span>Motorized Outdoor Systems</span>
             <span className="hidden md:inline">•</span>
             <span>Design & Supply</span>
             <span className="hidden md:inline">•</span>
             <span>Installation</span>
             <span className="hidden md:inline">•</span>
-            <span>Established Partner</span>
+            <span>Spring Grove Showroom</span>
           </div>
         </Container>
       </section>
@@ -265,11 +267,11 @@ export default function Home() {
                 Residential Design
               </h2>
               <p className="mb-8 max-w-sm text-lg text-gray-300">
-                Upgrade your home with the definitive motorized systems.
-                Full-service planning and installation.
+                Explore motorized pergolas, patio screens, and glass enclosures
+                with local planning and installation.
               </p>
               <div className="group-hover:text-edg-brand flex items-center text-sm font-bold tracking-wider text-white uppercase transition-colors">
-                Start Planning <ArrowRight className="ml-2 h-4 w-4" />
+                Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
               </div>
             </div>
           </Link>
@@ -401,8 +403,8 @@ export default function Home() {
               Start with the question closest to your project.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Compare local conditions, screen pricing, and system-fit guidance
-              before scheduling a consultation.
+              Compare local conditions, screen pricing, and product options,
+              then request a quote when you are ready.
             </p>
           </div>
 

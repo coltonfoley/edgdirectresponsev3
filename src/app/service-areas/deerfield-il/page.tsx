@@ -70,7 +70,8 @@ const neighborhoods = [
 
 const faqs = [
   {
-    question: 'Do Deerfield homeowners usually need permits for pergolas or enclosures?',
+    question:
+      'Do Deerfield homeowners usually need permits for pergolas or enclosures?',
     answer:
       'Permanent outdoor structures often require review, and some projects also need HOA approval. We help assemble drawings, product information, and engineering details so the project can move through review with fewer surprises.',
   },
@@ -118,17 +119,19 @@ export default function DeerfieldServiceAreaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
-      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.brand.hero.screens}
@@ -150,23 +153,27 @@ export default function DeerfieldServiceAreaPage() {
             className="mb-6"
           />
           <div className="mx-auto max-w-4xl text-center">
-            <span className="mb-6 inline-flex items-center gap-2 border border-edg-brand/20 bg-edg-brand/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-edg-brand-dark">
+            <span className="border-edg-brand/20 bg-edg-brand/10 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
               <MapPin className="h-4 w-4" /> Service Area: Deerfield, IL
             </span>
             <h1 className="mb-6 text-4xl font-bold md:text-6xl">
               Outdoor Living Systems for Deerfield Homes
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-xl leading-relaxed text-zinc-200">
-              Motorized patio screens, pergolas, and glass enclosures planned for
-              North Shore weather, close lot lines, and everyday family use.
+              Motorized patio screens, pergolas, and glass enclosures planned
+              for North Shore weather, close lot lines, and everyday family use.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href="/service-areas/deerfield-il/retractable-screens">
                 <Button size="lg">Explore Deerfield Screens</Button>
               </Link>
               <Link href={heroContactHref}>
-                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
-                  Request a Consultation
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white/20 text-white hover:bg-white/10"
+                >
+                  Request a Quote
                 </Button>
               </Link>
             </div>
@@ -174,9 +181,9 @@ export default function DeerfieldServiceAreaPage() {
         </Container>
       </section>
 
-      <section className="border-t border-white/5 bg-edg-dark py-8">
+      <section className="bg-edg-dark border-t border-white/5 py-8">
         <Container>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-text-inverse-muted">
+          <div className="text-text-inverse-muted flex flex-wrap justify-center gap-6 text-sm">
             {[
               'Motorized patio screens',
               'Louvered pergolas',
@@ -184,7 +191,7 @@ export default function DeerfieldServiceAreaPage() {
               'HOA and permit support',
             ].map((item) => (
               <span key={item} className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-edg-brand-dark" />
+                <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />
                 {item}
               </span>
             ))}
@@ -196,23 +203,27 @@ export default function DeerfieldServiceAreaPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial-brand mb-4">Why Deerfield Is a Good Fit</div>
+              <div className="label-editorial-brand mb-4">
+                Why Deerfield Is a Good Fit
+              </div>
               <h2 className="section-title mb-6">
-                Most Deerfield patios need comfort control, not just another structure.
+                Most Deerfield patios need comfort control, not just another
+                structure.
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
-                Deerfield homes often have outdoor spaces that are already close to
-                being useful. The patio exists, the grill is in place, and the family
-                wants to be outside more often. The problem is usually comfort:
-                low-angle sun, mosquitoes, wind moving through the yard, or the
-                feeling that neighboring windows are too close.
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                Deerfield homes often have outdoor spaces that are already close
+                to being useful. The patio exists, the grill is in place, and
+                the family wants to be outside more often. The problem is
+                usually comfort: low-angle sun, mosquitoes, wind moving through
+                the yard, or the feeling that neighboring windows are too close.
               </p>
-              <p className="text-lg leading-relaxed text-text-secondary">
-                That is why our planning starts with how the space fails today. A
-                motorized screen may solve the problem faster than a full rebuild. A
-                pergola may be right when you need overhead shade and rain control. A
-                glass enclosure makes sense when the goal is a more protected outdoor
-                room. The best answer depends on the site, not a one-size product.
+              <p className="text-text-secondary text-lg leading-relaxed">
+                That is why our planning starts with how the space fails today.
+                A motorized screen may solve the problem faster than a full
+                rebuild. A pergola may be right when you need overhead shade and
+                rain control. A glass enclosure makes sense when the goal is a
+                more protected outdoor room. The best answer depends on the
+                site, not a one-size product.
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden">
@@ -232,13 +243,15 @@ export default function DeerfieldServiceAreaPage() {
         <Container>
           <div className="mb-12 text-center">
             <div className="label-editorial-brand mb-4">Neighborhood Fit</div>
-            <h2 className="section-title mb-4">Planned around Deerfield lot conditions</h2>
+            <h2 className="section-title mb-4">
+              Planned around Deerfield lot conditions
+            </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {neighborhoods.map((neighborhood) => (
               <Card key={neighborhood.title} variant="muted" padding="lg">
                 <h3 className="mb-3 text-xl font-bold">{neighborhood.title}</h3>
-                <p className="leading-relaxed text-text-secondary">
+                <p className="text-text-secondary leading-relaxed">
                   {neighborhood.description}
                 </p>
               </Card>
@@ -250,8 +263,12 @@ export default function DeerfieldServiceAreaPage() {
       <Section className="section-md">
         <Container>
           <div className="mb-12 text-center">
-            <div className="label-editorial-brand mb-4">Common Project Paths</div>
-            <h2 className="section-title mb-4">Start with the issue you want fixed</h2>
+            <div className="label-editorial-brand mb-4">
+              Common Project Paths
+            </div>
+            <h2 className="section-title mb-4">
+              Start with the issue you want fixed
+            </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -275,10 +292,15 @@ export default function DeerfieldServiceAreaPage() {
               },
             ].map((item) => (
               <Card key={item.title} variant="default" padding="lg">
-                <item.icon className="mb-4 h-6 w-6 text-edg-brand-text" />
+                <item.icon className="text-edg-brand-text mb-4 h-6 w-6" />
                 <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
-                <p className="mb-6 leading-relaxed text-text-secondary">{item.text}</p>
-                <Link href={item.href} className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  {item.text}
+                </p>
+                <Link
+                  href={item.href}
+                  className="inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase"
+                >
                   Explore
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -293,13 +315,17 @@ export default function DeerfieldServiceAreaPage() {
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">FAQ</div>
-              <h2 className="section-title">Deerfield outdoor living questions</h2>
+              <h2 className="section-title">
+                Deerfield outdoor living questions
+              </h2>
             </div>
             <div className="space-y-6">
               {faqs.map((faq) => (
                 <Card key={faq.question} variant="default" padding="lg">
                   <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="leading-relaxed text-text-secondary">{faq.answer}</p>
+                  <p className="text-text-secondary leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -314,30 +340,39 @@ export default function DeerfieldServiceAreaPage() {
               <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
                 Ready to improve a Deerfield patio?
               </h2>
-              <p className="mb-8 max-w-xl text-xl text-text-inverse-muted">
+              <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
                 Send a few photos and tell us whether the main problem is wind,
-                bugs, sun, privacy, or rain. We will help you choose the cleanest
-                first step.
+                bugs, sun, privacy, or rain. We will help you choose the
+                cleanest first step.
               </p>
               <Link href={bottomContactHref}>
-                <Button size="lg">Start Your Deerfield Project</Button>
+                <Button size="lg">Request a Quote</Button>
               </Link>
             </div>
-            <div className="hidden border-l border-border-inverse pl-16 md:block">
-              <div className="space-y-4 text-text-inverse-muted">
-                <h4 className="text-lg font-bold uppercase tracking-wide">
+            <div className="border-border-inverse hidden border-l pl-16 md:block">
+              <div className="text-text-inverse-muted space-y-4">
+                <h4 className="text-lg font-bold tracking-wide uppercase">
                   Popular next steps
                 </h4>
-                <Link href="/service-areas/deerfield-il/retractable-screens" className="flex items-center gap-3">
-                  <Home className="h-4 w-4 text-edg-brand" />
+                <Link
+                  href="/service-areas/deerfield-il/retractable-screens"
+                  className="flex items-center gap-3"
+                >
+                  <Home className="text-edg-brand h-4 w-4" />
                   Deerfield retractable screens
                 </Link>
-                <Link href="/guides/magnatrack-screens-cost" className="flex items-center gap-3">
-                  <ArrowRight className="h-4 w-4 text-edg-brand" />
+                <Link
+                  href="/guides/magnatrack-screens-cost"
+                  className="flex items-center gap-3"
+                >
+                  <ArrowRight className="text-edg-brand h-4 w-4" />
                   MagnaTrack screens cost guide
                 </Link>
-                <Link href="/service-areas/north-shore-chicago" className="flex items-center gap-3">
-                  <FileText className="h-4 w-4 text-edg-brand" />
+                <Link
+                  href="/service-areas/north-shore-chicago"
+                  className="flex items-center gap-3"
+                >
+                  <FileText className="text-edg-brand h-4 w-4" />
                   North Shore service area
                 </Link>
               </div>

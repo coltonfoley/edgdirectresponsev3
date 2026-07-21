@@ -165,7 +165,7 @@ export default function ChicagoPergolasPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/guides/pergola-system-fit-review?area=chicago&source=chicago_pergolas">
-                  <Button size="lg">Get a System Fit Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
                   <Button
@@ -324,9 +324,9 @@ export default function ChicagoPergolasPage() {
                   every job by itself. Chicago homeowners frequently pair
                   pergolas with retractable screens for privacy and comfort,
                   especially on blocks where neighboring windows overlook the
-                  patio. If shoulder-season wind and rain protection are part
-                  of the goal, glass enclosure strategies may also be part of
-                  the conversation.
+                  patio. If shoulder-season wind and rain protection are part of
+                  the goal, glass enclosure strategies may also be part of the
+                  conversation.
                 </p>
                 <p className="text-text-secondary leading-relaxed">
                   That is one advantage of working with a team that looks at the
@@ -402,7 +402,7 @@ export default function ChicagoPergolasPage() {
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Link href="/guides/pergola-system-fit-review?area=chicago&source=chicago_city_page">
-                    <Button size="lg">Start a System Fit Review</Button>
+                    <Button size="lg">Request a Quote</Button>
                   </Link>
                   <Link href="/service-areas/chicago-il/retractable-screens">
                     <Button variant="outline" size="lg">

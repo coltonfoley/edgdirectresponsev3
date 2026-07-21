@@ -120,7 +120,7 @@ const faqs = [
   {
     question: 'How much does a motorized pergola cost in Lake Forest?',
     answer:
-      'Cost depends on size, freestanding versus attached design, finish, screens, heaters, lights, controls, engineering, electrical work, and site conditions. A Lake Forest project should start with photos, dimensions, address, goals, and a permit-aware fit review before comparing budget ranges.',
+      'Cost depends on size, freestanding versus attached design, finish, screens, heaters, lights, controls, engineering, electrical work, and site conditions. A Lake Forest project should start with a quote request; photos, dimensions, address, and project goals can be added when available.',
   },
 ];
 
@@ -429,16 +429,16 @@ export default function LakeForestServiceAreaPage() {
         <Container>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
-              Start with a Lake Forest system fit review.
+              Request a Lake Forest quote.
             </h2>
             <p className="text-text-inverse-muted mb-8 text-lg leading-relaxed">
-              Send the patio photos, rough dimensions, address, and your
-              must-solve problem. EDG will help narrow the right path before you
-              chase a generic pergola quote.
+              Tell us what you are interested in. Add patio photos, rough
+              dimensions, or an address if you have them, and EDG will help
+              narrow the right path.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href="/guides/pergola-system-fit-review?area=lake-forest&source=lake_forest_hub">
-                <Button size="lg">Request Fit Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </Link>
               <a href="tel:+18155810138">
                 <Button

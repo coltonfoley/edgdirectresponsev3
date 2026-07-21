@@ -230,7 +230,7 @@ export default function AlgonquinRetractableScreensPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
-                  <Button size="lg">Get a Screen Layout Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/systems/shades">
                   <Button
@@ -524,7 +524,7 @@ export default function AlgonquinRetractableScreensPage() {
                   patio should be planned with a pergola or enclosure.
                 </p>
                 <Link href={bottomContactHref}>
-                  <Button size="lg">Start Your Quote</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
               </div>
               <div className="border-border-inverse hidden border-l pl-16 md:block">

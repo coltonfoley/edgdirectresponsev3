@@ -95,7 +95,7 @@ const faqs = [
   {
     question: 'How much does a motorized pergola cost in Naperville?',
     answer:
-      'Motorized pergola installations in Naperville typically range from $45,000 to $85,000 depending on size, features, and customization options. Smaller residential systems start around $45K, while larger estates with integrated lighting, heating, and automation features can reach $85K or more. EDG provides detailed proposals after a site review.',
+      'Motorized pergola installations in Naperville typically range from $45,000 to $85,000 depending on size, features, and customization options. Smaller residential systems start around $45K, while larger estates with integrated lighting, heating, and automation features can reach $85K or more. EDG provides detailed proposals after confirming the project details.',
   },
   {
     question: 'How long does installation take?',
@@ -157,9 +157,9 @@ export default function NapervilleMotorizedPergolas() {
           __html: JSON.stringify(generateFAQSchema(faqs)),
         }}
       />
-      <div className="min-h-screen bg-surface">
+      <div className="bg-surface min-h-screen">
         {/* Hero */}
-        <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+        <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
               src={images.pages.serviceAreas.napervillePergolaPool01}
@@ -177,7 +177,10 @@ export default function NapervilleMotorizedPergolas() {
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
-                { label: 'Naperville, IL', href: '/service-areas/naperville-il' },
+                {
+                  label: 'Naperville, IL',
+                  href: '/service-areas/naperville-il',
+                },
                 { label: 'Motorized Pergolas' },
               ]}
               className="mb-6"
@@ -200,8 +203,7 @@ export default function NapervilleMotorizedPergolas() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/guides/pergola-system-fit-review?area=naperville&source=naperville_pergola_page">
                   <Button size="lg">
-                    Get a System Fit Review{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
@@ -228,7 +230,7 @@ export default function NapervilleMotorizedPergolas() {
               <h2 className="section-title mb-4">
                 What a Naperville pergola needs to solve
               </h2>
-              <p className="text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary text-lg leading-relaxed">
                 The strongest projects sort out comfort, controls, review path,
                 accessory needs, and finish direction before the pergola is
                 treated as a finished quote.
@@ -243,10 +245,10 @@ export default function NapervilleMotorizedPergolas() {
                     size="lg"
                     className="mb-6"
                   />
-                  <h3 className="mb-3 text-xl font-bold text-text-primary">
+                  <h3 className="text-text-primary mb-3 text-xl font-bold">
                     {feature.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary text-sm leading-relaxed">
                     {feature.description}
                   </p>
                 </Card>
@@ -256,7 +258,7 @@ export default function NapervilleMotorizedPergolas() {
         </Section>
 
         {/* Local Social Proof Alternative */}
-        <Section className="section-md overflow-hidden bg-surface-muted">
+        <Section className="section-md bg-surface-muted overflow-hidden">
           <Container>
             <div className="grid items-center gap-16 lg:grid-cols-2">
               <div>
@@ -266,18 +268,19 @@ export default function NapervilleMotorizedPergolas() {
                 <h2 className="section-title mb-6">
                   Local conditions matter more than a catalog pergola
                 </h2>
-                <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                   From the Ashbury subdivision to the heart of the Riverwalk, we
                   help plan complete, engineered systems around how the patio is
                   actually used. The recommendation should support the home,
                   subdivision expectations, comfort goals, and review path.
                 </p>
-                <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+                <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                   Naperville projects often start with a nice patio that still
                   fails at the edges: west sun over dinner, bugs after sunset,
                   subdivision privacy, or rain that sends everyone indoors. A
                   motorized pergola is strongest when it is planned with those
-                  everyday problems in mind instead of priced as a standalone roof.
+                  everyday problems in mind instead of priced as a standalone
+                  roof.
                 </p>
                 <ul className="mb-8 space-y-4">
                   {[
@@ -290,18 +293,18 @@ export default function NapervilleMotorizedPergolas() {
                       key={item}
                       className="flex items-center gap-3 font-medium"
                     >
-                      <Shield className="h-5 w-5 text-edg-brand-text" />
+                      <Shield className="text-edg-brand-text h-5 w-5" />
                       {item}
                     </li>
                   ))}
                 </ul>
                 <Link href={siteSurveyHref}>
                   <Button variant="secondary" size="lg">
-                    Schedule Site Survey
+                    Request a Quote
                   </Button>
                 </Link>
               </div>
-              <div className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-dark">
+              <div className="border-border bg-surface-dark relative aspect-[4/3] overflow-hidden border">
                 <Image
                   src={images.pages.serviceAreas.napervillePergolaPool01}
                   alt="Motorized pergola installation used as Naperville patio planning reference"
@@ -327,7 +330,7 @@ export default function NapervilleMotorizedPergolas() {
               <h2 className="section-title mb-6">
                 Naperville Neighborhood Planning Context
               </h2>
-              <p className="mb-12 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-12 text-lg leading-relaxed">
                 A motorized pergola should complement the character of the
                 property, from modern subdivisions to historic districts and
                 larger estate patios.
@@ -336,10 +339,10 @@ export default function NapervilleMotorizedPergolas() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {neighborhoods.map((neighborhood) => (
                 <Card key={neighborhood.name} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-lg font-bold text-text-primary">
+                  <h3 className="text-text-primary mb-3 text-lg font-bold">
                     {neighborhood.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary text-sm leading-relaxed">
                     {neighborhood.description}
                   </p>
                 </Card>
@@ -350,7 +353,7 @@ export default function NapervilleMotorizedPergolas() {
                 Don't see your neighborhood? We serve all of{' '}
                 <Link
                   href="/service-areas/naperville-il"
-                  className="font-medium text-edg-brand-text hover:underline"
+                  className="text-edg-brand-text font-medium hover:underline"
                 >
                   Naperville and surrounding areas
                 </Link>
@@ -371,14 +374,14 @@ export default function NapervilleMotorizedPergolas() {
                 <h2 className="section-title mb-6">
                   Before We Price a Naperville Pergola
                 </h2>
-                <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                   The same footprint can produce very different projects in
                   Naperville. A Cress Creek golf course patio, a downtown
                   historic home, and a Tall Grass backyard may all need a
                   louvered roof, but the approval path, privacy needs, wind
                   exposure, and finish selection are different.
                 </p>
-                <p className="text-lg leading-relaxed text-text-secondary">
+                <p className="text-text-secondary text-lg leading-relaxed">
                   Our design review looks beyond size. We want to know how the
                   space is used, what makes it uncomfortable today, and which
                   features should be built into the system now so the outdoor
@@ -386,13 +389,13 @@ export default function NapervilleMotorizedPergolas() {
                 </p>
               </div>
               <Card variant="dark" padding="lg">
-                <h3 className="mb-6 text-2xl font-bold text-text-inverse">
-                  Naperville site review checklist
+                <h3 className="text-text-inverse mb-6 text-2xl font-bold">
+                  Naperville project checklist
                 </h3>
                 <ul className="space-y-4">
                   {planningChecklist.map((item) => (
                     <li key={item} className="flex gap-3">
-                      <Shield className="mt-1 h-5 w-5 shrink-0 text-edg-brand" />
+                      <Shield className="text-edg-brand mt-1 h-5 w-5 shrink-0" />
                       <span className="text-text-inverse-muted">{item}</span>
                     </li>
                   ))}
@@ -416,17 +419,18 @@ export default function NapervilleMotorizedPergolas() {
                 <h2 className="section-title mb-4">
                   Common Questions About Motorized Pergolas in Naperville
                 </h2>
-                <p className="text-lg leading-relaxed text-text-secondary">
-                  Everything you need to know before investing in your outdoor living space.
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  Everything you need to know before investing in your outdoor
+                  living space.
                 </p>
               </div>
               <div className="space-y-6">
                 {faqs.map((faq) => (
                   <Card key={faq.question} variant="default" padding="lg">
-                    <h3 className="mb-4 text-lg font-bold text-text-primary">
+                    <h3 className="text-text-primary mb-4 text-lg font-bold">
                       {faq.question}
                     </h3>
-                    <p className="leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
                   </Card>
@@ -446,25 +450,24 @@ export default function NapervilleMotorizedPergolas() {
                 size="lg"
                 className="mx-auto mb-6"
               />
-              <h2 className="section-title mb-6 text-text-inverse">
+              <h2 className="section-title text-text-inverse mb-6">
                 Ready to Plan Your Naperville Pergola?
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-inverse-muted">
+              <p className="text-text-inverse-muted mb-6 text-lg leading-relaxed">
                 Whether you're in a new construction home in Tall Grass or a
                 historic property near the Riverwalk, we bring the same
                 engineering rigor to every project. Our showroom in Spring Grove
                 is just 45 minutes away—come see the systems in action before
                 you decide.
               </p>
-              <p className="mb-10 text-text-inverse-muted">
+              <p className="text-text-inverse-muted mb-10">
                 Schedule a site survey and receive a detailed proposal tailored
                 to your Naperville property.
               </p>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link href="/guides/pergola-system-fit-review?area=naperville&source=naperville_pergola_bottom">
                   <Button size="lg">
-                    Start Your Fit Review{' '}
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
                 <Link href={showroomVisitHref}>

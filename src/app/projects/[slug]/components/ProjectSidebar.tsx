@@ -115,7 +115,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
       )}
 
       <div className="bg-edg-brand text-edg-dark p-6">
-        <h2 className="mb-2 text-xl font-bold">Plan a Similar Project</h2>
+        <h2 className="mb-2 text-xl font-bold">Request a Quote</h2>
         <p className="mb-5 text-sm leading-relaxed">
           Talk through site constraints, system fit, and what EDG would need to
           quote a comparable project near {location.city}.
@@ -124,7 +124,7 @@ export function ProjectSidebar({ project }: ProjectSidebarProps) {
           href={contactHref}
           className="bg-edg-dark hover:bg-edg-dark/90 inline-flex w-full items-center justify-center px-6 py-3 text-sm font-bold tracking-wider text-white uppercase transition-colors"
         >
-          Start Planning <ArrowRight className="ml-2 h-4 w-4" />
+          Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
       </div>
 

@@ -243,7 +243,7 @@ const applications = [
 const processSteps = [
   {
     step: '01',
-    title: 'Screen fit review',
+    title: 'Request a screen quote',
     description:
       'Send photos, rough opening sizes, location, and the main issue: bugs, sun, privacy, wind, or flexible enclosure comfort.',
   },
@@ -337,7 +337,7 @@ const faqs = [
   {
     question: 'How much do motorized patio screens cost?',
     answer:
-      'Pricing depends on opening size, screen count, fabric, housing, controls, wiring, mounting complexity, and whether the screens are part of a larger outdoor room. EDG uses the screen cost guide for planning ranges, then prices the final project after measurements and fit review.',
+      'Pricing depends on opening size, screen count, fabric, housing, controls, wiring, mounting complexity, and whether the screens are part of a larger outdoor room. EDG uses the screen cost guide for planning ranges, then confirms final pricing after measurements and project details are reviewed.',
   },
   {
     question: 'Which fabric should I choose for motorized screens?',
@@ -681,10 +681,10 @@ export default function ShadesPage() {
                   </p>
                   <p>
                     EDG uses MagnaTrack by Progressive Screens as a featured
-                    premium option, but the recommendation still comes after the
-                    site review. That keeps the project honest and avoids making
-                    storm, wind, or enclosure claims the selected screen is not
-                    designed to carry.
+                    premium option, but the recommendation still depends on the
+                    project details. That keeps the project honest and avoids
+                    making storm, wind, or enclosure claims the selected screen
+                    is not designed to carry.
                   </p>
                 </div>
               </div>
@@ -797,7 +797,7 @@ export default function ShadesPage() {
             <div className="mx-auto mb-16 max-w-3xl text-center">
               <div className="label-editorial-brand mb-4">Process</div>
               <h2 className="section-title mb-4">
-                From Screen Fit Review to Daily Use
+                From Quote Request to Daily Use
               </h2>
             </div>
 

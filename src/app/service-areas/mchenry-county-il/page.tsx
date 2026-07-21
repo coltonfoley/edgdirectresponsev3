@@ -59,7 +59,7 @@ const neighborhoods = [
   {
     name: 'Crystal Lake',
     description:
-      "Crystal Lake homes range from lake-adjacent properties to established suburban backyards. We plan pergolas and screens around view preservation, bugs, west sun, drainage, and how the patio connects to everyday family use.",
+      'Crystal Lake homes range from lake-adjacent properties to established suburban backyards. We plan pergolas and screens around view preservation, bugs, west sun, drainage, and how the patio connects to everyday family use.',
   },
   {
     name: 'Algonquin & Lake in the Hills',
@@ -217,8 +217,7 @@ export default function McHenryCountyHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: McHenry County, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Motorized Outdoor Living Systems in
-                {' '}
+                Motorized Outdoor Living Systems in{' '}
                 <span className="text-edg-brand block">McHenry County</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -228,8 +227,7 @@ export default function McHenryCountyHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Site Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -266,8 +264,9 @@ export default function McHenryCountyHubPage() {
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 McHenry County is EDG&apos;s home base, which gives homeowners a
-                practical advantage: you can plan locally, see systems in person,
-                and get advice that reflects rural, lake, and suburban site conditions.
+                practical advantage: you can plan locally, see systems in
+                person, and get advice that reflects rural, lake, and suburban
+                site conditions.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -325,14 +324,19 @@ export default function McHenryCountyHubPage() {
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 McHenry County homeowners benefit from knowing when a showroom
-                visit, site review, or phased outdoor-room plan will save time
-                before drawings and pricing begin.
+                visit, quote conversation, or phased outdoor-room plan will save
+                time before drawings and pricing begin.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -385,9 +389,9 @@ export default function McHenryCountyHubPage() {
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   We Handle the Paperwork
                 </h3>
-                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                <div className="border-border bg-surface mb-6 flex items-center gap-3 border p-4">
                   <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
-                  <p className="font-medium text-text-primary">
+                  <p className="text-text-primary font-medium">
                     We assemble your application to prevent county/city delays.
                   </p>
                 </div>
@@ -441,13 +445,12 @@ export default function McHenryCountyHubPage() {
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
                 Share a few photos and the address. We can help you decide
-                whether a showroom visit, site review, or phased system plan is
-                the right next step.
+                whether a showroom visit, quote conversation, or phased system
+                plan is the right next step.
               </p>
               <Link href={bottomContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Start McHenry County Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

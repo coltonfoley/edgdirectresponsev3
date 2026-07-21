@@ -178,7 +178,7 @@ export default function LakeForestMotorizedPergolasPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/guides/pergola-system-fit-review?area=lake-forest&source=lake_forest_pergola_page">
                 <Button size="lg" className="px-8">
-                  Request a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -328,12 +328,12 @@ export default function LakeForestMotorizedPergolasPage() {
               </h2>
               <p className="text-text-inverse-muted mb-8 text-lg leading-relaxed">
                 Send photos, dimensions, location, and what the space needs to
-                do. EDG will help narrow the system direction before you compare
+                do. EDG will help narrow the recommendation before you compare
                 quotes.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/guides/pergola-system-fit-review?area=lake-forest&source=lake_forest_pergola_bottom">
-                  <Button size="lg">Get a System Fit Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/guides/pergola-cost">
                   <Button

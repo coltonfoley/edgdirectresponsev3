@@ -116,7 +116,7 @@ const faqs = [
   {
     question: 'How much does a motorized pergola cost in Algonquin?',
     answer:
-      'The final price depends on size, mounting conditions, finish, screens, heaters, lighting, controls, engineering, and permit requirements. For most Algonquin homeowners, we recommend starting with a site review and budget range before committing to a full design package.',
+      'The final price depends on size, mounting conditions, finish, screens, heaters, lighting, controls, engineering, and permit requirements. For most Algonquin homeowners, we recommend starting with a quote request before committing to a full design package.',
   },
   {
     question: 'How long does an Algonquin pergola project usually take?',
@@ -435,7 +435,7 @@ export default function AlgonquinServiceAreaPage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href={bottomContactHref}>
                 <Button size="lg">
-                  Request a Site Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

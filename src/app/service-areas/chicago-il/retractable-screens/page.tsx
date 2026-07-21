@@ -73,7 +73,8 @@ const faqs = [
       'For many homeowners, yes. Chicago outdoor spaces are often limited in size, so one improvement has to solve multiple problems to justify the investment. Screens can reduce glare, tame wind, improve privacy, and help with bugs at the same time, which is why they often become the most-used comfort upgrade on the project.',
   },
   {
-    question: 'Can motorized screens be added to an existing pergola or patio cover?',
+    question:
+      'Can motorized screens be added to an existing pergola or patio cover?',
     answer:
       'Often they can, provided the structure has the right dimensions and support strategy. We evaluate the opening sizes, the attachment surfaces, and how exposed the area is before recommending a layout. In many cases, screens are an excellent retrofit that makes an existing patio feel significantly more finished.',
   },
@@ -134,11 +135,13 @@ export default function ChicagoScreensPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
-      <div className="min-h-screen bg-surface">
-        <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <div className="bg-surface min-h-screen">
+        <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
               src={images.pages.serviceAreas.chicagoScreenExterior}
@@ -172,15 +175,20 @@ export default function ChicagoScreensPage() {
                 Outdoor Shades and Retractable Screens in Chicago
               </h1>
               <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
-                Motorized patio screens and outdoor shades for city patios, pergolas, and outdoor rooms that
-                need better comfort, privacy, and glare control without losing the view.
+                Motorized patio screens and outdoor shades for city patios,
+                pergolas, and outdoor rooms that need better comfort, privacy,
+                and glare control without losing the view.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
-                  <Button size="lg">Get a Screen Layout Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/systems/shades">
-                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
                     View Full Screen System Page
                   </Button>
                 </Link>
@@ -193,23 +201,29 @@ export default function ChicagoScreensPage() {
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
-                <div className="label-editorial-brand mb-4">Why Screens Matter in the City</div>
-                <h2 className="section-title mb-6">Often the fastest way to make a Chicago patio more usable</h2>
-                <p className="mb-6 text-lg leading-relaxed text-text-secondary">
-                  City outdoor spaces do not always need a full structural overhaul to
-                  become better. Sometimes the biggest problem is late-day glare,
-                  inconsistent wind, close neighboring sightlines, or the fact that a
-                  patio feels exposed the moment insects show up. Retractable screens
-                  solve those friction points quickly, which is why they are one of
-                  the smartest upgrades for homeowners who already have a cover or are
-                  trying to get more value from an existing pergola.
+                <div className="label-editorial-brand mb-4">
+                  Why Screens Matter in the City
+                </div>
+                <h2 className="section-title mb-6">
+                  Often the fastest way to make a Chicago patio more usable
+                </h2>
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                  City outdoor spaces do not always need a full structural
+                  overhaul to become better. Sometimes the biggest problem is
+                  late-day glare, inconsistent wind, close neighboring
+                  sightlines, or the fact that a patio feels exposed the moment
+                  insects show up. Retractable screens solve those friction
+                  points quickly, which is why they are one of the smartest
+                  upgrades for homeowners who already have a cover or are trying
+                  to get more value from an existing pergola.
                 </p>
-                <p className="text-lg leading-relaxed text-text-secondary">
-                  They are also flexible in a way fixed partitions are not. When the
-                  weather is clear, the screens disappear. When the sun drops low or
-                  the wind starts pushing through the yard, they come down and calm
-                  the space. That adaptability is especially useful in Chicago, where
-                  outdoor conditions can change quickly across a single afternoon.
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  They are also flexible in a way fixed partitions are not. When
+                  the weather is clear, the screens disappear. When the sun
+                  drops low or the wind starts pushing through the yard, they
+                  come down and calm the space. That adaptability is especially
+                  useful in Chicago, where outdoor conditions can change quickly
+                  across a single afternoon.
                 </p>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -229,16 +243,18 @@ export default function ChicagoScreensPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Local Benefits</div>
-              <h2 className="section-title mb-4">What screens solve on Chicago lots</h2>
+              <h2 className="section-title mb-4">
+                What screens solve on Chicago lots
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {benefits.map((benefit) => (
                 <Card key={benefit.title} variant="default" padding="lg">
                   <div className="mb-4 flex items-center gap-3">
-                    <benefit.icon className="h-5 w-5 text-edg-brand-text" />
+                    <benefit.icon className="text-edg-brand-text h-5 w-5" />
                     <h3 className="text-xl font-bold">{benefit.title}</h3>
                   </div>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {benefit.description}
                   </p>
                 </Card>
@@ -251,26 +267,29 @@ export default function ChicagoScreensPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Where They Fit</div>
-              <h2 className="section-title mb-4">Great for pergolas, patios, and roof decks</h2>
+              <h2 className="section-title mb-4">
+                Great for pergolas, patios, and roof decks
+              </h2>
             </div>
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
-                <p className="mb-4 leading-relaxed text-text-secondary">
+                <p className="text-text-secondary mb-4 leading-relaxed">
                   In Lakeview and Lincoln Park, screens are often the difference
-                  between a patio that looks good and one that actually gets used at
-                  dinner time. In North Center and Roscoe Village, they are a strong
-                  answer for family patios that need bug control and more comfortable
-                  late-day sun conditions. Around Bucktown and Wicker Park, they help
-                  roof decks and masonry courtyards feel more protected without adding
-                  a heavy visual barrier.
+                  between a patio that looks good and one that actually gets
+                  used at dinner time. In North Center and Roscoe Village, they
+                  are a strong answer for family patios that need bug control
+                  and more comfortable late-day sun conditions. Around Bucktown
+                  and Wicker Park, they help roof decks and masonry courtyards
+                  feel more protected without adding a heavy visual barrier.
                 </p>
-                <p className="leading-relaxed text-text-secondary">
-                  The most successful projects start by identifying what you need the
-                  screens to do first. If the answer is privacy, fabric selection and
-                  sightline planning matter most. If the answer is wind, opening size
-                  and track strategy become more important. If the answer is overall
-                  comfort, the screens usually work strongest when planned alongside the
-                  pergola, lighting, and heater package.
+                <p className="text-text-secondary leading-relaxed">
+                  The most successful projects start by identifying what you
+                  need the screens to do first. If the answer is privacy, fabric
+                  selection and sightline planning matter most. If the answer is
+                  wind, opening size and track strategy become more important.
+                  If the answer is overall comfort, the screens usually work
+                  strongest when planned alongside the pergola, lighting, and
+                  heater package.
                 </p>
               </div>
               <div>
@@ -283,8 +302,8 @@ export default function ChicagoScreensPage() {
                   ].map((item) => (
                     <Card key={item} variant="muted" padding="lg">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-text" />
-                        <p className="font-medium text-text-primary">{item}</p>
+                        <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
+                        <p className="text-text-primary font-medium">{item}</p>
                       </div>
                     </Card>
                   ))}
@@ -293,32 +312,38 @@ export default function ChicagoScreensPage() {
             </div>
             <div className="mt-12 grid gap-10 lg:grid-cols-2">
               <div>
-                <h3 className="mb-4 text-2xl font-bold">A strong first step for comfort</h3>
-                <p className="mb-4 leading-relaxed text-text-secondary">
-                  Homeowners often assume they need a larger renovation before the
-                  patio can feel better, but screens are frequently the quickest
-                  quality-of-life upgrade on the site. They help a space feel calmer
-                  and more enclosed without locking you into a permanent wall or dark
-                  room effect.
+                <h3 className="mb-4 text-2xl font-bold">
+                  A strong first step for comfort
+                </h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Homeowners often assume they need a larger renovation before
+                  the patio can feel better, but screens are frequently the
+                  quickest quality-of-life upgrade on the site. They help a
+                  space feel calmer and more enclosed without locking you into a
+                  permanent wall or dark room effect.
                 </p>
-                <p className="leading-relaxed text-text-secondary">
-                  That makes them especially attractive for projects in progress,
-                  where the patio already exists and the goal is to improve comfort
-                  this season rather than wait for a much bigger build.
+                <p className="text-text-secondary leading-relaxed">
+                  That makes them especially attractive for projects in
+                  progress, where the patio already exists and the goal is to
+                  improve comfort this season rather than wait for a much bigger
+                  build.
                 </p>
               </div>
               <div>
-                <h3 className="mb-4 text-2xl font-bold">Also the ideal pergola companion</h3>
-                <p className="mb-4 leading-relaxed text-text-secondary">
-                  When a pergola is part of the project, retractable screens often
-                  become the feature that makes the space feel complete. The roof
-                  handles sun and rain overhead, while the screens deal with low-angle
-                  glare, privacy, insects, and crosswinds around the perimeter.
+                <h3 className="mb-4 text-2xl font-bold">
+                  Also the ideal pergola companion
+                </h3>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  When a pergola is part of the project, retractable screens
+                  often become the feature that makes the space feel complete.
+                  The roof handles sun and rain overhead, while the screens deal
+                  with low-angle glare, privacy, insects, and crosswinds around
+                  the perimeter.
                 </p>
-                <p className="leading-relaxed text-text-secondary">
-                  If you are already leaning toward a pergola, compare this page with
-                  our Chicago pergola page so we can decide whether both systems
-                  belong in the first phase.
+                <p className="text-text-secondary leading-relaxed">
+                  If you are already leaning toward a pergola, compare this page
+                  with our Chicago pergola page so we can decide whether both
+                  systems belong in the first phase.
                 </p>
               </div>
             </div>
@@ -329,11 +354,16 @@ export default function ChicagoScreensPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Visual Direction</div>
-              <h2 className="section-title mb-4">Examples of screen-ready spaces</h2>
+              <h2 className="section-title mb-4">
+                Examples of screen-ready spaces
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {gallery.map((item) => (
-                <div key={item.alt} className="relative aspect-[4/3] overflow-hidden">
+                <div
+                  key={item.alt}
+                  className="relative aspect-[4/3] overflow-hidden"
+                >
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -358,7 +388,9 @@ export default function ChicagoScreensPage() {
                 {faqs.map((faq) => (
                   <Card key={faq.question} variant="default" padding="lg">
                     <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                    <p className="leading-relaxed text-text-secondary">{faq.answer}</p>
+                    <p className="text-text-secondary leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </Card>
                 ))}
               </div>
@@ -373,14 +405,15 @@ export default function ChicagoScreensPage() {
                 <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to calm down your Chicago patio?
                 </h2>
-                <p className="mb-8 max-w-xl text-xl text-text-inverse-muted">
+                <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
                   Share a few photos and tell us whether the main issue is wind,
-                  privacy, bugs, or sun. We can help you decide if screens alone are
-                  enough or if the space should be planned with a pergola at the same time.
+                  privacy, bugs, or sun. We can help you decide if screens alone
+                  are enough or if the space should be planned with a pergola at
+                  the same time.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Link href={bottomContactHref}>
-                    <Button size="lg">Start Screen Layout Review</Button>
+                    <Button size="lg">Request a Quote</Button>
                   </Link>
                   <Link href="/service-areas/chicago-il/motorized-pergolas">
                     <Button variant="outline" size="lg">
@@ -389,25 +422,37 @@ export default function ChicagoScreensPage() {
                   </Link>
                 </div>
               </div>
-              <div className="hidden border-l border-border-inverse pl-16 md:block">
-                <div className="space-y-4 text-text-inverse-muted">
-                  <h4 className="text-lg font-bold uppercase tracking-wide">
+              <div className="border-border-inverse hidden border-l pl-16 md:block">
+                <div className="text-text-inverse-muted space-y-4">
+                  <h4 className="text-lg font-bold tracking-wide uppercase">
                     Keep exploring
                   </h4>
-                  <Link href="/service-areas/chicago-il" className="flex items-center gap-3">
-                    <Home className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/service-areas/chicago-il"
+                    className="flex items-center gap-3"
+                  >
+                    <Home className="text-edg-brand h-4 w-4" />
                     Back to Chicago service area hub
                   </Link>
-                  <Link href="/systems/shades" className="flex items-center gap-3">
-                    <ShieldCheck className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/systems/shades"
+                    className="flex items-center gap-3"
+                  >
+                    <ShieldCheck className="text-edg-brand h-4 w-4" />
                     Full screen specs and fabric options
                   </Link>
-                  <Link href="/guides/magnatrack-screens-cost" className="flex items-center gap-3">
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/guides/magnatrack-screens-cost"
+                    className="flex items-center gap-3"
+                  >
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     MagnaTrack screens cost guide
                   </Link>
-                  <Link href="/service-areas/chicago-il/motorized-pergolas" className="flex items-center gap-3">
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/service-areas/chicago-il/motorized-pergolas"
+                    className="flex items-center gap-3"
+                  >
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     Chicago motorized pergolas
                   </Link>
                 </div>

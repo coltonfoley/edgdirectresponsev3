@@ -171,12 +171,14 @@ const faqs = [
       'A basic louvered system does not include bug protection. Motorized retractable screens can be integrated when the structure, openings, and budget support it, so the space can stay open most of the time and close down when bugs or privacy matter.',
   },
   {
-    question: 'Is a louvered roof as hurricane-resistant as a traditional lanai?',
+    question:
+      'Is a louvered roof as hurricane-resistant as a traditional lanai?',
     answer:
       'It depends on the selected system, engineering, anchoring, exposure, and installation. A louvered system can be specified with current documentation, but Sanibel review and project-specific engineering still matter.',
   },
   {
-    question: 'What does a modern lanai cost compared to rebuilding a traditional lanai?',
+    question:
+      'What does a modern lanai cost compared to rebuilding a traditional lanai?',
     answer:
       'Traditional lanai and screen enclosure replacement can vary widely by size, engineering, floodplain conditions, screens, concrete, and storm damage. Motorized louvered systems are usually a higher-spec option, so EDG compares the full scope: structure, screens, drainage, electrical, permitting, and long-term maintenance.',
   },
@@ -209,7 +211,9 @@ export default function ModernLanaiPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -233,12 +237,15 @@ export default function ModernLanaiPage() {
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
-                { label: 'Sanibel, FL', href: '/service-areas/sanibel-outdoor-living' },
+                {
+                  label: 'Sanibel, FL',
+                  href: '/service-areas/sanibel-outdoor-living',
+                },
                 { label: 'Modern Lanai' },
               ]}
             />
           </div>
-          
+
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
               <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
@@ -246,12 +253,14 @@ export default function ModernLanaiPage() {
               </span>
               <h1 className="hero-title mb-6 text-white">
                 The Modern Lanai:{' '}
-                <span className="text-edg-brand block">Next-Generation Outdoor Living</span>
+                <span className="text-edg-brand block">
+                  Next-Generation Outdoor Living
+                </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Skip the static screen box. Compare a modern lanai or pool
-                cage alternative with adjustable shade, retractable screens,
-                coastal documentation, and cleaner Gulf views.
+                Skip the static screen box. Compare a modern lanai or pool cage
+                alternative with adjustable shade, retractable screens, coastal
+                documentation, and cleaner Gulf views.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link href={modernLanaiContactHref}>
@@ -278,8 +287,12 @@ export default function ModernLanaiPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {modernBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -292,7 +305,9 @@ export default function ModernLanaiPage() {
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="section-title mb-6">Redefining Outdoor Living on Sanibel</h2>
+              <h2 className="section-title mb-6">
+                Redefining Outdoor Living on Sanibel
+              </h2>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 Many Florida homes start with the traditional lanai: a fixed
                 roof, static screens, and limited flexibility. On Sanibel, that
@@ -300,9 +315,11 @@ export default function ModernLanaiPage() {
                 living options before a rebuild is chosen.
               </p>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                <strong>The Modern Lanai</strong> is our term for a louvered roof system that replaces the rigid 
-                structure of yesterday with intelligent, adjustable design. Instead of a permanent barrier between 
-                you and the Gulf Coast environment, you get precise control over shade, airflow, and weather protection.
+                <strong>The Modern Lanai</strong> is our term for a louvered
+                roof system that replaces the rigid structure of yesterday with
+                intelligent, adjustable design. Instead of a permanent barrier
+                between you and the Gulf Coast environment, you get precise
+                control over shade, airflow, and weather protection.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
                 It is the same covered outdoor space you want, planned around
@@ -320,9 +337,12 @@ export default function ModernLanaiPage() {
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="section-title mb-4">Traditional Lanai vs. Modern Lanai</h2>
+              <h2 className="section-title mb-4">
+                Traditional Lanai vs. Modern Lanai
+              </h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                See how the next generation of outdoor living compares to conventional screened enclosures.
+                See how the next generation of outdoor living compares to
+                conventional screened enclosures.
               </p>
             </div>
 
@@ -330,7 +350,9 @@ export default function ModernLanaiPage() {
               <div className="grid grid-cols-12 gap-4 bg-zinc-100 p-4 font-bold dark:bg-zinc-900">
                 <div className="col-span-3">Feature</div>
                 <div className="col-span-4">Traditional Lanai</div>
-                <div className="col-span-5 text-edg-brand-text">Modern Lanai (Louvered)</div>
+                <div className="text-edg-brand-text col-span-5">
+                  Modern Lanai (Louvered)
+                </div>
               </div>
               {comparisonFeatures.map((row, i) => (
                 <div
@@ -338,8 +360,12 @@ export default function ModernLanaiPage() {
                   className="grid grid-cols-12 gap-4 border-t border-zinc-200 p-4 dark:border-zinc-800"
                 >
                   <div className="col-span-3 font-semibold">{row.feature}</div>
-                  <div className="col-span-4 text-text-secondary">{row.traditional}</div>
-                  <div className="col-span-5 text-edg-brand-text font-medium">{row.modern}</div>
+                  <div className="text-text-secondary col-span-4">
+                    {row.traditional}
+                  </div>
+                  <div className="text-edg-brand-text col-span-5 font-medium">
+                    {row.modern}
+                  </div>
                 </div>
               ))}
             </div>
@@ -347,7 +373,7 @@ export default function ModernLanaiPage() {
             <div className="mt-8 text-center">
               <Link href={modernLanaiContactHref}>
                 <Button size="lg" className="px-8">
-                  Get a Modern Lanai Quote <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -369,7 +395,12 @@ export default function ModernLanaiPage() {
             <div className="grid gap-6 md:grid-cols-2">
               {modernFeatures.map((item, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -384,9 +415,12 @@ export default function ModernLanaiPage() {
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="section-title mb-4">Modern Lanais for Every Sanibel Neighborhood</h2>
+              <h2 className="section-title mb-4">
+                Modern Lanais for Every Sanibel Neighborhood
+              </h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                From beachfront estates to canal homes, discover how a modern lanai enhances outdoor living throughout the island.
+                From beachfront estates to canal homes, discover how a modern
+                lanai enhances outdoor living throughout the island.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -411,10 +445,10 @@ export default function ModernLanaiPage() {
                   The Impermeable Surface Advantage
                 </h2>
                 <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                  Sanibel developed-area and floodplain questions can shape
-                  the project before the product is chosen. Existing covered
-                  outdoor areas, slabs, decks, pavers, screens, and louvered
-                  systems all need to be reviewed in context.
+                  Sanibel developed-area and floodplain questions can shape the
+                  project before the product is chosen. Existing covered outdoor
+                  areas, slabs, decks, pavers, screens, and louvered systems all
+                  need to be reviewed in context.
                 </p>
                 <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                   When louvers are open, rain can pass through the roof plane,
@@ -423,10 +457,10 @@ export default function ModernLanaiPage() {
                   existing developed area, and Sanibel guidance before quoting
                   the final layout.
                 </p>
-                <div className="border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+                <div className="border-border border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
                   <div className="flex items-start gap-3">
                     <Info className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
-                    <p className="text-text-secondary text-sm dark:text-text-inverse-muted">
+                    <p className="text-text-secondary dark:text-text-inverse-muted text-sm">
                       <strong>Zoning Note:</strong> Every property is different.
                       Use the Sanibel permit guide before choosing a footprint,
                       attachment method, screens, or electrical package.
@@ -434,7 +468,7 @@ export default function ModernLanaiPage() {
                   </div>
                 </div>
               </div>
-              <div className="relative h-[400px] overflow-hidden ">
+              <div className="relative h-[400px] overflow-hidden">
                 <Image
                   src={images.pages.serviceAreas.sanibelShade}
                   alt="Modern louvered roof with screens deployed"
@@ -457,7 +491,8 @@ export default function ModernLanaiPage() {
                 Common Questions About Modern Lanais
               </h2>
               <p className="text-text-secondary mx-auto max-w-2xl">
-                Everything you need to know about upgrading from traditional to modern outdoor living.
+                Everything you need to know about upgrading from traditional to
+                modern outdoor living.
               </p>
             </div>
             <div className="mx-auto max-w-3xl space-y-4">
@@ -489,16 +524,21 @@ export default function ModernLanaiPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Home}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Louvered Pergolas
                   </h3>
                   <p className="text-text-secondary mb-6">
                     Explore louvered roof systems planned around Sanibel&apos;s
-                    coastal review, salt-air exposure, and permit
-                    documentation needs.
+                    coastal review, salt-air exposure, and permit documentation
+                    needs.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
@@ -513,9 +553,14 @@ export default function ModernLanaiPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={ShieldCheck}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Lanai Replacement
                   </h3>
@@ -536,9 +581,14 @@ export default function ModernLanaiPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={Info} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Info}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Sanibel Permit Guide
                   </h3>
@@ -561,17 +611,16 @@ export default function ModernLanaiPage() {
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="mb-6 text-3xl font-bold tracking-tight text-text-inverse md:text-4xl">
+              <h2 className="text-text-inverse mb-6 text-3xl font-bold tracking-tight md:text-4xl">
                 Ready to Modernize Your Outdoor Living?
               </h2>
-              <p className="mb-8 text-xl text-text-inverse-muted">
+              <p className="text-text-inverse-muted mb-8 text-xl">
                 Send the site details and compare a modern lanai plan before
                 committing to a fixed screen enclosure rebuild.
               </p>
               <Link href={modernLanaiContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Start Modern Lanai Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

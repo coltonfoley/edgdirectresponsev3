@@ -85,7 +85,9 @@ interface LeadRecord {
   submission_id: string;
 }
 
-function getSubmissionId(metadata: LeadSubmission['metadata']): string | undefined {
+function getSubmissionId(
+  metadata: LeadSubmission['metadata']
+): string | undefined {
   const submissionId = metadata?.submission_id;
 
   return typeof submissionId === 'string' && submissionId.length <= 160
@@ -137,7 +139,9 @@ function escapeHtml(value: unknown): string {
 }
 
 function cleanEmailHeader(value: unknown, fallback = ''): string {
-  const cleaned = normalizeLeadText(value).replace(/[\r\n]+/g, ' ').slice(0, 160);
+  const cleaned = normalizeLeadText(value)
+    .replace(/[\r\n]+/g, ' ')
+    .slice(0, 160);
   return cleaned || fallback;
 }
 
@@ -165,7 +169,9 @@ function operationalErrorCode(error: unknown): string {
   if (typeof error === 'object' && error !== null) {
     const status = 'status' in error ? error.status : undefined;
     if (typeof status === 'number' || typeof status === 'string') {
-      return `status_${String(status).replace(/[^a-zA-Z0-9_-]/g, '').slice(0, 20)}`;
+      return `status_${String(status)
+        .replace(/[^a-zA-Z0-9_-]/g, '')
+        .slice(0, 20)}`;
     }
   }
   return 'operation_failed';
@@ -439,23 +445,27 @@ async function createRainmakerLead(
     headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
   }
 
-  const response = await fetchWithTimeout(intakeUrl, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      email: lead.email.trim().toLowerCase(),
-      firstName: lead.firstName.trim(),
-      lastName: lead.lastName?.trim(),
-      phone: lead.phone?.trim(),
-      location: lead.location?.trim(),
-      projectType: lead.projectType,
-      message: lead.message?.trim(),
-      source: lead.source || 'website',
-      customerType: lead.customerType,
-      metadata: lead.metadata,
-      idempotencyKey: submissionId,
-    }),
-  }, RAINMAKER_FETCH_TIMEOUT_MS);
+  const response = await fetchWithTimeout(
+    intakeUrl,
+    {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        email: lead.email.trim().toLowerCase(),
+        firstName: lead.firstName.trim(),
+        lastName: lead.lastName?.trim(),
+        phone: lead.phone?.trim(),
+        location: lead.location?.trim(),
+        projectType: lead.projectType,
+        message: lead.message?.trim(),
+        source: lead.source || 'website',
+        customerType: lead.customerType,
+        metadata: lead.metadata,
+        idempotencyKey: submissionId,
+      }),
+    },
+    RAINMAKER_FETCH_TIMEOUT_MS
+  );
 
   const result = await response.json().catch(() => null);
 
@@ -551,17 +561,22 @@ async function uploadRainmakerLeadAttachments({
     headers['x-vercel-protection-bypass'] = process.env.RAINMAKER_VERCEL_BYPASS;
   }
 
-  const response = await fetchWithTimeout(uploadUrl, {
-    method: 'POST',
-    headers,
-    body: formData,
-  }, RAINMAKER_ATTACHMENT_TIMEOUT_MS);
+  const response = await fetchWithTimeout(
+    uploadUrl,
+    {
+      method: 'POST',
+      headers,
+      body: formData,
+    },
+    RAINMAKER_ATTACHMENT_TIMEOUT_MS
+  );
 
   const result = await response.json().catch(() => null);
 
   if (!response.ok || !result?.success) {
     throw new Error(
-      result?.message || `Rainmaker lead attachment upload failed with ${response.status}`
+      result?.message ||
+        `Rainmaker lead attachment upload failed with ${response.status}`
     );
   }
 
@@ -624,12 +639,12 @@ async function scheduleFollowUpEmail(
         
         <h3 style="color: #008a5c;">What's the next step?</h3>
         <ul>
-          <li><strong>Free Design Consultation</strong> – We'll visit your property and discuss your vision</li>
+          <li><strong>Project Conversation</strong> – We'll learn about your goals and discuss the right next step</li>
           <li><strong>Custom 3D Renderings</strong> – See your project before we build it</li>
           <li><strong>Detailed Quote</strong> – Transparent pricing with no surprises</li>
         </ul>
         
-        <p>Ready to get started? Email us at <a href="mailto:sales@edgpatioshade.com">sales@edgpatioshade.com</a> or give us a call at <strong>815-581-0138</strong>.</p>
+        <p>Ready to talk about your project? Email us at <a href="mailto:sales@edgpatioshade.com">sales@edgpatioshade.com</a> or give us a call at <strong>815-581-0138</strong>.</p>
         
         <p>Best regards,<br>
         <strong>The EDG Patio & Shade Team</strong></p>
@@ -643,24 +658,31 @@ async function scheduleFollowUpEmail(
       </div>
     `;
 
-    const response = await fetchWithTimeout('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
+    const response = await fetchWithTimeout(
+      'https://api.resend.com/emails',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: fromEmail,
+          to: lead.email,
+          subject: subject,
+          html: html,
+          scheduled_at: scheduledAt,
+        }),
       },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: lead.email,
-        subject: subject,
-        html: html,
-        scheduled_at: scheduledAt,
-      }),
-    }, RESEND_FETCH_TIMEOUT_MS);
+      RESEND_FETCH_TIMEOUT_MS
+    );
 
     if (!response.ok) {
       await response.json().catch(() => null);
-      console.error('Resend scheduled email failed:', `status_${response.status}`);
+      console.error(
+        'Resend scheduled email failed:',
+        `status_${response.status}`
+      );
       return;
     }
 
@@ -913,14 +935,18 @@ export async function POST(request: NextRequest) {
           }));
         }
 
-        const adminRes = await fetchWithTimeout('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${resendApiKey}`,
-            'Content-Type': 'application/json',
+        const adminRes = await fetchWithTimeout(
+          'https://api.resend.com/emails',
+          {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${resendApiKey}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(adminEmailPayload),
           },
-          body: JSON.stringify(adminEmailPayload),
-        }, RESEND_FETCH_TIMEOUT_MS);
+          RESEND_FETCH_TIMEOUT_MS
+        );
 
         const adminData = await adminRes.json().catch(() => null);
         if (!adminRes.ok) {

@@ -4,7 +4,7 @@ import { ConfiguratorApp } from './ConfiguratorApp';
 export const metadata: Metadata = {
   title: 'Motorized Pergola Configurator | 3D Planning Tool | EDG',
   description:
-    'Use EDG’s 3D pergola configurator to explore size, color, mount type, louvers, screens, lighting, and controls before a System Fit Review.',
+    'Use EDG’s 3D pergola configurator to explore size, color, mount type, louvers, screens, lighting, and controls before requesting a quote.',
   keywords: [
     'pergola configurator',
     'design your pergola',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Design Your Custom Pergola in 3D — Free Configurator | EDG',
     description:
-      'Explore a representative motorized pergola configuration in real-time 3D, then send the site context to EDG for system-fit planning.',
+      'Explore a representative motorized pergola configuration in real-time 3D, then send it to EDG with a quote request.',
     url: 'https://www.edgpatioshade.com/systems/pergolas/configure',
     siteName: 'EDG Patio & Shade',
     images: [
@@ -89,7 +89,8 @@ export default function ConfigurePage() {
       />
       {/*
         Static planning content for non-visual and crawler contexts. The visual
-        tool is representative; final system selection happens after site review.
+        tool is representative; final system selection happens after EDG reviews
+        the actual project.
       */}
       <div className="sr-only">
         <h2>Motorized Louvered Pergola 3D Configurator</h2>
@@ -97,7 +98,7 @@ export default function ConfigurePage() {
           Explore a representative motorized louvered pergola online. Use this
           3D configurator to think through size, color, mount type, louver
           angle, lighting, screens, heat, and controls before requesting a
-          project-specific System Fit Review.
+          quote.
         </p>
         <h2>Configuration Options</h2>
         <ul>
@@ -117,7 +118,7 @@ export default function ConfigurePage() {
         <h2>Why Use The Pergola Configurator?</h2>
         <p>
           A configurator helps buyers visualize a direction, but it does not
-          replace system-fit planning. EDG reviews the actual site, exposure,
+          replace a project conversation. EDG reviews the actual site, exposure,
           structure, drainage, budget, accessories, and review path before
           recommending the manufacturer and system that fit the job.
         </p>

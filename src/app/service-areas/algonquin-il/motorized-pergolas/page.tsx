@@ -173,7 +173,7 @@ export default function AlgonquinMotorizedPergolasPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/guides/pergola-system-fit-review?area=algonquin&source=algonquin_pergola_page">
                 <Button size="lg" className="px-8">
-                  Request a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -297,7 +297,7 @@ export default function AlgonquinMotorizedPergolasPage() {
               {planningSteps.map((step, index) => (
                 <Card key={step} variant="muted" padding="lg">
                   <div className="flex gap-4">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-edg-brand text-sm font-bold text-edg-dark">
+                    <div className="bg-edg-brand text-edg-dark flex h-9 w-9 shrink-0 items-center justify-center text-sm font-bold">
                       {index + 1}
                     </div>
                     <p className="text-text-secondary leading-relaxed">
@@ -380,7 +380,7 @@ export default function AlgonquinMotorizedPergolasPage() {
             </p>
             <Link href="/guides/pergola-system-fit-review?area=algonquin&source=algonquin_pergola_bottom">
               <Button size="lg">
-                Start the System Fit Review
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

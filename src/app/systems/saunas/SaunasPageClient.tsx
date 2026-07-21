@@ -104,13 +104,19 @@ const defaultFeatures: SaunaFeature[] = [
 
 const defaultSpecs: SaunaSpec[] = [
   { label: 'Available Models', value: '2-3, 4, and 5-6 person cabins' },
-  { label: 'Construction Material', value: 'ThermoWood heat-treated Scandinavian timber' },
+  {
+    label: 'Construction Material',
+    value: 'ThermoWood heat-treated Scandinavian timber',
+  },
   { label: 'Roof', value: 'Bituminous outdoor roof tiles' },
   { label: 'Glazing', value: 'Tempered glass doors and windows' },
   { label: 'Lighting', value: 'LED under-bench lighting included' },
   { label: 'Ventilation', value: 'Integrated fresh-air system' },
   { label: 'Warranty', value: '5 years' },
-  { label: 'Installation', value: 'Delivery, placement, electrical coordination, and finish' },
+  {
+    label: 'Installation',
+    value: 'Delivery, placement, electrical coordination, and finish',
+  },
 ];
 
 const galleryImages = [
@@ -170,15 +176,18 @@ const useCases = [
 const planningChecks = [
   {
     title: 'Placement and Access',
-    description: 'Delivery path, base condition, door swing, view line, privacy, and daily walking route.',
+    description:
+      'Delivery path, base condition, door swing, view line, privacy, and daily walking route.',
   },
   {
     title: 'Power and Ventilation',
-    description: 'Heater requirements, electrical coordination, fresh-air path, exhaust path, and service clearance.',
+    description:
+      'Heater requirements, electrical coordination, fresh-air path, exhaust path, and service clearance.',
   },
   {
     title: 'Comfort Context',
-    description: 'Cold plunge, pool, covered patio, lighting, privacy screens, changing area, and storage needs.',
+    description:
+      'Cold plunge, pool, covered patio, lighting, privacy screens, changing area, and storage needs.',
   },
 ];
 
@@ -196,12 +205,14 @@ const relatedLinks = [
   {
     label: 'Outdoor Room Plans',
     href: '/outdoor-rooms',
-    description: 'Planning paths that combine roof, glass, screens, heat, cooking, and furniture.',
+    description:
+      'Planning paths that combine roof, glass, screens, heat, cooking, and furniture.',
   },
   {
     label: 'Showroom',
     href: '/showroom',
-    description: 'Compare materials and outdoor-living systems in Spring Grove.',
+    description:
+      'Compare materials and outdoor-living systems in Spring Grove.',
   },
 ];
 
@@ -212,7 +223,8 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
       product?.shortDescription ||
       'Professionally specified and installed indoor and outdoor saunas for dedicated home wellness spaces.',
     url: 'https://www.edgpatioshade.com/systems/saunas',
-    image: 'https://www.edgpatioshade.com/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp',
+    image:
+      'https://www.edgpatioshade.com/images/saunas/mande-spa-mw16-outdoor-sauna-15.webp',
   });
 
   const features = product?.features || defaultFeatures;
@@ -271,11 +283,13 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
                   'Outdoor sauna cabins specified around your site, comfort goals, power path, and larger backyard plan. EDG helps select the right cabin and manages the installation details that make it work.'}
               </p>
 
-              <div className="mb-10 grid grid-cols-2 gap-4 border-y border-border py-6 text-sm">
+              <div className="border-border mb-10 grid grid-cols-2 gap-4 border-y py-6 text-sm">
                 {quickFeatures.map((feature) => (
                   <div key={feature} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-edg-brand-text" />
-                    <span className="font-bold text-text-primary">{feature}</span>
+                    <CheckCircle2 className="text-edg-brand-text mt-0.5 h-4 w-4 shrink-0" />
+                    <span className="text-text-primary font-bold">
+                      {feature}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -288,7 +302,11 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
                   </Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">
-                  <Button size="lg" variant="secondary" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="w-full sm:w-auto"
+                  >
                     <Phone className="mr-2 h-5 w-5" />
                     Call EDG
                   </Button>
@@ -303,20 +321,31 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
         </Container>
       </section>
 
-      <Section className="section-md border-t border-border bg-surface-muted">
+      <Section className="section-md border-border bg-surface-muted border-t">
         <Container>
           <div className="mx-auto mb-16 max-w-4xl text-center">
             <div className="label-editorial-brand mb-4">System Overview</div>
-            <h2 className="section-title mb-6">A Sauna Should Fit the Site, Not Just the Catalog</h2>
+            <h2 className="section-title mb-6">
+              A Sauna Should Fit the Site, Not Just the Catalog
+            </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              EDG treats saunas like part of the outdoor living plan. Before recommending a model, we look at where the cabin will sit, how it will be powered, what should surround it, and whether the sauna should stand alone or connect to a larger patio, pool, or outdoor room.
+              EDG treats saunas like part of the outdoor living plan. Before
+              recommending a model, we look at where the cabin will sit, how it
+              will be powered, what should surround it, and whether the sauna
+              should stand alone or connect to a larger patio, pool, or outdoor
+              room.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {useCases.map((item) => (
-              <Card key={item.title} variant="default" padding="none" className="overflow-hidden">
-                <div className="relative aspect-[4/3] bg-surface-dark">
+              <Card
+                key={item.title}
+                variant="default"
+                padding="none"
+                className="overflow-hidden"
+              >
+                <div className="bg-surface-dark relative aspect-[4/3]">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -326,8 +355,12 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-text-primary mb-3 text-xl font-bold">{item.title}</h3>
-                  <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                  <h3 className="text-text-primary mb-3 text-xl font-bold">
+                    {item.title}
+                  </h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </Card>
             ))}
@@ -338,10 +371,16 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
       <Section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto mb-16 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4 text-edg-brand">Material + Comfort Details</div>
-            <h2 className="section-title mb-6">Built Like an Outdoor Living System</h2>
+            <div className="label-editorial-brand text-edg-brand mb-4">
+              Material + Comfort Details
+            </div>
+            <h2 className="section-title mb-6">
+              Built Like an Outdoor Living System
+            </h2>
             <p className="text-text-inverse-muted text-lg leading-relaxed">
-              The right sauna is more than a cabin. Material, ventilation, glazing, electrical planning, and placement all affect how natural it feels to use.
+              The right sauna is more than a cabin. Material, ventilation,
+              glazing, electrical planning, and placement all affect how natural
+              it feels to use.
             </p>
           </div>
 
@@ -350,10 +389,23 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
               const IconComponent = iconMap[feature.icon] || Shield;
 
               return (
-                <Card key={feature._key || feature.title} variant="dark" padding="lg">
-                  <IconWrapper icon={IconComponent} variant="dark" size="lg" className="mb-4" />
-                  <h3 className="mb-3 text-lg font-bold text-text-inverse">{feature.title}</h3>
-                  <p className="text-text-inverse-muted text-sm leading-relaxed">{feature.description}</p>
+                <Card
+                  key={feature._key || feature.title}
+                  variant="dark"
+                  padding="lg"
+                >
+                  <IconWrapper
+                    icon={IconComponent}
+                    variant="dark"
+                    size="lg"
+                    className="mb-4"
+                  />
+                  <h3 className="text-text-inverse mb-3 text-lg font-bold">
+                    {feature.title}
+                  </h3>
+                  <p className="text-text-inverse-muted text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
                 </Card>
               );
             })}
@@ -361,36 +413,52 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
         </Container>
       </Section>
 
-      <Section className="section-md border-t border-border">
+      <Section className="section-md border-border border-t">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial-brand mb-4">Fit + Specification</div>
-              <h2 className="section-title mb-6">What EDG Reviews Before Quoting</h2>
+              <div className="label-editorial-brand mb-4">
+                Fit + Specification
+              </div>
+              <h2 className="section-title mb-6">
+                What EDG Reviews Before Quoting
+              </h2>
               <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                Sauna pricing depends on model size, location, power requirements, base prep, delivery access, finish details, and whether the sauna is part of a broader outdoor room scope.
+                Sauna pricing depends on model size, location, power
+                requirements, base prep, delivery access, finish details, and
+                whether the sauna is part of a broader outdoor room scope.
               </p>
 
               <div className="space-y-4">
                 {planningChecks.map((item) => (
                   <Card key={item.title} variant="muted" padding="lg">
-                    <h3 className="text-text-primary mb-2 text-lg font-bold">{item.title}</h3>
-                    <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                    <h3 className="text-text-primary mb-2 text-lg font-bold">
+                      {item.title}
+                    </h3>
+                    <p className="text-text-secondary leading-relaxed">
+                      {item.description}
+                    </p>
                   </Card>
                 ))}
               </div>
             </div>
 
             <Card variant="dark" padding="lg">
-              <h3 className="mb-6 text-xl font-bold text-text-inverse">Specification Highlights</h3>
-              <div className="divide-y divide-border-inverse">
+              <h3 className="text-text-inverse mb-6 text-xl font-bold">
+                Specification Highlights
+              </h3>
+              <div className="divide-border-inverse divide-y">
                 {specs.map((spec) => (
                   <div
                     key={spec._key || spec.label}
                     className="grid gap-2 py-4 sm:grid-cols-[0.8fr_1.2fr] sm:items-center"
                   >
-                    <span className="text-text-inverse-muted text-sm">{spec.label}</span>
-                    <span className="font-bold text-text-inverse sm:text-right">{spec.value}</span>
+                    <span className="text-text-inverse-muted text-sm">
+                      {spec.label}
+                    </span>
+                    <span className="text-text-inverse font-bold sm:text-right">
+                      {spec.value}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -399,18 +467,25 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
         </Container>
       </Section>
 
-      <Section className="section-md border-t border-border bg-surface-muted">
+      <Section className="section-md border-border bg-surface-muted border-t">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
-              <div className="label-editorial-brand mb-4">Complete the Space</div>
-              <h2 className="section-title mb-6">Plan the Sauna Around the Rest of the Backyard</h2>
+              <div className="label-editorial-brand mb-4">
+                Complete the Space
+              </div>
+              <h2 className="section-title mb-6">
+                Plan the Sauna Around the Rest of the Backyard
+              </h2>
               <p className="text-text-secondary mb-8 leading-relaxed">
-                A sauna often works best when the surrounding path, lighting, shade, privacy, seating, and cold-weather comfort are considered together. These related pages are the most useful next planning stops.
+                A sauna often works best when the surrounding path, lighting,
+                shade, privacy, seating, and cold-weather comfort are considered
+                together. These related pages are the most useful next planning
+                stops.
               </p>
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Start Sauna Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
@@ -422,13 +497,15 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
                   <Card
                     variant="default"
                     padding="lg"
-                    className="group h-full hover:border-edg-brand/30"
+                    className="group hover:border-edg-brand/30 h-full"
                   >
-                    <h3 className="text-text-primary mb-2 font-bold transition-colors group-hover:text-edg-brand-text">
+                    <h3 className="text-text-primary group-hover:text-edg-brand-text mb-2 font-bold transition-colors">
                       {item.label}
                     </h3>
-                    <p className="text-text-secondary mb-5 text-sm leading-relaxed">{item.description}</p>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-text-primary uppercase transition-colors group-hover:text-edg-brand-text">
+                    <p className="text-text-secondary mb-5 text-sm leading-relaxed">
+                      {item.description}
+                    </p>
+                    <span className="text-text-primary group-hover:text-edg-brand-text inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase transition-colors">
                       View page
                       <ChevronRight className="h-4 w-4" />
                     </span>
@@ -444,16 +521,22 @@ export default function SaunasPageClient({ product }: SaunasPageProps) {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4 text-edg-brand">Next Step</div>
-              <h2 className="section-title mb-6">Ready to Price a Sauna for Your Space?</h2>
+              <div className="label-editorial-brand text-edg-brand mb-4">
+                Next Step
+              </div>
+              <h2 className="section-title mb-6">
+                Ready to Price a Sauna for Your Space?
+              </h2>
               <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
-                Send EDG the rough location, preferred cabin size, and how the sauna should connect to the rest of the outdoor living plan. We will help sort the model, placement, and install path.
+                Send EDG the rough location, preferred cabin size, and how the
+                sauna should connect to the rest of the outdoor living plan. We
+                will help sort the model, placement, and install path.
               </p>
             </div>
             <div className="space-y-4">
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg" className="w-full">
-                  Get Sauna Pricing
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>

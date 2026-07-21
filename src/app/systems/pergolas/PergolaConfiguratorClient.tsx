@@ -34,10 +34,12 @@ const configuratorConsultationHref = buildContactHref({
 });
 
 export function PergolaConfiguratorClient() {
-  const [selectedColor, setSelectedColor] = useState<ColorOption>(colorOptions[0]);
+  const [selectedColor, setSelectedColor] = useState<ColorOption>(
+    colorOptions[0]
+  );
 
   return (
-    <div className="grid lg:grid-cols-3 gap-8">
+    <div className="grid gap-8 lg:grid-cols-3">
       {/* Color Selection */}
       <div className="lg:col-span-2">
         <h3 className="label-editorial-brand mb-6">Color Options</h3>
@@ -47,30 +49,32 @@ export function PergolaConfiguratorClient() {
           warranty terms, maintenance requirements, and expected production
           timing before order.
         </p>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {colorOptions.map((color) => (
             <button
               key={color.name}
               type="button"
               onClick={() => setSelectedColor(color)}
-              className={`group relative bg-surface border p-6 text-center transition-all rounded-none ${
+              className={`group bg-surface relative rounded-none border p-6 text-center transition-all ${
                 selectedColor.name === color.name
-                  ? 'border-edg-brand ring-1 ring-edg-brand'
+                  ? 'border-edg-brand ring-edg-brand ring-1'
                   : 'border-border hover:border-border-strong'
               }`}
             >
               <div
-                className="w-16 h-16 mx-auto mb-4 border border-border"
+                className="border-border mx-auto mb-4 h-16 w-16 border"
                 style={{ backgroundColor: color.hex }}
               />
-              <div className="font-bold text-sm text-text-primary">{color.name}</div>
+              <div className="text-text-primary text-sm font-bold">
+                {color.name}
+              </div>
               {color.ral && (
-                <div className="text-xs text-text-muted mt-1">{color.ral}</div>
+                <div className="text-text-muted mt-1 text-xs">{color.ral}</div>
               )}
               {selectedColor.name === color.name && (
                 <div className="absolute top-2 right-2">
-                  <div className="bg-edg-brand p-1 text-edg-dark">
+                  <div className="bg-edg-brand text-edg-dark p-1">
                     <Check className="h-3 w-3" />
                   </div>
                 </div>
@@ -79,9 +83,9 @@ export function PergolaConfiguratorClient() {
           ))}
         </div>
 
-        <div className="mt-8 p-6 bg-surface-muted border border-border">
-          <h4 className="font-bold mb-2">Selected: {selectedColor.name}</h4>
-          <p className="text-sm text-text-secondary">
+        <div className="bg-surface-muted border-border mt-8 border p-6">
+          <h4 className="mb-2 font-bold">Selected: {selectedColor.name}</h4>
+          <p className="text-text-secondary text-sm">
             Final coating, durability, care requirements, and warranty coverage
             depend on the selected manufacturer and finish package.
           </p>
@@ -91,26 +95,31 @@ export function PergolaConfiguratorClient() {
       {/* Included Features */}
       <div>
         <Card variant="dark" padding="lg" className="h-full">
-          <h3 className="label-editorial-brand mb-6 text-edg-brand">Every Project Includes</h3>
+          <h3 className="label-editorial-brand text-edg-brand mb-6">
+            Every Project Includes
+          </h3>
           <ul className="space-y-4">
             {includedFeatures.map((feature) => (
-              <li key={feature} className="flex items-center gap-3 text-text-inverse">
+              <li
+                key={feature}
+                className="text-text-inverse flex items-center gap-3"
+              >
                 <div className="bg-edg-brand/20 p-1">
-                  <Check className="h-4 w-4 text-edg-brand" />
+                  <Check className="text-edg-brand h-4 w-4" />
                 </div>
                 <span className="text-sm">{feature}</span>
               </li>
             ))}
           </ul>
 
-          <div className="border-t border-border-inverse mt-8 pt-8">
-            <p className="text-sm text-text-inverse-muted mb-4">
-              Not sure which color works best with your home? Schedule a consultation and 
-              we will bring samples to your site.
+          <div className="border-border-inverse mt-8 border-t pt-8">
+            <p className="text-text-inverse-muted mb-4 text-sm">
+              Not sure which color works best with your home? Schedule a
+              consultation and we will bring samples to your site.
             </p>
             <TrackedLink href={configuratorConsultationHref}>
               <Button variant="outline" className="w-full">
-                Book Consultation
+                Request a Quote
               </Button>
             </TrackedLink>
           </div>

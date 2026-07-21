@@ -82,7 +82,8 @@ const gotchas = [
 
 const faqs = [
   {
-    question: 'Do I need a permit to replace a Sanibel lanai or screen enclosure?',
+    question:
+      'Do I need a permit to replace a Sanibel lanai or screen enclosure?',
     answer:
       'Most permanent outdoor structures should be verified with the City of Sanibel before work starts. Sanibel Building Division guidance lists accessory structure and screen enclosure materials, and a City checklist says accessory structures must be permitted separately.',
   },
@@ -119,7 +120,8 @@ export default function SanibelZoningGuidePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Article',
-            headline: 'Sanibel Permit Guide for Lanais, Pergolas, and Screen Enclosure Alternatives',
+            headline:
+              'Sanibel Permit Guide for Lanais, Pergolas, and Screen Enclosure Alternatives',
             description:
               'Permit planning guidance for Sanibel lanai replacement, modern lanai systems, louvered pergolas, screen enclosure alternatives, flood review, and product documentation.',
             author: {
@@ -147,7 +149,10 @@ export default function SanibelZoningGuidePage() {
           <Breadcrumb
             items={[
               { label: 'Service Areas', href: '/service-areas' },
-              { label: 'Sanibel, FL', href: '/service-areas/sanibel-outdoor-living' },
+              {
+                label: 'Sanibel, FL',
+                href: '/service-areas/sanibel-outdoor-living',
+              },
               { label: 'Permit Guide' },
             ]}
             className="mb-6"
@@ -169,8 +174,8 @@ export default function SanibelZoningGuidePage() {
             </h1>
             <p className="text-text-inverse-muted max-w-3xl text-xl leading-relaxed">
               What homeowners should verify before replacing a lanai, removing a
-              covered outdoor structure, adding a louvered pergola, or
-              planning motorized screens on Sanibel Island.
+              covered outdoor structure, adding a louvered pergola, or planning
+              motorized screens on Sanibel Island.
             </p>
           </div>
         </Container>
@@ -180,9 +185,7 @@ export default function SanibelZoningGuidePage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.72fr_1fr]">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Quick reference
-              </div>
+              <div className="label-editorial-brand mb-4">Quick reference</div>
               <h2 className="section-title mb-6">
                 Treat permitting as the first design constraint
               </h2>
@@ -236,7 +239,7 @@ export default function SanibelZoningGuidePage() {
                       <td className="border-b border-zinc-100 px-4 py-3 font-bold">
                         {item.requirement}
                       </td>
-                      <td className="border-b border-zinc-100 px-4 py-3 text-text-secondary">
+                      <td className="text-text-secondary border-b border-zinc-100 px-4 py-3">
                         {item.details}
                       </td>
                     </tr>
@@ -275,8 +278,8 @@ export default function SanibelZoningGuidePage() {
               <ShieldCheck className="text-edg-brand-text mb-5 h-10 w-10" />
               <h3 className="mb-3 text-xl font-bold">Local acceptance</h3>
               <p className="text-text-secondary leading-relaxed">
-                Documentation supports the review. It does not replace the
-                local building official. Sanibel remains the final authority on
+                Documentation supports the review. It does not replace the local
+                building official. Sanibel remains the final authority on
                 permits, inspections, and site-specific requirements.
               </p>
             </Card>
@@ -336,12 +339,8 @@ export default function SanibelZoningGuidePage() {
         <Container>
           <div className="mx-auto max-w-4xl">
             <div className="mb-10 text-center">
-              <div className="label-editorial-brand mb-4">
-                Permit questions
-              </div>
-              <h2 className="section-title">
-                Sanibel permit FAQ
-              </h2>
+              <div className="label-editorial-brand mb-4">Permit questions</div>
+              <h2 className="section-title">Sanibel permit FAQ</h2>
             </div>
             <div className="space-y-4">
               {faqs.map((faq) => (
@@ -425,7 +424,7 @@ export default function SanibelZoningGuidePage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href={permitGuideContactHref}>
                 <Button size="lg">
-                  Ask About a Sanibel Project
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

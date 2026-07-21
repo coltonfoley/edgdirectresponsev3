@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useEffect, useId, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
-import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { QuoteRequestForm } from '@/components/features/contact/QuoteRequestForm';
 import { trackConversion } from '@/lib/analytics';
 import {
   Check,
@@ -246,7 +246,7 @@ export function ConfiguratorApp() {
                 Back to Pergolas
               </Link>
               <div className="text-edg-brand mb-0.5 text-[10px] font-bold tracking-[0.25em] uppercase">
-                System Fit Visualizer
+                Pergola Configurator
               </div>
               <h1 className="text-xl font-bold tracking-tight text-white lg:text-2xl">
                 Design Your Pergola
@@ -459,16 +459,15 @@ export function ConfiguratorApp() {
                 onClick={() => {
                   trackConversion({
                     conversionName: 'pergola_configurator_review_open',
-                    linkText: 'Send Configuration for Review',
+                    linkText: 'Request a Quote',
                   });
                   setShowModal(true);
                 }}
               >
-                Send Configuration for Review →
+                Request a Quote →
               </Button>
               <p className="mt-2.5 text-center text-[10px] text-white/50">
-                Free · No commitment · We&apos;ll be in touch within 1 business
-                day
+                Your configuration will be included with the quote request.
               </p>
             </div>
           </aside>
@@ -531,16 +530,16 @@ export function ConfiguratorApp() {
             </button>
 
             {/* Mobile: visible context when the 3D preview is the first view */}
-            <div className="pointer-events-none absolute top-4 left-4 right-32 border border-white/10 bg-black/60 p-3 backdrop-blur-sm lg:hidden">
-              <div className="text-[10px] font-bold tracking-[0.2em] text-edg-brand uppercase">
-                System Fit Visualizer
+            <div className="pointer-events-none absolute top-4 right-32 left-4 border border-white/10 bg-black/60 p-3 backdrop-blur-sm lg:hidden">
+              <div className="text-edg-brand text-[10px] font-bold tracking-[0.2em] uppercase">
+                Pergola Configurator
               </div>
-              <h1 className="mt-1 text-sm font-bold leading-tight text-white">
+              <h1 className="mt-1 text-sm leading-tight font-bold text-white">
                 Design your pergola in 3D.
               </h1>
               <p className="mt-1 text-[11px] leading-snug text-white/60">
-                Representative preview. EDG confirms final system fit after
-                site review.
+                Representative preview. EDG confirms final system fit after site
+                review.
               </p>
             </div>
 
@@ -597,31 +596,10 @@ function QuoteModal({
 }) {
   const dialogTitleId = useId();
   const dialogDescriptionId = useId();
-  const firstNameId = useId();
-  const lastNameId = useId();
-  const emailId = useId();
-  const phoneId = useId();
-  const zipId = useId();
-  const timelineId = useId();
-  const budgetId = useId();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const [formStarted, setFormStarted] = useState(false);
   const [testimonialIdx] = useState(() =>
     Math.floor(Math.random() * TESTIMONIALS.length)
   );
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    zip: '',
-    timeline: '',
-    budget: '',
-    fax: '', // honeypot
-  });
-
-  const { submitLead, trackFormStart, loading, error, success } =
-    useLeadSubmission();
   const testimonial = TESTIMONIALS[testimonialIdx];
 
   useEffect(() => {
@@ -636,54 +614,6 @@ function QuoteModal({
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    const fullMessage = [
-      summary,
-      form.timeline ? `Timeline: ${form.timeline}` : '',
-      form.budget ? `Budget: ${form.budget}` : '',
-    ]
-      .filter(Boolean)
-      .join('\n');
-
-    await submitLead({
-      email: form.email,
-      firstName: form.firstName,
-      lastName: form.lastName,
-      phone: form.phone,
-      location: form.zip,
-      projectType: 'Motorized Pergola System Fit',
-      message: fullMessage,
-      source: 'pergola-configurator',
-      fax: form.fax,
-      metadata: {
-        cta_label: 'Send Configuration for Review',
-        form_variant: 'pergola_configurator',
-        pilot_name: 'pergola_system_fit',
-        pilot_version: 'v1',
-        configurator_summary: summary,
-        timeline: form.timeline || undefined,
-        budget: form.budget || undefined,
-      },
-    });
-  }
-
-  function handleFormStart() {
-    if (formStarted) return;
-    setFormStarted(true);
-    trackFormStart({
-      source: 'pergola-configurator',
-      projectType: 'Motorized Pergola System Fit',
-      metadata: {
-        cta_label: 'Send Configuration for Review',
-        form_variant: 'pergola_configurator',
-        pilot_name: 'pergola_system_fit',
-        pilot_version: 'v1',
-        configurator_summary: summary,
-      },
-    });
-  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/80 p-0 backdrop-blur-sm sm:items-center sm:p-4">
@@ -704,232 +634,50 @@ function QuoteModal({
           <X className="h-5 w-5" />
         </button>
 
-        {success ? (
-          /* ── Success ── */
-          <div className="px-8 py-12 text-center">
-            <div className="bg-edg-brand mx-auto mb-5 flex h-12 w-12 items-center justify-center">
-              <Check className="h-6 w-6 text-black" />
-            </div>
-            <h2 id={dialogTitleId} className="mb-2 text-2xl font-bold text-white">
-              Configuration Sent
-            </h2>
-            <p
-              id={dialogDescriptionId}
-              className="mb-3 text-sm leading-relaxed text-white/70"
-            >
-              A designer will review your pergola configuration and reach out
-              within
-              <strong className="text-white"> 1 business day</strong> to discuss
-              next steps.
-            </p>
-            <p className="mb-8 text-xs text-white/55">
-              In the meantime, visit our{' '}
-              <Link href="/projects" className="text-edg-brand underline">
-                project portfolio
-              </Link>{' '}
-              to see completed installations near you.
-            </p>
-            <Button onClick={onClose}>Back to Configurator</Button>
+        <div className="p-6 sm:p-8">
+          <div className="text-edg-brand mb-1 text-[10px] font-bold tracking-[0.25em] uppercase">
+            Your pergola configuration
           </div>
-        ) : (
-          /* ── Form ── */
-          <div className="p-6 sm:p-8">
-            <div className="text-edg-brand mb-1 text-[10px] font-bold tracking-[0.25em] uppercase">
-              System Fit Review
-            </div>
-            <h2 id={dialogTitleId} className="mb-1 text-2xl font-bold text-white">
-              Send This Configuration for Review
-            </h2>
-            <p id={dialogDescriptionId} className="mb-5 text-xs text-white/60">
-              We&apos;ll review size, mount type, screens, heaters, timeline,
-              and budget before recommending a next step.
+          <h2 id={dialogTitleId} className="mb-1 text-2xl font-bold text-white">
+            Request a Quote
+          </h2>
+          <p id={dialogDescriptionId} className="mb-5 text-xs text-white/60">
+            Your selected size, mount type, color, and options will be included
+            automatically.
+          </p>
+
+          <div className="border-edg-brand mb-5 border-l-2 pl-4">
+            <p className="text-xs leading-relaxed text-white/75 italic">
+              &ldquo;{testimonial.quote}&rdquo;
             </p>
-
-            {/* Testimonial */}
-            <div className="border-edg-brand mb-5 border-l-2 pl-4">
-              <p className="text-xs leading-relaxed text-white/75 italic">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
-              <p className="mt-1 text-[10px] font-bold tracking-wider text-white/55 uppercase">
-                — {testimonial.name}, {testimonial.location}
-              </p>
-            </div>
-
-            {/* Config summary */}
-            <div className="mb-5 border border-white/18 bg-black/30 p-4">
-              <pre className="font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-white/65">
-                {summary}
-              </pre>
-            </div>
-
-            <form
-              data-lead-form-id="pergola_configurator"
-              onSubmit={handleSubmit}
-              onFocusCapture={handleFormStart}
-              className="space-y-4"
-            >
-              {/* Honeypot */}
-              <input
-                type="text"
-                name="fax"
-                tabIndex={-1}
-                autoComplete="off"
-                className="hidden"
-                value={form.fax}
-                onChange={(e) => setForm({ ...form, fax: e.target.value })}
-              />
-
-              <div className="grid grid-cols-2 gap-3">
-                <ModalField id={firstNameId} label="First Name *">
-                  <input
-                    id={firstNameId}
-                    type="text"
-                    required
-                    autoComplete="given-name"
-                    placeholder="Jane"
-                    value={form.firstName}
-                    onChange={(e) =>
-                      setForm({ ...form, firstName: e.target.value })
-                    }
-                    className="modal-input"
-                  />
-                </ModalField>
-                <ModalField id={lastNameId} label="Last Name">
-                  <input
-                    id={lastNameId}
-                    type="text"
-                    autoComplete="family-name"
-                    placeholder="Smith"
-                    value={form.lastName}
-                    onChange={(e) =>
-                      setForm({ ...form, lastName: e.target.value })
-                    }
-                    className="modal-input"
-                  />
-                </ModalField>
-              </div>
-
-              <ModalField id={emailId} label="Email *">
-                <input
-                  id={emailId}
-                  type="email"
-                  required
-                  autoComplete="email"
-                  placeholder="jane@example.com"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="modal-input"
-                />
-              </ModalField>
-
-              <div className="grid grid-cols-2 gap-3">
-                <ModalField id={phoneId} label="Phone">
-                  <input
-                    id={phoneId}
-                    type="tel"
-                    autoComplete="tel"
-                    placeholder="(815) 555-0100"
-                    value={form.phone}
-                    onChange={(e) =>
-                      setForm({ ...form, phone: e.target.value })
-                    }
-                    className="modal-input"
-                  />
-                </ModalField>
-                <ModalField id={zipId} label="ZIP Code">
-                  <input
-                    id={zipId}
-                    type="text"
-                    inputMode="numeric"
-                    autoComplete="postal-code"
-                    placeholder="60081"
-                    value={form.zip}
-                    onChange={(e) => setForm({ ...form, zip: e.target.value })}
-                    className="modal-input"
-                  />
-                </ModalField>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <ModalField id={timelineId} label="Timeline">
-                  <select
-                    id={timelineId}
-                    value={form.timeline}
-                    onChange={(e) =>
-                      setForm({ ...form, timeline: e.target.value })
-                    }
-                    className="modal-input"
-                  >
-                    <option value="">Select...</option>
-                    <option>ASAP</option>
-                    <option>1–3 months</option>
-                    <option>3–6 months</option>
-                    <option>6–12 months</option>
-                    <option>Just exploring</option>
-                  </select>
-                </ModalField>
-                <ModalField id={budgetId} label="Budget Range">
-                  <select
-                    id={budgetId}
-                    value={form.budget}
-                    onChange={(e) =>
-                      setForm({ ...form, budget: e.target.value })
-                    }
-                    className="modal-input"
-                  >
-                    <option value="">Select...</option>
-                    <option>Under $30k</option>
-                    <option>$30k–$60k</option>
-                    <option>$60k–$100k</option>
-                    <option>$100k+</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </ModalField>
-              </div>
-
-              {error && <p className="text-sm text-red-400">{error}</p>}
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full"
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Sending…
-                  </>
-                ) : (
-                  'Send Configuration for Review'
-                )}
-              </Button>
-            </form>
+            <p className="mt-1 text-[10px] font-bold tracking-wider text-white/55 uppercase">
+              — {testimonial.name}, {testimonial.location}
+            </p>
           </div>
-        )}
+
+          <div className="mb-5 border border-white/18 bg-black/30 p-4">
+            <pre className="font-mono text-[11px] leading-relaxed whitespace-pre-wrap text-white/65">
+              {summary}
+            </pre>
+          </div>
+
+          <QuoteRequestForm
+            source="pergola-configurator"
+            defaultInterest="pergola"
+            theme="dark"
+            heading="Contact information"
+            intro="Name, email, phone, and interest are all we need."
+            ctaPosition="pergola_configurator"
+            contextMessage={summary}
+            metadata={{
+              configurator_summary: summary,
+              pilot_name: 'pergola_system_fit',
+              pilot_version: 'v2_standard_quote',
+            }}
+            className="border-0 bg-transparent p-0 backdrop-blur-none"
+          />
+        </div>
       </div>
-    </div>
-  );
-}
-
-function ModalField({
-  id,
-  label,
-  children,
-}: {
-  id: string;
-  label: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <label
-        htmlFor={id}
-        className="mb-1.5 block text-[10px] font-bold tracking-wider text-white/60 uppercase"
-      >
-        {label}
-      </label>
-      {children}
     </div>
   );
 }

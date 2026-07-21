@@ -194,28 +194,28 @@ export function Navbar() {
   const isMilwaukeePage = milwaukeeClusterRoutes.some((route) =>
     pathname?.startsWith(route)
   );
-  const startProjectHref = isSouthwestFloridaPage
+  const quoteHref = isSouthwestFloridaPage
     ? buildContactHref({
-        type: 'price',
+        type: 'quote',
         product: 'shades',
         area: 'southwest-florida',
         source: 'nav_florida',
       })
     : isSanibelPage
       ? buildContactHref({
-          type: 'price',
+          type: 'quote',
           product: 'shades',
           area: 'sanibel',
           source: 'nav_sanibel',
         })
       : isMilwaukeePage
         ? buildContactHref({
-            type: 'fit-review',
+            type: 'quote',
             product: 'pergola',
             location: 'Milwaukee, WI',
             source: 'nav_milwaukee',
           })
-        : buildContactHref({ type: 'fit-review', source: 'nav' });
+        : buildContactHref({ type: 'quote', source: 'nav' });
 
   return (
     <header
@@ -577,8 +577,8 @@ export function Navbar() {
             {/* Desktop CTAs */}
             <div className="hidden items-center gap-4 xl:flex">
               <TrackedLink
-                href={startProjectHref}
-                conversionName="start_project_click"
+                href={quoteHref}
+                conversionName="quote_cta_click"
                 className={buttonClassName({
                   variant: solidNav ? 'primary' : 'outline',
                   size: 'sm',
@@ -588,7 +588,7 @@ export function Navbar() {
                   ),
                 })}
               >
-                Start Project
+                Request a Quote
               </TrackedLink>
             </div>
 
@@ -810,8 +810,8 @@ export function Navbar() {
 
               <div className="mt-8">
                 <TrackedLink
-                  href={startProjectHref}
-                  conversionName="start_project_click"
+                  href={quoteHref}
+                  conversionName="quote_cta_click"
                   className={buttonClassName({
                     className:
                       'bg-edg-brand text-edg-dark w-full py-6 text-lg font-bold uppercase hover:bg-white',
@@ -820,7 +820,7 @@ export function Navbar() {
                     setIsOpen(false);
                   }}
                 >
-                  Start Your Project
+                  Request a Quote
                 </TrackedLink>
               </div>
             </div>

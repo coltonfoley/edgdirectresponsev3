@@ -40,7 +40,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/lake-county-il',
   },
-  keywords: ['lake county pergolas', 'lake county outdoor living', 'lake county il patio', 'pergola installation lake county', 'barrington pergolas', 'lake forest shade systems'],
+  keywords: [
+    'lake county pergolas',
+    'lake county outdoor living',
+    'lake county il patio',
+    'pergola installation lake county',
+    'barrington pergolas',
+    'lake forest shade systems',
+  ],
 };
 
 const localBenefits = [
@@ -178,7 +185,9 @@ export default function LakeCountyHubPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -210,8 +219,7 @@ export default function LakeCountyHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Lake County, IL
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Plan Your Lake County Backyard With
-                {' '}
+                Plan Your Lake County Backyard With{' '}
                 <span className="text-edg-brand block">
                   Motorized Outdoor Systems
                 </span>
@@ -224,8 +232,7 @@ export default function LakeCountyHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Site Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -239,8 +246,12 @@ export default function LakeCountyHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -265,8 +276,12 @@ export default function LakeCountyHubPage() {
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -295,7 +310,12 @@ export default function LakeCountyHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -321,7 +341,12 @@ export default function LakeCountyHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {weatherConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -336,9 +361,7 @@ export default function LakeCountyHubPage() {
         <Container>
           <FadeIn>
             <div className="mb-12 text-center">
-              <h2 className="section-title mb-4">
-                Permits & HOA Regulations
-              </h2>
+              <h2 className="section-title mb-4">Permits & HOA Regulations</h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 We guide you through Lake County municipal building departments.
               </p>
@@ -351,16 +374,24 @@ export default function LakeCountyHubPage() {
                   Property Setbacks & Variances
                 </h3>
                 <p className="text-text-secondary mb-4">
-                  Structures like pergolas are often viewed as &quot;accessory structures.&quot; Because of this, they must adhere to setbacks:
+                  Structures like pergolas are often viewed as &quot;accessory
+                  structures.&quot; Because of this, they must adhere to
+                  setbacks:
                 </p>
                 <ul className="space-y-3">
-                  <li className="flex items-center gap-3 border border-border bg-surface p-4">
+                  <li className="border-border bg-surface flex items-center gap-3 border p-4">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
-                    <span>Side yards and rear yards often carry 5 to 10-foot boundaries from the property line.</span>
+                    <span>
+                      Side yards and rear yards often carry 5 to 10-foot
+                      boundaries from the property line.
+                    </span>
                   </li>
-                  <li className="flex items-center gap-3 border border-border bg-surface p-4">
+                  <li className="border-border bg-surface flex items-center gap-3 border p-4">
                     <CheckCircle2 className="text-edg-brand-text dark:text-edg-brand h-5 w-5 shrink-0" />
-                    <span>Easements (utility or drainage) must remain completely clear of permanent footings.</span>
+                    <span>
+                      Easements (utility or drainage) must remain completely
+                      clear of permanent footings.
+                    </span>
                   </li>
                 </ul>
               </Card>
@@ -371,10 +402,11 @@ export default function LakeCountyHubPage() {
                   <Clock className="text-edg-brand-dark h-6 w-6" />
                   Approval Packages
                 </h3>
-                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                <div className="border-border bg-surface mb-6 flex items-center gap-3 border p-4">
                   <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
-                  <p className="font-medium text-text-primary">
-                    We assemble your application to prevent village & HOA delays.
+                  <p className="text-text-primary font-medium">
+                    We assemble your application to prevent village & HOA
+                    delays.
                   </p>
                 </div>
                 <ul className="grid gap-3 md:grid-cols-2">
@@ -431,12 +463,8 @@ export default function LakeCountyHubPage() {
                 ahead of the site.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start Lake County Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

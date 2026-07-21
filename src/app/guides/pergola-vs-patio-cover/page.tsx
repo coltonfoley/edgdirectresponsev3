@@ -30,7 +30,7 @@ const guideData = {
   title: 'Pergola vs. Patio Cover',
   subtitle: 'How to Choose for Chicago & Lake Geneva Homes',
   intro:
-    "The right answer depends on more than the name of the structure. For Chicago patios, roof decks, and Lake Geneva properties, compare daylight, drainage, wind exposure, attachment, and how the space needs to work before choosing a fixed cover or an adjustable louvered system.",
+    'The right answer depends on more than the name of the structure. For Chicago patios, roof decks, and Lake Geneva properties, compare daylight, drainage, wind exposure, attachment, and how the space needs to work before choosing a fixed cover or an adjustable louvered system.',
 };
 
 const comparisonMatrix = [
@@ -113,14 +113,14 @@ export default function PergolaVsPatioCover() {
             className="mb-8"
           />
           <div className="max-w-4xl">
-            <div className="label-editorial mb-5 inline-flex items-center gap-3 text-edg-brand">
+            <div className="label-editorial text-edg-brand mb-5 inline-flex items-center gap-3">
               <Lightbulb className="h-4 w-4" />
               Comparison Guide
             </div>
             <h1 className="mb-5 max-w-4xl text-4xl leading-tight font-bold md:text-6xl">
               {guideData.title}
             </h1>
-            <p className="mb-4 text-xl font-bold text-edg-brand md:text-2xl">
+            <p className="text-edg-brand mb-4 text-xl font-bold md:text-2xl">
               {guideData.subtitle}
             </p>
             <p className="max-w-3xl text-xl leading-relaxed text-zinc-300">
@@ -135,12 +135,8 @@ export default function PergolaVsPatioCover() {
         <Container>
           <div className="mx-auto max-w-5xl">
             <div className="mx-auto mb-10 max-w-3xl text-center">
-              <div className="label-editorial-brand mb-4">
-                Decision Matrix
-              </div>
-              <h2 className="section-title mb-4">
-                Quick Decision Matrix
-              </h2>
+              <div className="label-editorial-brand mb-4">Decision Matrix</div>
+              <h2 className="section-title mb-4">Quick Decision Matrix</h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 Compare the three main options by the job they actually do:
                 fixed shade, fixed weather protection, or adjustable outdoor
@@ -163,13 +159,15 @@ export default function PergolaVsPatioCover() {
                         : 'text-text-muted mb-4 text-xs font-bold tracking-[0.18em] uppercase'
                     }
                   >
-                    {item.recommended ? 'EDG preferred path when fit supports it' : 'Fixed option'}
+                    {item.recommended
+                      ? 'EDG preferred path when fit supports it'
+                      : 'Fixed option'}
                   </div>
                   <h3
                     className={
                       item.recommended
-                        ? 'mb-5 text-xl font-bold text-text-inverse'
-                        : 'mb-5 text-xl font-bold text-text-primary'
+                        ? 'text-text-inverse mb-5 text-xl font-bold'
+                        : 'text-text-primary mb-5 text-xl font-bold'
                     }
                   >
                     {item.type}
@@ -177,8 +175,8 @@ export default function PergolaVsPatioCover() {
                   <div
                     className={
                       item.recommended
-                        ? 'divide-y divide-border-inverse text-sm'
-                        : 'divide-y divide-border text-sm'
+                        ? 'divide-border-inverse divide-y text-sm'
+                        : 'divide-border divide-y text-sm'
                     }
                   >
                     {[
@@ -203,8 +201,8 @@ export default function PergolaVsPatioCover() {
                         <span
                           className={
                             item.recommended
-                              ? 'font-bold text-text-inverse'
-                              : 'font-bold text-text-primary'
+                              ? 'text-text-inverse font-bold'
+                              : 'text-text-primary font-bold'
                           }
                         >
                           {value}
@@ -234,7 +232,7 @@ export default function PergolaVsPatioCover() {
 
             <div className="grid gap-6 md:grid-cols-2">
               <Card variant="outline" padding="lg">
-                <h3 className="mb-4 text-2xl font-bold text-text-primary">
+                <h3 className="text-text-primary mb-4 text-2xl font-bold">
                   Option A: Fixed Patio Cover
                 </h3>
                 <p className="text-text-secondary mb-6 leading-relaxed">
@@ -249,9 +247,12 @@ export default function PergolaVsPatioCover() {
                     ['Darkens adjacent interior rooms', false],
                     ['Traps heat in summer', false],
                   ].map(([label, positive]) => (
-                    <div key={label as string} className="flex items-center gap-3 text-sm">
+                    <div
+                      key={label as string}
+                      className="flex items-center gap-3 text-sm"
+                    >
                       {positive ? (
-                        <CheckCircle2 className="h-5 w-5 shrink-0 text-edg-brand-text" />
+                        <CheckCircle2 className="text-edg-brand-text h-5 w-5 shrink-0" />
                       ) : (
                         <X className="h-5 w-5 shrink-0 text-zinc-500" />
                       )}
@@ -265,13 +266,13 @@ export default function PergolaVsPatioCover() {
                 <div className="text-edg-brand mb-4 text-xs font-bold tracking-[0.18em] uppercase">
                   EDG preferred path when the site fits
                 </div>
-                <h3 className="mb-4 text-2xl font-bold text-text-inverse">
+                <h3 className="text-text-inverse mb-4 text-2xl font-bold">
                   Option B: Louvered Pergola
                 </h3>
                 <p className="text-text-inverse-muted mb-6 leading-relaxed">
                   An aluminum structure with motorized louvers that can open for
-                  light and airflow or close for rain management when the system,
-                  pitch, drainage, and controls are specified correctly.
+                  light and airflow or close for rain management when the
+                  system, pitch, drainage, and controls are specified correctly.
                 </p>
                 <div className="space-y-3">
                   {[
@@ -280,8 +281,11 @@ export default function PergolaVsPatioCover() {
                     'Active ventilation for comfort',
                     'Higher initial investment',
                   ].map((label) => (
-                    <div key={label} className="flex items-center gap-3 text-sm">
-                      <CheckCircle2 className="h-5 w-5 shrink-0 text-edg-brand" />
+                    <div
+                      key={label}
+                      className="flex items-center gap-3 text-sm"
+                    >
+                      <CheckCircle2 className="text-edg-brand h-5 w-5 shrink-0" />
                       <span className="text-text-inverse-muted">{label}</span>
                     </div>
                   ))}
@@ -296,7 +300,11 @@ export default function PergolaVsPatioCover() {
       <Section className="section-md bg-white">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <Card variant="muted" padding="lg" className="border-l-4 border-l-edg-brand">
+            <Card
+              variant="muted"
+              padding="lg"
+              className="border-l-edg-brand border-l-4"
+            >
               <div className="mb-4 flex items-center gap-3">
                 <IconWrapper icon={ShieldCheck} variant="brand" size="md" />
                 <div className="label-editorial-brand">Our Recommendation</div>
@@ -326,29 +334,24 @@ export default function PergolaVsPatioCover() {
       <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold text-text-inverse md:text-4xl">
+            <h2 className="text-text-inverse mb-6 text-3xl font-bold md:text-4xl">
               Need to choose the right path?
             </h2>
-            <p className="mb-8 text-xl leading-relaxed text-text-inverse-muted">
+            <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
               Use the planning guide or send the project context so EDG can
               compare pergola, cover, screen, glass, and outdoor-room options
               against the actual site.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href="/guides/motorized-pergola-planning">
-                <Button
-                  size="lg"
-                >
+                <Button size="lg">
                   Read the Planning Guide
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/guides/pergola-system-fit-review?source=pergola_vs_patio_cover_bottom">
-                <Button
-                  size="lg"
-                  variant="outline"
-                >
-                  Get a Fit Review
+                <Button size="lg" variant="outline">
+                  Request a Quote
                 </Button>
               </Link>
             </div>

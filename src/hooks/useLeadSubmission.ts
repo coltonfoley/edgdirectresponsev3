@@ -30,9 +30,7 @@ function safeAnalyticsPath(value: unknown) {
 function safeAnalyticsToken(value: unknown) {
   if (typeof value !== 'string') return undefined;
   const normalized = value.trim().slice(0, 100);
-  return /^[a-zA-Z0-9 _./:+-]+$/.test(normalized)
-    ? normalized
-    : undefined;
+  return /^[a-zA-Z0-9 _./:+-]+$/.test(normalized) ? normalized : undefined;
 }
 
 export interface LeadData {

@@ -31,7 +31,8 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: '/opengraph-image' }],
     title: 'Northbrook Outdoor Living | Pergolas & Screens | EDG',
-    description: 'Outdoor living systems for Northbrook homes. Motorized pergolas, screens, and glass enclosures.',
+    description:
+      'Outdoor living systems for Northbrook homes. Motorized pergolas, screens, and glass enclosures.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -39,7 +40,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/northbrook-il',
   },
-  keywords: ['northbrook pergolas', 'northbrook outdoor living', 'northbrook il patio', 'pergola installation northbrook', 'north shore outdoor'],
+  keywords: [
+    'northbrook pergolas',
+    'northbrook outdoor living',
+    'northbrook il patio',
+    'pergola installation northbrook',
+    'north shore outdoor',
+  ],
 };
 
 const localBenefits = [
@@ -105,7 +112,7 @@ const faqs = [
       'Review timing depends on the project scope, completeness of the submission, season, and whether HOA or additional review is involved. We set expectations after we understand the address, proposed structure, and documentation required.',
   },
   {
-    question: 'Can you match my home\'s Georgian architecture?',
+    question: "Can you match my home's Georgian architecture?",
     answer:
       'Absolutely. We offer custom powder coating to match your brick, trim, or window mullions. Our columns can be detailed to complement Georgian and Colonial styles common throughout Northbrook. We understand the architectural heritage of the area and design accordingly.',
   },
@@ -192,15 +199,14 @@ export default function NorthbrookHubPage() {
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                From the winding lanes of Techny to the Shermer Road corridor, we
-                design engineered shade systems that complement Northbrook&apos;s
-                classic Georgian architecture and handle its unique weather
-                challenges.
+                From the winding lanes of Techny to the Shermer Road corridor,
+                we design engineered shade systems that complement
+                Northbrook&apos;s classic Georgian architecture and handle its
+                unique weather challenges.
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Northbrook Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -214,7 +220,10 @@ export default function NorthbrookHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
                   <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
                 </span>
               ))}
@@ -232,14 +241,19 @@ export default function NorthbrookHubPage() {
                 Serving Every Northbrook Neighborhood
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                We understand the unique character and requirements of Northbrook&apos;s distinct areas.
+                We understand the unique character and requirements of
+                Northbrook&apos;s distinct areas.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -251,56 +265,58 @@ export default function NorthbrookHubPage() {
       <Section id="zoning" className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
-            <h2 className="section-title mb-4">Zoning & Permits in Northbrook</h2>
+            <h2 className="section-title mb-4">
+              Zoning & Permits in Northbrook
+            </h2>
             <p className="text-text-secondary max-w-3xl">
               Northbrook outdoor-room approvals depend on the address, zoning
-              district, existing hardscape, drainage, attachment method, and
-              any HOA or architectural review requirements.
+              district, existing hardscape, drainage, attachment method, and any
+              HOA or architectural review requirements.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
               <Card>
-                <h3 className="font-bold mb-2 flex items-center gap-2">
+                <h3 className="mb-2 flex items-center gap-2 font-bold">
                   <AlertTriangle className="text-edg-brand-dark h-4 w-4" />
                   Coverage Review
                 </h3>
-                <p className="text-sm text-text-secondary">
+                <p className="text-text-secondary text-sm">
                   We review the survey, patio surface, roof footprint, existing
                   hardscape, and drainage path before assuming how a structure
                   will affect lot coverage.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2 flex items-center gap-2">
-                  <Ruler className="h-4 w-4 text-edg-brand-dark" />
+                <h3 className="mb-2 flex items-center gap-2 font-bold">
+                  <Ruler className="text-edg-brand-dark h-4 w-4" />
                   Height Review
                 </h3>
-                <p className="text-sm text-text-secondary">
+                <p className="text-text-secondary text-sm">
                   Height and placement should be checked against the actual
                   address, zoning district, attachment method, and whether the
                   project involves an elevated deck or second-story condition.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2">Side Setback</h3>
-                <p className="text-sm text-text-secondary">
+                <h3 className="mb-2 font-bold">Side Setback</h3>
+                <p className="text-text-secondary text-sm">
                   Side-yard placement should be checked against the survey,
                   zoning district, easements, and any association requirements
                   before the structure is priced.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2">Rear Setback</h3>
-                <p className="text-sm text-text-secondary">
-                  Rear-yard placement varies by zoning district, structure
-                  type, easements, and existing improvements. We verify the
-                  setback path before drawings are finalized.
+                <h3 className="mb-2 font-bold">Rear Setback</h3>
+                <p className="text-text-secondary text-sm">
+                  Rear-yard placement varies by zoning district, structure type,
+                  easements, and existing improvements. We verify the setback
+                  path before drawings are finalized.
                 </p>
               </Card>
             </div>
-            
-            <div className="mt-8 p-6 bg-white border-l-4 border-edg-brand-dark">
-              <h4 className="font-bold mb-2">Village Hall Permitting</h4>
+
+            <div className="border-edg-brand-dark mt-8 border-l-4 bg-white p-6">
+              <h4 className="mb-2 font-bold">Village Hall Permitting</h4>
               <p className="text-text-secondary">
                 We help assemble the survey markup, product information,
                 engineering details, and HOA or architectural-review materials
@@ -320,13 +336,19 @@ export default function NorthbrookHubPage() {
                 Built for Northbrook&apos;s Weather
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are planned around North Shore wind, snow, sun, drainage, and everyday patio use.
+                Our systems are planned around North Shore wind, snow, sun,
+                drainage, and everyday patio use.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {weatherConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -374,12 +396,17 @@ export default function NorthbrookHubPage() {
                 href="/service-areas/northbrook-il/motorized-pergolas"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Home}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     Motorized Pergolas
                   </h3>
@@ -394,21 +421,24 @@ export default function NorthbrookHubPage() {
                 </Card>
               </Link>
 
-              <Link
-                href="/projects"
-                className="group block"
-              >
-                <Card 
-                  variant="muted" 
+              <Link href="/projects" className="group block">
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <IconWrapper icon={Phone} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Phone}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     View Local Projects
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    See completed projects in Northbrook and nearby North Shore communities.
+                    See completed projects in Northbrook and nearby North Shore
+                    communities.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     View Gallery <ArrowRight className="h-4 w-4" />
@@ -429,15 +459,12 @@ export default function NorthbrookHubPage() {
                 Ready to plan your Northbrook project?
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
-                Review the address, weather exposure, review path, and right system direction with our local design team.
+                Review the address, weather exposure, review path, and right
+                product recommendation with our local team.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start Northbrook Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

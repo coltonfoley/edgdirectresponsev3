@@ -40,7 +40,7 @@ const guideBenefits = [
   },
   {
     icon: Ruler,
-    title: 'Site Review',
+    title: 'Site Conditions',
     description:
       'The conditions to check before a project gets locked into the wrong structure.',
   },
@@ -61,7 +61,7 @@ const guideBenefits = [
 export default function PlanningGuideLanding() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-edg-dark pt-28 pb-16 text-white lg:pb-20">
+      <section className="bg-edg-dark relative overflow-hidden pt-28 pb-16 text-white lg:pb-20">
         <div className="absolute inset-0">
           <Image
             src={images.pages.guides.louveredPergolasHero}
@@ -86,7 +86,7 @@ export default function PlanningGuideLanding() {
 
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
             <div>
-              <div className="label-editorial mb-6 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-6">
                 Planning Guide
               </div>
               <h1 className="hero-title mb-6 max-w-5xl">
@@ -100,7 +100,7 @@ export default function PlanningGuideLanding() {
 
               <a
                 href="#planning-guide-form"
-                className="mb-8 inline-flex h-14 w-full items-center justify-center gap-2 bg-edg-brand px-8 text-base font-bold tracking-wider text-edg-dark uppercase transition-colors hover:bg-white sm:w-auto lg:hidden"
+                className="bg-edg-brand text-edg-dark mb-8 inline-flex h-14 w-full items-center justify-center gap-2 px-8 text-base font-bold tracking-wider uppercase transition-colors hover:bg-white sm:w-auto lg:hidden"
               >
                 Read the Planning Guide
                 <ArrowRight className="h-4 w-4" />
@@ -109,7 +109,7 @@ export default function PlanningGuideLanding() {
               <div className="grid gap-3">
                 {guideBullets.map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
                     <span className="text-sm leading-relaxed text-zinc-200 md:text-base">
                       {item}
                     </span>
@@ -124,9 +124,9 @@ export default function PlanningGuideLanding() {
             >
               <div className="mb-6 grid items-center gap-6 sm:grid-cols-[0.75fr_1fr]">
                 <div className="hidden border border-white/10 bg-white/5 p-5 sm:block">
-                  <div className="flex aspect-[3/4] flex-col justify-between border border-edg-brand/30 bg-black/40 p-5">
+                  <div className="border-edg-brand/30 flex aspect-[3/4] flex-col justify-between border bg-black/40 p-5">
                     <div>
-                      <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                      <div className="text-edg-brand mb-3 text-xs font-bold tracking-[0.18em] uppercase">
                         EDG Guide
                       </div>
                       <h2 className="text-lg leading-tight font-bold text-white">
@@ -136,11 +136,11 @@ export default function PlanningGuideLanding() {
                         Planning Guide 2026
                       </p>
                     </div>
-                    <BookOpen className="h-6 w-6 text-edg-brand" />
+                    <BookOpen className="text-edg-brand h-6 w-6" />
                   </div>
                 </div>
                 <div>
-                  <div className="label-editorial mb-3 text-edg-brand">
+                  <div className="label-editorial text-edg-brand mb-3">
                     Email Access
                   </div>
                   <h2 className="mb-3 text-2xl font-bold text-white">
@@ -164,7 +164,7 @@ export default function PlanningGuideLanding() {
         </Container>
       </section>
 
-      <section className="border-t border-white/10 bg-edg-dark py-6">
+      <section className="bg-edg-dark border-t border-white/10 py-6">
         <Container>
           <div className="grid gap-4 text-center text-sm font-bold tracking-wider text-zinc-300 uppercase md:grid-cols-3">
             {proofPoints.map((point) => (
@@ -185,7 +185,7 @@ export default function PlanningGuideLanding() {
             <h2 className="section-title mb-4">
               The questions to answer before the project becomes expensive
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary text-lg leading-relaxed">
               The guide keeps the buyer focused on system fit, project
               constraints, and real planning decisions instead of product claims
               in isolation.
@@ -202,7 +202,7 @@ export default function PlanningGuideLanding() {
                   className="mb-6"
                 />
                 <h3 className="mb-3 text-xl font-bold">{benefit.title}</h3>
-                <p className="text-sm leading-relaxed text-text-secondary">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </Card>

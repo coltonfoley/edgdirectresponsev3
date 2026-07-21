@@ -184,9 +184,9 @@ const faqs = [
       'In some projects, yes. A motorized louvered roof can create shade, rain protection, airflow, and a cleaner open-air feel than a fixed screen enclosure. The right answer depends on the existing structure, local code, screen or glass needs, and whether the space must be bug-proof, storm-ready, or fully enclosed.',
   },
   {
-    question: 'Should I start with a product or a site review?',
+    question: 'Should I start with a product or request a quote?',
     answer:
-      'Start with a site review. In Southwest Florida, wind exposure, flood elevation, attachment details, and local permitting can decide which system is viable before brand or color decisions matter.',
+      'Start with a quote request. In Southwest Florida, wind exposure, flood elevation, attachment details, and local permitting can decide which system is viable before brand or color decisions matter.',
   },
 ];
 
@@ -212,7 +212,7 @@ export default function SouthwestFloridaPage() {
   };
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -220,7 +220,7 @@ export default function SouthwestFloridaPage() {
         }}
       />
 
-      <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <section className="bg-edg-dark relative flex min-h-[70vh] items-center overflow-hidden pt-24 pb-16 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.pages.serviceAreas.sanibelShopros02}
@@ -243,14 +243,14 @@ export default function SouthwestFloridaPage() {
             />
           </div>
           <div className="max-w-4xl">
-            <div className="mb-6 inline-flex items-center gap-2 border border-edg-brand/30 bg-edg-brand/10 px-4 py-2 text-xs font-bold tracking-widest text-edg-brand-dark uppercase">
+            <div className="border-edg-brand/30 bg-edg-brand/10 text-edg-brand-dark mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
               <MapPin className="h-4 w-4" />
               Sanibel, Captiva, Naples, Marco Island, Fort Myers
             </div>
             <h1 className="hero-title mb-6 text-white">
               Motorized Screens & Pergolas for Southwest Florida
             </h1>
-            <p className="mb-8 max-w-2xl text-lg leading-relaxed text-text-inverse-muted md:text-xl">
+            <p className="text-text-inverse-muted mb-8 max-w-2xl text-lg leading-relaxed md:text-xl">
               Coastal outdoor living is not a generic patio project. EDG helps
               Florida homeowners and project teams plan motorized screens,
               louvered roof systems, and covered-lanai comfort upgrades around
@@ -316,10 +316,10 @@ export default function SouthwestFloridaPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
                   <div className="mb-4 flex items-start justify-between gap-4">
-                    <h3 className="text-xl font-bold transition-colors group-hover:text-edg-brand-text">
+                    <h3 className="group-hover:text-edg-brand-text text-xl font-bold transition-colors">
                       {market.name}
                     </h3>
                     <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -342,7 +342,7 @@ export default function SouthwestFloridaPage() {
               <h2 className="section-title mb-6">
                 Salt air, wind, rain, and permitting shape the project early
               </h2>
-              <div className="space-y-4 text-text-secondary text-lg leading-relaxed">
+              <div className="text-text-secondary space-y-4 text-lg leading-relaxed">
                 <p>
                   Southwest Florida outdoor rooms have to work harder than a
                   typical inland patio. The system should be reviewed around
@@ -369,17 +369,14 @@ export default function SouthwestFloridaPage() {
                   'Any known HOA, flood-zone, or permit constraints',
                 ].map((item) => (
                   <li key={item} className="flex gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-text" />
+                    <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
                     <span className="text-text-secondary">{item}</span>
                   </li>
                 ))}
               </ul>
-              <Link
-                href={inputContactHref}
-                className="mt-8 inline-flex"
-              >
+              <Link href={inputContactHref} className="mt-8 inline-flex">
                 <Button>
-                  Send Project Details
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -409,12 +406,12 @@ export default function SouthwestFloridaPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <h3 className="mb-3 text-lg font-bold transition-colors group-hover:text-edg-brand-text">
+                  <h3 className="group-hover:text-edg-brand-text mb-3 text-lg font-bold transition-colors">
                     {page.title}
                   </h3>
-                  <p className="mb-5 text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary mb-5 text-sm leading-relaxed">
                     {page.description}
                   </p>
                   <div className="flex items-center gap-2 text-xs font-bold tracking-wider uppercase">
@@ -431,18 +428,18 @@ export default function SouthwestFloridaPage() {
       <Section className="section-md bg-edg-dark text-white">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <Wind className="mx-auto mb-5 h-10 w-10 text-edg-brand" />
+            <Wind className="text-edg-brand mx-auto mb-5 h-10 w-10" />
             <h2 className="mb-5 text-3xl font-bold md:text-4xl">
               Planning a Gulf Coast outdoor living project?
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-text-inverse-muted">
+            <p className="text-text-inverse-muted mx-auto mb-8 max-w-2xl text-lg leading-relaxed">
               Send the address, photos, and the main problem you are trying to
-                  solve. EDG will help determine whether motorized screens, a
+              solve. EDG will help determine whether motorized screens, a
               louvered pergola, or both should be the right starting point.
             </p>
             <Link href={bottomContactHref}>
               <Button size="lg">
-                Request Florida Guidance
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

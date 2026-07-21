@@ -111,7 +111,7 @@ const faqs = [
   {
     question: "What's the typical investment range?",
     answer:
-      'The investment depends on size, attachment method, finish, screens, lighting, heat, controls, structural requirements, and review documentation. Wilmette projects can vary widely because a small patio, a lake-facing terrace, and an estate-scale outdoor room are very different scopes. We provide detailed proposals after a site review.',
+      'The investment depends on size, attachment method, finish, screens, lighting, heat, controls, structural requirements, and review documentation. Wilmette projects can vary widely because a small patio, a lake-facing terrace, and an estate-scale outdoor room are very different scopes. We provide detailed proposals after confirming the site details.',
   },
   {
     question: 'Can I add this to an existing patio?',
@@ -140,7 +140,7 @@ const serviceSchema = {
 
 export default function WilmetteProductPage() {
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -154,7 +154,7 @@ export default function WilmetteProductPage() {
         }}
       />
 
-      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.systems.pergolas.grayBronzeWhite}
@@ -195,7 +195,7 @@ export default function WilmetteProductPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href={heroContactHref}>
                 <Button size="lg">
-                  Get a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -232,19 +232,19 @@ export default function WilmetteProductPage() {
               <h2 className="section-title mb-6">
                 The right pergola should feel planned with the house
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
-                Wilmette homeowners are usually balancing architecture,
-                privacy, lake-influenced weather, and review expectations. A
-                fixed cover can feel too heavy, while a decorative pergola often
-                does not solve rain, glare, bugs, or daily comfort.
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                Wilmette homeowners are usually balancing architecture, privacy,
+                lake-influenced weather, and review expectations. A fixed cover
+                can feel too heavy, while a decorative pergola often does not
+                solve rain, glare, bugs, or daily comfort.
               </p>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 A motorized louvered system gives the patio more range: open the
                 roof for sun and airflow, close it when rain moves in, and add
                 screens, lighting, or heat when the space needs to operate more
                 like an outdoor room.
               </p>
-              <p className="text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary text-lg leading-relaxed">
                 The goal is a pergola that looks intentional next to the home
                 and makes the outdoor space easier to use, not a product dropped
                 onto a North Shore property.
@@ -272,7 +272,7 @@ export default function WilmetteProductPage() {
             <h2 className="section-title mb-4">
               Wilmette Pergola Decisions to Make Early
             </h2>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
               The strongest projects sort out exposure, review documentation,
               finish direction, controls, and side protection before the
               structure is treated as a finished quote.
@@ -288,10 +288,10 @@ export default function WilmetteProductPage() {
                   size="lg"
                   className="mb-4"
                 />
-                <h3 className="mb-3 text-lg font-bold text-text-primary">
+                <h3 className="text-text-primary mb-3 text-lg font-bold">
                   {priority.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-text-secondary">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {priority.description}
                 </p>
               </Card>
@@ -310,7 +310,7 @@ export default function WilmetteProductPage() {
               <h2 className="section-title mb-6">
                 Where Louvered Pergolas Fit Best in Wilmette
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 A Wilmette pergola should be planned around the property rather
                 than treated like a standard North Shore installation. The
                 decision usually comes down to review expectations, lake
@@ -320,10 +320,10 @@ export default function WilmetteProductPage() {
               <div className="space-y-4">
                 {planningFit.map((item) => (
                   <Card key={item.title} variant="muted" padding="lg">
-                    <h3 className="mb-2 text-lg font-bold text-text-primary">
+                    <h3 className="text-text-primary mb-2 text-lg font-bold">
                       {item.title}
                     </h3>
-                    <p className="leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary leading-relaxed">
                       {item.description}
                     </p>
                   </Card>
@@ -332,14 +332,14 @@ export default function WilmetteProductPage() {
             </div>
 
             <Card variant="dark" padding="lg">
-              <h3 className="mb-6 text-xl font-bold text-text-inverse">
+              <h3 className="text-text-inverse mb-6 text-xl font-bold">
                 Specification Checks
               </h3>
               <div className="space-y-4">
                 {specificationChecks.map((check) => (
                   <div key={check} className="flex gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
-                    <p className="leading-relaxed text-text-inverse-muted">
+                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-inverse-muted leading-relaxed">
                       {check}
                     </p>
                   </div>
@@ -350,14 +350,14 @@ export default function WilmetteProductPage() {
         </Container>
       </Section>
 
-      <Section className="section-md border-y border-border bg-surface-muted">
+      <Section className="section-md border-border bg-surface-muted border-y">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="grid grid-cols-2 gap-4">
               {images.featuredProjects.karp.gallery.map((src, index) => (
                 <div
                   key={src}
-                  className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-dark"
+                  className="border-border bg-surface-dark relative aspect-[4/3] overflow-hidden border"
                 >
                   <Image
                     src={src}
@@ -374,9 +374,9 @@ export default function WilmetteProductPage() {
                 North Shore Proof
               </div>
               <h2 className="section-title mb-6">
-                Use real project details to guide the fit review
+                Use real project details to guide the recommendation
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 Nearby project examples help clarify finish direction, beam
                 rhythm, screen needs, and how much of the patio should become a
                 more controlled outdoor room. EDG uses those details to compare
@@ -401,19 +401,20 @@ export default function WilmetteProductPage() {
             <h2 className="section-title mb-8">
               Wilmette Louvered Pergola FAQ
             </h2>
-            <div className="divide-y divide-border">
+            <div className="divide-border divide-y">
               {faqs.map((faq) => (
                 <div key={faq.question} className="py-6">
-                  <h3 className="mb-3 text-lg font-bold text-text-primary">
+                  <h3 className="text-text-primary mb-3 text-lg font-bold">
                     {faq.question}
                   </h3>
-                  <p className="leading-relaxed text-text-secondary">
-                    {faq.question === 'Do I need Architectural Review Board approval?' ? (
+                  <p className="text-text-secondary leading-relaxed">
+                    {faq.question ===
+                    'Do I need Architectural Review Board approval?' ? (
                       <>
                         {faq.answer.split('Wilmette zoning guide')[0]}
                         <Link
                           href="/service-areas/wilmette-il#zoning"
-                          className="font-medium text-edg-brand-text hover:underline"
+                          className="text-edg-brand-text font-medium hover:underline"
                         >
                           Wilmette planning notes
                         </Link>
@@ -434,22 +435,22 @@ export default function WilmetteProductPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4 text-edg-brand">
+              <div className="label-editorial-brand text-edg-brand mb-4">
                 Next Step
               </div>
               <h2 className="section-title mb-6">
                 Ready to Review a Wilmette Pergola Plan?
               </h2>
-              <p className="max-w-2xl text-xl leading-relaxed text-text-inverse-muted">
-                Send EDG the patio location, home context, review questions,
-                and how you want the space to work. We will help narrow the
-                system, finish, accessories, and installation path.
+              <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
+                Send EDG the patio location, home context, review questions, and
+                how you want the space to work. We will help narrow the system,
+                finish, accessories, and installation path.
               </p>
             </div>
             <div className="space-y-4">
               <Link href={bottomContactHref}>
                 <Button size="lg" className="w-full">
-                  Request Wilmette Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

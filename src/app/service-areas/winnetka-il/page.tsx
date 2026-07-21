@@ -224,8 +224,7 @@ export default function WinnetkaHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Winnetka Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -509,8 +508,7 @@ export default function WinnetkaHubPage() {
               </p>
               <Link href={bottomContactHref}>
                 <Button size="lg" variant="dark" className="px-8 text-lg">
-                  Schedule Winnetka Planning{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

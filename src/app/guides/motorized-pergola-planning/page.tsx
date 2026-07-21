@@ -117,7 +117,7 @@ const decisionRows = [
     question:
       'Does water need to drain near doors, windows, stairs, or an outdoor kitchen?',
     impact:
-      'The frame layout, louver orientation, gutter path, and downspout placement may decide the system direction.',
+      'The frame layout, louver orientation, gutter path, and downspout placement may decide which system works best.',
   },
   {
     question: 'Will the pergola sit on an existing deck or roof structure?',
@@ -140,9 +140,9 @@ const decisionRows = [
 
 const resourceLinks = [
   {
-    title: 'Pergola System Fit Review',
+    title: 'Request a Pergola Quote',
     description:
-      'Send photos, rough dimensions, location, and project goals so EDG can identify the likely system direction.',
+      'Request a quote and optionally send photos, rough dimensions, location, and project goals.',
     href: '/guides/pergola-system-fit-review',
     icon: ClipboardCheck,
   },
@@ -253,8 +253,7 @@ const projectProofExamples = [
     city: 'Barrington, IL',
     href: '/projects/wade',
     image: images.projects.wade.gallery[0],
-    imageAlt:
-      'Motorized pergola outdoor room with glass walls in Barrington',
+    imageAlt: 'Motorized pergola outdoor room with glass walls in Barrington',
     type: 'Residential pergola with motorized glass',
     fitQuestion: 'When does a pergola become a full outdoor room?',
     signal:
@@ -290,9 +289,9 @@ const projectProofExamples = [
 
 const faqs = [
   {
-    question: 'What is a motorized pergola system fit review?',
+    question: 'What happens after I request a motorized pergola quote?',
     answer:
-      'A System Fit Review is an early feasibility screen. EDG looks at the site, rough dimensions, exposure, budget, features, and project goals before recommending a likely motorized pergola direction.',
+      'EDG starts with your contact information and interest, then follows up to understand the site, goals, features, and budget before recommending a likely motorized pergola direction.',
   },
   {
     question: 'Why does EDG not start with a manufacturer?',
@@ -390,7 +389,7 @@ export default function MotorizedPergolaPlanningPage() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href="/guides/pergola-system-fit-review">
                   <Button size="lg">
-                    Get a System Fit Review
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -572,9 +571,7 @@ export default function MotorizedPergolaPlanningPage() {
       <Section className="bg-white">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Continue planning
-            </div>
+            <div className="label-editorial-brand mb-4">Continue planning</div>
             <h2 className="section-title mb-4">
               Move from general research to a site-specific plan
             </h2>
@@ -657,9 +654,7 @@ export default function MotorizedPergolaPlanningPage() {
       <Section className="bg-white">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Project proof
-            </div>
+            <div className="label-editorial-brand mb-4">Project proof</div>
             <h2 className="section-title mb-4">
               Real projects show why system fit comes first
             </h2>
@@ -697,15 +692,13 @@ export default function MotorizedPergolaPlanningPage() {
                       <MapPin className="h-4 w-4" />
                       {example.city}
                     </div>
-                    <h3 className="mb-2 text-2xl font-bold">
-                      {example.title}
-                    </h3>
+                    <h3 className="mb-2 text-2xl font-bold">{example.title}</h3>
                     <p className="text-text-secondary mb-4 text-sm font-semibold">
                       {example.type}
                     </p>
                     <div className="border-border space-y-3 border-t pt-4">
                       <div>
-                        <p className="mb-1 text-xs font-bold tracking-widest uppercase text-zinc-500">
+                        <p className="mb-1 text-xs font-bold tracking-widest text-zinc-500 uppercase">
                           Fit question
                         </p>
                         <p className="text-sm leading-relaxed">
@@ -713,7 +706,7 @@ export default function MotorizedPergolaPlanningPage() {
                         </p>
                       </div>
                       <div>
-                        <p className="mb-1 text-xs font-bold tracking-widest uppercase text-zinc-500">
+                        <p className="mb-1 text-xs font-bold tracking-widest text-zinc-500 uppercase">
                           Project signal
                         </p>
                         <p className="text-text-secondary text-sm leading-relaxed">
@@ -735,7 +728,9 @@ export default function MotorizedPergolaPlanningPage() {
       <Section className="bg-white">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="label-editorial-brand mb-4">Prepare for your review</div>
+            <div className="label-editorial-brand mb-4">
+              Prepare for your review
+            </div>
             <h2 className="mb-6 text-3xl font-bold md:text-5xl">
               What to send EDG for a useful first response
             </h2>
@@ -765,12 +760,12 @@ export default function MotorizedPergolaPlanningPage() {
                   </h3>
                   <p className="text-zinc-300">
                     Submit the site details and EDG will help identify the
-                    likely system direction, budget band, and red flags.
+                    likely recommendation, budget band, and red flags.
                   </p>
                 </div>
                 <Link href="/guides/pergola-system-fit-review">
                   <Button size="lg">
-                    Request Review
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
@@ -811,7 +806,7 @@ export default function MotorizedPergolaPlanningPage() {
             </div>
             <Link href="/guides/pergola-system-fit-review">
               <Button size="lg">
-                Get a System Fit Review
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

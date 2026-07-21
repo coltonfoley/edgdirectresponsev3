@@ -38,7 +38,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/north-shore-chicago',
   },
-  keywords: ['north shore pergolas', 'north shore outdoor living', 'winnetka patio', 'pergola installation north shore', 'wilmette pergolas', 'glencoe outoor shading'],
+  keywords: [
+    'north shore pergolas',
+    'north shore outdoor living',
+    'winnetka patio',
+    'pergola installation north shore',
+    'wilmette pergolas',
+    'glencoe outoor shading',
+  ],
 };
 
 const localBenefits = [
@@ -57,7 +64,7 @@ const neighborhoods = [
   {
     name: 'Wilmette & Kenilworth',
     description:
-      "Brick patios and traditional homes need systems that respect the existing architecture. Motorized screens can soften lake-effect wind while keeping the outdoor room visually connected to the house.",
+      'Brick patios and traditional homes need systems that respect the existing architecture. Motorized screens can soften lake-effect wind while keeping the outdoor room visually connected to the house.',
   },
   {
     name: 'Highland Park & Lake Forest',
@@ -176,7 +183,9 @@ export default function NorthShoreHubPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -208,19 +217,17 @@ export default function NorthShoreHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: North Shore Chicago
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Motorized Outdoor Living Systems on the
-                {' '}
-                <span className="text-edg-brand block">
-                  North Shore
-                </span>
+                Motorized Outdoor Living Systems on the{' '}
+                <span className="text-edg-brand block">North Shore</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                We design engineered shade systems that respect your home&apos;s architectural heritage while handling heavy lakefront weather. From Winnetka to Lake Forest.
+                We design engineered shade systems that respect your home&apos;s
+                architectural heritage while handling heavy lakefront weather.
+                From Winnetka to Lake Forest.
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request a Site Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -234,8 +241,12 @@ export default function NorthShoreHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -253,22 +264,26 @@ export default function NorthShoreHubPage() {
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 North Shore outdoor rooms need to respect architecture first:
-                lake exposure, mature neighborhoods, historic homes, ravine lots,
-                and village review all shape the right system.
+                lake exposure, mature neighborhoods, historic homes, ravine
+                lots, and village review all shape the right system.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
             <div className="mt-8 text-center">
               <Link
                 href="/service-areas/deerfield-il/retractable-screens"
-                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-edg-brand-text transition-colors hover:text-edg-brand"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
               >
                 Deerfield homeowners: see motorized retractable patio screens
                 <ArrowRight className="h-4 w-4" />
@@ -299,7 +314,12 @@ export default function NorthShoreHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -321,7 +341,12 @@ export default function NorthShoreHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {weatherConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -347,11 +372,11 @@ export default function NorthShoreHubPage() {
                   <ShieldCheck className="text-edg-brand-dark h-6 w-6" />
                   Approval Documentation Matters
                 </h3>
-                <div className="mb-6 flex items-center gap-3 border border-border bg-surface p-4">
+                <div className="border-border bg-surface mb-6 flex items-center gap-3 border p-4">
                   <Clock className="text-edg-brand-text h-5 w-5 shrink-0" />
-                  <p className="font-medium text-text-primary">
-                    We help prepare the documentation North Shore reviewers
-                    need to understand the project.
+                  <p className="text-text-primary font-medium">
+                    We help prepare the documentation North Shore reviewers need
+                    to understand the project.
                   </p>
                 </div>
                 <ul className="grid gap-3 md:grid-cols-2">
@@ -404,16 +429,12 @@ export default function NorthShoreHubPage() {
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
                 Send the address, a few photos, and any village or HOA context.
-                We will help you decide what the review package needs before
-                the system is specified.
+                We will help you decide what the review package needs before the
+                system is specified.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start North Shore Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

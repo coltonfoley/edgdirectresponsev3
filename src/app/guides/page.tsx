@@ -44,8 +44,8 @@ const guides = [
     intent: 'choose-system',
   },
   {
-    title: 'Pergola System Fit Review',
-    desc: 'Send photos, dimensions, location, budget, and project goals so EDG can identify the likely system direction.',
+    title: 'Request a Pergola Quote',
+    desc: 'Start with your contact information and interest. Add photos, dimensions, or project details only if you want to.',
     href: '/guides/pergola-system-fit-review',
     icon: ClipboardCheck,
     readTime: '3 min intake',
@@ -153,9 +153,9 @@ const guideSections = [
     intent: 'constraints',
   },
   {
-    title: 'Submit for Review',
+    title: 'Request a Quote',
     description:
-      'Move from research to a fit review when you have photos, goals, and rough constraints.',
+      'Start a conversation with EDG. Photos and project details are optional.',
     intent: 'submit-review',
   },
 ];
@@ -192,7 +192,7 @@ export default function GuidesIndexPage() {
                 <div className="mt-10 flex flex-col gap-4 sm:flex-row">
                   <Link href="/guides/pergola-system-fit-review">
                     <Button size="lg" className="w-full sm:w-auto">
-                      Start a Fit Review <ArrowRight className="ml-2 h-5 w-5" />
+                      Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
                   <Link href="/guides/planning-guide">
@@ -219,7 +219,7 @@ export default function GuidesIndexPage() {
                   {[
                     'Start with system fit if the project scope is still open.',
                     'Use budget and permit guides before setting expectations.',
-                    'Move to a fit review when photos, goals, and constraints are ready.',
+                    'Request a quote when you are ready to talk with EDG.',
                   ].map((item) => (
                     <div key={item} className="flex gap-3">
                       <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
@@ -328,8 +328,8 @@ export default function GuidesIndexPage() {
                 path.
               </h2>
               <p className="text-text-inverse-muted">
-                A fit review is the quickest way to connect the research here to
-                a real site, budget, structure, and installation path.
+                Request a quote when you are ready to connect this research to a
+                real project. Add photos or plans if you have them.
               </p>
             </div>
             <Link
@@ -340,7 +340,7 @@ export default function GuidesIndexPage() {
               })}
             >
               <Button size="lg" className="w-full sm:w-auto">
-                Request Fit Review <ArrowRight className="ml-2 h-5 w-5" />
+                Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>

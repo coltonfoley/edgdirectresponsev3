@@ -158,17 +158,56 @@ test.describe('Smoke Tests', () => {
     expect(body.leadId).toBe('spam-blocked');
   });
 
-  test('the MagnaTrack guide exposes the Screen Fit + Budget pilot', async ({
+  test('the MagnaTrack guide exposes the standard quote form', async ({
     page,
   }) => {
     await page.goto('/guides/magnatrack-screens-cost');
 
     const form = page.locator('#screen-fit-budget form');
     await expect(form).toBeVisible();
-    await expect(form.locator('input[name="firstName"]')).toBeVisible();
+    await expect(form.locator('input[name="fullName"]')).toBeVisible();
     await expect(form.locator('input[name="email"]')).toBeVisible();
+    await expect(form.locator('input[name="phone"]')).toBeVisible();
+    await expect(
+      form.locator('input[name="interest"][value="shades"]')
+    ).toBeChecked();
+    await expect(form.locator('[required]')).toHaveCount(3);
+    await expect(form.locator('fieldset[data-interest-group]')).toHaveAttribute(
+      'aria-required',
+      'true'
+    );
+    await expect(form.locator('input[name="location"]')).toHaveCount(0);
+
+    await form
+      .getByRole('button', { name: 'Add project details or photos (optional)' })
+      .click();
     await expect(form.locator('input[name="location"]')).toBeVisible();
-    await expect(form.locator('select[name="mainProblem"]')).toBeVisible();
+    await expect(form.locator('input[type="file"]')).toBeAttached();
+  });
+
+  test('the homepage keeps the quote form compact while supporting multiple interests', async ({
+    page,
+  }) => {
+    await page.goto('/');
+
+    const form = page.locator('form[data-lead-form-id="quote_request"]').first();
+    const interestButton = form.getByRole('button', {
+      name: 'Select one or more',
+    });
+
+    await expect(form).toBeVisible();
+    await expect(interestButton).toBeVisible();
+    await expect(form.getByLabel('Motorized pergola')).toHaveCount(0);
+
+    await interestButton.click();
+    await form.getByLabel('Motorized pergola').check();
+    await form.getByLabel('Glass enclosure').check();
+
+    await expect(
+      form.getByRole('button', { name: '2 interests selected' })
+    ).toBeVisible();
+    await expect(form.getByLabel('Motorized pergola')).toBeChecked();
+    await expect(form.getByLabel('Glass enclosure')).toBeChecked();
   });
 
   test('the Screen Fit + Budget pilot emits its own accepted-lead funnel events', async ({
@@ -196,18 +235,15 @@ test.describe('Smoke Tests', () => {
     });
 
     const form = page.locator('#screen-fit-budget form');
-    await form.locator('input[name="firstName"]').fill('Taylor');
+    await form.locator('input[name="fullName"]').fill('Taylor Jordan');
     await form.locator('input[name="email"]').fill('taylor@example.com');
-    await form.locator('input[name="location"]').fill('Barrington, IL');
-    await form
-      .locator('select[name="mainProblem"]')
-      .selectOption('Privacy');
-    await form
-      .getByRole('button', { name: 'Get My Screen Fit + Budget Range' })
-      .click();
+    await form.locator('input[name="phone"]').fill('815-555-0102');
+    await form.getByRole('button', { name: 'Request a Quote' }).click();
 
     await expect(
-      page.getByRole('heading', { name: 'Your screen review is in.' })
+      page.getByRole('heading', {
+        name: 'Thanks — we received your quote request.',
+      })
     ).toBeVisible();
 
     const eventNames = await page.evaluate(() =>
@@ -232,7 +268,9 @@ test.describe('Smoke Tests', () => {
     );
     expect(successfulEvent?.submission_id).toBe(submittedId);
     expect(successfulEvent?.page_path).toBe('/guides/magnatrack-screens-cost');
-    expect(successfulEvent?.landing_page).toBe('/guides/magnatrack-screens-cost');
+    expect(successfulEvent?.landing_page).toBe(
+      '/guides/magnatrack-screens-cost'
+    );
     expect(successfulEvent).not.toHaveProperty('email');
     expect(successfulEvent).not.toHaveProperty('phone');
     expect(JSON.stringify(successfulEvent)).not.toContain('taylor@example.com');
@@ -266,12 +304,11 @@ test.describe('Smoke Tests', () => {
       window.dataLayer = [];
     });
     const form = page.locator('#screen-fit-budget form');
-    await form.locator('input[name="firstName"]').fill('Taylor');
+    await form.locator('input[name="fullName"]').fill('Taylor Jordan');
     await form.locator('input[name="email"]').fill('taylor@example.com');
-    await form.locator('input[name="location"]').fill('Barrington, IL');
-    await form.locator('select[name="mainProblem"]').selectOption('Privacy');
+    await form.locator('input[name="phone"]').fill('815-555-0102');
     const submit = form.getByRole('button', {
-      name: 'Get My Screen Fit + Budget Range',
+      name: 'Request a Quote',
     });
 
     await submit.click();
@@ -280,7 +317,9 @@ test.describe('Smoke Tests', () => {
     );
     await submit.click();
     await expect(
-      page.getByRole('heading', { name: 'Your screen review is in.' })
+      page.getByRole('heading', {
+        name: 'Thanks — we received your quote request.',
+      })
     ).toBeVisible();
 
     expect(submittedIds).toHaveLength(2);
@@ -291,18 +330,25 @@ test.describe('Smoke Tests', () => {
         .map((event) => event.event)
         .filter((event): event is string => typeof event === 'string')
     );
-    expect(eventNames.filter((event) => event === 'lead_form_error')).toHaveLength(1);
-    expect(eventNames.filter((event) => event === 'generate_lead')).toHaveLength(1);
+    expect(
+      eventNames.filter((event) => event === 'lead_form_error')
+    ).toHaveLength(1);
+    expect(
+      eventNames.filter((event) => event === 'generate_lead')
+    ).toHaveLength(1);
   });
 
   test('contact form honors CTA query params', async ({ page }) => {
     await page.goto('/contact?type=price&product=saunas&area=Sanibel');
 
-    await expect(page.locator('select[name="projectType"]')).toHaveValue(
-      'sauna'
-    );
+    await expect(
+      page.locator('input[name="interest"][value="sauna"]')
+    ).toBeChecked();
+    await page
+      .getByRole('button', { name: 'Add project details or photos (optional)' })
+      .click();
     await expect(page.locator('input[name="location"]')).toHaveValue(
-      'Sanibel'
+      'Sanibel, FL'
     );
   });
 });

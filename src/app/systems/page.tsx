@@ -281,7 +281,7 @@ export default function SystemsPage() {
                     size="lg"
                     className="border-white/20 text-white hover:bg-white hover:text-black"
                   >
-                    Request Fit Review
+                    Request a Quote
                   </Button>
                 </TrackedLink>
               </div>
@@ -665,7 +665,7 @@ export default function SystemsPage() {
                   <Button>Plan Your Visit</Button>
                 </Link>
                 <TrackedLink href={showroomContactHref}>
-                  <Button variant="outline">Schedule Consultation</Button>
+                  <Button variant="outline">Request a Quote</Button>
                 </TrackedLink>
               </div>
             </div>
@@ -714,13 +714,13 @@ export default function SystemsPage() {
               Ready to choose the right system path?
             </h2>
             <p className="mb-8 text-lg text-gray-300">
-              Start with a fit review. EDG will compare the site, exposure,
-              structure, comfort goals, and system mix before recommending the
-              next step.
+              Request a quote and tell us what you are interested in. Add site
+              details or photos if you have them, and EDG will help identify the
+              right next step.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <TrackedLink href={bottomContactHref}>
-                <Button size="lg">Start a Fit Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </TrackedLink>
               <Link href="/guides/planning-guide">
                 <Button

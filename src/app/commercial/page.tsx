@@ -265,7 +265,7 @@ export default function CommercialPage() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink href={heroContactHref}>
                   <Button size="lg">
-                    Schedule a Commercial Assessment
+                    Request a Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </TrackedLink>
@@ -354,9 +354,9 @@ export default function CommercialPage() {
               One commercial standard, adapted to each property type
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Choose the property type that most closely matches your
-              operation, then review the site, system, and handoff questions
-              that matter for that setting.
+              Choose the property type that most closely matches your operation,
+              then review the site, system, and handoff questions that matter
+              for that setting.
             </p>
           </div>
 
@@ -490,7 +490,7 @@ export default function CommercialPage() {
               </p>
               <TrackedLink href={assessmentContactHref}>
                 <Button size="lg">
-                  Request Commercial Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -611,7 +611,7 @@ export default function CommercialPage() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink href={bottomContactHref}>
                   <Button size="lg">
-                    Start Commercial Review
+                    Request a Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </TrackedLink>

@@ -267,7 +267,8 @@ const comparisonData = [
   },
   {
     feature: 'Installation',
-    premium: 'Specialized installation planning, permit coordination, warranty support',
+    premium:
+      'Specialized installation planning, permit coordination, warranty support',
     bigBox: 'DIY or installer support varies by product and seller',
     difference: 'Proper installation ensures performance and safety',
   },
@@ -379,9 +380,9 @@ const budgetSteps = [
   },
   {
     number: '04',
-    title: 'Get Professional Assessment',
+    title: 'Request a Quote',
     description:
-      'Schedule a consultation for a fixed-price quote. Online estimates are unreliable for custom installations. A site visit reveals factors that affect pricing.',
+      'Send EDG your contact information and interest to start. Online estimates are unreliable for custom installations, so the team will confirm the details that affect pricing.',
   },
   {
     number: '05',
@@ -457,14 +458,14 @@ export default function PergolaCostGuide() {
 
             <p className="text-text-inverse-muted mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
               Planning ranges for complete motorized pergola projects in the
-              Chicago-Milwaukee corridor and Lake Geneva area. These are not
-              kit prices or quotes: site conditions, engineering, drainage,
+              Chicago-Milwaukee corridor and Lake Geneva area. These are not kit
+              prices or quotes: site conditions, engineering, drainage,
               features, and installation scope all shape the final proposal.
             </p>
 
             <div className="flex flex-wrap gap-4">
               <TrackedLink href="/guides/pergola-system-fit-review?source=pergola_cost_hero">
-                <Button size="lg">Get a System Fit Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </TrackedLink>
               <Link href="#cost-ranges">
                 <Button
@@ -633,7 +634,7 @@ export default function PergolaCostGuide() {
             {costFactors.map((factor) => (
               <Card key={factor.title} variant="default" padding="lg">
                 <div className="mb-4 flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-edg-brand/20 bg-edg-brand/10">
+                  <div className="border-edg-brand/20 bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center border">
                     <factor.icon className="text-edg-brand-text h-6 w-6" />
                   </div>
                   <div>
@@ -742,8 +743,8 @@ export default function PergolaCostGuide() {
               <p className="text-text-inverse-muted text-sm leading-relaxed">
                 A lower initial price can still be expensive if the system does
                 not fit the site's exposure, installation needs, or service
-                path. Compare documented performance, maintenance, warranty,
-                and expected ownership costs instead of relying on a universal
+                path. Compare documented performance, maintenance, warranty, and
+                expected ownership costs instead of relying on a universal
                 lifespan or resale claim.
               </p>
             </div>
@@ -789,11 +790,11 @@ export default function PergolaCostGuide() {
             ))}
           </div>
 
-          <div className="mt-12 border border-border bg-white p-6">
+          <div className="border-border mt-12 border bg-white p-6">
             <div className="flex items-start gap-4">
               <AlertTriangle className="text-edg-brand-text mt-0.5 h-6 w-6 shrink-0" />
               <div>
-                <h4 className="mb-2 font-bold text-text-primary">
+                <h4 className="text-text-primary mb-2 font-bold">
                   Budget Recommendation
                 </h4>
                 <p className="text-text-secondary text-sm leading-relaxed">
@@ -827,7 +828,7 @@ export default function PergolaCostGuide() {
             {roiPoints.map((point) => (
               <Card key={point.title} variant="default" padding="lg">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-edg-brand/20 bg-edg-brand/10">
+                  <div className="border-edg-brand/20 bg-edg-brand/10 flex h-12 w-12 shrink-0 items-center justify-center border">
                     <point.icon className="text-edg-brand-text h-6 w-6" />
                   </div>
                   <div>
@@ -909,7 +910,7 @@ export default function PergolaCostGuide() {
             {budgetSteps.map((step, index) => (
               <div key={step.number} className="flex gap-6">
                 <div className="flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center bg-edg-brand text-lg font-bold text-edg-dark">
+                  <div className="bg-edg-brand text-edg-dark flex h-12 w-12 items-center justify-center text-lg font-bold">
                     {step.number}
                   </div>
                   {index < budgetSteps.length - 1 && (
@@ -1062,7 +1063,7 @@ export default function PergolaCostGuide() {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href="/guides/pergola-system-fit-review?source=pergola_cost_bottom">
-                <Button size="lg">Get a System Fit Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </TrackedLink>
               <TrackedLink href="/systems/pergolas/configure">
                 <Button

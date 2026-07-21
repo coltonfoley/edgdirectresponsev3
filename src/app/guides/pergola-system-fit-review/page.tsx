@@ -21,60 +21,58 @@ import {
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Pergola System Fit Review | EDG Patio & Shade',
+  title: 'Request a Pergola Quote | EDG Patio & Shade',
   description:
-    'Send photos, dimensions, location, budget, and project goals. EDG will outline the right pergola direction, budget range, and site red flags.',
+    'Request a quote for a motorized pergola. Name, email, phone, and interest are all EDG needs to start; project details and photos are optional.',
   alternates: {
     canonical: '/guides/pergola-system-fit-review',
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Pergola System Fit Review | EDG Patio & Shade',
+    title: 'Request a Pergola Quote | EDG Patio & Shade',
     description:
-      'A qualified intake for homeowners, builders, and commercial owners evaluating premium motorized pergola systems.',
+      'Request a quote for a motorized pergola. Project details and photos are optional.',
   },
 };
 
-const reviewInputs = [
-  'Project city or ZIP',
-  'Photos or plan links',
-  'Rough dimensions',
-  'Patio, deck, roof deck, pool, or commercial context',
-  'Budget range',
-  'Known permit, HOA, wind, drainage, or electrical concerns',
+const requiredInputs = [
+  'Full name',
+  'Email',
+  'Phone',
+  'What you are interested in',
 ];
 
-const reviewOutputs = [
+const nextSteps = [
   {
-    title: 'Likely system direction',
+    title: 'We learn about the project',
     description:
-      'We identify whether the project points toward a freestanding, wall-mounted, deck-aware, roof-deck-aware, or integrated outdoor room approach.',
+      'An EDG team member contacts you to understand the space, goals, and any questions you have.',
     icon: ClipboardCheck,
   },
   {
-    title: 'Realistic budget band',
+    title: 'We discuss price and options',
     description:
-      'We separate compact patio projects from larger poolside, roof deck, and multi-feature outdoor room scopes.',
+      'We explain the products and project conditions that affect a realistic quote.',
     icon: Ruler,
   },
   {
-    title: 'Site red flags',
+    title: 'We agree on the next step',
     description:
-      'We call out the issues that change the spec: exposure, drainage, structure, electrical access, controls, screens, and review requirements.',
+      'If the project looks like a fit, we arrange the measurements, site visit, showroom visit, or additional information needed.',
     icon: ShieldCheck,
   },
 ];
 
 const faqs = [
   {
-    question: 'Is this a quote?',
+    question: 'Is this a quote request?',
     answer:
-      'No. A System Fit Review is an early feasibility screen. It helps EDG and the buyer understand the likely system direction, budget band, and site issues before a detailed proposal or site visit.',
+      'Yes. This form tells EDG that you are interested in a pergola quote. We will contact you to learn enough about the project to discuss pricing and the right next step.',
   },
   {
-    question: 'Why does EDG ask for photos and dimensions?',
+    question: 'Do I need photos or dimensions?',
     answer:
-      'Motorized pergola selection depends on the real site. Photos, rough dimensions, rooflines, doors, drainage paths, deck conditions, utilities, and exposure can all change the system recommendation.',
+      'No. Photos, rough dimensions, and other project details can help, but they are optional for the initial quote request.',
   },
   {
     question: 'Will EDG recommend one manufacturer?',
@@ -82,24 +80,24 @@ const faqs = [
       'EDG is a dealer for proven pergola manufacturers including Brustor, Azenco, and Sundance, but the recommendation starts with the job. The manufacturer is part of the toolkit, not the strategy.',
   },
   {
-    question: 'Who should use this review?',
+    question: 'Who can request a pergola quote?',
     answer:
-      'Homeowners, builders, designers, and commercial owners who are considering a premium motorized pergola or outdoor room and want to understand fit before chasing prices.',
+      'Homeowners, builders, designers, and commercial owners considering a motorized pergola or complete outdoor room can use this form.',
   },
 ];
 
 export default function PergolaSystemFitReviewPage() {
   const serviceSchema = generateServiceSchema({
-    name: 'Pergola System Fit Review',
+    name: 'Motorized Pergola Quote Request',
     description:
-      'Early feasibility review for premium motorized pergola projects, including site context, budget range, system direction, and known project constraints.',
+      'Quote request for motorized pergola projects from EDG Patio & Shade.',
     url: 'https://www.edgpatioshade.com/guides/pergola-system-fit-review',
     image: `https://www.edgpatioshade.com${images.systems.pergolas.whiteLedStrip}`,
   });
   const faqSchema = generateFAQSchema(faqs);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Guides', url: '/guides' },
-    { name: 'Pergola System Fit Review' },
+    { name: 'Request a Pergola Quote' },
   ]);
 
   return (
@@ -116,7 +114,7 @@ export default function PergolaSystemFitReviewPage() {
           <Breadcrumb
             items={[
               { label: 'Guides', href: '/guides' },
-              { label: 'Pergola System Fit Review' },
+              { label: 'Request a Pergola Quote' },
             ]}
             className="mb-8"
           />
@@ -124,23 +122,21 @@ export default function PergolaSystemFitReviewPage() {
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
               <div className="text-edg-brand mb-5 text-sm font-bold tracking-widest uppercase">
-                Qualified Pergola Planning
+                Motorized Pergola Quotes
               </div>
               <h1 className="mb-6 max-w-4xl text-4xl leading-tight font-bold md:text-6xl">
-                Get a Pergola System Fit Review before you chase the wrong
-                quote.
+                Request a Quote for a Motorized Pergola
               </h1>
               <p className="max-w-3xl text-xl leading-relaxed text-zinc-300">
-                EDG reviews the site, budget, and job the space needs to do,
-                then helps narrow the motorized pergola system direction. The
-                manufacturer comes after the project logic.
+                Tell us what you are interested in. We will contact you to learn
+                more, discuss pricing, and explain the next step.
               </p>
             </div>
 
             <Card variant="dark" padding="lg" className="bg-white/5">
-              <h2 className="mb-5 text-2xl font-bold">What to send</h2>
+              <h2 className="mb-5 text-2xl font-bold">All you need to start</h2>
               <ul className="space-y-3">
-                {reviewInputs.map((item) => (
+                {requiredInputs.map((item) => (
                   <li key={item} className="flex gap-3 text-sm text-zinc-200">
                     <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
                     {item}
@@ -155,20 +151,19 @@ export default function PergolaSystemFitReviewPage() {
       <Section className="bg-surface">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">What EDG returns</div>
+            <div className="label-editorial-brand mb-4">What happens next</div>
             <h2 className="section-title mb-4">
-              A clearer starting point for a premium pergola project
+              A straightforward path from interest to quote
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Premium pergolas are not one-size-fits-all products. A compact
-              patio, roof deck, estate pool area, and restaurant patio can all
-              need different structure, drainage, controls, and accessory
-              planning.
+              Pergola pricing depends on the actual space and the options you
+              want. We gather those details through a conversation instead of
+              making you complete a design worksheet first.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {reviewOutputs.map((item) => (
+            {nextSteps.map((item) => (
               <Card key={item.title} variant="muted" padding="lg">
                 <item.icon className="text-edg-brand-text mb-5 h-9 w-9" />
                 <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
@@ -187,18 +182,16 @@ export default function PergolaSystemFitReviewPage() {
             <div>
               <div className="label-editorial-brand mb-4">Start here</div>
               <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-                Tell us what the space needs to become.
+                Four required fields. Everything else is optional.
               </h2>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                EDG does not begin with a preferred manufacturer. We begin with
-                the actual job: sun, rain, wind, privacy, bugs, roof exposure,
-                snow, drainage, controls, and how the project should look next
-                to the home or commercial property.
+                Enter your name, email, phone, and interest. That is enough for
+                EDG to contact you and start the conversation.
               </p>
               <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                The more concrete the intake, the more useful the first
-                response. Photos and rough dimensions are more valuable than a
-                perfect description.
+                If you already have a city, rough dimensions, notes, photos, or
+                a plan link, you may add them. None of those details are
+                required to request a quote.
               </p>
               <Link href="/guides/motorized-pergola-planning">
                 <Button variant="secondary">

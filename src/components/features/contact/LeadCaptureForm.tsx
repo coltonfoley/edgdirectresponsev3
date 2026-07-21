@@ -42,32 +42,33 @@ export function LeadCaptureForm({
   const [fax, setFax] = useState(''); // Honeypot
   const [formStarted, setFormStarted] = useState(false);
 
-  const { submitLead, trackFormStart, loading, error, success } = useLeadSubmission({
-    onSuccess: () => {
-      // Set access cookie if redirecting to gated content
-      if (redirectUrl) {
-        // Set cookie via JS for immediate access (simple client-side gate)
-        // 30 day expiration
-        const date = new Date();
-        date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
-        document.cookie = `guide_access=true; expires=${date.toUTCString()}; path=/`;
+  const { submitLead, trackFormStart, loading, error, success } =
+    useLeadSubmission({
+      onSuccess: () => {
+        // Set access cookie if redirecting to gated content
+        if (redirectUrl) {
+          // Set cookie via JS for immediate access (simple client-side gate)
+          // 30 day expiration
+          const date = new Date();
+          date.setTime(date.getTime() + 30 * 24 * 60 * 60 * 1000);
+          document.cookie = `guide_access=true; expires=${date.toUTCString()}; path=/`;
 
-        // Slight delay to show success state briefly or just go
-        window.location.href = redirectUrl;
-        return;
-      }
+          // Slight delay to show success state briefly or just go
+          window.location.href = redirectUrl;
+          return;
+        }
 
-      // Trigger download if requested
-      if (downloadUrl && autoDownload) {
-        const link = document.createElement('a');
-        link.href = downloadUrl;
-        link.download = downloadUrl.split('/').pop() || 'guide.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-    },
-  });
+        // Trigger download if requested
+        if (downloadUrl && autoDownload) {
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.download = downloadUrl.split('/').pop() || 'guide.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      },
+    });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -257,12 +258,7 @@ export function LeadCaptureForm({
         </div>
 
         {variant === 'default' && (
-          <Button
-            type="submit"
-            size="lg"
-            disabled={loading}
-            className="w-full"
-          >
+          <Button type="submit" size="lg" disabled={loading} className="w-full">
             {loading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

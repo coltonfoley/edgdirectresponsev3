@@ -200,7 +200,7 @@ export default function WestLoopPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
+      <section className="bg-edg-dark relative flex min-h-[68vh] items-center overflow-hidden pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.systems.enclosures.commercialNightDining}
@@ -231,7 +231,7 @@ export default function WestLoopPage() {
           </Link>
 
           <div className="max-w-4xl">
-            <div className="label-editorial mb-6 text-edg-brand">
+            <div className="label-editorial text-edg-brand mb-6">
               West Loop Commercial
             </div>
             <h1 className="hero-title mb-6 max-w-4xl">
@@ -245,7 +245,7 @@ export default function WestLoopPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <TrackedLink href={heroContactHref}>
                 <Button size="lg">
-                  Schedule a West Loop Assessment
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -289,19 +289,19 @@ export default function WestLoopPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial mb-4 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-4">
                 Local Commercial Planning
               </div>
               <h2 className="section-title mb-6">
                 West Loop outdoor spaces need product depth and site restraint
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 Dense urban patios and rooftops rarely have unlimited access,
                 space, or operating flexibility. The system has to fit the
                 building, the restaurant or hotel team, and the guest
                 experience.
               </p>
-              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 EDG reviews the patio, rooftop, or terrace conditions before
                 recommending pergolas, screens, glass, heat, lighting, and
                 controls.
@@ -309,7 +309,7 @@ export default function WestLoopPage() {
               <div className="grid gap-3">
                 {areaCoverage.map((area) => (
                   <div key={area} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
                     <span className="text-sm font-medium text-zinc-800">
                       {area}
                     </span>
@@ -334,15 +334,13 @@ export default function WestLoopPage() {
       <Section className="section-md bg-surface">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Planning Factors
-            </div>
+            <div className="label-editorial-brand mb-4">Planning Factors</div>
             <h2 className="section-title mb-4">
               The neighborhood context changes the system decision
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
-              A West Loop scope should account for building access, review
-              path, weather exposure, service flow, and future maintenance.
+            <p className="text-text-secondary text-lg leading-relaxed">
+              A West Loop scope should account for building access, review path,
+              weather exposure, service flow, and future maintenance.
             </p>
           </div>
 
@@ -356,7 +354,7 @@ export default function WestLoopPage() {
                   className="mb-6"
                 />
                 <h3 className="mb-3 text-xl font-bold">{factor.title}</h3>
-                <p className="leading-relaxed text-text-secondary">
+                <p className="text-text-secondary leading-relaxed">
                   {factor.description}
                 </p>
               </Card>
@@ -368,13 +366,11 @@ export default function WestLoopPage() {
       <Section className="section-md">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Common Uses
-            </div>
+            <div className="label-editorial-brand mb-4">Common Uses</div>
             <h2 className="section-title mb-4">
               West Loop projects usually need more than shade
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary text-lg leading-relaxed">
               Most dense hospitality spaces need a coordinated plan for guest
               comfort, staff operation, service access, and controls.
             </p>
@@ -387,7 +383,7 @@ export default function WestLoopPage() {
                   <IconWrapper icon={area.icon} variant="brand" size="lg" />
                   <div>
                     <h3 className="mb-3 text-xl font-bold">{area.title}</h3>
-                    <p className="leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary leading-relaxed">
                       {area.description}
                     </p>
                   </div>
@@ -402,9 +398,7 @@ export default function WestLoopPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Proof Standard
-              </div>
+              <div className="label-editorial-brand mb-4">Proof Standard</div>
               <h2 className="section-title mb-6 text-white">
                 Keep the plan tied to the actual venue
               </h2>
@@ -415,7 +409,7 @@ export default function WestLoopPage() {
               </p>
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Request a West Loop Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -423,12 +417,21 @@ export default function WestLoopPage() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                ['Site', 'Rooftop, patio, alley, terrace, utilities, and access'],
-                ['Operation', 'Dining, events, staff paths, controls, and cleanup'],
-                ['System', 'Pergola, screens, glass, heat, lighting, and sensors'],
+                [
+                  'Site',
+                  'Rooftop, patio, alley, terrace, utilities, and access',
+                ],
+                [
+                  'Operation',
+                  'Dining, events, staff paths, controls, and cleanup',
+                ],
+                [
+                  'System',
+                  'Pergola, screens, glass, heat, lighting, and sensors',
+                ],
               ].map(([label, description]) => (
                 <div key={label} className="border border-white/10 p-6">
-                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                  <div className="text-edg-brand mb-3 text-xs font-bold tracking-[0.18em] uppercase">
                     {label}
                   </div>
                   <p className="text-sm leading-relaxed text-zinc-300">
@@ -444,9 +447,7 @@ export default function WestLoopPage() {
       <Section className="section-md">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <div className="label-editorial-brand mb-4 text-center">
-              FAQ
-            </div>
+            <div className="label-editorial-brand mb-4 text-center">FAQ</div>
             <h2 className="section-title mb-10 text-center">
               West Loop Installation Questions
             </h2>
@@ -454,7 +455,7 @@ export default function WestLoopPage() {
               {faqs.map((faq) => (
                 <Card key={faq.question} variant="outline" padding="lg">
                   <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {faq.answer}
                   </p>
                 </Card>
@@ -464,12 +465,12 @@ export default function WestLoopPage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-black/10 bg-surface py-12">
+      <Section className="bg-surface border-t border-black/10 py-12">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+              className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               All Commercial Pages
@@ -477,14 +478,14 @@ export default function WestLoopPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/chicago-hospitality-outdoor-living"
-                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Chicago Hospitality
                 <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/commercial/restaurant-patio-solutions"
-                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Restaurant Planning
                 <ChevronRight className="h-4 w-4" />
@@ -507,7 +508,7 @@ export default function WestLoopPage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Start West Loop Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>

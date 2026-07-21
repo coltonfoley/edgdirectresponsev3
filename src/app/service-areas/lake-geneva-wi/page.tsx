@@ -264,8 +264,7 @@ export default function LakeGenevaHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Lake Geneva Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -306,7 +305,7 @@ export default function LakeGenevaHubPage() {
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 A lakefront pergola, a motorized screen retrofit, and a permit
                 question do not need the same first conversation. These pages
-                narrow the local planning path before a site review.
+                explain what to expect before you request a quote.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -380,8 +379,7 @@ export default function LakeGenevaHubPage() {
                 Lake Geneva planning notes
               </div>
               <h2 className="section-title mb-4">
-                Strong lake-home outdoor rooms protect the reason you are
-                there
+                Strong lake-home outdoor rooms protect the reason you are there
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 A Lake Geneva pergola or screen project should improve comfort
@@ -413,7 +411,7 @@ export default function LakeGenevaHubPage() {
         <Container>
           <FadeIn>
             <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div className="relative aspect-[4/3] overflow-hidden border border-border">
+              <div className="border-border relative aspect-[4/3] overflow-hidden border">
                 <Image
                   src={images.featuredProjects.lakeGenevaRestaurant.hero}
                   alt="Lake Geneva commercial outdoor dining project by EDG"
@@ -444,7 +442,7 @@ export default function LakeGenevaHubPage() {
                 </p>
                 <Link href={localProofContactHref}>
                   <Button variant="secondary">
-                    Share Photos for a Lake Geneva Review
+                    Request a Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -524,8 +522,7 @@ export default function LakeGenevaHubPage() {
               </p>
               <Link href={bottomContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Start Lake Geneva Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

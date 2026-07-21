@@ -165,7 +165,7 @@ export default function CountryClubPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="relative flex min-h-[68vh] items-center overflow-hidden bg-edg-dark pt-28 pb-20 text-white">
+      <section className="bg-edg-dark relative flex min-h-[68vh] items-center overflow-hidden pt-28 pb-20 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.brand.context.pool}
@@ -196,7 +196,7 @@ export default function CountryClubPage() {
           </Link>
 
           <div className="max-w-4xl">
-            <div className="label-editorial mb-6 text-edg-brand">
+            <div className="label-editorial text-edg-brand mb-6">
               Club and Member Amenities
             </div>
             <h1 className="hero-title mb-6 max-w-4xl">
@@ -209,7 +209,7 @@ export default function CountryClubPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <TrackedLink href={heroContactHref}>
                 <Button size="lg">
-                  Schedule a Club Assessment
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -253,27 +253,27 @@ export default function CountryClubPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial mb-4 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-4">
                 Commercial Planning Standard
               </div>
               <h2 className="section-title mb-6">
                 Club amenities need member comfort and facilities ownership
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 A country club outdoor project may touch capital planning,
                 member expectations, events, dining, pool operations, facilities
                 staff, and maintenance. The system should make those pieces
                 easier to operate.
               </p>
-              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 EDG compares pergolas, screens, umbrellas, glass, heat,
-                lighting, and controls so the final package fits the club
-                rather than a single product menu.
+                lighting, and controls so the final package fits the club rather
+                than a single product menu.
               </p>
               <div className="grid gap-3">
                 {planningChecklist.map((item) => (
                   <div key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
+                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
                     <span className="text-sm font-medium text-zinc-800">
                       {item}
                     </span>
@@ -298,13 +298,11 @@ export default function CountryClubPage() {
       <Section className="section-md bg-surface">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Amenity Types
-            </div>
+            <div className="label-editorial-brand mb-4">Amenity Types</div>
             <h2 className="section-title mb-4">
               Build the package around how members use the club
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary text-lg leading-relaxed">
               A dining terrace, pool deck, event lawn, and cabana row all need
               different comfort, control, and maintenance decisions.
             </p>
@@ -320,7 +318,7 @@ export default function CountryClubPage() {
                   className="mb-6"
                 />
                 <h3 className="mb-3 text-xl font-bold">{option.title}</h3>
-                <p className="leading-relaxed text-text-secondary">
+                <p className="text-text-secondary leading-relaxed">
                   {option.description}
                 </p>
               </Card>
@@ -333,9 +331,7 @@ export default function CountryClubPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4">
-                Proof Standard
-              </div>
+              <div className="label-editorial-brand mb-4">Proof Standard</div>
               <h2 className="section-title mb-6 text-white">
                 Keep capital planning tied to club operations
               </h2>
@@ -346,7 +342,7 @@ export default function CountryClubPage() {
               </p>
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Request a Club Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>
@@ -354,12 +350,21 @@ export default function CountryClubPage() {
 
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                ['Members', 'Comfort, shade, privacy, dining, pool, and event use'],
-                ['Staff', 'Controls, service flow, cleaning, setup, and seasonal care'],
-                ['Board', 'Scope clarity, capital planning, documentation, and approvals'],
+                [
+                  'Members',
+                  'Comfort, shade, privacy, dining, pool, and event use',
+                ],
+                [
+                  'Staff',
+                  'Controls, service flow, cleaning, setup, and seasonal care',
+                ],
+                [
+                  'Board',
+                  'Scope clarity, capital planning, documentation, and approvals',
+                ],
               ].map(([label, description]) => (
                 <div key={label} className="border border-white/10 p-6">
-                  <div className="mb-3 text-xs font-bold tracking-[0.18em] text-edg-brand uppercase">
+                  <div className="text-edg-brand mb-3 text-xs font-bold tracking-[0.18em] uppercase">
                     {label}
                   </div>
                   <p className="text-sm leading-relaxed text-zinc-300">
@@ -375,9 +380,7 @@ export default function CountryClubPage() {
       <Section className="section-md">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <div className="label-editorial-brand mb-4 text-center">
-              FAQ
-            </div>
+            <div className="label-editorial-brand mb-4 text-center">FAQ</div>
             <h2 className="section-title mb-10 text-center">
               Country Club Outdoor Living Questions
             </h2>
@@ -385,7 +388,7 @@ export default function CountryClubPage() {
               {faqs.map((faq) => (
                 <Card key={faq.question} variant="outline" padding="lg">
                   <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {faq.answer}
                   </p>
                 </Card>
@@ -395,12 +398,12 @@ export default function CountryClubPage() {
         </Container>
       </Section>
 
-      <Section className="border-t border-black/10 bg-surface py-12">
+      <Section className="bg-surface border-t border-black/10 py-12">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <Link
               href="/commercial"
-              className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+              className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
             >
               <ArrowLeft className="h-4 w-4" />
               All Commercial Pages
@@ -408,14 +411,14 @@ export default function CountryClubPage() {
             <div className="flex flex-wrap gap-4">
               <Link
                 href="/commercial/hotel-pergolas"
-                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Hotel Pergolas
                 <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/commercial/restaurant-patio-solutions"
-                className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors hover:text-edg-brand-text"
+                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Restaurant Planning
                 <ChevronRight className="h-4 w-4" />
@@ -438,7 +441,7 @@ export default function CountryClubPage() {
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Start Club Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </TrackedLink>

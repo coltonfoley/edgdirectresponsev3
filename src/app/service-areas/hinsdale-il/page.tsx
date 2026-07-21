@@ -28,7 +28,8 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: '/opengraph-image' }],
     title: 'Hinsdale Outdoor Living | Estate Pergolas & Shades | EDG',
-    description: 'Outdoor living systems for Hinsdale estates. Motorized pergolas, retractable screens, and glass enclosures planned around the home.',
+    description:
+      'Outdoor living systems for Hinsdale estates. Motorized pergolas, retractable screens, and glass enclosures planned around the home.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -36,7 +37,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/hinsdale-il',
   },
-  keywords: ['hinsdale pergolas', 'hinsdale outdoor living', 'hinsdale il patio', 'pergola installation hinsdale', 'hinsdale backyard'],
+  keywords: [
+    'hinsdale pergolas',
+    'hinsdale outdoor living',
+    'hinsdale il patio',
+    'pergola installation hinsdale',
+    'hinsdale backyard',
+  ],
 };
 
 const localBenefits = [
@@ -55,7 +62,7 @@ const neighborhoods = [
   {
     name: 'Katherine Legge Area',
     description:
-      'Properties near Katherine Legge Memorial Park enjoy spacious lots and mature landscapes. Our large-span pergola engineering minimizes posts, preserving sightlines across your property while creating expansive covered entertainment areas. We design with the area\'s wooded character in mind.',
+      "Properties near Katherine Legge Memorial Park enjoy spacious lots and mature landscapes. Our large-span pergola engineering minimizes posts, preserving sightlines across your property while creating expansive covered entertainment areas. We design with the area's wooded character in mind.",
   },
   {
     name: 'Washington Street Corridor',
@@ -64,7 +71,7 @@ const neighborhoods = [
   },
   {
     name: 'Graue Mill Area',
-  description:
+    description:
       'Near the historic Graue Mill and Fullersburg Woods, this area features homes with natural settings. Our motorized systems help you enjoy the wooded surroundings while providing protection from sun and insects. We design to maximize views of the natural landscape.',
   },
 ];
@@ -79,7 +86,7 @@ const localConsiderations = [
   {
     title: 'Large Estate Engineering',
     description:
-      'Hinsdale\'s expansive properties deserve equally impressive outdoor spaces. Our engineering supports spans up to 24 feet without intermediate posts, creating clean sightlines across your estate.',
+      "Hinsdale's expansive properties deserve equally impressive outdoor spaces. Our engineering supports spans up to 24 feet without intermediate posts, creating clean sightlines across your estate.",
     icon: Home,
   },
   {
@@ -129,12 +136,12 @@ const faqs = [
       'We specify aluminum pergolas and controls around Illinois winter exposure, then review drainage, louver operation, mounting conditions, electrical routing, and maintenance for the specific site. The goal is a structure that fits the home and performs beyond the main summer season.',
   },
   {
-    question: 'Can you work within Hinsdale\'s historic district requirements?',
+    question: "Can you work within Hinsdale's historic district requirements?",
     answer:
       'Yes, when the project is planned carefully. Historic or architecturally sensitive homes usually need better documentation: renderings, finish samples, placement notes, and product information that show how the outdoor room relates to the existing structure.',
   },
   {
-    question: 'What\'s the typical timeline for a Hinsdale project?',
+    question: "What's the typical timeline for a Hinsdale project?",
     answer:
       'A custom Hinsdale project can take several weeks for design, review, fabrication, and installation. Historic-area review, HOA input, electrical coordination, and weather can change the schedule, so we set expectations after the site and approval path are clear.',
   },
@@ -220,13 +227,12 @@ export default function HinsdaleHubPage() {
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
                 From the historic estates of The Lane to modern homes near
                 Katherine Legge Park, we design engineered shade systems that
-                respect Hinsdale&apos;s architectural heritage and fit its review
-                expectations.
+                respect Hinsdale&apos;s architectural heritage and fit its
+                review expectations.
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Hinsdale Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -240,8 +246,12 @@ export default function HinsdaleHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -258,16 +268,20 @@ export default function HinsdaleHubPage() {
                 Serving Every Hinsdale Neighborhood
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Hinsdale projects need careful design judgment: historic streets,
-                estate lots, wooded settings, and downtown-adjacent homes each
-                create different comfort and review needs.
+                Hinsdale projects need careful design judgment: historic
+                streets, estate lots, wooded settings, and downtown-adjacent
+                homes each create different comfort and review needs.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -297,7 +311,12 @@ export default function HinsdaleHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -316,13 +335,19 @@ export default function HinsdaleHubPage() {
                 Built for Hinsdale&apos;s Estate Lifestyle
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are planned around Western Suburbs estates, older homes, privacy needs, and Illinois weather.
+                Our systems are planned around Western Suburbs estates, older
+                homes, privacy needs, and Illinois weather.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {localConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -365,15 +390,12 @@ export default function HinsdaleHubPage() {
                 Ready to plan your Hinsdale project?
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
-                Review the address, historic context, comfort goals, and right system path with our local design team.
+                Review the address, historic context, comfort goals, and right
+                system path with our local design team.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start Hinsdale Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

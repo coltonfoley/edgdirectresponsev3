@@ -396,7 +396,7 @@ export default function LakeForestZoningGuidePage() {
                   size="lg"
                   className="border-white/20 text-white hover:bg-white/10"
                 >
-                  Ask EDG to Review the Site
+                  Request a Quote
                 </Button>
               </Link>
             </div>

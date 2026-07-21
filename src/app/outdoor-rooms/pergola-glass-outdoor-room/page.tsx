@@ -118,9 +118,10 @@ const relatedResources = [
       'Review cost, structure, drainage, permits, controls, and fit.',
   },
   {
-    title: 'Pergola system fit review',
+    title: 'Request a pergola quote',
     href: '/guides/pergola-system-fit-review',
-    description: 'Share photos and goals so EDG can identify the likely path.',
+    description:
+      'Request a quote and optionally share project photos or plans.',
   },
   {
     title: 'Wade outdoor room project',
@@ -205,7 +206,7 @@ export default function PergolaGlassOutdoorRoomPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <TrackedLink href={outdoorRoomCta}>
-                  <Button size="lg">Request This Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </TrackedLink>
                 <Link href="/projects/wade">
                   <Button
@@ -420,7 +421,7 @@ export default function PergolaGlassOutdoorRoomPage() {
                   <Button variant="dark">View Project</Button>
                 </Link>
                 <TrackedLink href={outdoorRoomCta}>
-                  <Button variant="secondary">Plan a Similar Review</Button>
+                  <Button variant="secondary">Request a Quote</Button>
                 </TrackedLink>
               </div>
             </div>
@@ -501,7 +502,7 @@ export default function PergolaGlassOutdoorRoomPage() {
               recommending a pergola, glass, screen, and comfort direction.
             </p>
             <TrackedLink href={outdoorRoomCta}>
-              <Button size="lg">Request Outdoor Room Pricing</Button>
+              <Button size="lg">Request a Quote</Button>
             </TrackedLink>
           </div>
         </Container>

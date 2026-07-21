@@ -11,7 +11,7 @@ export const contentType = 'image/png';
 
 export default async function Image() {
   return generateOGImage({
-    title: 'Start Your Project',
+    title: 'Request a Quote',
     subtitle: 'Free consultation • Preliminary quotes • Showroom visits',
     tagline: 'Contact Us',
   });

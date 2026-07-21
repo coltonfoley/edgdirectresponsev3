@@ -247,8 +247,8 @@ export default function OutdoorRoomsPage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               Begin with the room plan that feels closest to your space, then
-              compare the pergola, glass, screen, kitchen, or commercial
-              details that shape the final design.
+              compare the pergola, glass, screen, kitchen, or commercial details
+              that shape the final design.
             </p>
           </div>
 
@@ -354,7 +354,7 @@ export default function OutdoorRoomsPage() {
                 glass, screen, and appliance decisions that make it work.
               </p>
               <TrackedLink href={outdoorRoomCta}>
-                <Button size="lg">Request an Outdoor Room Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </TrackedLink>
             </div>
 
@@ -422,7 +422,7 @@ export default function OutdoorRoomsPage() {
               path.
             </p>
             <TrackedLink href={outdoorRoomCta}>
-              <Button size="lg">Start Outdoor Room Planning</Button>
+              <Button size="lg">Request a Quote</Button>
             </TrackedLink>
           </div>
         </Container>

@@ -130,35 +130,35 @@ export function Footer() {
   const isMilwaukeePage = milwaukeeClusterRoutes.some((route) =>
     pathname?.startsWith(route)
   );
-  const consultationHref = isSouthwestFloridaPage
+  const quoteHref = isSouthwestFloridaPage
     ? buildContactHref({
-        type: 'price',
+        type: 'quote',
         product: 'shades',
         area: 'southwest-florida',
         source: 'footer_florida',
       })
     : isSanibelPage
       ? buildContactHref({
-          type: 'price',
+          type: 'quote',
           product: 'shades',
           area: 'sanibel',
           source: 'footer_sanibel',
         })
       : isLakeGenevaPage
         ? buildContactHref({
-            type: 'price',
+            type: 'quote',
             product: 'multiple',
             location: 'Lake Geneva, WI',
             source: 'footer_lake_geneva',
           })
         : isMilwaukeePage
           ? buildContactHref({
-              type: 'fit-review',
+              type: 'quote',
               product: 'pergola',
               location: 'Milwaukee, WI',
               source: 'footer_milwaukee',
             })
-          : buildContactHref({ type: 'consultation', source: 'footer' });
+          : buildContactHref({ type: 'quote', source: 'footer' });
 
   return (
     <footer className="bg-black text-white">
@@ -196,25 +196,25 @@ export function Footer() {
               <div className="space-y-8 lg:border-l lg:border-white/10 lg:pl-16">
                 <div className="space-y-4">
                   <h3 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
-                    Start your project.
+                    Ready for a quote?
                   </h3>
                   <p className="max-w-md text-lg leading-relaxed text-zinc-300">
-                    Talk to our design team. No pressure, just expert guidance
-                    on your space.
+                    Tell us what you are interested in. Project details and
+                    photos are optional.
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-4">
                   <TrackedLink
-                    href={consultationHref}
-                    conversionName="consultation_cta_click"
+                    href={quoteHref}
+                    conversionName="quote_cta_click"
                     className={buttonClassName({
                       size: 'lg',
                       className:
                         'bg-edg-brand rounded-none px-8 py-6 text-base font-bold tracking-wider text-black uppercase hover:bg-white',
                     })}
                   >
-                    Book Consultation
+                    Request a Quote
                   </TrackedLink>
                   <TrackedPhoneLink
                     href="tel:+18155810138"
@@ -246,7 +246,7 @@ export function Footer() {
                 The design and supply partner for motorized pergolas,
                 retractable screens, and glass enclosures. Nationwide design &
                 supply with local installation in the Midwest and select
-                Southwest Florida project review.
+                Southwest Florida project support.
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">

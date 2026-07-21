@@ -495,14 +495,14 @@ export default function SteelVsAluminumPergolasPage() {
               <p className="max-w-3xl text-lg leading-relaxed text-zinc-300">
                 Send photos, rough dimensions, location, desired roof function,
                 and any structural drawings you already have. EDG will help
-                identify the likely system direction and the issues that need
+                identify the likely recommendation and the issues that need
                 resolution before detailed pricing.
               </p>
             </div>
             <div className="space-y-4">
               <Link href={contactHref}>
                 <Button size="lg" className="w-full justify-between">
-                  Request a Material Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

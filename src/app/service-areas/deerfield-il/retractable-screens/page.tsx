@@ -80,7 +80,8 @@ const faqs = [
       'Pricing depends on opening width, screen height, fabric, housing details, wiring, and whether the screens are part of a pergola or retrofit. Most homeowners should expect a custom quote after measurements rather than relying on a kit price online.',
   },
   {
-    question: 'Can screens be added to an existing porch, pergola, or patio cover?',
+    question:
+      'Can screens be added to an existing porch, pergola, or patio cover?',
     answer:
       'Often they can. We need to confirm the structure can accept the housing and side tracks, that the openings are square enough for clean operation, and that wiring or controls can be handled cleanly.',
   },
@@ -140,11 +141,13 @@ export default function DeerfieldRetractableScreensPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
-      <div className="min-h-screen bg-surface">
-        <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <div className="bg-surface min-h-screen">
+        <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
               src={images.systems.shades.hero}
@@ -178,15 +181,20 @@ export default function DeerfieldRetractableScreensPage() {
                 Motorized Retractable Patio Screens in Deerfield
               </h1>
               <p className="mb-8 max-w-3xl text-xl text-zinc-200 md:text-2xl">
-                Outdoor screen systems for Deerfield patios, porches, pergolas, and
-                covered spaces that need more comfort, privacy, and bug control.
+                Outdoor screen systems for Deerfield patios, porches, pergolas,
+                and covered spaces that need more comfort, privacy, and bug
+                control.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
-                  <Button size="lg">Get a Screen Layout Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/systems/shades">
-                  <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-white/20 text-white hover:bg-white/10"
+                  >
                     View Screen System Details
                   </Button>
                 </Link>
@@ -199,23 +207,27 @@ export default function DeerfieldRetractableScreensPage() {
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
               <div>
-                <div className="label-editorial-brand mb-4">Why This Fits Deerfield</div>
+                <div className="label-editorial-brand mb-4">
+                  Why This Fits Deerfield
+                </div>
                 <h2 className="section-title mb-6">
                   A practical way to make the patio usable more often.
                 </h2>
-                <p className="mb-6 text-lg leading-relaxed text-text-secondary">
-                  Deerfield homeowners often search for motorized patio screens after
-                  living with a space that is almost right. The patio has enough room
-                  for dining, the porch has good cover, or the pergola already frames
-                  the outdoor room. But wind, bugs, glare, or neighbor sightlines keep
-                  the space from being comfortable as often as it should be.
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                  Deerfield homeowners often search for motorized patio screens
+                  after living with a space that is almost right. The patio has
+                  enough room for dining, the porch has good cover, or the
+                  pergola already frames the outdoor room. But wind, bugs,
+                  glare, or neighbor sightlines keep the space from being
+                  comfortable as often as it should be.
                 </p>
-                <p className="text-lg leading-relaxed text-text-secondary">
-                  Motorized retractable screens solve that problem because they are
-                  there when you need them and gone when you do not. They can drop for
-                  dinner, privacy, and low-angle sun, then retract when the weather is
-                  calm and the view matters more. For many North Shore homes, that
-                  flexibility is more useful than a fixed wall or a basic shade.
+                <p className="text-text-secondary text-lg leading-relaxed">
+                  Motorized retractable screens solve that problem because they
+                  are there when you need them and gone when you do not. They
+                  can drop for dinner, privacy, and low-angle sun, then retract
+                  when the weather is calm and the view matters more. For many
+                  North Shore homes, that flexibility is more useful than a
+                  fixed wall or a basic shade.
                 </p>
               </div>
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -235,16 +247,18 @@ export default function DeerfieldRetractableScreensPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Local Benefits</div>
-              <h2 className="section-title mb-4">What screens solve on Deerfield patios</h2>
+              <h2 className="section-title mb-4">
+                What screens solve on Deerfield patios
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {benefits.map((benefit) => (
                 <Card key={benefit.title} variant="default" padding="lg">
                   <div className="mb-4 flex items-center gap-3">
-                    <benefit.icon className="h-5 w-5 text-edg-brand-text" />
+                    <benefit.icon className="text-edg-brand-text h-5 w-5" />
                     <h3 className="text-xl font-bold">{benefit.title}</h3>
                   </div>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {benefit.description}
                   </p>
                 </Card>
@@ -257,24 +271,29 @@ export default function DeerfieldRetractableScreensPage() {
           <Container>
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
-                <h2 className="mb-4 text-3xl font-bold">Good retrofit candidates</h2>
-                <p className="mb-4 leading-relaxed text-text-secondary">
-                  Existing covered patios, screened-porch openings, pergolas, and
-                  outdoor kitchens are often strong candidates for motorized screens.
-                  The main question is whether the opening has clean attachment
-                  points, whether the housing can be integrated without looking
-                  heavy, and whether the fabric path can stay tight enough to work
-                  as intended.
+                <h2 className="mb-4 text-3xl font-bold">
+                  Good retrofit candidates
+                </h2>
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  Existing covered patios, screened-porch openings, pergolas,
+                  and outdoor kitchens are often strong candidates for motorized
+                  screens. The main question is whether the opening has clean
+                  attachment points, whether the housing can be integrated
+                  without looking heavy, and whether the fabric path can stay
+                  tight enough to work as intended.
                 </p>
-                <p className="leading-relaxed text-text-secondary">
-                  We also look at how you use the space. A family patio near a play
-                  area may need bug control first. A dinner patio near the property
-                  line may need privacy first. A west-facing porch may need glare
-                  control first. Those priorities shape the fabric and control plan.
+                <p className="text-text-secondary leading-relaxed">
+                  We also look at how you use the space. A family patio near a
+                  play area may need bug control first. A dinner patio near the
+                  property line may need privacy first. A west-facing porch may
+                  need glare control first. Those priorities shape the fabric
+                  and control plan.
                 </p>
               </div>
               <div>
-                <h2 className="mb-4 text-3xl font-bold">Planning details that matter</h2>
+                <h2 className="mb-4 text-3xl font-bold">
+                  Planning details that matter
+                </h2>
                 <div className="grid gap-4">
                   {[
                     'Opening width, height, and square alignment',
@@ -285,8 +304,8 @@ export default function DeerfieldRetractableScreensPage() {
                   ].map((item) => (
                     <Card key={item} variant="muted" padding="lg">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-text" />
-                        <p className="font-medium text-text-primary">{item}</p>
+                        <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
+                        <p className="text-text-primary font-medium">{item}</p>
                       </div>
                     </Card>
                   ))}
@@ -300,11 +319,16 @@ export default function DeerfieldRetractableScreensPage() {
           <Container>
             <div className="mb-12 text-center">
               <div className="label-editorial-brand mb-4">Visual Direction</div>
-              <h2 className="section-title mb-4">Screen systems and fabric behavior</h2>
+              <h2 className="section-title mb-4">
+                Screen systems and fabric behavior
+              </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {gallery.map((item) => (
-                <div key={item.alt} className="relative aspect-[4/3] overflow-hidden">
+                <div
+                  key={item.alt}
+                  className="relative aspect-[4/3] overflow-hidden"
+                >
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -329,7 +353,9 @@ export default function DeerfieldRetractableScreensPage() {
                 {faqs.map((faq) => (
                   <Card key={faq.question} variant="default" padding="lg">
                     <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                    <p className="leading-relaxed text-text-secondary">{faq.answer}</p>
+                    <p className="text-text-secondary leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </Card>
                 ))}
               </div>
@@ -344,34 +370,46 @@ export default function DeerfieldRetractableScreensPage() {
                 <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to review a Deerfield screen layout?
                 </h2>
-                <p className="mb-8 max-w-xl text-xl text-text-inverse-muted">
-                  Send photos and rough opening dimensions. We will help you decide
-                  whether screens alone solve the problem or whether the patio should
-                  be planned with a pergola or enclosure.
+                <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
+                  Send photos and rough opening dimensions. We will help you
+                  decide whether screens alone solve the problem or whether the
+                  patio should be planned with a pergola or enclosure.
                 </p>
                 <Link href={bottomContactHref}>
-                  <Button size="lg">Start Your Quote</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
               </div>
-              <div className="hidden border-l border-border-inverse pl-16 md:block">
-                <div className="space-y-4 text-text-inverse-muted">
-                  <h4 className="text-lg font-bold uppercase tracking-wide">
+              <div className="border-border-inverse hidden border-l pl-16 md:block">
+                <div className="text-text-inverse-muted space-y-4">
+                  <h4 className="text-lg font-bold tracking-wide uppercase">
                     Keep exploring
                   </h4>
-                  <Link href="/service-areas/deerfield-il" className="flex items-center gap-3">
-                    <Home className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/service-areas/deerfield-il"
+                    className="flex items-center gap-3"
+                  >
+                    <Home className="text-edg-brand h-4 w-4" />
                     Back to Deerfield service area
                   </Link>
-                  <Link href="/systems/shades" className="flex items-center gap-3">
-                    <ShieldCheck className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/systems/shades"
+                    className="flex items-center gap-3"
+                  >
+                    <ShieldCheck className="text-edg-brand h-4 w-4" />
                     Full retractable screen specs
                   </Link>
-                  <Link href="/guides/magnatrack-screens-cost" className="flex items-center gap-3">
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/guides/magnatrack-screens-cost"
+                    className="flex items-center gap-3"
+                  >
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     MagnaTrack screens cost guide
                   </Link>
-                  <Link href="/systems/pergolas" className="flex items-center gap-3">
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                  <Link
+                    href="/systems/pergolas"
+                    className="flex items-center gap-3"
+                  >
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     Compare pergola systems
                   </Link>
                 </div>

@@ -93,12 +93,14 @@ const operatingModes = [
   {
     icon: Sun,
     title: 'Open mode',
-    description: 'Let in sun and airflow when the weather and season support it.',
+    description:
+      'Let in sun and airflow when the weather and season support it.',
   },
   {
     icon: Info,
     title: 'Angled mode',
-    description: 'Control glare and direct sun while keeping ventilation moving.',
+    description:
+      'Control glare and direct sun while keeping ventilation moving.',
   },
   {
     icon: CloudRain,
@@ -182,13 +184,13 @@ export default function LouveredPergolaGuide() {
           />
 
           <div className="max-w-4xl">
-            <div className="label-editorial mb-5 text-edg-brand">
+            <div className="label-editorial text-edg-brand mb-5">
               Pillar Guide
             </div>
             <h1 className="mb-5 max-w-4xl text-4xl leading-tight font-bold md:text-6xl">
               {guideData.title}
             </h1>
-            <p className="mb-4 text-xl font-bold text-edg-brand md:text-2xl">
+            <p className="text-edg-brand mb-4 text-xl font-bold md:text-2xl">
               {guideData.subtitle}
             </p>
             <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300">
@@ -203,7 +205,7 @@ export default function LouveredPergolaGuide() {
                 <Clock className="h-4 w-4" /> 12 min read
               </span>
               <span className="inline-flex items-center gap-2">
-                <Star className="h-4 w-4 text-edg-brand" /> Updated{' '}
+                <Star className="text-edg-brand h-4 w-4" /> Updated{' '}
                 {guideData.publishedDate}
               </span>
             </div>
@@ -211,7 +213,7 @@ export default function LouveredPergolaGuide() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/guides/pergola-system-fit-review?source=louvered_pergolas_hero">
                 <Button size="lg">
-                  Get a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -284,7 +286,7 @@ export default function LouveredPergolaGuide() {
                 <thead className="bg-edg-dark text-white">
                   <tr>
                     <th className="p-5 font-bold">Feature</th>
-                    <th className="p-5 font-bold text-edg-brand">
+                    <th className="text-edg-brand p-5 font-bold">
                       Louvered aluminum
                     </th>
                     <th className="p-5 font-bold text-zinc-300">
@@ -296,7 +298,7 @@ export default function LouveredPergolaGuide() {
                   {comparisonData.map((row) => (
                     <tr key={row.feature}>
                       <td className="p-5 font-bold">{row.feature}</td>
-                      <td className="p-5 font-medium text-edg-brand-dark">
+                      <td className="text-edg-brand-dark p-5 font-medium">
                         {row.louvered}
                       </td>
                       <td className="text-text-secondary p-5">
@@ -315,7 +317,7 @@ export default function LouveredPergolaGuide() {
         <Container>
           <div className="mx-auto max-w-4xl">
             <div className="mb-12 text-center">
-              <div className="label-editorial mb-4 text-edg-brand">
+              <div className="label-editorial text-edg-brand mb-4">
                 Transparent Pricing
               </div>
               <h2 className="section-title mb-4 text-white">
@@ -324,17 +326,15 @@ export default function LouveredPergolaGuide() {
               <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-300">
                 Motorized louvered roofs are best discussed in planning bands
                 until the site is reviewed. Size, attachment, electrical,
-                drainage, screens, heaters, finish, and permit path can all
-                move the final scope.
+                drainage, screens, heaters, finish, and permit path can all move
+                the final scope.
               </p>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3">
               {budgetBands.map((band) => (
                 <div key={band.label} className="border border-white/10 p-6">
-                  <div className="mb-2 text-sm text-zinc-300">
-                    {band.label}
-                  </div>
+                  <div className="mb-2 text-sm text-zinc-300">{band.label}</div>
                   <div className="mb-4 text-4xl font-bold">{band.range}</div>
                   <p className="text-sm leading-relaxed text-zinc-300">
                     {band.note}
@@ -346,13 +346,13 @@ export default function LouveredPergolaGuide() {
             <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-zinc-400">
               Planning bands are not quotes. EDG reviews photos, dimensions,
               structure, access, and desired features before recommending a
-              system direction.
+              system.
             </p>
 
             <div className="mt-8 text-center">
               <Link href="/guides/pergola-system-fit-review?source=louvered_pergolas_pricing">
                 <Button size="lg">
-                  Get a System Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -373,7 +373,7 @@ export default function LouveredPergolaGuide() {
               {faqs.map((item) => (
                 <Card key={item.question} variant="outline" padding="lg">
                   <h3 className="mb-3 flex items-start gap-3 text-lg font-bold">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-dark" />
+                    <CheckCircle2 className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
                     {item.question}
                   </h3>
                   <p className="text-text-secondary pl-8 leading-relaxed">
@@ -394,8 +394,8 @@ export default function LouveredPergolaGuide() {
               Use the guide to start a better first conversation
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              A louvered roof is only one part of the decision. These next
-              steps keep the path connected to system fit, cost planning, and
+              A louvered roof is only one part of the decision. These next steps
+              keep the path connected to system fit, cost planning, and
               EDG&apos;s pergola product pages.
             </p>
           </div>
@@ -406,13 +406,13 @@ export default function LouveredPergolaGuide() {
                 <Card
                   variant="outline"
                   padding="lg"
-                  className="h-full transition-colors group-hover:border-edg-brand"
+                  className="group-hover:border-edg-brand h-full transition-colors"
                 >
                   <h3 className="mb-3 text-xl font-bold">{step.title}</h3>
                   <p className="text-text-secondary mb-5 text-sm leading-relaxed">
                     {step.description}
                   </p>
-                  <div className="inline-flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-dark uppercase">
+                  <div className="text-edg-brand-dark inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                     Continue
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -426,35 +426,27 @@ export default function LouveredPergolaGuide() {
       <section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="mb-6 text-3xl font-bold text-text-inverse md:text-4xl">
+            <h2 className="text-text-inverse mb-6 text-3xl font-bold md:text-4xl">
               Ready to design yours?
             </h2>
-            <p className="mb-8 text-xl leading-relaxed text-text-inverse-muted">
-              Stop guessing and start with the site details that determine
-              which system actually fits the job.
+            <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
+              Stop guessing and start with the site details that determine which
+              system actually fits the job.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href="/guides/pergola-system-fit-review?source=louvered_pergolas_bottom">
-                <Button
-                  size="lg"
-                >
-                  Request System Fit Review
+                <Button size="lg">
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/systems/pergolas/configure">
-                <Button
-                  size="lg"
-                  variant="outline"
-                >
+                <Button size="lg" variant="outline">
                   Design in 3D
                 </Button>
               </Link>
               <Link href="/systems/pergolas">
-                <Button
-                  size="lg"
-                  variant="outline"
-                >
+                <Button size="lg" variant="outline">
                   View Pergola Systems
                 </Button>
               </Link>

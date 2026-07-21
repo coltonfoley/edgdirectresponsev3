@@ -40,7 +40,7 @@ export default function NotFound() {
                   size="lg"
                   className="min-w-[200px] border-white/20 text-white hover:bg-white/10"
                 >
-                  Get a Quote
+                  Request a Quote
                 </Button>
               </Link>
             </div>

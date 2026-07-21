@@ -252,7 +252,7 @@ export default function SpringGroveServiceAreaPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href={heroContactHref}>
                 <Button size="lg">
-                  Request a Spring Grove Quote
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -524,7 +524,7 @@ export default function SpringGroveServiceAreaPage() {
             </p>
             <Link href={bottomContactHref}>
               <Button variant="dark" size="lg">
-                Start Your Project
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

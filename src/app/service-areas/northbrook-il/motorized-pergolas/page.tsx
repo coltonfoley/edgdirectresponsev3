@@ -160,7 +160,10 @@ export default function NorthbrookPergolaPage() {
             <Breadcrumb
               items={[
                 { label: 'Service Areas', href: '/service-areas' },
-                { label: 'Northbrook, IL', href: '/service-areas/northbrook-il' },
+                {
+                  label: 'Northbrook, IL',
+                  href: '/service-areas/northbrook-il',
+                },
                 { label: 'Motorized Pergolas' },
               ]}
               className="mb-6"
@@ -183,7 +186,7 @@ export default function NorthbrookPergolaPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={fitReviewHref}>
-                  <Button size="lg">Get a System Fit Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/systems/pergolas/configure">
                   <Button
@@ -404,12 +407,12 @@ export default function NorthbrookPergolaPage() {
                 </h2>
                 <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
                   Send a few photos, rough dimensions, and any HOA or review
-                  concerns. EDG will help narrow the system direction before
-                  you chase the wrong quote.
+                  concerns. EDG will help narrow the recommendation before you
+                  chase the wrong quote.
                 </p>
                 <div className="flex flex-col gap-4 sm:flex-row">
                   <Link href={bottomFitReviewHref}>
-                    <Button size="lg">Start a System Fit Review</Button>
+                    <Button size="lg">Request a Quote</Button>
                   </Link>
                   <Link href="/systems/pergolas">
                     <Button variant="outline" size="lg">

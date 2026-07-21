@@ -236,16 +236,12 @@ export default function LakeGenevaMotorizedPergolasPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8">
-                  Request Lake Geneva Pergola Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <a href="tel:+18155810138">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="px-8"
-                >
+                <Button size="lg" variant="outline" className="px-8">
                   <Phone className="mr-2 h-5 w-5" />
                   815-581-0138
                 </Button>
@@ -291,7 +287,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
       <Section className="section-md bg-surface-muted">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden border border-border">
+            <div className="border-border relative aspect-[4/3] overflow-hidden border">
               <Image
                 src={images.systems.pergolas.blackBladePool}
                 alt="Motorized louvered pergola over a poolside outdoor dining space"
@@ -433,7 +429,7 @@ export default function LakeGenevaMotorizedPergolasPage() {
                 guest entertaining.
               </p>
               <Link href={bottomContactHref}>
-                <Button size="lg">Start Pergola Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </Link>
             </div>
             <div className="border-border-inverse hidden border-l pl-16 md:block">

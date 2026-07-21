@@ -25,10 +25,7 @@ import { Section } from '@/components/ui/Section';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { buildContactHref } from '@/lib/contact-links';
-import {
-  generateFAQSchema,
-  generateServiceSchema,
-} from '@/lib/schema';
+import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -128,7 +125,10 @@ const specs = [
   { label: 'Cooking Options', value: 'Grills, side burners, pizza ovens' },
   { label: 'Fuel Types', value: 'Natural gas, propane, electric, wood' },
   { label: 'Planning Needs', value: 'Power, gas, ventilation, clearances' },
-  { label: 'Installation', value: 'Design, supply, utility coordination, and install' },
+  {
+    label: 'Installation',
+    value: 'Design, supply, utility coordination, and install',
+  },
 ];
 
 const useCases = [
@@ -205,12 +205,14 @@ const relatedLinks = [
   {
     label: 'Motorized Pergolas',
     href: '/systems/pergolas',
-    description: 'Adjustable roof systems that can shelter cooking and seating zones.',
+    description:
+      'Adjustable roof systems that can shelter cooking and seating zones.',
   },
   {
     label: 'Retractable Screens',
     href: '/systems/shades',
-    description: 'Bug, glare, wind, and privacy control for outdoor dining spaces.',
+    description:
+      'Bug, glare, wind, and privacy control for outdoor dining spaces.',
   },
   {
     label: 'Glass Enclosures',
@@ -220,7 +222,8 @@ const relatedLinks = [
   {
     label: 'Outdoor Room Plans',
     href: '/outdoor-rooms',
-    description: 'Outcome-led packages that combine shade, glass, screens, heat, and cooking.',
+    description:
+      'Outcome-led packages that combine shade, glass, screens, heat, and cooking.',
   },
 ];
 
@@ -248,7 +251,7 @@ export default function AppliancesPage() {
   const schemas = [serviceSchema, faqSchema];
 
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
@@ -271,20 +274,20 @@ export default function AppliancesPage() {
                 <span className="h-px w-8 bg-black" />
                 Complete Your Space
               </div>
-              <h1 className="mb-8 text-5xl leading-[0.92] font-bold tracking-tighter text-text-primary md:text-7xl">
+              <h1 className="text-text-primary mb-8 text-5xl leading-[0.92] font-bold tracking-tighter md:text-7xl">
                 Outdoor Kitchens + Heat.
               </h1>
-              <p className="mb-10 max-w-xl text-xl leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-10 max-w-xl text-xl leading-relaxed">
                 Grills, heaters, pizza ovens, counters, and appliance packages
                 planned around the same outdoor-room system as your pergola,
                 screens, or glass.
               </p>
 
-              <div className="mb-10 grid grid-cols-2 gap-4 border-y border-border py-6 text-sm">
+              <div className="border-border mb-10 grid grid-cols-2 gap-4 border-y py-6 text-sm">
                 {quickFeatures.map((feature) => (
                   <div key={feature} className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-edg-brand-text" />
-                    <span className="font-bold text-text-primary">
+                    <CheckCircle2 className="text-edg-brand-text mt-0.5 h-4 w-4 shrink-0" />
+                    <span className="text-text-primary font-bold">
                       {feature}
                     </span>
                   </div>
@@ -299,14 +302,18 @@ export default function AppliancesPage() {
                   </Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">
-                  <Button size="lg" variant="secondary" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="w-full sm:w-auto"
+                  >
                     <Phone className="mr-2 h-5 w-5" />
                     Call EDG
                   </Button>
                 </TrackedPhoneLink>
               </div>
 
-              <p className="mt-5 text-sm text-text-muted">
+              <p className="text-text-muted mt-5 text-sm">
                 EDG designs, supplies, and installs appliance packages as part
                 of complete outdoor living plans.
               </p>
@@ -319,14 +326,14 @@ export default function AppliancesPage() {
         </Container>
       </section>
 
-      <Section className="section-md border-t border-border bg-surface-muted">
+      <Section className="section-md border-border bg-surface-muted border-t">
         <Container>
           <div className="mx-auto mb-16 max-w-4xl text-center">
             <div className="label-editorial-brand mb-4">System Overview</div>
             <h2 className="section-title mb-6">
               Appliances Should Fit the Outdoor Room, Not Just the Catalog
             </h2>
-            <p className="text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary text-lg leading-relaxed">
               Outdoor kitchens and heating work best when they are planned with
               the structure around them. EDG reviews the kitchen, heat, shade,
               screens, glass, furniture, utilities, and daily use together so
@@ -342,7 +349,7 @@ export default function AppliancesPage() {
                 padding="none"
                 className="overflow-hidden"
               >
-                <div className="relative aspect-[4/3] bg-surface-dark">
+                <div className="bg-surface-dark relative aspect-[4/3]">
                   <Image
                     src={item.image}
                     alt={item.title}
@@ -352,10 +359,10 @@ export default function AppliancesPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="mb-3 text-xl font-bold text-text-primary">
+                  <h3 className="text-text-primary mb-3 text-xl font-bold">
                     {item.title}
                   </h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -368,13 +375,13 @@ export default function AppliancesPage() {
       <Section className="section-lg bg-surface-dark text-text-inverse">
         <Container>
           <div className="mx-auto mb-16 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4 text-edg-brand">
+            <div className="label-editorial-brand text-edg-brand mb-4">
               Appliance + Comfort Details
             </div>
             <h2 className="section-title mb-6">
               Built for Outdoor Use and Daily Workflow
             </h2>
-            <p className="text-lg leading-relaxed text-text-inverse-muted">
+            <p className="text-text-inverse-muted text-lg leading-relaxed">
               The right package depends on how the patio will cook, host, heat,
               clean up, and connect to the rest of the house.
             </p>
@@ -389,10 +396,10 @@ export default function AppliancesPage() {
                   size="lg"
                   className="mb-4"
                 />
-                <h3 className="mb-3 text-lg font-bold text-text-inverse">
+                <h3 className="text-text-inverse mb-3 text-lg font-bold">
                   {feature.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-text-inverse-muted">
+                <p className="text-text-inverse-muted text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </Card>
@@ -401,7 +408,7 @@ export default function AppliancesPage() {
         </Container>
       </Section>
 
-      <Section className="section-md border-t border-border">
+      <Section className="section-md border-border border-t">
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
@@ -411,7 +418,7 @@ export default function AppliancesPage() {
               <h2 className="section-title mb-6">
                 What EDG Reviews Before Quoting
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 Appliance pricing depends on equipment selection, utility path,
                 cabinetry, counters, heat coverage, roof or wall integration,
                 and whether the work is part of a broader outdoor room.
@@ -426,10 +433,10 @@ export default function AppliancesPage() {
                       size="md"
                       className="mb-4"
                     />
-                    <h3 className="mb-2 text-lg font-bold text-text-primary">
+                    <h3 className="text-text-primary mb-2 text-lg font-bold">
                       {item.title}
                     </h3>
-                    <p className="leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary leading-relaxed">
                       {item.description}
                     </p>
                   </Card>
@@ -438,19 +445,19 @@ export default function AppliancesPage() {
             </div>
 
             <Card variant="dark" padding="lg">
-              <h3 className="mb-6 text-xl font-bold text-text-inverse">
+              <h3 className="text-text-inverse mb-6 text-xl font-bold">
                 Specification Highlights
               </h3>
-              <div className="divide-y divide-border-inverse">
+              <div className="divide-border-inverse divide-y">
                 {specs.map((spec) => (
                   <div
                     key={spec.label}
                     className="grid gap-2 py-4 sm:grid-cols-[0.8fr_1.2fr] sm:items-center"
                   >
-                    <span className="text-sm text-text-inverse-muted">
+                    <span className="text-text-inverse-muted text-sm">
                       {spec.label}
                     </span>
-                    <span className="font-bold text-text-inverse sm:text-right">
+                    <span className="text-text-inverse font-bold sm:text-right">
                       {spec.value}
                     </span>
                   </div>
@@ -461,7 +468,7 @@ export default function AppliancesPage() {
         </Container>
       </Section>
 
-      <Section className="section-md border-t border-border bg-surface-muted">
+      <Section className="section-md border-border bg-surface-muted border-t">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">FAQ</div>
@@ -470,13 +477,13 @@ export default function AppliancesPage() {
             </h2>
           </div>
 
-          <div className="mx-auto max-w-3xl divide-y divide-border">
+          <div className="divide-border mx-auto max-w-3xl divide-y">
             {faqs.map((faq) => (
               <div key={faq.question} className="py-6">
-                <h3 className="mb-3 text-lg font-bold text-text-primary">
+                <h3 className="text-text-primary mb-3 text-lg font-bold">
                   {faq.question}
                 </h3>
-                <p className="leading-relaxed text-text-secondary">
+                <p className="text-text-secondary leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
@@ -485,7 +492,7 @@ export default function AppliancesPage() {
         </Container>
       </Section>
 
-      <Section className="section-md border-t border-border">
+      <Section className="section-md border-border border-t">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
@@ -495,14 +502,14 @@ export default function AppliancesPage() {
               <h2 className="section-title mb-6">
                 Plan Appliances Around the Primary System
               </h2>
-              <p className="mb-8 leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 leading-relaxed">
                 Appliances usually work best when the roof, shade, screen,
                 glass, seating, lighting, and heat plan are considered together.
                 These pages are the most useful next planning stops.
               </p>
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">
-                  Start Appliance Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
@@ -514,15 +521,15 @@ export default function AppliancesPage() {
                   <Card
                     variant="default"
                     padding="lg"
-                    className="group h-full hover:border-edg-brand/30"
+                    className="group hover:border-edg-brand/30 h-full"
                   >
-                    <h3 className="mb-2 font-bold text-text-primary transition-colors group-hover:text-edg-brand-text">
+                    <h3 className="text-text-primary group-hover:text-edg-brand-text mb-2 font-bold transition-colors">
                       {item.label}
                     </h3>
-                    <p className="mb-5 text-sm leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary mb-5 text-sm leading-relaxed">
                       {item.description}
                     </p>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold tracking-wider text-text-primary uppercase transition-colors group-hover:text-edg-brand-text">
+                    <span className="text-text-primary group-hover:text-edg-brand-text inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase transition-colors">
                       View page
                       <ChevronRight className="h-4 w-4" />
                     </span>
@@ -538,13 +545,13 @@ export default function AppliancesPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4 text-edg-brand">
+              <div className="label-editorial-brand text-edg-brand mb-4">
                 Next Step
               </div>
               <h2 className="section-title mb-6">
                 Ready to Price the Cooking and Comfort Layer?
               </h2>
-              <p className="max-w-2xl text-xl leading-relaxed text-text-inverse-muted">
+              <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
                 Send EDG the rough patio layout, cooking goals, heat needs, and
                 primary system plan. We will help sort the appliance path and
                 what needs to happen before installation.
@@ -553,7 +560,7 @@ export default function AppliancesPage() {
             <div className="space-y-4">
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg" className="w-full">
-                  Get Appliance Pricing
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>
@@ -563,7 +570,7 @@ export default function AppliancesPage() {
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <p className="text-center text-sm text-text-inverse-muted">
+              <p className="text-text-inverse-muted text-center text-sm">
                 Spring Grove showroom available by appointment.
               </p>
             </div>

@@ -97,7 +97,7 @@ const faqs = [
   {
     question: 'How much does a motorized pergola cost in Milwaukee?',
     answer:
-      'The price depends on size, configuration, site conditions, finish, screens, lighting, heaters, controls, engineering, electrical work, and the review path. A site review is the best way to establish a useful range before a detailed design is finalized.',
+      'The price depends on size, configuration, site conditions, finish, screens, lighting, heaters, controls, engineering, electrical work, and the review path. Request a quote to start establishing a useful range before a detailed design is finalized.',
   },
   {
     question: 'Can a louvered pergola handle Milwaukee weather?',
@@ -209,8 +209,7 @@ export default function MilwaukeeMotorizedPergolasPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href={topContactHref}>
                 <Button size="lg" className="px-8">
-                  Request a System Fit Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
               <a href="tel:+18155810138">
@@ -411,7 +410,7 @@ export default function MilwaukeeMotorizedPergolasPage() {
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Link href={bottomContactHref}>
-                <Button size="lg">Request a System Fit Review</Button>
+                <Button size="lg">Request a Quote</Button>
               </Link>
               <Link href="/service-areas/milwaukee-wi">
                 <Button

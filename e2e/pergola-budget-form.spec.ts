@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('pergola page provides a short budget-range lead path', async ({
+test('pergola page provides the standard quote-request path', async ({
   page,
 }) => {
   let submittedBody: Record<string, unknown> | undefined;
@@ -21,35 +21,51 @@ test('pergola page provides a short budget-range lead path', async ({
 
   await page.goto('/systems/pergolas');
 
-  const primaryCta = page
-    .getByRole('link', {
-      name: 'Get My Pergola Budget Range',
-    })
-    .first();
+  const primaryCta = page.locator('a[href="#pergola-budget-range"]').first();
+  await expect(primaryCta).toHaveText('Request a Quote');
   await expect(primaryCta).toHaveAttribute('href', '#pergola-budget-range');
   await primaryCta.click();
 
-  const form = page.getByRole('form', { name: 'Pergola budget range form' });
+  const form = page.locator('#pergola-budget-range form');
   await expect(form).toBeVisible();
-  await expect(form.locator('[required]')).toHaveCount(4);
+  await expect(form.locator('[required]')).toHaveCount(3);
+  await expect(form.locator('fieldset[data-interest-group]')).toHaveAttribute(
+    'aria-required',
+    'true'
+  );
 
-  await form.getByLabel('First name').fill('Website Test');
+  await form.getByLabel('Full name').fill('Website Test');
   await form.getByLabel('Email').fill('website-test@example.com');
-  await form.getByLabel('Project city or ZIP').fill('60081');
+  await form.getByLabel('Phone').fill('815-555-0103');
+  await expect(form.getByLabel('Motorized pergola')).toBeChecked();
+  await form.getByLabel('Glass enclosure').check();
+  await expect(form.getByLabel('Glass enclosure')).toBeChecked();
   await form
-    .getByLabel('What are you hoping to build?')
-    .selectOption('Motorized louvered pergola');
-  await form
-    .getByRole('button', { name: 'Get My Pergola Budget Range' })
+    .getByRole('button', { name: 'Add project details or photos (optional)' })
     .click();
+  await form.getByLabel('City or ZIP code (optional)').fill('60081');
+  await form.getByRole('button', { name: 'Request a Quote' }).click();
 
-  await expect(page.getByText('Your pergola request is in.')).toBeVisible();
+  await expect(
+    page.getByRole('heading', {
+      name: 'Thanks — we received your quote request.',
+    })
+  ).toBeVisible();
   expect(submittedBody).toMatchObject({
-    firstName: 'Website Test',
+    firstName: 'Website',
+    lastName: 'Test',
     email: 'website-test@example.com',
+    phone: '815-555-0103',
     location: '60081',
-    projectType: 'pergola',
+    projectType: 'multiple',
     customerType: 'homeowner',
-    source: 'pergola_budget_range',
+    source: 'pergola_page_quote',
+  });
+  expect(submittedBody?.message).toContain(
+    'Interests: Motorized pergola, Glass enclosure'
+  );
+  expect(submittedBody?.metadata).toMatchObject({
+    selected_interests: 'pergola|enclosure',
+    interest_count: 2,
   });
 });

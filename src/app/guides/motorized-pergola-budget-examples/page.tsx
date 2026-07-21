@@ -170,7 +170,7 @@ export default function MotorizedPergolaBudgetExamplesPage() {
               </p>
               <Link href="/guides/pergola-system-fit-review">
                 <Button size="lg">
-                  Get My Budget Fit Reviewed
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -274,7 +274,7 @@ export default function MotorizedPergolaBudgetExamplesPage() {
             </div>
             <Link href="/guides/pergola-system-fit-review">
               <Button size="lg" className="w-full justify-between">
-                Request Review
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

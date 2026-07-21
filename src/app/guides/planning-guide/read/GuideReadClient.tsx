@@ -485,8 +485,8 @@ export default function GuideReadPage() {
               Budget Planning
             </h2>
             <p className="mb-12 text-xl font-light text-gray-300 md:text-2xl">
-              Why "Get a Quote" is the most frustrating button on the internet.
-              Here are the real numbers.
+              Start with realistic budget ranges, then request a
+              project-specific quote when you are ready.
             </p>
 
             <div className="grid gap-6">
@@ -621,7 +621,7 @@ export default function GuideReadPage() {
             <h2 className="mb-6 text-4xl font-extrabold md:text-6xl">
               Stop Researching.
               <br />
-              Start Planning.
+              Request a Quote.
             </h2>
             <p className="mb-12 text-xl text-gray-400">
               You know the options. You know the costs. You know the risks. Now
@@ -633,7 +633,7 @@ export default function GuideReadPage() {
                 href={designConsultationHref}
                 className="bg-edg-brand focus-visible:ring-edg-brand inline-flex h-14 items-center justify-center gap-2 px-8 text-base font-bold tracking-wider text-zinc-900 uppercase transition-colors hover:bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 focus-visible:outline-none"
               >
-                Book Your Design Consultation <ArrowRight className="h-5 w-5" />
+                Request a Quote <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
             <p className="mt-8 text-sm text-gray-500">

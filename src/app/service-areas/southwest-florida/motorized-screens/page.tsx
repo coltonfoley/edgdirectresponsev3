@@ -209,8 +209,8 @@ export default function SouthwestFloridaMotorizedScreensPage() {
         }}
       />
 
-      <div className="min-h-screen bg-surface">
-        <section className="relative flex min-h-[65vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <div className="bg-surface min-h-screen">
+        <section className="bg-edg-dark relative flex min-h-[65vh] items-center overflow-hidden pt-24 pb-16 text-white">
           <div className="absolute inset-0">
             <Image
               src={images.systems.shades.hero}
@@ -243,7 +243,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
               Back to Southwest Florida
             </Link>
             <div className="max-w-4xl">
-              <div className="mb-5 inline-flex items-center gap-2 border border-edg-brand/20 bg-edg-brand/10 px-4 py-2 text-xs font-bold tracking-widest text-edg-brand-dark uppercase">
+              <div className="border-edg-brand/20 bg-edg-brand/10 text-edg-brand-dark mb-5 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
                 <MapPin className="h-4 w-4" />
                 Sanibel, Captiva, Fort Myers, Cape Coral, Naples
               </div>
@@ -258,7 +258,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
-                  <Button size="lg">Get a Screen Layout Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <Link href="/guides/magnatrack-screens-cost">
                   <Button
@@ -284,7 +284,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 <h2 className="section-title mb-6">
                   Start with screens when the roof or opening already works
                 </h2>
-                <div className="space-y-5 text-lg leading-relaxed text-text-secondary">
+                <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                   <p>
                     Many Southwest Florida patios already have a roof, beam,
                     soffit, or covered lanai opening. In those cases, the first
@@ -327,10 +327,10 @@ export default function SouthwestFloridaMotorizedScreensPage() {
               {screenProblems.map((problem) => (
                 <Card key={problem.title} variant="default" padding="lg">
                   <div className="mb-4 flex items-center gap-3">
-                    <problem.icon className="h-5 w-5 text-edg-brand-text" />
+                    <problem.icon className="text-edg-brand-text h-5 w-5" />
                     <h3 className="text-xl font-bold">{problem.title}</h3>
                   </div>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {problem.description}
                   </p>
                 </Card>
@@ -346,7 +346,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
               <h2 className="section-title mb-4">
                 Match the screen plan to how the patio is actually used
               </h2>
-              <p className="text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary text-lg leading-relaxed">
                 A homeowner may describe the project as a lanai, patio, outdoor
                 kitchen, porch, or poolside space. The useful question is what
                 the space needs to do better: block bugs, cut glare, soften
@@ -357,7 +357,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
               {marketFits.map((fit) => (
                 <Card key={fit.title} variant="muted" padding="lg">
                   <h3 className="mb-3 text-xl font-bold">{fit.title}</h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {fit.description}
                   </p>
                 </Card>
@@ -370,13 +370,11 @@ export default function SouthwestFloridaMotorizedScreensPage() {
           <Container>
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
-                <div className="label-editorial-brand mb-4">
-                  Quote Inputs
-                </div>
+                <div className="label-editorial-brand mb-4">Quote Inputs</div>
                 <h2 className="section-title mb-6">
                   A screen quote starts with the openings, not a catalog
                 </h2>
-                <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+                <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                   Motorized screens are custom systems. Before talking fabric
                   colors or controls, the opening geometry, attachment surfaces,
                   wind exposure, power path, and salt-air details need to make
@@ -384,7 +382,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 </p>
                 <Link href={inputsContactHref}>
                   <Button>
-                    Send Photos and Dimensions
+                    Request a Quote
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -393,8 +391,8 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 {planningDetails.map((item) => (
                   <Card key={item} variant="default" padding="lg">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand-text" />
-                      <p className="font-medium leading-relaxed text-text-primary">
+                      <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
+                      <p className="text-text-primary leading-relaxed font-medium">
                         {item}
                       </p>
                     </div>
@@ -416,9 +414,9 @@ export default function SouthwestFloridaMotorizedScreensPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {projectTypes.map((type) => (
                 <Card key={type.title} variant="muted" padding="lg">
-                  <Ruler className="mb-5 h-8 w-8 text-edg-brand-text" />
+                  <Ruler className="text-edg-brand-text mb-5 h-8 w-8" />
                   <h3 className="mb-3 text-xl font-bold">{type.title}</h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {type.description}
                   </p>
                 </Card>
@@ -440,7 +438,7 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 {faqs.map((faq) => (
                   <Card key={faq.question} variant="default" padding="lg">
                     <h3 className="mb-3 text-lg font-bold">{faq.question}</h3>
-                    <p className="leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
                   </Card>
@@ -457,17 +455,17 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                 <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
                   Ready to review a Florida screen layout?
                 </h2>
-                <p className="mb-8 max-w-xl text-xl text-text-inverse-muted">
+                <p className="text-text-inverse-muted mb-8 max-w-xl text-xl">
                   Send the address, photos, rough opening sizes, and what you
                   want solved first: bugs, sun, privacy, wind comfort, or a
                   pergola-and-screen plan.
                 </p>
                 <Link href={bottomContactHref}>
-                  <Button size="lg">Start a Screen Quote</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
               </div>
-              <div className="hidden border-l border-border-inverse pl-16 md:block">
-                <div className="space-y-4 text-text-inverse-muted">
+              <div className="border-border-inverse hidden border-l pl-16 md:block">
+                <div className="text-text-inverse-muted space-y-4">
                   <h4 className="text-lg font-bold tracking-wide uppercase">
                     Keep exploring
                   </h4>
@@ -475,35 +473,35 @@ export default function SouthwestFloridaMotorizedScreensPage() {
                     href="/service-areas/southwest-florida"
                     className="flex items-center gap-3"
                   >
-                    <Home className="h-4 w-4 text-edg-brand" />
+                    <Home className="text-edg-brand h-4 w-4" />
                     Southwest Florida planning
                   </Link>
                   <Link
                     href="/systems/shades"
                     className="flex items-center gap-3"
                   >
-                    <ShieldCheck className="h-4 w-4 text-edg-brand" />
+                    <ShieldCheck className="text-edg-brand h-4 w-4" />
                     Full motorized screen details
                   </Link>
                   <Link
                     href="/guides/magnatrack-screens-cost"
                     className="flex items-center gap-3"
                   >
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     MagnaTrack screens cost guide
                   </Link>
                   <Link
                     href="/service-areas/sanibel-outdoor-living/louvered-pergolas"
                     className="flex items-center gap-3"
                   >
-                    <ArrowRight className="h-4 w-4 text-edg-brand" />
+                    <ArrowRight className="text-edg-brand h-4 w-4" />
                     Sanibel motorized pergolas
                   </Link>
                   <Link
                     href="/service-areas/sanibel-outdoor-living"
                     className="flex items-center gap-3"
                   >
-                    <Smartphone className="h-4 w-4 text-edg-brand" />
+                    <Smartphone className="text-edg-brand h-4 w-4" />
                     Sanibel outdoor living hub
                   </Link>
                 </div>

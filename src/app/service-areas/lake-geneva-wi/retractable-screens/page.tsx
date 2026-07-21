@@ -222,14 +222,10 @@ export default function LakeGenevaRetractableScreensPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={heroContactHref}>
-                  <Button size="lg">Get a Screen Layout Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
                 <a href="tel:+18155810138">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="px-8"
-                  >
+                  <Button size="lg" variant="outline" className="px-8">
                     <Phone className="mr-2 h-5 w-5" />
                     815-581-0138
                   </Button>
@@ -285,7 +281,7 @@ export default function LakeGenevaRetractableScreensPage() {
         <Section className="section-md bg-surface-muted">
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div className="relative aspect-[4/3] overflow-hidden border border-border">
+              <div className="border-border relative aspect-[4/3] overflow-hidden border">
                 <Image
                   src={images.systems.shades.deployed}
                   alt="Deployed motorized screen protecting an outdoor room"
@@ -415,7 +411,7 @@ export default function LakeGenevaRetractableScreensPage() {
                   larger outdoor-room plan makes the most sense.
                 </p>
                 <Link href={bottomContactHref}>
-                  <Button size="lg">Start Screen Layout Review</Button>
+                  <Button size="lg">Request a Quote</Button>
                 </Link>
               </div>
               <div className="border-border-inverse hidden border-l pl-16 md:block">

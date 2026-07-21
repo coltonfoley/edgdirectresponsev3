@@ -228,7 +228,7 @@ export default function LakeGenevaZoningGuidePage() {
               </p>
               <Link href={topContactHref}>
                 <Button variant="secondary">
-                  Ask EDG to Review the Site
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -267,9 +267,9 @@ export default function LakeGenevaZoningGuidePage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               A pergola or screen system can be designed around local review
-              requirements, but only if the review questions are raised
-              before the final size, post locations, electrical package, and
-              accessory choices are locked in.
+              requirements, but only if the review questions are raised before
+              the final size, post locations, electrical package, and accessory
+              choices are locked in.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
@@ -343,10 +343,12 @@ export default function LakeGenevaZoningGuidePage() {
               {commonMistakes.map((mistake) => (
                 <div
                   key={mistake}
-                  className="flex items-start gap-3 border border-border bg-white p-5"
+                  className="border-border flex items-start gap-3 border bg-white p-5"
                 >
                   <TriangleAlert className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
-                  <p className="text-text-secondary leading-relaxed">{mistake}</p>
+                  <p className="text-text-secondary leading-relaxed">
+                    {mistake}
+                  </p>
                 </div>
               ))}
             </div>
@@ -436,7 +438,7 @@ export default function LakeGenevaZoningGuidePage() {
                   size="lg"
                   className="border-white/20 text-white hover:bg-white/10"
                 >
-                  Ask EDG to Review the Site
+                  Request a Quote
                 </Button>
               </Link>
             </div>

@@ -242,7 +242,7 @@ export default function ServiceAreasPage() {
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link href={consultationHref}>
                   <Button size="lg">
-                    Schedule a Consultation
+                    Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>

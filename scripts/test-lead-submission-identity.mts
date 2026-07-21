@@ -26,7 +26,11 @@ test('fingerprints ignore key order and the assigned anonymous ID', () => {
     submission_id: 'first-id',
   });
   const second = leadSubmissionFingerprint(
-    { source: 'contact_page', email: 'test@example.invalid', firstName: 'Internal' },
+    {
+      source: 'contact_page',
+      email: 'test@example.invalid',
+      firstName: 'Internal',
+    },
     {
       utm_source: 'google',
       submission_id: 'second-id',
@@ -79,7 +83,10 @@ test('an edited form starts a new submission transaction', () => {
 
 test('generated submission IDs are opaque and reject contact-shaped values', () => {
   for (let index = 0; index < 100; index += 1) {
-    assert.equal(isOpaqueLeadSubmissionId(createOpaqueLeadSubmissionId()), true);
+    assert.equal(
+      isOpaqueLeadSubmissionId(createOpaqueLeadSubmissionId()),
+      true
+    );
   }
   assert.equal(isOpaqueLeadSubmissionId('customer@example.com'), false);
   assert.equal(isOpaqueLeadSubmissionId('8475551212'), false);

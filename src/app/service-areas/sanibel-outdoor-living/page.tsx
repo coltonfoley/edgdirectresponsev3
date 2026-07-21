@@ -69,12 +69,12 @@ const areas = [
   {
     name: 'Captiva Island',
     description:
-      'Captiva\'s narrow geography creates unique microclimates and higher wind exposure. We plan louvered pergolas around coastal wind documentation, salt air, sun, and the way the outdoor room should feel day to day.',
+      "Captiva's narrow geography creates unique microclimates and higher wind exposure. We plan louvered pergolas around coastal wind documentation, salt air, sun, and the way the outdoor room should feel day to day.",
   },
   {
     name: 'Wulfert & The Dunes',
     description:
-      'Gulf-front and golf-course homes need outdoor rooms that respect architecture, sightlines, support-column placement, and the island\'s sensitive dune and habitat context.',
+      "Gulf-front and golf-course homes need outdoor rooms that respect architecture, sightlines, support-column placement, and the island's sensitive dune and habitat context.",
   },
   {
     name: 'Roosevelt Channel & Blind Pass',
@@ -93,7 +93,7 @@ const localConsiderations = [
   {
     title: 'Salt-Air Corrosion Resistance',
     description:
-      'Coastal projects require system-specific aluminum, coatings, hardware, maintenance, and product documentation. EDG verifies the selected finish package against the property\'s salt-air exposure.',
+      "Coastal projects require system-specific aluminum, coatings, hardware, maintenance, and product documentation. EDG verifies the selected finish package against the property's salt-air exposure.",
     icon: Droplets,
   },
   {
@@ -105,7 +105,7 @@ const localConsiderations = [
   {
     title: 'Sanctuary Zoning Navigation',
     description:
-      'Sanibel\'s developable-area, vegetation, wildlife, floodplain, and drainage reviews can affect outdoor structures. We design around the local review path instead of treating it as an afterthought.',
+      "Sanibel's developable-area, vegetation, wildlife, floodplain, and drainage reviews can affect outdoor structures. We design around the local review path instead of treating it as an afterthought.",
     icon: FileText,
   },
 ];
@@ -139,12 +139,12 @@ const zoningConsiderations = [
 
 const faqs = [
   {
-    question: 'Do your pergolas meet Florida\'s hurricane building codes?',
+    question: "Do your pergolas meet Florida's hurricane building codes?",
     answer:
       'EDG can specify louvered roof systems with wind-load engineering, Florida Product Approval, or Miami-Dade NOA documentation where applicable. Final acceptance depends on the selected system, the property, the installation details, and Sanibel building review.',
   },
   {
-    question: 'How do you handle Sanibel\'s impermeable surface limits?',
+    question: "How do you handle Sanibel's impermeable surface limits?",
     answer:
       'We start by reviewing the survey, existing developed area, drainage, flood-zone context, and the exact system being considered. Louvered systems may be reviewed differently than solid roofs in some situations, but Sanibel is the final authority on how coverage is counted.',
   },
@@ -154,9 +154,9 @@ const faqs = [
       'Coastal aluminum, protective finishes, stainless hardware, drainage, and routine cleaning all matter in Sanibel salt air. We help match the system and finish package to the exposure instead of treating island conditions like an inland patio.',
   },
   {
-    question: 'What\'s the typical timeline for a Sanibel project?',
+    question: "What's the typical timeline for a Sanibel project?",
     answer:
-      'Timelines depend on scope, engineering, product lead times, HOA review, Sanibel permit review, and whether floodplain, vegetation, wildlife, electrical, or screen-enclosure details are involved. A site review is the right first step.',
+      'Timelines depend on scope, engineering, product lead times, HOA review, Sanibel permit review, and whether floodplain, vegetation, wildlife, electrical, or screen-enclosure details are involved. A quote request is the right first step.',
   },
 ];
 
@@ -186,7 +186,7 @@ export default function SanibelHubPage() {
             '@type': 'Service',
             name: 'Outdoor Living Design & Installation - Sanibel',
             description:
-              'Louvered roof systems and motorized screens planned around Sanibel Island\'s sanctuary codes and coastal climate.',
+              "Louvered roof systems and motorized screens planned around Sanibel Island's sanctuary codes and coastal climate.",
             provider: {
               '@id': 'https://www.edgpatioshade.com/#organization',
             },
@@ -201,7 +201,9 @@ export default function SanibelHubPage() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
       {/* ========== HERO ========== */}
@@ -230,7 +232,7 @@ export default function SanibelHubPage() {
               ]}
             />
           </div>
-          
+
           <FadeIn>
             <div className="mx-auto max-w-4xl text-center">
               <span className="text-edg-brand-dark bg-edg-brand/10 border-edg-brand/20 mb-6 inline-flex items-center gap-2 border px-4 py-2 text-xs font-bold tracking-widest uppercase">
@@ -241,15 +243,14 @@ export default function SanibelHubPage() {
                 <span className="text-edg-brand block">for Sanibel Island</span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Motorized lanai screens, louvered pergolas, and coastal
-                outdoor living plans for Sanibel homes. Built around salt air,
+                Motorized lanai screens, louvered pergolas, and coastal outdoor
+                living plans for Sanibel homes. Built around salt air,
                 floodplain review, product documentation, and local permit
                 questions.
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Sanibel Screen Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -263,8 +264,12 @@ export default function SanibelHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -313,7 +318,12 @@ export default function SanibelHubPage() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {localConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -332,13 +342,19 @@ export default function SanibelHubPage() {
                 Navigating Sanibel&apos;s Zoning & Building Codes
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Post-Hurricane Ian regulations are complex. Here&apos;s what you need to know about Sanibel&apos;s strict sanctuary codes.
+                Post-Hurricane Ian regulations are complex. Here&apos;s what you
+                need to know about Sanibel&apos;s strict sanctuary codes.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {zoningConsiderations.map((item, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -373,15 +389,14 @@ export default function SanibelHubPage() {
                 assuming a new system can fit within coverage limits.
               </p>
             </div>
-            <div className="mt-6 border border-border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
+            <div className="border-border mt-6 border bg-white p-4 dark:border-zinc-800 dark:bg-zinc-950">
               <div className="flex items-start gap-3">
                 <AlertTriangle className="text-edg-brand-dark mt-1 h-5 w-5 shrink-0" />
                 <p className="text-text-secondary text-sm">
-                  <strong>50% rule note:</strong> If repair or improvement
-                  costs trigger substantial-improvement review, current
-                  floodplain standards may apply. Use that review point to
-                  compare the old outdoor room against a better-documented
-                  modern plan.
+                  <strong>50% rule note:</strong> If repair or improvement costs
+                  trigger substantial-improvement review, current floodplain
+                  standards may apply. Use that review point to compare the old
+                  outdoor room against a better-documented modern plan.
                 </p>
               </div>
             </div>
@@ -398,7 +413,8 @@ export default function SanibelHubPage() {
                 Common Questions About Sanibel Projects
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Everything you need to know about outdoor living on Sanibel Island.
+                Everything you need to know about outdoor living on Sanibel
+                Island.
               </p>
             </div>
             <div className="mx-auto max-w-3xl space-y-4">
@@ -427,12 +443,17 @@ export default function SanibelHubPage() {
                 href="/service-areas/sanibel-outdoor-living/louvered-pergolas"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Home}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     Louvered Pergolas
                   </h3>
@@ -454,7 +475,7 @@ export default function SanibelHubPage() {
                 <Card
                   variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
                   <IconWrapper
                     icon={Wind}
@@ -479,18 +500,23 @@ export default function SanibelHubPage() {
                 href="/service-areas/sanibel-outdoor-living/modern-lanai"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={Sun} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Sun}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     The Modern Lanai
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
-                    Discover the evolution of outdoor living: motorized
-                    pergolas and screens for covered lanai-style spaces.
+                    Discover the evolution of outdoor living: motorized pergolas
+                    and screens for covered lanai-style spaces.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     Explore Modern Lanais <ArrowRight className="h-4 w-4" />
@@ -502,12 +528,17 @@ export default function SanibelHubPage() {
                 href="/service-areas/sanibel-outdoor-living/lanai-replacement"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={AlertTriangle} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={AlertTriangle}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     Lanai Replacement
                   </h3>
@@ -525,12 +556,17 @@ export default function SanibelHubPage() {
                 href="/service-areas/sanibel-outdoor-living/zoning-guide"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-colors hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-colors"
                 >
-                  <IconWrapper icon={ShieldCheck} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={ShieldCheck}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
                     Permit Guide
                   </h3>
@@ -555,20 +591,15 @@ export default function SanibelHubPage() {
           <FadeIn>
             <div className="mx-auto max-w-3xl text-center">
               <h2 className="text-edg-dark mb-6 text-3xl font-bold tracking-tight md:text-4xl">
-                Ready to Start Your Sanibel Project?
+                Ready to Request a Quote?
               </h2>
               <p className="text-edg-dark/80 mb-8 text-xl">
                 Send the address, photos, and the outdoor comfort problem you
                 want solved first.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  variant="dark"
-                  className="px-8 text-lg"
-                >
-                  Start Sanibel Screen Planning{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" variant="dark" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

@@ -101,7 +101,7 @@ const faqs = [
   {
     question: 'Does EDG serve Milwaukee, WI?',
     answer:
-      'Yes. EDG plans and installs motorized pergolas, retractable screens, and coordinated outdoor living systems across the Chicago–Milwaukee corridor. The first step is a site review so the team can understand the address, patio, desired use, and project constraints.',
+      'Yes. EDG plans and installs motorized pergolas, retractable screens, and coordinated outdoor living systems across the Chicago–Milwaukee corridor. Request a quote and the team will follow up to understand the address, patio, desired use, and project constraints.',
   },
   {
     question: 'Do I need a permit for a Milwaukee pergola?',
@@ -416,7 +416,7 @@ export default function MilwaukeeServiceAreaPage() {
                   size="lg"
                   className="border-white/20 text-white hover:bg-white/10"
                 >
-                  Request a Site Review
+                  Request a Quote
                 </Button>
               </Link>
             </div>

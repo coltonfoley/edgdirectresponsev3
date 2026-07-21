@@ -132,9 +132,9 @@ export function ProjectsContent() {
   });
 
   return (
-    <div className="min-h-screen bg-surface text-text-primary">
+    <div className="bg-surface text-text-primary min-h-screen">
       {/* Hero */}
-      <Section className="bg-surface-dark pt-28 pb-20 text-text-inverse md:pt-32 md:pb-24">
+      <Section className="bg-surface-dark text-text-inverse pt-28 pb-20 md:pt-32 md:pb-24">
         <Container>
           {/* Breadcrumb */}
           <div className="mb-8">
@@ -146,7 +146,7 @@ export function ProjectsContent() {
           <FadeIn>
             <div className="grid gap-12 lg:grid-cols-[1fr_0.82fr] lg:items-end">
               <div className="max-w-4xl">
-                <div className="label-editorial mb-6 text-edg-brand">
+                <div className="label-editorial text-edg-brand mb-6">
                   Project Portfolio
                 </div>
                 <h1 className="mb-8 text-5xl leading-none font-bold md:text-7xl">
@@ -180,7 +180,7 @@ export function ProjectsContent() {
               </div>
 
               <div className="border border-white/10 bg-black/35 p-6">
-                <div className="mb-6 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+                <div className="text-edg-brand mb-6 text-xs font-bold tracking-[0.2em] uppercase">
                   Portfolio Index
                 </div>
                 <div className="space-y-5">
@@ -193,7 +193,7 @@ export function ProjectsContent() {
                         <div className="text-sm font-bold text-white">
                           {stat.label}
                         </div>
-                        <div className="text-3xl font-bold text-edg-brand">
+                        <div className="text-edg-brand text-3xl font-bold">
                           {stat.value}
                         </div>
                       </div>
@@ -210,32 +210,32 @@ export function ProjectsContent() {
       </Section>
 
       {/* Notice Banner */}
-      <Section className="border-b border-border bg-surface-muted py-8">
+      <Section className="border-border bg-surface-muted border-b py-8">
         <Container>
           <FadeIn>
-            <div className="flex flex-col items-start gap-5 border border-border-strong bg-white p-6 md:flex-row md:items-center md:justify-between">
+            <div className="border-border-strong flex flex-col items-start gap-5 border bg-white p-6 md:flex-row md:items-center md:justify-between">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-edg-brand/30 bg-edg-brand/10 text-edg-brand-dark">
+                <div className="border-edg-brand/30 bg-edg-brand/10 text-edg-brand-dark flex h-12 w-12 shrink-0 items-center justify-center border">
                   <Camera className="h-6 w-6" />
                 </div>
                 <div>
-                  <h2 className="mb-1 text-lg font-bold text-text-primary">
+                  <h2 className="text-text-primary mb-1 text-lg font-bold">
                     Portfolio Details Are Being Updated
                   </h2>
-                  <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary max-w-3xl text-sm leading-relaxed">
                     Finished photo sets are available for select projects.
                     Several older records still need final photos, solution
-                    notes, and confirmed results before they can be presented
-                    as full case studies.
+                    notes, and confirmed results before they can be presented as
+                    full case studies.
                   </p>
                 </div>
               </div>
               <TrackedLink
                 href={projectContactHref}
                 conversionName="project_fit_review_click"
-                className="inline-flex shrink-0 items-center justify-center bg-edg-brand px-6 py-3 text-sm font-bold tracking-wider text-edg-dark uppercase transition-colors hover:bg-edg-dark hover:text-white"
+                className="bg-edg-brand text-edg-dark hover:bg-edg-dark inline-flex shrink-0 items-center justify-center px-6 py-3 text-sm font-bold tracking-wider uppercase transition-colors hover:text-white"
               >
-                Ask About a Similar Project
+                Request a Quote
               </TrackedLink>
             </div>
           </FadeIn>
@@ -243,11 +243,11 @@ export function ProjectsContent() {
       </Section>
 
       {/* Filters */}
-      <Section className="border-b border-border bg-white py-8">
+      <Section className="border-border border-b bg-white py-8">
         <Container>
           <FadeIn>
             <div className="flex flex-wrap items-center gap-4">
-              <div className="flex items-center gap-2 text-sm font-bold tracking-wider text-text-secondary uppercase">
+              <div className="text-text-secondary flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                 <Filter className="h-4 w-4" />
                 <span>Filter by:</span>
               </div>
@@ -260,7 +260,7 @@ export function ProjectsContent() {
                 id="projects-city-filter"
                 value={selectedCity}
                 onChange={(e) => setSelectedCity(e.target.value)}
-                className="focus:border-edg-brand rounded-none border border-border-strong bg-white px-4 py-2 text-sm font-medium focus:outline-none"
+                className="focus:border-edg-brand border-border-strong rounded-none border bg-white px-4 py-2 text-sm font-medium focus:outline-none"
               >
                 <option value="All">All Locations</option>
                 {cities.map((city) => (
@@ -278,7 +278,7 @@ export function ProjectsContent() {
                 id="projects-type-filter"
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="focus:border-edg-brand rounded-none border border-border-strong bg-white px-4 py-2 text-sm font-medium focus:outline-none"
+                className="focus:border-edg-brand border-border-strong rounded-none border bg-white px-4 py-2 text-sm font-medium focus:outline-none"
               >
                 <option value="All">All Types</option>
                 {types.map((type) => (
@@ -296,7 +296,7 @@ export function ProjectsContent() {
                 id="projects-system-filter"
                 value={selectedSystem}
                 onChange={(e) => setSelectedSystem(e.target.value)}
-                className="focus:border-edg-brand rounded-none border border-border-strong bg-white px-4 py-2 text-sm font-medium focus:outline-none"
+                className="focus:border-edg-brand border-border-strong rounded-none border bg-white px-4 py-2 text-sm font-medium focus:outline-none"
               >
                 {systemFilters.map((filter) => (
                   <option key={filter.value} value={filter.value}>
@@ -314,13 +314,13 @@ export function ProjectsContent() {
                     setSelectedType('All');
                     setSelectedSystem('All');
                   }}
-                  className="text-sm font-bold text-edg-brand-dark underline-offset-4 hover:underline"
+                  className="text-edg-brand-dark text-sm font-bold underline-offset-4 hover:underline"
                 >
                   Clear filters
                 </button>
               )}
 
-              <div className="text-sm text-text-muted md:ml-auto">
+              <div className="text-text-muted text-sm md:ml-auto">
                 Showing {photoReadyProjects.length} photo-ready cases
                 {inProgressProjects.length > 0
                   ? ` + ${inProgressProjects.length} in-progress profiles`
@@ -341,10 +341,10 @@ export function ProjectsContent() {
                 <FadeIn key={project.slug} delay={index * 0.05}>
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="group block h-full overflow-hidden border border-border bg-white transition-colors hover:border-edg-brand"
+                    className="group border-border hover:border-edg-brand block h-full overflow-hidden border bg-white transition-colors"
                   >
                     {/* Image */}
-                    <div className="relative aspect-[4/3] overflow-hidden border-b border-border bg-surface-muted">
+                    <div className="border-border bg-surface-muted relative aspect-[4/3] overflow-hidden border-b">
                       <Image
                         src={project.cardImage}
                         alt={project.title}
@@ -372,27 +372,27 @@ export function ProjectsContent() {
 
                     {/* Content */}
                     <div className="p-6">
-                      <div className="mb-3 flex items-center gap-1 text-sm text-text-muted">
+                      <div className="text-text-muted mb-3 flex items-center gap-1 text-sm">
                         <MapPin className="h-4 w-4 shrink-0" />
                         {project.location}
                       </div>
-                      <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-edg-brand-dark">
+                      <h3 className="group-hover:text-edg-brand-dark mb-2 text-xl font-bold transition-colors">
                         {project.title}
                       </h3>
-                      <p className="mb-5 line-clamp-2 text-sm leading-relaxed text-text-secondary">
+                      <p className="text-text-secondary mb-5 line-clamp-2 text-sm leading-relaxed">
                         {project.description}
                       </p>
                       <div className="mb-5 flex flex-wrap gap-2">
                         {project.systems.slice(0, 2).map((system) => (
                           <span
                             key={system}
-                            className="border border-border px-2.5 py-1 text-xs font-bold tracking-wider text-text-muted uppercase"
+                            className="border-border text-text-muted border px-2.5 py-1 text-xs font-bold tracking-wider uppercase"
                           >
                             {system}
                           </span>
                         ))}
                       </div>
-                      <div className="flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-dark uppercase transition-colors group-hover:text-black">
+                      <div className="text-edg-brand-dark flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors group-hover:text-black">
                         View Case Study
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
@@ -406,17 +406,17 @@ export function ProjectsContent() {
           {inProgressProjects.length > 0 && (
             <FadeIn delay={photoReadyProjects.length > 0 ? 0.18 : 0}>
               <div className={photoReadyProjects.length > 0 ? 'mt-14' : ''}>
-                <div className="mb-6 border-l-4 border-edg-brand bg-white p-6">
-                  <div className="mb-2 text-xs font-bold tracking-[0.2em] text-edg-brand-dark uppercase">
+                <div className="border-edg-brand mb-6 border-l-4 bg-white p-6">
+                  <div className="text-edg-brand-dark mb-2 text-xs font-bold tracking-[0.2em] uppercase">
                     Project Profiles In Progress
                   </div>
-                  <h2 className="mb-2 text-2xl font-bold text-text-primary">
+                  <h2 className="text-text-primary mb-2 text-2xl font-bold">
                     Additional project records without full photo sets yet
                   </h2>
-                  <p className="max-w-3xl text-sm leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary max-w-3xl text-sm leading-relaxed">
                     Some older projects are still awaiting finished photography
-                    or final field notes. Browse the confirmed details below,
-                    or contact EDG for comparable completed work.
+                    or final field notes. Browse the confirmed details below, or
+                    contact EDG for comparable completed work.
                   </p>
                 </div>
 
@@ -425,7 +425,7 @@ export function ProjectsContent() {
                     <Link
                       key={project.slug}
                       href={`/projects/${project.slug}`}
-                      className="group flex h-full flex-col border border-border bg-white p-5 transition-colors hover:border-edg-brand"
+                      className="group border-border hover:border-edg-brand flex h-full flex-col border bg-white p-5 transition-colors"
                     >
                       <div className="mb-4 flex flex-wrap gap-2">
                         <span
@@ -437,31 +437,31 @@ export function ProjectsContent() {
                         >
                           {project.type}
                         </span>
-                        <span className="border border-border-strong px-3 py-1 text-xs font-bold tracking-wider text-text-secondary uppercase">
+                        <span className="border-border-strong text-text-secondary border px-3 py-1 text-xs font-bold tracking-wider uppercase">
                           Details in progress
                         </span>
                       </div>
-                      <div className="mb-3 flex items-center gap-1 text-sm text-text-muted">
+                      <div className="text-text-muted mb-3 flex items-center gap-1 text-sm">
                         <MapPin className="h-4 w-4 shrink-0" />
                         {project.location}
                       </div>
-                      <h3 className="mb-2 text-lg font-bold text-text-primary transition-colors group-hover:text-edg-brand-dark">
+                      <h3 className="text-text-primary group-hover:text-edg-brand-dark mb-2 text-lg font-bold transition-colors">
                         {project.title}
                       </h3>
-                      <p className="mb-5 line-clamp-2 text-sm leading-relaxed text-text-secondary">
+                      <p className="text-text-secondary mb-5 line-clamp-2 text-sm leading-relaxed">
                         {project.description}
                       </p>
                       <div className="mt-auto flex flex-wrap gap-2">
                         {project.systems.slice(0, 2).map((system) => (
                           <span
                             key={system}
-                            className="border border-border px-2.5 py-1 text-xs font-bold tracking-wider text-text-muted uppercase"
+                            className="border-border text-text-muted border px-2.5 py-1 text-xs font-bold tracking-wider uppercase"
                           >
                             {system}
                           </span>
                         ))}
                       </div>
-                      <div className="mt-5 flex items-center gap-2 text-sm font-bold tracking-wider text-edg-brand-dark uppercase transition-colors group-hover:text-black">
+                      <div className="text-edg-brand-dark mt-5 flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors group-hover:text-black">
                         View Available Details
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </div>
@@ -474,7 +474,7 @@ export function ProjectsContent() {
 
           {filteredProjects.length === 0 && (
             <div className="py-16 text-center">
-              <p className="text-lg text-text-secondary">
+              <p className="text-text-secondary text-lg">
                 No projects match your filters.
               </p>
               <button
@@ -483,7 +483,7 @@ export function ProjectsContent() {
                   setSelectedType('All');
                   setSelectedSystem('All');
                 }}
-                className="mt-4 font-bold text-edg-brand-dark underline-offset-4 hover:underline"
+                className="text-edg-brand-dark mt-4 font-bold underline-offset-4 hover:underline"
               >
                 Clear filters to see all projects
               </button>
@@ -493,11 +493,11 @@ export function ProjectsContent() {
       </Section>
 
       {/* CTA Section */}
-      <Section className="border-t border-border bg-surface-dark py-20 text-white">
+      <Section className="border-border bg-surface-dark border-t py-20 text-white">
         <Container>
           <FadeIn>
             <div className="mx-auto max-w-2xl text-center">
-              <div className="mb-4 flex items-center justify-center gap-2 text-xs font-bold tracking-[0.2em] text-edg-brand uppercase">
+              <div className="text-edg-brand mb-4 flex items-center justify-center gap-2 text-xs font-bold tracking-[0.2em] uppercase">
                 <Check className="h-4 w-4" />
                 Site-specific planning
               </div>
@@ -506,8 +506,7 @@ export function ProjectsContent() {
               </h2>
               <p className="mb-8 leading-relaxed text-zinc-300">
                 EDG can compare pergolas, screens, glass, heat, lighting, and
-                outdoor-room packages against the way the site needs to
-                perform.
+                outdoor-room packages against the way the site needs to perform.
               </p>
               <TrackedLink
                 href={consultationHref}
@@ -515,9 +514,9 @@ export function ProjectsContent() {
               >
                 <Button
                   size="lg"
-                  className="w-full bg-edg-brand text-edg-dark hover:bg-white sm:w-auto"
+                  className="bg-edg-brand text-edg-dark w-full hover:bg-white sm:w-auto"
                 >
-                  Start a Project Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </TrackedLink>

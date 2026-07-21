@@ -140,17 +140,19 @@ const serviceSchema = {
 
 export default function WinnetkaProductPage() {
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqs)) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQSchema(faqs)),
+        }}
       />
 
-      <section className="relative flex min-h-[60vh] items-center overflow-hidden bg-edg-dark pt-24 pb-16 text-white">
+      <section className="bg-edg-dark relative flex min-h-[60vh] items-center overflow-hidden pt-24 pb-16 text-white">
         <div className="absolute inset-0">
           <Image
             src={images.systems.pergolas.whitePoolGlass}
@@ -191,7 +193,7 @@ export default function WinnetkaProductPage() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href={heroContactHref}>
                 <Button size="lg">
-                  Request a Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -228,21 +230,21 @@ export default function WinnetkaProductPage() {
               <h2 className="section-title mb-6">
                 Estate-scale projects need site-specific pergola planning
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 Winnetka projects often involve more than adding shade. The roof
                 system may need to protect a view, respect the home&apos;s
                 architecture, coordinate with a pool or garden, and keep the
                 outdoor room comfortable in changing lake weather.
               </p>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 EDG compares multiple motorized pergola systems and accessory
                 paths instead of forcing one manufacturer onto every estate
                 property. That matters when beam layout, finish, screens,
                 lighting, heat, and controls all affect the result.
               </p>
-              <p className="text-lg leading-relaxed text-text-secondary">
-                The right structure should feel calm, architectural, and easy
-                to use, while preserving the views and privacy that make the
+              <p className="text-text-secondary text-lg leading-relaxed">
+                The right structure should feel calm, architectural, and easy to
+                use, while preserving the views and privacy that make the
                 property work.
               </p>
             </div>
@@ -268,10 +270,10 @@ export default function WinnetkaProductPage() {
             <h2 className="section-title mb-4">
               Winnetka Pergola Decisions to Make Early
             </h2>
-            <p className="mx-auto max-w-3xl text-lg leading-relaxed text-text-secondary">
+            <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
               The strongest plans start with exposure, views, structure,
-              privacy, finish direction, and control expectations before
-              pricing is treated as final.
+              privacy, finish direction, and control expectations before pricing
+              is treated as final.
             </p>
           </div>
 
@@ -284,10 +286,10 @@ export default function WinnetkaProductPage() {
                   size="lg"
                   className="mb-4"
                 />
-                <h3 className="mb-3 text-lg font-bold text-text-primary">
+                <h3 className="text-text-primary mb-3 text-lg font-bold">
                   {priority.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-text-secondary">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {priority.description}
                 </p>
               </Card>
@@ -306,7 +308,7 @@ export default function WinnetkaProductPage() {
               <h2 className="section-title mb-6">
                 Engineered for Winnetka Estate Properties
               </h2>
-              <p className="mb-8 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 From Hubbard Woods to lakefront properties and larger garden
                 parcels, the pergola has to complement the home and landscape.
                 Privacy, side protection, pool or kitchen connections, and
@@ -315,10 +317,10 @@ export default function WinnetkaProductPage() {
               <div className="space-y-4">
                 {estateConsiderations.map((item) => (
                   <Card key={item.title} variant="muted" padding="lg">
-                    <h3 className="mb-2 text-lg font-bold text-text-primary">
+                    <h3 className="text-text-primary mb-2 text-lg font-bold">
                       {item.title}
                     </h3>
-                    <p className="leading-relaxed text-text-secondary">
+                    <p className="text-text-secondary leading-relaxed">
                       {item.description}
                     </p>
                   </Card>
@@ -327,14 +329,14 @@ export default function WinnetkaProductPage() {
             </div>
 
             <Card variant="dark" padding="lg">
-              <h3 className="mb-6 text-xl font-bold text-text-inverse">
+              <h3 className="text-text-inverse mb-6 text-xl font-bold">
                 Specification Checks
               </h3>
               <div className="space-y-4">
                 {specificationChecks.map((check) => (
                   <div key={check} className="flex gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-edg-brand" />
-                    <p className="leading-relaxed text-text-inverse-muted">
+                    <CheckCircle2 className="text-edg-brand mt-0.5 h-5 w-5 shrink-0" />
+                    <p className="text-text-inverse-muted leading-relaxed">
                       {check}
                     </p>
                   </div>
@@ -345,7 +347,7 @@ export default function WinnetkaProductPage() {
         </Container>
       </Section>
 
-      <Section className="section-md border-y border-border bg-surface-muted">
+      <Section className="section-md border-border bg-surface-muted border-y">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div className="grid grid-cols-2 gap-4">
@@ -355,7 +357,7 @@ export default function WinnetkaProductPage() {
               ].map((src, index) => (
                 <div
                   key={src}
-                  className="relative aspect-[4/3] overflow-hidden border border-border bg-surface-dark"
+                  className="border-border bg-surface-dark relative aspect-[4/3] overflow-hidden border"
                 >
                   <Image
                     src={src}
@@ -374,7 +376,7 @@ export default function WinnetkaProductPage() {
               <h2 className="section-title mb-6">
                 Use real project references to guide the recommendation
               </h2>
-              <p className="mb-6 text-lg leading-relaxed text-text-secondary">
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 Nearby residential project examples help clarify views, roof
                 geometry, screen needs, finish direction, and how much of the
                 terrace should become a more protected outdoor room.
@@ -395,13 +397,13 @@ export default function WinnetkaProductPage() {
           <div className="mx-auto max-w-3xl">
             <div className="label-editorial-brand mb-4">FAQ</div>
             <h2 className="section-title mb-8">Winnetka Pergola FAQ</h2>
-            <div className="divide-y divide-border">
+            <div className="divide-border divide-y">
               {faqs.map((faq) => (
                 <div key={faq.question} className="py-6">
-                  <h3 className="mb-3 text-lg font-bold text-text-primary">
+                  <h3 className="text-text-primary mb-3 text-lg font-bold">
                     {faq.question}
                   </h3>
-                  <p className="leading-relaxed text-text-secondary">
+                  <p className="text-text-secondary leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
@@ -415,13 +417,13 @@ export default function WinnetkaProductPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4 text-edg-brand">
+              <div className="label-editorial-brand text-edg-brand mb-4">
                 Next Step
               </div>
               <h2 className="section-title mb-6">
                 Ready to Review a Winnetka Pergola Plan?
               </h2>
-              <p className="max-w-2xl text-xl leading-relaxed text-text-inverse-muted">
+              <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
                 Send EDG the terrace or patio location, review questions,
                 important views, and comfort goals. We will help narrow the
                 system, accessories, and installation path.
@@ -430,7 +432,7 @@ export default function WinnetkaProductPage() {
             <div className="space-y-4">
               <Link href={bottomContactHref}>
                 <Button size="lg" className="w-full">
-                  Request Winnetka Fit Review
+                  Request a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>

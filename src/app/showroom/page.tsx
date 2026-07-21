@@ -121,14 +121,14 @@ const visitUses = [
     icon: Check,
     title: 'Leave with a clearer plan',
     description:
-      'A visit helps narrow the right system, rough scope, site questions, and next step for an on-site review or partner quote.',
+      'A visit helps narrow the right system, rough scope, site questions, and next step for a homeowner or trade project.',
   },
 ];
 
 export default function ShowroomPage() {
   return (
     <div className="bg-surface min-h-screen">
-      <section className="bg-surface-dark pt-28 pb-20 text-text-inverse md:pt-32 md:pb-24">
+      <section className="bg-surface-dark text-text-inverse pt-28 pb-20 md:pt-32 md:pb-24">
         <Container>
           <div className="mb-8">
             <Breadcrumb
@@ -139,14 +139,16 @@ export default function ShowroomPage() {
 
           <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
             <div className="min-w-0 lg:col-span-5">
-              <div className="mb-6 text-xs font-bold tracking-[0.2em] text-text-inverse uppercase">
+              <div className="text-text-inverse mb-6 text-xs font-bold tracking-[0.2em] uppercase">
                 Spring Grove, Illinois
               </div>
               <h1 className="mb-8 text-5xl leading-[0.92] font-bold tracking-tighter md:text-7xl">
                 Visit the EDG showroom.
               </h1>
               <p className="text-text-inverse-muted mb-10 max-w-xl text-xl leading-relaxed">
-                Operate motorized pergolas, compare screen fabrics, review finish details, and talk through the right system before you build.
+                Operate motorized pergolas, compare screen fabrics, review
+                finish details, and talk through the right system before you
+                build.
               </p>
 
               <div className="mb-10 grid grid-cols-2 gap-4 border-y border-white/10 py-6 text-sm">
@@ -157,8 +159,8 @@ export default function ShowroomPage() {
                   'Trade partner training',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-edg-brand" />
-                    <span className="font-bold text-text-inverse">{item}</span>
+                    <Check className="text-edg-brand mt-0.5 h-4 w-4 shrink-0" />
+                    <span className="text-text-inverse font-bold">{item}</span>
                   </div>
                 ))}
               </div>
@@ -174,7 +176,11 @@ export default function ShowroomPage() {
                   </Button>
                 </TrackedLink>
                 <Link href={directionsHref}>
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto"
+                  >
                     <Navigation className="mr-2 h-5 w-5" />
                     Directions
                   </Button>
@@ -198,14 +204,23 @@ export default function ShowroomPage() {
         </Container>
       </section>
 
-      <Section className="section-md border-b border-border bg-surface">
+      <Section className="section-md border-border bg-surface border-b">
         <Container>
           <div className="grid gap-6 lg:grid-cols-3">
             {contactCards.map((card) => (
               <Card key={card.title} variant="default" padding="lg">
-                <IconWrapper icon={card.icon} variant="brand" size="lg" className="mb-5" />
-                <h2 className="text-text-primary mb-3 text-xl font-bold">{card.title}</h2>
-                <p className="text-text-secondary mb-6 leading-relaxed">{card.body}</p>
+                <IconWrapper
+                  icon={card.icon}
+                  variant="brand"
+                  size="lg"
+                  className="mb-5"
+                />
+                <h2 className="text-text-primary mb-3 text-xl font-bold">
+                  {card.title}
+                </h2>
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  {card.body}
+                </p>
                 {card.href.startsWith('tel:') ? (
                   <TrackedPhoneLink
                     href={card.href}
@@ -242,16 +257,26 @@ export default function ShowroomPage() {
         <Container>
           <div className="mx-auto mb-16 max-w-4xl text-center">
             <div className="label-editorial-brand mb-4">What to Compare</div>
-            <h2 className="section-title mb-6">A Better Way to Choose Motorized Outdoor Systems</h2>
+            <h2 className="section-title mb-6">
+              A Better Way to Choose Motorized Outdoor Systems
+            </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The showroom is where EDG turns product specs into something practical. You can feel the materials, see how controls behave, and understand what belongs on your site before committing to a system.
+              The showroom is where EDG turns product specs into something
+              practical. You can feel the materials, see how controls behave,
+              and understand what belongs on your site before committing to a
+              system.
             </p>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-3">
             {displaySystems.map((item) => (
-              <Card key={item.title} variant="default" padding="none" className="overflow-hidden">
-                <div className="relative aspect-[4/3] bg-surface-dark">
+              <Card
+                key={item.title}
+                variant="default"
+                padding="none"
+                className="overflow-hidden"
+              >
+                <div className="bg-surface-dark relative aspect-[4/3]">
                   <Image
                     src={item.image}
                     alt={item.alt}
@@ -261,9 +286,18 @@ export default function ShowroomPage() {
                   />
                 </div>
                 <div className="p-6">
-                  <IconWrapper icon={item.icon} variant="brand" size="md" className="mb-4" />
-                  <h3 className="text-text-primary mb-3 text-xl font-bold">{item.title}</h3>
-                  <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="md"
+                    className="mb-4"
+                  />
+                  <h3 className="text-text-primary mb-3 text-xl font-bold">
+                    {item.title}
+                  </h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </Card>
             ))}
@@ -271,14 +305,21 @@ export default function ShowroomPage() {
         </Container>
       </Section>
 
-      <Section className="section-md border-y border-border bg-surface">
+      <Section className="section-md border-border bg-surface border-y">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div>
-              <div className="label-editorial-brand mb-4">How to Use the Visit</div>
-              <h2 className="section-title mb-6">For Homeowners, Builders, and Designers</h2>
+              <div className="label-editorial-brand mb-4">
+                How to Use the Visit
+              </div>
+              <h2 className="section-title mb-6">
+                For Homeowners, Builders, and Designers
+              </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                EDG is a system-agnostic partner, so the showroom visit is not a single-brand pitch. It is a way to compare real options, ask technical questions, and decide which route makes sense for the project.
+                EDG is a system-agnostic partner, so the showroom visit is not a
+                single-brand pitch. It is a way to compare real options, ask
+                technical questions, and decide which route makes sense for the
+                project.
               </p>
             </div>
 
@@ -288,8 +329,12 @@ export default function ShowroomPage() {
                   <div className="flex gap-4">
                     <IconWrapper icon={item.icon} variant="default" size="md" />
                     <div>
-                      <h3 className="text-text-primary mb-2 font-bold">{item.title}</h3>
-                      <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                      <h3 className="text-text-primary mb-2 font-bold">
+                        {item.title}
+                      </h3>
+                      <p className="text-text-secondary leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </Card>
@@ -303,12 +348,16 @@ export default function ShowroomPage() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <div className="label-editorial-brand mb-4 text-edg-brand">
+              <div className="label-editorial-brand text-edg-brand mb-4">
                 Plan a Visit
               </div>
-              <h2 className="section-title mb-6">See the System Before the Site Review.</h2>
+              <h2 className="section-title mb-6">
+                See the System Before You Request a Quote.
+              </h2>
               <p className="text-text-inverse-muted max-w-2xl text-xl leading-relaxed">
-                Tell us what you are considering and who should attend. We will help make the showroom visit useful for the next pricing or specification step.
+                Tell us what you are considering and who should attend. We will
+                help make the showroom visit useful for the next pricing or
+                specification step.
               </p>
             </div>
             <div className="space-y-4">

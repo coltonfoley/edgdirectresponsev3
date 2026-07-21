@@ -24,7 +24,7 @@ import * as images from '@/lib/images';
 export const metadata: Metadata = {
   title: 'Motorized Pergola on a Deck or Roof Deck | Feasibility Guide',
   description:
-    'Can a motorized pergola go on a deck or roof deck? EDG explains structure, wind, access, drainage, electrical, permits, and when a site review is needed.',
+    'Can a motorized pergola go on a deck or roof deck? EDG explains structure, wind, access, drainage, electrical, permits, and the site details that must be confirmed.',
   alternates: {
     canonical: '/guides/motorized-pergola-deck-roof-deck',
   },
@@ -246,7 +246,8 @@ export default function MotorizedPergolaDeckRoofDeckPage() {
             <div>
               <div className="label-editorial-brand mb-4">Project proof</div>
               <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-                Complex sites need a system-fit review, not a catalog answer.
+                Complex sites need a real project conversation, not a catalog
+                answer.
               </h2>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
                 EDG has planned pergolas around rooftop hospitality spaces,
@@ -299,7 +300,7 @@ export default function MotorizedPergolaDeckRoofDeckPage() {
             </div>
             <Link href="/guides/pergola-system-fit-review">
               <Button size="lg" className="w-full justify-between">
-                Start System Fit Review
+                Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

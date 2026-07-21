@@ -29,7 +29,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/barrington-il',
   },
-  keywords: ['barrington pergolas', 'barrington outdoor living', 'barrington il patio', 'pergola installation barrington', 'barrington estate outdoor'],
+  keywords: [
+    'barrington pergolas',
+    'barrington outdoor living',
+    'barrington il patio',
+    'pergola installation barrington',
+    'barrington estate outdoor',
+  ],
   openGraph: {
     images: [{ url: '/opengraph-image' }],
     title: 'Barrington Outdoor Living | Estate Planning | EDG',
@@ -49,7 +55,7 @@ const neighborhoods = [
   {
     name: 'Barrington Hills',
     description:
-      'The heart of Barrington\'s equestrian country, featuring expansive 5+ acre estates with traditional architecture and mature landscapes. Our large-span pergola engineering minimizes support columns, preserving the sweeping views and open character that make Barrington Hills properties distinctive.',
+      "The heart of Barrington's equestrian country, featuring expansive 5+ acre estates with traditional architecture and mature landscapes. Our large-span pergola engineering minimizes support columns, preserving the sweeping views and open character that make Barrington Hills properties distinctive.",
   },
   {
     name: 'South Barrington',
@@ -64,7 +70,7 @@ const neighborhoods = [
   {
     name: 'Inverness & Deer Park',
     description:
-      'These neighboring communities share Barrington\'s commitment to spacious lots and architectural care. From Inverness golf-course estates to Deer Park custom homes, we plan outdoor rooms around the area\'s blend of traditional and contemporary architecture.',
+      "These neighboring communities share Barrington's commitment to spacious lots and architectural care. From Inverness golf-course estates to Deer Park custom homes, we plan outdoor rooms around the area's blend of traditional and contemporary architecture.",
   },
 ];
 
@@ -97,12 +103,14 @@ const localConsiderations = [
 
 const faqs = [
   {
-    question: 'Do I need a permit for a pergola in Barrington or Barrington Hills?',
+    question:
+      'Do I need a permit for a pergola in Barrington or Barrington Hills?',
     answer:
       'Most covered outdoor structures in the Barrington area need some level of village, county, or association review. We start by checking the exact address, survey, lot coverage, setbacks, and subdivision requirements so the design is shaped around the approval path before pricing is finalized.',
   },
   {
-    question: 'How do louvered pergolas affect impermeable surface calculations?',
+    question:
+      'How do louvered pergolas affect impermeable surface calculations?',
     answer:
       'Coverage rules depend on the municipality, drainage pattern, foundation design, and how the structure is interpreted by the reviewer. We do not assume a louvered roof is exempt. We review the survey and help compare open-louver, drainage, footing, and patio-surface options before the plan is submitted.',
   },
@@ -112,7 +120,8 @@ const faqs = [
       'The timeline depends on survey readiness, association review, permit scope, engineering needs, product lead time, and site access. Estate properties can require additional coordination for architectural review committees, gated-community rules, utility planning, and landscape preservation.',
   },
   {
-    question: 'Can you work with HOA requirements in Wynstone and gated communities?',
+    question:
+      'Can you work with HOA requirements in Wynstone and gated communities?',
     answer:
       'For properties in Wynstone, The Woods of South Barrington, and other gated communities, EDG can prepare renderings, finish samples, product information, and site details for the applicable architectural review. Final requirements depend on the community and project.',
   },
@@ -196,14 +205,14 @@ export default function BarringtonHubPage() {
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                Motorized pergolas, screens, and glass systems planned for Barrington&apos;s estate zoning,
-                from Barrington Hills to South Barrington. We navigate 5-acre lot 
-                requirements while maximizing your outdoor living space.
+                Motorized pergolas, screens, and glass systems planned for
+                Barrington&apos;s estate zoning, from Barrington Hills to South
+                Barrington. We navigate 5-acre lot requirements while maximizing
+                your outdoor living space.
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Barrington Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -217,7 +226,10 @@ export default function BarringtonHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
                   <CheckCircle2 className="text-edg-brand h-4 w-4" /> {benefit}
                 </span>
               ))}
@@ -235,15 +247,20 @@ export default function BarringtonHubPage() {
                 Serving Every Barrington Area Neighborhood
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                From equestrian estates to gated communities, we understand the unique 
-                character and requirements of Barrington&apos;s distinct areas.
+                From equestrian estates to gated communities, we understand the
+                unique character and requirements of Barrington&apos;s distinct
+                areas.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -255,33 +272,43 @@ export default function BarringtonHubPage() {
       <Section id="zoning" className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
-            <h2 className="section-title mb-4">Zoning & Permits in Barrington</h2>
+            <h2 className="section-title mb-4">
+              Zoning & Permits in Barrington
+            </h2>
             <p className="text-text-secondary max-w-3xl">
-              Barrington-area approvals can change quickly from one address to the next, especially where village limits, township rules, estate lots, HOA standards, and drainage requirements overlap.
+              Barrington-area approvals can change quickly from one address to
+              the next, especially where village limits, township rules, estate
+              lots, HOA standards, and drainage requirements overlap.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
               <Card>
-                <h3 className="font-bold mb-2">Coverage Review</h3>
-                <p className="text-sm text-text-secondary">
-                  We review the survey, existing hardscape, proposed roof footprint, drainage path, and any prior patio or pool improvements before assuming how coverage will be treated.
+                <h3 className="mb-2 font-bold">Coverage Review</h3>
+                <p className="text-text-secondary text-sm">
+                  We review the survey, existing hardscape, proposed roof
+                  footprint, drainage path, and any prior patio or pool
+                  improvements before assuming how coverage will be treated.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2">Setback Coordination</h3>
-                <p className="text-sm text-text-secondary">
-                  Setbacks, easements, septic or well locations, utility routes, and association rules are checked address by address so the pergola layout is buildable.
+                <h3 className="mb-2 font-bold">Setback Coordination</h3>
+                <p className="text-text-secondary text-sm">
+                  Setbacks, easements, septic or well locations, utility routes,
+                  and association rules are checked address by address so the
+                  pergola layout is buildable.
                 </p>
               </Card>
             </div>
-            
-            <div className="mt-8 p-6 bg-white border-l-4 border-edg-brand-dark">
-              <h4 className="font-bold mb-2 flex items-center gap-2">
-                <Snowflake className="h-5 w-5 text-edg-brand-dark" />
+
+            <div className="border-edg-brand-dark mt-8 border-l-4 bg-white p-6">
+              <h4 className="mb-2 flex items-center gap-2 font-bold">
+                <Snowflake className="text-edg-brand-dark h-5 w-5" />
                 Snow Load Engineering
               </h4>
               <p className="text-text-secondary">
-                Barrington&apos;s primary engineering challenge is snow load. Our systems are engineered for heavy, wet Chicagoland snow without buckling.
+                Barrington&apos;s primary engineering challenge is snow load.
+                Our systems are engineered for heavy, wet Chicagoland snow
+                without buckling.
               </p>
             </div>
           </FadeIn>
@@ -297,14 +324,20 @@ export default function BarringtonHubPage() {
                 Built for the Barrington Estate Lifestyle
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Our systems are planned around Barrington&apos;s zoning requirements,
-                estate architecture, snow exposure, and seasonal comfort needs.
+                Our systems are planned around Barrington&apos;s zoning
+                requirements, estate architecture, snow exposure, and seasonal
+                comfort needs.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {localConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -323,7 +356,8 @@ export default function BarringtonHubPage() {
                 Common Questions About Barrington Projects
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Everything you need to know about outdoor living in Barrington and surrounding areas.
+                Everything you need to know about outdoor living in Barrington
+                and surrounding areas.
               </p>
             </div>
             <div className="mx-auto max-w-3xl space-y-4">
@@ -352,12 +386,17 @@ export default function BarringtonHubPage() {
                 href="/service-areas/barrington-il/motorized-pergolas"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <IconWrapper icon={Wind} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Wind}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Snow-Load Rated Pergolas
                   </h3>
@@ -384,15 +423,12 @@ export default function BarringtonHubPage() {
                 Ready to plan your Barrington project?
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
-                Review the address, estate review path, snow exposure, and right system direction with our local design team.
+                Review the address, estate review path, snow exposure, and right
+                product recommendation with our local team.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start Barrington Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>

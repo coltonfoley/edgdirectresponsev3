@@ -31,7 +31,8 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: '/opengraph-image' }],
     title: 'Naperville Outdoor Living | Pergolas & Shades | EDG',
-    description: 'Motorized pergolas and retractable screens for Naperville homes. Professional design and installation.',
+    description:
+      'Motorized pergolas and retractable screens for Naperville homes. Professional design and installation.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -39,7 +40,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/service-areas/naperville-il',
   },
-  keywords: ['naperville pergolas', 'naperville outdoor living', 'naperville il patio', 'pergola installation naperville', 'naperville backyard'],
+  keywords: [
+    'naperville pergolas',
+    'naperville outdoor living',
+    'naperville il patio',
+    'pergola installation naperville',
+    'naperville backyard',
+  ],
 };
 
 const localBenefits = [
@@ -53,12 +60,12 @@ const neighborhoods = [
   {
     name: 'Downtown Naperville',
     description:
-      'Downtown Naperville features a mix of historic homes and modern renovations. We design outdoor living systems that complement the area\'s architectural diversity while maximizing limited backyard space common in the historic district. Our compact footprint designs work well with smaller lots.',
+      "Downtown Naperville features a mix of historic homes and modern renovations. We design outdoor living systems that complement the area's architectural diversity while maximizing limited backyard space common in the historic district. Our compact footprint designs work well with smaller lots.",
   },
   {
     name: 'South Naperville',
     description:
-      'South Naperville\'s newer developments often include expansive homes with large outdoor spaces. We plan multi-zone outdoor rooms that can support quiet family use, larger gatherings, and future screens, heat, lighting, or controls.',
+      "South Naperville's newer developments often include expansive homes with large outdoor spaces. We plan multi-zone outdoor rooms that can support quiet family use, larger gatherings, and future screens, heat, lighting, or controls.",
   },
   {
     name: 'East Ogden Corridor',
@@ -82,7 +89,7 @@ const localConsiderations = [
   {
     title: 'HOA Design Standards',
     description:
-      'Naperville\'s many HOA communities have strict architectural guidelines. We provide detailed renderings, material samples, and spec sheets to streamline your approval process with neighborhood associations.',
+      "Naperville's many HOA communities have strict architectural guidelines. We provide detailed renderings, material samples, and spec sheets to streamline your approval process with neighborhood associations.",
     icon: Building,
   },
   {
@@ -127,17 +134,18 @@ const faqs = [
       'Permanent outdoor structures commonly require local review, but the exact path depends on the address, county, attachment method, structure size, easements, and whether the property has HOA or subdivision requirements. We help verify the correct path before design is finalized.',
   },
   {
-    question: 'How do HOA restrictions affect outdoor living projects in Naperville?',
+    question:
+      'How do HOA restrictions affect outdoor living projects in Naperville?',
     answer:
       'Many Naperville neighborhoods are governed by HOAs with architectural guidelines. Color, placement, roofline visibility, lighting, and structure size can all matter. We help assemble documentation so the HOA can review the actual design instead of guessing from a product brochure.',
   },
   {
     question: 'Are there historic district considerations in Naperville?',
     answer:
-      'While Naperville\'s historic district requirements are less stringent than some North Shore communities, downtown historic properties may have additional review requirements. We design systems that respect historic architectural character while providing modern outdoor living functionality. Our powder-coated finishes can match existing trim and color schemes.',
+      "While Naperville's historic district requirements are less stringent than some North Shore communities, downtown historic properties may have additional review requirements. We design systems that respect historic architectural character while providing modern outdoor living functionality. Our powder-coated finishes can match existing trim and color schemes.",
   },
   {
-    question: 'What\'s the typical timeline for a Naperville project?',
+    question: "What's the typical timeline for a Naperville project?",
     answer:
       'A custom Naperville project can take several weeks for design, review, fabrication, and installation. HOA review, municipal review, electrical coordination, custom finishes, and weather can change the schedule, so we set expectations after the site and scope are clear.',
   },
@@ -230,8 +238,7 @@ export default function NapervilleHubPage() {
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
-                  Request Naperville Site Visit{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
@@ -245,8 +252,12 @@ export default function NapervilleHubPage() {
           <FadeIn>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               {localBenefits.map((benefit, i) => (
-                <span key={i} className="text-text-inverse-muted flex items-center gap-2">
-                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" /> {benefit}
+                <span
+                  key={i}
+                  className="text-text-inverse-muted flex items-center gap-2"
+                >
+                  <CheckCircle2 className="text-edg-brand-dark h-4 w-4" />{' '}
+                  {benefit}
                 </span>
               ))}
             </div>
@@ -271,8 +282,12 @@ export default function NapervilleHubPage() {
             <div className="grid gap-6 md:grid-cols-2">
               {neighborhoods.map((neighborhood, i) => (
                 <Card key={i} variant="muted" padding="lg">
-                  <h3 className="mb-3 text-xl font-bold">{neighborhood.name}</h3>
-                  <p className="text-text-secondary">{neighborhood.description}</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    {neighborhood.name}
+                  </h3>
+                  <p className="text-text-secondary">
+                    {neighborhood.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -289,7 +304,8 @@ export default function NapervilleHubPage() {
                 Naperville planning notes
               </div>
               <h2 className="section-title mb-4">
-                Most Naperville patios need comfort, privacy, and approval planning together.
+                Most Naperville patios need comfort, privacy, and approval
+                planning together.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 A useful Naperville outdoor-room plan starts with how the patio
@@ -300,7 +316,12 @@ export default function NapervilleHubPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {planningNotes.map((note) => (
                 <Card key={note.title} variant="muted" padding="lg">
-                  <IconWrapper icon={note.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={note.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{note.title}</h3>
                   <p className="text-text-secondary">{note.description}</p>
                 </Card>
@@ -314,45 +335,49 @@ export default function NapervilleHubPage() {
       <Section id="zoning" className="section-md bg-surface-muted">
         <Container>
           <FadeIn>
-            <h2 className="section-title mb-4">Zoning & Permits in Naperville</h2>
+            <h2 className="section-title mb-4">
+              Zoning & Permits in Naperville
+            </h2>
             <p className="text-text-secondary max-w-3xl">
               Naperville&apos;s city, county, subdivision, and HOA requirements
               can vary by address. Treat this as planning context, not a final
               permit determination.
             </p>
-            
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
+
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
               <Card>
-                <h3 className="font-bold mb-2 flex items-center gap-2">
+                <h3 className="mb-2 flex items-center gap-2 font-bold">
                   <AlertTriangle className="text-edg-brand-dark h-4 w-4" />
                   Subdivision/PUD Factor
                 </h3>
-                <p className="text-sm text-text-secondary">
-                  Many Naperville homes are part of Planned Unit Developments (PUDs) or have strict HOA covenants that may impose additional restrictions beyond city codes.
+                <p className="text-text-secondary text-sm">
+                  Many Naperville homes are part of Planned Unit Developments
+                  (PUDs) or have strict HOA covenants that may impose additional
+                  restrictions beyond city codes.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2">Standard Setbacks</h3>
-                <p className="text-sm text-text-secondary">
+                <h3 className="mb-2 font-bold">Standard Setbacks</h3>
+                <p className="text-text-secondary text-sm">
                   Setbacks depend on the property, zoning district, structure
                   type, easements, and whether the pergola is attached or
                   freestanding.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2">Impervious Surface Limits</h3>
-                <p className="text-sm text-text-secondary">
+                <h3 className="mb-2 font-bold">Impervious Surface Limits</h3>
+                <p className="text-text-secondary text-sm">
                   New hardscape, drainage, and coverage questions should be
                   reviewed before a pergola, screen, or enclosure layout is
                   treated as final.
                 </p>
               </Card>
               <Card>
-                <h3 className="font-bold mb-2 flex items-center gap-2">
-                  <FileText className="h-4 w-4 text-edg-brand-dark" />
+                <h3 className="mb-2 flex items-center gap-2 font-bold">
+                  <FileText className="text-edg-brand-dark h-4 w-4" />
                   TED Permitting
                 </h3>
-                <p className="text-sm text-text-secondary">
+                <p className="text-text-secondary text-sm">
                   We help prepare the drawings, product information, survey
                   notes, and support documents needed for the correct local
                   review path.
@@ -379,7 +404,12 @@ export default function NapervilleHubPage() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {localConsiderations.map((item, i) => (
                 <Card key={i} variant="default" padding="lg">
-                  <IconWrapper icon={item.icon} variant="brand" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={item.icon}
+                    variant="brand"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
                   <p className="text-text-secondary">{item.description}</p>
                 </Card>
@@ -427,18 +457,24 @@ export default function NapervilleHubPage() {
                 href="/service-areas/naperville-il/motorized-pergolas"
                 className="group block"
               >
-                <Card 
-                  variant="muted" 
+                <Card
+                  variant="muted"
                   padding="lg"
-                  className="h-full transition-all duration-200 hover:border-edg-brand/50"
+                  className="hover:border-edg-brand/50 h-full transition-all duration-200"
                 >
-                  <IconWrapper icon={Home} variant="default" size="lg" className="mb-4" />
+                  <IconWrapper
+                    icon={Home}
+                    variant="default"
+                    size="lg"
+                    className="mb-4"
+                  />
                   <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
                     Motorized Pergolas in Naperville
                   </h3>
                   <p className="text-text-secondary mb-6">
-                    Explore louvered roof systems engineered for Naperville&apos;s
-                    specific suburban climate and HOA requirements.
+                    Explore louvered roof systems engineered for
+                    Naperville&apos;s specific suburban climate and HOA
+                    requirements.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
                     Learn More <ArrowRight className="h-4 w-4" />
@@ -459,15 +495,12 @@ export default function NapervilleHubPage() {
                 Ready to plan your Naperville project?
               </h2>
               <p className="text-text-inverse-muted mb-8 text-xl">
-                Review the address, HOA path, privacy needs, and right system direction with our local design team.
+                Review the address, HOA path, privacy needs, and right system
+                direction with our local design team.
               </p>
               <Link href={bottomContactHref}>
-                <Button
-                  size="lg"
-                  className="px-8 text-lg"
-                >
-                  Start Naperville Review{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button size="lg" className="px-8 text-lg">
+                  Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
             </div>
