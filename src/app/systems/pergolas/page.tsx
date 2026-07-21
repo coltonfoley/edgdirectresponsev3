@@ -8,6 +8,7 @@ import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { ProductGallery } from '@/components/features/gallery/ProductGallery';
+import { PergolaBudgetRangeForm } from '@/components/features/pergola/PergolaBudgetRangeForm';
 import { TrackedLink } from '@/components/ui/TrackedLink';
 import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 import { PergolaConfiguratorClient } from './PergolaConfiguratorClient';
@@ -313,9 +314,9 @@ export default function PergolasPage() {
               </p>
 
               <div className="mb-12 flex flex-col gap-4">
-                <TrackedLink href="/guides/pergola-system-fit-review?source=pergolas_hero">
+                <TrackedLink href="#pergola-budget-range">
                   <Button size="lg" className="w-full sm:w-auto">
-                    Get a System Fit Review
+                    Get My Pergola Budget Range
                   </Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">
@@ -324,6 +325,13 @@ export default function PergolasPage() {
                     Speak to a Designer
                   </div>
                 </TrackedPhoneLink>
+                <Link
+                  href="/guides/pergola-system-fit-review?source=pergolas_hero_secondary"
+                  className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
+                >
+                  Have plans or photos ready? Request a detailed System Fit
+                  Review.
+                </Link>
                 <Link
                   href="/guides/motorized-pergola-planning"
                   className="text-edg-brand-text hover:text-edg-brand text-sm font-medium transition-colors"
@@ -371,6 +379,43 @@ export default function PergolasPage() {
           </div>
         </Container>
       </section>
+
+      {/* ========== LOW-FRICTION BUDGET RANGE ========== */}
+      <Section
+        id="pergola-budget-range"
+        className="section-lg bg-surface scroll-mt-24"
+      >
+        <Container>
+          <div className="border-border mx-auto grid max-w-5xl gap-12 border bg-white p-6 md:grid-cols-[0.8fr_1.2fr] md:p-10">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Pergola Budget Range
+              </div>
+              <h2 className="section-title mb-6">
+                Start with four quick details—not a design worksheet.
+              </h2>
+              <p className="text-text-secondary mb-5 text-lg leading-relaxed">
+                Tell us where the project is and what you want the pergola to
+                do. EDG will follow up to narrow the right system direction and
+                a realistic planning range.
+              </p>
+              <p className="text-text-secondary leading-relaxed">
+                You do not need dimensions, a finalized budget, or site photos
+                to raise your hand. Those details can come after the initial
+                conversation.
+              </p>
+              <Link
+                href="/guides/pergola-system-fit-review?source=pergolas_budget_secondary"
+                className="text-edg-brand-text hover:text-edg-brand mt-6 inline-block text-sm font-bold transition-colors"
+              >
+                Ready to provide full project details? Use the System Fit Review
+                →
+              </Link>
+            </div>
+            <PergolaBudgetRangeForm />
+          </div>
+        </Container>
+      </Section>
 
       {/* ========== PRODUCT OVERVIEW SECTION ========== */}
       <Section className="section-md border-border border-t">
@@ -866,16 +911,16 @@ export default function PergolasPage() {
           <div className="grid items-center gap-16 md:grid-cols-2">
             <div>
               <h2 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
-                Ready to check system fit?
+                Ready for a pergola planning range?
               </h2>
               <p className="text-text-inverse-muted mb-8 max-w-md text-xl">
-                Send photos, rough dimensions, location, budget, and what the
-                space needs to do. EDG will help narrow the system direction
-                before you chase the wrong quote.
+                Four quick details are enough to start. We will follow up for
+                dimensions, photos, and site conditions after we know where the
+                project is and what you want it to do.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <TrackedLink href="/guides/pergola-system-fit-review?source=pergolas_bottom">
-                  <Button size="lg">Get a System Fit Review</Button>
+                <TrackedLink href="#pergola-budget-range">
+                  <Button size="lg">Get My Pergola Budget Range</Button>
                 </TrackedLink>
                 <TrackedPhoneLink href="tel:+18155810138">
                   <Button variant="outline" size="lg">
@@ -883,6 +928,12 @@ export default function PergolasPage() {
                   </Button>
                 </TrackedPhoneLink>
               </div>
+              <Link
+                href="/guides/pergola-system-fit-review?source=pergolas_bottom_secondary"
+                className="text-edg-brand mt-5 inline-block text-sm font-bold transition-colors hover:text-white"
+              >
+                Or send plans and photos with a detailed System Fit Review →
+              </Link>
             </div>
             <div className="border-border-inverse hidden border-l pl-16 md:block">
               <div className="space-y-6">
