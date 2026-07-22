@@ -8,13 +8,9 @@ import { TrackedPhoneLink } from '@/components/ui/TrackedPhoneLink';
 
 import { MapPin, Phone, ArrowRight, BookOpen } from 'lucide-react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import { buildContactHref } from '@/lib/contact-links';
-import {
-  getRoutesByFooterGroup,
-  priorityLocalProductRoutes,
-  serviceAreaHubRoutes,
-} from '@/lib/site-routes';
+import { getRoutesByFooterGroup } from '@/lib/site-routes';
 
 type FooterLink = {
   href: string;
@@ -25,42 +21,24 @@ const toFooterLinks = (
   routes: {
     href: string;
     label: string;
+    footerLabel?: string;
   }[]
 ): FooterLink[] =>
   routes.map((route) => ({
     href: route.href,
-    label: route.label,
+    label: route.footerLabel ?? route.label,
   }));
 
-const footerSystemLinks = toFooterLinks(getRoutesByFooterGroup('systems'));
-const footerSolutionLinks = toFooterLinks([
-  ...getRoutesByFooterGroup('outdoorRooms'),
-  ...getRoutesByFooterGroup('commercial'),
-]);
-const footerGuideLinks = toFooterLinks(getRoutesByFooterGroup('guides'));
-const footerLocationLinks = toFooterLinks(serviceAreaHubRoutes);
-const footerLocalProductLinks = toFooterLinks(priorityLocalProductRoutes);
+const footerProductLinks = toFooterLinks(getRoutesByFooterGroup('products'));
+const footerWorkLinks = toFooterLinks(getRoutesByFooterGroup('work'));
+const footerAreaLinks = toFooterLinks(getRoutesByFooterGroup('areas'));
+const footerHelpLinks = toFooterLinks(getRoutesByFooterGroup('help'));
+const footerLegalLinks = toFooterLinks(getRoutesByFooterGroup('legal'));
 const milwaukeeClusterRoutes = [
   '/service-areas/milwaukee-wi',
   '/service-areas/milwaukee-wi/motorized-pergolas',
   '/service-areas/milwaukee-wi/zoning-guide',
 ] as const;
-const footerWorkOrder = [
-  'Projects',
-  'Gallery',
-  'Showroom',
-  'Trade Partners',
-  'Contact',
-];
-const footerWorkLinks = toFooterLinks([
-  ...getRoutesByFooterGroup('work'),
-  ...getRoutesByFooterGroup('utility').filter((route) =>
-    ['/trade-partners', '/contact'].includes(route.href)
-  ),
-]).sort(
-  (a, b) => footerWorkOrder.indexOf(a.label) - footerWorkOrder.indexOf(b.label)
-);
-
 function FooterLinkList({ links }: { links: FooterLink[] }) {
   return (
     <ul className="space-y-2.5">
@@ -81,19 +59,16 @@ function FooterLinkList({ links }: { links: FooterLink[] }) {
 function FooterColumn({
   title,
   links,
-  children,
 }: {
   title: string;
-  links?: FooterLink[];
-  children?: ReactNode;
+  links: FooterLink[];
 }) {
   return (
     <div>
       <h4 className="mb-5 text-xs font-bold tracking-widest text-white uppercase">
         {title}
       </h4>
-      {links ? <FooterLinkList links={links} /> : null}
-      {children}
+      <FooterLinkList links={links} />
     </div>
   );
 }
@@ -262,71 +237,20 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Navigation */}
-            <FooterColumn title="Systems" links={footerSystemLinks} />
+            <FooterColumn title="Products" links={footerProductLinks} />
 
-            <FooterColumn title="Solutions" links={footerSolutionLinks} />
+            <FooterColumn title="Work" links={footerWorkLinks} />
 
-            <FooterColumn title="Guides" links={footerGuideLinks} />
+            <FooterColumn title="Areas" links={footerAreaLinks} />
 
-            <FooterColumn title="Locations" links={footerLocationLinks}>
-              <div className="mt-7 border-t border-white/10 pt-6">
-                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">
-                  Local Product Pages
-                </h5>
-                <FooterLinkList links={footerLocalProductLinks} />
+            <FooterColumn title="Help" links={footerHelpLinks} />
+
+            <div>
+              <FooterColumn title="Legal" links={footerLegalLinks} />
+              <div className="mt-8 text-xs text-zinc-500">
+                © {year} EDG Patio & Shade
               </div>
-            </FooterColumn>
-
-            {/* Legal / Social */}
-            <FooterColumn title="Work & Contact" links={footerWorkLinks}>
-              <div className="mt-7 border-t border-white/10 pt-6">
-                <h5 className="mb-4 text-[10px] font-bold tracking-[0.2em] text-zinc-400 uppercase">
-                  Connect
-                </h5>
-                <ul className="space-y-2.5">
-                  <li>
-                    <a
-                      href="mailto:sales@edgpatioshade.com"
-                      className="hover:text-edg-brand block text-sm leading-snug text-zinc-300 transition-colors"
-                    >
-                      sales@edgpatioshade.com
-                    </a>
-                  </li>
-                  <li>
-                    <TrackedPhoneLink
-                      href="tel:+18155810138"
-                      className="hover:text-edg-brand block text-sm leading-snug text-zinc-300 transition-colors"
-                    >
-                      (815) 581-0138
-                    </TrackedPhoneLink>
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-8 space-y-2 border-t border-white/10 pt-8">
-                <Link
-                  href="/html-sitemap"
-                  className="block text-xs text-zinc-400 hover:text-white"
-                >
-                  Site Map
-                </Link>
-                <Link
-                  href="/privacy"
-                  className="block text-xs text-zinc-400 hover:text-white"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  href="/terms"
-                  className="block text-xs text-zinc-400 hover:text-white"
-                >
-                  Terms of Service
-                </Link>
-                <div className="mt-4 text-xs text-zinc-500">
-                  © {year} EDG Patio & Shade
-                </div>
-              </div>
-            </FooterColumn>
+            </div>
           </div>
         </Container>
       </div>
