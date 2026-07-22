@@ -7,7 +7,8 @@ on:
       - edg-positioning
 
 jobs:
-  build:
+  code-and-lead-safety:
+    name: Code and lead safety
     runs-on: ubuntu-latest
 
     steps:
@@ -34,6 +35,29 @@ jobs:
 
       - name: Verify route registry
         run: npm run routes:check
+
+      - name: Verify lead instrumentation
+        run: npm run audit:lead-instrumentation
+
+      - name: Test lead submission identity
+        run: npm run test:lead-submission
+
+  website-and-visual-safety:
+    name: Website and visual safety
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build
         run: npm run build

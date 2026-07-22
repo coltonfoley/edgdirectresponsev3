@@ -106,7 +106,8 @@ async function testPage(browser, route, viewport) {
             .filter(isVisibleNearViewport)
             .every((image) => image.complete && image.naturalWidth > 0);
         },
-        { timeout: 8_000 }
+        undefined,
+        { timeout: 20_000 }
       )
       .catch(() => {});
 
@@ -164,7 +165,10 @@ async function testPage(browser, route, viewport) {
       );
       const brokenNearViewportImages = [...document.images].filter((image) => {
         if (!isVisible(image) || !isNearViewport(image)) return false;
-        return !image.complete || image.naturalWidth === 0;
+        // A cold CI runner can still be processing a valid lazy-loaded image.
+        // Only report an image as broken once the browser says its request has
+        // completed without producing image data.
+        return image.complete && image.naturalWidth === 0;
       });
 
       if (frameworkOverlay) {

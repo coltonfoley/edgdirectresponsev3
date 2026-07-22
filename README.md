@@ -15,6 +15,23 @@ It captures website demand and sends accepted leads to Rainmaker.
 
 Current operating guidance lives in `AGENTS.md` and `docs/codex/`.
 
+## How Updates Work
+
+This repository is the complete website source. GitHub stores its history,
+GitHub Actions checks each pushed update, and Vercel publishes the production
+site. Rainmaker receives accepted website leads through `/api/leads`.
+
+GitHub reports two clearly separated safety groups:
+
+- **Code and lead safety** checks code quality, TypeScript, routes, and the lead
+  submission contract.
+- **Website and visual safety** builds the site and checks representative pages
+  in a browser for rendering, layout, images, and contrast.
+
+A failed GitHub check does not automatically mean production is down. Read the
+named safety group and failed step, fix or rerun it, and confirm GitHub is green
+before treating an update as complete.
+
 ## Local Development
 
 Use Node 22, then install and run:
