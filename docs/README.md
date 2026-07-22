@@ -10,3 +10,8 @@ Use `docs/codex/` for current operating guidance:
 Old audit archives were removed from the active repo because they were no
 longer reliable as working guidance. If an older recommendation is needed, use
 repo history instead of treating old local docs as current truth.
+
+Do not store dated audits, screenshots, raw exports, implementation packets, or
+temporary plans in this repository. Keep those in a separate project-work
+archive. Only promote a conclusion back into `docs/codex/` when it is current,
+durable operating guidance.

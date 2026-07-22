@@ -45,8 +45,7 @@ npm run build
 ```
 
 For route and lead-path changes, run the relevant browser or Playwright checks
-before publishing. Search Console analysis is available through
-`npm run seo:gsc-report`; contrast checks are available through
+before publishing. Contrast checks are available through
 `npm run test:contrast`.
 
 ## Lead Flow
@@ -80,4 +79,6 @@ Keep the working tree focused on current website truth:
 - current build and validation scripts in `scripts/`
 
 Generated local folders such as `.next/`, `test-results/`, and
-`.playwright-cli/` are ignored and can be recreated.
+`.playwright-cli/` are ignored and can be recreated. Audit exports, screenshots,
+working plans, and other agent-generated evidence belong outside this repository;
+`output/` and evidence folders under `docs/codex/` are ignored as safeguards.

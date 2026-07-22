@@ -55,6 +55,11 @@ Old agent and audit archives have been removed from the active working tree.
 Use the current source files and `docs/codex/` guidance instead of older
 project-history notes.
 
+Keep the repository limited to production source, reusable tooling, and the
+active reference docs above. Store audit exports, screenshots, temporary plans,
+approval packets, and other task evidence outside the repository. Do not add
+dated work-product archives back under `docs/codex/`.
+
 ## Operating Rules
 
 - Current source files beat old docs, memory, comments, and prior chat.

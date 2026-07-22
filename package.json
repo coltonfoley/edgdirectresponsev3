@@ -16,7 +16,6 @@
     "routes:check": "node scripts/check-route-registry.mjs",
     "audit:lead-instrumentation": "node scripts/audit-lead-instrumentation.mjs",
     "test:lead-submission": "node --test scripts/test-lead-submission-identity.mts",
-    "seo:gsc-report": "node scripts/analyze-gsc-organic.mjs",
     "test:e2e": "npm run build && playwright test",
     "test:e2e:built": "playwright test",
     "test:contrast": "node scripts/test-contrast.mjs",
