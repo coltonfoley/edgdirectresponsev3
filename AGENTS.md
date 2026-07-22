@@ -8,19 +8,26 @@ This is the active Codex guide for the EDG Patio & Shade website.
 - Local path: `/Users/coltonfoley/Documents/Codex Projects/EDG Website`
 - GitHub remote: `https://github.com/coltonfoley/edgdirectresponsev3`
 - Production site: `https://www.edgpatioshade.com`
-- Local branch seen during the June 7, 2026 cleanup: `edg-positioning`
+- Current release branch as of July 22, 2026: `edg-positioning`
 
 Always verify the current folder, branch, working tree, and affected live URLs
 before making changes. Do not assume this file is fresher than the source code.
 
 ## Verified Current Facts
 
-These facts were checked against the repo on 2026-06-25:
+These facts were checked against the repo on 2026-07-22:
 
 - Next.js is `16.2.9`; React is `19.2.1`; Node engine is `22.x`.
 - Website forms submit to `/api/leads`.
 - `/api/leads` forwards accepted leads to Rainmaker through `RAINMAKER_*`
   environment variables.
+- The primary sales action across the site is plain `Request a Quote`, routed to
+  the standard quote form. The shorter pergola budget form is a supported
+  low-friction path; the detailed System Fit Review remains available as a
+  secondary path.
+- Lead submissions carry a persistent `submission_id`. Treat `generate_lead` as
+  an accepted-lead event only after the server confirms the Rainmaker handoff;
+  do not infer accepted leads from button clicks or submission attempts.
 - The website no longer stores leads in Supabase. Do not describe Supabase as
   the active lead database unless current code proves that changed.
 - Resend is optional and used for lead notification/follow-up email behavior
@@ -29,6 +36,9 @@ These facts were checked against the repo on 2026-06-25:
   `src/app/layout.tsx`.
 - Current service-area inventory must be counted from
   `src/app/service-areas`, not copied from old docs.
+- Global navigation and footer links are maintained through the current layout
+  components and `src/lib/site-routes.ts`; preserve the simplified navigation
+  and avoid reintroducing every SEO route into the primary menu.
 
 ## Active Reference Docs
 
@@ -72,12 +82,15 @@ project-history notes.
    related docs before editing.
 3. Make the smallest useful change.
 4. Run targeted checks for the changed route or workflow.
-5. For deploy-ready website changes, run `npm run lint` and `npm run build`.
-6. Browser-check changed pages on desktop and mobile before calling visual work
+5. Use the relevant focused checks: `npm run typecheck`,
+   `npm run routes:check`, `npm run audit:lead-instrumentation`,
+   `npm run test:lead-submission`, and/or the applicable Playwright tests.
+6. For deploy-ready website changes, run `npm run lint` and `npm run build`.
+7. Browser-check changed pages on desktop and mobile before calling visual work
    done.
-7. After deployment, verify live `200` responses, render, canonical, sitemap,
+8. After deployment, verify live `200` responses, render, canonical, sitemap,
    and relevant internal links.
-8. Treat Google Search Console data as a separate proof layer from live deploy
+9. Treat Google Search Console data as a separate proof layer from live deploy
    proof.
 
 ## Browser Rule
