@@ -247,7 +247,7 @@ export function Footer() {
 
             <div>
               <FooterColumn title="Legal" links={footerLegalLinks} />
-              <div className="mt-8 text-xs text-zinc-500">
+              <div className="mt-8 text-xs text-zinc-400">
                 © {year} EDG Patio & Shade
               </div>
             </div>
