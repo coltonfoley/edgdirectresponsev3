@@ -8,7 +8,7 @@ export function PergolaBudgetRangeForm() {
       source="pergola_page_quote"
       defaultInterest="pergola"
       heading="Request a Pergola Quote"
-      intro="Name, email, phone, and interest are all we need to start. Add dimensions, project details, or photos only if you want to."
+      intro="Start with what you want from the space. Details and photos are optional."
       ctaPosition="pergola_page"
     />
   );

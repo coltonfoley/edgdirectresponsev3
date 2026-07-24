@@ -665,10 +665,11 @@ function QuoteModal({
             source="pergola-configurator"
             defaultInterest="pergola"
             theme="dark"
-            heading="Contact information"
-            intro="Name, email, phone, and interest are all we need."
+            heading="Finish your quote request"
+            intro="Answer a few quick questions. We will ask how to reach you at the end."
             ctaPosition="pergola_configurator"
             contextMessage={summary}
+            layout="compact"
             metadata={{
               configurator_summary: summary,
               pilot_name: 'pergola_system_fit',

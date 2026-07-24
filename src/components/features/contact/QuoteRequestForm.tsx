@@ -1,16 +1,24 @@
 'use client';
 
-import { useEffect, useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import {
   AlertCircle,
+  ArrowLeft,
+  Camera,
   Check,
-  ChevronDown,
+  ChevronRight,
+  CloudRain,
+  HelpCircle,
+  Home,
   Loader2,
-  Upload,
+  Shield,
+  Snowflake,
+  Sun,
   X,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useLeadSubmission } from '@/hooks/useLeadSubmission';
+import { pushAnalyticsEvent } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
 const interestOptions = [
@@ -25,6 +33,29 @@ const interestOptions = [
   { value: 'showroom', label: 'Showroom visit' },
   { value: 'not-sure', label: 'Not sure yet' },
 ] as const;
+
+const goalOptions = [
+  { value: 'shade', label: 'Add shade', icon: Sun },
+  { value: 'rain', label: 'Stay usable in rain', icon: CloudRain },
+  {
+    value: 'comfort',
+    label: 'Block insects, wind, or neighbors',
+    icon: Shield,
+  },
+  { value: 'seasons', label: 'Use it in more seasons', icon: Snowflake },
+  {
+    value: 'outdoor-room',
+    label: 'Create a complete outdoor room',
+    icon: Home,
+  },
+  {
+    value: 'not-sure',
+    label: 'I’m still figuring it out',
+    icon: HelpCircle,
+  },
+] as const;
+
+const stepCount = 4;
 
 const allowedPhotoTypes = ['image/jpeg', 'image/png', 'image/webp'];
 const maxPhotoCount = 4;
@@ -58,6 +89,7 @@ type QuoteFormData = {
   fullName: string;
   email: string;
   phone: string;
+  goals: string[];
   interest: string[];
   location: string;
   details: string;
@@ -229,6 +261,15 @@ function getInterestLabels(interests: string[]) {
     .join(', ');
 }
 
+function getGoalLabels(goals: string[]) {
+  return goals
+    .map(
+      (goal) =>
+        goalOptions.find((option) => option.value === goal)?.label || goal
+    )
+    .join(', ');
+}
+
 function splitFullName(fullName: string) {
   const parts = fullName.trim().split(/\s+/).filter(Boolean);
   return {
@@ -328,11 +369,12 @@ function buildMessage(
 ) {
   return [
     contextMessage?.trim() || null,
+    formData.goals.length ? `Goals: ${getGoalLabels(formData.goals)}` : null,
     formData.interest.length
       ? `Interests: ${getInterestLabels(formData.interest)}`
       : null,
     formData.location.trim()
-      ? `Project city or ZIP: ${formData.location.trim()}`
+      ? `Project location: ${formData.location.trim()}`
       : null,
     formData.details.trim()
       ? `Project details: ${formData.details.trim()}`
@@ -361,18 +403,21 @@ export function QuoteRequestForm({
   const id = useId();
   const [leadSource, setLeadSource] = useState(source);
   const [leadMarket, setLeadMarket] = useState('');
-  const [optionalOpen, setOptionalOpen] = useState(false);
   const [photos, setPhotos] = useState<File[]>([]);
   const [photoError, setPhotoError] = useState('');
   const [photoStatus, setPhotoStatus] = useState('');
   const [formStarted, setFormStarted] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [goalError, setGoalError] = useState('');
   const [interestError, setInterestError] = useState('');
-  const [interestOpen, setInterestOpen] = useState(false);
+  const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+  const previousStepRef = useRef(1);
   const normalizedDefaultInterest = normalizeInterest(defaultInterest);
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: '',
     email: '',
     phone: '',
+    goals: [],
     interest: normalizedDefaultInterest ? [normalizedDefaultInterest] : [],
     location: normalizeLocation(defaultLocation),
     details: '',
@@ -382,19 +427,19 @@ export function QuoteRequestForm({
     useLeadSubmission();
   const isDark = theme === 'dark';
   const isCompact = layout === 'compact';
-  const displayedInterestOptions = isCompact
-    ? interestOptions.filter((option) =>
-        [
-          'pergola',
-          'shades',
-          'enclosure',
-          'appliances',
-          'sauna',
-          'commercial',
-          'not-sure',
-        ].includes(option.value)
-      )
-    : interestOptions;
+  const primaryInterestValues = [
+    'pergola',
+    'shades',
+    'enclosure',
+    'appliances',
+    'sauna',
+    'not-sure',
+  ];
+  const displayedInterestOptions = interestOptions.filter(
+    (option) =>
+      primaryInterestValues.includes(option.value) ||
+      formData.interest.includes(option.value)
+  );
   const photoUploadDisabled =
     loading || photos.length >= maxPhotoCount || Boolean(photoStatus);
 
@@ -430,6 +475,23 @@ export function QuoteRequestForm({
     return () => cancelAnimationFrame(frame);
   }, [prefillFromQuery]);
 
+  useEffect(() => {
+    if (previousStepRef.current === currentStep) return;
+
+    previousStepRef.current = currentStep;
+    requestAnimationFrame(() => stepHeadingRef.current?.focus());
+    pushAnalyticsEvent({
+      event: 'lead_form_step_view',
+      form_id: 'quote_request',
+      form_variant: 'quote_request_multistep_v1',
+      step_id: `step_${currentStep}`,
+      step_number: currentStep,
+      step_count: stepCount,
+      source: leadSource,
+      cta_position: ctaPosition,
+    });
+  }, [currentStep, ctaPosition, leadSource]);
+
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -448,12 +510,22 @@ export function QuoteRequestForm({
     }));
   };
 
+  const toggleGoal = (goal: string) => {
+    setGoalError('');
+    setFormData((current) => ({
+      ...current,
+      goals: current.goals.includes(goal)
+        ? current.goals.filter((item) => item !== goal)
+        : [...current.goals, goal],
+    }));
+  };
+
   const analyticsMetadata = {
     ...metadata,
     cta_label: 'Request a Quote',
     cta_position: ctaPosition,
     form_id: 'quote_request',
-    form_variant: 'quote_request',
+    form_variant: 'quote_request_multistep_v1',
     market: leadMarket || metadata?.market,
   };
 
@@ -512,8 +584,8 @@ export function QuoteRequestForm({
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!formData.interest.length) {
-      setInterestError('Select at least one interest.');
-      if (isCompact) setInterestOpen(true);
+      setInterestError('Choose at least one product or select “Not sure yet.”');
+      setCurrentStep(2);
       return;
     }
 
@@ -533,6 +605,8 @@ export function QuoteRequestForm({
       attachments: photos,
       metadata: {
         ...analyticsMetadata,
+        selected_goals: formData.goals.join('|'),
+        goal_count: formData.goals.length,
         selected_interests: formData.interest.join('|'),
         interest_count: formData.interest.length,
         photo_count: photos.length,
@@ -541,6 +615,62 @@ export function QuoteRequestForm({
         ),
       },
     });
+  };
+
+  const trackStepComplete = (step: number) => {
+    pushAnalyticsEvent({
+      event: 'lead_form_step_complete',
+      form_id: 'quote_request',
+      form_variant: 'quote_request_multistep_v1',
+      step_id: `step_${step}`,
+      step_number: step,
+      step_count: stepCount,
+      source: leadSource,
+      cta_position: ctaPosition,
+    });
+  };
+
+  const continueFromStep = () => {
+    if (currentStep === 1 && !formData.goals.length) {
+      setGoalError('Choose at least one goal.');
+      pushAnalyticsEvent({
+        event: 'lead_form_step_error',
+        form_id: 'quote_request',
+        form_variant: 'quote_request_multistep_v1',
+        step_id: 'step_1',
+        error_type: 'required_goal',
+        source: leadSource,
+      });
+      return;
+    }
+
+    if (currentStep === 2 && !formData.interest.length) {
+      setInterestError('Choose at least one product or select “Not sure yet.”');
+      pushAnalyticsEvent({
+        event: 'lead_form_step_error',
+        form_id: 'quote_request',
+        form_variant: 'quote_request_multistep_v1',
+        step_id: 'step_2',
+        error_type: 'required_interest',
+        source: leadSource,
+      });
+      return;
+    }
+
+    trackStepComplete(currentStep);
+    setCurrentStep((step) => Math.min(stepCount, step + 1));
+  };
+
+  const goBack = () => {
+    pushAnalyticsEvent({
+      event: 'lead_form_back',
+      form_id: 'quote_request',
+      form_variant: 'quote_request_multistep_v1',
+      from_step: currentStep,
+      to_step: currentStep - 1,
+      source: leadSource,
+    });
+    setCurrentStep((step) => Math.max(1, step - 1));
   };
 
   const inputClassName = cn(
@@ -593,14 +723,22 @@ export function QuoteRequestForm({
         className
       )}
     >
-      <div className={isCompact ? 'mb-4' : 'mb-6'}>
-        <h2 id={`${id}-title`} className="text-2xl font-bold tracking-tight">
+      <div
+        className={cn(
+          'border-b border-current/10',
+          isCompact ? 'mb-4 pb-3' : 'mb-5 pb-4'
+        )}
+      >
+        <h2
+          id={`${id}-title`}
+          className="text-sm font-bold tracking-[0.18em] uppercase"
+        >
           {heading}
         </h2>
         <p
           id={`${id}-description`}
           className={cn(
-            'mt-2 text-sm leading-relaxed',
+            'mt-1.5 text-xs leading-relaxed',
             isDark ? 'text-zinc-300' : 'text-gray-600'
           )}
         >
@@ -610,6 +748,7 @@ export function QuoteRequestForm({
 
       <form
         data-lead-form-id="quote_request"
+        data-current-step={currentStep}
         onSubmit={handleSubmit}
         onFocusCapture={handleFormStart}
         aria-labelledby={`${id}-title`}
@@ -617,7 +756,7 @@ export function QuoteRequestForm({
           error ? `${id}-description ${id}-error` : `${id}-description`
         }
         aria-busy={loading}
-          className={isCompact ? 'space-y-3.5' : 'space-y-5'}
+        className="space-y-5"
       >
         <div
           className="pointer-events-none absolute -z-50 opacity-0"
@@ -634,121 +773,155 @@ export function QuoteRequestForm({
           />
         </div>
 
-        <div>
-          <label htmlFor={`${id}-full-name`} className={labelClassName}>
-            Full name
-          </label>
-          <input
-            id={`${id}-full-name`}
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            autoComplete="name"
-            required
-            disabled={loading}
-            className={inputClassName}
-          />
-        </div>
-
-        <div className={cn('grid md:grid-cols-2', isCompact ? 'gap-3' : 'gap-5')}>
-          <div>
-            <label htmlFor={`${id}-email`} className={labelClassName}>
-              Email
-            </label>
-            <input
-              id={`${id}-email`}
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              autoComplete="email"
-              required
-              disabled={loading}
-              className={inputClassName}
-            />
-          </div>
-          <div>
-            <label htmlFor={`${id}-phone`} className={labelClassName}>
-              Phone
-            </label>
-            <input
-              id={`${id}-phone`}
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              autoComplete="tel"
-              required
-              disabled={loading}
-              className={inputClassName}
-            />
-          </div>
-        </div>
-
-        <fieldset
-          data-interest-group
-          aria-required="true"
-          aria-describedby={interestError ? `${id}-interest-error` : undefined}
+        <div
+          className="flex gap-1.5"
+          role="progressbar"
+          aria-label={`Step ${currentStep} of ${stepCount}`}
+          aria-valuemin={1}
+          aria-valuemax={stepCount}
+          aria-valuenow={currentStep}
         >
-          <legend className={labelClassName}>I&apos;m interested in</legend>
-          {isCompact ? (
-            <button
-              type="button"
-              aria-expanded={interestOpen}
-              aria-controls={`${id}-interest-options`}
-              onClick={() => setInterestOpen((open) => !open)}
+          {Array.from({ length: stepCount }, (_, index) => (
+            <span
+              key={index}
+              aria-hidden="true"
               className={cn(
-                'flex w-full items-center justify-between gap-3 border px-4 py-2.5 text-left text-sm transition-colors',
-                isDark
-                  ? 'border-white/15 bg-white/5 text-white hover:border-white/30'
-                  : 'border-black/15 bg-white text-black hover:border-black/30'
+                'h-1 flex-1',
+                index < currentStep
+                  ? 'bg-edg-brand'
+                  : isDark
+                    ? 'bg-white/20'
+                    : 'bg-black/15'
               )}
-            >
-              <span className="min-w-0 truncate">
-                {formData.interest.length === 0
-                  ? 'Select one or more'
-                  : formData.interest.length === 1
-                    ? getInterestLabels(formData.interest)
-                    : `${formData.interest.length} interests selected`}
-              </span>
-              <ChevronDown
-                className={cn(
-                  'h-4 w-4 shrink-0 transition-transform',
-                  interestOpen && 'rotate-180'
-                )}
-              />
-            </button>
-          ) : (
-            <p
-              className={cn(
-                'mb-3 text-sm',
-                isDark ? 'text-zinc-400' : 'text-gray-500'
-              )}
-            >
-              Select all that apply.
+            />
+          ))}
+        </div>
+
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          Step {currentStep} of {stepCount}
+        </div>
+
+        {currentStep === 1 && (
+          <fieldset
+            aria-required="true"
+            aria-describedby={goalError ? `${id}-goal-error` : undefined}
+          >
+            <legend className="sr-only">
+              What would you like your outdoor space to do?
+            </legend>
+            <p className="mb-1 text-[11px] font-bold tracking-widest uppercase opacity-60">
+              Step 1 of {stepCount}
             </p>
-          )}
-          {(!isCompact || interestOpen) && (
-            <div
-              id={`${id}-interest-options`}
+            <h3
+              ref={stepHeadingRef}
+              tabIndex={-1}
               className={cn(
-                'grid gap-2 sm:grid-cols-2',
-                isCompact && 'mt-2'
+                'leading-[1.02] font-bold tracking-tight outline-none',
+                isCompact
+                  ? 'mb-4 text-2xl md:text-3xl'
+                  : 'mb-5 text-3xl md:text-4xl'
+              )}
+            >
+              What would you like your outdoor space to do?
+            </h3>
+            <div
+              className={cn(
+                'grid gap-2',
+                isCompact && 'sm:grid-cols-2'
+              )}
+            >
+              {goalOptions.map((option) => {
+                const Icon = option.icon;
+                const checked = formData.goals.includes(option.value);
+                return (
+                  <button
+                    type="button"
+                    key={option.value}
+                    aria-pressed={checked}
+                    onClick={() => toggleGoal(option.value)}
+                    disabled={loading}
+                    className={cn(
+                      'flex w-full items-center gap-3 border text-left font-bold transition-colors',
+                      isCompact
+                        ? 'min-h-12 px-3 py-2.5 text-xs'
+                        : 'min-h-14 px-4 py-3 text-sm',
+                      checked
+                        ? isDark
+                          ? 'border-edg-brand bg-edg-brand/15 text-white'
+                          : 'border-edg-brand bg-edg-brand/10 text-black'
+                        : isDark
+                          ? 'border-white/20 bg-white/5 hover:border-white/45'
+                          : 'border-black/15 bg-white hover:border-black/45'
+                    )}
+                  >
+                    <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                    <span className="flex-1">{option.label}</span>
+                    {checked && (
+                      <span className="bg-edg-brand flex h-5 w-5 items-center justify-center text-black">
+                        <Check className="h-3.5 w-3.5" aria-hidden="true" />
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+            {goalError && (
+              <p
+                id={`${id}-goal-error`}
+                role="alert"
+                className="mt-3 text-sm text-red-500"
+              >
+                {goalError}
+              </p>
+            )}
+          </fieldset>
+        )}
+
+        {currentStep === 2 && (
+          <fieldset
+            data-interest-group
+            aria-required="true"
+            aria-describedby={
+              interestError ? `${id}-interest-error` : undefined
+            }
+          >
+            <legend className="sr-only">What are you considering?</legend>
+            <p className="mb-1 text-[11px] font-bold tracking-widest uppercase opacity-60">
+              Step 2 of {stepCount}
+            </p>
+            <h3
+              ref={stepHeadingRef}
+              tabIndex={-1}
+              className={cn(
+                'leading-[1.02] font-bold tracking-tight outline-none',
+                isCompact
+                  ? 'mb-4 text-2xl md:text-3xl'
+                  : 'mb-5 text-3xl md:text-4xl'
+              )}
+            >
+              What are you considering?
+            </h3>
+            <div
+              className={cn(
+                'grid gap-2',
+                isCompact && 'sm:grid-cols-2'
               )}
             >
               {displayedInterestOptions.map((option) => (
                 <label
                   key={option.value}
                   className={cn(
-                    'flex cursor-pointer items-start gap-3 border px-3 text-sm transition-colors',
-                    isCompact ? 'py-2' : 'py-3',
+                    'flex cursor-pointer items-center gap-3 border font-bold transition-colors',
+                    isCompact
+                      ? 'min-h-12 px-3 py-2.5 text-xs'
+                      : 'min-h-14 px-4 py-3 text-sm',
                     formData.interest.includes(option.value)
                       ? isDark
-                        ? 'border-edg-brand bg-edg-brand/10'
-                        : 'border-black bg-gray-100'
+                        ? 'border-edg-brand bg-edg-brand/15'
+                        : 'border-edg-brand bg-edg-brand/10'
                       : isDark
-                        ? 'border-white/15 bg-white/5'
-                        : 'border-black/10 bg-white',
+                        ? 'border-white/20 bg-white/5 hover:border-white/45'
+                        : 'border-black/15 bg-white hover:border-black/45',
                     loading && 'cursor-not-allowed opacity-60'
                   )}
                 >
@@ -759,55 +932,41 @@ export function QuoteRequestForm({
                     checked={formData.interest.includes(option.value)}
                     onChange={handleInterestChange}
                     disabled={loading}
-                    className="accent-edg-brand mt-0.5 h-4 w-4 shrink-0"
+                    className="accent-edg-brand h-5 w-5 shrink-0"
                   />
-                  <span>{option.label}</span>
+                  <span className="flex-1">{option.label}</span>
                 </label>
               ))}
             </div>
-          )}
-          {interestError && (
-            <p
-              id={`${id}-interest-error`}
-              role="alert"
-              className="mt-3 text-sm text-red-500"
-            >
-              {interestError}
-            </p>
-          )}
-        </fieldset>
-
-        <div
-          className={cn(
-            'border-t pt-2',
-            isDark ? 'border-white/15' : 'border-black/10'
-          )}
-        >
-          <button
-            type="button"
-            aria-expanded={optionalOpen}
-            aria-controls={`${id}-optional-details`}
-            onClick={() => setOptionalOpen((open) => !open)}
-            className={cn(
-              'flex w-full items-center justify-between gap-4 text-left text-sm font-bold',
-              isCompact ? 'py-2' : 'py-3',
-              isDark ? 'text-white' : 'text-black'
+            {interestError && (
+              <p
+                id={`${id}-interest-error`}
+                role="alert"
+                className="mt-3 text-sm text-red-500"
+              >
+                {interestError}
+              </p>
             )}
-          >
-            Add project details or photos (optional)
-            <ChevronDown
-              className={cn(
-                'h-5 w-5 shrink-0 transition-transform',
-                optionalOpen && 'rotate-180'
-              )}
-            />
-          </button>
+          </fieldset>
+        )}
 
-          {optionalOpen && (
-            <div id={`${id}-optional-details`} className="space-y-5 pt-3 pb-2">
+        {currentStep === 3 && (
+          <section aria-labelledby={`${id}-step-3-title`}>
+            <p className="mb-1 text-[11px] font-bold tracking-widest uppercase opacity-60">
+              Step 3 of {stepCount}
+            </p>
+            <h3
+              id={`${id}-step-3-title`}
+              ref={stepHeadingRef}
+              tabIndex={-1}
+              className="mb-5 text-3xl leading-[1.02] font-bold tracking-tight outline-none md:text-4xl"
+            >
+              Anything that would help us understand the project?
+            </h3>
+            <div className="space-y-5">
               <div>
                 <label htmlFor={`${id}-location`} className={labelClassName}>
-                  City or ZIP code (optional)
+                  Project location (optional)
                 </label>
                 <input
                   id={`${id}-location`}
@@ -816,13 +975,13 @@ export function QuoteRequestForm({
                   onChange={handleChange}
                   autoComplete="postal-code"
                   disabled={loading}
+                  placeholder="City, ZIP, or address"
                   className={inputClassName}
                 />
               </div>
-
               <div>
                 <label htmlFor={`${id}-details`} className={labelClassName}>
-                  Tell us anything else (optional)
+                  Project details (optional)
                 </label>
                 <textarea
                   id={`${id}-details`}
@@ -830,58 +989,39 @@ export function QuoteRequestForm({
                   value={formData.details}
                   onChange={handleChange}
                   rows={4}
+                  maxLength={600}
                   disabled={loading}
-                  placeholder="What would you like to build or improve?"
+                  placeholder="Tell us about your space, goals, or must-haves."
                   className={cn(inputClassName, 'resize-y')}
                 />
               </div>
-
               <div>
-                <span className={labelClassName}>
-                  Project photos (optional)
-                </span>
-                <div
+                <input
+                  id={`${id}-photos`}
+                  type="file"
+                  accept={allowedPhotoTypes.join(',')}
+                  multiple
+                  onChange={handlePhotoChange}
+                  disabled={photoUploadDisabled}
+                  className="sr-only"
+                />
+                <label
+                  htmlFor={`${id}-photos`}
+                  aria-disabled={photoUploadDisabled}
                   className={cn(
-                    'border border-dashed p-4',
+                    'flex min-h-14 cursor-pointer items-center justify-center gap-3 border px-4 py-3 text-sm font-bold transition-colors',
                     isDark
-                      ? 'border-white/20 bg-white/5'
-                      : 'border-black/20 bg-gray-50'
+                      ? 'hover:border-edg-brand border-white/35 text-white'
+                      : 'hover:border-edg-brand border-black/40 text-black',
+                    photoUploadDisabled && 'cursor-not-allowed opacity-50'
                   )}
                 >
-                  <input
-                    id={`${id}-photos`}
-                    type="file"
-                    accept={allowedPhotoTypes.join(',')}
-                    multiple
-                    onChange={handlePhotoChange}
-                    disabled={photoUploadDisabled}
-                    className="sr-only"
-                  />
-                  <label
-                    htmlFor={`${id}-photos`}
-                    aria-disabled={photoUploadDisabled}
-                    className={cn(
-                      'inline-flex cursor-pointer items-center gap-2 border px-4 py-3 text-sm font-bold transition-colors',
-                      isDark
-                        ? 'hover:border-edg-brand border-white/30 text-white'
-                        : 'border-black/30 text-black hover:border-black',
-                      photoUploadDisabled && 'cursor-not-allowed opacity-50'
-                    )}
-                  >
-                    <Upload className="h-4 w-4" />
-                    Choose photos
-                  </label>
-                  <p
-                    className={cn(
-                      'mt-3 text-xs',
-                      isDark ? 'text-zinc-400' : 'text-gray-500'
-                    )}
-                  >
-                    Up to four JPG, PNG, or WebP photos. Photos are never
-                    required to request a quote.
-                  </p>
-                </div>
-
+                  <Camera className="h-5 w-5" aria-hidden="true" />
+                  Add photos (optional)
+                </label>
+                <p className="mt-2 text-center text-xs opacity-60">
+                  Up to four JPG, PNG, or WebP photos.
+                </p>
                 {photos.length > 0 && (
                   <ul className="mt-3 space-y-2">
                     {photos.map((photo) => (
@@ -914,12 +1054,90 @@ export function QuoteRequestForm({
                 )}
                 {photoStatus && <p className="mt-3 text-sm">{photoStatus}</p>}
                 {photoError && (
-                  <p className="mt-3 text-sm text-red-500">{photoError}</p>
+                  <p role="alert" className="mt-3 text-sm text-red-500">
+                    {photoError}
+                  </p>
                 )}
               </div>
             </div>
-          )}
-        </div>
+          </section>
+        )}
+
+        {currentStep === 4 && (
+          <section aria-labelledby={`${id}-step-4-title`}>
+            <p className="mb-1 text-[11px] font-bold tracking-widest uppercase opacity-60">
+              Step 4 of {stepCount}
+            </p>
+            <h3
+              id={`${id}-step-4-title`}
+              ref={stepHeadingRef}
+              tabIndex={-1}
+              className="mb-5 text-3xl leading-[1.02] font-bold tracking-tight outline-none md:text-4xl"
+            >
+              Where should we follow up?
+            </h3>
+            <div className="space-y-4">
+              <div>
+                <label htmlFor={`${id}-full-name`} className={labelClassName}>
+                  Full name
+                </label>
+                <input
+                  id={`${id}-full-name`}
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  autoComplete="name"
+                  required
+                  disabled={loading}
+                  placeholder="Enter your full name"
+                  className={inputClassName}
+                />
+              </div>
+              <div>
+                <label htmlFor={`${id}-email`} className={labelClassName}>
+                  Email
+                </label>
+                <input
+                  id={`${id}-email`}
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  autoComplete="email"
+                  required
+                  disabled={loading}
+                  placeholder="Enter your email"
+                  className={inputClassName}
+                />
+              </div>
+              <div>
+                <label htmlFor={`${id}-phone`} className={labelClassName}>
+                  Phone
+                </label>
+                <input
+                  id={`${id}-phone`}
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  autoComplete="tel"
+                  required
+                  disabled={loading}
+                  placeholder="Enter your phone number"
+                  className={inputClassName}
+                />
+              </div>
+            </div>
+            <p
+              className={cn(
+                'mt-5 text-center text-xs',
+                isDark ? 'text-zinc-400' : 'text-gray-500'
+              )}
+            >
+              We use your information only to respond to your request.
+            </p>
+          </section>
+        )}
 
         {error && (
           <div
@@ -932,24 +1150,89 @@ export function QuoteRequestForm({
           </div>
         )}
 
-        <Button type="submit" size="lg" disabled={loading} className="w-full">
-          {loading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
-            </>
-          ) : (
-            'Request a Quote'
-          )}
-        </Button>
-        <p
-          className={cn(
-            'text-center text-xs',
-            isDark ? 'text-zinc-400' : 'text-gray-500'
-          )}
-        >
-          We use your information only to respond to your request.
-        </p>
+        {currentStep === 3 && (
+          <button
+            type="button"
+            onClick={continueFromStep}
+            className="text-edg-brand mx-auto block min-h-11 px-4 text-sm font-bold underline underline-offset-4"
+          >
+            Skip for now
+          </button>
+        )}
+
+        {currentStep === 1 && (
+          <Button
+            type="button"
+            size="lg"
+            onClick={continueFromStep}
+            className="w-full"
+          >
+            Continue
+            <ChevronRight className="ml-2 h-4 w-4" aria-hidden="true" />
+          </Button>
+        )}
+
+        {(currentStep === 2 || currentStep === 3) && (
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              onClick={goBack}
+              disabled={loading}
+              className={cn(
+                'flex min-h-12 items-center justify-center gap-2 border px-5 text-sm font-bold tracking-wider uppercase',
+                isDark
+                  ? 'border-white/35 text-white hover:border-white'
+                  : 'border-black/40 text-black hover:border-black'
+              )}
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              Back
+            </button>
+            <Button
+              type="button"
+              size="lg"
+              onClick={continueFromStep}
+              className="w-full"
+            >
+              Continue
+              <ChevronRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Button>
+          </div>
+        )}
+
+        {currentStep === 4 && (
+          <div className="grid gap-3">
+            <Button
+              type="submit"
+              size="lg"
+              disabled={loading}
+              className="w-full"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                'Request a Quote'
+              )}
+            </Button>
+            <button
+              type="button"
+              onClick={goBack}
+              disabled={loading}
+              className={cn(
+                'flex min-h-12 items-center justify-center gap-2 border px-5 text-sm font-bold tracking-wider uppercase',
+                isDark
+                  ? 'border-white/35 text-white hover:border-white'
+                  : 'border-black/40 text-black hover:border-black'
+              )}
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              Back
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );

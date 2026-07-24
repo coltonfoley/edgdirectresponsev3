@@ -48,6 +48,10 @@ const allSource = files
 const requiredEvents = [
   ['lead_form_view', trackerSource],
   ['lead_form_start', hookSource],
+  ['lead_form_step_view', allSource],
+  ['lead_form_step_complete', allSource],
+  ['lead_form_step_error', allSource],
+  ['lead_form_back', allSource],
   ['lead_form_submit_attempt', hookSource],
   ['generate_lead', hookSource],
   ['lead_form_error', hookSource],

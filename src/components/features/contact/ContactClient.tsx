@@ -94,7 +94,7 @@ export function ContactClient({
           defaultInterest={defaultInterestForType(initialFormType)}
           customerType={initialFormType}
           heading="Your quote request"
-          intro="Name, email, phone, and interest are all we need to start. Add project details or photos only if you want to."
+          intro="Start with what you want from the space. We will ask how to reach you at the end."
           ctaPosition="contact_page"
           prefillFromQuery
           className="mx-auto max-w-2xl"

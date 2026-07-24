@@ -72,8 +72,9 @@ test.describe('Smoke Tests', () => {
       const pathname = new URL(url).pathname;
       await page.goto(pathname, { waitUntil: 'domcontentloaded' });
 
-      const pageViolations = await page.locator('main a').evaluateAll(
-        (links, currentPathname) => {
+      const pageViolations = await page
+        .locator('main a')
+        .evaluateAll((links, currentPathname) => {
           const clean = (value: string | null) =>
             (value || '').replace(/\s+/g, ' ').trim();
           const isVisible = (element: HTMLAnchorElement) => {
@@ -112,9 +113,7 @@ test.describe('Smoke Tests', () => {
               },
             ];
           });
-        },
-        pathname
-      );
+        }, pathname);
 
       violations.push(
         ...pageViolations.map((violation) => ({ pathname, ...violation }))
@@ -231,59 +230,65 @@ test.describe('Smoke Tests', () => {
   test('the MagnaTrack guide exposes the standard quote form', async ({
     page,
   }) => {
-    await page.goto('/guides/magnatrack-screens-cost');
+    await page.goto('/guides/magnatrack-screens-cost', {
+      waitUntil: 'domcontentloaded',
+    });
 
     const form = page.locator('#screen-fit-budget form');
     await expect(form).toBeVisible();
-    await expect(form.locator('input[name="fullName"]')).toBeVisible();
-    await expect(form.locator('input[name="email"]')).toBeVisible();
-    await expect(form.locator('input[name="phone"]')).toBeVisible();
+    await expect(
+      form.getByRole('heading', {
+        name: 'What would you like your outdoor space to do?',
+      })
+    ).toBeVisible();
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await expect(
       form.locator('input[name="interest"][value="shades"]')
     ).toBeChecked();
-    await expect(form.locator('[required]')).toHaveCount(3);
     await expect(form.locator('fieldset[data-interest-group]')).toHaveAttribute(
       'aria-required',
       'true'
     );
-    await expect(form.locator('input[name="location"]')).toHaveCount(0);
-
-    await form
-      .getByRole('button', { name: 'Add project details or photos (optional)' })
-      .click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await expect(form.locator('input[name="location"]')).toBeVisible();
     await expect(form.locator('input[type="file"]')).toBeAttached();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await expect(form.locator('[required]')).toHaveCount(3);
+    await expect(form.locator('input[name="fullName"]')).toBeVisible();
+    await expect(form.locator('input[name="email"]')).toBeVisible();
+    await expect(form.locator('input[name="phone"]')).toBeVisible();
   });
 
-  test('the homepage keeps the quote form compact while supporting multiple interests', async ({
+  test('the homepage quote flow supports question-first multiple interests', async ({
     page,
   }) => {
     await page.goto('/');
 
-    const form = page.locator('form[data-lead-form-id="quote_request"]').first();
-    const interestButton = form.getByRole('button', {
-      name: 'Select one or more',
-    });
+    const form = page
+      .locator('form[data-lead-form-id="quote_request"]')
+      .first();
 
     await expect(form).toBeVisible();
-    await expect(interestButton).toBeVisible();
-    await expect(form.getByLabel('Motorized pergola')).toHaveCount(0);
-
-    await interestButton.click();
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await form.getByLabel('Motorized pergola').check();
     await form.getByLabel('Glass enclosure').check();
 
-    await expect(
-      form.getByRole('button', { name: '2 interests selected' })
-    ).toBeVisible();
     await expect(form.getByLabel('Motorized pergola')).toBeChecked();
     await expect(form.getByLabel('Glass enclosure')).toBeChecked();
+    await form.getByRole('button', { name: 'Back' }).click();
+    await expect(
+      form.getByRole('button', { name: 'Add shade' })
+    ).toHaveAttribute('aria-pressed', 'true');
   });
 
   test('the Screen Fit + Budget pilot emits its own accepted-lead funnel events', async ({
     page,
   }) => {
-    await page.goto('/guides/magnatrack-screens-cost');
+    await page.goto('/guides/magnatrack-screens-cost', {
+      waitUntil: 'domcontentloaded',
+    });
     await page.evaluate(() => {
       window.dataLayer = [];
     });
@@ -305,6 +310,10 @@ test.describe('Smoke Tests', () => {
     });
 
     const form = page.locator('#screen-fit-budget form');
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await form.locator('input[name="fullName"]').fill('Taylor Jordan');
     await form.locator('input[name="email"]').fill('taylor@example.com');
     await form.locator('input[name="phone"]').fill('815-555-0102');
@@ -369,11 +378,17 @@ test.describe('Smoke Tests', () => {
       });
     });
 
-    await page.goto('/guides/magnatrack-screens-cost');
+    await page.goto('/guides/magnatrack-screens-cost', {
+      waitUntil: 'domcontentloaded',
+    });
     await page.evaluate(() => {
       window.dataLayer = [];
     });
     const form = page.locator('#screen-fit-budget form');
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await form.locator('input[name="fullName"]').fill('Taylor Jordan');
     await form.locator('input[name="email"]').fill('taylor@example.com');
     await form.locator('input[name="phone"]').fill('815-555-0102');
@@ -411,12 +426,13 @@ test.describe('Smoke Tests', () => {
   test('contact form honors CTA query params', async ({ page }) => {
     await page.goto('/contact?type=price&product=saunas&area=Sanibel');
 
+    const form = page.locator('form[data-lead-form-id="quote_request"]');
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await expect(
       page.locator('input[name="interest"][value="sauna"]')
     ).toBeChecked();
-    await page
-      .getByRole('button', { name: 'Add project details or photos (optional)' })
-      .click();
+    await form.getByRole('button', { name: 'Continue' }).click();
     await expect(page.locator('input[name="location"]')).toHaveValue(
       'Sanibel, FL'
     );
