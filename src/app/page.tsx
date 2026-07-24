@@ -119,7 +119,7 @@ const homeownerContactHref = buildContactHref({
 export const metadata: Metadata = {
   title: 'Motorized Pergolas & Retractable Screens | EDG Patio & Shade',
   description:
-    'EDG Patio & Shade is the design and supply partner for motorized pergolas, retractable screens, and glass enclosures. Full-service installation from Chicago to Milwaukee, with nationwide design and supply for trade partners.',
+    'Explore custom motorized pergolas, retractable screens, and glass enclosures installed across Chicago, Lake Geneva, and Milwaukee by EDG Patio & Shade.',
   keywords: [
     'motorized pergolas',
     'retractable screens',
