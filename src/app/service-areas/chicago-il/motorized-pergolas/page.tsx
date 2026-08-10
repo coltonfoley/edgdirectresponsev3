@@ -9,6 +9,7 @@ import {
   ShieldCheck,
   Smartphone,
   Sun,
+  Users,
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
@@ -20,9 +21,9 @@ import { generateFAQSchema, generateServiceSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Chicago Pergola Installer | Motorized Louvered Roofs | EDG',
+  title: 'Motorized Pergolas Chicago | Pergola Installer | EDG',
   description:
-    'Chicago pergola installer for custom motorized louvered roofs. Built for patios, roof decks, wind, rain, snow, and tight city lots.',
+    'Chicago motorized pergola planning and installation for patios and roof decks. See a real local project, permit considerations, and service coverage.',
   alternates: {
     canonical: '/service-areas/chicago-il/motorized-pergolas',
   },
@@ -64,6 +65,24 @@ const benefits = [
   },
 ];
 
+const projectTeam = [
+  {
+    title: 'Homeowners and property teams',
+    description:
+      'Bring the goals for the space, site photos, rough dimensions, property information, and any known condo, HOA, or building requirements.',
+  },
+  {
+    title: 'Builders, architects, and trades',
+    description:
+      'When a broader renovation is involved, EDG can coordinate pergola layout and product information with the project professionals responsible for the surrounding structure, waterproofing, electrical work, and approvals.',
+  },
+  {
+    title: 'EDG pergola team',
+    description:
+      'EDG evaluates system fit, develops the pergola scope, coordinates manufacturer and engineering information, and installs and commissions the selected pergola system. Final responsibilities are confirmed for each project before ordering.',
+  },
+];
+
 const faqs = [
   {
     question: 'Can a motorized pergola work on a Chicago roof deck?',
@@ -84,6 +103,16 @@ const faqs = [
     question: 'How much planning should happen before I ask for pricing?',
     answer:
       'Enough to understand the space, not every last finish choice. A rough layout, photos, and a sense of how you want to use the patio are enough to start a meaningful conversation. From there we can help determine the right system, likely scope, and whether screens or other accessories should be included from day one.',
+  },
+  {
+    question: 'Does a motorized pergola in Chicago need a permit?',
+    answer:
+      'Permit and review requirements depend on the property, structure, attachment, electrical scope, zoning, and project type. A roof deck, multifamily building, or structurally attached system can follow a different path from a ground-level residential patio. EDG identifies the product and engineering information the project team may need, but the applicable authority must confirm the requirements for the actual address.',
+  },
+  {
+    question: 'Does EDG work with Chicago builders and architects?',
+    answer:
+      'Yes. EDG can work directly with a homeowner or coordinate the pergola package with a builder, architect, engineer, electrician, or other project professional. The exact division of design, permit, site, and trade responsibilities is established for the individual project rather than assumed from the start.',
   },
 ];
 
@@ -275,7 +304,7 @@ export default function ChicagoPergolasPage() {
                 Features and Planning Notes
               </div>
               <h2 className="section-title mb-4">
-                Selected to match the way city spaces behave
+                Pergola planning before fabrication and installation
               </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -290,6 +319,17 @@ export default function ChicagoPergolasPage() {
                     <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
                     <p className="text-text-primary font-medium">{item}</p>
                   </div>
+                </Card>
+              ))}
+            </div>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              {projectTeam.map((item) => (
+                <Card key={item.title} variant="default" padding="lg">
+                  <Users className="text-edg-brand-text mb-4 h-5 w-5" />
+                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {item.description}
+                  </p>
                 </Card>
               ))}
             </div>
@@ -341,11 +381,31 @@ export default function ChicagoPergolasPage() {
 
         <Section className="section-md bg-surface-muted">
           <Container>
-            <div className="mb-12 text-center">
-              <div className="label-editorial-brand mb-4">Visual Direction</div>
-              <h2 className="section-title mb-4">
-                Examples of the look and performance level
-              </h2>
+            <div className="mb-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-end">
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  Real Chicago Project
+                </div>
+                <h2 className="section-title mb-4">
+                  Carmine&apos;s: a completed multi-bay pergola in Chicago
+                </h2>
+              </div>
+              <div>
+                <p className="text-text-secondary mb-5 text-lg leading-relaxed">
+                  The restaurant patio had an angled, cantilevered condition and
+                  needed to preserve usable seating. EDG planned a custom
+                  motorized louvered system with steel beams and reinforced
+                  columns where the span required added support, reducing
+                  unnecessary posts in the dining area.
+                </p>
+                <Link
+                  href="/projects/carmines"
+                  className="inline-flex items-center gap-2 font-bold hover:underline"
+                >
+                  View the Carmine&apos;s project
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {gallery.map((item) => (
@@ -362,6 +422,59 @@ export default function ChicagoPergolasPage() {
                   />
                 </div>
               ))}
+            </div>
+          </Container>
+        </Section>
+
+        <Section className="section-md">
+          <Container>
+            <div className="grid gap-10 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  Permit-Aware Planning
+                </div>
+                <h2 className="section-title mb-5">
+                  Confirm the review path for the actual Chicago address
+                </h2>
+                <p className="text-text-secondary mb-5 text-lg leading-relaxed">
+                  A motorized pergola can involve structural attachment,
+                  foundations, drainage, electrical work, zoning constraints, or
+                  building and condo review. The correct path depends on the
+                  property and scope, so product engineering alone should not be
+                  treated as site approval or proof that a permit is not
+                  required.
+                </p>
+                <Link
+                  href="/guides/motorized-pergola-permits-hoa-engineering"
+                  className="inline-flex items-center gap-2 font-bold hover:underline"
+                >
+                  Read the permit and engineering planning guide
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  Genuine Service Coverage
+                </div>
+                <h2 className="section-title mb-5">
+                  Chicago city projects and nearby local pages
+                </h2>
+                <p className="text-text-secondary mb-5 text-lg leading-relaxed">
+                  This page is for projects in Chicago. EDG also has dedicated
+                  planning pages for communities it serves outside the city,
+                  including Northbrook, Lake Forest, Barrington, and Naperville.
+                  Use the local page for the project address rather than
+                  assuming Chicago rules or site conditions apply across the
+                  region.
+                </p>
+                <Link
+                  href="/service-areas"
+                  className="inline-flex items-center gap-2 font-bold hover:underline"
+                >
+                  Check EDG service areas
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </Container>
         </Section>
