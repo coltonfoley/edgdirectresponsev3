@@ -26,17 +26,17 @@ import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Restaurant Patio Enclosures Chicago | EDG Patio & Shade',
+  title: 'Commercial Restaurant Patio Enclosures Chicago | EDG',
   description:
-    'Plan a Chicago restaurant patio enclosure around seating, weather protection, permits, and daily service. Compare motorized pergolas, screens, glass, heat, and controls.',
+    'Plan a Chicago restaurant patio enclosure for seasonal dining. Compare retractable glass, motorized screens, pergolas, heating, and weather protection.',
   alternates: {
     canonical: '/commercial/restaurant-patio-enclosures',
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Chicago Restaurant Patio Enclosures | EDG Commercial',
+    title: 'Commercial Restaurant Patio Enclosures Chicago | EDG',
     description:
-      'Restaurant patio enclosure planning around seating, weather protection, permits, and daily service in Chicago.',
+      'Restaurant patio enclosure planning for seasonal dining with retractable glass, motorized screens, pergolas, heating, and weather protection.',
   },
 };
 
@@ -116,6 +116,60 @@ const systemOptions = [
     title: 'Heat, light, and controls',
     description:
       'Infrared heat, integrated lighting, sensors, remotes, app control, and staff-only operation can be planned as one restaurant system.',
+  },
+];
+
+const seasonalModes = [
+  {
+    title: 'Open-air service',
+    description:
+      'Retract glass or screens and open adjustable louvers when conditions are comfortable. The layout should preserve server paths and avoid creating storage problems for movable elements.',
+  },
+  {
+    title: 'Shoulder-season protection',
+    description:
+      'Use side protection to reduce drafts and wind-driven rain, then coordinate heaters with the roof, enclosure material, clearances, power or fuel source, and staff controls.',
+  },
+  {
+    title: 'Severe weather and shutdown',
+    description:
+      'Define when the patio closes, who operates each component, how drainage is checked, and what the manufacturer requires for wind, snow, ice, cleaning, and seasonal storage.',
+  },
+];
+
+const enclosureChoices = [
+  {
+    title: 'Retractable or sliding glass',
+    description:
+      'Clear panels can provide a stronger windbreak while preserving views. The header, tracks, panel stacking location, drainage, ventilation, door and egress plan all need project-specific review.',
+    href: '/systems/enclosures',
+    linkLabel: 'Explore glass enclosures',
+  },
+  {
+    title: 'Motorized exterior screens',
+    description:
+      'Screens can address sun, insects, privacy, and some wind exposure while retaining a lighter open-air feel. Fabric, side retention, opening size, mounting, and operating limits vary by system.',
+    href: '/systems/shades',
+    linkLabel: 'Explore motorized screens',
+  },
+];
+
+const commercialExamples = [
+  {
+    title: "Carmine's · Chicago",
+    description:
+      'A documented multi-bay motorized louvered pergola planned around an angled, cantilevered patio. Steel beams and reinforced columns helped reduce unnecessary posts in the dining layout.',
+    href: '/projects/carmines',
+  },
+  {
+    title: 'Chicago Winery · Chicago',
+    description:
+      'EDG project records document motorized screen coverage for an urban hospitality outdoor area, with downtown access, staging, and coordination included in the planning context. No measured seating or revenue result is claimed.',
+  },
+  {
+    title: "Lou Malnati's · Naperville",
+    description:
+      'EDG project records document a renovation concept combining a motorized pergola, motorized vinyl screens, and heaters for more seasonal use. The available record does not support a claimed performance or business outcome.',
   },
 ];
 
@@ -344,6 +398,85 @@ export default function RestaurantPatioEnclosuresPage() {
         </Container>
       </Section>
 
+      <Section className="section-md bg-black text-white">
+        <Container>
+          <div className="mb-10 max-w-3xl">
+            <div className="label-editorial-brand mb-4">Seasonal Operation</div>
+            <h2 className="section-title mb-5 text-white">
+              Plan how the restaurant patio changes with the weather
+            </h2>
+            <p className="text-lg leading-relaxed text-zinc-300">
+              A seasonal patio enclosure is not one fixed condition. The useful
+              plan explains how staff move between open-air dining, wind or rain
+              protection, added heat, and a full shutdown without improvising
+              during service.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {seasonalModes.map((mode, index) => (
+              <div key={mode.title} className="border border-white/10 p-6">
+                <div className="text-edg-brand mb-4 text-xs font-bold tracking-[0.18em] uppercase">
+                  Operating mode {index + 1}
+                </div>
+                <h3 className="mb-3 text-xl font-bold">{mode.title}</h3>
+                <p className="text-sm leading-relaxed text-zinc-300">
+                  {mode.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
+        <Container>
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">
+              Glass or Screen Enclosure
+            </div>
+            <h2 className="section-title mb-4">
+              Choose side protection around the exposure and operating goal
+            </h2>
+            <p className="text-text-secondary text-lg leading-relaxed">
+              Glass and screens are not interchangeable. Some restaurants need a
+              clearer windbreak; others need flexible shade and insect control.
+              Site conditions and the selected product determine what each
+              system can safely do.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {enclosureChoices.map((choice) => (
+              <Card key={choice.title} variant="outline" padding="lg">
+                <h3 className="mb-3 text-2xl font-bold">{choice.title}</h3>
+                <p className="text-text-secondary mb-6 leading-relaxed">
+                  {choice.description}
+                </p>
+                <Link
+                  href={choice.href}
+                  className="hover:text-edg-brand-text inline-flex items-center text-sm font-bold tracking-wider uppercase"
+                >
+                  {choice.linkLabel}
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Link>
+              </Card>
+            ))}
+          </div>
+          <div className="bg-surface mt-6 border border-black/10 p-6">
+            <h3 className="mb-3 text-xl font-bold">
+              Heating compatibility is part of the enclosure plan
+            </h3>
+            <p className="text-text-secondary leading-relaxed">
+              A heater should not be treated as a universal add-on. Heater type,
+              mounting height, clearances, ventilation, enclosure material,
+              electrical or gas service, controls, and manufacturer instructions
+              must be coordinated for the specific patio. EDG can organize those
+              inputs with the restaurant and project team before equipment is
+              specified.
+            </p>
+          </div>
+        </Container>
+      </Section>
+
       <Section className="section-md">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -446,6 +579,43 @@ export default function RestaurantPatioEnclosuresPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-surface">
+        <Container>
+          <div className="mb-10 max-w-3xl">
+            <div className="label-editorial-brand mb-4">
+              Commercial Project Examples
+            </div>
+            <h2 className="section-title mb-5">
+              Restaurant work grounded in documented EDG project records
+            </h2>
+            <p className="text-text-secondary text-lg leading-relaxed">
+              These examples show different planning conditions. They do not
+              imply that every patio uses the same system or produces the same
+              operating result.
+            </p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {commercialExamples.map((project) => (
+              <Card key={project.title} variant="outline" padding="lg">
+                <h3 className="mb-3 text-xl font-bold">{project.title}</h3>
+                <p className="text-text-secondary leading-relaxed">
+                  {project.description}
+                </p>
+                {project.href ? (
+                  <Link
+                    href={project.href}
+                    className="hover:text-edg-brand-text mt-6 inline-flex items-center text-sm font-bold tracking-wider uppercase"
+                  >
+                    View documented project
+                    <ChevronRight className="ml-1 h-4 w-4" />
+                  </Link>
+                ) : null}
+              </Card>
+            ))}
           </div>
         </Container>
       </Section>
