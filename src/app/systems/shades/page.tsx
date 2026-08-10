@@ -208,6 +208,37 @@ const screenOptions = [
   },
 ];
 
+const screenComparisons = [
+  {
+    option: 'MagnaTrack motorized screen',
+    bestFor:
+      'Custom openings where bugs, sun, privacy, and everyday wind comfort matter, but the space should still open fully.',
+    tradeoff:
+      'Needs structure, aligned side tracks, power, and room for the housing; it is a comfort screen unless a separately specified storm-rated product is used.',
+  },
+  {
+    option: 'Basic drop or fixed-track screen',
+    bestFor:
+      'Sheltered openings where a simpler retractable screen can meet the main insect or shade need.',
+    tradeoff:
+      'The track design may be less forgiving when fabric moves under pressure, so exposure and operating expectations matter.',
+  },
+  {
+    option: 'Fixed screened room',
+    bestFor:
+      'Spaces that should stay enclosed for insects without needing a fully open view or passage.',
+    tradeoff:
+      'Always present; it does not retract when the weather is comfortable or the patio should feel open.',
+  },
+  {
+    option: 'Retractable glass enclosure',
+    bestFor:
+      'Patios that need more protection from wind and rain while keeping clear views and flexible panels.',
+    tradeoff:
+      'A different enclosure category with less airflow than mesh and a larger structural and budget commitment.',
+  },
+];
+
 const fitChecks = [
   'Opening width, height, squareness, and whether the sides can carry clean tracks',
   'Headbox visibility, recessed versus outside mount, trim, and future service access',
@@ -571,6 +602,61 @@ export default function ShadesPage() {
 
         <Section className="section-md bg-surface-muted border-t border-black/5">
           <Container>
+            <div className="grid items-start gap-12 lg:grid-cols-2">
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  How It Operates
+                </div>
+                <h2 className="section-title mb-6">
+                  A Motorized Roller Above, With Magnetic Tracks at the Sides
+                </h2>
+                <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
+                  <p>
+                    The screen rolls into a housing above the opening. When it
+                    lowers, a Keder edge travels inside an adjustable insert in
+                    each side track while a weighted bottom bar helps the fabric
+                    deploy smoothly and seal at the floor.
+                  </p>
+                  <p>
+                    Progressive says the opposing neodymium magnets can separate
+                    as the fabric expands under wind pressure. When that
+                    pressure subsides, the magnetic pull brings the insert back
+                    into position and re-tensions the screen. That movement is
+                    the key difference from a permanently fixed track or
+                    zipper-style edge.
+                  </p>
+                  <p>
+                    It is still a retractable outdoor screen, not a wall. EDG
+                    reviews normal operating conditions, controls, sensors, and
+                    care expectations for the selected fabric and opening.
+                  </p>
+                </div>
+              </div>
+              <Card variant="default" padding="lg">
+                <h3 className="mb-5 text-xl font-bold">Typical daily use</h3>
+                <ol className="space-y-4">
+                  {[
+                    'Lower the screen with the specified wall switch, remote, app, or integration.',
+                    'Use the insect, solar, privacy, or vinyl fabric for the conditions it was selected to manage.',
+                    'Retract the screen when the opening should be clear or when conditions exceed the operating guidance for that system.',
+                  ].map((item, index) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <span className="bg-edg-brand-dark text-text-inverse flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                        {index + 1}
+                      </span>
+                      <span className="text-text-secondary leading-relaxed">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </Card>
+            </div>
+          </Container>
+        </Section>
+
+        <Section className="section-md bg-surface-muted border-t border-black/5">
+          <Container>
             <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
                 <div className="label-editorial-brand mb-4">
@@ -617,6 +703,56 @@ export default function ShadesPage() {
                   </Card>
                 ))}
               </div>
+            </div>
+          </Container>
+        </Section>
+
+        <Section className="section-md border-t border-black/5">
+          <Container>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <div className="label-editorial-brand mb-4">
+                Compare the Paths
+              </div>
+              <h2 className="section-title mb-4">
+                MagnaTrack Screens vs. Other Patio Enclosure Options
+              </h2>
+              <p className="text-text-secondary">
+                Choose by the conditions the opening needs to manage, not by a
+                product name alone.
+              </p>
+            </div>
+            <div className="overflow-x-auto border border-black/10 bg-white">
+              <table className="w-full min-w-[720px] text-left">
+                <thead className="bg-surface-dark text-text-inverse">
+                  <tr>
+                    <th className="p-5 text-sm tracking-wider uppercase">
+                      Option
+                    </th>
+                    <th className="p-5 text-sm tracking-wider uppercase">
+                      Best fit
+                    </th>
+                    <th className="p-5 text-sm tracking-wider uppercase">
+                      Important tradeoff
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {screenComparisons.map((item) => (
+                    <tr
+                      key={item.option}
+                      className="border-t border-black/10 align-top"
+                    >
+                      <th className="p-5 font-bold">{item.option}</th>
+                      <td className="text-text-secondary p-5 leading-relaxed">
+                        {item.bestFor}
+                      </td>
+                      <td className="text-text-secondary p-5 leading-relaxed">
+                        {item.tradeoff}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </Container>
         </Section>
@@ -906,7 +1042,20 @@ export default function ShadesPage() {
                 Lake Geneva outdoor screens
                 <ArrowRight className="h-4 w-4" />
               </Link>
+              <Link
+                href="/service-areas/southwest-florida/motorized-screens"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
+              >
+                Southwest Florida motorized screens
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
+            <p className="text-text-secondary mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed">
+              EDG installs motorized screen projects in the Chicago and
+              Milwaukee region, Lake Geneva and nearby southern Wisconsin, and
+              Southwest Florida. Project availability still depends on the exact
+              address, opening, scope, and installation schedule.
+            </p>
           </Container>
         </Section>
 
