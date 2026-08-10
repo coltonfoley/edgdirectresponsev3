@@ -609,7 +609,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/how-much-are-louvered-pergolas',
-        destination: '/price',
+        destination: '/guides/pergola-cost',
         permanent: true,
       },
 

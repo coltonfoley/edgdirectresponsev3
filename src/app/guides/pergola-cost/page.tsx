@@ -32,9 +32,9 @@ import {
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Motorized Pergola Cost in Chicago & Lake Geneva | 2026',
+  title: 'Louvered Pergola Cost: Installed Prices & Examples | 2026',
   description:
-    'See 2026 planning ranges for installed motorized pergolas in Chicago and Lake Geneva, with site, engineering, drainage, and feature costs that change a quote.',
+    'Motorized louvered pergolas typically cost $25,000-$150,000+ installed. See cost per square foot, options, and Chicago-area budget examples.',
   keywords: [
     'pergola cost',
     'how much does a pergola cost',
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Motorized Pergola Cost in Chicago & Lake Geneva | EDG',
+    title: 'Louvered Pergola Cost: Installed Prices & Examples | EDG',
     description:
-      'Planning ranges for complete motorized pergola projects, including site conditions, engineering, drainage, features, and installation scope.',
+      'Installed planning ranges, cost per square foot, options, and real-world budget examples for motorized louvered pergolas.',
   },
 };
 
@@ -94,6 +94,33 @@ const costRanges = [
     description:
       'Complex engineering, multiple zones, full integration with architecture.',
     bestFor: ['Estate homes', 'Restaurants', 'Rooftop venues', 'Country clubs'],
+  },
+];
+
+const budgetExamples = [
+  {
+    title: "12' × 14' compact patio",
+    size: '168 sq. ft.',
+    range: '$25,000 – $40,000',
+    effectiveRate: 'About $149 – $238 per sq. ft.',
+    scope:
+      'A single-zone motorized louvered pergola with a straightforward freestanding layout and a limited accessory package.',
+  },
+  {
+    title: "16' × 20' residential outdoor room",
+    size: '320 sq. ft.',
+    range: '$40,000 – $65,000',
+    effectiveRate: 'About $125 – $203 per sq. ft.',
+    scope:
+      'A common residential footprint with motorization, integrated drainage, professional installation, and normal site coordination.',
+  },
+  {
+    title: "20' × 24' multi-zone patio",
+    size: '480 sq. ft.',
+    range: '$65,000 – $90,000',
+    effectiveRate: 'About $135 – $188 per sq. ft.',
+    scope:
+      'A larger multi-zone system where lighting, heaters, screens, finish choices, or structural complexity can move the project higher.',
   },
 ];
 
@@ -324,7 +351,7 @@ const faqs = [
     question:
       'What is the cost per square foot for a motorized louvered pergola?',
     answer:
-      'Premium motorized pergolas typically range from $120 to $200 per square foot installed, depending on features and site complexity. This compares to $15-30/sq ft for basic non-motorized aluminum pergolas and $40-80/sq ft for high-end wood structures. The per-square-foot cost decreases slightly as size increases due to economies of scale on engineering and installation mobilization.',
+      'A useful early planning range is about $120 to $200 per square foot installed for many premium motorized louvered pergolas. Compact projects can calculate higher because motors, controls, mobilization, and engineering are spread across fewer square feet. Screens, heaters, lighting, difficult access, deck reinforcement, and custom structural work can also move the effective rate above that range.',
   },
   {
     question: 'Are there financing options available?',
@@ -400,7 +427,7 @@ export default function PergolaCostGuide() {
       'Planning guide to motorized pergola costs in Chicago and Lake Geneva, including installed project ranges, site variables, and budget considerations.',
     url: 'https://www.edgpatioshade.com/guides/pergola-cost',
     datePublished: '2026-03-17',
-    dateModified: '2026-07-09',
+    dateModified: '2026-08-10',
     category: 'Buying Guide',
   });
 
@@ -449,18 +476,24 @@ export default function PergolaCostGuide() {
             </div>
 
             <h1 className="mb-8 text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
-              What does a motorized
-              <br />
-              <span className="text-edg-brand">
-                pergola cost in Chicago &amp; Lake Geneva?
-              </span>
+              How much does a motorized
+              <br />{' '}
+              <span className="text-edg-brand">louvered pergola cost?</span>
             </h1>
 
             <p className="text-text-inverse-muted mb-8 max-w-3xl text-xl leading-relaxed md:text-2xl">
-              Planning ranges for complete motorized pergola projects in the
-              Chicago-Milwaukee corridor and Lake Geneva area. These are not kit
-              prices or quotes: site conditions, engineering, drainage,
-              features, and installation scope all shape the final proposal.
+              The residential planning bands in this guide run from $25,000 to
+              $90,000 installed; large, multi-zone, roof-deck, and commercial
+              systems can reach $90,000 to $150,000+. A useful early benchmark
+              is about $120 to $200 per square foot, but site conditions and
+              options can move the effective rate outside that range.
+            </p>
+
+            <p className="text-text-inverse-muted mb-8 max-w-3xl text-sm leading-relaxed">
+              These are 2026 planning ranges for the Chicago-Milwaukee corridor
+              and Lake Geneva area, not quotes or kit-only prices. The final
+              proposal depends on the selected system, engineering, drainage,
+              electrical work, access, features, and installation scope.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -555,12 +588,13 @@ export default function PergolaCostGuide() {
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Ballpark Figures</div>
             <h2 className="section-title">
-              Premium Motorized Pergola Cost Ranges
+              Installed Motorized Louvered Pergola Price Ranges
             </h2>
             <p className="text-text-secondary mt-4">
-              Installed pricing for systems we specify, including materials,
-              engineering, permits, and professional installation. Every project
-              is unique—these are starting points.
+              Complete-project planning ranges for the systems EDG specifies and
+              installs. Exact inclusions vary by proposal, especially for
+              permits, engineering, electrical work, site preparation, and
+              integrated features.
             </p>
           </div>
 
@@ -613,6 +647,76 @@ export default function PergolaCostGuide() {
               screens, and complex site conditions add to total investment.
               Request a quote for fixed pricing specific to your project.
             </p>
+          </div>
+        </Container>
+      </Section>
+
+      {/* ========== COST PER SQUARE FOOT & EXAMPLES ========== */}
+      <Section className="section-lg">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Cost Per Square Foot
+              </div>
+              <h2 className="section-title mb-6">
+                Plan around $120–$200 per square foot installed
+              </h2>
+              <div className="text-text-secondary space-y-4 leading-relaxed">
+                <p>
+                  That range is a useful first-pass benchmark for many premium
+                  motorized louvered pergolas, not a rate card. A
+                  200-square-foot project does not automatically equal 200 times
+                  a fixed price.
+                </p>
+                <p>
+                  Motors, controls, engineering, delivery, equipment, and crew
+                  mobilization create project costs that do not scale directly
+                  with area. That is why compact pergolas often have a higher
+                  effective cost per square foot, while a larger straightforward
+                  layout can fall closer to the middle of the range.
+                </p>
+                <p>
+                  Screens, heaters, lighting, multiple operating zones, custom
+                  colors, difficult access, deck reinforcement, or complex
+                  attachment details can push the effective rate above $200 per
+                  square foot.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="mb-3 text-2xl font-bold">
+                Three realistic budget examples
+              </h2>
+              <p className="text-text-secondary mb-6 text-sm leading-relaxed">
+                These examples apply the installed planning bands above to
+                specific footprints. They illustrate how real project scope
+                behaves; they are not completed-project invoices or quotes.
+              </p>
+              <div className="space-y-4">
+                {budgetExamples.map((example) => (
+                  <Card key={example.title} variant="muted" padding="lg">
+                    <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-start">
+                      <div>
+                        <h3 className="mb-1 text-xl font-bold">
+                          {example.title}
+                        </h3>
+                        <p className="text-text-muted mb-3 text-sm">
+                          {example.size} · {example.effectiveRate}
+                        </p>
+                        <p className="text-text-secondary text-sm leading-relaxed">
+                          {example.scope}
+                        </p>
+                      </div>
+                      <p className="text-edg-brand-text text-xl font-bold whitespace-nowrap">
+                        {example.range}
+                      </p>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
