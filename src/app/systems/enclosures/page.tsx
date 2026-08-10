@@ -29,9 +29,9 @@ import { buildContactHref } from '@/lib/contact-links';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Lumon Glass Enclosures | Retractable Glass Walls | EDG',
+  title: 'Retractable Glass Patio Enclosures & Walls | EDG',
   description:
-    'Lumon glass enclosures and frameless retractable glass wall systems for patios, pergolas, balconies, roof decks, and restaurant spaces. Designed and installed by EDG.',
+    'Explore retractable glass patio enclosures and frameless outdoor glass walls for homes, pergolas, restaurants, hotels, and hospitality spaces.',
   keywords: [
     'Lumon glass enclosures',
     'Lumon glass walls',
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Lumon Glass Enclosures | Retractable Glass Walls | EDG',
+    title: 'Retractable Glass Patio Enclosures & Walls | EDG',
     description:
-      'Featured Lumon LGR and LGS glass enclosure systems for patios, pergolas, roof decks, and restaurant spaces.',
+      'Retractable and sliding glass walls for residential patios and hospitality outdoor spaces.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -100,7 +100,7 @@ const galleryImages = [
 
 // Quick specs for hero section
 const specs = [
-  { label: 'Featured Brand', value: 'Lumon LGR + LGS' },
+  { label: 'Featured Brand', value: 'Lumon Glazing' },
   { label: 'Glass Type', value: 'Tempered Panels' },
   { label: 'Best Fit', value: 'Patios + Pergolas' },
   { label: 'Season Goal', value: '3-Season Comfort' },
@@ -108,7 +108,7 @@ const specs = [
 
 // Detailed specifications table
 const specifications = [
-  { label: 'Featured Systems', value: 'Lumon LGR retractable + LGS sliding' },
+  { label: 'Featured Systems', value: 'Retractable + sliding glazing' },
   {
     label: 'Glass Options',
     value: 'Tempered safety glass, project-specific thickness',
@@ -147,7 +147,7 @@ const features = [
     icon: Sparkles,
     title: 'Retractable or Sliding Operation',
     description:
-      'EDG helps choose between Lumon LGR retractable panels that stack open at the side and Lumon LGS sliding panels that move together along a lower track.',
+      'EDG helps choose between retractable panels that slide and fold to the side and sliding panels that move sideways along the track.',
   },
   {
     icon: Shield,
@@ -159,7 +159,7 @@ const features = [
     icon: Droplets,
     title: 'Wind and Rain Control',
     description:
-      'A glass enclosure helps block wind-driven rain, drafts, outdoor noise, and shoulder-season chill while keeping the space ventilated and openable when the weather improves.',
+      'A glass enclosure helps reduce exposure to wind, rain, outdoor noise, and shoulder-season chill while retaining the ventilation gaps required by the system.',
   },
   {
     icon: Wind,
@@ -178,17 +178,17 @@ const features = [
 // Featured Lumon systems
 const lumonSystems = [
   {
-    name: 'Lumon LGR Retractable Glazing',
+    name: 'Lumon Retractable Glazing',
     bestFor: 'Best when the goal is a clear, fully open wall.',
     description:
-      'Panels move independently, retract inward or outward at the end of the track, and stack together. LGR is strong for patios, pergolas, and restaurant spaces where full opening flexibility matters.',
+      'Panels slide and fold to the side of the opening. Retractable glazing is a strong fit for patios, pergolas, and hospitality spaces where full-opening flexibility matters.',
   },
   {
-    name: 'Lumon LGS Sliding Glazing',
+    name: 'Lumon Sliding Glazing',
     bestFor:
       'Best when space is tight or a one-motion sliding wall is preferred.',
     description:
-      'Panels slide along the lower track and follow one another to the stack point. LGS can be a better fit where furniture, traffic flow, or roof structure makes retractable stacking less practical.',
+      'Panels slide sideways along the track. Sliding glazing can be a better fit where furniture, traffic flow, or roof structure makes folding panels less practical.',
   },
 ];
 
@@ -196,13 +196,13 @@ const lumonSystems = [
 const installOptions = [
   'Existing roof and beam review',
   'Deck, slab, and drainage check',
-  'LGR/LGS operation recommendation',
+  'Retractable/sliding operation recommendation',
   'Permit and engineering coordination',
 ];
 
 // Upgrade options
 const upgradeOptions = [
-  { name: 'Operation', value: 'Lumon LGR retractable or LGS sliding' },
+  { name: 'Operation', value: 'Lumon retractable or sliding glazing' },
   { name: 'Glass', value: 'Clear, tinted, and thickness options by project' },
   {
     name: 'Comfort',
@@ -210,7 +210,7 @@ const upgradeOptions = [
   },
   {
     name: 'Hardware',
-    value: 'Locks, handles, colors, and pet-safe ventilation options',
+    value: 'Locks, handles, profile colors, and ventilation details',
   },
 ];
 
@@ -247,14 +247,14 @@ const relatedProducts = [
 // FAQ data for schema
 const faqs = [
   {
-    question: 'What is a Lumon glass enclosure?',
+    question: 'What is a retractable glass patio enclosure?',
     answer:
-      'A Lumon glass enclosure is a frameless tempered-glass wall system for patios, pergolas, balconies, roof decks, and restaurant spaces. Panels can slide, retract, or stack so the space can be open, partially ventilated, or protected from wind and rain.',
+      'A retractable glass patio enclosure uses movable tempered-glass panels around a covered outdoor space. The panels can open, partially ventilate the space, or close to reduce exposure to wind and rain while preserving outdoor views.',
   },
   {
-    question: 'Should I choose Lumon LGR or Lumon LGS?',
+    question: 'Should I choose retractable or sliding glass panels?',
     answer:
-      'Lumon LGR is the retractable system, with panels that operate independently and stack open at the side. Lumon LGS is the sliding system, with panels that move together along a lower track. EDG recommends the system after reviewing your opening size, roof strength, furniture layout, and how much clear opening you want.',
+      'Retractable glazing can fold to the side for a more fully open wall. Sliding glazing moves sideways and can suit openings where a simpler motion path is preferred. EDG reviews opening size, structure, furniture, traffic flow, and the desired clear opening before recommending either approach.',
   },
   {
     question: 'Is a Lumon glass enclosure the same as a four-season room?',
@@ -264,7 +264,7 @@ const faqs = [
   {
     question: 'Can Lumon glass be installed on an existing patio or pergola?',
     answer:
-      'Often, yes. The opening needs a suitable roof or header, a sound deck or slab, and a plan for drainage and movement. EDG measures the site and checks structure before recommending Lumon LGR, Lumon LGS, or another enclosure approach.',
+      'Often, yes. The opening needs a suitable roof or header, a sound deck or slab, and a plan for drainage and movement. EDG measures the site and checks structure before recommending retractable, sliding, or another enclosure approach.',
   },
   {
     question: 'How much do Lumon glass enclosures cost?',
@@ -281,9 +281,9 @@ const faqs = [
 // Generate schemas
 const serviceSchema = {
   ...generateServiceSchema({
-    name: 'Lumon Glass Enclosure Design and Installation',
+    name: 'Retractable Glass Patio Enclosure Design and Installation',
     description:
-      'Design and installation of Lumon LGR and LGS frameless glass enclosure systems for patios, pergolas, roof decks, balconies, and commercial outdoor spaces.',
+      'Design and installation of retractable and sliding frameless glass enclosure systems for residential patios, pergolas, roof decks, balconies, restaurants, and hospitality spaces.',
     url: 'https://www.edgpatioshade.com/systems/enclosures',
     image: `https://www.edgpatioshade.com${images.systems.enclosures.lumonPatio}`,
   }),
@@ -295,9 +295,9 @@ const serviceSchema = {
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'How EDG Plans a Lumon Glass Enclosure',
+  name: 'How EDG Plans a Retractable Glass Patio Enclosure',
   description:
-    'The planning steps EDG uses before recommending a Lumon LGR or LGS glass enclosure system.',
+    'The planning steps EDG uses before recommending a retractable or sliding glass enclosure system.',
   step: [
     {
       '@type': 'HowToStep',
@@ -306,7 +306,7 @@ const howToSchema = {
     },
     {
       '@type': 'HowToStep',
-      name: 'Choose LGR or LGS',
+      name: 'Choose Retractable or Sliding Glazing',
       text: 'Compare retractable and sliding operation based on opening size, furniture layout, and roof conditions.',
     },
     {
@@ -357,16 +357,16 @@ export default function EnclosuresPage() {
             <div className="order-1 flex min-w-0 flex-col justify-center lg:col-span-5">
               <div className="label-editorial-brand mb-6 flex items-center gap-3">
                 <div className="h-px w-8 bg-black"></div>
-                Featured Lumon Glass Systems
+                Retractable Glass Patio Enclosures
               </div>
               <h1 className="text-text-primary mb-8 text-5xl leading-[0.9] font-bold tracking-tighter md:text-7xl">
-                Lumon Glass <br /> Enclosures.
+                Glass Patio <br /> Enclosures.
               </h1>
               <p className="text-text-secondary mb-10 max-w-md text-xl leading-relaxed">
-                Retractable and sliding frameless glass walls for patios,
-                pergolas, balconies, roof decks, and restaurant spaces. EDG
-                designs the right Lumon enclosure around your structure, weather
-                exposure, and budget.
+                Retractable and sliding outdoor glass walls for residential
+                patios and hospitality spaces. EDG plans the enclosure around
+                the structure, opening pattern, weather exposure, and intended
+                daily use.
               </p>
 
               <div className="mb-12 flex flex-col gap-4">
@@ -443,15 +443,14 @@ export default function EnclosuresPage() {
           <div className="grid items-start gap-12 md:grid-cols-2">
             <div>
               <h3 className="mb-4 text-xl font-bold">
-                Lumon vs Traditional Patio Enclosures
+                Retractable Glass vs. a Fixed Room Addition
               </h3>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                Traditional patio enclosures usually behave like fixed rooms or
-                standard sliding doors. Lumon glass walls are built around
-                movement: panels can be opened, partially ventilated, or closed
-                as a windbreak. That makes the category a strong fit for covered
-                patios, pergolas, restaurant patios, and roof decks where the
-                view and open-air feeling still matter.
+                A fixed room addition is built to remain enclosed. Retractable
+                glass walls are built around movement: panels can open, provide
+                partial ventilation, or close when more weather protection is
+                useful. They are uninsulated, single-glazed outdoor systems—not
+                a substitute for a conditioned four-season room.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 As a system-agnostic design and supply partner, EDG specifies
@@ -514,16 +513,17 @@ export default function EnclosuresPage() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial-brand mb-4">Lumon LGR + LGS</div>
+              <div className="label-editorial-brand mb-4">
+                Retractable + Sliding Glazing
+              </div>
               <h2 className="section-title mb-6">
                 Two Ways to Open a Frameless Glass Wall
               </h2>
               <p className="text-text-secondary mb-8 leading-relaxed">
-                The core Lumon choice is not just glass or no glass. It is how
-                the wall should move. EDG compares Lumon retractable glass walls
-                against Lumon sliding glass walls so the finished enclosure
-                works with your furniture, roof structure, traffic flow, and
-                view.
+                The core choice is not just glass or no glass. It is how the
+                wall should move. EDG compares retractable glass walls against
+                sliding glass walls so the finished enclosure works with your
+                furniture, roof structure, traffic flow, and view.
               </p>
 
               <div className="space-y-4">
@@ -555,14 +555,18 @@ export default function EnclosuresPage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <Card variant="default" padding="md">
-                  <div className="text-text-primary mb-1 font-bold">LGR</div>
+                  <div className="text-text-primary mb-1 font-bold">
+                    Retractable
+                  </div>
                   <p className="text-text-secondary text-sm">
                     Independent retractable panels for maximum open-wall
                     flexibility.
                   </p>
                 </Card>
                 <Card variant="default" padding="md">
-                  <div className="text-text-primary mb-1 font-bold">LGS</div>
+                  <div className="text-text-primary mb-1 font-bold">
+                    Sliding
+                  </div>
                   <p className="text-text-secondary text-sm">
                     Sliding panels that stack together when the space needs a
                     compact motion path.
@@ -627,10 +631,11 @@ export default function EnclosuresPage() {
                 Designed Around the Opening
               </h2>
               <p className="text-text-secondary mb-8 leading-relaxed">
-                Lumon glass enclosures are custom-measured systems. Before EDG
-                recommends LGR, LGS, or another enclosure strategy, we look at
-                the existing structure, roof strength, deck or slab condition,
-                drainage, wind exposure, and how the space will be used.
+                Glass enclosures are custom-measured systems. Before EDG
+                recommends retractable, sliding, or another enclosure strategy,
+                we look at the existing structure, roof strength, deck or slab
+                condition, drainage, wind exposure, and how the space will be
+                used.
               </p>
 
               <div className="space-y-4">
@@ -757,13 +762,20 @@ export default function EnclosuresPage() {
                   </span>
                 </li>
               </ul>
+              <Link
+                href="/outdoor-rooms/pergola-glass-outdoor-room"
+                className="text-edg-brand-text mt-6 inline-flex items-center text-sm font-bold tracking-wider uppercase"
+              >
+                Explore a residential pergola + glass room
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Card>
 
             <Card variant="muted" padding="lg">
               <div className="mb-4 flex items-center gap-3">
                 <IconWrapper icon={Building2} variant="brand" size="md" />
                 <h3 className="text-text-primary text-xl font-bold">
-                  Commercial
+                  Hospitality
                 </h3>
               </div>
               <ul className="text-text-secondary space-y-3">
@@ -789,6 +801,13 @@ export default function EnclosuresPage() {
                   </span>
                 </li>
               </ul>
+              <Link
+                href="/commercial/restaurant-patio-enclosures"
+                className="text-edg-brand-text mt-6 inline-flex items-center text-sm font-bold tracking-wider uppercase"
+              >
+                Plan a restaurant patio enclosure
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Card>
           </div>
         </Container>
@@ -887,7 +906,7 @@ export default function EnclosuresPage() {
               {
                 step: '03',
                 title: 'System Design',
-                desc: 'Select LGR, LGS, glass, hardware, comfort add-ons, and permit-ready details.',
+                desc: 'Select the opening style, glass, hardware, comfort add-ons, and permit-ready details.',
               },
               {
                 step: '04',
@@ -1035,9 +1054,9 @@ export default function EnclosuresPage() {
                 Plan the glass before the weather decides.
               </h2>
               <p className="text-text-inverse-muted mb-8 max-w-md text-xl">
-                Explore Lumon glass enclosures with EDG and decide whether LGR,
-                LGS, screens, heaters, or another enclosure strategy is the
-                right fit for your space.
+                Explore Lumon glass enclosures with EDG and decide whether
+                retractable glazing, sliding glazing, screens, heaters, or
+                another enclosure strategy is the right fit for your space.
               </p>
               <TrackedLink href={bottomContactHref}>
                 <Button size="lg">Request a Quote</Button>
