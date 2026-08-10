@@ -22,9 +22,9 @@ import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'MagnaTrack Screens Cost Guide 2026 | Motorized Patio Screens | EDG',
+  title: 'MagnaTrack Screens Cost Guide 2026 | EDG',
   description:
-    'Learn what MagnaTrack motorized screens cost in 2026, what drives pricing, and how to budget for custom patio, porch, pergola, and restaurant screen projects.',
+    'Learn what affects MagnaTrack screen pricing, how its magnetic track-guided design differs, and when this featured premium option may fit a project.',
   alternates: {
     canonical: '/guides/magnatrack-screens-cost',
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     images: [{ url: '/opengraph-image' }],
     title: 'MagnaTrack Screens Cost Guide 2026 | EDG Patio & Shade',
     description:
-      'A practical cost guide for MagnaTrack motorized screens, including size, fabric, controls, retrofit details, and local installation factors.',
+      'A product-specific cost guide for MagnaTrack motorized screens and the projects where its magnetic track-guided design may fit.',
     type: 'article',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -40,10 +40,8 @@ export const metadata: Metadata = {
   keywords: [
     'magnatrack screens cost',
     'magnatrack motorized retractable screens',
-    'motorized patio screens cost',
-    'retractable screen cost',
-    'outdoor motorized screens price',
-    'patio screen installation cost',
+    'magnatrack screen price',
+    'progressive screens magnatrack cost',
   ],
 };
 
@@ -223,6 +221,17 @@ export default function MagnaTrackScreensCostGuide() {
             <div className="label-editorial-brand mb-4">Short Answer</div>
             <h2 className="section-title mb-6">What should you budget?</h2>
             <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
+              <p>
+                Looking for category-wide installed ranges first? Start with the{' '}
+                <Link
+                  href="/guides/motorized-retractable-screen-pricing"
+                  className="text-text-primary underline underline-offset-4"
+                >
+                  motorized retractable-screen pricing guide
+                </Link>{' '}
+                for example budgets across motorized screen types. This page
+                focuses on MagnaTrack and when its premium track design may fit.
+              </p>
               <p>
                 A custom motorized screen is not priced like a window screen
                 from a hardware store. It is closer to a small built-in

@@ -92,8 +92,16 @@ const guides = [
     intent: 'budget',
   },
   {
+    title: 'Motorized Retractable Screen Pricing Guide 2026',
+    desc: 'Installed price ranges, example budgets, and the size, mesh, controls, electrical, sensor, and installation choices that change a screen quote.',
+    href: '/guides/motorized-retractable-screen-pricing',
+    icon: DollarSign,
+    readTime: '10 min read',
+    intent: 'budget',
+  },
+  {
     title: 'MagnaTrack Screens Cost Guide 2026',
-    desc: 'Budget ranges and planning factors for motorized patio screens, outdoor shades, and screen retrofits.',
+    desc: 'A product-specific look at EDG’s featured premium magnetic track-guided screen option and when it may justify its cost.',
     href: '/guides/magnatrack-screens-cost',
     icon: Wind,
     readTime: '9 min read',

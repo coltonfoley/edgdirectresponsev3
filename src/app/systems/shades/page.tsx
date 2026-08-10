@@ -302,8 +302,8 @@ const relatedProducts = [
   {
     name: 'Screen Cost & Pricing Guide',
     description:
-      'Compare planning ranges, cost drivers, and the choices that change a MagnaTrack-style motorized screen quote.',
-    href: '/guides/magnatrack-screens-cost',
+      'Compare installed planning ranges, example budgets, and the choices that change a motorized retractable-screen quote.',
+    href: '/guides/motorized-retractable-screen-pricing',
   },
   {
     name: 'Restaurant Patio Enclosures',
@@ -872,11 +872,11 @@ export default function ShadesPage() {
                   Compare the real cost drivers
                 </h3>
                 <p className="text-text-secondary mb-6 leading-relaxed">
-                  See planning ranges, what changes the quote, and when a
-                  MagnaTrack-style system is worth the premium.
+                  See installed planning ranges, example budgets, and the
+                  choices that change a motorized-screen quote.
                 </p>
                 <Link
-                  href="/guides/magnatrack-screens-cost"
+                  href="/guides/motorized-retractable-screen-pricing"
                   className="text-text-primary hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
                 >
                   Review Screen Costs &amp; Pricing
