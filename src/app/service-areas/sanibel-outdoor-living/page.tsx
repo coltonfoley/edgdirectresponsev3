@@ -497,34 +497,6 @@ export default function SanibelHubPage() {
               </Link>
 
               <Link
-                href="/service-areas/sanibel-outdoor-living/modern-lanai"
-                className="group block"
-              >
-                <Card
-                  variant="muted"
-                  padding="lg"
-                  className="hover:border-edg-brand/50 h-full transition-colors"
-                >
-                  <IconWrapper
-                    icon={Sun}
-                    variant="brand"
-                    size="lg"
-                    className="mb-4"
-                  />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-xl font-bold transition-colors">
-                    The Modern Lanai
-                  </h3>
-                  <p className="text-text-secondary mb-6 text-sm">
-                    Discover the evolution of outdoor living: motorized pergolas
-                    and screens for covered lanai-style spaces.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
-                    Explore Modern Lanais <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
-              <Link
                 href="/service-areas/sanibel-outdoor-living/lanai-replacement"
                 className="group block"
               >
@@ -543,8 +515,9 @@ export default function SanibelHubPage() {
                     Lanai Replacement
                   </h3>
                   <p className="text-text-secondary mb-6 text-sm">
-                    Reviewing a damaged or outdated lanai? Compare a modern
-                    screen and pergola plan before defaulting to the old layout.
+                    Reviewing a damaged enclosure or pool cage? Compare
+                    like-for-like replacement with a different system before
+                    committing to the old layout.
                   </p>
                   <span className="text-edg-brand-text flex items-center gap-2 text-sm font-bold transition-all group-hover:gap-3">
                     View Replacement Guide <ArrowRight className="h-4 w-4" />

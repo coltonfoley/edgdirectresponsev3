@@ -30,12 +30,12 @@ import {
 export const metadata: Metadata = {
   title: 'Lanai Replacement Sanibel | Motorized Screens & Pergolas | EDG',
   description:
-    'Lanai replacement planning in Sanibel. Compare motorized screens, modern louvered pergolas, coastal materials, permits, and the FEMA 50% rule.',
+    'Sanibel lanai and pool cage replacement planning. Compare like-for-like rebuilding with screens or a louvered system, permits, trades, and documentation.',
   openGraph: {
     images: [{ url: '/opengraph-image' }],
     title: 'Lanai Replacement Sanibel | Motorized Screens & Pergolas | EDG',
     description:
-      'Compare motorized screens, covered outdoor living upgrades, and modern louvered systems for Sanibel homes.',
+      'Evaluate a damaged Sanibel lanai or pool cage before choosing like-for-like rebuilding, motorized screens, or a louvered system.',
     type: 'website',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -56,10 +56,10 @@ export const metadata: Metadata = {
 };
 
 const replacementBenefits = [
-  'Coastal replacement options',
-  '50% rule planning',
-  'Permit documentation support',
-  'Upgrade while you rebuild',
+  'Damage and scope review',
+  'Replacement vs. upgrade',
+  'Permit-document checklist',
+  'Clear trade boundaries',
 ];
 
 const whyUpgrade = [
@@ -92,27 +92,27 @@ const whyUpgrade = [
 const processSteps = [
   {
     step: '01',
-    title: 'Damage Assessment',
+    title: 'Document the Existing Condition',
     description:
-      'We evaluate your existing lanai structure, identify salvageable components (concrete pad, footings), and determine if the 50% rule applies to your rebuild.',
+      'Start with photos, available plans or permits, insurance scope, survey information, and known damage to the enclosure, pool cage, slab, roof, or footings. A qualified local professional must determine structural condition.',
   },
   {
     step: '02',
-    title: 'Design & Permitting',
+    title: 'Compare Replacement Paths',
     description:
-      'Our team designs a replacement option around survey, floodplain, product documentation, anchoring, drainage, screen, electrical, and Sanibel review questions.',
+      'EDG can compare a like-for-like enclosure concept with motorized screens, a louvered roof, or a combined system and identify the product documentation each option may require.',
   },
   {
     step: '03',
-    title: 'Demolition & Prep',
+    title: 'Confirm Licensed Scope',
     description:
-      'Safe removal of damaged structure while preserving reusable elements. We handle debris disposal and site preparation for the new installation.',
+      'Demolition, structural repair, concrete, roofing, electrical, engineering, and permit responsibility must be assigned to appropriately licensed local trades and design professionals for the approved scope.',
   },
   {
     step: '04',
-    title: 'Installation',
+    title: 'Submit and Build the Approved Plan',
     description:
-      'Professional installation follows approved plans, manufacturer requirements, and site conditions. Timeline depends on the approved scope, product lead time, and inspection path.',
+      'The City of Sanibel and other authorities decide permit, floodplain, and inspection requirements. Installation follows the approved documents, manufacturer requirements, and assigned trade responsibilities.',
   },
 ];
 
@@ -199,9 +199,9 @@ export default function LanaiReplacementPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             generateServiceSchema({
-              name: 'Lanai Replacement Services - Sanibel',
+              name: 'Lanai Replacement Planning - Sanibel',
               description:
-                'Professional lanai replacement and rebuild services for Sanibel Island homeowners, specializing in modern louvered roof systems post-Hurricane Ian.',
+                'Planning support for Sanibel lanai and pool cage replacement decisions, including like-for-like rebuilding, motorized screens, louvered systems, and permit-document considerations.',
               url: 'https://www.edgpatioshade.com/service-areas/sanibel-outdoor-living/lanai-replacement',
               image: `https://www.edgpatioshade.com${images.pages.serviceAreas.sanibelShopros}`,
             })
@@ -552,34 +552,6 @@ export default function LanaiReplacementPage() {
               </h2>
             </div>
             <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-              <Link
-                href="/service-areas/sanibel-outdoor-living/modern-lanai"
-                className="group block"
-              >
-                <Card
-                  variant="muted"
-                  padding="lg"
-                  className="hover:border-edg-brand/50 h-full transition-colors"
-                >
-                  <IconWrapper
-                    icon={Home}
-                    variant="default"
-                    size="lg"
-                    className="mb-4"
-                  />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    The Modern Lanai
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Compare traditional screened lanais against motorized
-                    pergolas, screens, and newer outdoor room layouts.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Explore Modern Lanais <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
               <Link
                 href="/service-areas/sanibel-outdoor-living/louvered-pergolas"
                 className="group block"

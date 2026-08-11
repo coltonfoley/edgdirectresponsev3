@@ -114,6 +114,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/service-areas/sanibel-outdoor-living/modern-lanai',
+        destination: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
+        permanent: true,
+      },
+      {
         source: '/commercial/restaurant-patio-systems',
         destination: '/commercial/restaurant-patio-solutions',
         permanent: true,

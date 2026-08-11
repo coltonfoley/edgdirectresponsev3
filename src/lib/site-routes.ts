@@ -578,16 +578,6 @@ export const siteRoutes: SiteRoute[] = [
     desc: 'Coastal pergola guidance for Sanibel and Captiva homes.',
   },
   {
-    href: '/service-areas/sanibel-outdoor-living/modern-lanai',
-    label: 'Modern Lanai Sanibel',
-    family: 'local-products',
-    xmlSitemap: true,
-    htmlSitemap: true,
-    priority: 0.8,
-    status: 'active',
-    desc: 'Related outdoor-room path for modernizing a Sanibel lanai.',
-  },
-  {
     href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
     label: 'Sanibel Lanai Replacement',
     family: 'local-products',

@@ -72,7 +72,7 @@ const roomConcepts = [
     title: 'Florida Lanai Modernization',
     description:
       'A modernized screened or protected lanai approach for homeowners who want better airflow, views, shade, and everyday comfort.',
-    href: '/service-areas/sanibel-outdoor-living/modern-lanai',
+    href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
     image: images.pages.serviceAreas.sanibelShade,
     icon: Wind,
     label: 'Related path',

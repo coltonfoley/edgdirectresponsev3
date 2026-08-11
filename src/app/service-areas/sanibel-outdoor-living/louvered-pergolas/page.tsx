@@ -110,15 +110,10 @@ const vsTraditional = [
     advantage: 'louvered',
   },
   {
-    aspect: 'Impermeable Surface',
-    traditional: 'Must be reviewed as part of developed area',
-    louvered: 'Also requires Sanibel developed-area review',
-    advantage: 'louvered',
-  },
-  {
-    aspect: 'Maintenance (20 years)',
-    traditional: '$3,000-6,000 (rescreening, painting, repairs)',
-    louvered: 'Reduced fixed-screen maintenance, plus routine cleaning',
+    aspect: 'Permit Treatment',
+    traditional: 'Existing enclosure, slab, and roof conditions affect review',
+    louvered:
+      'Louvers, screens, slab, drainage, and developed area still require project-specific review',
     advantage: 'louvered',
   },
   {
@@ -402,13 +397,18 @@ export default function SanibelPergolaPage() {
               ))}
             </div>
 
-            <div className="mt-8 text-center">
-              <Link href="/service-areas/sanibel-outdoor-living/modern-lanai">
-                <Button className="px-8">
-                  Learn More: The Modern Lanai{' '}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+            <div className="mx-auto mt-8 max-w-3xl border border-zinc-200 bg-white p-6 text-left dark:border-zinc-800 dark:bg-black">
+              <h3 className="mb-2 text-lg font-bold">
+                A louvered pergola is not automatically a lanai replacement
+              </h3>
+              <p className="text-text-secondary">
+                A basic louvered roof does not include insect protection or a
+                fully enclosed room. Retractable screens can be added when the
+                openings, wind documentation, electrical plan, and budget
+                support them. Sanibel determines how the complete project is
+                reviewed; open louvers alone do not settle developed-area,
+                floodplain, drainage, or permit questions.
+              </p>
             </div>
           </FadeIn>
         </Container>
@@ -626,34 +626,6 @@ export default function SanibelPergolaPage() {
               </h2>
             </div>
             <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-              <Link
-                href="/service-areas/sanibel-outdoor-living/modern-lanai"
-                className="group block"
-              >
-                <Card
-                  variant="muted"
-                  padding="lg"
-                  className="hover:border-edg-brand/50 h-full transition-colors"
-                >
-                  <IconWrapper
-                    icon={Home}
-                    variant="default"
-                    size="lg"
-                    className="mb-4"
-                  />
-                  <h3 className="group-hover:text-edg-brand-text mb-3 text-2xl font-bold transition-colors">
-                    The Modern Lanai
-                  </h3>
-                  <p className="text-text-secondary mb-6">
-                    Learn why Sanibel homeowners are choosing louvered systems
-                    as the evolution of traditional outdoor living.
-                  </p>
-                  <span className="text-edg-brand-text flex items-center gap-2 font-bold transition-all group-hover:gap-3">
-                    Learn More <ArrowRight className="h-4 w-4" />
-                  </span>
-                </Card>
-              </Link>
-
               <Link
                 href="/service-areas/sanibel-outdoor-living/lanai-replacement"
                 className="group block"

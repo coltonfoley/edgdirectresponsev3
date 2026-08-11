@@ -149,15 +149,9 @@ const floridaPages = [
     href: '/service-areas/sanibel-outdoor-living/louvered-pergolas',
   },
   {
-    title: 'Modern Lanai Sanibel',
-    description:
-      'A practical guide to motorized pergolas and screens for covered lanai-style outdoor rooms.',
-    href: '/service-areas/sanibel-outdoor-living/modern-lanai',
-  },
-  {
     title: 'Lanai Replacement Sanibel',
     description:
-      'Guidance for upgrading damaged or outdated outdoor rooms with motorized screens and pergola systems.',
+      'Evaluate a damaged lanai or pool cage before choosing like-for-like replacement or a different outdoor living system.',
     href: '/service-areas/sanibel-outdoor-living/lanai-replacement',
   },
   {
@@ -402,8 +396,16 @@ export default function SouthwestFloridaPage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               Use these guides to compare louvered pergolas, motorized screens,
-              modern lanai alternatives, storm-damage rebuild decisions, and the
-              permit questions that can affect a Sanibel outdoor room.
+              lanai replacement options, storm-damage rebuild decisions, and the
+              permit questions that can affect a Sanibel outdoor room. If an
+              enclosure or pool cage is damaged, start with the{' '}
+              <Link
+                href="/service-areas/sanibel-outdoor-living/lanai-replacement"
+                className="text-edg-brand-text font-semibold underline underline-offset-4"
+              >
+                Sanibel lanai replacement evaluation
+              </Link>{' '}
+              before choosing a system.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
