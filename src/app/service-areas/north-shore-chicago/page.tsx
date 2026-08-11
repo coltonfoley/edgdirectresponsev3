@@ -280,7 +280,21 @@ export default function NorthShoreHubPage() {
                 </Card>
               ))}
             </div>
-            <div className="mt-8 text-center">
+            <div className="mt-8 flex flex-wrap justify-center gap-6 text-center">
+              <Link
+                href="/service-areas/lake-forest-il"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
+              >
+                Lake Forest outdoor living and permit planning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/service-areas/wilmette-il/louvered-pergolas"
+                className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"
+              >
+                Wilmette louvered pergola planning
+                <ArrowRight className="h-4 w-4" />
+              </Link>
               <Link
                 href="/service-areas/deerfield-il/retractable-screens"
                 className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase transition-colors"

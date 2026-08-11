@@ -214,6 +214,16 @@ const localProofLinks = [
     href: '/service-areas/naperville-il/motorized-pergolas',
   },
   {
+    city: 'Lake Forest',
+    note: 'Architecture, permit review, lake-influenced exposure, and estate-scale planning.',
+    href: '/service-areas/lake-forest-il/motorized-pergolas',
+  },
+  {
+    city: 'Wilmette',
+    note: 'North Shore architecture, review expectations, privacy, and lake-influenced weather.',
+    href: '/service-areas/wilmette-il/louvered-pergolas',
+  },
+  {
     city: 'Northbrook',
     note: 'North Shore architecture, snow load, drainage, and premium finishes.',
     href: '/service-areas/northbrook-il/motorized-pergolas',

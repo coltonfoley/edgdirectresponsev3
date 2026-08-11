@@ -516,8 +516,14 @@ export default function WilmetteHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Local Resources for Wilmette Homeowners
+                From Wilmette Planning to a Louvered Pergola Specification
               </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                Use this hub for the overall property, weather, and review
+                context. The louvered pergola page owns the product-specific
+                questions about roof control, structure, drainage, finishes,
+                and side protection.
+              </p>
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link

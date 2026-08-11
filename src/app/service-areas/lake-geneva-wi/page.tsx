@@ -336,6 +336,17 @@ export default function LakeGenevaHubPage() {
                 </Link>
               ))}
             </div>
+            <p className="text-text-secondary mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed">
+              Comparing other border-area markets? Use the{' '}
+              <Link
+                href="/service-areas/southeast-wisconsin"
+                className="text-edg-brand-text font-semibold underline underline-offset-4"
+              >
+                Southeast Wisconsin service corridor
+              </Link>{' '}
+              page to route a Kenosha, Pleasant Prairie, Walworth County, or
+              nearby Wisconsin project.
+            </p>
           </FadeIn>
         </Container>
       </Section>
@@ -346,12 +357,14 @@ export default function LakeGenevaHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Serving Every Lake Geneva Area Community
+                Choose the Lake Geneva System Before the Product Details
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Lake homes, weekend houses, smaller inland properties, and
                 full-time residences need different outdoor-room plans. The
                 view, guest use, and seasonal schedule matter from the start.
+                Once the comfort problem is clear, continue to the dedicated
+                pergola or motorized-screen page for product-specific planning.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">

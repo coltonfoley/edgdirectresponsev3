@@ -879,6 +879,18 @@ export default function PergolasPage() {
                   <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>
+              <Link href="/service-areas/barrington-il/motorized-pergolas">
+                <Button variant="outline" size="sm">
+                  Barrington Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/service-areas/naperville-il/motorized-pergolas">
+                <Button variant="outline" size="sm">
+                  Naperville Pergolas
+                  <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              </Link>
               <Link href="/service-areas/milwaukee-wi/motorized-pergolas">
                 <Button variant="outline" size="sm">
                   Milwaukee Pergolas

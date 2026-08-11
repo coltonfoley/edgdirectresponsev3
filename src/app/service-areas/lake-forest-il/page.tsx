@@ -353,6 +353,11 @@ export default function LakeForestServiceAreaPage() {
               Lake Forest next steps
             </div>
             <h2 className="section-title">Choose the right next step</h2>
+            <p className="text-text-secondary mx-auto mt-4 max-w-3xl text-center">
+              Use this Lake Forest hub for the overall property and review
+              path. Use the motorized pergola page for louvered-roof sizing,
+              attachment, drainage, controls, and outdoor-room specification.
+            </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             <Link

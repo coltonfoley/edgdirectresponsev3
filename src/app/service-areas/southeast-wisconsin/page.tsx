@@ -217,16 +217,16 @@ export default function SoutheastWisconsinHubPage() {
                 <MapPin className="h-4 w-4" /> Service Area: Southeast Wisconsin
               </span>
               <h1 className="hero-title mb-6 text-white">
-                Plan Your Wisconsin Backyard With{' '}
+                Plan a Southeast Wisconsin Outdoor Room With{' '}
                 <span className="text-edg-brand block">
                   Motorized Outdoor Systems
                 </span>
               </h1>
               <p className="text-text-inverse-muted mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
-                From Lake Geneva entertaining spaces to wide-open properties
-                near Kenosha, we design shade, screen, and enclosure systems
-                around Wisconsin weather, review paths, and how the property is
-                used.
+                EDG serves the corridor from the Illinois border through Lake
+                Geneva, Kenosha, Pleasant Prairie, and nearby Walworth County
+                communities. We plan shade, screen, and enclosure systems
+                around local weather, review paths, and how the property is used.
               </p>
               <Link href={heroContactHref}>
                 <Button size="lg" className="px-8 text-lg">
@@ -280,6 +280,29 @@ export default function SoutheastWisconsinHubPage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
+              <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm font-semibold">
+                <Link
+                  href="/service-areas/lake-geneva-wi"
+                  className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
+                >
+                  Lake Geneva outdoor living
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/systems/pergolas"
+                  className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
+                >
+                  Compare motorized pergolas
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  href="/systems/shades"
+                  className="text-edg-brand-text hover:text-edg-brand inline-flex items-center gap-2 transition-colors"
+                >
+                  Compare motorized screens
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </FadeIn>
         </Container>
@@ -291,12 +314,13 @@ export default function SoutheastWisconsinHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Serving All of Southeast Wisconsin
+                Serving EDG&apos;s Southeast Wisconsin Corridor
               </h2>
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
-                Wisconsin projects need their own planning logic: lake use,
-                weekend entertaining, newer subdivisions, rural exposure, and
-                winter durability all shape the design.
+                This regional hub covers Lake Geneva, Kenosha, Pleasant
+                Prairie, Walworth County, and nearby border communities—not a
+                statewide installation promise. Lake use, newer subdivisions,
+                rural exposure, and winter durability all shape the design.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2">

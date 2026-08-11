@@ -399,6 +399,14 @@ export default function NapervilleHubPage() {
               <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
                 Our systems are selected around suburban privacy, late-day sun,
                 winter exposure, and how the patio should function day to day.
+                When an adjustable roof is the priority, continue to our{' '}
+                <Link
+                  href="/service-areas/naperville-il/motorized-pergolas"
+                  className="text-edg-brand-text font-semibold underline underline-offset-4"
+                >
+                  Naperville motorized pergola planning
+                </Link>{' '}
+                page for HOA, layout, drainage, and system-fit details.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

@@ -378,8 +378,14 @@ export default function BarringtonHubPage() {
           <FadeIn>
             <div className="mb-12 text-center">
               <h2 className="section-title mb-4">
-                Local Resources for Barrington Homeowners
+                Start Broad, Then Plan the Barrington Pergola
               </h2>
+              <p className="text-text-secondary mx-auto mt-4 max-w-2xl">
+                This service-area page covers the full outdoor room. The
+                motorized pergola page is the next step when adjustable roof,
+                drainage, structure, and estate-scale layout are the main
+                decisions.
+              </p>
             </div>
             <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
               <Link
