@@ -124,7 +124,7 @@ const industrySolutions = [
       'Pergola, screen, glass, and comfort planning for rooftop bars, pool decks, lounges, and guest-facing terraces.',
   },
   {
-    href: '/commercial/restaurant-patio-solutions',
+    href: '/commercial/restaurant-patio-enclosures',
     icon: Utensils,
     title: 'Restaurants',
     description:

@@ -422,7 +422,7 @@ export default function HotelRoofDeckPage() {
                 <ChevronRight className="h-4 w-4" />
               </Link>
               <Link
-                href="/commercial/restaurant-patio-solutions"
+                href="/commercial/restaurant-patio-enclosures"
                 className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
                 Restaurant Solutions

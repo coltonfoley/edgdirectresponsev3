@@ -86,7 +86,7 @@ const hospitalityContexts = [
     title: 'Restaurant patios',
     description:
       'Plan outdoor dining around covers, server flow, guest comfort, heat, glare, noise, staff controls, and weather procedures.',
-    href: '/commercial/restaurant-patio-solutions',
+    href: '/commercial/restaurant-patio-enclosures',
     cta: 'Restaurant Planning',
     image: images.systems.enclosures.commercialNightDining,
     alt: 'Commercial glass patio dining at night',

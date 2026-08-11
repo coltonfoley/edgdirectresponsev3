@@ -259,16 +259,6 @@ export const siteRoutes: SiteRoute[] = [
     desc: 'Roof, glass, screens, heat and shade for outdoor dining',
   },
   {
-    href: '/commercial/restaurant-patio-solutions',
-    label: 'Restaurant Patio Solutions',
-    family: 'commercial',
-    xmlSitemap: true,
-    htmlSitemap: true,
-    priority: 0.7,
-    status: 'active',
-    desc: 'Patio comfort planning for food and beverage operators',
-  },
-  {
     href: '/commercial/hotel-roof-deck-systems',
     label: 'Hotel Roof Deck Systems',
     family: 'commercial',

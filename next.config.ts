@@ -120,7 +120,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/commercial/restaurant-patio-systems',
-        destination: '/commercial/restaurant-patio-solutions',
+        destination: '/commercial/restaurant-patio-enclosures',
+        permanent: true,
+      },
+      {
+        source: '/commercial/restaurant-patio-solutions',
+        destination: '/commercial/restaurant-patio-enclosures',
         permanent: true,
       },
 

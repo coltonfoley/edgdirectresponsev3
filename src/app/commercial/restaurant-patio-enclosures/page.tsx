@@ -653,13 +653,6 @@ export default function RestaurantPatioEnclosuresPage() {
             </Link>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/commercial/restaurant-patio-solutions"
-                className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
-              >
-                Restaurant Solutions
-                <ChevronRight className="h-4 w-4" />
-              </Link>
-              <Link
                 href="/commercial/hotel-pergolas"
                 className="hover:text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider text-zinc-700 uppercase transition-colors"
               >
