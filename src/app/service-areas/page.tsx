@@ -1,6 +1,7 @@
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { Card } from '@/components/ui/Card';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
@@ -240,12 +241,16 @@ export default function ServiceAreasPage() {
                 ))}
               </ul>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href={consultationHref}>
+                <TrackedLink
+                  href={consultationHref}
+                  conversionName="quote_cta_click"
+                  ctaPosition="service_areas_primary"
+                >
                   <Button size="lg">
                     Request a Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
-                </Link>
+                </TrackedLink>
                 <a href="tel:+18155810138">
                   <Button size="lg" variant="secondary">
                     <Phone className="mr-2 h-5 w-5" /> (815) 581-0138
@@ -282,9 +287,13 @@ export default function ServiceAreasPage() {
               discuss options—including design consulting with installation by
               qualified local partners.
             </p>
-            <Link href={outsideServiceAreaHref}>
+            <TrackedLink
+              href={outsideServiceAreaHref}
+              conversionName="quote_cta_click"
+              ctaPosition="service_areas_outside_area"
+            >
               <Button variant="dark">Request a Quote</Button>
-            </Link>
+            </TrackedLink>
           </div>
         </Container>
       </Section>

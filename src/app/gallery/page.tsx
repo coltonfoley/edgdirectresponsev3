@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Button } from '@/components/ui/Button';
 import { Link } from '@/components/ui/Link';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { buildContactHref } from '@/lib/contact-links';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
@@ -105,12 +106,14 @@ export default function GalleryPage() {
                     View Case Studies <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link
+                <TrackedLink
                   href={buildContactHref({
                     type: 'consultation',
                     product: 'multiple',
                     source: 'gallery_hero',
                   })}
+                  conversionName="quote_cta_click"
+                  ctaPosition="gallery_hero"
                 >
                   <Button
                     size="lg"
@@ -119,7 +122,7 @@ export default function GalleryPage() {
                   >
                     Request a Quote
                   </Button>
-                </Link>
+                </TrackedLink>
               </div>
             </div>
 
@@ -185,17 +188,19 @@ export default function GalleryPage() {
               outdoor-room package to the way the space needs to work.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link
+              <TrackedLink
                 href={buildContactHref({
                   type: 'consultation',
                   product: 'multiple',
                   source: 'gallery_bottom',
                 })}
+                conversionName="quote_cta_click"
+                ctaPosition="gallery_bottom"
               >
                 <Button size="lg" className="w-full sm:w-auto">
                   Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
-              </Link>
+              </TrackedLink>
               <Link href="/showroom">
                 <Button
                   size="lg"

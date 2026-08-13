@@ -362,6 +362,28 @@ async function preparePhoto(file: File) {
   });
 }
 
+function getPhotoErrorType(error: unknown) {
+  if (!(error instanceof Error)) return 'photo_processing_error';
+  const message = error.message.toLowerCase();
+  if (message.includes('jpg, png, or webp')) return 'photo_type_error';
+  if (message.includes('upload up to')) return 'photo_count_error';
+  if (message.includes('large')) return 'photo_size_error';
+  if (message.includes('read')) return 'photo_read_error';
+  return 'photo_processing_error';
+}
+
+function getNativeValidationErrorType(input: HTMLInputElement) {
+  const safeFieldNames: Record<string, string> = {
+    fullName: 'name',
+    email: 'email',
+    phone: 'phone',
+  };
+  const field = safeFieldNames[input.name];
+  if (!field) return null;
+  const reason = input.validity.typeMismatch ? 'format' : 'required';
+  return `${field}_${reason}`;
+}
+
 function buildMessage(
   formData: QuoteFormData,
   photos: File[],
@@ -411,7 +433,7 @@ export function QuoteRequestForm({
   const [goalError, setGoalError] = useState('');
   const [interestError, setInterestError] = useState('');
   const stepHeadingRef = useRef<HTMLHeadingElement>(null);
-  const previousStepRef = useRef(1);
+  const previousStepRef = useRef<number | null>(null);
   const normalizedDefaultInterest = normalizeInterest(defaultInterest);
   const [formData, setFormData] = useState<QuoteFormData>({
     fullName: '',
@@ -571,6 +593,17 @@ export function QuoteRequestForm({
       }
       setPhotos(nextPhotos);
     } catch (photoPreparationError: unknown) {
+      pushAnalyticsEvent({
+        event: 'lead_form_step_error',
+        form_id: 'quote_request',
+        form_variant: 'quote_request_multistep_v1',
+        step_id: 'step_3',
+        step_number: 3,
+        step_count: stepCount,
+        error_type: getPhotoErrorType(photoPreparationError),
+        source: leadSource,
+        cta_position: ctaPosition,
+      });
       setPhotoError(
         photoPreparationError instanceof Error
           ? photoPreparationError.message
@@ -614,6 +647,25 @@ export function QuoteRequestForm({
           formData.location.trim() || formData.details.trim() || photos.length
         ),
       },
+    });
+  };
+
+  const handleInvalid = (event: React.FormEvent<HTMLFormElement>) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    const errorType = getNativeValidationErrorType(target);
+    if (!errorType) return;
+
+    pushAnalyticsEvent({
+      event: 'lead_form_step_error',
+      form_id: 'quote_request',
+      form_variant: 'quote_request_multistep_v1',
+      step_id: 'step_4',
+      step_number: 4,
+      step_count: stepCount,
+      error_type: errorType,
+      source: leadSource,
+      cta_position: ctaPosition,
     });
   };
 
@@ -750,6 +802,7 @@ export function QuoteRequestForm({
         data-lead-form-id="quote_request"
         data-current-step={currentStep}
         onSubmit={handleSubmit}
+        onInvalidCapture={handleInvalid}
         onFocusCapture={handleFormStart}
         aria-labelledby={`${id}-title`}
         aria-describedby={
@@ -824,12 +877,7 @@ export function QuoteRequestForm({
             >
               What would you like your outdoor space to do?
             </h3>
-            <div
-              className={cn(
-                'grid gap-2',
-                isCompact && 'sm:grid-cols-2'
-              )}
-            >
+            <div className={cn('grid gap-2', isCompact && 'sm:grid-cols-2')}>
               {goalOptions.map((option) => {
                 const Icon = option.icon;
                 const checked = formData.goals.includes(option.value);
@@ -901,12 +949,7 @@ export function QuoteRequestForm({
             >
               What are you considering?
             </h3>
-            <div
-              className={cn(
-                'grid gap-2',
-                isCompact && 'sm:grid-cols-2'
-              )}
-            >
+            <div className={cn('grid gap-2', isCompact && 'sm:grid-cols-2')}>
               {displayedInterestOptions.map((option) => (
                 <label
                   key={option.value}

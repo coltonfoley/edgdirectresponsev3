@@ -80,10 +80,22 @@ export function useLeadSubmission({
     page_path: safeAnalyticsPath(metadata?.page_path),
     page_family: safeAnalyticsToken(metadata?.page_family),
     landing_page: safeAnalyticsPath(metadata?.landing_page),
+    first_touch_landing_page: safeAnalyticsPath(
+      metadata?.first_touch_landing_page
+    ),
     market: safeAnalyticsToken(metadata?.market || metadata?.market_param),
     utm_source: safeAnalyticsToken(metadata?.utm_source),
     utm_medium: safeAnalyticsToken(metadata?.utm_medium),
     utm_campaign: safeAnalyticsToken(metadata?.utm_campaign),
+    first_touch_utm_source: safeAnalyticsToken(
+      metadata?.first_touch_utm_source
+    ),
+    first_touch_utm_medium: safeAnalyticsToken(
+      metadata?.first_touch_utm_medium
+    ),
+    first_touch_utm_campaign: safeAnalyticsToken(
+      metadata?.first_touch_utm_campaign
+    ),
     pilot_name: metadata?.pilot_name,
     pilot_version: metadata?.pilot_version,
     submission_id: metadata?.submission_id,
@@ -209,7 +221,10 @@ export function useLeadSubmission({
         onSuccess();
       }
     } catch (err: unknown) {
-      const metadata = getLeadJourneyMetadata(data.metadata);
+      const metadata = getLeadJourneyMetadata({
+        ...data.metadata,
+        submission_id: pendingSubmission.current?.submissionId,
+      });
       pushAnalyticsEvent({
         event: 'lead_form_error',
         ...getAnalyticsPayload(data, metadata),

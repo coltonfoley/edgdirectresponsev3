@@ -9,6 +9,7 @@ interface TrackedLinkProps extends LinkProps {
   className?: string;
   conversionName?: string;
   eventValue?: number;
+  ctaPosition?: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
@@ -16,6 +17,7 @@ export function TrackedLink({
   children,
   conversionName = 'cta_click',
   eventValue = 0,
+  ctaPosition,
   onClick,
   ...props
 }: TrackedLinkProps) {
@@ -26,6 +28,7 @@ export function TrackedLink({
       value: eventValue,
       linkUrl: target.href,
       linkText: target.textContent?.trim(),
+      ctaPosition,
     });
     if (onClick) onClick(e);
   };

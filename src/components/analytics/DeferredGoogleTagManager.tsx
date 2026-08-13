@@ -7,10 +7,16 @@ interface DeferredGoogleTagManagerProps {
   gtmId: string;
 }
 
-export function DeferredGoogleTagManager({ gtmId }: DeferredGoogleTagManagerProps) {
+export function DeferredGoogleTagManager({
+  gtmId,
+}: DeferredGoogleTagManagerProps) {
   const [canLoad, setCanLoad] = useState(false);
 
   useEffect(() => {
+    if (window.location.hostname !== 'www.edgpatioshade.com') {
+      return;
+    }
+
     if ('requestIdleCallback' in window) {
       const idleId = window.requestIdleCallback(
         () => {

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { TrackedLink } from '@/components/ui/TrackedLink';
 import { IconWrapper } from '@/components/ui/IconWrapper';
 import { HeroFormClient } from '@/components/features/home/HeroFormClient';
 import { HeroBackgroundMedia } from '@/components/features/home/HeroBackgroundMedia';
@@ -243,8 +244,10 @@ export default function Home() {
           </Link>
 
           {/* Residential Side */}
-          <Link
+          <TrackedLink
             href={homeownerContactHref}
+            conversionName="quote_cta_click"
+            ctaPosition="home_residential_panel"
             className="group relative block min-h-[40vh] overflow-hidden border-t border-white/10 bg-zinc-900 md:min-h-[60vh] md:border-t-0 md:border-l"
           >
             {/* Background Image using next/Image */}
@@ -274,7 +277,7 @@ export default function Home() {
                 Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
               </div>
             </div>
-          </Link>
+          </TrackedLink>
         </div>
       </Section>
 

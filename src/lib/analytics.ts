@@ -1,6 +1,32 @@
 type AnalyticsEvent = Record<string, unknown>;
 type LeadMetadata = Record<string, unknown>;
 
+const EVENT_SCOPED_KEYS = [
+  'conversion_name',
+  'cta_id',
+  'cta_label',
+  'cta_position',
+  'link_path',
+  'link_type',
+  'form_id',
+  'form_variant',
+  'step_id',
+  'step_number',
+  'step_count',
+  'from_step',
+  'to_step',
+  'validation_state',
+  'error_type',
+  'submission_id',
+] as const;
+
+const FIRST_TOUCH_STORAGE_KEYS = {
+  landingPage: 'edg_first_touch_landing_page',
+  utmSource: 'edg_first_touch_utm_source',
+  utmMedium: 'edg_first_touch_utm_medium',
+  utmCampaign: 'edg_first_touch_utm_campaign',
+} as const;
+
 declare global {
   interface Window {
     dataLayer?: AnalyticsEvent[];
@@ -13,7 +39,10 @@ export function pushAnalyticsEvent(event: AnalyticsEvent) {
   }
 
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(event);
+  window.dataLayer.push({
+    ...Object.fromEntries(EVENT_SCOPED_KEYS.map((key) => [key, undefined])),
+    ...event,
+  });
 }
 
 export function trackConversion({
@@ -21,11 +50,13 @@ export function trackConversion({
   value = 0,
   linkUrl,
   linkText,
+  ctaPosition,
 }: {
   conversionName: string;
   value?: number;
   linkUrl?: string;
   linkText?: string;
+  ctaPosition?: string;
 }) {
   if (typeof window === 'undefined') {
     return;
@@ -40,6 +71,9 @@ export function trackConversion({
   const payload = {
     conversion_name: conversionName,
     cta_id: ctaId,
+    cta_label: safeToken(linkText),
+    cta_position: safeToken(ctaPosition),
+    link_path: safePath(linkUrl),
     link_type: linkUrl?.startsWith('tel:') ? 'phone' : 'link',
     page_path: pagePath,
     page_family: classifyPageFamily(pagePath),
@@ -95,7 +129,18 @@ export function getLeadJourneyMetadata(
 
   const pagePath = window.location.pathname;
   const landingPage = safePath(
-    window.sessionStorage.getItem('edg_landing_page') || pagePath
+    window.sessionStorage.getItem(FIRST_TOUCH_STORAGE_KEYS.landingPage) ||
+      window.sessionStorage.getItem('edg_landing_page') ||
+      pagePath
+  );
+  const firstTouchUtmSource = safeToken(
+    window.sessionStorage.getItem(FIRST_TOUCH_STORAGE_KEYS.utmSource)
+  );
+  const firstTouchUtmMedium = safeToken(
+    window.sessionStorage.getItem(FIRST_TOUCH_STORAGE_KEYS.utmMedium)
+  );
+  const firstTouchUtmCampaign = safeToken(
+    window.sessionStorage.getItem(FIRST_TOUCH_STORAGE_KEYS.utmCampaign)
   );
   const productParam =
     safeToken(searchParams.get('product')) ||
@@ -111,6 +156,10 @@ export function getLeadJourneyMetadata(
     page_title: document.title,
     referrer_path: safePath(document.referrer),
     landing_page: landingPage,
+    first_touch_landing_page: landingPage,
+    first_touch_utm_source: firstTouchUtmSource,
+    first_touch_utm_medium: firstTouchUtmMedium,
+    first_touch_utm_campaign: firstTouchUtmCampaign,
     intent_type: safeToken(searchParams.get('type')),
     product_param: productParam || undefined,
     source_param: safeToken(searchParams.get('source')),
@@ -118,4 +167,27 @@ export function getLeadJourneyMetadata(
     ...utmMetadata,
     ...metadata,
   };
+}
+
+export function captureFirstTouchJourney() {
+  if (typeof window === 'undefined') return;
+
+  const searchParams = new URLSearchParams(window.location.search);
+  if (!window.sessionStorage.getItem(FIRST_TOUCH_STORAGE_KEYS.landingPage)) {
+    window.sessionStorage.setItem(
+      FIRST_TOUCH_STORAGE_KEYS.landingPage,
+      window.location.pathname
+    );
+  }
+
+  const fields = [
+    ['utm_source', FIRST_TOUCH_STORAGE_KEYS.utmSource],
+    ['utm_medium', FIRST_TOUCH_STORAGE_KEYS.utmMedium],
+    ['utm_campaign', FIRST_TOUCH_STORAGE_KEYS.utmCampaign],
+  ] as const;
+  for (const [queryField, storageKey] of fields) {
+    if (window.sessionStorage.getItem(storageKey)) continue;
+    const value = safeToken(searchParams.get(queryField));
+    if (value) window.sessionStorage.setItem(storageKey, value);
+  }
 }

@@ -26,6 +26,25 @@ async function requestInBatches<T>(
 }
 
 test.describe('Smoke Tests', () => {
+  test('localhost never loads the production Google container', async ({
+    page,
+  }) => {
+    const productionAnalyticsRequests: string[] = [];
+    page.on('request', (request) => {
+      if (/googletagmanager\.com|google-analytics\.com/.test(request.url())) {
+        productionAnalyticsRequests.push(request.url());
+      }
+    });
+
+    await page.goto('/');
+    await page.waitForTimeout(1_000);
+
+    await expect(
+      page.locator('script[src*="googletagmanager.com"]')
+    ).toHaveCount(0);
+    expect(productionAnalyticsRequests).toEqual([]);
+  });
+
   test('every sitemap route is live with canonical and social metadata', async ({
     request,
   }) => {
@@ -283,6 +302,104 @@ test.describe('Smoke Tests', () => {
     ).toHaveAttribute('aria-pressed', 'true');
   });
 
+  test('quote analytics emit the initial step and privacy-safe validation errors', async ({
+    page,
+  }) => {
+    await page.goto('/contact');
+
+    const form = page.locator('form[data-lead-form-id="quote_request"]');
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () =>
+            (window.dataLayer || []).filter(
+              (event) =>
+                event.event === 'lead_form_step_view' && event.step_number === 1
+            ).length
+        )
+      )
+      .toBe(1);
+
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByLabel('Motorized pergola').check();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    const fileInput = form.locator('input[type="file"]');
+    await fileInput.setInputFiles({
+      name: 'private-customer-name.txt',
+      mimeType: 'text/plain',
+      buffer: Buffer.from('not an image'),
+    });
+
+    const photoError = await page.evaluate(() =>
+      (window.dataLayer || []).find(
+        (event) =>
+          event.event === 'lead_form_step_error' && event.step_number === 3
+      )
+    );
+    expect(photoError?.error_type).toBe('photo_type_error');
+    expect(JSON.stringify(photoError)).not.toContain('private-customer-name');
+
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByRole('button', { name: 'Request a Quote' }).click();
+    const nativeError = await page.evaluate(() =>
+      (window.dataLayer || []).find(
+        (event) =>
+          event.event === 'lead_form_step_error' &&
+          event.error_type === 'name_required'
+      )
+    );
+    expect(nativeError).toBeTruthy();
+    expect(nativeError).not.toHaveProperty('email');
+    expect(nativeError).not.toHaveProperty('phone');
+  });
+
+  test('first-touch attribution survives navigation into the Rainmaker payload', async ({
+    page,
+  }) => {
+    let submittedMetadata: Record<string, unknown> = {};
+    await page.route('**/api/leads', async (route) => {
+      const payload = route.request().postDataJSON() as {
+        metadata?: Record<string, unknown>;
+      };
+      submittedMetadata = payload.metadata || {};
+      await route.fulfill({
+        status: 503,
+        contentType: 'application/json',
+        body: JSON.stringify({
+          success: false,
+          errors: ['Controlled analytics contract check'],
+        }),
+      });
+    });
+
+    await page.goto(
+      '/?utm_source=owner_review&utm_medium=qa&utm_campaign=august_release'
+    );
+    await page.locator('header a[href^="/contact"]').first().click();
+    await expect(page).toHaveURL(/\/contact/);
+
+    const form = page.locator('form[data-lead-form-id="quote_request"]');
+    await form.getByRole('button', { name: 'Add shade' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByLabel('Motorized pergola').check();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.getByRole('button', { name: 'Continue' }).click();
+    await form.locator('input[name="fullName"]').fill('Analytics Contract');
+    await form.locator('input[name="email"]').fill('contract@example.com');
+    await form.locator('input[name="phone"]').fill('815-555-0102');
+    await form.getByRole('button', { name: 'Request a Quote' }).click();
+    await expect(form.getByRole('alert')).toContainText(
+      'Controlled analytics contract check'
+    );
+
+    expect(submittedMetadata.first_touch_landing_page).toBe('/');
+    expect(submittedMetadata.first_touch_utm_source).toBe('owner_review');
+    expect(submittedMetadata.first_touch_utm_medium).toBe('qa');
+    expect(submittedMetadata.first_touch_utm_campaign).toBe('august_release');
+    expect(submittedMetadata.landing_page).toBe('/');
+  });
+
   test('the Screen Fit + Budget pilot emits its own accepted-lead funnel events', async ({
     page,
   }) => {
@@ -421,6 +538,12 @@ test.describe('Smoke Tests', () => {
     expect(
       eventNames.filter((event) => event === 'generate_lead')
     ).toHaveLength(1);
+    const failedEvent = await page.evaluate(() =>
+      (window.dataLayer || []).find(
+        (event) => event.event === 'lead_form_error'
+      )
+    );
+    expect(failedEvent?.submission_id).toBe(submittedIds[0]);
   });
 
   test('contact form honors CTA query params', async ({ page }) => {

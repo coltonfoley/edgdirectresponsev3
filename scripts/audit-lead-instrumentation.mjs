@@ -34,6 +34,20 @@ const trackerSource = fs.readFileSync(
   path.join(sourceDirectory, 'components/analytics/LandingPageTracker.tsx'),
   'utf8'
 );
+const gtmSource = fs.readFileSync(
+  path.join(
+    sourceDirectory,
+    'components/analytics/DeferredGoogleTagManager.tsx'
+  ),
+  'utf8'
+);
+const quoteFormSource = fs.readFileSync(
+  path.join(
+    sourceDirectory,
+    'components/features/contact/QuoteRequestForm.tsx'
+  ),
+  'utf8'
+);
 const analyticsSource = fs.readFileSync(
   path.join(sourceDirectory, 'lib/analytics.ts'),
   'utf8'
@@ -94,12 +108,46 @@ const forbiddenLeadLogPatterns = [
 ]
   .filter(([, pattern]) => pattern.test(leadRouteSource))
   .map(([label]) => label);
+const missingAnalyticsContracts = [
+  [
+    'production-only GTM hostname gate',
+    gtmSource.includes("window.location.hostname !== 'www.edgpatioshade.com'"),
+  ],
+  [
+    'initial quote step view',
+    quoteFormSource.includes('useRef<number | null>(null)'),
+  ],
+  [
+    'native form validation analytics',
+    quoteFormSource.includes('onInvalidCapture={handleInvalid}'),
+  ],
+  [
+    'photo processing analytics',
+    quoteFormSource.includes('getPhotoErrorType(photoPreparationError)'),
+  ],
+  [
+    'pending error submission identity',
+    hookSource.includes('pendingSubmission.current?.submissionId'),
+  ],
+  [
+    'first-touch journey capture',
+    analyticsSource.includes('first_touch_utm_source') &&
+      trackerSource.includes('captureFirstTouchJourney()'),
+  ],
+  [
+    'event-scoped dataLayer clearing',
+    analyticsSource.includes('EVENT_SCOPED_KEYS.map'),
+  ],
+]
+  .filter(([, present]) => !present)
+  .map(([label]) => label);
 
 if (
   formFindings.length ||
   missingEvents.length ||
   forbiddenAnalyticsMetadata.length ||
-  forbiddenLeadLogPatterns.length
+  forbiddenLeadLogPatterns.length ||
+  missingAnalyticsContracts.length
 ) {
   throw new Error(
     JSON.stringify(
@@ -109,6 +157,7 @@ if (
         missingEvents,
         forbiddenAnalyticsMetadata,
         forbiddenLeadLogPatterns,
+        missingAnalyticsContracts,
       },
       null,
       2

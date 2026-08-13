@@ -23,7 +23,7 @@
     "validate-images": "node scripts/validate-images.mjs"
   },
   "dependencies": {
-    "@next/third-parties": "16.2.9",
+    "@next/third-parties": "16.3.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@types/three": "^0.183.1",
@@ -31,10 +31,10 @@
     "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.562.0",
-    "next": "16.2.9",
+    "next": "16.3.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "sharp": "^0.34.5",
+    "sharp": "0.35.3",
     "tailwind-merge": "^3.4.0",
     "three": "^0.183.2"
   },
@@ -46,15 +46,14 @@
     "@types/react-dom": "^19",
     "dotenv": "^17.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.3.0",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
   "overrides": {
-    "next": {
-      "postcss": "8.5.15"
-    }
+    "nanoid": "3.3.18",
+    "postcss": "8.5.26"
   }
 }

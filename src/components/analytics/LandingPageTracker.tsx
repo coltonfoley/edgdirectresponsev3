@@ -1,7 +1,9 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import {
+  captureFirstTouchJourney,
   classifyPageFamily,
   getLeadJourneyMetadata,
   pushAnalyticsEvent,
@@ -11,10 +13,25 @@ import {
 const LANDING_PAGE_KEY = 'edg_landing_page';
 
 export function LandingPageTracker() {
+  const pathname = usePathname();
+  const previousPathRef = useRef(pathname);
+
+  useEffect(() => {
+    if (pathname === previousPathRef.current) return;
+    previousPathRef.current = pathname;
+    pushAnalyticsEvent({
+      event: 'page_view',
+      event_source: 'spa_navigation',
+      page_path: pathname,
+      page_family: classifyPageFamily(pathname),
+    });
+  }, [pathname]);
+
   useEffect(() => {
     if (!window.sessionStorage.getItem(LANDING_PAGE_KEY)) {
       window.sessionStorage.setItem(LANDING_PAGE_KEY, window.location.pathname);
     }
+    captureFirstTouchJourney();
 
     const trackUnwrappedPhoneLink = (event: MouseEvent) => {
       const target = event.target;
