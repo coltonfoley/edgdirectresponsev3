@@ -11,13 +11,12 @@ import {
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import {
   generateArticleSchema,
-  generateBreadcrumbSchema,
   generateFAQSchema,
 } from '@/lib/schema';
 import * as images from '@/lib/images';
@@ -72,6 +71,17 @@ const modelNotes = [
       'Brustor describes integrated water evacuation through a gutter system toward the posts, with integrated ZIP screens available for wind, sun, rain, and insects.',
     limit:
       'The manufacturer warranty guidance says an optional rain sensor can close the louvers, but some rain may enter before the roof finishes closing and the sensor is not an absolute operating guarantee. Gutter cleaning and the selected winter protocol matter.',
+    sources: [
+      {
+        label: 'B200 (XL) product page',
+        href: 'https://www.brustor.com/en-us/products/product-types/patio-covers/louvered-roof-pergolas/b200-xl',
+      },
+      {
+        label:
+          'Sales and Warranty Conditions PDF — Version 3.0, valid July 1, 2026',
+        href: 'https://dam.brustor.com/m/1712bd53be1e0199/original/Outdoor-Living_Sales-and-Warranty-conditions_EN.pdf',
+      },
+    ],
   },
   {
     name: 'Azenco R-BLADE',
@@ -79,6 +89,16 @@ const modelNotes = [
       'Azenco describes dual-walled louvers that capture rain and route it to a hidden internal gutter. Weather sensors can be specified to close for rain and respond to strong winds.',
     limit:
       'The manufacturer’s rain-management language describes the roof design, not a universal promise for every layout. EDG still needs to verify the selected model, edge exposure, discharge route, and adjacent construction.',
+    sources: [
+      {
+        label: 'R-BLADE overview',
+        href: 'https://azenco-outdoor.com/l-shaped-pergola/',
+      },
+      {
+        label: 'Pergola gutter design',
+        href: 'https://azenco-outdoor.com/pergola-gutter/',
+      },
+    ],
   },
   {
     name: 'Sundance All Season Pergola',
@@ -86,6 +106,16 @@ const modelNotes = [
       'Sundance publishes a bumper-seal gasket, a gutter that drains through the posts, and a standard rain sensor for its current All Season Pergola.',
     limit:
       'Sundance also publishes 150 mph wind resistance and 60 lb/sq. ft. snow load for the product. Those are published product values, not a substitute for project-specific engineering, mounting review, or local approval.',
+    sources: [
+      {
+        label: 'Product page',
+        href: 'https://sundanceoutdoorliving.com/product/',
+      },
+      {
+        label: 'FAQ',
+        href: 'https://sundanceoutdoorliving.com/faq/',
+      },
+    ],
   },
 ];
 
@@ -154,17 +184,13 @@ export default function AreLouveredPergolasWaterproofPage() {
     category: 'Pergola Weather Performance',
   });
   const faqSchema = generateFAQSchema(faqs);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Guides', url: '/guides' },
-    { name: 'Are Louvered Pergolas Waterproof?' },
-  ]);
 
   return (
     <article className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([articleSchema, faqSchema, breadcrumbSchema]),
+          __html: JSON.stringify([articleSchema, faqSchema]),
         }}
       />
 
@@ -206,21 +232,21 @@ export default function AreLouveredPergolasWaterproofPage() {
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/guides/pergola-system-fit-review?source=louvered_pergolas_waterproof_hero">
-                <Button size="lg">
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/systems/pergolas">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/25 text-white hover:bg-white/10"
-                >
-                  View Pergola Systems
-                </Button>
-              </Link>
+              <LinkButton
+                href="/guides/pergola-system-fit-review?source=louvered_pergolas_waterproof_hero"
+                size="lg"
+              >
+                Request a Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </LinkButton>
+              <LinkButton
+                href="/systems/pergolas"
+                size="lg"
+                variant="outline"
+                className="border-white/25 text-white hover:bg-white/10"
+              >
+                View Pergola Systems
+              </LinkButton>
             </div>
           </div>
         </Container>
@@ -310,6 +336,26 @@ export default function AreLouveredPergolasWaterproofPage() {
                       </p>
                     </div>
                   </div>
+                  <div className="mt-6 border-t border-black/10 pt-4 text-sm">
+                    <span className="text-text-primary font-bold">
+                      Sources:{' '}
+                    </span>
+                    {model.sources.map((source, index) => (
+                      <span key={source.href}>
+                        {index > 0 && (
+                          <span className="text-text-secondary"> · </span>
+                        )}
+                        <a
+                          href={source.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-edg-brand-dark underline decoration-current underline-offset-2"
+                        >
+                          {source.label}
+                        </a>
+                      </span>
+                    ))}
+                  </div>
                 </Card>
               ))}
             </div>
@@ -320,6 +366,45 @@ export default function AreLouveredPergolasWaterproofPage() {
               documentation and project-specific engineering before a final
               recommendation.
             </p>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-white">
+        <Container>
+          <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={images.projects.wade.hero}
+                alt="Wade Barrington outdoor room with a louvered roof and motorized glass walls"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <div className="label-editorial-brand mb-4">
+                EDG project example
+              </div>
+              <h2 className="section-title mb-4">
+                Wade: planning the roof and side protection together
+              </h2>
+              <p className="text-text-secondary mb-5 text-lg leading-relaxed">
+                EDG&apos;s public Wade project record describes a Barrington
+                outdoor room with a motorized louvered roof, motorized glass
+                walls, and concealed drainage and electrical planning.
+              </p>
+              <p className="text-text-secondary mb-6 leading-relaxed">
+                What the record demonstrates is the planning logic: the roof,
+                side protection, drainage, and controls were treated as one
+                assembly. It does not document measured rain performance or
+                guarantee that every louvered pergola will stay dry in every
+                exposure.
+              </p>
+              <LinkButton href="/projects/wade" variant="secondary" size="sm">
+                View the Wade project <ArrowRight className="ml-2 h-4 w-4" />
+              </LinkButton>
+            </div>
           </div>
         </Container>
       </Section>
@@ -574,17 +659,20 @@ export default function AreLouveredPergolasWaterproofPage() {
               enclosure approach that fits the actual job.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link href="/guides/pergola-system-fit-review?source=louvered_pergolas_waterproof_bottom">
-                <Button size="lg">
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/guides/louvered-pergola-brands-compared">
-                <Button size="lg" variant="outline">
-                  Compare System Options
-                </Button>
-              </Link>
+              <LinkButton
+                href="/guides/pergola-system-fit-review?source=louvered_pergolas_waterproof_bottom"
+                size="lg"
+              >
+                Request a Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </LinkButton>
+              <LinkButton
+                href="/guides/louvered-pergola-brands-compared"
+                size="lg"
+                variant="outline"
+              >
+                Compare System Options
+              </LinkButton>
             </div>
           </div>
         </Container>
