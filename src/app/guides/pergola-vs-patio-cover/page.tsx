@@ -325,6 +325,13 @@ export default function PergolaVsPatioCover() {
                 exposure, review structure, drainage, attachment, and local
                 approvals before treating any option as a standard package.
               </p>
+              <Link
+                href="/guides/are-louvered-pergolas-waterproof?source=pergola_vs_patio_cover_rain"
+                className="text-edg-brand-text mt-6 inline-flex items-center gap-2 font-bold underline underline-offset-4"
+              >
+                Read the louvered pergola rain-performance guide
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </Card>
           </div>
         </Container>

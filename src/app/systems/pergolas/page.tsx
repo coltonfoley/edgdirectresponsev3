@@ -218,6 +218,12 @@ const relatedProducts = [
     href: '/systems/shades',
   },
   {
+    title: 'Pergola with Retractable Screens',
+    description:
+      'Plan a louvered pergola with integrated or retrofit screens, fabrics, controls, and complete-project quote inputs.',
+    href: '/guides/pergola-with-retractable-screens',
+  },
+  {
     title: 'Glass Enclosures',
     description:
       'Add season-extending glass walls when the goal is a protected outdoor room with clear views.',
@@ -692,6 +698,13 @@ export default function PergolasPage() {
                   </div>
                 </div>
               </div>
+              <Link
+                href="/guides/are-louvered-pergolas-waterproof?source=pergolas_rain_performance"
+                className="text-edg-brand mt-8 inline-flex font-bold underline underline-offset-4"
+              >
+                See how rain performance depends on closed louvers, drainage,
+                sensors, and side protection.
+              </Link>
             </div>
             <div className="relative aspect-square">
               <Image

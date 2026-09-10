@@ -142,6 +142,18 @@ const nextSteps = [
     href: '/guides/pergola-cost',
   },
   {
+    title: 'Understand rain performance',
+    description:
+      'See what closed louvers, gutters, sensors, wind, and side protection can and cannot do.',
+    href: '/guides/are-louvered-pergolas-waterproof?source=louvered_pergolas_guide_rain',
+  },
+  {
+    title: 'Pergola Snow Load and Winter Operation',
+    description:
+      'Separate model snow-load ratings from winter operating precautions and site-specific review.',
+    href: '/guides/pergola-snow-load-winter?source=louvered_pergolas_winter_related',
+  },
+  {
     title: 'Review system options',
     description:
       'Understand how EDG thinks about louvered roof systems before choosing a manufacturer.',

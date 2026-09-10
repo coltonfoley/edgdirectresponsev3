@@ -231,6 +231,15 @@ export default function MagnaTrackScreensCostGuide() {
                 </Link>{' '}
                 for example budgets across motorized screen types. This page
                 focuses on MagnaTrack and when its premium track design may fit.
+                For the documented installation review, magnetic-track
+                comparison, operating limits, and alternatives, read the{' '}
+                <Link
+                  href="/guides/magnatrack-screens-review"
+                  className="text-text-primary underline underline-offset-4"
+                >
+                  MagnaTrack screens review
+                </Link>
+                .
               </p>
               <p>
                 A custom motorized screen is not priced like a window screen

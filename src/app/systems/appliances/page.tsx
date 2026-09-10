@@ -225,6 +225,12 @@ const relatedLinks = [
     description:
       'Outcome-led packages that combine shade, glass, screens, heat, and cooking.',
   },
+  {
+    label: 'Outdoor Kitchen Pergola Planning',
+    href: '/guides/outdoor-kitchen-pergola',
+    description:
+      'Plan cooking zones, appliance clearance, ventilation, utilities, drainage, and screens around a pergola.',
+  },
 ];
 
 export default function AppliancesPage() {

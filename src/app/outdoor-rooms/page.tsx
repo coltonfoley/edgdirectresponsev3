@@ -62,11 +62,11 @@ const roomConcepts = [
     title: 'Pergola + Screens + Outdoor Kitchen',
     description:
       'A cooking and dining space planned around shade, insect control, ventilation, lighting, and a clean appliance layout.',
-    href: '/systems/appliances',
+    href: '/guides/outdoor-kitchen-pergola',
     image: images.systems.appliances.kitchen,
     icon: Sun,
-    label: 'Related path',
-    ctaLabel: 'View related path',
+    label: 'Dedicated plan',
+    ctaLabel: 'View kitchen pergola plan',
   },
   {
     title: 'Florida Lanai Modernization',
@@ -124,6 +124,12 @@ const systemLinks = [
     title: 'Motorized screens',
     href: '/systems/shades',
     description: 'Insect, sun, privacy, and everyday wind comfort by opening.',
+  },
+  {
+    title: 'Outdoor appliances',
+    href: '/systems/appliances',
+    description:
+      'Grills, pizza ovens, heating, refrigeration, and service planning for outdoor kitchens.',
   },
   {
     title: 'Planning guide',

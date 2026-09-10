@@ -54,3 +54,10 @@ rg -n "metadata|canonical|sitemap|alternates" src/app src/lib
 This is the marketing and SEO website for EDG Patio & Shade. It is not the Ops
 Portal and it is not Rainmaker. It captures demand, presents EDG's product and
 market positioning, and hands website leads into Rainmaker.
+
+## Public Pricing Rule
+
+Public pages, metadata, JSON-LD, and pull-request text may use broad,
+evidence-backed planning bands, but must never publish actual customer or
+project totals, quote line amounts, exact calculated project rates, or private
+quote details. Keep private source evidence outside the public repository.

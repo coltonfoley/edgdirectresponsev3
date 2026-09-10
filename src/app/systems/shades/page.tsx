@@ -306,6 +306,12 @@ const relatedProducts = [
     href: '/guides/motorized-retractable-screen-pricing',
   },
   {
+    name: 'MagnaTrack Screen Review',
+    description:
+      'Read EDG’s documented field review of the magnetic track, care expectations, and alternatives.',
+    href: '/guides/magnatrack-screens-review',
+  },
+  {
     name: 'Restaurant Patio Enclosures',
     description:
       'Plan commercial screens with pergolas, glass, heat, controls, seating, and restaurant service flow.',
@@ -316,6 +322,12 @@ const relatedProducts = [
     description:
       'Pair side screens with a motorized roof when the patio also needs overhead shade and rain control.',
     href: '/systems/pergolas',
+  },
+  {
+    name: 'Pergola with Retractable Screens',
+    description:
+      'Compare a pergola with motorized screens against a fixed porch or glass.',
+    href: '/guides/pergola-with-retractable-screens',
   },
   {
     name: 'Glass Enclosures',

@@ -10,7 +10,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { Button, LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
@@ -262,12 +262,33 @@ export default function MotorizedPergolaPermitsHoaEngineeringPage() {
                 from scope-changing constraints.
               </p>
             </div>
-            <Link href="/guides/pergola-system-fit-review">
-              <Button size="lg" className="w-full justify-between">
+            <div>
+              <LinkButton
+                href="/guides/pergola-system-fit-review"
+                size="lg"
+                className="w-full justify-between"
+              >
                 Request a Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+              </LinkButton>
+              <div className="mt-5 space-y-3 text-sm text-zinc-300">
+                <Link
+                  href="/guides/pergola-attached-to-house"
+                  className="block underline underline-offset-4 transition-colors hover:text-white"
+                >
+                  Planning a pergola attached to a house? Compare the
+                  attachment, roofline, and water-path questions before the
+                  review package.
+                </Link>
+                <Link
+                  href="/guides/pergola-snow-load-winter?source=permits_engineering_winter_related"
+                  className="block underline underline-offset-4 transition-colors hover:text-white"
+                >
+                  Understand how structural ratings, span, exposure, and winter
+                  operation fit into the engineering review.
+                </Link>
+              </div>
+            </div>
           </div>
         </Container>
       </Section>

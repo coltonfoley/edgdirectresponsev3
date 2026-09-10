@@ -118,6 +118,18 @@ const relatedResources = [
       'Review cost, structure, drainage, permits, controls, and fit.',
   },
   {
+    title: 'Pergola with Retractable Screens',
+    href: '/guides/pergola-with-retractable-screens',
+    description:
+      'Compare mesh screens with glass around airflow, privacy, weather, and daily use.',
+  },
+  {
+    title: 'Glass patio enclosure cost guide',
+    href: '/guides/glass-patio-enclosure-cost',
+    description:
+      'Compare a broad glass-wall planning band with the scope of a roof-plus-glass outdoor room.',
+  },
+  {
     title: 'Request a pergola quote',
     href: '/guides/pergola-system-fit-review',
     description:

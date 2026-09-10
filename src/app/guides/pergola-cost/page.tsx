@@ -1108,6 +1108,25 @@ export default function PergolaCostGuide() {
               </Card>
             </Link>
 
+            <Link href="/guides/struxure-pergola-cost" className="group">
+              <Card
+                variant="muted"
+                padding="lg"
+                className="group-hover:border-edg-brand/30 h-full transition-colors"
+              >
+                <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
+                  StruXure Pergola Cost Research
+                </h3>
+                <p className="text-text-secondary mb-4 text-sm">
+                  Public pricing evidence, documented scope, and a checklist for
+                  comparing complete installed proposals.
+                </p>
+                <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
+                  Read Guide <ArrowRight className="h-4 w-4" />
+                </div>
+              </Card>
+            </Link>
+
             <Link href="/guides/pergola-vs-patio-cover" className="group">
               <Card
                 variant="muted"

@@ -14,6 +14,7 @@ import {
   Ruler,
   ShieldCheck,
   SlidersHorizontal,
+  UtensilsCrossed,
   Wind,
   Zap,
 } from 'lucide-react';
@@ -166,6 +167,27 @@ const resourceLinks = [
       'See how a louvered roof, frameless glass, screens, heat, and lighting become one protected patio plan.',
     href: '/outdoor-rooms/pergola-glass-outdoor-room',
     icon: Home,
+  },
+  {
+    title: 'Pergola Attached to a House',
+    description:
+      'Compare wall-mounted and freestanding options around doors, rooflines, drainage, and existing structure.',
+    href: '/guides/pergola-attached-to-house',
+    icon: Home,
+  },
+  {
+    title: 'Outdoor Kitchen Pergola Planning',
+    description:
+      'Plan cooking zones, appliance clearance, ventilation, utilities, drainage, and screens around a pergola.',
+    href: '/guides/outdoor-kitchen-pergola',
+    icon: UtensilsCrossed,
+  },
+  {
+    title: 'Pergola with Retractable Screens',
+    description:
+      'Plan roof-and-screen fit, integrated versus retrofit details, fabric, controls, and quote inputs.',
+    href: '/guides/pergola-with-retractable-screens',
+    icon: ShieldCheck,
   },
   {
     title: 'How EDG Chooses A Pergola System',

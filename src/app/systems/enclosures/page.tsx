@@ -238,6 +238,12 @@ const relatedProducts = [
     description: 'A protected patio plan with roof, glass, and comfort options',
   },
   {
+    name: 'Glass Patio Enclosure Cost Guide',
+    href: '/guides/glass-patio-enclosure-cost',
+    description:
+      'See a broad glass-wall planning band and compare glass walls added to an existing cover with a new roof-plus-glass room.',
+  },
+  {
     name: 'Outdoor Heating',
     href: '/systems/appliances',
     description: 'Infrared heaters and fire features',
