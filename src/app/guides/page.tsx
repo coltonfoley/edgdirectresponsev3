@@ -127,8 +127,8 @@ const guides = [
     intent: 'budget',
   },
   {
-    title: 'StruXure Pergola Cost Research',
-    desc: 'Public StruXure pricing evidence, documented scope, and a checklist for comparing complete installed proposals.',
+    title: 'StruXure vs. EDG Alternatives',
+    desc: 'Considering a StruXure dealer proposal? EDG does not sell StruXure. Compare competitor pricing bands and project scope with an EDG alternative.',
     href: '/guides/struxure-pergola-cost',
     icon: DollarSign,
     readTime: '8 min read',

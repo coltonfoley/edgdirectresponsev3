@@ -61,3 +61,8 @@ Public pages, metadata, JSON-LD, and pull-request text may use broad,
 evidence-backed planning bands, but must never publish actual customer or
 project totals, quote line amounts, exact calculated project rates, or private
 quote details. Keep private source evidence outside the public repository.
+
+## Sales Positioning
+
+- EDG is model agnostic. General planning guides should recommend around project needs rather than a named model.
+- EDG does not sell StruXure. Its dealers are competitors; StruXure content must clearly present competitor comparison and identify EDG quote requests as alternatives.

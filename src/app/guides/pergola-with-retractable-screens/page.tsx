@@ -470,74 +470,41 @@ export default function PergolaWithRetractableScreensPage() {
       <Section className="section-lg bg-surface-muted">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">Model-specific fit</div>
-            <h2 className="section-title mb-4">
-              Compatibility is a documented path, not a guess.
-            </h2>
+            <div className="label-editorial-brand mb-4">Designed around your patio</div>
+            <h2 className="section-title mb-4">Choose the combination that fits your space.</h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Manufacturers do not all use the same housing, track, motor, or
-              control strategy. EDG starts with the actual roof model and
-              opening before describing a louvered pergola with screens as a
-              compatible package.
+              EDG is model agnostic. We start with how you want to use the patio,
+              then coordinate the roof, screens, and controls around your openings,
+              comfort goals, and budget.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             <Card variant="default" padding="lg">
               <ShieldCheck className="text-edg-brand-text mb-5 h-7 w-7" />
-              <h3 className="mb-3 text-xl font-bold">Brustor B200 (XL)</h3>
-              <p className="text-text-secondary mb-5 leading-relaxed">
-                Brustor’s current B200 (XL) documentation specifically lists
-                integrated ZIP screens and a Smart-Fix option that prepares a
-                facade-mounted pergola for built-in screens later. That is a
-                model-specific path, not proof that every louvered roof accepts
-                every screen.
+              <h3 className="mb-3 text-xl font-bold">Roof and screen fit</h3>
+              <p className="text-text-secondary leading-relaxed">
+                Plan the roof and screens together so the housing, guides, posts,
+                and drainage work with the space. EDG checks attachment details
+                and service access for both new structures and existing patios.
               </p>
-              <a
-                href="https://www.brustor.com/en/products/product-types/patio-covers/louvred-roof-pergolas/b200-xl"
-                target="_blank"
-                rel="noreferrer"
-                className="text-text-primary inline-flex items-center gap-2 font-bold underline underline-offset-4"
-              >
-                View manufacturer details <ArrowRight className="h-4 w-4" />
-              </a>
             </Card>
             <Card variant="default" padding="lg">
               <Wind className="text-edg-brand-text mb-5 h-7 w-7" />
-              <h3 className="mb-3 text-xl font-bold">Progressive Screens</h3>
-              <p className="text-text-secondary mb-5 leading-relaxed">
-                Progressive publishes residential insect and solar screen
-                options, along with retrofit and new-construction applications.
-                Its MagnaTrack system, housing, fabric, motor, control, and
-                opening limits still need to be confirmed for the proposed bay.
+              <h3 className="mb-3 text-xl font-bold">Comfort for each opening</h3>
+              <p className="text-text-secondary leading-relaxed">
+                Choose screens around insects, side sun, privacy, and airflow.
+                Opening dimensions, exposure, fabric, and the way you use the
+                patio guide the recommendation.
               </p>
-              <a
-                href="https://www.progressivescreens.com/products/residential-screens/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-text-primary inline-flex items-center gap-2 font-bold underline underline-offset-4"
-              >
-                View screen options <ArrowRight className="h-4 w-4" />
-              </a>
             </Card>
             <Card variant="default" padding="lg">
               <Smartphone className="text-edg-brand-text mb-5 h-7 w-7" />
-              <h3 className="mb-3 text-xl font-bold">
-                Controls are part of fit
-              </h3>
-              <p className="text-text-secondary mb-5 leading-relaxed">
-                Somfy documents RTS control for pergolas and exterior screens,
-                but a shared control experience still depends on the motors and
-                receivers actually specified. EDG identifies the control path
-                before promising grouped operation or automation.
+              <h3 className="mb-3 text-xl font-bold">Controls that work together</h3>
+              <p className="text-text-secondary leading-relaxed">
+                Decide how you want to operate the roof and screens, from a
+                handheld remote to grouped controls or automation. EDG confirms
+                compatibility and wiring needs before specifying the combination.
               </p>
-              <a
-                href="https://www.somfysystems.com/en-us/support/faq?question=what-is-rts"
-                target="_blank"
-                rel="noreferrer"
-                className="text-text-primary inline-flex items-center gap-2 font-bold underline underline-offset-4"
-              >
-                Read RTS overview <ArrowRight className="h-4 w-4" />
-              </a>
             </Card>
           </div>
         </Container>
@@ -646,12 +613,10 @@ export default function PergolaWithRetractableScreensPage() {
                 operation belong in the quote conversation.
               </p>
               <p className="text-text-secondary text-lg leading-relaxed">
-                O’Hare is specifically documented as a Progressive Screens Gen 4
-                residential insect screen with an outside-mount white textured
-                frame, black screen fabric, and motorized operation. It is a
-                screen installation, not a claim that the same model is
-                compatible with every pergola. The roof-and-screen combination
-                still requires a model and opening review.
+                The Bartlett screen installation pairs a white frame with black
+                insect mesh and motorized operation. It shows how finish,
+                fabric, and mounting affect the finished opening. EDG reviews
+                those details for each project before recommending a combination.
               </p>
             </div>
             <div className="grid gap-6">
@@ -663,7 +628,7 @@ export default function PergolaWithRetractableScreensPage() {
                 <div className="relative aspect-[4/3]">
                   <Image
                     src={images.systems.shades.ohareHero}
-                    alt="EDG motorized Progressive Screens insect screen on a wide Bartlett opening"
+                    alt="EDG motorized insect screen on a wide Bartlett opening"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 40vw"

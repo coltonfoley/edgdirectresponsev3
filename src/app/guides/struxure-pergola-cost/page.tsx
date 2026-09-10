@@ -23,9 +23,9 @@ import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'StruXure Pergola Cost: Pricing Evidence & Quote Scope | EDG',
+  title: 'StruXure Pergola Cost vs. EDG Alternatives | EDG',
   description:
-    'StruXure does not publish a fixed Pergola X price. Review current published benchmarks, a dated public proposal, cost drivers, and an apples-to-apples quote checklist.',
+    'Compare StruXure dealer pricing bands with the scope of an EDG alternative. EDG does not sell StruXure; we help you compare complete pergola proposals.',
   keywords: [
     'struxure pergola cost',
     'struxure pergola price',
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'StruXure Pergola Cost: Pricing Evidence & Quote Scope | EDG',
+    title: 'StruXure Pergola Cost vs. EDG Alternatives | EDG',
     description:
-      'A source-backed guide to StruXure pricing signals, documented proposal scope, cost drivers, and equivalent quote comparison.',
+      'An independent competitor comparison of StruXure pricing bands and EDG alternatives, with a checklist for comparing complete installed scope.',
     type: 'article',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -203,7 +203,7 @@ const faqs = [
   {
     question: 'Is EDG a StruXure dealer?',
     answer:
-      'This page does not establish EDG as an authorized StruXure dealer. It is independent buying research from EDG Patio & Shade, not a StruXure price sheet. EDG is a system-agnostic design and supply partner that quotes its current toolkit alternatives, including Brustor, Azenco, and Sundance. EDG will not relabel its general pergola ranges as StruXure pricing.',
+      'No. EDG does not sell StruXure, and StruXure dealers are competitors. EDG is model agnostic and quotes alternatives selected around your project. This guide helps you compare a competitor proposal with an EDG alternative using the same installed scope.',
   },
 ];
 
@@ -233,14 +233,14 @@ function ExternalSourceLink({
 
 export default function StruxurePergolaCostPage() {
   const articleSchema = generateArticleSchema({
-    title: 'StruXure Pergola Cost: Pricing Evidence & Quote Scope',
+    title: 'StruXure Pergola Cost vs. EDG Alternatives',
     description:
-      'A source-backed guide to public StruXure pricing signals, documented proposal scope, cost drivers, and equivalent quote comparison.',
+      'Compare StruXure dealer pricing bands and proposal scope with model-agnostic EDG alternatives.',
     url: 'https://www.edgpatioshade.com/guides/struxure-pergola-cost',
     image: `https://www.edgpatioshade.com${images.systems.pergolas.grayBronzeWhite}`,
     datePublished: '2026-09-10',
     dateModified: '2026-09-10',
-    category: 'Pergola Cost Research',
+    category: 'Pergola Competitor Comparison',
   });
 
   return (
@@ -265,16 +265,17 @@ export default function StruxurePergolaCostPage() {
             <div>
               <div className="label-editorial-brand text-edg-brand mb-6 flex items-center gap-3">
                 <div className="bg-edg-brand h-px w-8" />
-                Brand Cost Research
+                Competitor Comparison
               </div>
               <h1 className="mb-8 text-4xl leading-tight font-bold tracking-tight md:text-6xl">
-                What does a StruXure pergola cost?
+                Comparing StruXure with an EDG alternative?
               </h1>
               <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
-                The public answer is not a fixed price. StruXure says Pergola X
-                is custom-made, and independent dealers set project pricing. The
-                useful budget question is what a published number includes,
-                where it was priced, and whether the scope matches your site.
+                EDG does not sell StruXure. Its dealers are competitors. If you
+                are considering a StruXure proposal, use this guide to compare
+                published planning bands and complete project scope with an
+                alternative from EDG. We recommend systems around your patio,
+                comfort goals, and budget.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink
@@ -283,7 +284,7 @@ export default function StruxurePergolaCostPage() {
                   ctaPosition="struxure_pergola_cost_hero"
                   className={buttonClassName({ size: 'lg' })}
                 >
-                  Request a Quote
+                  Request an EDG Alternative Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </TrackedLink>
                 <Link
@@ -293,13 +294,12 @@ export default function StruxurePergolaCostPage() {
                     size: 'lg',
                   })}
                 >
-                  See the evidence
+                  Compare pricing bands
                 </Link>
               </div>
               <p className="text-text-inverse-muted mt-5 max-w-xl text-sm leading-relaxed">
-                This page does not establish EDG as an authorized StruXure
-                dealer. The EDG quote request is for reviewing current toolkit
-                alternatives, not for requesting a StruXure quote.
+                Quote requests on this page are for EDG alternatives.
+                StruXure pricing bands below are attributed competitor research.
               </p>
             </div>
             <div>
@@ -351,6 +351,43 @@ export default function StruxurePergolaCostPage() {
                 permits, wiring, controls, drainage, and installation are added.
               </p>
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-surface-muted">
+        <Container>
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="label-editorial-brand mb-4">StruXure dealer vs. EDG</div>
+            <h2 className="section-title mb-4">Two proposals. One project brief.</h2>
+            <p className="text-text-secondary text-lg leading-relaxed">
+              Use the same footprint, comfort goals, and installation scope for
+              both conversations so you can see what each proposal delivers.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card variant="default" padding="lg">
+              <h3 className="mb-4 text-2xl font-bold">A StruXure dealer proposal</h3>
+              <p className="text-text-secondary leading-relaxed">
+                Ask the competing dealer to identify the StruXure configuration,
+                installed scope, options, exclusions, warranty, and service
+                responsibilities. The attributed bands below provide background
+                for that conversation; the dealer supplies its own proposal.
+              </p>
+            </Card>
+            <Card variant="default" padding="lg">
+              <h3 className="mb-4 text-2xl font-bold">An EDG alternative</h3>
+              <p className="text-text-secondary leading-relaxed">
+                EDG starts with your space and selects an alternative from the
+                systems we sell. We are model agnostic: roof layout, screens,
+                lighting, controls, exposure, and budget guide the recommendation.
+                Compare our proposed scope and responsibilities against the
+                competing offer before choosing.
+              </p>
+              <Link href="/systems/pergolas" className="mt-6 inline-flex items-center gap-2 font-bold underline underline-offset-4">
+                Explore EDG pergola options <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Card>
           </div>
         </Container>
       </Section>
@@ -631,15 +668,14 @@ export default function StruxurePergolaCostPage() {
                 EDG&apos;s relationship
               </div>
               <h2 className="section-title mb-6">
-                Brand-specific research should stay honest
+                Compare an EDG alternative on the same scope
               </h2>
               <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                 <p>
-                  EDG Patio &amp; Shade is not presenting this page as a
-                  StruXure price sheet, manufacturer statement, or StruXure
-                  dealer proposal. The public examples above are linked so you
-                  can see where each number came from and what it did—and did
-                  not—include.
+                  EDG does not sell StruXure. We can prepare an alternative
+                  proposal for your patio and help compare the roof layout,
+                  screens, controls, engineering, installation, and service
+                  responsibilities against a StruXure dealer proposal.
                 </p>
                 <p>
                   EDG is a system-agnostic design and supply partner. Its
@@ -711,7 +747,7 @@ export default function StruxurePergolaCostPage() {
         <Container>
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-5 text-3xl font-bold md:text-5xl">
-              Need help comparing the complete scope?
+              Get an EDG alternative to compare
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed">
               Share the footprint, photos, location, and features you are
@@ -725,7 +761,7 @@ export default function StruxurePergolaCostPage() {
               ctaPosition="struxure_pergola_cost_bottom"
               className="bg-edg-dark hover:bg-edg-dark/90 inline-flex h-14 items-center justify-center px-8 py-2 text-base font-bold tracking-wider text-white uppercase transition-colors"
             >
-              Request a Quote
+              Request an EDG Alternative Quote
               <ArrowRight className="ml-2 h-5 w-5" />
             </TrackedLink>
           </div>
