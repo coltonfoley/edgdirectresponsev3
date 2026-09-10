@@ -72,12 +72,19 @@ not a final visual check.
   what EDG recommends and why, how the project is designed and delivered, and
   how to start a conversation. Use clear, approachable language and concrete
   details rather than generic outdoor-living claims.
+- Choose one primary audience and supported geography before drafting. Do not
+  mix nationwide trade services and local homeowner installation into every
+  page; use the service model that matches the visitor's question.
 - EDG specializes in motorized pergolas, retractable screens, and glass
   enclosures. Recommendations start with the project rather than one brand.
   Homeowner copy should describe design, permitting, installation, and care
   in supported local markets. Trade copy should describe nationwide design,
   specification, engineering support, procurement, and installation support.
   Do not imply nationwide homeowner installation.
+- General planning guides lead with EDG's project selection, design, and
+  delivery process, not named-model showcases. A deliberately product-specific
+  page, such as a MagnaTrack guide, can explain its subject where that detail
+  is accurate and useful to the buyer.
 - Keep research evidence, keyword strategy, commercial relationships,
   unpublished project records, verification limitations, and reviewer notes
   out of customer copy. A source can substantiate a claim without being

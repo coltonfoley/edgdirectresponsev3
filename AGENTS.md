@@ -75,7 +75,9 @@ dated work-product archives back under `docs/codex/`.
   Technical checks do not constitute brand or editorial approval. Correct
   sections that read like a research report, internal brief, or disclaimer
   instead of useful EDG marketing. Do not invent a personal author endorsement.
-- Current source files beat old docs, memory, comments, and prior chat.
+- Current user instructions and corrections take priority. For technical and
+  integration facts, current source files beat stale docs, memory, and comments.
+  Existing public copy is not authority to override a user or brand correction.
 - Keep changes scoped to the requested page, workflow, or bug.
 - Do not use `'use client'` in `page.tsx` files that need metadata. Put
   interactivity in child client components.
