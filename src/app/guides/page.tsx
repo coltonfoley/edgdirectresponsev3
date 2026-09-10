@@ -128,7 +128,7 @@ const guides = [
   },
   {
     title: 'StruXure vs. EDG Alternatives',
-    desc: 'Considering a StruXure dealer proposal? EDG does not sell StruXure. Compare competitor pricing bands and project scope with an EDG alternative.',
+    desc: 'Compare StruXure planning bands, features, and installation scope with EDG pergola alternatives for your patio.',
     href: '/guides/struxure-pergola-cost',
     icon: DollarSign,
     readTime: '8 min read',
