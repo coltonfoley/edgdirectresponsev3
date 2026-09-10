@@ -293,8 +293,7 @@ export default function MagnaTrackScreensReviewPage() {
                   />
                 </video>
                 <p className="p-4 text-sm leading-relaxed text-zinc-300">
-                  EDG project media showing the motorized screen moving across
-                  the outbuilding opening.{' '}
+                  Motorized screen opening and closing in Bartlett.{' '}
                   <Link
                     href="/projects/ohare"
                     className="text-white underline underline-offset-4"
@@ -427,9 +426,6 @@ export default function MagnaTrackScreensReviewPage() {
                 want the screen to solve are helpful, but optional for the
                 initial request. EDG can then discuss the right fabric, track,
                 controls, installation path, and care plan.
-              </p>
-              <p className="text-text-secondary leading-relaxed">
-                Opening details and photos are optional for the initial request.
               </p>
             </div>
             <ScreenFitBudgetForm
