@@ -21,24 +21,24 @@ import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Considering StruXure? Explore EDG Pergolas | EDG',
+  title: 'Considering StruXure? Explore EDG Pergola Alternatives | EDG',
   description:
-    'Considering StruXure? See how EDG selects, designs, installs, and cares for motorized pergola systems around your patio, roof, screens, and comfort goals.',
+    'Explore EDG pergola alternatives to StruXure, with system selection, design, installation, and care planned around your patio and comfort goals.',
   keywords: [
-    'struxure pergola cost',
-    'struxure pergola price',
-    'struxure pergola cost per square foot',
-    'struxure pergola quote',
+    'struxure pergola alternative',
+    'struxure alternative',
+    'motorized pergola alternatives',
     'motorized pergola design',
+    'EDG pergolas',
   ],
   alternates: {
     canonical: '/guides/struxure-pergola-cost',
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Considering StruXure? Explore EDG Pergolas | EDG',
+    title: 'Considering StruXure? Explore EDG Pergola Alternatives | EDG',
     description:
-      'See how EDG plans a motorized pergola around your patio, roof, screens, controls, installation, and care needs.',
+      'Explore EDG pergola alternatives with design, installation, and care planned around your patio, roof, screens, controls, and comfort needs.',
     type: 'article',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -84,39 +84,11 @@ const costDrivers = [
   },
 ];
 
-const projectChecklist = [
-  {
-    label: 'How you use the patio',
-    description:
-      'Tell EDG when you use the space, where the sun lands, what you want protected, and whether the room should open fully or stay comfortable through changing weather.',
-  },
-  {
-    label: 'Roof and post layout',
-    description:
-      'Share the rough footprint, desired post locations, roofline, and clearances. EDG turns those starting points into a buildable layout.',
-  },
-  {
-    label: 'Comfort features',
-    description:
-      'Decide whether screens, glass, lighting, heaters, fans, privacy, or controls belong in the first design or a later phase.',
-  },
-  {
-    label: 'Site and approval path',
-    description:
-      'EDG reviews the mounting surface, drainage, electrical path, access, permits, HOA requirements, and engineering needs for the location.',
-  },
-  {
-    label: 'Installation and care',
-    description:
-      'The proposal should make delivery, installation, owner handoff, maintenance, and future service responsibilities easy to understand.',
-  },
-] as const;
-
 const faqs = [
   {
-    question: 'Can EDG help me compare a StruXure pergola?',
+    question: 'Can EDG recommend an alternative to a StruXure pergola?',
     answer:
-      'Yes. EDG can review the patio, roof layout, screens, controls, installation path, and care needs you are comparing, then recommend a motorized pergola system that fits the project. EDG starts with the space and the way you want to use it.',
+      'Yes. EDG can review the patio, roof layout, screens, controls, installation path, and care needs you are comparing, then recommend an alternative motorized pergola system that fits the project. EDG starts with the space and the way you want to use it.',
   },
   {
     question: 'What should I compare besides the pergola brand?',
@@ -132,9 +104,9 @@ const faqs = [
 
 export default function StruxurePergolaCostPage() {
   const articleSchema = generateArticleSchema({
-    title: 'Considering StruXure? Explore EDG Pergolas',
+    title: 'Considering StruXure? Explore EDG Pergola Alternatives',
     description:
-      'A homeowner guide to how EDG selects and plans motorized pergola systems around patio use, roof layout, screens, installation, and care.',
+      'A homeowner guide to EDG pergola alternatives, with motorized system selection, roof layout, screens, installation, and care planned around the patio.',
     url: 'https://www.edgpatioshade.com/guides/struxure-pergola-cost',
     image: `https://www.edgpatioshade.com${images.systems.pergolas.grayBronzeWhite}`,
     datePublished: '2026-09-10',
@@ -156,7 +128,7 @@ export default function StruxurePergolaCostPage() {
           <Breadcrumb
             items={[
               { label: 'Guides', href: '/guides' },
-              { label: 'StruXure Pergola Cost' },
+              { label: 'EDG Pergola Alternatives' },
             ]}
             className="mb-8"
           />
@@ -167,7 +139,7 @@ export default function StruxurePergolaCostPage() {
                 Pergola planning guide
               </div>
               <h1 className="mb-8 text-4xl leading-tight font-bold tracking-tight md:text-6xl">
-                Considering StruXure? Explore EDG pergolas.
+                Considering StruXure? Explore EDG pergola alternatives.
               </h1>
               <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
                 Start with how you want to use the patio. EDG selects and
@@ -224,51 +196,12 @@ export default function StruxurePergolaCostPage() {
                 result. EDG brings those decisions into one design conversation.
               </p>
               <p>
-                If you are considering StruXure, EDG can help you clarify the
-                project brief and compare it with the motorized pergola systems
-                EDG designs, supplies, installs, and supports. The goal is a
-                roof that fits the home and the way you want the space to work.
+                If you are considering StruXure, EDG can recommend an
+                alternative motorized pergola system when it fits the layout,
+                use, and service plan better. The goal is a roof that fits the
+                home and the way you want the space to work.
               </p>
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-surface-muted">
-        <Container>
-          <div className="mx-auto mb-10 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">Project fit</div>
-            <h2 className="section-title mb-4">
-              Compare the project, not just the name
-            </h2>
-            <p className="text-text-secondary text-lg leading-relaxed">
-              EDG starts with the patio and works outward. These are the
-              decisions that make a motorized pergola feel right after
-              installation.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card variant="default" padding="lg">
-              <h3 className="mb-4 text-2xl font-bold">
-                How should the roof work?
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                Decide where you want shade, how much sky you want to see, how
-                the roof should respond to sun and rain, and whether separate
-                zones would make the patio easier to use.
-              </p>
-            </Card>
-            <Card variant="default" padding="lg">
-              <h3 className="mb-4 text-2xl font-bold">
-                What should the room include?
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                Screens, glass, heaters, fans, lighting, privacy, and controls
-                change the experience and the installation plan. EDG coordinates
-                those choices with the roof instead of adding them after the
-                layout is fixed.
-              </p>
-            </Card>
           </div>
         </Container>
       </Section>
@@ -303,60 +236,19 @@ export default function StruxurePergolaCostPage() {
 
       <Section className="bg-white">
         <Container>
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">How EDG works</div>
-            <h2 className="section-title mb-4">
-              From patio questions to an installation plan
-            </h2>
-            <p className="text-text-secondary text-lg leading-relaxed">
-              Bring EDG the starting point. We help turn it into a clear design,
-              a coordinated scope, and a project your family can use.
-            </p>
-          </div>
-          <div className="mx-auto max-w-5xl space-y-4">
-            {projectChecklist.map((item, index) => (
-              <Card key={item.label} variant="muted" padding="md">
-                <div className="grid gap-4 md:grid-cols-[auto_0.7fr_1.3fr] md:items-start">
-                  <div className="text-edg-brand-text flex items-center gap-3 font-bold">
-                    <span className="bg-edg-brand inline-flex h-8 w-8 items-center justify-center text-sm text-black">
-                      {index + 1}
-                    </span>
-                    <span className="md:hidden">{item.label}</span>
-                  </div>
-                  <h3 className="hidden text-lg font-bold md:block">
-                    {item.label}
-                  </h3>
-                  <p className="text-text-secondary leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-white">
-        <Container>
           <div className="grid items-start gap-12 lg:grid-cols-2">
             <div>
-              <div className="label-editorial-brand mb-4">
-                The EDG difference
-              </div>
+              <div className="label-editorial-brand mb-4">How EDG works</div>
               <h2 className="section-title mb-6">
-                One specialty partner for the whole outdoor room
+                A specialty partner for the whole outdoor room
               </h2>
               <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                 <p>
                   EDG is a system-agnostic design and supply partner for
-                  motorized outdoor systems. We recommend what fits the project,
-                  not what happens to be the only option.
-                </p>
-                <p>
-                  For local homeowners, EDG can coordinate design, engineering,
-                  permitting, installation, and care. For trade partners, EDG
-                  supports specification, procurement, delivery, and installer
-                  coordination across the country.
+                  motorized outdoor systems. We use multi-brand access to
+                  recommend what fits the project, then coordinate design,
+                  engineering, permitting, installation, and care for local
+                  homeowners.
                 </p>
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -425,9 +317,9 @@ export default function StruxurePergolaCostPage() {
               Plan the pergola around your patio
             </h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed">
-              Share the footprint, photos, location, and the comfort you want.
-              EDG can help you choose the right roof layout and coordinate the
-              rest of the outdoor room.
+              A footprint, photos, location, and the comfort you want are
+              helpful but not required to start. EDG can help you choose the
+              right roof layout and coordinate the rest of the outdoor room.
             </p>
             <TrackedLink
               href="/guides/pergola-system-fit-review?source=struxure_pergola_cost_bottom"

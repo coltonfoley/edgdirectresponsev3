@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  ArrowRight,
   Check,
   CircleAlert,
   Gauge,
@@ -45,10 +44,9 @@ export const metadata: Metadata = {
 };
 
 const projectDetails = [
-  'Bartlett, Illinois residential garage/outbuilding opening',
-  'Motorized insect screen on a wide opening',
-  'Outside-mount light frame with dark screen fabric',
-  'Screen shown closed, partway through travel, and open',
+  'Light frame with dark screen fabric',
+  'Motorized screen shown closed, partway through travel, and open',
+  'Raise the screen when you want the opening open to the yard',
 ];
 
 const fitChecks = [
@@ -89,7 +87,7 @@ const careChecks = [
     icon: ShieldCheck,
     title: 'Use the screen as designed',
     description:
-      'Retract the screen when weather or site conditions exceed the operating guidance for the selected system. A motorized comfort screen is not hurricane protection.',
+      'Follow the operating and care guidance for the selected system, and call EDG when movement changes.',
   },
   {
     icon: Wrench,
@@ -114,7 +112,7 @@ const faqs = [
   {
     question: 'What does the magnetic track change?',
     answer:
-      'The magnetic track gives the screen a flexible capture point that can release under ordinary pressure and reseat when the opening clears. It supports day-to-day comfort, but it does not correct a weak structure, poor measurements, blocked travel, or severe-weather exposure.',
+      'The magnetic side tracks let the fabric flex under wind pressure and draw it taut again as the pressure eases. EDG still checks the structure, measurements, travel path, and weather expectations around the opening.',
   },
   {
     question: 'Are MagnaTrack screens storm protection?',
@@ -207,8 +205,8 @@ export default function MagnaTrackScreensReviewPage() {
 
       <Section className="section-lg">
         <Container>
-          <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="max-w-3xl">
+          <div className="mx-auto max-w-3xl">
+            <div>
               <div className="label-editorial-brand mb-4">Our answer</div>
               <h2 className="section-title mb-6">
                 MagnaTrack can be a strong fit when the screen needs to
@@ -219,32 +217,18 @@ export default function MagnaTrackScreensReviewPage() {
                   EDG considers MagnaTrack for covered patios, porches, pergola
                   bays, lanais, and garage-style openings where the goal is
                   insect protection and everyday comfort without leaving a fixed
-                  screen across the view. The magnetic track gives the screen a
-                  flexible capture point that can release under ordinary
-                  pressure and reseat when the opening clears.
+                  screen across the view. The magnetic side tracks let the
+                  fabric flex under wind pressure and draw it taut again as the
+                  pressure eases.
                 </p>
                 <p>
                   That benefit matters after the installation, but it only works
                   when the opening, mounting, fabric, power, controls, and
                   bottom-bar path are planned together. EDG measures those
-                  details and explains the weather limits before recommending
-                  the screen.
+                  details before recommending the screen.
                 </p>
               </div>
             </div>
-            <Card variant="dark" padding="lg" className="border-white/10">
-              <p className="text-edg-brand mb-4 text-xs font-bold tracking-[0.2em] uppercase">
-                EDG screen fit
-              </p>
-              <h2 className="mb-4 text-2xl font-bold">
-                Start with the opening, not the product name.
-              </h2>
-              <p className="text-text-inverse-muted leading-relaxed">
-                EDG supplies and installs motorized screen systems, then helps
-                you choose the fit around the structure, fabric, controls,
-                exposure, and daily use of the patio.
-              </p>
-            </Card>
           </div>
         </Container>
       </Section>
@@ -252,17 +236,13 @@ export default function MagnaTrackScreensReviewPage() {
       <Section id="bartlett-project" className="section-lg bg-surface-muted">
         <Container>
           <div className="mb-12 max-w-3xl">
-            <div className="label-editorial-brand mb-4">
-              An EDG project example
-            </div>
+            <div className="label-editorial-brand mb-4">Bartlett project</div>
             <h2 className="section-title mb-4">
-              A wide Bartlett opening with a motorized screen
+              A motorized insect screen spans this Bartlett outbuilding opening
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              EDG project media shows the screen closed, partway through travel,
-              and open across a wide residential outbuilding opening. It gives
-              you a concrete look at the frame, fabric, and movement EDG can
-              coordinate for a project like this.
+              A light frame and dark fabric keep the installation visually
+              simple; raise the screen to open the space to the yard.
             </p>
           </div>
 
@@ -329,9 +309,7 @@ export default function MagnaTrackScreensReviewPage() {
               <p className="text-edg-brand-text mb-4 text-xs font-bold tracking-[0.2em] uppercase">
                 Bartlett, IL
               </p>
-              <h3 className="mb-6 text-2xl font-bold">
-                What the project shows
-              </h3>
+              <h3 className="mb-6 text-2xl font-bold">Finish and operation</h3>
               <ul className="space-y-4">
                 {projectDetails.map((item) => (
                   <li key={item} className="flex items-start gap-3">
@@ -356,7 +334,7 @@ export default function MagnaTrackScreensReviewPage() {
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
               The magnetic track is useful when the screen needs to stay aligned
-              during normal use while still having some give under pressure. EDG
+              during normal use while still responding to wind pressure. EDG
               pairs that feature with a measured opening and a clear operating
               plan.
             </p>
@@ -365,9 +343,9 @@ export default function MagnaTrackScreensReviewPage() {
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: 'Flexible capture',
+                title: 'Wind-responsive side tracks',
                 description:
-                  'The magnetic connection can release under ordinary pressure and reseat when the opening clears. That supports flexible day-to-day use.',
+                  'The magnetic side tracks let the fabric flex under wind pressure and draw it taut again as the pressure eases.',
               },
               {
                 title: 'Still a custom system',
@@ -375,9 +353,9 @@ export default function MagnaTrackScreensReviewPage() {
                   'The track does not remove the need for a sound opening, aligned side tracks, a properly placed housing, appropriate fabric, power, and service access.',
               },
               {
-                title: 'Comfort, not storm protection',
+                title: 'Choose the fabric around the room',
                 description:
-                  'A screen can help with insects, glare, privacy, and everyday comfort. It is not a storm shutter or a promise to remain down through severe weather.',
+                  'EDG helps balance insects, glare, privacy, airflow, daylight, and view around the patio’s orientation and daily use.',
               },
             ].map((item) => (
               <Card key={item.title} variant="muted" padding="lg">
@@ -434,32 +412,6 @@ export default function MagnaTrackScreensReviewPage() {
         </Container>
       </Section>
 
-      <Section className="section-lg bg-white">
-        <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
-            <div className="max-w-3xl">
-              <div className="label-editorial-brand mb-4">Project fit</div>
-              <h2 className="section-title mb-4">
-                A site review turns the screen idea into a plan
-              </h2>
-              <p className="text-text-secondary text-lg leading-relaxed">
-                MagnaTrack screens are custom systems. EDG reviews the opening,
-                fabric, housing, controls, wiring, mounting, installation
-                conditions, and care expectations before recommending the next
-                step.
-              </p>
-            </div>
-            <TrackedLink
-              href="#screen-review-quote"
-              conversionName="screen_review_quote_cta"
-              className={buttonClassName({ size: 'lg' })}
-            >
-              Request a Quote <ArrowRight className="ml-2 h-5 w-5" />
-            </TrackedLink>
-          </div>
-        </Container>
-      </Section>
-
       <Section id="screen-review-quote" className="section-lg bg-surface">
         <Container>
           <div className="mx-auto grid max-w-5xl gap-12 border border-black/10 bg-white p-6 md:p-10 lg:grid-cols-[0.8fr_1.2fr]">
@@ -468,12 +420,13 @@ export default function MagnaTrackScreensReviewPage() {
                 Screen fit review
               </div>
               <h2 className="section-title mb-6">
-                Request a quote for the opening—not just the product name.
+                Tell us what you want from your patio.
               </h2>
               <p className="text-text-secondary mb-5 text-lg leading-relaxed">
-                Send the location, rough dimensions, photos, and the problem you
-                want the screen to solve. EDG can then discuss the right fabric,
-                track, controls, installation path, and care plan.
+                A location, rough footprint, photos, and the comfort problem you
+                want the screen to solve are helpful, but optional for the
+                initial request. EDG can then discuss the right fabric, track,
+                controls, installation path, and care plan.
               </p>
               <p className="text-text-secondary leading-relaxed">
                 Opening details and photos are optional for the initial request.
