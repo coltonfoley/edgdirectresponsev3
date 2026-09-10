@@ -44,6 +44,11 @@ These facts were checked against the repo on 2026-07-22:
 
 Use these files before touching the website:
 
+- For any public copy, read the `edg-brand-guidelines` skill and its
+  `references/brand-reference.md` before drafting or reviewing. The local skill
+  is at `/Users/coltonfoley/.codex/skills/edg-brand-guidelines/SKILL.md`.
+  Apply the customer-copy rules in `docs/codex/source-of-truth.md` as well.
+
 - `docs/codex/source-of-truth.md` - current repo, stack, integrations, and
   source files to inspect first.
 - `docs/codex/lead-flow.md` - website lead intake and Rainmaker handoff.
@@ -62,6 +67,14 @@ dated work-product archives back under `docs/codex/`.
 
 ## Operating Rules
 
+- These are EDG marketing pages. Explain what EDG offers, how EDG designs and
+  delivers the work, and what the customer gains. Research provenance, internal
+  sales context, review notes, and competitor documents are not website copy.
+- Before release, read the entire rendered customer copy, including captions,
+  FAQs, metadata, structured data, guide cards, and sitemap descriptions.
+  Technical checks do not constitute brand or editorial approval. Correct
+  sections that read like a research report, internal brief, or disclaimer
+  instead of useful EDG marketing. Do not invent a personal author endorsement.
 - Current source files beat old docs, memory, comments, and prior chat.
 - Keep changes scoped to the requested page, workflow, or bug.
 - Do not use `'use client'` in `page.tsx` files that need metadata. Put

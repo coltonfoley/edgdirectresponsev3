@@ -62,9 +62,48 @@ evidence-backed planning bands, but must never publish actual customer or
 project totals, quote line amounts, exact calculated project rates, or private
 quote details. Keep private source evidence outside the public repository.
 
-## Sales Positioning
+## Customer Copy and Brand Review
 
-- EDG is model agnostic. General planning guides should recommend around project needs rather than a named model.
-- EDG does not sell StruXure. Its dealers are competitors; StruXure content must clearly present competitor comparison and identify EDG quote requests as alternatives.
+Read the `edg-brand-guidelines` skill and its `references/brand-reference.md`
+before writing or reviewing public copy. Brand guidance is required input,
+not a final visual check.
 
-- Competitor comparisons must serve the homeowner: do not publish competitor quotes, contracts, pricing examples, or internal sales commentary. General guides should not become named-model showcases.
+- Write for the prospective customer. Explain the useful product differences,
+  what EDG recommends and why, how the project is designed and delivered, and
+  how to start a conversation. Use clear, approachable language and concrete
+  details rather than generic outdoor-living claims.
+- EDG specializes in motorized pergolas, retractable screens, and glass
+  enclosures. Recommendations start with the project rather than one brand.
+  Homeowner copy should describe design, permitting, installation, and care
+  in supported local markets. Trade copy should describe nationwide design,
+  specification, engineering support, procurement, and installation support.
+  Do not imply nationwide homeowner installation.
+- Keep research evidence, keyword strategy, commercial relationships,
+  unpublished project records, verification limitations, and reviewer notes
+  out of customer copy. A source can substantiate a claim without being
+  reproduced or linked on the page. Do not publish private source material in
+  code, comments, commits, PRs, metadata, or structured data.
+- Do not publish competitor prices, quotes, contracts, proposals, or links to
+  their documents. A comparison should explain relevant customer choices and
+  EDG's offering, not advertise another supplier or describe internal sales
+  strategy. Internally, StruXure is not an EDG offering; public copy must not
+  imply otherwise, and should naturally introduce EDG pergola alternatives.
+- Keep necessary weather, safety, and product limitations brief and useful.
+  Explain how EDG addresses them. Do not reproduce an unrelated model's
+  instructions, engineering values, warranty extract, or clearance example.
+- Use public EDG projects accurately and naturally. Do not turn a planning
+  project into a completed installation, imply unrelated photos show one
+  combined project, invent outcomes, or narrate what the research record does
+  and does not prove. Omit an example that cannot support a useful claim.
+- Photos and measurements are helpful, not prerequisites for the initial quote
+  request. Keep the next step approachable. Do not make the visitor perform a
+  technical site audit before contacting EDG.
+- Do not assign Colton or another person a byline, testimonial, review, or
+  endorsement without explicit approval. Keep metadata and schema consistent
+  with the actual authorship and visible copy.
+
+The release reviewer must read the full rendered page as a prospective buyer,
+including FAQs, captions, metadata, schema, guide cards, and sitemap text.
+Reject internal context, supplier referrals, repetitive hedging, unsupported
+claims, or copy that does not help explain the customer's choice and EDG's
+work. A clean build and sourced facts alone are not editorial approval.
