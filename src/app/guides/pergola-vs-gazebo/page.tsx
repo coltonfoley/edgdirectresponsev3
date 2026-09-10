@@ -16,7 +16,7 @@ import {
   X,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { IconWrapper } from '@/components/ui/IconWrapper';
@@ -421,6 +421,37 @@ export default function PergolaVsGazeboGuide() {
                     excluded. Treat the roof as a carefully specified outdoor
                     system, not an indoor room by default.
                   </p>
+                  <p className="text-text-secondary mt-5 border-t border-black/10 pt-5 text-sm leading-relaxed">
+                    For primary manufacturer guidance, see{' '}
+                    <a
+                      href="https://www.brustor.com/en-us/products/product-types/patio-covers/louvred-roof-pergolas/b250-xl"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-edg-brand-dark font-bold underline"
+                    >
+                      Brustor&apos;s B250 XL louvered pergola page
+                    </a>{' '}
+                    for louver, gutter, and operating details and the{' '}
+                    <a
+                      href="https://dam.brustor.com/m/1712bd53be1e0199/original/Outdoor-Living_Sales-and-Warranty-conditions_EN.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-edg-brand-dark font-bold underline"
+                    >
+                      Brustor Outdoor Living warranty conditions
+                    </a>{' '}
+                    for weather and maintenance guidance. The{' '}
+                    <a
+                      href="https://azenco-outdoor.com/r-blade/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-edg-brand-dark font-bold underline"
+                    >
+                      Azenco R-BLADE product page
+                    </a>{' '}
+                    is another primary reference for adjustable louvers,
+                    sensors, and built-in drainage.
+                  </p>
                 </div>
               </div>
             </Card>
@@ -545,6 +576,60 @@ export default function PergolaVsGazeboGuide() {
         </Container>
       </Section>
 
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-10 text-center">
+              <div className="label-editorial-brand mb-4">
+                Documented EDG example
+              </div>
+              <h2 className="section-title mb-4">
+                A configurable pergola in practice
+              </h2>
+              <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
+                A fixed gazebo is not the only way to create a defined outdoor
+                destination. EDG&apos;s documented Karp project in Northbrook
+                shows how a motorized pergola can organize a patio into distinct
+                zones while keeping the roof and privacy strategy configurable.
+              </p>
+            </div>
+
+            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+              <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100">
+                <Image
+                  src={images.featuredProjects.karp.gallery[0]}
+                  alt="Wood-grain motorized pergola louvers on a Northbrook poolside project"
+                  fill
+                  sizes="(min-width: 1024px) 52vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+
+              <div>
+                <div className="label-editorial-brand mb-4">
+                  Karp · Northbrook, IL
+                </div>
+                <h3 className="mb-5 text-2xl font-bold">
+                  Multi-bay layout with wood-grain louvers and privacy walls
+                </h3>
+                <p className="text-text-secondary mb-5 leading-relaxed">
+                  The project record describes a residential poolside system
+                  with distinct dining and lounge zones, a wood-grain finish,
+                  and privacy walls. It is a documented motorized-pergola
+                  example—not a gazebo installation—but it shows why layout,
+                  finish, airflow, and roof control belong in the first
+                  comparison.
+                </p>
+                <LinkButton href="/projects/karp" variant="outline">
+                  View the Karp project
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </LinkButton>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       <Section className="section-md bg-surface">
         <Container>
           <div className="mx-auto max-w-4xl">
@@ -660,17 +745,20 @@ export default function PergolaVsGazeboGuide() {
               or manufacturer.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Link href="/guides/pergola-system-fit-review?source=pergola_vs_gazebo_bottom">
-                <Button size="lg">
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/guides/louvered-pergolas">
-                <Button size="lg" variant="outline">
-                  Read the Louvered Pergola Guide
-                </Button>
-              </Link>
+              <LinkButton
+                href="/guides/pergola-system-fit-review?source=pergola_vs_gazebo_bottom"
+                size="lg"
+              >
+                Request a Quote
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </LinkButton>
+              <LinkButton
+                href="/guides/louvered-pergolas"
+                size="lg"
+                variant="outline"
+              >
+                Read the Louvered Pergola Guide
+              </LinkButton>
             </div>
           </div>
         </Container>
