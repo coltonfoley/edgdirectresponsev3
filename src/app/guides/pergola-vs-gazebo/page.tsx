@@ -279,7 +279,21 @@ export default function PergolaVsGazeboGuide() {
               </p>
             </div>
 
-            <div className="border-border overflow-x-auto border bg-white">
+            <p
+              id="pergola-gazebo-table-hint"
+              className="text-text-muted mb-3 text-sm md:hidden"
+            >
+              Scroll horizontally to see all three columns. Focus the comparison
+              and use the arrow keys with a keyboard.
+            </p>
+
+            <div
+              aria-describedby="pergola-gazebo-table-hint"
+              aria-label="Pergola and gazebo comparison table"
+              className="border-border focus-visible:ring-edg-brand-dark overflow-x-auto border bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              role="region"
+              tabIndex={0}
+            >
               <table className="w-full min-w-[760px] text-left">
                 <caption className="sr-only">
                   Comparison of pergolas and gazebos by roof, openness, layout,
@@ -620,7 +634,7 @@ export default function PergolaVsGazeboGuide() {
                   finish, airflow, and roof control belong in the first
                   comparison.
                 </p>
-                <LinkButton href="/projects/karp" variant="outline">
+                <LinkButton href="/projects/karp" variant="secondary">
                   View the Karp project
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </LinkButton>
