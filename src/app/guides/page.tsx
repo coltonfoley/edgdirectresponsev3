@@ -128,7 +128,7 @@ const guides = [
   },
   {
     title: 'StruXure vs. EDG Alternatives',
-    desc: 'Compare StruXure planning bands, features, and installation scope with EDG pergola alternatives for your patio.',
+    desc: 'Considering StruXure? Explore EDG pergola alternatives and compare features, installation scope, and service for your patio.',
     href: '/guides/struxure-pergola-cost',
     icon: DollarSign,
     readTime: '8 min read',

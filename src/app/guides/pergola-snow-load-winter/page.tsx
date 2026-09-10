@@ -106,7 +106,7 @@ const winterSteps = [
     icon: Snowflake,
     title: 'Set the winter position before the storm',
     description:
-      'The correct position is model-specific. Brustor’s current B200(XL) guidance, for example, calls for the louvers to be fully vertical during snow so accumulation is avoided. Confirm the equivalent instruction for the selected system and make it part of the handoff.',
+      'The correct louver position depends on the installed system. Follow its current winter operating instructions and have the installer explain the snow and frost procedure during handoff. Do not assume that one roof’s operating position applies to another.',
   },
   {
     icon: ThermometerSnowflake,
@@ -149,27 +149,6 @@ const siteChecklist = [
   'Gutter and downspout destination, patio slope, doors, stairs, foundation edges, and surfaces that cannot receive discharge',
   'Screens, heaters, lights, sensors, controls, and the owner’s expected winter operating routine',
   'Permit, HOA, architectural review, or stamped-engineering requirements already identified',
-];
-
-const modelNotes = [
-  {
-    name: 'Azenco R-BLADE™',
-    note: 'Azenco’s current R-BLADE product page lists a snow load of up to 100 lbs / sq. ft. and describes the system as custom-configured. That published figure still needs to be checked against the exact layout, supports, local requirements, and approved installation details.',
-    href: 'https://azenco-outdoor.com/r-blade/',
-    label: 'Azenco R-BLADE product page',
-  },
-  {
-    name: 'Sundance All Season Pergola',
-    note: 'Sundance’s current FAQ lists 60 lbs / sq. ft. of snow load for its All Season Pergola. It is a different product and rating basis from the other examples, so EDG does not transfer that number to another model or span.',
-    href: 'https://sundanceoutdoorliving.com/faq/',
-    label: 'Sundance current FAQ',
-  },
-  {
-    name: 'Brustor B200(XL)',
-    note: 'Brustor’s current Outdoor Living sales and warranty conditions tell owners to turn specified louvers fully vertical in snow and not operate during frost. The same document separates a 35 kg/m² snow-load statement from a no-permanent-deformation statement up to 100 kg/m² for designated louver models—another reason those figures cannot be treated as a universal design rating.',
-    href: 'https://dam.brustor.com/m/1712bd53be1e0199/original/Outdoor-Living_Sales-and-Warranty-conditions_EN.pdf',
-    label: 'Brustor Outdoor Living conditions PDF',
-  },
 ];
 
 export default function PergolaSnowLoadWinterPage() {
@@ -403,53 +382,7 @@ export default function PergolaSnowLoadWinterPage() {
         </Container>
       </Section>
 
-      <Section className="section-md bg-black text-white">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 max-w-3xl">
-              <div className="label-editorial text-edg-brand mb-4">
-                Model-specific evidence
-              </div>
-              <h2 className="section-title mb-4 text-white">
-                Current manufacturer records show why the model matters
-              </h2>
-              <p className="text-lg leading-relaxed text-zinc-300">
-                EDG currently works from a manufacturer-flexible toolkit. These
-                published records are useful reference points, not a promise
-                that any one number applies to every layout or address.
-              </p>
-            </div>
 
-            <div className="grid gap-6 lg:grid-cols-3">
-              {modelNotes.map((model) => (
-                <div key={model.name} className="border border-white/15 p-6">
-                  <h3 className="mb-4 text-xl font-bold">{model.name}</h3>
-                  <p className="mb-6 text-sm leading-relaxed text-zinc-300">
-                    {model.note}
-                  </p>
-                  <a
-                    href={model.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-edg-brand inline-flex items-center gap-2 text-sm font-bold tracking-wide uppercase"
-                  >
-                    Read manufacturer record
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
-                  <p className="mt-3 text-xs text-zinc-500">{model.label}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-8 text-sm leading-relaxed text-zinc-400">
-              Published information can change. Final span, snow design load,
-              attachment, foundations, and operating instructions must come from
-              the current documents for the selected system and the actual
-              project.
-            </p>
-          </div>
-        </Container>
-      </Section>
 
       <Section className="section-md">
         <Container>

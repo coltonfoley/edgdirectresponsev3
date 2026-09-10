@@ -520,29 +520,14 @@ export default function PergolaAttachedToHousePage() {
 
           <div className="border-edg-brand bg-surface-muted mt-10 border-l-4 p-6 md:p-8">
             <p className="text-lg leading-relaxed">
-              Brustor&apos;s published B200 product information lists both
-              stand-alone and lean-to configurations, while EDG&apos;s system
-              guidance identifies 4-post, 2-post wall-mount, and cantilever
-              options. Read the{' '}
-              <a
-                href="https://dam.brustor.com/m/f0ec3f051b6638e/original/B200-XL-_Product-Leaflet_EN.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="decoration-edg-brand hover:text-edg-brand-text font-bold underline underline-offset-4"
-              >
-                Brustor B200 product leaflet
-              </a>{' '}
-              and EDG&apos;s{' '}
-              <Link
-                href="/systems/pergolas"
-                className="decoration-edg-brand hover:text-edg-brand-text font-bold underline underline-offset-4"
-              >
-                motorized pergola system guidance
-              </Link>{' '}
-              to inspect those published configuration notes. The practical
-              takeaway is simple: the system family may support an attached
-              pergola, but the house and site still decide whether that is the
-              right configuration.
+              An attached pergola needs a suitable connection to the house,
+              a clear drainage plan, and support for the proposed layout. EDG
+              reviews the house and site before recommending an attached or
+              freestanding configuration. Explore our{' '}
+              <Link href="/systems/pergolas" className="font-bold underline underline-offset-4">
+                pergola options
+              </Link>.
+
             </p>
           </div>
         </Container>

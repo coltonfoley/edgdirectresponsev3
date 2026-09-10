@@ -66,3 +66,5 @@ quote details. Keep private source evidence outside the public repository.
 
 - EDG is model agnostic. General planning guides should recommend around project needs rather than a named model.
 - EDG does not sell StruXure. Its dealers are competitors; StruXure content must clearly present competitor comparison and identify EDG quote requests as alternatives.
+
+- Competitor comparisons must serve the homeowner: do not publish competitor quotes, contracts, pricing examples, or internal sales commentary. General guides should not become named-model showcases.

@@ -61,61 +61,6 @@ const faqs = [
   },
 ];
 
-const modelNotes = [
-  {
-    name: 'Brustor B200 (XL)',
-    feature:
-      'Brustor describes integrated water evacuation through a gutter system toward the posts, with integrated ZIP screens available for wind, sun, rain, and insects.',
-    limit:
-      'The manufacturer warranty guidance says an optional rain sensor can close the louvers, but some rain may enter before the roof finishes closing and the sensor is not an absolute operating guarantee. Gutter cleaning and the selected winter protocol matter.',
-    sources: [
-      {
-        label: 'B200 (XL) product page',
-        href: 'https://www.brustor.com/en-us/products/product-types/patio-covers/louvered-roof-pergolas/b200-xl',
-      },
-      {
-        label:
-          'Sales and Warranty Conditions PDF — Version 3.0, valid July 1, 2026',
-        href: 'https://dam.brustor.com/m/1712bd53be1e0199/original/Outdoor-Living_Sales-and-Warranty-conditions_EN.pdf',
-      },
-    ],
-  },
-  {
-    name: 'Azenco R-BLADE',
-    feature:
-      'Azenco describes dual-walled louvers that capture rain and route it to a hidden internal gutter. Weather sensors can be specified to close for rain and respond to strong winds.',
-    limit:
-      'The manufacturer’s rain-management language describes the roof design, not a universal promise for every layout. EDG still needs to verify the selected model, edge exposure, discharge route, and adjacent construction.',
-    sources: [
-      {
-        label: 'R-BLADE overview',
-        href: 'https://azenco-outdoor.com/l-shaped-pergola/',
-      },
-      {
-        label: 'Pergola gutter design',
-        href: 'https://azenco-outdoor.com/pergola-gutter/',
-      },
-    ],
-  },
-  {
-    name: 'Sundance All Season Pergola',
-    feature:
-      'Sundance publishes a bumper-seal gasket, a gutter that drains through the posts, and a standard rain sensor for its current All Season Pergola.',
-    limit:
-      'Sundance also publishes 150 mph wind resistance and 60 lb/sq. ft. snow load for the product. Those are published product values, not a substitute for project-specific engineering, mounting review, or local approval.',
-    sources: [
-      {
-        label: 'Product page',
-        href: 'https://sundanceoutdoorliving.com/product/',
-      },
-      {
-        label: 'FAQ',
-        href: 'https://sundanceoutdoorliving.com/faq/',
-      },
-    ],
-  },
-];
-
 const waterPath = [
   {
     title: '1. The louvers close',
@@ -293,79 +238,7 @@ export default function AreLouveredPergolasWaterproofPage() {
         </Container>
       </Section>
 
-      <Section className="section-md bg-surface">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 text-center">
-              <div className="label-editorial-brand mb-4">
-                Model-specific limits
-              </div>
-              <h2 className="section-title mb-4">
-                The word “waterproof” is not the specification
-              </h2>
-              <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
-                Brustor, Azenco, and Sundance all describe rain-management
-                features, but the details are not interchangeable. Compare the
-                actual model, controls, drainage path, and installation
-                conditions before treating a product as a fit.
-              </p>
-            </div>
 
-            <div className="space-y-5">
-              {modelNotes.map((model) => (
-                <Card key={model.name} variant="outline" padding="lg">
-                  <div className="grid gap-6 lg:grid-cols-[0.8fr_1fr_1fr]">
-                    <h3 className="text-2xl font-bold">{model.name}</h3>
-                    <div>
-                      <div className="text-edg-brand-text mb-2 text-xs font-bold tracking-widest uppercase">
-                        Documented feature
-                      </div>
-                      <p className="text-text-secondary leading-relaxed">
-                        {model.feature}
-                      </p>
-                    </div>
-                    <div>
-                      <div className="text-edg-brand-text mb-2 text-xs font-bold tracking-widest uppercase">
-                        Buyer limit
-                      </div>
-                      <p className="text-text-secondary leading-relaxed">
-                        {model.limit}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-6 border-t border-black/10 pt-4 text-sm">
-                    <span className="text-text-primary font-bold">
-                      Sources:{' '}
-                    </span>
-                    {model.sources.map((source, index) => (
-                      <span key={source.href}>
-                        {index > 0 && (
-                          <span className="text-text-secondary"> · </span>
-                        )}
-                        <a
-                          href={source.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-edg-brand-dark underline decoration-current underline-offset-2"
-                        >
-                          {source.label}
-                        </a>
-                      </span>
-                    ))}
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            <p className="text-text-secondary mt-6 text-sm leading-relaxed">
-              Manufacturer features and ratings can change by model, option,
-              market, and revision. EDG confirms the current product
-              documentation and project-specific engineering before a final
-              recommendation.
-            </p>
-          </div>
-        </Container>
-      </Section>
 
       <Section className="section-md bg-white">
         <Container>
