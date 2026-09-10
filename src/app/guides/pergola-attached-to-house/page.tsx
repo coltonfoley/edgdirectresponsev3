@@ -13,16 +13,11 @@ import {
   TriangleAlert,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import {
-  generateArticleSchema,
-  generateBreadcrumbSchema,
-  generateFAQSchema,
-  generateServiceSchema,
-} from '@/lib/schema';
+import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -145,7 +140,7 @@ const faqs = [
   {
     question: 'What should I send before requesting a quote?',
     answer:
-      'Send wide and close photos of the house-side patio, roofline, gutters, doors, windows, and proposed coverage area, along with rough width, projection, height, location, and any HOA, permit, deck, or roof information you have. Exact construction details can be reviewed after the initial fit check.',
+      'Photos and rough measurements are helpful but optional for an initial Request a Quote. Start with your contact information and project interest; if you have wide and close photos of the house-side patio, roofline, gutters, doors, windows, proposed coverage area, rough width, projection, height, location, or HOA and permit information, include them. Exact construction details can be reviewed after the initial fit check.',
   },
 ];
 
@@ -163,30 +158,14 @@ export default function PergolaAttachedToHousePage() {
     dateModified: '2026-09-10',
     category: 'Pergola Planning',
   });
-  const serviceSchema = generateServiceSchema({
-    name: 'Attached Pergola Site-Fit Planning',
-    description:
-      'Site-fit planning for attached and freestanding motorized pergolas, including roofline, door, drainage, attachment, and review considerations.',
-    url: pageUrl,
-    image: heroImage,
-  });
   const faqSchema = generateFAQSchema(faqs);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Guides', url: '/guides' },
-    { name: 'Pergola Attached to a House' },
-  ]);
 
   return (
     <div className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            articleSchema,
-            serviceSchema,
-            faqSchema,
-            breadcrumbSchema,
-          ]),
+          __html: JSON.stringify([articleSchema, faqSchema]),
         }}
       />
 
@@ -214,21 +193,22 @@ export default function PergolaAttachedToHousePage() {
                 accessories, and local review all shape the design.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Link href="/guides/pergola-system-fit-review">
-                  <Button size="lg" className="w-full sm:w-auto">
-                    Request a Quote
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Link href="/guides/motorized-pergola-planning">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="w-full sm:w-auto"
-                  >
-                    Read the Planning Guide
-                  </Button>
-                </Link>
+                <LinkButton
+                  href="/guides/pergola-system-fit-review"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  Request a Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </LinkButton>
+                <LinkButton
+                  href="/guides/motorized-pergola-planning"
+                  size="lg"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                >
+                  Read the Planning Guide
+                </LinkButton>
               </div>
             </div>
 
@@ -543,9 +523,26 @@ export default function PergolaAttachedToHousePage() {
               Brustor&apos;s published B200 product information lists both
               stand-alone and lean-to configurations, while EDG&apos;s system
               guidance identifies 4-post, 2-post wall-mount, and cantilever
-              options. The practical takeaway is simple: the system family may
-              support an attached pergola, but the house and site still decide
-              whether that is the right configuration.
+              options. Read the{' '}
+              <a
+                href="https://dam.brustor.com/m/f0ec3f051b6638e/original/B200-XL-_Product-Leaflet_EN.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="decoration-edg-brand hover:text-edg-brand-text font-bold underline underline-offset-4"
+              >
+                Brustor B200 product leaflet
+              </a>{' '}
+              and EDG&apos;s{' '}
+              <Link
+                href="/systems/pergolas"
+                className="decoration-edg-brand hover:text-edg-brand-text font-bold underline underline-offset-4"
+              >
+                motorized pergola system guidance
+              </Link>{' '}
+              to inspect those published configuration notes. The practical
+              takeaway is simple: the system family may support an attached
+              pergola, but the house and site still decide whether that is the
+              right configuration.
             </p>
           </div>
         </Container>
@@ -565,12 +562,14 @@ export default function PergolaAttachedToHousePage() {
                 a final system is chosen.
               </p>
             </div>
-            <Link href="/guides/pergola-system-fit-review">
-              <Button size="lg" className="w-full justify-between">
-                Request a Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <LinkButton
+              href="/guides/pergola-system-fit-review"
+              size="lg"
+              className="w-full justify-between"
+            >
+              Request a Quote
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </LinkButton>
           </div>
         </Container>
       </Section>
