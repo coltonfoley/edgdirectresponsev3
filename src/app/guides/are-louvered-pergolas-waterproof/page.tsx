@@ -15,10 +15,7 @@ import { LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import {
-  generateArticleSchema,
-  generateFAQSchema,
-} from '@/lib/schema';
+import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -567,7 +564,19 @@ export default function AreLouveredPergolasWaterproofPage() {
               </p>
             </div>
 
-            <div className="overflow-x-auto border border-black/10 bg-white">
+            <p
+              id="roof-fit-table-guidance"
+              className="text-text-secondary mb-3 text-sm md:hidden"
+            >
+              Swipe or scroll horizontally to see all comparison columns.
+            </p>
+            <div
+              role="region"
+              aria-label="Roof or enclosure fit comparison"
+              aria-describedby="roof-fit-table-guidance"
+              tabIndex={0}
+              className="focus-visible:ring-edg-brand overflow-x-auto border border-black/10 bg-white focus-visible:ring-2 focus-visible:outline-none"
+            >
               <table className="w-full min-w-[760px] text-left">
                 <thead className="bg-edg-dark text-white">
                   <tr>
