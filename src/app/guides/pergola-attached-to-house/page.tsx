@@ -130,7 +130,7 @@ const faqs = [
   {
     question: 'What should I send before requesting a quote?',
     answer:
-      'Photos and rough measurements are helpful but optional for an initial Request a Quote. Start with your contact information and project interest; if you have wide and close photos of the house-side patio, roofline, gutters, doors, windows, proposed coverage area, rough width, projection, height, location, or HOA and permit information, include them. Exact construction details can be reviewed after the initial fit check.',
+      'Start with your contact information, project location, and what you want from the patio. A wide photo of the house and patio or rough dimensions can help, but both are optional. EDG can review the construction details during the site visit.',
   },
 ];
 

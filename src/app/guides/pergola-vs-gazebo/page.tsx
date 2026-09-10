@@ -110,7 +110,7 @@ const faqs = [
   {
     question: 'Which gives better rain protection: a gazebo or pergola?',
     answer:
-      'A fixed gazebo roof provides a consistent roof overhead when the structure, roofing, and site are properly built. A motorized louvered pergola can manage rain when its selected roof, drainage, controls, and installation are designed for that job, but it should not be described as a completely sealed room or universal weather guarantee.',
+      'A fixed gazebo roof provides a consistent roof overhead when the structure, roofing, and site are properly built. A motorized louvered pergola can manage rain when its selected roof, drainage, controls, and installation are designed for that job. Wind-driven rain can still enter around open sides.',
   },
   {
     question: 'Is a pergola or gazebo cheaper?',
