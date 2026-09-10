@@ -188,8 +188,9 @@ export default function PergolaSnowLoadWinterPage() {
             <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300">
               EDG plans louvered pergolas around the property, the structure,
               the drainage, and the way you want to use the room through the
-              seasons. For local homeowners, we can carry that plan through
-              engineering, permitting, installation, and care.
+              seasons. For homeowners in the Chicago–Milwaukee corridor, we can
+              carry that plan through engineering, permitting, installation, and
+              care.
             </p>
 
             <div className="mb-8 flex flex-wrap gap-5 text-sm text-zinc-300">
@@ -237,8 +238,12 @@ export default function PergolaSnowLoadWinterPage() {
               <p className="text-xl leading-relaxed font-medium md:text-2xl">
                 A louvered pergola can be a strong fit for a Midwest outdoor
                 room when its structure, site conditions, drainage, and winter
-                operation are coordinated together. EDG brings those decisions
-                into one design and installation process.
+                operation are coordinated together. A snow-load rating applies
+                to a specified roof configuration and must be checked against
+                local design requirements; it does not tell the owner which
+                winter louver position to use. EDG brings those decisions into
+                one design and installation process, then explains the supplied
+                system&apos;s instructions at handoff.
               </p>
             </div>
 
@@ -403,7 +408,7 @@ export default function PergolaSnowLoadWinterPage() {
                   </h3>
                   <p className="text-zinc-300">
                     Tell EDG where the project is and what you want the space to
-                    do. We can help define the next useful step.
+                    do. We can talk through your layout, site, and options.
                   </p>
                 </div>
                 <LinkButton
@@ -485,7 +490,7 @@ export default function PergolaSnowLoadWinterPage() {
                 Start with the property
               </div>
               <h2 className="text-3xl font-bold md:text-5xl">
-                Plan a pergola that is ready for every season.
+                Plan your pergola for Midwest weather.
               </h2>
             </div>
             <LinkButton

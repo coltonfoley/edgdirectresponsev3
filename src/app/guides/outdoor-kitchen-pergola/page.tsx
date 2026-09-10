@@ -192,10 +192,10 @@ export default function OutdoorKitchenPergolaPage() {
                 Pergolas over outdoor kitchens
               </h1>
               <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300">
-                EDG designs the pergola around the kitchen, not the other way
-                around. Cooking, dining, circulation, roof movement,
-                ventilation, utilities, lighting, and drainage should work as
-                one outdoor room.
+                EDG plans the pergola, cooking area, and dining space together.
+                The room should work from the first meal through everyday use,
+                with the roof, appliances, circulation, and comfort details
+                coordinated from the start.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink
@@ -240,12 +240,11 @@ export default function OutdoorKitchenPergolaPage() {
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Fast answer</div>
             <h2 className="section-title mb-4">
-              An outdoor kitchen pergola is a coordination project
+              Make room for cooking, dining, and gathering
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              EDG starts with how you cook, dine, move, and host. We then lay
-              out the roof, appliances, utilities, screens, lighting, and
-              drainage around that brief.
+              EDG starts with how you cook, dine, move, and host, then shapes
+              the room around that brief.
             </p>
           </div>
 
@@ -346,9 +345,9 @@ export default function OutdoorKitchenPergolaPage() {
               </h3>
               <p className="leading-relaxed text-zinc-300">
                 EDG brings roof, kitchen, screens, lighting, heating, and
-                utilities into one conversation. Local homeowners can continue
-                from design through permitting, installation, and care; trade
-                partners can use EDG for national design and supply support.
+                utilities into one conversation. Homeowners in the
+                Chicago–Milwaukee corridor and Sanibel can continue with EDG
+                from design through permitting, installation, and care.
               </p>
             </Card>
           </div>
@@ -365,7 +364,7 @@ export default function OutdoorKitchenPergolaPage() {
             <p className="text-text-secondary mb-8 max-w-3xl text-lg leading-relaxed">
               You do not need a finished kitchen schedule or drawing set to
               start. Tell EDG where the project is and how you want the room to
-              work; we can help define the next useful step.
+              work; we can talk through your layout and options.
             </p>
             <div className="grid gap-4 md:grid-cols-2">
               {startItems.map((item) => (

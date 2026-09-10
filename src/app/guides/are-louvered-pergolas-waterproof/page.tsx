@@ -36,7 +36,7 @@ const faqs = [
   {
     question: 'Are louvered pergolas waterproof?',
     answer:
-      'A louvered pergola can provide strong overhead rain protection when EDG matches the roof, drainage, and installation to the site. Open sides and wind-driven rain still affect the space, so EDG may include retractable screens or glass when you want more side protection.',
+      'Closed louvers provide overhead rain protection, but an open-sided pergola is not a fully waterproof room. EDG plans where that water drains and whether screens or glass would make the exposed sides more comfortable. Wind-driven rain can still enter around open sides.',
   },
   {
     question: 'Does closing the louvers stop all rain?',
@@ -46,7 +46,7 @@ const faqs = [
   {
     question: 'Do rain sensors make a pergola waterproof?',
     answer:
-      'A rain sensor can help close the roof when precipitation begins, but it is one part of the system. EDG coordinates controls with the selected roof, screens, drainage, and the way you want the room to operate.',
+      'No. A rain sensor helps close the roof when precipitation begins, but it is one part of the system. EDG coordinates controls with the selected roof, screens, drainage, and the way you want the room to operate.',
   },
   {
     question: 'Can screens help with wind-driven rain?',
@@ -115,7 +115,7 @@ const supportAreas = [
   {
     title: 'Installation coordination',
     description:
-      'Local homeowners can rely on EDG for permitting, installation, finish coordination, and a clear handoff when the system is ready to use.',
+      'Homeowners in the Chicago–Milwaukee corridor and Sanibel can rely on EDG for permitting, installation, finish coordination, and a clear handoff when the system is ready to use.',
     icon: Home,
   },
   {
@@ -216,10 +216,10 @@ export default function AreLouveredPergolasWaterproofPage() {
             </h2>
             <div className="border-edg-brand bg-surface-muted mb-10 border-l-4 p-6 md:p-8">
               <p className="text-xl leading-relaxed font-medium md:text-2xl">
-                A louvered roof can keep much of the rain overhead when the
-                louvers are closed. EDG makes that protection useful by planning
-                the drainage path and the room&apos;s open sides at the same
-                time.
+                Closed louvers channel rain into the roof&apos;s gutters. EDG
+                plans where that water drains and whether screens or glass would
+                make the exposed sides more comfortable. Wind-driven rain can
+                still enter around open sides.
               </p>
             </div>
 
@@ -246,48 +246,6 @@ export default function AreLouveredPergolasWaterproofPage() {
                   your use of the room call for it.
                 </p>
               </Card>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="section-md bg-white">
-        <Container>
-          <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={images.projects.wade.hero}
-                alt="Outdoor room with a louvered roof and motorized glass walls"
-                fill
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <div className="label-editorial-brand mb-4">
-                EDG design approach
-              </div>
-              <h2 className="section-title mb-4">
-                Plan the roof, side protection, and drainage together
-              </h2>
-              <p className="text-text-secondary mb-5 text-lg leading-relaxed">
-                EDG designs outdoor rooms as complete systems. We coordinate the
-                louvered roof, retractable screens or glass, posts, controls,
-                and drainage so each part supports the way you want to cook,
-                dine, relax, and entertain.
-              </p>
-              <p className="text-text-secondary mb-6 leading-relaxed">
-                For local homeowners, that plan can continue through
-                engineering, permitting, installation, and care. For trade
-                partners, EDG also provides national design and supply support.
-              </p>
-              <LinkButton
-                href="/systems/pergolas"
-                variant="secondary"
-                size="sm"
-              >
-                Explore pergola systems <ArrowRight className="ml-2 h-4 w-4" />
-              </LinkButton>
             </div>
           </div>
         </Container>
