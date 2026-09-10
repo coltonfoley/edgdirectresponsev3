@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {
   ArrowRight,
   CheckCircle2,
-  ExternalLink,
   Layers3,
   PanelTop,
   Ruler,
@@ -31,7 +30,7 @@ const quoteHref = buildContactHref({
 export const metadata: Metadata = {
   title: 'Glass Patio Enclosure Cost: 2026 Planning Guide | EDG',
   description:
-    'See a broad 2026 planning band for adding glass to a covered patio, plus the installed-scope details that change the number for a roof-plus-glass outdoor room.',
+    'See how EDG plans glass patio enclosures, what a broad glass-wall planning band covers, and how roof, structure, operation, and installation shape the project.',
   keywords: [
     'glass patio enclosure cost',
     'cost to enclose patio with glass',
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
     images: [{ url: '/opengraph-image' }],
     title: 'Glass Patio Enclosure Cost: 2026 Planning Guide | EDG',
     description:
-      'A scope-first guide to a broad glass patio enclosure planning band and the difference between adding glass to an existing cover and building a roof-plus-glass outdoor room.',
+      'A homeowner guide to EDG glass enclosure planning, including a broad glass-wall planning band and the work required for a complete outdoor room.',
     type: 'article',
     locale: 'en_US',
     siteName: 'EDG Patio & Shade',
@@ -57,29 +56,29 @@ const faqs = [
   {
     question: 'How much does a glass patio enclosure cost?',
     answer:
-      "For early budgeting, use a rounded planning band of about $25k-$50k+ for glass walls added to an existing or planned cover. A roof-plus-glass outdoor room needs separate project-specific pricing because the roof, structure, drainage, electrical, access, finishes, tax, and glass-wall scope must be coordinated. The band is not a quote or a specific customer's price.",
+      'EDG uses a broad planning band of about $25k-$50k+ for glass walls added to an existing or planned cover. That starting scope covers the glass-wall system, freight, and installation allowance; roof or pergola work, structural preparation, permits, drainage, electrical, tax, and site-specific work are scoped separately. A new roof-plus-glass outdoor room needs its own design and proposal.',
   },
   {
     question: 'Is it cheaper to add glass to an existing covered patio?',
     answer:
-      'It can be, because the roof may already exist, but the existing beam, posts, deck or slab, drainage, panel parking space, and attachment points still need to be reviewed. Glass is not priced as a simple window insert, and structural or finish work can change the result.',
+      'An existing cover can reduce the amount of new roof work, but EDG still checks the beam or header, posts, deck or slab, drainage, attachment surfaces, panel parking, and finished clear opening before recommending the enclosure path.',
   },
   {
     question: 'What is the difference between sliding and folding glass walls?',
     answer:
-      'Sliding systems move panels along a track, while retractable or folding systems slide and stack the panels to the side. The best fit depends on opening width, panel count, the available parking area, opening direction, furniture and traffic, hardware, and the structure that carries the track. Neither configuration has a universal price premium.',
+      'Sliding panels move along a track, while folding panels slide and stack to the side. EDG reviews the opening, parking area, furniture and traffic, hardware, clear opening, and support path before choosing the operating layout.',
   },
   {
     question: 'What is usually excluded from a glass enclosure quote?',
     answer:
-      'The exact contract controls, but EDG contracts may separately call out ledger or beam work, footings, permits, electrical, drainage beyond the system, deck reinforcement, demolition, finish work, and unusual access or site conditions. Ask for each allowance and exclusion in writing before comparing totals.',
+      'EDG identifies structural preparation, footings, permits, electrical, drainage, deck or slab work, finish details, tax, and unusual access in the project scope so you know what the enclosure requires before installation begins.',
   },
 ];
 
 const articleSchema = generateArticleSchema({
   title: 'Glass Patio Enclosure Cost: 2026 Planning Guide',
   description:
-    'A scope-first guide to a broad glass patio enclosure planning band, comparing existing covered patios with roof-plus-glass projects, and understanding sliding, folding, structural, and installation cost drivers.',
+    'A homeowner guide to how EDG plans glass patio enclosures, from opening measurements and roof structure through installation and care.',
   url: 'https://www.edgpatioshade.com/guides/glass-patio-enclosure-cost',
   image: `https://www.edgpatioshade.com${images.systems.enclosures.lumonPatio}`,
   datePublished: '2026-09-10',
@@ -94,46 +93,46 @@ const costDrivers = [
     icon: Ruler,
     title: 'Opening width and height',
     description:
-      'Each opening is measured and priced around its width, height, panel count, and the way the panels need to move. Tall or wide openings can change glass thickness, track, support, and installation requirements.',
+      'EDG measures each opening around width, height, panel count, and movement. Tall or wide openings can change the support, track, hardware, and installation plan.',
   },
   {
     icon: PanelTop,
     title: 'Roof and wall scope',
     description:
-      'Glass walls added below an existing roof are a different budget than a new pergola or roof with glass walls. Separate the roof, glass, freight, installation, and site-work lines before comparing proposals.',
+      'Glass below an existing roof is a different project from a new pergola or roof with glass walls. EDG coordinates the roof, glass, freight, installation, and site work as one plan.',
   },
   {
     icon: Layers3,
     title: 'Panel layout and parking',
     description:
-      'Sliding and folding layouts need a clear place for panels to stack or park. Opening direction, middle posts, handles, seals, locks, and furniture clearances all affect the design.',
+      'Sliding and folding layouts need a clear place for panels to stack or park. EDG plans opening direction, posts, handles, seals, locks, and furniture clearances together.',
   },
   {
     icon: ShieldCheck,
     title: 'Structure and exposure',
     description:
-      'The beam, header, posts, deck or slab, attachment points, wind exposure, and existing structure condition determine whether prep or engineering is needed before glass can be ordered.',
+      "The beam, header, posts, deck or slab, attachment points, exposure, and existing structure condition guide EDG's engineering and preparation plan.",
   },
   {
     icon: Wrench,
     title: 'Installation and access',
     description:
-      'Staging, delivery route, lifting, floor protection, trim, gable work, wiring, and the number of installation days can move the installed total even when the glass opening stays the same.',
+      'EDG plans staging, delivery, lifting, floor protection, trim, gable work, wiring, and service access before the installation schedule is set.',
   },
   {
     icon: CheckCircle2,
     title: 'Finish and comfort choices',
     description:
-      'Clear or gray glass, handles, keyed locks, screens, shades, heaters, lighting, and controls should be priced as part of the outdoor room rather than assumed to be included.',
+      'Clear or tinted glass, handles, locks, screens, shades, heaters, lighting, and controls shape how the finished room feels and operates. EDG coordinates those choices with the enclosure.',
   },
 ];
 
 const fitChecks = [
-  'Measure every opening at the top, middle, and bottom, then record height, width, and square condition.',
-  'Confirm what carries the upper track: existing beam, new header, pergola beam, deck structure, or another support.',
-  'Reserve the panel parking or folding stack area before furniture, grills, doors, and traffic paths are finalized.',
-  'Trace drainage, electrical, trim, gable, and finish details so the enclosure is not priced as an isolated product.',
-  'Write down what is excluded: footings, ledger or structural repair, permits, electrical, drainage beyond the system, tax, and unusual access.',
+  'EDG measures every opening at the top, middle, and bottom, then confirms height, width, and square condition.',
+  'EDG reviews what carries the upper track: an existing beam, new header, pergola beam, deck structure, or another support.',
+  'EDG reserves the panel parking or folding stack area before furniture, grills, doors, and traffic paths are finalized.',
+  'EDG coordinates drainage, electrical, trim, gable, finish, and comfort details so the enclosure works as part of the room.',
+  'EDG identifies structural preparation, permits, site access, tax, and other project responsibilities in the proposal.',
 ];
 
 export default function GlassPatioEnclosureCostPage() {
@@ -164,10 +163,10 @@ export default function GlassPatioEnclosureCostPage() {
                 Glass patio enclosure cost: what changes the installed price
               </h1>
               <p className="mb-8 max-w-2xl text-xl leading-relaxed text-zinc-300">
-                Use a broad planning band, a covered-patio comparison, and a
-                scope-first checklist to budget a glass enclosure without
-                treating an early range as a quote or confusing glass-wall
-                pricing with a complete outdoor-room price.
+                Start with how you want the patio to work. EDG measures the
+                opening, reviews the roof and structure, and designs the glass,
+                operation, comfort features, and installation plan around the
+                way you use the space.
               </p>
               <div className="flex flex-wrap gap-4">
                 <TrackedLink
@@ -210,25 +209,26 @@ export default function GlassPatioEnclosureCostPage() {
             </h2>
             <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
               <p>
-                For early budgeting, use a rounded planning band of about{' '}
+                EDG uses a broad planning band of about{' '}
                 <strong className="text-text-primary">$25k-$50k+</strong> for
-                glass walls added to an existing or planned cover. A new
-                roof-plus-glass outdoor room needs separate project-specific
-                pricing because the roof, structure, drainage, electrical,
-                access, finishes, tax, and glass-wall scope must be coordinated.
+                glass walls added to an existing or planned cover. That starting
+                scope covers the glass-wall system, freight, and installation
+                allowance. A new roof-plus-glass outdoor room needs its own
+                design and proposal because the roof, structure, drainage,
+                electrical, access, finishes, tax, and glass-wall scope must be
+                coordinated.
               </p>
               <p>
-                This is a rounded planning band for an early conversation, not a
-                specific customer&apos;s price, a market-rate guarantee, or a
-                quote. The final number depends on the opening schedule, panel
-                layout, roof and support structure, freight, installation, and
-                site conditions.
+                The final plan depends on the opening schedule, panel layout,
+                roof and support structure, freight, installation, and site
+                conditions. EDG separates those responsibilities so the finished
+                project is clear before work begins.
               </p>
               <p>
                 An existing covered patio may avoid a new roof system, while an
                 aging beam, deck, drainage path, difficult access, or custom
-                panel layout can add work. The final proposal should make those
-                boundaries visible.
+                panel layout can add work. EDG reviews those details before
+                recommending the enclosure path.
               </p>
             </div>
           </div>
@@ -239,16 +239,16 @@ export default function GlassPatioEnclosureCostPage() {
         <Container>
           <div className="mx-auto mb-12 max-w-3xl">
             <div className="label-editorial-brand mb-4">
-              Glass-wall planning band + room scope
+              Glass-wall planning and room scope
             </div>
             <h2 className="section-title mb-4">
               Compare the glass scope before comparing the band
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The public band below is intentionally broad and scoped to a
-              glass-wall add-on. A complete roof-plus-glass outdoor room needs
-              its own scope and proposal; the page does not publish a universal
-              total for that project type.
+              The glass-wall band applies to adding a system below an existing
+              or planned cover. If EDG is designing the roof and glass together,
+              the roof, structure, drainage, electrical, and finish work are
+              planned as part of the complete outdoor room.
             </p>
           </div>
 
@@ -268,8 +268,8 @@ export default function GlassPatioEnclosureCostPage() {
                   </h3>
                 </div>
                 <div className="text-text-secondary text-right text-sm">
-                  <div>Early planning</div>
-                  <div>Rounded band</div>
+                  <div>EDG planning range</div>
+                  <div>Glass-wall scope</div>
                 </div>
               </div>
               <div className="mb-6 rounded-sm bg-zinc-950 p-5 text-white">
@@ -278,36 +278,37 @@ export default function GlassPatioEnclosureCostPage() {
                 </div>
                 <div className="text-4xl font-bold">$25k-$50k+</div>
                 <div className="mt-2 text-sm text-zinc-400">
-                  Rounded early-planning range; before tax and site-specific
-                  additions
+                  Glass-wall system, freight, and installation allowance; roof,
+                  structure, tax, and site-specific additions are separate
                 </div>
               </div>
               <dl className="divide-y divide-black/10 text-sm dark:divide-white/10">
                 <div className="grid gap-2 py-3 sm:grid-cols-[150px_1fr]">
                   <dt className="font-bold">Opening scope</dt>
                   <dd className="text-text-secondary">
-                    Several openings; the final width, height, panel count, and
-                    parking layout set the proposal.
+                    Several openings; EDG measures width, height, panel count,
+                    and parking layout before specifying the system.
                   </dd>
                 </div>
                 <div className="grid gap-2 py-3 sm:grid-cols-[150px_1fr]">
                   <dt className="font-bold">Included scope</dt>
                   <dd className="text-text-secondary">
-                    Glass-wall system, freight, and installation allowance.
+                    Product selection, freight, installation, and project
+                    coordination.
                   </dd>
                 </div>
                 <div className="grid gap-2 py-3 sm:grid-cols-[150px_1fr]">
                   <dt className="font-bold">Structure</dt>
                   <dd className="text-text-secondary">
-                    Existing or planned cover; beam, header, and attachment path
-                    must be confirmed.
+                    Existing or planned cover; EDG confirms the beam, header,
+                    attachment path, and finished opening.
                   </dd>
                 </div>
                 <div className="grid gap-2 py-3 sm:grid-cols-[150px_1fr]">
                   <dt className="font-bold">Boundary</dt>
                   <dd className="text-text-secondary">
-                    Footings or structural repair, permits, electrical,
-                    drainage, tax, access, and finish work may be separate.
+                    Footings, structural repair, permits, electrical, drainage,
+                    tax, access, and finish work are identified in the proposal.
                   </dd>
                 </div>
               </dl>
@@ -317,27 +318,25 @@ export default function GlassPatioEnclosureCostPage() {
               <div className="mb-6 flex items-start justify-between gap-4">
                 <div>
                   <div className="text-text-secondary mb-2 text-xs font-bold tracking-widest uppercase">
-                    Scope comparison: new roof + glass
+                    Roof-plus-glass scope
                   </div>
                   <h3 className="text-2xl font-bold">
                     Roof-plus-glass outdoor room
                   </h3>
                 </div>
                 <div className="text-text-secondary text-right text-sm">
-                  <div>Early planning</div>
-                  <div>Separate quote</div>
+                  <div>Complete outdoor room</div>
+                  <div>Project-specific</div>
                 </div>
               </div>
               <div className="mb-6 rounded-sm border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-black">
                 <div className="text-text-secondary mb-1 text-sm font-bold tracking-widest uppercase">
-                  No universal public band
+                  Design and coordinate the complete scope
                 </div>
-                <div className="text-2xl font-bold">
-                  Price the complete scope
-                </div>
+                <div className="text-2xl font-bold">Roof + glass together</div>
                 <div className="text-text-secondary mt-2 text-sm">
-                  Roof, structure, drainage, electrical, access, finishes, tax,
-                  and glass-wall work must be coordinated.
+                  EDG plans the cover, glass, structure, drainage, electrical,
+                  access, finishes, tax, and glass-wall work together.
                 </div>
               </div>
               <ul className="text-text-secondary space-y-3 text-sm leading-relaxed">
@@ -352,8 +351,8 @@ export default function GlassPatioEnclosureCostPage() {
                 </li>
                 <li className="flex gap-3">
                   <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
-                  Electrical, finish, comfort accessories, and site access can
-                  move the total
+                  Electrical, finish, comfort accessories, and site access are
+                  part of the complete project plan
                 </li>
                 <li className="flex gap-3">
                   <XCircle className="mt-0.5 h-5 w-5 shrink-0 text-zinc-500" />
@@ -362,9 +361,9 @@ export default function GlassPatioEnclosureCostPage() {
                 </li>
               </ul>
               <p className="text-text-secondary mt-6 text-sm leading-relaxed">
-                An existing roof may reduce the amount of new roof work, but it
-                does not guarantee a lower cost. The roof, beam, panel parking,
-                gables, and site work still need to be identified.
+                An existing roof may reduce the amount of new roof work, but EDG
+                still reviews the roof, beam, panel parking, gables, and site
+                work before recommending the enclosure path.
               </p>
             </Card>
           </div>
@@ -446,10 +445,9 @@ export default function GlassPatioEnclosureCostPage() {
               Sliding vs. folding glass walls
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Manufacturer terminology varies. Lumon describes its glazing as
-              tempered glass mounted on aluminum profiles and tracks, with
-              panels that slide and fold open. The project still determines the
-              opening direction, panel layout, hardware, and price.
+              Sliding and folding glass walls use different opening paths. EDG
+              plans the movement, hardware, support, and clear opening around
+              the structure and the way you want to use the patio.
             </p>
           </div>
 
@@ -463,9 +461,8 @@ export default function GlassPatioEnclosureCostPage() {
                 still need to be coordinated.
               </p>
               <div className="border-edg-brand border-l-2 pl-4 text-sm leading-relaxed">
-                Main cost questions: How many panels? How wide and tall is each
-                opening? Where do the panels end? What support and finish does
-                the track need?
+                EDG confirms panel count, opening size, end point, support, and
+                track finish before the system is specified.
               </div>
             </Card>
             <Card variant="muted" padding="lg">
@@ -479,39 +476,15 @@ export default function GlassPatioEnclosureCostPage() {
                 important design decisions.
               </p>
               <div className="border-edg-brand border-l-2 pl-4 text-sm leading-relaxed">
-                Main cost questions: Where can the stack park? Does the stack
-                block a door or view? What changes when the panels are split
-                into two directions?
+                EDG confirms where the stack parks, how the opening direction
+                affects traffic, and whether the panels should split directions.
               </div>
             </Card>
           </div>
           <p className="text-text-secondary mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed">
-            Do not assume folding is always more expensive or sliding is always
-            simpler. Compare the same opening schedule, glass selection,
-            hardware, freight, installation, and structural assumptions.
-          </p>
-          <p className="text-text-secondary mx-auto mt-4 max-w-3xl text-center text-sm leading-relaxed">
-            <ExternalLink className="mr-1 inline-block h-4 w-4 align-text-bottom" />
-            Product details and warranty terms should be confirmed against the
-            selected manufacturer and the final proposal. See Lumon&apos;s{' '}
-            <a
-              href="https://lumon.com/us/inspiration/blog/glazing-system-faqs/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-text-primary underline underline-offset-4"
-            >
-              current glazing FAQ
-            </a>{' '}
-            and{' '}
-            <a
-              href="https://lumon.com/ca/support/warranty/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-text-primary underline underline-offset-4"
-            >
-              Canadian warranty reference
-            </a>
-            .
+            EDG compares the opening schedule, glass selection, hardware,
+            freight, installation, and structural assumptions before the final
+            system is selected.
           </p>
         </Container>
       </Section>
@@ -549,15 +522,15 @@ export default function GlassPatioEnclosureCostPage() {
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <div className="label-editorial-brand mb-4">
-                Before you compare quotes
+                Before planning the enclosure
               </div>
               <h2 className="section-title mb-4">
                 Structural prep, installation, and exclusions
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                The safest budget conversation starts with what the glass system
-                needs from the patio. A preliminary markup or sales estimate is
-                not a field verification, structural approval, or permit.
+                A useful plan starts with what the glass system needs from the
+                patio. EDG verifies the opening, support, drainage, access, and
+                project responsibilities before design and installation are set.
               </p>
             </div>
             <div className="grid gap-4">
