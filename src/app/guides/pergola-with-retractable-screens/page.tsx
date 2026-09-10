@@ -20,12 +20,7 @@ import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
 import { TrackedLink } from '@/components/ui/TrackedLink';
-import {
-  generateArticleSchema,
-  generateBreadcrumbSchema,
-  generateFAQSchema,
-  generateServiceSchema,
-} from '@/lib/schema';
+import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -237,30 +232,14 @@ export default function PergolaWithRetractableScreensPage() {
     dateModified: '2026-09-10',
     category: 'Outdoor Room Planning',
   });
-  const serviceSchema = generateServiceSchema({
-    name: 'Pergola with Retractable Screens Planning',
-    description:
-      'Project-specific planning for a louvered pergola with motorized screens, including openings, housing, fabric, power, controls, and installation fit.',
-    url: pageUrl,
-    image: `https://www.edgpatioshade.com${images.systems.pergolas.whiteScreen}`,
-  });
   const faqSchema = generateFAQSchema(faqs);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Guides', url: '/guides' },
-    { name: 'Pergolas with Retractable Screens' },
-  ]);
 
   return (
     <article className="bg-surface min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            articleSchema,
-            serviceSchema,
-            faqSchema,
-            breadcrumbSchema,
-          ]),
+          __html: JSON.stringify([articleSchema, faqSchema]),
         }}
       />
 
@@ -367,7 +346,7 @@ export default function PergolaWithRetractableScreensPage() {
         <Container>
           <div className="mb-12 text-center">
             <div className="label-editorial-brand mb-4">Compare the paths</div>
-            <h2 className="section-title mb-4">
+            <h2 id="compare-paths-heading" className="section-title mb-4">
               Screened pergola, fixed porch, or glass?
             </h2>
             <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
@@ -376,7 +355,13 @@ export default function PergolaWithRetractableScreensPage() {
               and permanence.
             </p>
           </div>
-          <div className="border-border overflow-x-auto border bg-white">
+          <div
+            className="border-border focus-visible:ring-edg-brand overflow-x-auto border bg-white focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+            role="region"
+            aria-labelledby="compare-paths-heading"
+            aria-describedby="compare-paths-scroll-hint"
+            tabIndex={0}
+          >
             <table className="w-full min-w-[780px]">
               <thead className="bg-surface-dark text-left text-xs tracking-[0.16em] text-white uppercase">
                 <tr>
@@ -402,6 +387,13 @@ export default function PergolaWithRetractableScreensPage() {
               </tbody>
             </table>
           </div>
+          <p
+            id="compare-paths-scroll-hint"
+            className="text-text-secondary mt-3 text-sm md:hidden"
+          >
+            On smaller screens, focus this comparison and scroll horizontally to
+            view all columns.
+          </p>
           <div className="border-edg-brand mt-8 flex flex-col gap-4 border-l-2 bg-white p-6 md:flex-row md:items-center md:justify-between">
             <p className="text-text-secondary max-w-3xl leading-relaxed">
               Planning a protected room with clearer views? Compare the glass
