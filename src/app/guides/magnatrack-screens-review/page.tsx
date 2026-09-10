@@ -515,7 +515,15 @@ export default function MagnaTrackScreensReviewPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto border border-black/10 bg-white">
+          <p className="text-text-secondary mb-3 text-sm md:hidden">
+            Swipe left and right to compare all columns.
+          </p>
+          <div
+            role="region"
+            aria-label="Magnetic track and conventional zip comparison"
+            tabIndex={0}
+            className="focus-visible:ring-edg-brand overflow-x-auto border border-black/10 bg-white focus-visible:ring-2 focus-visible:outline-none"
+          >
             <table className="w-full min-w-[900px] border-collapse text-left">
               <thead className="bg-surface-dark text-sm tracking-wider text-white uppercase">
                 <tr>
