@@ -292,7 +292,7 @@ export default function PergolaWithRetractableScreensPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink
-                  href="/contact?type=quote&product=pergola&source=pergola_retractable_screens_hero"
+                  href="/contact?type=quote&product=multiple&source=pergola_retractable_screens_hero"
                   conversionName="pergola_retractable_screens_quote_cta"
                   ctaPosition="hero"
                   className={buttonClassName({ size: 'lg' })}
@@ -747,7 +747,7 @@ export default function PergolaWithRetractableScreensPage() {
             </div>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
               <TrackedLink
-                href="/contact?type=quote&product=pergola&source=pergola_retractable_screens_quote"
+                href="/contact?type=quote&product=multiple&source=pergola_retractable_screens_quote"
                 conversionName="pergola_retractable_screens_quote_cta"
                 ctaPosition="quote_inputs"
                 className={buttonClassName({ size: 'lg' })}
@@ -801,7 +801,7 @@ export default function PergolaWithRetractableScreensPage() {
                 right next step.
               </p>
               <TrackedLink
-                href="/contact?type=quote&product=pergola&source=pergola_retractable_screens_bottom"
+                href="/contact?type=quote&product=multiple&source=pergola_retractable_screens_bottom"
                 conversionName="pergola_retractable_screens_quote_cta"
                 ctaPosition="bottom"
                 className={buttonClassName({ size: 'lg' })}
