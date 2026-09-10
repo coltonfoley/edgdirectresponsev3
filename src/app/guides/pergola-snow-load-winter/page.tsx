@@ -18,15 +18,11 @@ import {
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import { Button } from '@/components/ui/Button';
+import { LinkButton } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Container } from '@/components/ui/Container';
 import { Section } from '@/components/ui/Section';
-import {
-  generateArticleSchema,
-  generateBreadcrumbSchema,
-  generateFAQSchema,
-} from '@/lib/schema';
+import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -74,7 +70,7 @@ const faqs = [
   {
     question: 'What does EDG need to review a Midwest pergola site?',
     answer:
-      'Start with the address, rough width and projection, photos, mounting condition, existing deck or roof information, nearby roof edges or valleys, desired screens and accessories, drainage destination, and any permit or HOA notes. EDG uses those details to narrow the manufacturer and configuration before a quote is treated as meaningful.',
+      'An initial quote request does not require photos or measured dimensions. Start with your contact information, project interest, and the address or area if you have it. If available, rough width and projection, photos, mounting condition, existing deck or roof information, nearby roof edges or valleys, desired screens and accessories, drainage destination, and permit or HOA notes help EDG narrow the manufacturer and configuration before a quote is treated as meaningful.',
   },
 ];
 
@@ -189,17 +185,13 @@ export default function PergolaSnowLoadWinterPage() {
     category: 'Pergola Planning',
   });
   const faqSchema = generateFAQSchema(faqs);
-  const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Guides', url: '/guides' },
-    { name: 'Pergola Snow Load and Winter Operation' },
-  ]);
 
   return (
     <article className="min-h-screen bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([articleSchema, faqSchema, breadcrumbSchema]),
+          __html: JSON.stringify([articleSchema, faqSchema]),
         }}
       />
 
@@ -255,21 +247,21 @@ export default function PergolaSnowLoadWinterPage() {
             </div>
 
             <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/guides/pergola-system-fit-review?source=pergola_snow_load_winter_hero">
-                <Button size="lg">
-                  Request a Quote
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              <Link href="/systems/pergolas?source=pergola_snow_load_winter_hero">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white/25 text-white hover:bg-white/10"
-                >
-                  View Pergola Systems
-                </Button>
-              </Link>
+              <LinkButton
+                href="/guides/pergola-system-fit-review?source=pergola_snow_load_winter_hero"
+                size="lg"
+              >
+                Request a Quote
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </LinkButton>
+              <LinkButton
+                href="/systems/pergolas?source=pergola_snow_load_winter_hero"
+                size="lg"
+                variant="outline"
+                className="border-white/25 text-white hover:bg-white/10"
+              >
+                View Pergola Systems
+              </LinkButton>
             </div>
           </div>
         </Container>
@@ -362,6 +354,50 @@ export default function PergolaSnowLoadWinterPage() {
                 model and project instead of moving a figure from one
                 manufacturer to another.
               </p>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-white">
+        <Container>
+          <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div className="bg-surface-muted relative aspect-[4/3] overflow-hidden">
+              <Image
+                src={images.featuredProjects.jake.gallery[1]}
+                alt="Crystal Lake louvered pergola structure detail"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <div className="label-editorial-brand mb-4">
+                Midwest project example
+              </div>
+              <h2 className="mb-5 text-3xl font-bold md:text-4xl">
+                Crystal Lake structure and drainage were planned together
+              </h2>
+              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
+                EDG&apos;s Jake project in Crystal Lake used a multi-bay
+                motorized louvered pergola as part of a larger landscape
+                project. The project record describes electrical routing and
+                drainage planned around the structure and surrounding patio—the
+                kind of coordination a Midwest site review needs.
+              </p>
+              <p className="text-text-secondary mb-7 leading-relaxed">
+                This is a local planning example, not a snow-performance test or
+                a promise that another property shares the same structural
+                conditions.
+              </p>
+              <LinkButton
+                href="/projects/jake-everly-residence?source=pergola_snow_load_winter_project"
+                variant="secondary"
+                size="md"
+              >
+                View the Crystal Lake project
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </LinkButton>
             </div>
           </div>
         </Container>
@@ -651,18 +687,21 @@ export default function PergolaSnowLoadWinterPage() {
                 Need a winter-ready pergola plan?
               </h2>
               <p className="text-lg leading-relaxed text-zinc-300">
-                Send the address, rough dimensions, photos, mounting condition,
-                and the way you expect to use the space. EDG can help separate a
-                model’s published information from the engineering and operating
-                decisions your site actually needs.
+                Start with your contact information and project interest.
+                Photos, dimensions, and mounting details are optional on the
+                initial request, but helpful if you have them. EDG can then
+                separate a model&apos;s published information from the
+                engineering and operating decisions your site actually needs.
               </p>
             </div>
-            <Link href="/guides/pergola-system-fit-review?source=pergola_snow_load_winter_bottom">
-              <Button size="lg" className="w-full justify-between">
-                Request a Quote
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <LinkButton
+              href="/guides/pergola-system-fit-review?source=pergola_snow_load_winter_bottom"
+              size="lg"
+              className="w-full justify-between"
+            >
+              Request a Quote
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </LinkButton>
           </div>
         </Container>
       </Section>
