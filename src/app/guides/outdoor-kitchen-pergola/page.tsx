@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
-  AlertTriangle,
   ArrowRight,
-  BookOpen,
   CheckCircle2,
   ChefHat,
   CloudRain,
@@ -12,7 +9,6 @@ import {
   Lightbulb,
   Move,
   PanelTop,
-  Ruler,
   UtensilsCrossed,
   Wind,
   Wrench,
@@ -29,17 +25,17 @@ import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Pergolas over outdoor kitchens | EDG Patio & Shade',
+  title: 'Pergolas over Outdoor Kitchens | EDG Patio & Shade',
   description:
-    'Plan an outdoor kitchen under a pergola with the right cooking, dining, circulation, roof, ventilation, clearance, utility, drainage, and screen decisions.',
+    'Plan an outdoor kitchen under a pergola with EDG. We coordinate the roof, appliances, ventilation, utilities, screens, lighting, drainage, and local installation.',
   alternates: {
     canonical: '/guides/outdoor-kitchen-pergola',
   },
   openGraph: {
     images: [{ url: '/opengraph-image' }],
-    title: 'Pergolas over outdoor kitchens | EDG Patio & Shade',
+    title: 'Pergolas over Outdoor Kitchens | EDG Patio & Shade',
     description:
-      'A practical guide to coordinating an outdoor kitchen, louvered pergola, utilities, ventilation, and dining layout.',
+      'EDG designs outdoor kitchens and motorized pergolas as one comfortable, serviceable room.',
   },
 };
 
@@ -53,46 +49,46 @@ const layoutZones = [
   {
     title: 'Cooking zone',
     description:
-      'Start with the grill, side burner, pizza oven, sink, refrigeration, landing space, and the direction each lid or door opens. Keep the cook’s working area connected without putting a pergola post, screen housing, or dining chair in the operating path.',
+      'EDG starts with the grill, burners, oven, sink, refrigeration, prep space, and the way each door or lid opens. The cook should have a clear working path without a post, screen, or chair in the way.',
     icon: ChefHat,
   },
   {
     title: 'Dining and serving zone',
     description:
-      'Place the table, bar, or counter seating where guests can see the cooking without standing in the cook’s path. Leave room to pull chairs out, carry food, and move between the kitchen, house, and yard.',
+      'We place the table, bar, or counter seating where guests can connect without crowding the cook. That keeps food, conversation, and the route to the house moving naturally.',
     icon: UtensilsCrossed,
   },
   {
     title: 'Circulation and edge zone',
     description:
-      'Protect the main walking route, doors, stairs, pool edge, and service access. Posts and screen drops belong at the edges of the room only after the opening, drainage, and furniture plan are clear.',
+      'Posts, screens, doors, stairs, pool edges, and service access all shape the room. EDG protects those paths before the roof and finish locations are finalized.',
     icon: Move,
   },
 ];
 
 const roofChecks = [
   {
-    title: 'Roof and appliance pairing',
+    title: 'Roof and appliance fit',
     description:
-      'A louvered pergola can change shade, airflow, and rain exposure, but it does not automatically make every grill or oven suitable beneath it. Select the appliance and roof as a pair, then compare both manufacturers’ current instructions.',
+      'EDG chooses the roof and cooking equipment as a pair, accounting for the appliance type, fuel, roof construction, surrounding materials, and how the room will be used.',
     icon: PanelTop,
   },
   {
-    title: 'Clearance and lid movement',
+    title: 'Heat and working room',
     description:
-      'Review the exact model’s clearances to combustible construction, glass, siding, other appliances, and the roof above. Account for the lid, rotisserie, pizza-oven door, service access, lighting, heaters, and the roof’s moving parts—not just the countertop cutout.',
-    icon: Ruler,
+      'We plan space for open lids, doors, rotisseries, prep, serving, maintenance, and the clearances required by the selected equipment and local requirements.',
+    icon: ChefHat,
   },
   {
-    title: 'Ventilation and smoke path',
+    title: 'Airflow and ventilation',
     description:
-      'Plan for open-air airflow and the appliance’s required ventilation. Screens can make dining more comfortable, but closing a screen wall around an active grill changes the air path. A fixed roof may call for a listed vent hood or a different appliance strategy.',
+      'EDG keeps the cooking side and required openings working as intended. Screens can improve comfort, but the cooking and ventilation plan comes first.',
     icon: Wind,
   },
   {
-    title: 'Fuel and service access',
+    title: 'Utilities and service access',
     description:
-      'Natural gas, propane, electric, and wood-fired equipment create different routing and service questions. Built-in appliances also need access panels, cavity ventilation, shutoffs, and a noncombustible enclosure where their manual requires one.',
+      'Gas, propane, electric, water, shutoffs, access panels, and future service all need a place in the layout before the finishes go in.',
     icon: Wrench,
   },
 ];
@@ -101,66 +97,63 @@ const utilityChecks = [
   {
     title: 'Lighting',
     description:
-      'Use task light at the counters and softer light over dining. Coordinate LED strips, spots, switches, and controls with the roof frame so the cook is not working in glare or standing beneath a service conflict.',
+      'Task lighting at counters and softer light over dining make the room easier to use. EDG coordinates fixtures, controls, and roof framing so the cook is not working in glare.',
     icon: Lightbulb,
   },
   {
-    title: 'Power and controls',
+    title: 'Power, gas, and water',
     description:
-      'Identify appliance circuits, receptacles, GFCI protection, roof motors, lights, heaters, fans, sensors, and smart controls before finishes are selected. Keep controls reachable without crossing the cooking path.',
+      'We plan appliance circuits, receptacles, gas or propane routing, water, controls, heaters, and fans before the kitchen base and roof posts are fixed.',
     icon: Zap,
   },
   {
     title: 'Drainage',
     description:
-      'A louvered roof still needs a deliberate water path. Map gutters, downspouts, patio pitch, trench drains, doors, steps, and the kitchen base so roof water does not discharge into a work area or against the house.',
+      'Gutters, downspouts, patio pitch, steps, doors, and the kitchen base need a clear water path so rain does not discharge into the work area or against the house.',
     icon: CloudRain,
   },
   {
-    title: 'Screens and airflow',
+    title: 'Screens and comfort',
     description:
-      'Screens usually work best on the sun, bug, wind, or privacy sides of the room—not automatically on every side. Leave the cooking side and required openings open unless the selected appliance and local requirements support another approach.',
+      'Retractable screens can manage sun, bugs, wind, and privacy on the right sides of the room while preserving airflow where cooking needs it.',
     icon: Fan,
   },
 ];
 
-const designInputs = [
-  'Project city or ZIP code, plus whether the site is residential, commercial, roof deck, or poolside',
-  'Photos, a survey, architectural plan, or a marked-up overhead sketch showing the house and existing patio',
-  'Overall available footprint and height, including doors, windows, stairs, eaves, gutters, and property-line constraints',
-  'Exact appliance models or a short list of intended grills, ovens, burners, refrigeration, sinks, and fuel types',
-  'Cooking, dining, serving, and circulation goals, including chair count and the route between the house and kitchen',
-  'Power, gas, water, drainage, lighting, heater, fan, screen, and control requirements already known',
-  'Budget range, timing, HOA or permit concerns, and any builder, architect, landscape, or kitchen partner already involved',
+const startItems = [
+  'Where the project is located and how you want to use the space',
+  'What you want to cook and whether you already have appliance preferences',
+  'A rough footprint or photo if you have one; neither is required to start',
+  'Your goals for dining, screens, lighting, heat, timing, or a local installation',
 ];
 
 const faqs = [
   {
     question: 'Can an outdoor kitchen go under a pergola?',
     answer:
-      'Sometimes. The answer depends on the selected roof, appliance, fuel, ventilation, clearances, materials, local requirements, and how the roof and screens operate. EDG reviews the exact appliance and pergola documentation together instead of treating “outdoor-rated” as blanket approval.',
+      'Yes, when the roof and kitchen are designed as one plan. EDG coordinates the appliance type, fuel, ventilation, clearances, posts, screens, utilities, drainage, and local requirements before the layout is finalized.',
   },
   {
-    question: 'Can I close the pergola louvers while grilling?',
+    question: 'Can I close the pergola louvers while cooking?',
     answer:
-      'Do not assume that you can. Active cooking changes heat and smoke conditions, and the correct roof position is model-specific. Follow the appliance and pergola instructions, keep the required air path open, and plan a listed hood or another approved strategy where the selected system requires it.',
+      'Follow the selected appliance and roof instructions. Active cooking needs the required airflow, and screens or louvers should not be operated in a way that conflicts with those instructions. EDG explains the operating details at handoff.',
   },
   {
-    question: 'Do outdoor kitchen pergolas need a vent hood?',
+    question: 'Does an outdoor kitchen pergola need ventilation?',
     answer:
-      'Not every project has the same answer. A fixed cover, wood-fired appliance, enclosed screen layout, or local code requirement can change the ventilation plan. The exact appliance manual and the roof manufacturer’s instructions should be reviewed before the roof, hood, and kitchen locations are finalized.',
+      'Yes. Cooking needs ventilation. Whether that means a hood or another provision depends on the appliances, fuel, roof, materials, local requirements, and how enclosed the room will be. EDG reviews the selected appliance and roof instructions together and explains the plan at handoff.',
   },
   {
     question: 'What should I send for an outdoor kitchen pergola quote?',
     answer:
-      'Photos, exact appliance models, and dimensions are helpful but optional for an initial inquiry. Send whatever you have, such as the site location, a rough description of the cooking and dining arrangement, known utility locations, drainage concerns, desired screens or lighting, timing, and budget range. Those inputs help EDG identify the right system direction before specifying a manufacturer.',
+      'Start with your contact information, project location, and the kind of cooking and dining space you want. Photos, appliance models, and dimensions are helpful but optional for an initial inquiry.',
   },
 ];
 
 const articleSchema = generateArticleSchema({
   title: 'Pergolas over outdoor kitchens',
   description:
-    'A practical guide to planning an outdoor kitchen under a motorized pergola, including layout zones, roof and appliance coordination, utilities, screens, drainage, and design inputs.',
+    'How EDG coordinates an outdoor kitchen, motorized pergola, utilities, ventilation, screens, lighting, drainage, and dining layout.',
   url: 'https://www.edgpatioshade.com/guides/outdoor-kitchen-pergola',
   image: `https://www.edgpatioshade.com${images.systems.appliances.kitchen}`,
   datePublished: '2026-09-10',
@@ -199,11 +192,10 @@ export default function OutdoorKitchenPergolaPage() {
                 Pergolas over outdoor kitchens
               </h1>
               <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300">
-                Plan the pergola around the kitchen, not the other way around.
-                An outdoor kitchen under a pergola can be a comfortable place to
-                cook and host—but only when cooking, dining, circulation, roof
-                movement, ventilation, utilities, and drainage are drawn as one
-                room.
+                EDG designs the pergola around the kitchen, not the other way
+                around. Cooking, dining, circulation, roof movement,
+                ventilation, utilities, lighting, and drainage should work as
+                one outdoor room.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <TrackedLink
@@ -248,14 +240,12 @@ export default function OutdoorKitchenPergolaPage() {
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <div className="label-editorial-brand mb-4">Fast answer</div>
             <h2 className="section-title mb-4">
-              An outdoor kitchen pergola is a coordination project.
+              An outdoor kitchen pergola is a coordination project
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              The roof is only one part of the plan. The useful first drawing
-              shows where the cook works, where guests sit, how people move,
-              where heat and smoke go, and how water and power reach the space.
-              A pergola over an outdoor kitchen works best when product
-              selection follows that brief.
+              EDG starts with how you cook, dine, move, and host. We then lay
+              out the roof, appliances, utilities, screens, lighting, and
+              drainage around that brief.
             </p>
           </div>
 
@@ -281,39 +271,16 @@ export default function OutdoorKitchenPergolaPage() {
                 Roof + appliance fit
               </div>
               <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-                The grill manual and pergola manual belong on the same table.
+                The roof and the cooking equipment belong on the same plan
               </h2>
               <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                 <p>
-                  “Outdoor-rated” does not mean “approved under any roof.”
-                  Clearances depend on the appliance model, fuel, combustible
-                  materials, glass or siding nearby, the roof construction, and
-                  local requirements.
+                  Outdoor-rated equipment still needs the right relationship to
+                  the roof, surrounding materials, airflow, and working space.
                 </p>
                 <p>
-                  EDG reviews the exact appliance instructions alongside the
-                  selected pergola’s technical and installation documents. That
-                  is where height, louver operation, gutter routing, accessory
-                  placement, anchoring, and ventilation decisions become
-                  specific enough to price.
-                </p>
-              </div>
-
-              <div className="border-edg-brand bg-surface-muted mt-8 border-l-4 p-6">
-                <div className="mb-3 flex items-start gap-3">
-                  <AlertTriangle className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
-                  <h3 className="text-xl font-bold">
-                    A model-specific clearance example
-                  </h3>
-                </div>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  An official Napoleon Built-In LEX 730 manual lists 16 inches
-                  of clearance at the rear and 7 inches at the sides to
-                  combustibles, recommends additional clearance near vinyl or
-                  glass, and says not to operate the grill under overhead
-                  combustible construction. Those numbers belong to that
-                  appliance and manual; they are not a universal rule for an
-                  outdoor kitchen under a pergola.
+                  EDG coordinates the cooking equipment with the pergola layout
+                  so the room is comfortable to use and practical to service.
                 </p>
               </div>
             </div>
@@ -336,17 +303,15 @@ export default function OutdoorKitchenPergolaPage() {
       <Section className="bg-surface-muted">
         <Container>
           <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Second-pass coordination
-            </div>
+            <div className="label-editorial-brand mb-4">Complete the room</div>
             <h2 className="section-title mb-4">
-              Lighting, power, drainage, and screens shape the room.
+              Lighting, utilities, drainage, and screens shape how the kitchen
+              works
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              These details are easiest to solve before the kitchen base, roof
-              posts, and finish surfaces are fixed. They also determine whether
-              the space feels open and workable or crowded and difficult to
-              service.
+              These decisions are easiest to solve before the kitchen base, roof
+              posts, and finish surfaces are fixed. EDG coordinates them as part
+              of the same room.
             </p>
           </div>
 
@@ -366,7 +331,7 @@ export default function OutdoorKitchenPergolaPage() {
             <div className="relative min-h-[320px] overflow-hidden bg-zinc-200">
               <Image
                 src={images.systems.pergolas.blackBladePool}
-                alt="Motorized pergola with a dining zone and poolside outdoor living area"
+                alt="Motorized pergola with a dining zone and outdoor living area"
                 fill
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className="object-cover"
@@ -374,71 +339,18 @@ export default function OutdoorKitchenPergolaPage() {
             </div>
             <Card variant="dark" padding="lg">
               <div className="text-edg-brand mb-4 text-sm font-bold tracking-widest uppercase">
-                A practical layout test
+                EDG design approach
               </div>
               <h3 className="mb-5 text-2xl font-bold text-white">
-                Trace three paths before you place a post.
+                Design the room around the way you cook
               </h3>
-              <div className="space-y-4 text-sm leading-relaxed text-zinc-300">
-                <p>
-                  1. The cook’s path from refrigerator to grill, prep, sink, and
-                  serving counter.
-                </p>
-                <p>
-                  2. The guest path from the house or yard to the dining zone.
-                </p>
-                <p>
-                  3. The service path for gas, electrical access, drainage,
-                  appliance maintenance, and screen or louver repairs.
-                </p>
-              </div>
+              <p className="leading-relaxed text-zinc-300">
+                EDG brings roof, kitchen, screens, lighting, heating, and
+                utilities into one conversation. Local homeowners can continue
+                from design through permitting, installation, and care; trade
+                partners can use EDG for national design and supply support.
+              </p>
             </Card>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-white">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="relative min-h-[380px] overflow-hidden bg-zinc-100">
-              <Image
-                src={images.featuredProjects.winnetkaLakesideRetreat.hero}
-                alt="Boden Residence planning concept"
-                fill
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <div className="label-editorial-brand mb-4">
-                Documented planning example
-              </div>
-              <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-                Boden Residence: kitchen, pergola, and landscape in one brief.
-              </h2>
-              <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
-                <p>
-                  EDG’s Boden Residence record in Winnetka, Illinois describes a
-                  full landscape renovation planned around appliances, a
-                  motorized pergola with heaters, outdoor furniture, and a
-                  custom pergola finish.
-                </p>
-                <p>
-                  The useful lesson is the scope: the roof was considered with
-                  the kitchen and entertaining plan, rather than added after the
-                  hardscape and appliances were set. The available record does
-                  not publish appliance models, final clearances, or a finished
-                  installation case study, so those remain design review
-                  inputs—not claims to copy into another project.
-                </p>
-              </div>
-              <Link
-                href="/projects/boden-residence"
-                className="text-edg-brand-text mt-6 inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase"
-              >
-                View the project record <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
           </div>
         </Container>
       </Section>
@@ -446,25 +358,23 @@ export default function OutdoorKitchenPergolaPage() {
       <Section className="bg-surface">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="label-editorial-brand mb-4">
-              Prepare for design review
-            </div>
+            <div className="label-editorial-brand mb-4">Start simply</div>
             <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-              What EDG needs before specifying the roof
+              A simple first inquiry is enough
             </h2>
             <p className="text-text-secondary mb-8 max-w-3xl text-lg leading-relaxed">
-              A short project brief is enough to start. The more precise the
-              appliance and site information, the more useful the first system
-              recommendation can be.
+              You do not need a finished kitchen schedule or drawing set to
+              start. Tell EDG where the project is and how you want the room to
+              work; we can help define the next useful step.
             </p>
             <div className="grid gap-4 md:grid-cols-2">
-              {designInputs.map((input) => (
+              {startItems.map((item) => (
                 <div
-                  key={input}
+                  key={item}
                   className="border-border flex items-start gap-3 border bg-white p-4"
                 >
                   <CheckCircle2 className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
-                  <span className="text-sm font-medium">{input}</span>
+                  <span className="text-sm font-medium">{item}</span>
                 </div>
               ))}
             </div>
@@ -473,15 +383,19 @@ export default function OutdoorKitchenPergolaPage() {
               <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
                 <div>
                   <h3 className="mb-2 text-2xl font-bold">
-                    Ready to plan the whole cooking and dining layout?
+                    Ready to plan the cooking and dining layout?
                   </h3>
                   <p className="text-zinc-300">
-                    Send the site context and appliance direction. EDG can help
-                    narrow the roof, utility, screen, and accessory plan.
+                    EDG can help coordinate the roof, kitchen, utilities,
+                    screens, and accessories around your project.
                   </p>
                 </div>
                 <TrackedLink
-                  href={heroContactHref}
+                  href={buildContactHref({
+                    type: 'quote',
+                    product: 'pergola',
+                    source: 'outdoor_kitchen_pergola_inputs',
+                  })}
                   className={buttonClassName({ size: 'lg' })}
                   conversionName="outdoor_kitchen_pergola_quote_click"
                   ctaPosition="outdoor_kitchen_pergola_inputs"
@@ -496,84 +410,6 @@ export default function OutdoorKitchenPergolaPage() {
       </Section>
 
       <Section className="bg-white">
-        <Container>
-          <div className="mx-auto max-w-4xl">
-            <div className="flex items-start gap-4">
-              <BookOpen className="text-edg-brand-text mt-1 h-7 w-7 shrink-0" />
-              <div>
-                <div className="label-editorial-brand mb-4">Reference set</div>
-                <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-                  Start with the current manufacturer documents.
-                </h2>
-                <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                  These sources show why clearance, ventilation, roof operation,
-                  drainage, and accessory decisions stay model-specific. EDG
-                  verifies the current issue for the selected system during
-                  design review.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-3">
-              <Card variant="muted" padding="lg">
-                <h3 className="mb-3 text-xl font-bold">
-                  Napoleon grill manual
-                </h3>
-                <p className="text-text-secondary mb-5 text-sm leading-relaxed">
-                  Model-specific instructions for an official built-in grill
-                  example, including clearances and overhead construction.
-                </p>
-                <a
-                  href="https://www.napoleon.com/sites/default/files/products/Built-In-LEX-730-series-manual.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase"
-                >
-                  Open manual <ArrowRight className="h-4 w-4" />
-                </a>
-              </Card>
-              <Card variant="muted" padding="lg">
-                <h3 className="mb-3 text-xl font-bold">
-                  Sundance pergola resources
-                </h3>
-                <p className="text-text-secondary mb-5 text-sm leading-relaxed">
-                  Current product guidance for louver operation, drainage,
-                  installation, and options such as heat, fans, lighting, and
-                  screens.
-                </p>
-                <a
-                  href="https://sundanceoutdoorliving.com/resources/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase"
-                >
-                  Open resources <ArrowRight className="h-4 w-4" />
-                </a>
-              </Card>
-              <Card variant="muted" padding="lg">
-                <h3 className="mb-3 text-xl font-bold">
-                  Azenco covered-kitchen guidance
-                </h3>
-                <p className="text-text-secondary mb-5 text-sm leading-relaxed">
-                  Manufacturer planning guidance that distinguishes the cover,
-                  grill, airflow, and ventilation questions instead of giving
-                  one universal answer.
-                </p>
-                <a
-                  href="https://azenco-outdoor.com/your-covered-outdoor-kitchen-choosing-the-perfect-covering/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-edg-brand-text inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase"
-                >
-                  Read guidance <ArrowRight className="h-4 w-4" />
-                </a>
-              </Card>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-surface-muted">
         <Container>
           <div className="mx-auto max-w-4xl">
             <div className="label-editorial-brand mb-4">Common questions</div>
@@ -596,14 +432,18 @@ export default function OutdoorKitchenPergolaPage() {
           <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <div className="text-edg-brand mb-3 text-sm font-bold tracking-widest uppercase">
-                Start with the site and appliance brief
+                Plan the complete room
               </div>
               <h2 className="text-3xl font-bold md:text-5xl">
                 Build the roof around the way the kitchen needs to work.
               </h2>
             </div>
             <TrackedLink
-              href={heroContactHref}
+              href={buildContactHref({
+                type: 'quote',
+                product: 'pergola',
+                source: 'outdoor_kitchen_pergola_footer',
+              })}
               className={buttonClassName({ size: 'lg' })}
               conversionName="outdoor_kitchen_pergola_quote_click"
               ctaPosition="outdoor_kitchen_pergola_footer"

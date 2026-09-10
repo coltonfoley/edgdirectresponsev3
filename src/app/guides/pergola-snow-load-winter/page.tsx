@@ -1,20 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
-  AlertTriangle,
   ArrowRight,
   CheckCircle2,
-  ClipboardCheck,
   CloudSnow,
-  Droplets,
   FileText,
   MapPin,
   Ruler,
   ShieldCheck,
   Snowflake,
   ThermometerSnowflake,
-  User,
   Wind,
 } from 'lucide-react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
@@ -26,9 +21,9 @@ import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Pergola Snow Load and Winter Operation | EDG Guide',
+  title: 'Pergola Snow Load and Winter Operation | EDG Patio & Shade',
   description:
-    'Can a louvered pergola handle Chicago and Milwaukee winters? Learn why snow-load ratings depend on the selected span and structure, how to position louvers in snow, and what EDG verifies before quoting.',
+    'Plan a louvered pergola for Midwest winters with EDG site coordination, structural planning, drainage, winter handoff, and local installation support.',
   keywords: [
     'pergola snow load',
     'louvered pergola snow',
@@ -39,132 +34,117 @@ export const metadata: Metadata = {
     canonical: '/guides/pergola-snow-load-winter',
   },
   openGraph: {
-    title: 'Pergola Snow Load and Winter Operation | EDG',
+    title: 'Pergola Snow Load and Winter Operation | EDG Patio & Shade',
     description:
-      'A practical guide to model-specific snow loads, winter louver position, freezing precautions, drainage, and Midwest site review.',
+      'See how EDG plans louvered pergolas for structure, drainage, winter operation, and local installation in the Midwest.',
     images: [{ url: images.pages.guides.louveredPergolasHero }],
   },
 };
 
 const faqs = [
   {
-    question: 'Can a louvered pergola handle snow?',
+    question: 'Can a louvered pergola work through a Midwest winter?',
     answer:
-      'It can, when the selected model, span, posts, attachment or foundations, and local design requirements are matched to the site. A product-page snow-load figure is not a universal approval for every size or structure. EDG confirms the model-specific engineering and winter operating instructions before finalizing a direction.',
+      'Yes, when EDG selects and coordinates the system for the property. A snow-load rating applies to a specified roof configuration and is checked against local design requirements; it does not tell the owner which winter louver position to use. EDG looks at the roof layout, structure, attachment, exposure, and drainage, then provides a clear operating handoff for the selected system.',
   },
   {
-    question: 'Should louvered pergola blades be open or closed in snow?',
+    question: 'What does EDG review for a pergola in snow country?',
     answer:
-      'Follow the selected manufacturer’s current instructions. For example, Brustor’s Outdoor Living guidance tells owners to rotate specified louvered roofs to a fully vertical position during snow to avoid accumulation. Do not assume that position applies to every manufacturer or model, and do not force louvers against ice or a frozen mechanism.',
+      'EDG reviews the site, spans, posts, attachment or foundations, nearby roofs and drifting conditions, drainage, controls, accessories, and the local permitting or engineering path. That gives the project team a practical plan before installation begins.',
   },
   {
-    question: 'Can I operate a motorized pergola when it is freezing?',
+    question: 'How should I position the louvers for snow?',
     answer:
-      'Do not operate a roof against frost, ice, or snow that could bind the moving parts. Some systems can use a temperature or frost setting, but the sensor, default setting, and activation process are model- and dealer-specific. The owner still needs a clear winter protocol and should contact the installer when conditions are uncertain.',
+      'The correct winter position depends on the selected system. EDG supplies the current operating instructions for that system and explains the snow and frost procedure during handoff. Do not assume that one system uses the same position as another.',
   },
   {
-    question: 'Does the snow-load rating cover the whole pergola?',
+    question: 'Can I operate a pergola when the louvers are frozen?',
     answer:
-      'Not by itself. The published value may describe a specific roof or product configuration. The complete review also has to account for span, bay layout, beam and post design, connections, footings or existing structure, attachment, local snow design criteria, drifting, and the way the roof will be operated in winter.',
+      'No. Do not force a motorized roof against frost, ice, or packed snow. Stop operation and follow the clearing and restart instructions EDG supplies with the system, or contact EDG when the condition is unclear.',
   },
   {
-    question: 'What does EDG need to review a Midwest pergola site?',
+    question: 'What should I send for an initial winter pergola inquiry?',
     answer:
-      'An initial quote request does not require photos or measured dimensions. Start with your contact information, project interest, and the address or area if you have it. If available, rough width and projection, photos, mounting condition, existing deck or roof information, nearby roof edges or valleys, desired screens and accessories, drainage destination, and permit or HOA notes help EDG narrow the manufacturer and configuration before a quote is treated as meaningful.',
+      'Start with your contact information, project location or area, and what you want the space to do. Photos and measured dimensions are optional at this stage, but helpful when available. EDG can help shape the next steps from a simple first conversation.',
   },
 ];
 
-const engineeringChecks = [
+const planningChecks = [
   {
     icon: Ruler,
-    title: 'Span and bay layout',
+    title: 'Roof layout and structure',
     description:
-      'The same model can have different allowable layouts as the clear span, coupled bays, louver direction, and post positions change. A dimension is not a load rating by itself.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Complete load path',
-    description:
-      'Louvers are only one part of the assembly. Beams, posts, connections, anchors, footings, an attached wall, or an existing deck must transfer the design load safely.',
+      'EDG coordinates the selected roof, spans, bays, posts, connections, and attachment or foundation approach so the structure fits the property and the intended use.',
   },
   {
     icon: Wind,
     title: 'Exposure and drifting',
     description:
-      'An open yard, lakefront setting, roof edge, nearby taller roof, or snow drift can change the design conversation even when the footprint looks straightforward.',
+      'An open yard, lakefront setting, roof edge, or nearby taller roof can change the way snow reaches the structure. EDG accounts for the site around the footprint.',
+  },
+  {
+    icon: CloudSnow,
+    title: 'Drainage through freeze and thaw',
+    description:
+      'Gutters, downspouts, patio grade, doors, stairs, and finished surfaces need a usable discharge path before winter weather arrives.',
   },
   {
     icon: FileText,
-    title: 'Local review path',
+    title: 'Local approvals and handoff',
     description:
-      'The address, structure, attachment, electrical scope, and local building requirements determine which drawings and engineering documents are needed.',
+      'EDG coordinates the design, engineering, permitting, installation, and operating information needed to move from a concept to a usable outdoor room.',
   },
 ];
 
 const winterSteps = [
   {
     icon: Snowflake,
-    title: 'Set the winter position before the storm',
+    title: 'Set the plan before the first storm',
     description:
-      'The correct louver position depends on the installed system. Follow its current winter operating instructions and have the installer explain the snow and frost procedure during handoff. Do not assume that one roof’s operating position applies to another.',
+      'EDG explains the selected system’s winter position, controls, accessories, and conditions that pause operation before the project is handed over.',
   },
   {
     icon: ThermometerSnowflake,
-    title: 'Do not cycle a frozen roof',
+    title: 'Stop when the roof is frozen',
     description:
-      'Frost, ice, and packed snow can stop moving parts from completing their travel. Do not force the motor or repeatedly test the roof against resistance. Use the manufacturer’s clearing and restart procedure or call the installer.',
+      'Frost and ice can keep moving parts from completing their travel. Do not force the motor or repeatedly test the roof against resistance.',
   },
   {
-    icon: CloudSnow,
-    title: 'Treat automation as a safeguard',
+    icon: ShieldCheck,
+    title: 'Use the supplied instructions',
     description:
-      'Temperature, frost, snow, rain, and wind sensors can support the operating plan, but settings and availability vary. A sensor does not replace the owner’s responsibility to watch conditions or the dealer’s responsibility to confirm the setup.',
+      'Follow the operating and clearing instructions for the system EDG supplies. When weather is outside that guidance, pause and contact EDG or the installer.',
   },
 ];
 
-const responsibilityRows = [
-  {
-    owner: 'EDG, manufacturer, and engineer',
-    items: [
-      'Match the selected model and configuration to the site-specific structural review.',
-      'Coordinate gutters, posts, downspout discharge, patio grade, doors, and adjacent finishes.',
-      'Document the winter position, sensor settings, accessory limits, and any required snow-clearing plan.',
-    ],
-  },
-  {
-    owner: 'Owner and site team',
-    items: [
-      'Keep gutters and drainage paths clear of leaves, ice, and debris before winter weather arrives.',
-      'Follow the selected manual and do not operate the roof against frost, ice, or an obstructed louver.',
-      'Observe heavy accumulation, drifting, and thaw conditions, then contact the installer when the condition is outside the documented protocol.',
-    ],
-  },
+const careItems = [
+  'Keep gutters, drainage paths, and downspout outlets clear before winter weather.',
+  'Watch for ice, drifting, heavy accumulation, and discharge that reaches doors or walking surfaces.',
+  'Use the selected system’s winter instructions rather than applying a rule from another roof.',
+  'Contact EDG when a control, louver, screen, or drainage condition needs service.',
 ];
 
-const siteChecklist = [
-  'Project address, jurisdiction, and whether the site is in an open, lakefront, or sheltered setting',
-  'Rough width, projection, clear span, desired bays, post locations, and louver direction',
-  'Freestanding, wall-mounted, deck-mounted, or roof-deck condition, with existing structure information when applicable',
-  'Nearby roof edges, valleys, trees, parapets, or taller structures that could create drifting or concentrated snow',
-  'Gutter and downspout destination, patio slope, doors, stairs, foundation edges, and surfaces that cannot receive discharge',
-  'Screens, heaters, lights, sensors, controls, and the owner’s expected winter operating routine',
-  'Permit, HOA, architectural review, or stamped-engineering requirements already identified',
+const startItems = [
+  'Where the project is located and whether the setting is open, sheltered, lakefront, or near a taller roof',
+  'How you want to use the room, including shade, dining, screens, lighting, heat, and seasonal timing',
+  'A rough footprint or photo if you have one; neither is required to start',
+  'Any builder, architect, landscape, HOA, or permit information already in motion',
 ];
+
+const articleSchema = generateArticleSchema({
+  title: 'Pergola Snow Load and Winter Operation',
+  description:
+    'How EDG plans louvered pergolas for Midwest winter structure, drainage, operating handoff, and local installation support.',
+  url: 'https://www.edgpatioshade.com/guides/pergola-snow-load-winter',
+  image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
+  datePublished: '2026-09-10',
+  dateModified: '2026-09-10',
+  category: 'Pergola Winter Planning',
+});
+
+const faqSchema = generateFAQSchema(faqs);
 
 export default function PergolaSnowLoadWinterPage() {
-  const articleSchema = generateArticleSchema({
-    title: 'Pergola Snow Load and Winter Operation',
-    description:
-      'A practical guide to model-specific snow loads, winter louver position, freezing precautions, drainage, and Midwest site review.',
-    url: 'https://www.edgpatioshade.com/guides/pergola-snow-load-winter',
-    image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
-    datePublished: '2026-09-10',
-    dateModified: '2026-09-10',
-    author: 'Colton Foley',
-    category: 'Pergola Planning',
-  });
-  const faqSchema = generateFAQSchema(faqs);
-
   return (
     <article className="min-h-screen bg-white">
       <script
@@ -206,18 +186,18 @@ export default function PergolaSnowLoadWinterPage() {
               Pergola snow load and winter operation in Midwest weather
             </h1>
             <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300">
-              A louvered pergola can be part of a Chicago–Milwaukee winter plan,
-              but the answer is never just a number on a product page. The
-              selected model, span, structure, drainage, local design load, and
-              operating responsibilities all have to line up.
+              EDG plans louvered pergolas around the property, the structure,
+              the drainage, and the way you want to use the room through the
+              seasons. For local homeowners, we can carry that plan through
+              engineering, permitting, installation, and care.
             </p>
 
             <div className="mb-8 flex flex-wrap gap-5 text-sm text-zinc-300">
               <span className="inline-flex items-center gap-2">
-                <User className="h-4 w-4" /> Colton Foley
+                <ShieldCheck className="h-4 w-4" /> EDG Patio &amp; Shade
               </span>
               <span className="inline-flex items-center gap-2">
-                <ClipboardCheck className="h-4 w-4" /> 9 min read
+                <FileText className="h-4 w-4" /> Winter planning guide
               </span>
               <span className="inline-flex items-center gap-2">
                 <Snowflake className="text-edg-brand h-4 w-4" /> Updated Sep 10,
@@ -249,38 +229,40 @@ export default function PergolaSnowLoadWinterPage() {
       <Section className="section-md">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="label-editorial-brand mb-4">Fast answer</div>
+            <div className="label-editorial-brand mb-4">Direct answer</div>
             <h2 className="section-title mb-6">
-              Snow-load rating is not the same as winter permission
+              Winter performance starts with the plan around the roof
             </h2>
-            <p className="text-text-secondary mb-10 text-lg leading-relaxed">
-              A motorized louvered roof may be a good fit for a cold-weather
-              site, but a published snow-load figure is only one input. It may
-              describe a product or roof configuration, while your project also
-              depends on the selected span, bay layout, beams, posts,
-              connections, attachment or foundations, drifting, and local design
-              requirements. Separately, the manufacturer’s winter instructions
-              determine how the louvers should be positioned and when the motor
-              must stay idle.
-            </p>
+            <div className="border-edg-brand bg-surface-muted mb-10 border-l-4 p-6 md:p-8">
+              <p className="text-xl leading-relaxed font-medium md:text-2xl">
+                A louvered pergola can be a strong fit for a Midwest outdoor
+                room when its structure, site conditions, drainage, and winter
+                operation are coordinated together. EDG brings those decisions
+                into one design and installation process.
+              </p>
+            </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               <Card variant="outline" padding="lg">
-                <Ruler className="text-edg-brand-text mb-5 h-9 w-9" />
-                <h3 className="mb-3 text-xl font-bold">Structural question</h3>
+                <ShieldCheck className="text-edg-brand-text mb-5 h-9 w-9" />
+                <h3 className="mb-3 text-xl font-bold">
+                  EDG plans the complete assembly
+                </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  Can the complete selected assembly transfer the required snow,
-                  wind, and other design loads through its spans, connections,
-                  posts, anchors, and supporting structure?
+                  We coordinate the selected roof, structure, attachment,
+                  drainage, controls, screens, and accessories around the
+                  property and the finished outdoor room.
                 </p>
               </Card>
               <Card variant="outline" padding="lg">
-                <ThermometerSnowflake className="text-edg-brand-text mb-5 h-9 w-9" />
-                <h3 className="mb-3 text-xl font-bold">Operating question</h3>
+                <Snowflake className="text-edg-brand-text mb-5 h-9 w-9" />
+                <h3 className="mb-3 text-xl font-bold">
+                  Your handoff includes winter guidance
+                </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  What position, temperature setting, clearing process, and
-                  restart procedure does the current manual require when snow,
-                  ice, frost, or thaw conditions arrive?
+                  Before the first winter, EDG explains the supplied system’s
+                  operating instructions, care routine, and when to stop and
+                  call for help.
                 </p>
               </Card>
             </div>
@@ -291,232 +273,93 @@ export default function PergolaSnowLoadWinterPage() {
       <Section className="section-md bg-surface">
         <Container>
           <div className="mx-auto max-w-5xl">
-            <div className="mb-10 max-w-3xl">
+            <div className="mb-12 max-w-3xl">
               <div className="label-editorial-brand mb-4">
-                1. Structural fit
+                EDG site planning
               </div>
               <h2 className="section-title mb-4">
-                The selected span and structure carry the real question
+                Four winter questions we coordinate before installation
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                “What is the pergola snow load?” sounds like it should have one
-                answer. In practice, the right answer is attached to a model,
-                configuration, and site. A smaller roof with more supports is a
-                different structural problem from a wide, coupled, wall-mounted,
-                deck-mounted, or roof-deck layout.
+                Snow is a site condition, not just a roof conversation. EDG
+                brings the property, the structure, and the finished room into
+                the same plan.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              {engineeringChecks.map((item) => (
-                <Card key={item.title} variant="default" padding="lg">
-                  <item.icon className="text-edg-brand-text mb-5 h-8 w-8" />
-                  <h3 className="mb-3 text-xl font-bold">{item.title}</h3>
+              {planningChecks.map((check) => (
+                <Card key={check.title} variant="default" padding="lg">
+                  <check.icon className="text-edg-brand-text mb-5 h-9 w-9" />
+                  <h3 className="mb-3 text-xl font-bold">{check.title}</h3>
                   <p className="text-text-secondary leading-relaxed">
-                    {item.description}
+                    {check.description}
                   </p>
                 </Card>
               ))}
-            </div>
-
-            <div className="border-edg-brand mt-10 border-l-4 bg-white p-6 md:p-8">
-              <div className="mb-3 flex items-center gap-3">
-                <AlertTriangle className="text-edg-brand-text h-6 w-6 shrink-0" />
-                <h3 className="text-xl font-bold">
-                  Do not compare snow numbers as if they were interchangeable
-                </h3>
-              </div>
-              <p className="text-text-secondary leading-relaxed">
-                A product page, technical sheet, engineering drawing, and
-                warranty or operating document may use different terms and
-                conditions. EDG keeps those records tied to the exact selected
-                model and project instead of moving a figure from one
-                manufacturer to another.
-              </p>
             </div>
           </div>
         </Container>
       </Section>
 
-      <Section className="section-md bg-white">
+      <Section className="section-md bg-black text-white">
+        <Container>
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-12 max-w-3xl">
+              <div className="label-editorial text-edg-brand mb-4">
+                Winter handoff
+              </div>
+              <h2 className="section-title mb-4 text-white">
+                Know what to do when the weather changes
+              </h2>
+              <p className="text-lg leading-relaxed text-zinc-300">
+                EDG gives local homeowners a practical operating handoff so the
+                roof is not being figured out for the first time during a storm.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {winterSteps.map((step) => (
+                <div key={step.title} className="border border-white/10 p-6">
+                  <step.icon className="text-edg-brand mb-5 h-9 w-9" />
+                  <h3 className="mb-3 text-xl font-bold">{step.title}</h3>
+                  <p className="leading-relaxed text-zinc-300">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md">
         <Container>
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="bg-surface-muted relative aspect-[4/3] overflow-hidden">
+            <div className="relative aspect-[4/3] overflow-hidden">
               <Image
-                src={images.featuredProjects.jake.gallery[1]}
-                alt="Crystal Lake louvered pergola structure detail"
+                src={images.pages.guides.louveredPergolasHero}
+                alt="Louvered pergola providing a covered outdoor living area"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
               />
             </div>
             <div>
-              <div className="label-editorial-brand mb-4">
-                Midwest project example
-              </div>
-              <h2 className="mb-5 text-3xl font-bold md:text-4xl">
-                Crystal Lake structure and drainage were planned together
+              <div className="label-editorial-brand mb-4">Seasonal care</div>
+              <h2 className="section-title mb-4">
+                Keep the roof and drainage ready for the next season
               </h2>
               <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                EDG&apos;s Jake project in Crystal Lake used a multi-bay
-                motorized louvered pergola as part of a larger landscape
-                project. The project record describes electrical routing and
-                drainage planned around the structure and surrounding patio—the
-                kind of coordination a Midwest site review needs.
+                Good winter operation includes the roof, the controls, and the
+                water path. Keep the system clear, watch changing conditions,
+                and use EDG as a point of contact when care or service questions
+                come up.
               </p>
-              <p className="text-text-secondary mb-7 leading-relaxed">
-                This is a local planning example, not a snow-performance test or
-                a promise that another property shares the same structural
-                conditions.
-              </p>
-              <LinkButton
-                href="/projects/jake-everly-residence?source=pergola_snow_load_winter_project"
-                variant="secondary"
-                size="md"
-              >
-                View the Crystal Lake project
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </LinkButton>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-
-
-      <Section className="section-md">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 max-w-3xl">
-              <div className="label-editorial-brand mb-4">
-                2. Winter operation
-              </div>
-              <h2 className="section-title mb-4">
-                The roof needs a clear snow and freezing protocol
-              </h2>
-              <p className="text-text-secondary text-lg leading-relaxed">
-                A louvered roof is a motorized assembly with moving parts. The
-                winter plan should be decided during specification, not
-                improvised after ice forms around the louvers or inside the
-                drainage path.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {winterSteps.map((step) => (
-                <Card key={step.title} variant="outline" padding="lg">
-                  <step.icon className="text-edg-brand-text mb-5 h-8 w-8" />
-                  <h3 className="mb-3 text-xl font-bold">{step.title}</h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {step.description}
-                  </p>
-                </Card>
-              ))}
-            </div>
-
-            <div className="bg-surface-muted mt-10 rounded-sm p-6 md:p-8">
-              <div className="mb-4 flex items-center gap-3">
-                <CheckCircle2 className="text-edg-brand-text h-6 w-6 shrink-0" />
-                <h3 className="text-xl font-bold">
-                  The practical owner handoff
-                </h3>
-              </div>
-              <p className="text-text-secondary leading-relaxed">
-                Before the first winter, the owner should know the normal roof
-                position, the conditions that suspend operation, who clears
-                exceptional accumulation, how sensors are configured, and who to
-                call if the roof stops mid-cycle. That short handoff is part of
-                a safe, usable system—not a substitute for engineering.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="section-md bg-surface-muted">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 max-w-3xl">
-              <div className="label-editorial-brand mb-4">
-                3. Water, snow, and ice
-              </div>
-              <h2 className="section-title mb-4">
-                Drainage remains an owner responsibility after installation
-              </h2>
-              <p className="text-text-secondary text-lg leading-relaxed">
-                Closed louvers can route water into gutters and posts when the
-                selected system is designed and installed for that function. The
-                discharge still has to land somewhere. Freeze-thaw cycles, ice,
-                debris, heavy precipitation, and nearby doors or hardscape can
-                make the drainage path just as important as the roof itself.
-              </p>
-            </div>
-
-            <div className="grid gap-6 lg:grid-cols-2">
-              {responsibilityRows.map((row) => (
-                <Card key={row.owner} variant="default" padding="lg">
-                  <h3 className="mb-5 flex items-center gap-3 text-xl font-bold">
-                    {row.owner === 'Owner and site team' ? (
-                      <Droplets className="text-edg-brand-text h-6 w-6" />
-                    ) : (
-                      <ShieldCheck className="text-edg-brand-text h-6 w-6" />
-                    )}
-                    {row.owner}
-                  </h3>
-                  <div className="space-y-4">
-                    {row.items.map((item) => (
-                      <div key={item} className="flex gap-3">
-                        <CheckCircle2 className="text-edg-brand-text mt-1 h-5 w-5 shrink-0" />
-                        <p className="text-text-secondary leading-relaxed">
-                          {item}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            <div className="mt-8 flex gap-4 border border-black/10 bg-white p-6">
-              <AlertTriangle className="text-edg-brand-text mt-1 h-6 w-6 shrink-0" />
-              <p className="text-text-secondary leading-relaxed">
-                Winter water behavior is not an absolute promise of dryness.
-                Brustor’s current conditions, for example, note that drainage
-                and tightness cannot be guaranteed during successive frost and
-                thaw periods. That is a reminder to plan the discharge path and
-                owner maintenance around actual weather, not just the roof’s
-                closed position.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="section-md">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-              <div>
-                <div className="label-editorial-brand mb-4">
-                  4. Midwest site review
-                </div>
-                <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-                  What EDG verifies for an exposed Chicago or Milwaukee site
-                </h2>
-                <p className="text-text-secondary text-lg leading-relaxed">
-                  EDG starts with the property and the finished outdoor room,
-                  then narrows the manufacturer and configuration. An address
-                  near Lake Michigan, an open suburban yard, a roof edge, and a
-                  sheltered courtyard can all lead to different questions.
-                </p>
-              </div>
               <div className="space-y-4">
-                {siteChecklist.map((item) => (
-                  <div
-                    key={item}
-                    className="flex gap-4 border-b border-black/10 pb-4"
-                  >
-                    <MapPin className="text-edg-brand-text mt-1 h-5 w-5 shrink-0" />
+                {careItems.map((item) => (
+                  <div key={item} className="flex gap-3">
+                    <CheckCircle2 className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
                     <p className="text-text-secondary leading-relaxed">
                       {item}
                     </p>
@@ -524,65 +367,53 @@ export default function PergolaSnowLoadWinterPage() {
                 ))}
               </div>
             </div>
+          </div>
+        </Container>
+      </Section>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              <Link href="/guides/louvered-pergolas?source=pergola_snow_load_winter_related">
-                <Card
-                  variant="outline"
-                  padding="lg"
-                  className="group hover:border-edg-brand h-full transition-colors"
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <div className="label-editorial-brand mb-4">Start simply</div>
+            <h2 className="mb-6 text-3xl font-bold md:text-5xl">
+              You do not need a finished plan to talk with EDG
+            </h2>
+            <p className="text-text-secondary mb-8 max-w-3xl text-lg leading-relaxed">
+              A first conversation can start with the basics. Photos, measured
+              dimensions, and a complete drawing set can come later if the
+              project needs them.
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              {startItems.map((item) => (
+                <div
+                  key={item}
+                  className="border-border flex items-start gap-3 border bg-white p-4"
                 >
-                  <h3 className="mb-3 text-xl font-bold">
-                    Complete louvered pergola guide
+                  <MapPin className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
+                  <span className="text-sm font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-edg-dark mt-8 p-8 text-white">
+              <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+                <div>
+                  <h3 className="mb-2 text-2xl font-bold">
+                    Ready to plan a winter-ready outdoor room?
                   </h3>
-                  <p className="text-text-secondary mb-5 text-sm leading-relaxed">
-                    Compare rain, drainage, cost, system fit, and the broader
-                    louvered-roof decision.
+                  <p className="text-zinc-300">
+                    Tell EDG where the project is and what you want the space to
+                    do. We can help define the next useful step.
                   </p>
-                  <span className="text-edg-brand-dark inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
-                    Continue{' '}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Card>
-              </Link>
-              <Link href="/guides/motorized-pergola-permits-hoa-engineering?source=pergola_snow_load_winter_related">
-                <Card
-                  variant="outline"
-                  padding="lg"
-                  className="group hover:border-edg-brand h-full transition-colors"
+                </div>
+                <LinkButton
+                  href="/guides/pergola-system-fit-review?source=pergola_snow_load_winter_inputs"
+                  size="lg"
                 >
-                  <h3 className="mb-3 text-xl font-bold">
-                    Permits and engineering
-                  </h3>
-                  <p className="text-text-secondary mb-5 text-sm leading-relaxed">
-                    See how the address, attachment, drawings, structure, and
-                    review path shape a permanent pergola.
-                  </p>
-                  <span className="text-edg-brand-dark inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
-                    Review constraints{' '}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Card>
-              </Link>
-              <Link href="/guides/motorized-pergola-planning?source=pergola_snow_load_winter_related">
-                <Card
-                  variant="outline"
-                  padding="lg"
-                  className="group hover:border-edg-brand h-full transition-colors"
-                >
-                  <h3 className="mb-3 text-xl font-bold">
-                    Motorized pergola planning
-                  </h3>
-                  <p className="text-text-secondary mb-5 text-sm leading-relaxed">
-                    Start with the complete project: structure, drainage, power,
-                    controls, accessories, and local constraints.
-                  </p>
-                  <span className="text-edg-brand-dark inline-flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
-                    Plan the project{' '}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </Card>
-              </Link>
+                  Request a Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </LinkButton>
+              </div>
             </div>
           </div>
         </Container>
@@ -591,18 +422,52 @@ export default function PergolaSnowLoadWinterPage() {
       <Section className="section-md bg-white">
         <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="label-editorial-brand mb-4 text-center">FAQ</div>
-            <h2 className="section-title mb-10 text-center">
-              Pergola snow-load questions
-            </h2>
-            <div className="space-y-5">
+            <div className="label-editorial-brand mb-4">Continue planning</div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <LinkButton
+                href="/guides/motorized-pergola-permits-hoa-engineering?source=pergola_snow_load_winter_related"
+                variant="secondary"
+                className="h-auto min-h-28 justify-between p-6 text-left"
+              >
+                <span>
+                  <span className="block text-lg font-bold">
+                    Permits and engineering
+                  </span>
+                  <span className="mt-2 block text-sm font-normal normal-case opacity-70">
+                    See how EDG coordinates approvals, structure, and the site.
+                  </span>
+                </span>
+                <ArrowRight className="ml-4 h-5 w-5 shrink-0" />
+              </LinkButton>
+              <LinkButton
+                href="/guides/motorized-pergola-planning?source=pergola_snow_load_winter_related"
+                variant="secondary"
+                className="h-auto min-h-28 justify-between p-6 text-left"
+              >
+                <span>
+                  <span className="block text-lg font-bold">
+                    Motorized pergola planning
+                  </span>
+                  <span className="mt-2 block text-sm font-normal normal-case opacity-70">
+                    Start with roof, drainage, power, controls, and accessories.
+                  </span>
+                </span>
+                <ArrowRight className="ml-4 h-5 w-5 shrink-0" />
+              </LinkButton>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-surface-muted">
+        <Container>
+          <div className="mx-auto max-w-4xl">
+            <div className="label-editorial-brand mb-4">Common questions</div>
+            <div className="space-y-6">
               {faqs.map((faq) => (
-                <Card key={faq.question} variant="muted" padding="lg">
-                  <h3 className="mb-3 flex items-start gap-3 text-xl font-bold">
-                    <CheckCircle2 className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
-                    {faq.question}
-                  </h3>
-                  <p className="text-text-secondary pl-8 leading-relaxed">
+                <Card key={faq.question} variant="default" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary leading-relaxed">
                     {faq.answer}
                   </p>
                 </Card>
@@ -612,46 +477,27 @@ export default function PergolaSnowLoadWinterPage() {
         </Container>
       </Section>
 
-      <Section className="bg-edg-dark text-white">
+      <section className="bg-edg-dark py-16 text-white">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.65fr] lg:items-center">
+          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
             <div>
-              <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-                Need a winter-ready pergola plan?
+              <div className="text-edg-brand mb-3 text-sm font-bold tracking-widest uppercase">
+                Start with the property
+              </div>
+              <h2 className="text-3xl font-bold md:text-5xl">
+                Plan a pergola that is ready for every season.
               </h2>
-              <p className="text-lg leading-relaxed text-zinc-300">
-                Start with your contact information and project interest.
-                Photos, dimensions, and mounting details are optional on the
-                initial request, but helpful if you have them. EDG can then
-                separate a model&apos;s published information from the
-                engineering and operating decisions your site actually needs.
-              </p>
             </div>
             <LinkButton
               href="/guides/pergola-system-fit-review?source=pergola_snow_load_winter_bottom"
               size="lg"
-              className="w-full justify-between"
             >
               Request a Quote
               <ArrowRight className="ml-2 h-5 w-5" />
             </LinkButton>
           </div>
         </Container>
-      </Section>
-
-      <Section className="bg-surface">
-        <Container>
-          <div className="mx-auto flex max-w-4xl gap-4 text-sm leading-relaxed text-zinc-600">
-            <FileText className="text-edg-brand-text mt-0.5 h-5 w-5 shrink-0" />
-            <p>
-              This guide is planning information, not a structural design or
-              operating manual. Manufacturer documents, approved drawings, the
-              applicable local requirements, and the project-specific review
-              control the final answer.
-            </p>
-          </div>
-        </Container>
-      </Section>
+      </section>
     </article>
   );
 }

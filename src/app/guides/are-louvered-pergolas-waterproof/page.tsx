@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import {
   ArrowRight,
   CheckCircle2,
@@ -19,9 +18,9 @@ import { generateArticleSchema, generateFAQSchema } from '@/lib/schema';
 import * as images from '@/lib/images';
 
 export const metadata: Metadata = {
-  title: 'Are Louvered Pergolas Waterproof? Rain, Drainage & Limits | EDG',
+  title: 'Are Louvered Pergolas Waterproof? | EDG Patio & Shade',
   description:
-    'Are louvered pergolas waterproof? Learn how closed louvers, gutters, rain sensors, wind-driven rain, screens, and model limits affect rain protection before you buy.',
+    'Learn how EDG designs louvered pergolas for rain protection with planned drainage, retractable screens, glass enclosures, local installation, and ongoing care.',
   alternates: {
     canonical: '/guides/are-louvered-pergolas-waterproof',
   },
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
     images: [{ url: '/opengraph-image' }],
     title: 'Are Louvered Pergolas Waterproof? | EDG Patio & Shade',
     description:
-      'A practical guide to closed louvers, drainage, sensors, wind-driven rain, and the level of dryness different outdoor roof approaches can provide.',
+      'See how EDG plans louvered roofs, drainage, screens, and glass around the way you want to use your outdoor room.',
   },
 };
 
@@ -37,96 +36,110 @@ const faqs = [
   {
     question: 'Are louvered pergolas waterproof?',
     answer:
-      'A louvered pergola can provide meaningful rain protection when its louvers, seals, gutters, posts, drainage route, and installation are specified for the site. It is not automatically or universally waterproof, and wind-driven rain can still enter around open sides or before a roof closes.',
+      'A louvered pergola can provide strong overhead rain protection when EDG matches the roof, drainage, and installation to the site. Open sides and wind-driven rain still affect the space, so EDG may include retractable screens or glass when you want more side protection.',
   },
   {
     question: 'Does closing the louvers stop all rain?',
     answer:
-      'Closing the louvers manages overhead rain on systems designed for that purpose, but the result depends on the model, roof condition, gutter capacity, debris, and exposure. Rain can still reach the patio from the perimeter, adjacent roof runoff, splash, or a delay while the roof is closing.',
+      'Closed louvers direct overhead water into the roof drainage system. EDG plans the gutters, posts, downspouts, patio grade, and nearby doors together so that water has a clear path away from the room. Wind, splash, and adjacent roof runoff can still change the result.',
   },
   {
     question: 'Do rain sensors make a pergola waterproof?',
     answer:
-      'No. A rain sensor can help close the roof when precipitation is detected, but it does not eliminate the short response window or replace a properly designed roof and drainage path. Sensor behavior and priority rules are model-specific.',
+      'A rain sensor can help close the roof when precipitation begins, but it is one part of the system. EDG coordinates controls with the selected roof, screens, drainage, and the way you want the room to operate.',
   },
   {
-    question: 'Can screens stop wind-driven rain?',
+    question: 'Can screens help with wind-driven rain?',
     answer:
-      'Retractable screens can reduce wind, spray, glare, bugs, and some wind-driven rain, but screen fabric is not the same as a sealed wall. Clear vinyl or glass may provide more side protection, depending on the enclosure design and the ventilation the space needs.',
+      'Retractable screens can reduce wind, spray, glare, and some wind-driven rain while preserving an open room when you want it. EDG places screens where they improve comfort without blocking required access, airflow, or the view.',
   },
   {
-    question: 'What is the driest option for an outdoor room?',
+    question: 'How does EDG plan rain protection?',
     answer:
-      'A solid roof or a louvered roof paired with well-designed side protection can provide more consistent shelter than an open-sided pergola. If the goal is a more room-like space, compare a louvered roof with retractable screens, glass, or a fixed roof based on the required dryness, airflow, daylight, and drainage plan.',
+      'EDG starts with how you use the space, then selects and lays out the roof, drainage, controls, screens, or glass. For local projects, we coordinate design, engineering, permitting, installation, and care so the finished room works as one system.',
   },
 ];
 
 const waterPath = [
   {
-    title: '1. The louvers close',
+    title: 'Roof coverage',
     description:
-      'The roof moves from open or angled operation toward its rain-management position. The exact seal, overlap, gasket, and closing behavior depend on the selected system.',
+      'EDG selects a louvered roof that lets you choose open-sky light or overhead rain protection, then plans the roof orientation and controls around the space.',
     icon: SlidersHorizontal,
   },
   {
-    title: '2. The roof collects water',
+    title: 'Planned drainage',
     description:
-      'Closed louvers and roof channels direct water toward perimeter gutters or internal troughs. That collection detail is what separates a rain-managing roof from a simple open pergola.',
+      'Gutters, posts, downspouts, patio grade, and nearby hardscape are coordinated before installation so roof water does not become a door, stair, or kitchen problem.',
     icon: CloudRain,
   },
   {
-    title: '3. The structure discharges it',
+    title: 'Comfort at the edges',
     description:
-      'Gutters and posts move water down and away. The patio, hardscape, downspout outlet, adjacent wall, and nearby doors still need a workable place to receive that flow.',
+      'Screens or glass can add side protection where the weather reaches the room. EDG balances coverage with ventilation, access, daylight, and the way you want to use the space.',
     icon: Home,
   },
 ];
 
-const fitRows = [
+const coverageOptions = [
   {
-    need: 'Shade plus protection from ordinary showers',
-    fit: 'Louvered pergola with a planned drainage route',
-    why: 'Close the louvers when rain arrives, while keeping the roof open for light and airflow when conditions allow.',
+    title: 'Open-air shade',
+    description:
+      'A louvered roof gives you adjustable shade, daylight, and airflow with a planned rain position.',
   },
   {
-    need: 'More comfort in wind-driven rain',
-    fit: 'Louvered pergola plus retractable screens',
-    why: 'Screens can reduce side exposure, wind, bugs, and spray, but they do not create a watertight wall.',
+    title: 'More side protection',
+    description:
+      'Retractable screens can reduce wind, bugs, glare, and spray while keeping the room flexible.',
   },
   {
-    need: 'A more room-like, season-extending patio',
-    fit: 'Louvered roof plus glass or a designed enclosure',
-    why: 'Side protection becomes part of the weather strategy instead of relying on the roof alone.',
-  },
-  {
-    need: 'Fixed overhead coverage with no louver operation',
-    fit: 'Solid patio cover or fixed roof',
-    why: 'A fixed roof may be the cleaner comparison when adjustable daylight and open-sky operation are not priorities.',
+    title: 'A room-like retreat',
+    description:
+      'Glass or a complete enclosure can extend the season when you want more separation from the weather.',
   },
 ];
 
-const rainChecklist = [
-  'Where will the gutter or post discharge water?',
-  'Does the outlet stay away from doors, stairs, walls, and outdoor kitchens?',
-  'Can the patio and surrounding hardscape receive that flow without pooling?',
-  'What happens when leaves or debris reduce gutter capacity?',
-  'Which edges face the prevailing wind, neighboring roofs, or open exposure?',
-  'Do screens, clear panels, or glass need to be part of the first design?',
+const supportAreas = [
+  {
+    title: 'System selection',
+    description:
+      'EDG works across multiple manufacturers and recommends the roof, screens, or glass that fit the project rather than forcing one brand.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Design and engineering',
+    description:
+      'We lay out spans, posts, openings, controls, drainage, and attachments so the design is ready for the site and the way you live.',
+    icon: SlidersHorizontal,
+  },
+  {
+    title: 'Installation coordination',
+    description:
+      'Local homeowners can rely on EDG for permitting, installation, finish coordination, and a clear handoff when the system is ready to use.',
+    icon: Home,
+  },
+  {
+    title: 'Care after install',
+    description:
+      'EDG remains a point of contact for seasonal care, controls, drainage questions, and the practical details that keep the room working well.',
+    icon: CheckCircle2,
+  },
 ];
+
+const articleSchema = generateArticleSchema({
+  title: 'Are Louvered Pergolas Waterproof?',
+  description:
+    'How EDG designs louvered pergolas for rain protection with planned drainage, screens, glass, and local installation support.',
+  url: 'https://www.edgpatioshade.com/guides/are-louvered-pergolas-waterproof',
+  image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
+  datePublished: '2026-09-10',
+  dateModified: '2026-09-10',
+  category: 'Pergola Weather Performance',
+});
+
+const faqSchema = generateFAQSchema(faqs);
 
 export default function AreLouveredPergolasWaterproofPage() {
-  const articleSchema = generateArticleSchema({
-    title: 'Are Louvered Pergolas Waterproof? Rain, Drainage, and Limits',
-    description:
-      'A buyer guide to how louvered pergolas manage rain, where water goes, how sensors and side protection affect performance, and which roof approach fits the required dryness.',
-    url: 'https://www.edgpatioshade.com/guides/are-louvered-pergolas-waterproof',
-    image: `https://www.edgpatioshade.com${images.pages.guides.louveredPergolasHero}`,
-    datePublished: '2026-09-10',
-    dateModified: '2026-09-10',
-    category: 'Pergola Weather Performance',
-  });
-  const faqSchema = generateFAQSchema(faqs);
-
   return (
     <article className="min-h-screen bg-white">
       <script
@@ -167,10 +180,10 @@ export default function AreLouveredPergolasWaterproofPage() {
               Are louvered pergolas waterproof?
             </h1>
             <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300 md:text-2xl">
-              Closed louvers can provide meaningful rain protection, but a
-              louvered pergola is not automatically a sealed roof. The model,
-              gutters, posts, patio, exposure, sensors, and side protection all
-              decide how dry the space feels.
+              EDG designs louvered pergolas to manage overhead rain, route water
+              away from the room, and add screens or glass when the sides need
+              more protection. The right plan follows your home, exposure, and
+              the way you want to use the space.
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row">
@@ -199,38 +212,38 @@ export default function AreLouveredPergolasWaterproofPage() {
           <div className="mx-auto max-w-4xl">
             <div className="label-editorial-brand mb-4">Direct answer</div>
             <h2 className="section-title mb-6">
-              A waterproof pergola is a system-and-site question
+              Rain protection starts above, then follows the water
             </h2>
             <div className="border-edg-brand bg-surface-muted mb-10 border-l-4 p-6 md:p-8">
               <p className="text-xl leading-relaxed font-medium md:text-2xl">
-                A properly specified louvered roof can keep much of the rain
-                overhead from reaching the patio when the louvers are closed.
-                That makes it a strong rain-management option—not a universal
-                guarantee of a dry, enclosed room.
+                A louvered roof can keep much of the rain overhead when the
+                louvers are closed. EDG makes that protection useful by planning
+                the drainage path and the room&apos;s open sides at the same
+                time.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
               <Card variant="outline" padding="lg">
                 <ShieldCheck className="text-edg-brand-text mb-5 h-9 w-9" />
-                <h3 className="mb-3 text-xl font-bold">What the roof can do</h3>
+                <h3 className="mb-3 text-xl font-bold">
+                  The roof manages overhead rain
+                </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  Closed louvers, seals, and integrated gutters can route
-                  overhead water away from the covered area. Several current
-                  systems also offer rain sensors that help close the roof when
-                  precipitation begins.
+                  Closed louvers, roof channels, and integrated gutters can move
+                  overhead water away from the covered area. EDG selects the
+                  system and lays out its controls around your routine.
                 </p>
               </Card>
               <Card variant="outline" padding="lg">
                 <Wind className="text-edg-brand-text mb-5 h-9 w-9" />
                 <h3 className="mb-3 text-xl font-bold">
-                  What the roof cannot promise
+                  The room may need edge protection
                 </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  Open sides, wind-driven rain, splash, adjacent roof runoff,
-                  debris, and the sensor response window still matter. A
-                  rainproof pergola is not automatically a watertight outdoor
-                  room.
+                  Open sides and wind-driven rain can still affect comfort. EDG
+                  can add retractable screens or glass where the exposure and
+                  your use of the room call for it.
                 </p>
               </Card>
             </div>
@@ -238,15 +251,13 @@ export default function AreLouveredPergolasWaterproofPage() {
         </Container>
       </Section>
 
-
-
       <Section className="section-md bg-white">
         <Container>
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
                 src={images.projects.wade.hero}
-                alt="Wade Barrington outdoor room with a louvered roof and motorized glass walls"
+                alt="Outdoor room with a louvered roof and motorized glass walls"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"
@@ -254,25 +265,28 @@ export default function AreLouveredPergolasWaterproofPage() {
             </div>
             <div>
               <div className="label-editorial-brand mb-4">
-                EDG project example
+                EDG design approach
               </div>
               <h2 className="section-title mb-4">
-                Wade: planning the roof and side protection together
+                Plan the roof, side protection, and drainage together
               </h2>
               <p className="text-text-secondary mb-5 text-lg leading-relaxed">
-                EDG&apos;s public Wade project record describes a Barrington
-                outdoor room with a motorized louvered roof, motorized glass
-                walls, and concealed drainage and electrical planning.
+                EDG designs outdoor rooms as complete systems. We coordinate the
+                louvered roof, retractable screens or glass, posts, controls,
+                and drainage so each part supports the way you want to cook,
+                dine, relax, and entertain.
               </p>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                What the record demonstrates is the planning logic: the roof,
-                side protection, drainage, and controls were treated as one
-                assembly. It does not document measured rain performance or
-                guarantee that every louvered pergola will stay dry in every
-                exposure.
+                For local homeowners, that plan can continue through
+                engineering, permitting, installation, and care. For trade
+                partners, EDG also provides national design and supply support.
               </p>
-              <LinkButton href="/projects/wade" variant="secondary" size="sm">
-                View the Wade project <ArrowRight className="ml-2 h-4 w-4" />
+              <LinkButton
+                href="/systems/pergolas"
+                variant="secondary"
+                size="sm"
+              >
+                Explore pergola systems <ArrowRight className="ml-2 h-4 w-4" />
               </LinkButton>
             </div>
           </div>
@@ -288,10 +302,9 @@ export default function AreLouveredPergolasWaterproofPage() {
                 Where the rain goes matters as much as the roof
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                A closed roof only performs as well as the path beneath it. A
-                gutter that discharges beside a door or a post that drops water
-                onto a low patio can create a wet-space problem even when the
-                louvers are doing their job.
+                A comfortable covered room starts with a clear path from the
+                roof to the final discharge point. EDG works through that path
+                before the posts, patio finishes, and doors are finalized.
               </p>
             </div>
 
@@ -310,10 +323,15 @@ export default function AreLouveredPergolasWaterproofPage() {
             <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-start">
               <div>
                 <h3 className="mb-5 text-2xl font-bold">
-                  Drainage questions to answer before pricing
+                  EDG plans around the details that make a room usable
                 </h3>
                 <div className="space-y-4">
-                  {rainChecklist.map((item) => (
+                  {[
+                    'Gutter and downspout discharge away from doors, stairs, walls, and kitchens',
+                    'Patio slope, hardscape, trench drains, and the finished grade around the posts',
+                    'Prevailing wind, nearby roofs, open exposure, and the edges where rain reaches first',
+                    'Screens, glass, controls, lighting, and the access needed to keep everything serviceable',
+                  ].map((item) => (
                     <div key={item} className="flex gap-3">
                       <CheckCircle2 className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
                       <p className="text-text-secondary leading-relaxed">
@@ -324,12 +342,13 @@ export default function AreLouveredPergolasWaterproofPage() {
                 </div>
               </div>
               <Card variant="muted" padding="lg">
-                <h3 className="mb-4 text-2xl font-bold">The practical test</h3>
+                <h3 className="mb-4 text-2xl font-bold">
+                  Start with the experience you want
+                </h3>
                 <p className="text-text-secondary leading-relaxed">
-                  Trace one drop of water from the top of the roof to its final
-                  discharge point. If that route is unclear, the rain question
-                  is not finished—regardless of how strong the product brochure
-                  sounds.
+                  Tell EDG whether you want open-air shade, a drier dining area,
+                  a screened retreat, or a more enclosed outdoor room. We can
+                  help shape the roof and side strategy around that goal.
                 </p>
               </Card>
             </div>
@@ -342,160 +361,26 @@ export default function AreLouveredPergolasWaterproofPage() {
           <div className="mx-auto max-w-5xl">
             <div className="mb-12 max-w-3xl">
               <div className="label-editorial text-edg-brand mb-4">
-                Rain, wind, and controls
+                Coverage options
               </div>
               <h2 className="section-title mb-4 text-white">
-                Heavy rain is only part of the exposure
+                Choose the level of weather protection that fits your room
               </h2>
               <p className="text-lg leading-relaxed text-zinc-300">
-                A buyer asking “is a waterproof louvered pergola possible?” is
-                usually asking about the whole patio, not only the aluminum
-                blades. Wind changes the path of rain, and controls change how
-                quickly the roof responds.
+                EDG can build a plan around the balance you want between
+                daylight, airflow, privacy, and protection from the weather.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              <div className="border border-white/10 p-6">
-                <Wind className="text-edg-brand mb-5 h-9 w-9" />
-                <h3 className="mb-3 text-xl font-bold">Wind-driven rain</h3>
-                <p className="leading-relaxed text-zinc-300">
-                  Closed louvers address overhead water, but crosswinds can
-                  carry rain beneath the edges. Orientation, nearby buildings,
-                  lake or coastal exposure, and side screens all influence the
-                  result.
-                </p>
-              </div>
-              <div className="border border-white/10 p-6">
-                <CloudRain className="text-edg-brand mb-5 h-9 w-9" />
-                <h3 className="mb-3 text-xl font-bold">Heavy rain</h3>
-                <p className="leading-relaxed text-zinc-300">
-                  Larger water volume makes gutter capacity, outlet routing,
-                  debris, patio pitch, and adjacent roof runoff more important.
-                  A system should be checked as an installed assembly, not only
-                  as a roof sample.
-                </p>
-              </div>
-              <div className="border border-white/10 p-6">
-                <SlidersHorizontal className="text-edg-brand mb-5 h-9 w-9" />
-                <h3 className="mb-3 text-xl font-bold">Sensors and response</h3>
-                <p className="leading-relaxed text-zinc-300">
-                  Rain sensors help, but they detect weather after it arrives. A
-                  short closing window can allow some drops inside, and wind,
-                  snow, or freeze protection may change which command takes
-                  priority on the selected system.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 border border-white/10 bg-white/5 p-6 md:p-8">
-              <h3 className="mb-3 text-2xl font-bold">
-                Side protection changes the experience
-              </h3>
-              <p className="mb-5 leading-relaxed text-zinc-300">
-                Integrated ZIP screens can make a louvered patio more
-                comfortable by reducing wind, spray, bugs, and glare. Clear
-                vinyl or glass can provide a different level of enclosure. None
-                of those choices should be treated as interchangeable: the right
-                option depends on ventilation, views, privacy, heat, doors,
-                egress, and how dry the room needs to be.
-              </p>
-              <div className="flex flex-wrap gap-5 text-sm font-bold">
-                <Link
-                  href="/systems/shades"
-                  className="text-edg-brand inline-flex items-center gap-2"
-                >
-                  Compare retractable screens <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/systems/enclosures"
-                  className="text-edg-brand inline-flex items-center gap-2"
-                >
-                  Explore glass enclosures <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="section-md bg-surface">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 text-center">
-              <div className="label-editorial-brand mb-4">
-                Choose by required dryness
-              </div>
-              <h2 className="section-title mb-4">
-                Which roof or enclosure approach fits?
-              </h2>
-              <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
-                Start with the weather experience you need, then compare the
-                system details that can deliver it. This keeps the purchase
-                conversation focused on the space instead of on a single
-                “waterproof” label.
-              </p>
-            </div>
-
-            <p
-              id="roof-fit-table-guidance"
-              className="text-text-secondary mb-3 text-sm md:hidden"
-            >
-              Swipe or scroll horizontally to see all comparison columns.
-            </p>
-            <div
-              role="region"
-              aria-label="Roof or enclosure fit comparison"
-              aria-describedby="roof-fit-table-guidance"
-              tabIndex={0}
-              className="focus-visible:ring-edg-brand overflow-x-auto border border-black/10 bg-white focus-visible:ring-2 focus-visible:outline-none"
-            >
-              <table className="w-full min-w-[760px] text-left">
-                <thead className="bg-edg-dark text-white">
-                  <tr>
-                    <th className="p-5 font-bold">The space needs</th>
-                    <th className="text-edg-brand p-5 font-bold">Likely fit</th>
-                    <th className="p-5 font-bold text-zinc-300">Why</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-zinc-100">
-                  {fitRows.map((row) => (
-                    <tr key={row.need}>
-                      <td className="p-5 font-bold">{row.need}</td>
-                      <td className="text-edg-brand-dark p-5 font-medium">
-                        {row.fit}
-                      </td>
-                      <td className="text-text-secondary p-5 leading-relaxed">
-                        {row.why}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm">
-              <Link
-                href="/guides/louvered-pergolas"
-                className="text-edg-brand-dark inline-flex items-center gap-2 font-bold"
-              >
-                Read the complete louvered pergola guide{' '}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/guides/pergola-vs-patio-cover"
-                className="text-edg-brand-dark inline-flex items-center gap-2 font-bold"
-              >
-                Compare pergolas and patio covers{' '}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link
-                href="/outdoor-rooms/pergola-glass-outdoor-room"
-                className="text-edg-brand-dark inline-flex items-center gap-2 font-bold"
-              >
-                See a pergola plus glass outdoor room{' '}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              {coverageOptions.map((option) => (
+                <div key={option.title} className="border border-white/10 p-6">
+                  <h3 className="mb-3 text-xl font-bold">{option.title}</h3>
+                  <p className="leading-relaxed text-zinc-300">
+                    {option.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
@@ -503,19 +388,42 @@ export default function AreLouveredPergolasWaterproofPage() {
 
       <Section className="section-md">
         <Container>
+          <div className="mx-auto max-w-5xl">
+            <div className="mb-12 max-w-3xl">
+              <div className="label-editorial-brand mb-4">Why EDG</div>
+              <h2 className="section-title mb-4">
+                One specialty partner from first sketch to finished room
+              </h2>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                EDG brings motorized pergolas, retractable screens, and glass
+                enclosure expertise into one coordinated process.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+              {supportAreas.map((area) => (
+                <Card key={area.title} variant="outline" padding="lg">
+                  <area.icon className="text-edg-brand-text mb-5 h-9 w-9" />
+                  <h3 className="mb-3 text-xl font-bold">{area.title}</h3>
+                  <p className="text-text-secondary leading-relaxed">
+                    {area.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="section-md bg-surface-muted">
+        <Container>
           <div className="mx-auto max-w-4xl">
-            <div className="label-editorial-brand mb-4 text-center">FAQ</div>
-            <h2 className="section-title mb-10 text-center">
-              Louvered pergola rain questions
-            </h2>
-            <div className="space-y-5">
+            <div className="label-editorial-brand mb-4">Common questions</div>
+            <div className="space-y-6">
               {faqs.map((faq) => (
-                <Card key={faq.question} variant="outline" padding="lg">
-                  <h3 className="mb-3 flex items-start gap-3 text-lg font-bold">
-                    <CheckCircle2 className="text-edg-brand-dark mt-0.5 h-5 w-5 shrink-0" />
-                    {faq.question}
-                  </h3>
-                  <p className="text-text-secondary pl-8 leading-relaxed">
+                <Card key={faq.question} variant="default" padding="lg">
+                  <h3 className="mb-3 text-xl font-bold">{faq.question}</h3>
+                  <p className="text-text-secondary leading-relaxed">
                     {faq.answer}
                   </p>
                 </Card>
@@ -525,37 +433,29 @@ export default function AreLouveredPergolasWaterproofPage() {
         </Container>
       </Section>
 
-      <section className="section-lg bg-surface-dark text-text-inverse">
+      <section className="bg-edg-dark py-16 text-white">
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="label-editorial text-edg-brand mb-4">
-              Start with the water path
+          <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <div className="text-edg-brand mb-3 text-sm font-bold tracking-widest uppercase">
+                Start with your outdoor room
+              </div>
+              <h2 className="text-3xl font-bold md:text-5xl">
+                Tell EDG how you want the space to feel in the rain.
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-relaxed text-zinc-300">
+                Share your goals and project location. Photos and rough
+                dimensions are welcome, but not required to start a
+                conversation.
+              </p>
             </div>
-            <h2 className="text-text-inverse mb-6 text-3xl font-bold md:text-4xl">
-              Tell EDG how dry the space needs to be
-            </h2>
-            <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
-              Share the location, rough dimensions, attachment condition, wind
-              exposure, drainage constraints, and whether screens or glass are
-              part of the plan. EDG can then compare a louvered pergola with the
-              enclosure approach that fits the actual job.
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <LinkButton
-                href="/guides/pergola-system-fit-review?source=louvered_pergolas_waterproof_bottom"
-                size="lg"
-              >
-                Request a Quote
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </LinkButton>
-              <LinkButton
-                href="/guides/louvered-pergola-brands-compared"
-                size="lg"
-                variant="outline"
-              >
-                Compare System Options
-              </LinkButton>
-            </div>
+            <LinkButton
+              href="/guides/pergola-system-fit-review?source=louvered_pergolas_waterproof_bottom"
+              size="lg"
+            >
+              Request a Quote
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </LinkButton>
           </div>
         </Container>
       </section>
