@@ -823,7 +823,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.85,
     status: 'active',
-    desc: 'Plan an attached or freestanding pergola with EDG around your home, roofline, drainage, and daily use',
+    desc: "Plan an attached or freestanding pergola around your home's roofline, drainage, and daily use with EDG",
   },
   {
     href: '/guides/pergola-snow-load-winter',
@@ -833,7 +833,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.85,
     status: 'active',
-    desc: 'Plan year-round pergola comfort with EDG around snow, louver position, drainage, and winter operation',
+    desc: 'Plan for snow, freezing weather, and winter operation with a motorized pergola',
   },
   {
     href: '/guides/louvered-pergolas',
@@ -853,7 +853,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.8,
     status: 'active',
-    desc: 'See how EDG plans louvered pergola rain performance around roof drainage, sensors, exposure, and side protection',
+    desc: 'Understand how roof drainage, sensors, exposure, and side protection shape louvered pergola rain performance',
   },
   {
     href: '/guides/pergola-system-fit-review',
@@ -916,7 +916,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.8,
     status: 'active',
-    desc: 'Compare EDG pergola alternatives around roof fit, installation, controls, and ongoing service',
+    desc: 'Compare EDG pergola alternatives by roof fit, installation, controls, and ongoing service',
   },
   {
     href: '/guides/glass-patio-enclosure-cost',
@@ -926,7 +926,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.9,
     status: 'active',
-    desc: 'Plan glass walls and roof systems with EDG around views, ventilation, comfort, and installation',
+    desc: 'Review glass patio enclosure planning ranges and the roof, wall, installation, and site factors that drive cost',
   },
   {
     href: '/guides/louvered-pergola-brands-compared',
@@ -956,7 +956,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.75,
     status: 'active',
-    desc: 'Compare a fixed-roof gazebo with an adjustable pergola around everyday use and the right EDG path',
+    desc: 'Compare a fixed-roof gazebo with an adjustable pergola around everyday use and the motorized path EDG helps plan',
   },
   {
     href: '/guides/steel-vs-aluminum-pergolas',
@@ -989,7 +989,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.9,
     status: 'active',
-    desc: 'Plan a MagnaTrack screen with EDG around opening fit, fabric, controls, and installation',
+    desc: 'Review MagnaTrack screen cost, track design, opening fit, controls, and installation factors',
   },
   {
     href: '/guides/magnatrack-screens-review',
@@ -999,7 +999,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.9,
     status: 'active',
-    desc: 'See how EDG plans magnetic-track screen fit, fabric, controls, installation, and care',
+    desc: 'Explore magnetic-track screen fit, fabric, controls, installation, and care for your patio',
   },
   {
     href: '/guides/pergola-with-retractable-screens',
@@ -1009,7 +1009,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.9,
     status: 'active',
-    desc: 'Plan a roof-and-screen combination with EDG around openings, fabric, controls, installation, and care',
+    desc: 'See how roof and screen choices come together around openings, fabric, controls, installation, and care',
   },
   {
     href: '/guides/outdoor-kitchen-pergola',
@@ -1019,7 +1019,7 @@ export const siteRoutes: SiteRoute[] = [
     htmlSitemap: true,
     priority: 0.85,
     status: 'active',
-    desc: 'Plan an outdoor kitchen under a pergola with EDG around clearances, ventilation, utilities, drainage, and screens',
+    desc: 'Work through the clearances, ventilation, utilities, drainage, and screens that shape an outdoor kitchen under a motorized pergola',
   },
   {
     href: '/privacy',

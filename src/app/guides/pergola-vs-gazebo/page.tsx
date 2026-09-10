@@ -115,7 +115,7 @@ const faqs = [
   {
     question: 'Is a pergola or gazebo cheaper?',
     answer:
-      'There is no useful answer without defining the scope. A simple gazebo kit, custom-built gazebo, and installed motorized pergola represent different project categories. Compare foundation, roof, electrical, drainage, accessories, engineering, and labor before comparing totals.',
+      'A simple gazebo kit, custom-built gazebo, and installed motorized pergola include different work. Compare the foundation, roof, electrical, drainage, accessories, engineering, and labor included in each scope before comparing totals.',
   },
   {
     question: 'Do I need a permit for a pergola or gazebo?',
@@ -424,10 +424,10 @@ export default function PergolaVsGazeboGuide() {
                   <p className="text-text-secondary leading-relaxed">
                     A motorized roof should be used according to its operating
                     guidance in rain, wind, snow, and freezing conditions.
-                    Drainage needs regular attention, and an automatic rain
-                    sensor is a control feature—not a promise that every drop is
-                    excluded. EDG plans the roof, drainage, screens, and
-                    controls around the way you want to use the patio.
+                    Drainage needs regular attention. A rain sensor helps close
+                    the louvers; wind-driven rain can still enter from the
+                    sides. EDG plans the roof, drainage, screens, and controls
+                    around the way you want to use the patio.
                   </p>
                 </div>
               </div>
@@ -447,10 +447,9 @@ export default function PergolaVsGazeboGuide() {
                 Compare scopes before you compare prices
               </h2>
               <p className="mx-auto max-w-3xl text-lg leading-relaxed text-zinc-300">
-                “Pergola vs. gazebo cost” is not one apples-to-apples question.
                 The roof, base, utilities, controls, engineering, and labor can
-                all change the project category. These are planning scopes, not
-                quotes or promises.
+                all change the project category. Compare the work included in
+                each scope before comparing totals.
               </p>
             </div>
 
@@ -553,77 +552,19 @@ export default function PergolaVsGazeboGuide() {
         </Container>
       </Section>
 
-      <Section className="section-md bg-surface-muted">
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10 text-center">
-              <div className="label-editorial-brand mb-4">How EDG helps</div>
-              <h2 className="section-title mb-4">
-                Plan the right roof for the way you use the patio.
-              </h2>
-              <p className="text-text-secondary mx-auto max-w-3xl text-lg leading-relaxed">
-                EDG specializes in motorized pergolas, retractable screens, and
-                glass enclosures. We help homeowners and trade partners connect
-                the roof, layout, comfort features, engineering, installation,
-                and care plan to the way the space will be used.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              <Card variant="default" padding="lg">
-                <IconWrapper icon={Ruler} variant="brand" size="md" />
-                <h3 className="mt-5 mb-3 text-2xl font-bold">
-                  Start with the space
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  Tell EDG how you want to move, host, shade, screen, and use
-                  the patio through the seasons.
-                </p>
-              </Card>
-              <Card variant="default" padding="lg">
-                <IconWrapper
-                  icon={SlidersHorizontal}
-                  variant="brand"
-                  size="md"
-                />
-                <h3 className="mt-5 mb-3 text-2xl font-bold">
-                  Match the system
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  We compare fixed-roof and adjustable paths, then coordinate
-                  screens, lighting, heating, drainage, and controls where they
-                  belong.
-                </p>
-              </Card>
-              <Card variant="default" padding="lg">
-                <IconWrapper icon={Wrench} variant="brand" size="md" />
-                <h3 className="mt-5 mb-3 text-2xl font-bold">
-                  Carry it through
-                </h3>
-                <p className="text-text-secondary leading-relaxed">
-                  EDG supports design, engineering, procurement, permitting,
-                  installation, and care for the project path we recommend.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       <Section className="section-md bg-surface">
         <Container>
           <div className="mx-auto max-w-4xl">
             <div className="mb-10 text-center">
-              <div className="label-editorial-brand mb-4">Where EDG fits</div>
+              <div className="label-editorial-brand mb-4">How EDG helps</div>
               <h2 className="section-title mb-4">
-                Start with the structure that matches the job
+                Plan the motorized pergola around your patio.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                EDG specializes in motorized pergolas, retractable screens, and
-                glass enclosure systems. If adjustable shade, side protection,
-                or a more complete outdoor room is the goal, EDG can help plan
-                the system, coordinate the work, and carry the project through
-                installation and care in our local markets.
+                For homeowners in EDG&apos;s local markets, we help plan a
+                motorized pergola around the way you use the space, then
+                coordinate design, engineering, permitting, installation, and
+                care.
               </p>
             </div>
 
@@ -719,9 +660,9 @@ export default function PergolaVsGazeboGuide() {
               Want to see whether a motorized pergola fits?
             </h2>
             <p className="text-text-inverse-muted mb-8 text-xl leading-relaxed">
-              Share the location, rough dimensions, and what you want the space
-              to do. EDG can start with system fit and help coordinate the right
-              next step.
+              Share the location and what you want the space to do. Photos or
+              rough measurements are helpful but optional. EDG can start with
+              system fit and help coordinate the right next step.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <LinkButton

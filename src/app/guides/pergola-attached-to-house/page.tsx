@@ -4,7 +4,6 @@ import Link from 'next/link';
 import {
   ArrowRight,
   Camera,
-  CheckCircle2,
   CloudRain,
   FileCheck2,
   Home,
@@ -60,7 +59,7 @@ const constraintCards = [
   {
     title: 'Door height and trim',
     description:
-      'EDG looks at the finished patio elevation, threshold, top of door and window trim, and the height available for a beam, louver cassette, screen housing, or glass track. A roof that feels right on paper can create a low head condition at the door once trim and operation are accounted for.',
+      'EDG looks at the finished patio elevation, threshold, top of door and window trim, and the height available for a beam, louver cassette, screen housing, or glass track. A roof that feels right on paper can reduce clearance above the doors once trim and operation are accounted for.',
     icon: Ruler,
   },
   {
@@ -76,20 +75,11 @@ const constraintCards = [
     icon: CloudRain,
   },
   {
-    title: 'Wind, snow, and review context',
+    title: 'Wind, snow, and approvals',
     description:
       'The selected system, attachment, accessories, local exposure, and property requirements shape the structure. Screens, glass, heaters, lighting, a roof deck, or a permit and HOA review can make engineering part of the first design conversation.',
     icon: ShieldCheck,
   },
-];
-
-const intakeChecklist = [
-  'One wide photo facing the house and patio, taken from far enough back to show the full wall and proposed coverage area',
-  'Side-angle photos showing the eave, soffit, fascia, gutter, downspouts, roofline, doors, windows, and nearby property lines',
-  'A close photo of the wall where the pergola might meet the house, including siding, brick, stone, trim, or other exterior finishes',
-  'Rough width along the house, projection away from the house, and finished patio-to-ceiling height at the proposed location',
-  'Door and window head heights, threshold-to-grade or threshold-to-deck measurements, and any low beams, steps, railings, or outdoor-kitchen features',
-  'Project location plus any survey, HOA notes, permit comments, roof-deck information, or existing drawings already available',
 ];
 
 const approachChanges = [
@@ -101,7 +91,7 @@ const approachChanges = [
   {
     title: 'The water transition is harder than the roof connection',
     description:
-      'If the existing gutter, siding, roof runoff, or foundation drainage conflicts with the pergola’s collection path, the solution may involve a different orientation, a stand-off from the house, or a coordinated drainage plan before the roof is selected.',
+      'If the existing gutter, siding, roof runoff, or foundation drainage conflicts with the pergola’s collection path, the solution may involve a different orientation, spacing from the house, or a coordinated drainage plan before the roof is selected.',
   },
   {
     title: 'The accessories change the load or opening plan',
@@ -187,10 +177,9 @@ export default function PergolaAttachedToHousePage() {
                 Pergola attached to a house: start with the connection.
               </h1>
               <p className="mb-8 max-w-3xl text-xl leading-relaxed text-zinc-300">
-                An attached louvered pergola can make a patio feel connected to
-                the home, but the right answer depends on more than the wall.
-                Door height, roofline, gutters, water paths, structure,
-                accessories, and local review all shape the design.
+                EDG designs an attached pergola around your patio doors,
+                roofline, and the way you use the space. We check the connection
+                and drainage before recommending the layout.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <LinkButton
@@ -297,38 +286,6 @@ export default function PergolaAttachedToHousePage() {
         </Container>
       </Section>
 
-      <Section className="bg-surface-muted">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <div className="label-editorial-brand mb-4">
-                Start with the house and patio
-              </div>
-              <h2 className="mb-6 text-3xl font-bold md:text-5xl">
-                Send the context EDG cannot see from a floor plan.
-              </h2>
-              <p className="text-text-secondary text-lg leading-relaxed">
-                You do not need to solve the construction details before talking
-                with EDG. Photos and rough measurements, if available, help us
-                identify whether an attached or freestanding path fits the home
-                and where engineering or permitting belongs.
-              </p>
-            </div>
-            <div className="space-y-4">
-              {intakeChecklist.map((item) => (
-                <div
-                  key={item}
-                  className="flex gap-4 border-b border-black/10 pb-4"
-                >
-                  <CheckCircle2 className="text-edg-brand-text mt-1 h-5 w-5 shrink-0" />
-                  <p className="text-text-secondary leading-relaxed">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       <Section className="bg-white">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
@@ -338,9 +295,10 @@ export default function PergolaAttachedToHousePage() {
                 Show EDG the connection, not just the patio.
               </h2>
               <p className="text-text-secondary mb-8 text-lg leading-relaxed">
-                A wide shot shows the relationship between the proposed roof and
-                the home. Close-ups reveal the conditions that can change an
-                attached louvered pergola into a freestanding plan.
+                Photos are helpful but optional. A wide shot shows the
+                relationship between the proposed roof and the home. Close-ups
+                reveal the conditions that can change an attached louvered
+                pergola into a freestanding plan.
               </p>
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
@@ -363,8 +321,6 @@ export default function PergolaAttachedToHousePage() {
                 EDG evaluates the home, roofline, drainage, and intended use,
                 then coordinates system selection, design, engineering,
                 permitting, installation, and care where we serve homeowners.
-                For trade partners, EDG provides design and supply support
-                nationally.
               </p>
             </Card>
           </div>
@@ -428,10 +384,10 @@ export default function PergolaAttachedToHousePage() {
                 Have a wall, roofline, or drainage question?
               </h2>
               <p className="text-lg leading-relaxed text-zinc-300">
-                Send the house-side photos and rough measurements. EDG will help
-                separate a likely attached pergola path from a project that
-                needs freestanding structure, engineering, or more review before
-                a final system is chosen.
+                Photos and rough measurements are helpful but optional. Share
+                them if available, and EDG will help separate a likely attached
+                pergola path from a project that needs freestanding structure,
+                engineering, or more review before a final system is chosen.
               </p>
             </div>
             <LinkButton
@@ -470,9 +426,7 @@ export default function PergolaAttachedToHousePage() {
           <div className="mx-auto max-w-4xl">
             <div className="mb-8 text-center">
               <div className="label-editorial-brand mb-4">Keep planning</div>
-              <h2 className="section-title mb-4">
-                Go deeper on the next constraint.
-              </h2>
+              <h2 className="section-title mb-4">Related planning guides</h2>
               <p className="text-text-secondary text-lg leading-relaxed">
                 Continue with the broader pergola planning, permit and
                 engineering, or elevated-structure guides before finalizing a

@@ -126,7 +126,7 @@ const coordinationCards = [
     icon: Ruler,
     title: 'Openings and housing',
     description:
-      'Each bay needs a clear opening, a top location for the roller housing, side room for the guides, a bottom condition for the bar or seal, and enough access to service the system later. A drawing that only shows the roof footprint is not enough.',
+      'Each bay needs a clear opening, a top location for the roller housing, side room for the guides, a bottom condition for the bar or seal, and enough access to service the system later. EDG plans those details together so the finished opening can be used and serviced.',
   },
   {
     icon: Zap,
@@ -138,7 +138,7 @@ const coordinationCards = [
     icon: Smartphone,
     title: 'Controls and scenes',
     description:
-      'A wall switch or handheld remote may be enough for a small patio. Larger projects may use grouped bays, app control, sensors, or home-automation integration. Shared control is only promised after the selected motor and control families are confirmed.',
+      'A wall switch or handheld remote may be enough for a small patio. Larger projects may use grouped bays, app control, sensors, or home-automation integration. EDG checks the selected motors, wiring, controls, and desired scenes before specifying the system.',
   },
 ];
 
@@ -169,21 +169,10 @@ const fabricChoices = [
   },
 ];
 
-const operatingSteps = [
-  'Open the roof or screens when the patio should reconnect with the yard, pool, or view.',
-  'Lower the screen bay that solves the current problem instead of closing every side by default.',
-  'Use the fabric selected for the condition: insect, solar, privacy, or a more closed seasonal option.',
-  'Retract screens when the opening should be clear or when the selected system’s operating guidance calls for it.',
-  'Use sensors and automation as an aid, not as a substitute for model-specific operating instructions and owner judgment.',
-];
-
 const quoteInputs = [
-  'Your project location and whether you are planning as a homeowner or trade partner.',
-  'Rough roof footprint, ceiling or beam height, and opening sizes if you know them.',
-  'Photos or a sketch showing posts, walls, doors, stairs, deck or slab conditions, and furniture or kitchen zones.',
-  'The main problem to solve: insects, side sun, glare, privacy, wind comfort, shoulder-season use, or several at once.',
-  'Whether the pergola is new, an existing structure, or part of a broader glass, heating, lighting, drainage, or landscape project.',
-  'Known power or control needs, HOA or permit questions, and the timeline you have in mind.',
+  'Project location and what you want the space to do.',
+  'Whether the pergola is new or an existing structure.',
+  'Photos or rough opening sizes, if available.',
 ];
 
 const faqs = [
@@ -195,7 +184,7 @@ const faqs = [
   {
     question: 'Can screens be added to an existing pergola?',
     answer:
-      'Often, yes, but the structure and opening have to be checked first. EDG reviews the beam and post conditions, opening dimensions, screen housing, side guides, attachment surfaces, power route, trim, service access, and whether the selected screen is compatible with the existing roof system. A retrofit is not automatically compatible because both products are motorized.',
+      'Often, yes, but the structure and opening have to be checked first. EDG reviews the beam and post conditions, opening dimensions, screen housing, side guides, attachment surfaces, power route, trim, service access, and whether the selected screen is compatible with the existing roof system.',
   },
   {
     question: 'Are integrated screens better than retrofit screens?',
@@ -427,10 +416,9 @@ export default function PergolaWithRetractableScreensPage() {
               </h2>
               <div className="text-text-secondary space-y-5 text-lg leading-relaxed">
                 <p>
-                  The key question is not whether both products are motorized.
-                  It is whether the screen housing, guides, structure, fabric,
-                  power, controls, and service access belong together on the
-                  actual roof and opening.
+                  The key is making sure the screen housing, guides, structure,
+                  fabric, power, controls, and service access belong together on
+                  the actual roof and opening.
                 </p>
                 <p>
                   If the pergola is new, screen planning can influence post
@@ -462,59 +450,6 @@ export default function PergolaWithRetractableScreensPage() {
                 </Card>
               ))}
             </div>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="section-lg bg-surface-muted">
-        <Container>
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Designed around your patio
-            </div>
-            <h2 className="section-title mb-4">
-              Choose the combination that fits your space.
-            </h2>
-            <p className="text-text-secondary text-lg leading-relaxed">
-              EDG starts with how you want to use the patio, then recommends and
-              coordinates the roof, screens, and controls around your openings,
-              comfort goals, and budget.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            <Card variant="default" padding="lg">
-              <ShieldCheck className="text-edg-brand-text mb-5 h-7 w-7" />
-              <h3 className="mb-3 text-xl font-bold">Roof and screen fit</h3>
-              <p className="text-text-secondary leading-relaxed">
-                Plan the roof and screens together so the housing, guides,
-                posts, and drainage work with the space. EDG checks attachment
-                details and service access for both new structures and existing
-                patios.
-              </p>
-            </Card>
-            <Card variant="default" padding="lg">
-              <Wind className="text-edg-brand-text mb-5 h-7 w-7" />
-              <h3 className="mb-3 text-xl font-bold">
-                Comfort for each opening
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                Choose screens around insects, side sun, privacy, and airflow.
-                Opening dimensions, exposure, fabric, and the way you use the
-                patio guide the recommendation.
-              </p>
-            </Card>
-            <Card variant="default" padding="lg">
-              <Smartphone className="text-edg-brand-text mb-5 h-7 w-7" />
-              <h3 className="mb-3 text-xl font-bold">
-                Controls that work together
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                Decide how you want to operate the roof and screens, from a
-                handheld remote to grouped controls or automation. EDG confirms
-                compatibility and wiring needs before specifying the
-                combination.
-              </p>
-            </Card>
           </div>
         </Container>
       </Section>
@@ -583,22 +518,6 @@ export default function PergolaWithRetractableScreensPage() {
               </Card>
             ))}
           </div>
-          <div className="border-border mx-auto mt-12 max-w-4xl border bg-white p-6 md:p-10">
-            <div className="mb-8 flex items-center gap-3">
-              <Wind className="text-edg-brand-text h-6 w-6" />
-              <h3 className="text-2xl font-bold">Typical daily operation</h3>
-            </div>
-            <div className="grid gap-4">
-              {operatingSteps.map((step, index) => (
-                <div key={step} className="flex items-start gap-4">
-                  <span className="bg-edg-dark text-edg-brand flex h-8 w-8 shrink-0 items-center justify-center text-sm font-bold">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <p className="text-text-primary leading-relaxed">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </Container>
       </Section>
 
@@ -606,26 +525,10 @@ export default function PergolaWithRetractableScreensPage() {
         <Container>
           <div className="grid items-start gap-12 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
-              <div className="label-editorial-brand mb-4">
-                EDG project highlights
-              </div>
+              <div className="label-editorial-brand mb-4">EDG projects</div>
               <h2 className="section-title mb-6">
-                See the kind of coordination we bring to the project.
+                Explore EDG pergola and screen projects.
               </h2>
-              <p className="text-text-secondary mb-6 text-lg leading-relaxed">
-                EDG plans roof, screen, and comfort decisions around the actual
-                patio. Karp shows a multi-bay motorized louvered pergola with
-                wood-grain panels and a privacy wall in Northbrook. O’Hare shows
-                a wide motorized screen opening in Bartlett. They are different
-                projects, but each makes the same point: openings, finishes, and
-                daily operation are easier to coordinate when the plan starts
-                with how the space will be used.
-              </p>
-              <p className="text-text-secondary text-lg leading-relaxed">
-                On your project, EDG brings those decisions together with
-                design, engineering, installation, and care so you do not have
-                to coordinate the roof and screens as separate jobs.
-              </p>
             </div>
             <div className="grid gap-6">
               <Card
@@ -693,10 +596,7 @@ export default function PergolaWithRetractableScreensPage() {
                 Send the details that change the recommendation.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Start with the location, rough openings, photos if you have
-                them, and the comfort problem you want to solve. EDG will
-                connect the roof, screens, controls, installation, and care into
-                one project plan.
+                These optional details can help EDG get started:
               </p>
             </div>
             <div className="grid gap-4">
@@ -761,10 +661,10 @@ export default function PergolaWithRetractableScreensPage() {
                 Ready to plan the complete roof-and-screen project?
               </h2>
               <p className="text-text-inverse-muted mb-8 max-w-xl text-xl leading-relaxed">
-                Share the location, rough openings, photos, and the comfort
-                problem you want to solve. EDG will help determine whether an
-                integrated screen, a retrofit, glass, or another system is the
-                right next step.
+                Share the location and the comfort problem you want to solve.
+                Photos or rough measurements are helpful but optional. EDG will
+                help determine whether an integrated screen, a retrofit, glass,
+                or another system is the right next step.
               </p>
               <TrackedLink
                 href="/contact?type=quote&product=multiple&source=pergola_retractable_screens_bottom"
