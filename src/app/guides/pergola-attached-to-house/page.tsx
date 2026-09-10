@@ -23,7 +23,7 @@ import * as images from '@/lib/images';
 export const metadata: Metadata = {
   title: 'Pergola Attached to a House: Planning Guide | EDG',
   description:
-    'Planning a pergola attached to a house? Compare wall-mounted and freestanding options, roofline and water-path constraints, and the photos and measurements EDG needs.',
+    'Planning a pergola attached to a house? EDG helps choose and coordinate an attached or freestanding motorized pergola around your home, roofline, drainage, and daily use.',
   alternates: {
     canonical: '/guides/pergola-attached-to-house',
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: [{ url: '/opengraph-image' }],
     title: 'Pergola Attached to a House: Planning Guide | EDG',
     description:
-      'A practical guide to attached louvered pergola planning around doors, rooflines, gutters, drainage, and engineering review.',
+      'See how EDG plans an attached or freestanding louvered pergola around doors, rooflines, gutters, drainage, engineering, and installation.',
   },
 };
 
@@ -39,19 +39,19 @@ const comparisonRows = [
   {
     title: 'Attached / wall-mounted',
     description:
-      'A good starting direction when the patio is directly outside the house, the roofline and door heights work together, and the wall-side structure and water transition can be reviewed.',
+      'A good starting direction when the patio is directly outside the house and the wall-side structure, roofline, and water transition can work together.',
     fit: 'Best for a close connection to the home and a compact, aligned footprint.',
     watch:
-      'The house-side transition becomes part of the project: wall construction, siding or masonry, eaves, gutters, flashing, doors, and runoff all need to line up.',
+      'The house-side transition becomes part of the design: wall construction, siding or masonry, eaves, gutters, flashing, doors, and runoff all need to line up.',
     icon: Home,
   },
   {
     title: 'Freestanding beside the house',
     description:
-      'Often the cleaner approach when the existing wall, roofline, or drainage path is not a good match—or when the homeowner wants the structure to stand independently near the house.',
+      'Often the cleaner approach when the existing wall, roofline, or drainage path is not a good match—or when you want the structure to stand independently near the house.',
     fit: 'Best for more flexibility around placement, posts, grade changes, and an existing home exterior.',
     watch:
-      'The outer frame, posts, foundations or slab, circulation, and drainage need their own plan. Being close to the house does not make it a wall-mounted project.',
+      'The outer frame, posts, foundation or slab, circulation, and drainage get their own plan. Being close to the house does not make it a wall-mounted project.',
     icon: Ruler,
   },
 ];
@@ -60,13 +60,13 @@ const constraintCards = [
   {
     title: 'Door height and trim',
     description:
-      'Record the finished patio elevation, threshold, top of door and window trim, and the height available for a beam, louver cassette, screen housing, or glass track. A roof that feels right on paper can create a low head condition at the door once trim and operation are accounted for.',
+      'EDG looks at the finished patio elevation, threshold, top of door and window trim, and the height available for a beam, louver cassette, screen housing, or glass track. A roof that feels right on paper can create a low head condition at the door once trim and operation are accounted for.',
     icon: Ruler,
   },
   {
     title: 'Roofline and siding',
     description:
-      'Show the eave, soffit, fascia, roof pitch, upper-story windows, siding or masonry, and any offsets. The cleanest line for an attached pergola may not be the lowest line on the house, and the home’s exterior finish affects how the transition is reviewed.',
+      'Photos of the eave, soffit, fascia, roof pitch, upper-story windows, siding or masonry, and any offsets help EDG plan the cleanest transition. The lowest line on the house is not always the right line for the pergola.',
     icon: Home,
   },
   {
@@ -78,7 +78,7 @@ const constraintCards = [
   {
     title: 'Wind, snow, and review context',
     description:
-      'The selected model, attachment, accessory package, local exposure, and approval path can change the structure. Screens, glass, heaters, lighting, a roof deck, or a permit and HOA review may make engineering part of the first design conversation.',
+      'The selected system, attachment, accessories, local exposure, and property requirements shape the structure. Screens, glass, heaters, lighting, a roof deck, or a permit and HOA review can make engineering part of the first design conversation.',
     icon: ShieldCheck,
   },
 ];
@@ -96,7 +96,7 @@ const approachChanges = [
   {
     title: 'The wall is not the right support condition',
     description:
-      'A wall-mounted concept may become a freestanding layout, a project with independent posts, or a design that needs a structural professional to review the existing building. EDG does not turn a photo into a universal attachment detail.',
+      'A wall-mounted concept may become a freestanding layout, a project with independent posts, or a design that needs a structural professional to confirm the existing building. EDG helps identify the practical path before the design is finalized.',
   },
   {
     title: 'The water transition is harder than the roof connection',
@@ -106,12 +106,12 @@ const approachChanges = [
   {
     title: 'The accessories change the load or opening plan',
     description:
-      'Screens, glass, heaters, lighting, sensors, privacy walls, and outdoor kitchens are not afterthoughts. They can affect the frame, clear openings, power path, wind exposure, and review package.',
+      'Screens, glass, heaters, lighting, sensors, privacy walls, and outdoor kitchens are not afterthoughts. They can affect the frame, clear openings, power path, wind exposure, and engineering plan.',
   },
   {
     title: 'The jurisdiction or HOA asks for a different path',
     description:
-      'A permit, architectural review, property-line constraint, or existing deck or roof condition can change the dimensions, posts, attachment approach, or supporting documents. The final answer belongs to the selected system, project professionals, and local review path.',
+      'A permit, architectural review, property-line constraint, or existing deck or roof condition can change the dimensions, posts, attachment approach, or supporting documents. EDG coordinates the required design and engineering steps with the right project professionals.',
   },
 ];
 
@@ -119,7 +119,7 @@ const faqs = [
   {
     question: 'Can any pergola be attached to a house?',
     answer:
-      'No. Some systems offer wall-mounted or lean-to configurations, but the selected model, wall condition, roofline, drainage, wind and snow exposure, accessories, and local review path all matter. EDG reviews the site before recommending an attached louvered pergola.',
+      'No. The wall condition, roofline, drainage, wind and snow exposure, accessories, and property requirements all matter. EDG reviews the home and site before recommending an attached louvered pergola.',
   },
   {
     question: 'Is an attached pergola better than a freestanding pergola?',
@@ -135,7 +135,7 @@ const faqs = [
   {
     question: 'Does an attached aluminum pergola need engineering or a permit?',
     answer:
-      'It may. Permanent structures, building attachments, electrical work, roof or deck conditions, wind and snow exposure, and local rules can all bring review into scope. EDG can help identify the likely review path, but the property and jurisdiction determine the final requirements.',
+      'It may. Permanent structures, building attachments, electrical work, roof or deck conditions, wind and snow exposure, and local rules can bring engineering or permitting into scope. EDG helps coordinate those steps, while the property and jurisdiction determine the final requirements.',
   },
   {
     question: 'What should I send before requesting a quote?',
@@ -215,7 +215,7 @@ export default function PergolaAttachedToHousePage() {
             <div className="relative min-h-[360px] overflow-hidden border border-white/10 bg-white/5">
               <Image
                 src={images.projects.wade.hero}
-                alt="Barrington outdoor room with a motorized louvered roof and glass walls"
+                alt="Motorized louvered roof and glass outdoor room beside a home"
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 48vw"
@@ -237,7 +237,7 @@ export default function PergolaAttachedToHousePage() {
               A pergola attached to a house is not automatically the most
               efficient or least complicated option. Start with the way the
               patio meets the home, then confirm whether the wall, roofline,
-              drainage, and review path support that direction.
+              drainage, and local requirements support that direction.
             </p>
           </div>
 
@@ -277,10 +277,9 @@ export default function PergolaAttachedToHousePage() {
               The roofline is part of the pergola plan.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Before anyone recommends an aluminum pergola attached to a house,
-              the connection has to work visually, structurally, and in the
-              rain. These are the details that most often change the first
-              sketch.
+              Before EDG recommends an attached aluminum pergola, the connection
+              has to work visually, structurally, and in the rain. These are the
+              details that most often change the first sketch.
             </p>
           </div>
 
@@ -303,16 +302,16 @@ export default function PergolaAttachedToHousePage() {
           <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <div className="label-editorial-brand mb-4">
-                Prepare for a useful first review
+                Start with the house and patio
               </div>
               <h2 className="mb-6 text-3xl font-bold md:text-5xl">
                 Send the context EDG cannot see from a floor plan.
               </h2>
               <p className="text-text-secondary text-lg leading-relaxed">
-                Exact construction details do not need to be solved before the
-                first conversation. Clear photos and rough measurements help EDG
-                identify whether the likely path is attached, freestanding, or
-                in need of engineering review.
+                You do not need to solve the construction details before talking
+                with EDG. Photos and rough measurements, if available, help us
+                identify whether an attached or freestanding path fits the home
+                and where engineering or permitting belongs.
               </p>
             </div>
             <div className="space-y-4">
@@ -334,9 +333,9 @@ export default function PergolaAttachedToHousePage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
-              <div className="label-editorial-brand mb-4">Photo checklist</div>
+              <div className="label-editorial-brand mb-4">Helpful photos</div>
               <h2 className="mb-5 text-3xl font-bold md:text-5xl">
-                Photograph the connection, not just the patio.
+                Show EDG the connection, not just the patio.
               </h2>
               <p className="text-text-secondary mb-8 text-lg leading-relaxed">
                 A wide shot shows the relationship between the proposed roof and
@@ -359,128 +358,14 @@ export default function PergolaAttachedToHousePage() {
             </div>
             <Card variant="dark" padding="lg" className="text-white">
               <TriangleAlert className="text-edg-brand mb-5 h-8 w-8" />
-              <h3 className="mb-4 text-2xl font-bold">Planning boundary</h3>
+              <h3 className="mb-4 text-2xl font-bold">How EDG helps</h3>
               <p className="leading-relaxed text-zinc-300">
-                This guide explains what to collect and what to ask. It does not
-                provide structural fastener instructions, universal clearances,
-                or a guarantee that a particular wall can carry a pergola. Those
-                details belong to the selected system, site conditions, project
-                professionals, and local review path.
+                EDG evaluates the home, roofline, drainage, and intended use,
+                then coordinates system selection, design, engineering,
+                permitting, installation, and care where we serve homeowners.
+                For trade partners, EDG provides design and supply support
+                nationally.
               </p>
-            </Card>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="bg-surface">
-        <Container>
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <div className="label-editorial-brand mb-4">
-              Real project signals
-            </div>
-            <h2 className="section-title mb-4">
-              Existing EDG projects show why the approach changes by site.
-            </h2>
-            <p className="text-text-secondary text-lg leading-relaxed">
-              These are not universal templates for an attached pergola. They
-              are real EDG examples of the site conditions, integrated systems,
-              and engineering questions that should be visible before a design
-              is finalized.
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            <Card variant="default" padding="none" className="overflow-hidden">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={images.projects.wade.gallery[0]}
-                  alt="Wade outdoor room with a louvered roof and motorized glass in Barrington"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-edg-brand-text mb-3 text-xs font-bold tracking-widest uppercase">
-                  Barrington residential project
-                </p>
-                <h3 className="mb-3 text-xl font-bold">Wade outdoor room</h3>
-                <p className="text-text-secondary mb-5 leading-relaxed">
-                  A louvered roof, motorized glass, lighting, concealed power,
-                  and drainage were planned as one poolside outdoor room. It is
-                  a useful reminder that the finished wall and roof systems need
-                  to be coordinated together.
-                </p>
-                <Link
-                  href="/projects/wade"
-                  className="text-text-primary hover:text-edg-brand-text inline-flex items-center font-bold tracking-wider uppercase"
-                >
-                  View Wade project <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            </Card>
-
-            <Card variant="default" padding="none" className="overflow-hidden">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={images.projects.greco.gallery[0]}
-                  alt="Greco custom pergola structure around a sunken seating area in St. Charles"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-edg-brand-text mb-3 text-xs font-bold tracking-widest uppercase">
-                  St. Charles residential project
-                </p>
-                <h3 className="mb-3 text-xl font-bold">Greco site condition</h3>
-                <p className="text-text-secondary mb-5 leading-relaxed">
-                  A sunken seating area, waterfall, grade changes, and existing
-                  masonry required project-specific layout and attachment
-                  planning. A house-side project with similar constraints may
-                  need the same kind of early review.
-                </p>
-                <Link
-                  href="/projects/greco"
-                  className="text-text-primary hover:text-edg-brand-text inline-flex items-center font-bold tracking-wider uppercase"
-                >
-                  View Greco project <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            </Card>
-
-            <Card variant="default" padding="none" className="overflow-hidden">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src={images.projects.carmines.gallery[1]}
-                  alt="Carmine's angled commercial pergola structure in Chicago"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-edg-brand-text mb-3 text-xs font-bold tracking-widest uppercase">
-                  Chicago engineering example
-                </p>
-                <h3 className="mb-3 text-xl font-bold">
-                  Carmine&apos;s angled condition
-                </h3>
-                <p className="text-text-secondary mb-5 leading-relaxed">
-                  The commercial patio used an angled, cantilevered layout and
-                  steel reinforcement to protect usable seating. It shows how
-                  engineering review can change the support approach rather than
-                  simply approve a standard frame.
-                </p>
-                <Link
-                  href="/projects/carmines"
-                  className="text-text-primary hover:text-edg-brand-text inline-flex items-center font-bold tracking-wider uppercase"
-                >
-                  View Carmine&apos;s project{' '}
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
             </Card>
           </div>
         </Container>
@@ -490,17 +375,16 @@ export default function PergolaAttachedToHousePage() {
         <Container>
           <div className="mb-12 max-w-3xl">
             <div className="label-editorial-brand mb-4">
-              When engineering changes the approach
+              When the site changes the approach
             </div>
             <h2 className="section-title mb-4">
-              A site review can change the plan before the order.
+              Good design starts with the connection.
             </h2>
             <p className="text-text-secondary text-lg leading-relaxed">
-              Manufacturer guidance can confirm that a wall-mounted or lean-to
-              configuration exists. It does not confirm that every existing
-              house is ready for that configuration. The site review connects
-              the product choice to the building, water, accessories, and
-              approval path.
+              EDG connects the product choice to the building, water path,
+              accessories, and way the patio will be used. That lets us shape
+              the design, engineering, permitting, installation, and care plan
+              around the house instead of forcing the house to fit a package.
             </p>
           </div>
 
@@ -520,14 +404,17 @@ export default function PergolaAttachedToHousePage() {
 
           <div className="border-edg-brand bg-surface-muted mt-10 border-l-4 p-6 md:p-8">
             <p className="text-lg leading-relaxed">
-              An attached pergola needs a suitable connection to the house,
-              a clear drainage plan, and support for the proposed layout. EDG
+              An attached pergola needs a suitable connection to the house, a
+              clear drainage plan, and support for the proposed layout. EDG
               reviews the house and site before recommending an attached or
               freestanding configuration. Explore our{' '}
-              <Link href="/systems/pergolas" className="font-bold underline underline-offset-4">
+              <Link
+                href="/systems/pergolas"
+                className="font-bold underline underline-offset-4"
+              >
                 pergola options
-              </Link>.
-
+              </Link>
+              .
             </p>
           </div>
         </Container>

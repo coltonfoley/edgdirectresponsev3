@@ -80,7 +80,7 @@ const guides = [
   },
   {
     title: 'Pergola Attached to a House',
-    desc: 'Compare wall-mounted and freestanding pergola options around roofline, doors, drainage, and engineering.',
+    desc: 'See how EDG plans an attached or freestanding pergola around your home, roofline, drainage, and daily use.',
     href: '/guides/pergola-attached-to-house',
     icon: Building2,
     readTime: '9 min read',
@@ -88,7 +88,7 @@ const guides = [
   },
   {
     title: 'Pergola Snow Load and Winter Operation',
-    desc: 'Model-specific snow-load ratings, winter louver position, drainage, and Midwest site review.',
+    desc: 'Plan year-round pergola comfort with EDG around snow, louver position, drainage, and winter operation.',
     href: '/guides/pergola-snow-load-winter',
     icon: Snowflake,
     readTime: '9 min read',
@@ -96,7 +96,7 @@ const guides = [
   },
   {
     title: 'Pergolas over Outdoor Kitchens',
-    desc: 'Plan cooking zones, appliance clearance, ventilation, utilities, drainage, and screens around a pergola.',
+    desc: 'Plan an outdoor kitchen under a motorized pergola with EDG around clearances, ventilation, utilities, drainage, and screens.',
     href: '/guides/outdoor-kitchen-pergola',
     icon: UtensilsCrossed,
     readTime: '10 min read',
@@ -120,7 +120,7 @@ const guides = [
   },
   {
     title: 'Glass Patio Enclosure Cost Guide 2026',
-    desc: 'A rounded EDG glass-wall planning band, an existing-covered-patio comparison, and the installed-scope details that change glass enclosure pricing.',
+    desc: 'Plan a glass enclosure with EDG around roof, wall panels, views, ventilation, comfort, and installation.',
     href: '/guides/glass-patio-enclosure-cost',
     icon: DollarSign,
     readTime: '10 min read',
@@ -128,7 +128,7 @@ const guides = [
   },
   {
     title: 'StruXure vs. EDG Alternatives',
-    desc: 'Considering StruXure? Explore EDG pergola alternatives and compare features, installation scope, and service for your patio.',
+    desc: 'Compare EDG pergola alternatives around roof fit, installation, controls, and ongoing service for your patio.',
     href: '/guides/struxure-pergola-cost',
     icon: DollarSign,
     readTime: '8 min read',
@@ -144,15 +144,15 @@ const guides = [
   },
   {
     title: 'MagnaTrack Screens Cost Guide 2026',
-    desc: 'A product-specific look at EDG’s featured premium magnetic track-guided screen option and when it may justify its cost.',
+    desc: 'See how EDG uses MagnaTrack’s magnetic track to plan clean screen operation, opening fit, controls, and installation.',
     href: '/guides/magnatrack-screens-cost',
     icon: Wind,
     readTime: '9 min read',
     intent: 'budget',
   },
   {
-    title: 'MagnaTrack Screens Review',
-    desc: 'A documented EDG review of the magnetic track, operating limits, maintenance, and alternatives before requesting a screen quote.',
+    title: 'MagnaTrack Screen Installation & Fit',
+    desc: 'See how EDG plans magnetic-track screen fit, fabric, controls, installation, and care for your patio.',
     href: '/guides/magnatrack-screens-review',
     icon: ShieldCheck,
     readTime: '11 min read',
@@ -160,7 +160,7 @@ const guides = [
   },
   {
     title: 'Pergolas with Retractable Screens',
-    desc: 'Compare screened pergolas with fixed screened porches and glass, then plan openings, fabrics, controls, and a complete quote.',
+    desc: 'Plan a roof-and-screen combination with EDG around openings, fabric, controls, installation, and care.',
     href: '/guides/pergola-with-retractable-screens',
     icon: Wind,
     readTime: '10 min read',
@@ -176,7 +176,7 @@ const guides = [
   },
   {
     title: 'Are Louvered Pergolas Waterproof?',
-    desc: 'How closed louvers, drainage, sensors, wind-driven rain, and side protection affect rain performance.',
+    desc: 'See how EDG plans louvered pergola rain performance around roof drainage, sensors, exposure, and side protection.',
     href: '/guides/are-louvered-pergolas-waterproof',
     icon: CloudRain,
     readTime: '8 min read',
@@ -200,7 +200,7 @@ const guides = [
   },
   {
     title: 'Pergola vs. Gazebo',
-    desc: 'Compare fixed-roof gazebos with open and motorized pergola paths before choosing a backyard structure.',
+    desc: 'Compare a fixed-roof gazebo with an adjustable pergola around everyday use, then see how EDG plans the motorized path.',
     href: '/guides/pergola-vs-gazebo',
     icon: Scale,
     readTime: '8 min read',

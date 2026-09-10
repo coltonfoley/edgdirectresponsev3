@@ -231,13 +231,14 @@ export default function MagnaTrackScreensCostGuide() {
                 </Link>{' '}
                 for example budgets across motorized screen types. This page
                 focuses on MagnaTrack and when its premium track design may fit.
-                For the documented installation review, magnetic-track
-                comparison, operating limits, and alternatives, read the{' '}
+                For a closer look at how EDG plans and installs MagnaTrack
+                screens—including opening fit, magnetic-track benefits,
+                controls, and care—read the{' '}
                 <Link
                   href="/guides/magnatrack-screens-review"
                   className="text-text-primary underline underline-offset-4"
                 >
-                  MagnaTrack screens review
+                  MagnaTrack screen installation guide
                 </Link>
                 .
               </p>

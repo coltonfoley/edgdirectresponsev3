@@ -1115,11 +1115,11 @@ export default function PergolaCostGuide() {
                 className="group-hover:border-edg-brand/30 h-full transition-colors"
               >
                 <h3 className="group-hover:text-edg-brand-text mb-2 text-lg font-bold transition-colors">
-                  StruXure Pergola Cost Research
+                  Pergola System Alternatives
                 </h3>
                 <p className="text-text-secondary mb-4 text-sm">
-                  Public pricing evidence, documented scope, and a checklist for
-                  comparing complete installed proposals.
+                  See how EDG compares pergola systems around fit, installation,
+                  controls, and ongoing service.
                 </p>
                 <div className="text-edg-brand-text flex items-center gap-2 text-sm font-bold tracking-wider uppercase">
                   Read Guide <ArrowRight className="h-4 w-4" />

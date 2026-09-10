@@ -276,18 +276,18 @@ export default function LouveredPergolaSystemSelectionPage() {
             </div>
             <Card variant="default" padding="lg">
               <h3 className="mb-4 text-2xl font-bold">
-                Better next step than a brand comparison
+                Start with the right system for your patio
               </h3>
               <p className="text-text-secondary mb-6 leading-relaxed">
-                Send photos, dimensions, project location, budget band, and what
-                the space needs to do. EDG will help identify the system
-                direction before a product name becomes the headline.
+                Start with how you want the space to work. EDG will help compare
+                roof fit, controls, drainage, screens, and installation so the
+                system matches the project.
               </p>
               <Link
                 href="/guides/struxure-pergola-cost"
                 className="text-edg-brand-text mb-6 inline-flex items-center gap-2 font-bold underline underline-offset-4"
               >
-                Read the StruXure cost research
+                See EDG pergola alternatives
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href="/guides/pergola-system-fit-review">

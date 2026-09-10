@@ -306,9 +306,9 @@ const relatedProducts = [
     href: '/guides/motorized-retractable-screen-pricing',
   },
   {
-    name: 'MagnaTrack Screen Review',
+    name: 'MagnaTrack Screen Installation',
     description:
-      'Read EDG’s documented field review of the magnetic track, care expectations, and alternatives.',
+      'See how EDG plans magnetic-track screens around opening fit, fabric, controls, installation, and care.',
     href: '/guides/magnatrack-screens-review',
   },
   {
